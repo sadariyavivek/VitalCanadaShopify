@@ -1,0 +1,476 @@
+{% comment %}
+** Collection list - default view **
+- Template
+- Uses blocks
+- This template can be viewed by going to /collections of the shop.
+{% endcomment %}
+
+{% if section.settings.image %}
+  {% capture sizes %}100x,480x,765x,1400x,2048x{% endcapture %}
+  {% assign sizes = sizes | split: ',' %}
+
+  <header role="banner" class="banner page_banner shop-all-banner dark-overlay-{{ section.settings.image_darken }}">
+    {% comment %}
+      <div class="container">
+        <div class="clearfix breadcrumb-collection text-align--center">
+          {% if section.settings.collection_breadcrumb %}
+            <div class="sixteen columns breadcrumb_text" itemscope itemtype="http://schema.org/BreadcrumbList">
+              <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href="{{ shop.url }}" title="{{ shop.name | escape }}" itemprop="item" class="breadcrumb_link"><span itemprop="name">{{ 'general.breadcrumbs.home' | t }}</span></a></span>
+              <span class="breadcrumb-divider">/</span>
+              <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href="/collections" itemprop="item" class="breadcrumb_link shop-link"><span itemprop="name">{{ 'collections.general.title' | t }}</span></a></span>
+            </div>
+          {% endif %}
+        </div>
+    </div>
+    
+    <img
+          src="{{ section.settings.image | img_url: sizes.first }}"
+          alt="{% if section.settings.image.alt != blank %}{{ section.settings.image.alt | escape }}{% else %}{{ 'collections.general.title' | t | escape }}{% endif %}"
+          class="lazyload {{ settings.image_loading_style }}"
+          sizes="100vw"
+          srcset="{%- for size in sizes -%}
+                    {{ section.settings.image | img_url: size, format: 'pjpg' }}
+                    {{ size | replace: "x", "w" }}{% unless forloop.last %},{% endunless %}
+                  {%- endfor -%}
+          " />
+      {% if section.settings.display_collection_title %}
+        <div class="caption">
+          <h1 class="headline">{{ 'collections.general.title' | t }}</h1>
+        </div>
+      {% endif %}
+      {% if section.settings.banner_title != blank %}
+        <div class="caption">
+          <h1 class="headline">{{ section.settings.banner_title }}</h1>
+        </div>
+      {% endif %}
+    {% endcomment %}
+  </header>
+{% endif %}
+
+<a name="pagecontent" id="pagecontent"></a>
+
+<div role="main" class="container">
+  {% paginate collections by section.settings.pagination_limit %}
+    {% assign collections_per_row = section.settings.collections_per_row %}
+
+    <div class="section clearfix">
+      {% if section.settings.display_collection_title and section.settings.image == blank %}
+        <div class="sixteen columns">
+          <h1>{{ 'collections.general.title' | t }}</h1>
+        </div>
+      {% endif %}
+    </div>
+
+    {% comment %}Check to see if sidebar should be enabled{% endcomment %}
+    {% if section.blocks.size > 0 %}
+      {% assign sidebar = true %}
+    {% else %}
+      {% assign sidebar = false %}
+    {% endif %}
+
+    {% if sidebar %}
+      {% include 'sidebar' %}
+      <div class="twelve columns list-collection-wrapper">
+    {% else %}
+      <div class="sixteen columns list-collection-wrapper">
+    {% endif %}
+
+      {% capture new_row %}
+          <br class="clear product_clear" />
+      {% endcapture %}
+
+      {% if linklists.shop-all %}
+        {%- assign collections =  linklists.shop-all.links -%}
+      {% endif %}
+
+
+      {% for thecollection in collections %}
+
+        {% if linklists.shop-all %}
+          {%- assign collection =  thecollection.object -%}
+        {% else %}
+          {%- assign collection =  thecollection -%}
+        {% endif %}
+
+
+
+        {% unless collection.handle == 'frontpage' or collection.handle == 'featured-products' or collection.handle == 'top-selling-products' or collection.handle == 'whats-trending' %}
+          {% capture collection_title %}{{ collection.title | escape }}{% endcapture %}
+          {% if sidebar %}
+            <div class="{% if collections_per_row == 1 %} eight columns {% elsif collections_per_row == 2 %}six columns {% cycle 'alpha', 'omega' %}{% elsif collections_per_row == 3 %}four columns {% cycle 'alpha', '', 'omega' %}{% else %}three columns {% cycle 'alpha', '', '', 'omega' %}{% endif %}">
+          {% else %}
+            <div class="{% if collections_per_row == 1 %} sixteen columns {% elsif collections_per_row == 2 %}eight columns {% cycle 'alpha', 'omega' %}{% elsif collections_per_row == 3 %}four columns {% cycle 'alpha', '', 'omega' %}{% else %}four columns {% cycle 'alpha', '', '', 'omega' %}{% endif %}">
+          {% endif %}
+
+        <div class="product-wrap">
+            {% comment %}
+            {% if collection.image %}
+              {% if settings.align_height %}
+                {% assign collection_height = settings.collection_height | plus: 0 %}
+                {% assign product_aspect_ratio = collection.image.aspect_ratio | plus: 0 %}
+                {% assign product_set_width = product_aspect_ratio | times: collection_height %}
+
+                {% if collection.image.width >= collection.image.height %}
+                  {% assign align_height_value = 'width: 100%; height: auto;' %}
+                {% else %}
+                  {% assign align_height_value = 'width: 100%;' %}
+                {% endif %}
+
+              {% endif %}
+
+              <div class="image__container" style="{% if settings.align_height %} max-width: {{ product_set_width }}px; {% else %} max-width: {{- collection.image.width -}}px; {% endif %}">
+
+                <img  src="{{ collection.image.src | collection_img_url: '100x' }}"
+                      class="lazyload {{ settings.image_loading_style }}"
+                      alt="{{ collection.title | escape }}"
+                      style="{{ align_height_value }} max-width: {{- collection.image.width -}}px;"
+                      data-sizes="auto"
+                      data-src="{{ collection.image.src | collection_img_url: '1160x' }}"
+                      data-srcset=" {{ collection.image.src | collection_img_url: '1160x'}} 1160w,
+                                    {{ collection.image.src | collection_img_url: '760x'}} 760w,
+                                    {{ collection.image.src | collection_img_url: '472x'}} 472w,
+                                    {{ collection.image.src | collection_img_url: '380x' }} 380w,
+                                    {{ collection.image.src | collection_img_url: '236x' }} 236w"
+                      />
+              </div>
+            {% else %}
+              {% if settings.align_height %}
+                {% assign collection_height = settings.collection_height | plus: 0 %}
+                {% assign product_aspect_ratio = collection.products.first.featured_image.aspect_ratio | plus: 0 %}
+                {% assign product_set_width = product_aspect_ratio | times: collection_height %}
+
+                {% if collection.products.first.featured_image.width >= collection.products.first.featured_image.height %}
+                  {% assign align_height_value = 'width: 100%; height: auto;' %}
+                {% else %}
+                  {% assign align_height_value = 'width: 100%;' %}
+                {% endif %}
+
+              {% endif %}
+
+              <div class="image__container" style="{% if settings.align_height %} max-width: {{ product_set_width }}px; {% else %} max-width: {{- collection.products.first.featured_image.width -}}px; {% endif %}">
+                <img  src="{{ collection.products.first.featured_image | product_img_url: '100x' }}"
+                      class="lazyload {{ settings.image_loading_style }}"
+                      alt="{{ collection.title | escape }}"
+                      style="{{ align_height_value }} max-width: {{- collection.products.first.featured_image.width -}}px;"
+                      data-sizes="auto"
+                      data-src="{{ collection.products.first.featured_image | product_img_url: '1160x' }}"
+                      data-srcset=" {{ collection.products.first.featured_image | product_img_url: '1160x'}} 1160w,
+                                    {{ collection.products.first.featured_image | product_img_url: '760x'}} 760w,
+                                    {{ collection.products.first.featured_image | product_img_url: '472x'}} 472w,
+                                    {{ collection.products.first.featured_image | product_img_url: '380x' }} 380w,
+                                    {{ collection.products.first.featured_image | product_img_url: '236x' }} 236w"
+                      />
+              </div>
+            {% endif %}
+            <a href="{{ collection.url }}" title="{{ collection_title }}" class="hidden-product-link">{{ collection_title }}</a>
+            {% endcomment %}
+
+            {% if settings.thumbnail_hover_enabled %}
+                <div class="thumbnail-overlay">
+                <a href="{{ collection.url }}" title="{{ collection_title }}" class="hidden-product-link">{{ collection_title }}</a>
+                  <div class="info">
+                      <div class="collection-details">
+                        <span class="title">{{ collection.title }}</span>
+                      </div>
+                      <a href="{{ collection.url }}" title="{{ collection_title }}"><span class="view_all">{{ 'collections.general.view_all' | t }}</span></a>
+                  </div>
+                </div>
+            {% endif %}
+            <a class="collection-info__caption center {% if settings.thumbnail_hover_enabled %}hidden{% endif %}" href="{{ collection.url }}" itemprop="url">
+              <span class="title">{{ collection.title }}</span>
+            </a>
+
+            {% assign products_per_row = 3 %}
+            {% assign collection_group = collection.products | map: 'id' %}
+            {% assign collection_group_thumb = collection_group | append : 'thumb' %}
+            {% assign collection_group_mobile = collection_group | append : 'mobile' %}
+            <div>
+            {% for product in collection.products %}
+              {% include 'product-thumbnail', sidebar: false %}
+            {% endfor %}
+            
+          </div>
+
+          </div>
+        </div>
+        {% endunless %}
+        {% if collections_per_row == 1 %}
+            {% cycle new_row %}
+          {% elsif collections_per_row == 2 %}
+            {% cycle '', new_row %}
+          {% elsif collections_per_row == 3 %}
+            {% cycle '', '', new_row %}
+          {% elsif collections_per_row == 4 %}
+            {% cycle '', '', '', new_row %}
+          {% endif %}
+      {% endfor %}
+
+      {% comment %}{% include 'pagination' with sidebar %}{% endcomment %}
+    </div>
+  {% endpaginate %}
+</div>
+
+{% include 'instagram-feed' %}
+
+
+
+{% schema %}
+
+{
+  "name": "Collections",
+  "class": "collection-template-section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "collections_per_row",
+      "label": "Collections per row",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "pagination_limit",
+      "label": "Collections per page",
+      "min": 2,
+      "max": 50,
+      "step": 1,
+      "default": 48
+    },
+    {
+      "type": "checkbox",
+      "id": "display_collection_title",
+      "label": "Show page title"
+    },
+    {
+      "type": "checkbox",
+      "id": "collection_breadcrumb",
+      "label": "Show breadcrumb links",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Banner image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Banner image",
+      "info": "1600 x 1000px recommended"
+    },
+    {
+      "type": "text",
+      "id": "banner_title",
+      "label": "Banner title"
+    },
+    {
+      "type": "checkbox",
+      "id": "image_darken",
+      "label": "Darken banner image",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Collection Banner image"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image1",
+      "label": "Collagen Gelatin Collection Image",
+      "info": "400 x 570px recommended"
+    },
+    {
+      "type": "text",
+      "id": "collection_text1",
+      "label": "Collagen Gelatin Collection Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image2",
+      "label": "Matcha Collagen Collection Image",
+      "info": "400 x 570px recommended"
+    },
+    {
+      "type": "text",
+      "id": "collection_text2",
+      "label": "Matcha Collagen Collection Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image3",
+      "label": "Beauty Collagen Collection Image",
+      "info": "400 x 570px recommended"
+    },
+    {
+      "type": "text",
+      "id": "collection_text3",
+      "label": "Beauty Collagen Collection Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image4",
+      "label": "Greens & veggies Collection Image",
+      "info": "400 x 570px recommended"
+    },
+    {
+      "type": "text",
+      "id": "collection_text4",
+      "label": "Greens & veggies Collection Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image5",
+      "label": "Collagen bone broth Collection Image",
+      "info": "400 x 570px recommended"
+    },
+    {
+      "type": "text",
+      "id": "collection_text5",
+      "label": "Collagen bone broth Collection Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image6",
+      "label": "Collagen & whey Collection Image",
+      "info": "400 x 570px recommended"
+    },
+    {
+      "type": "text",
+      "id": "collection_text6",
+      "label": "Collagen & whey Collection Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image7",
+      "label": "Gift cards & Merchandise Collection Image",
+      "info": "400 x 570px recommended"
+    },
+    {
+      "type": "text",
+      "id": "collection_text7",
+      "label": "Gift cards & Merchandise Collection Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image8",
+      "label": "Collagen Water Collection Image",
+      "info": "400 x 570px recommended"
+    },
+    {
+      "type": "text",
+      "id": "collection_text8",
+      "label": "Collagen Water Collection Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image9",
+      "label": "Marine Collagen Collection Image",
+      "info": "400 x 570px recommended"
+    },
+    {
+      "type": "text",
+      "id": "collection_text9",
+      "label": "Marine Collagen Collection Text"
+    },
+    {
+      "type": "header",
+      "content": "Sidebar"
+    },
+    {
+      "type": "paragraph",
+      "content": "Create a sidebar by adding content blocks."
+    },
+    {
+      "type": "checkbox",
+      "id": "toggle",
+      "label": "Toggle sidebar content",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "filter_by_collection",
+      "name": "Collection list",
+      "limit": 1
+    },
+    {
+      "type": "menu",
+      "name": "Menu",
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "custom_menu_linklist",
+          "label": "Menu"
+        }
+      ]
+    },
+    {
+      "type": "page",
+      "name": "Page",
+      "settings": [
+        {
+          "type": "page",
+          "id": "content_page",
+          "label": "Page"
+        }
+      ]
+    },
+    {
+      "type": "recently_viewed",
+      "name": "Recently viewed products",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "To test the recently viewed products, view your online store outside of the Editor and visit multiple product pages ([?](https:\/\/help.outofthesandbox.com\/hc\/en-us\/articles\/115008765228))"
+        },
+        {
+          "type": "text",
+          "id": "sidebar_rv_title",
+          "label": "Title",
+          "default": "Recently Viewed"
+        },
+        {
+          "type": "range",
+          "id": "sidebar_rv_per",
+          "label": "Products limit",
+          "min": 1,
+          "max": 4,
+          "step": 1,
+          "default": 3
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Text area can be used for special announcements or general information.</p>"
+        }
+      ]
+    },
+    {
+      "type": "filter_by_type",
+      "name": "Type list",
+      "limit": 1
+    },
+    {
+      "type": "filter_by_vendor",
+      "name": "Vendor list",
+      "limit": 1
+    }
+  ]
+}
+
+{% endschema %}

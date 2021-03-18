@@ -1,0 +1,294 @@
+{% include 'bold-cart' %}
+{% assign free-gift-products = all_products['free-single-product-samples'].variants %}
+{% assign free-gift-breakpoint = 5000 %}
+{% assign max-products-amount = 4 %}
+{% assign primoCenterValue = 0 %}
+
+{% for bold_cart_item in bold_item_list %}
+   {% if bold_cart_item.product.id == 48782180358 %}
+     {% assign primoCenterValue = primoCenterValue | plus: bold_cart_item.variant.price %}
+   {% endif %}
+{% endfor %}
+
+{% assign free-products-amount = bold_cart_total_price | minus: primoCenterValue | divided_by: free-gift-breakpoint %}
+
+{% if free-products-amount > max-products-amount %}
+	{% assign free-products-amount = max-products-amount %}
+{% endif %}
+
+<a name="pagecontent" id="pagecontent"></a>
+
+{% if free-products-amount > 0 %}
+<div class="main-free-gift-container">
+  <h2 class="free-gift-header">A Gift For You!</h2>
+  <div class="free-gift-instruction-parent">
+    <div class="free-gift-instruction-container">
+      <p>Almost Done! You've earned <span class="fg-quantity-digit">{{ free-products-amount }}</span> FREE sample{% if free-products-amount > 1 %}s{% endif %} with purchase. Choose <span class="fg-quantity-digit">{{ free-products-amount }}</span> of the following:
+    </div>
+    <div class="free-gift-instruction-container-echo">
+    </div>
+  </div>
+  <div class="free-gift-buttons-container">
+    <a class="free-gift-button-continue" href="/collections">Continue Shopping ></a>
+    
+    <a href="#" class="free-gift-button-checkout" id="goToCheckout">Continue to Checkout (<span id="fg-selected-quantity">0</span>/{{ free-products-amount}} selected) ></a>
+  </div>
+  <div class="free-product-items">
+   	{% for variant in free-gift-products %}
+      {% if variant.available == true %}
+        <div class="free-product-item fg-item">
+          <img alt="{{ variant.image.alt }}" src="{{ variant.image | img_url: '400x' }}"/>
+          <p class="fg-title">{{ variant.title }}</p>
+          <a href="#" aria-label="Select {{ variant.title}} as a free gift." data-fg-id="{{ variant.id }}" data-fg-title="{{ variant.title }}" class="fg-add-to-cart button-solid rounded">select</a>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  
+  <form style="display: none;" action="/cart" method="post" id="cart_form">
+       <input type="submit" class="action_button add_to_cart" id="checkout" name="checkout" value="{{ 'cart.general.checkout' | t }}" />
+  </form>
+</div>
+
+{% else %}
+<div>
+  <h2 class="free-gift-header">Add at least {{ free-gift-breakpoint | money }} to bag to get a free gift!</h2>
+</div>
+{% endif %}
+
+<style>
+  .free-gift-header {
+    text-align: center;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    font-size: 72px;
+    margin-bottom: 10px;
+    color: #23b6e6;
+    margin-top: 0;
+  }
+  
+  .free-gift-instruction-parent {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .free-gift-instruction-container {
+    text-align: center;
+    background-color: #23b6e6;
+    color: white;
+    width: 98%;
+  }
+  
+  .free-gift-instruction-container p {
+    margin: 0;
+    padding: 20px 0px;
+    font-family: 'kapraregular';
+    font-size: 32px;
+    letter-spacing: 1px;
+  }
+  
+  .free-gift-instruction-container-echo {
+    width: 98%;
+    height: 100%;
+    background: #79dffc;
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    z-index: -100;
+  }
+  
+  .free-gift-buttons-container {
+    text-align: right;
+    padding-bottom: 40px;
+    padding-top: 40px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 140px;
+    background: white;
+    z-index: 1000;
+  }
+  
+  .free-gift-buttons-container a {
+    display: inline-block;
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    padding: 12px 20px;
+    font-size: 28px;
+    margin-right: 20px;
+    letter-spacing: 1px;
+    transition: .2s all ease-in-out;
+  }
+  
+  .free-gift-buttons-container span {
+    transition: 0s all;
+  }
+  
+  .free-gift-buttons-container a:hover {
+    cursor: pointer;
+    color: #1bb9e6;
+  }
+  
+  .free-gift-button-continue {
+    color: #737373;
+  }
+  
+  .free-gift-button-checkout {
+    background: #79dffc;
+    color: white;
+  }
+  
+  .free-product-items.unavailable .free-product-item .rounded {
+    border-color: lightgray;
+    background-color: lightgray;
+    cursor: initial;
+  }
+  
+  .free-product-items.unavailable .free-product-item .rounded:hover {
+    color: white;
+  }
+  
+  
+  .free-product-items {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .free-product-item {
+    display: inline-block;
+    width: 24%;
+    text-align: center;
+    margin-bottom: 60px;
+   
+  }
+  
+  .free-product-item .rounded {
+    border-radius: 40px;
+    width: 75%;
+    max-width: 400px;
+    text-transform: lowercase;
+    font-family: 'kapraregular';
+    margin-top: 40px;
+    background-color: #23b6e6;
+    color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 28px;
+    padding: 16px;
+    border: 1px solid #23b6e6;
+    transition: .25s all;
+  }
+  
+  .free-product-item .rounded:hover {
+    background-color: white;
+    color: #23b6e6;
+    cursor: pointer;
+  }
+  
+  .free-product-primary-container .rounded:hover {
+    cursor: pointer;
+  }
+  
+  .free-product-item .rounded.is-selected {
+   	background-color: #79dffc !important;
+    border-color: #79dffc !important;
+  }
+  
+  .free-product-item .rounded.is-selected:hover {
+    background-color: white !important;
+    cursor: pointer !important;
+    color: #79dffc !important;
+  }
+    
+  
+  .free-product-item img {
+    width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  .free-product-item .fg-title {
+    font-weight: bold;
+    height: 2em;
+  }
+  
+  @media screen and (max-width: 1240px) {
+    .free-gift-buttons-container {
+      top: 180px;
+    }
+  }
+  
+  @media screen and (max-width: 960px) {
+    .free-gift-buttons-container {
+      top: 140px;
+    }
+  }
+  
+  @media screen and (max-width: 850px) {
+    .free-gift-buttons-container {
+      top: 180px;
+    }
+  }
+  
+  
+  @media screen and (max-width: 800px) {
+    .free-gift-header {
+      font-size: 24px;
+      margin-top: 100px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    
+    .free-gift-buttons-container a {
+      margin-right: 0px;
+      font-size: 18px;
+    }
+    
+    .free-product-item {
+      width: 49%; 
+    }
+    
+    .free-gift-instruction-container p {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    
+    .free-gift-button-continue {
+      margin-bottom: 0px;
+    }
+    
+    .main-free-gift-container {
+      padding-right: 20px;
+      padding-left: 20px;
+      margin-top: 120px;
+    }
+    
+    .free-gift-buttons-container {
+      text-align: center;
+      top: 110px;
+      padding-bottom: 20px;
+      padding-top: 20px;
+    }
+    
+  }
+</style>
+
+<script>{% assign cartPrice=cart.total_price %}
+$.ajax({url:'/cart.js',method:'GET',dataType:'json'}).then(function(data){if(data){var hasFreeSamples=!1;var samplesToRemove={};for(item in data.items){if(data.items[item].product_id===2405914083388){hasFreeSamples=!0;samplesToRemove[data.items[item].variant_id]=0}}
+if({{cartPrice}}!==data.total_price){location.reload()}
+if(hasFreeSamples===!0){$.ajax({url:'/cart/update.js',method:'POST',dataType:'json',data:{updates:samplesToRemove}}).then(function(data){location.reload()})}}});var selectedItems={};var maxAllowedItems={{free-products-amount}}
+$(".fg-add-to-cart").click(function(e){e.preventDefault(); var isSelected=$(this).hasClass('is-selected');var selectedID=$(this).data('fg-id');if(isSelected===!0){$(this).removeClass('is-selected');$(this).text('select');$(this).attr("aria-label", "Select " + $(this).data("fg-title"));delete selectedItems[selectedID];if($('.free-product-items').hasClass('unavailable')){$('.free-product-items').removeClass('unavailable')}}else{if(Object.keys(selectedItems).length<maxAllowedItems){$(this).addClass('is-selected');$(this).text('deselect');$(this).attr("aria-label", "Deselect " + $(this).data("fg-title"));selectedItems[selectedID]=1;if(Object.keys(selectedItems).length>=maxAllowedItems){$('.free-product-items').addClass('unavailable')}}else{alert("You've already added the maximum amount of free gifts.")}}
+$('#fg-selected-quantity').text(Object.keys(selectedItems).length.toString())});$('#goToCheckout').click(function(e){e.preventDefault(); if(Object.keys(selectedItems).length<=maxAllowedItems){$.ajax({url:'/cart/update.js',method:'POST',dataType:'json',data:{updates:selectedItems}}).then(function(data){if(data){$('#checkout').click()}})}else{alert("Something went wrong, please try again.")}});</script>
+
+{% schema %}
+  {
+    "name": "Free Gift Section",
+    "settings": []
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

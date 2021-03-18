@@ -1,0 +1,986 @@
+<style>
+  #full-top-navigation {
+  	display: none; 
+  }
+  #vital-main-menu-id {
+    display: none !important; 
+  }
+    /* Line Item */
+    .cart-line-item-redesign {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        margin-bottom: 27px;
+    }
+
+    .cart-line-item-redesign .image-container {
+        width: 80px;
+    }
+
+    .cart-line-item-redesign .image-container a {
+        transition: .15s opacity ease-out;
+    }
+
+    .cart-line-item-redesign .image-container a:hover {
+        opacity: .7;
+    }
+
+    .cart-line-item-redesign .image-container img {
+        max-width: 100%;
+        width: 100%;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .cart-line-item-redesign .info-container {
+        width: 80%;
+        flex-grow: 1;
+        padding-left: 23px;
+    }
+
+    .cart-line-item-redesign .product-title-link:hover .product-title {
+        color: #23b6e6;
+        opacity: 0.8;
+    }
+
+    .cart-line-item-redesign .product-title {
+        display: block;
+        font-weight: bold;
+        font-size: 17px;
+        line-height: 28px;
+        color: #333333;
+    }
+
+    .cart-line-item-redesign .variant-title {
+        display: block;
+        color: #999999;
+        font-size: 13px;
+        line-height: 18px;
+        font-weight: bold;
+    }
+
+    .cart-line-item-redesign .variant-title .upper {
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .main-price {
+        font-size: 15px;
+        color: #666666;
+        font-weight: bold;
+        line-height: 28px;
+        margin-bottom: 4px;
+        display: inline-block;
+    }
+
+    .original-price {
+        text-decoration: line-through;
+        font-size: 12px;
+        color: #999999;
+        padding-left: 4px;
+    }
+
+    .product-quantity-box {
+        width: 80px;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+  
+  
+    .product-quantity-box .product-minus {
+        line-height: 32px;
+        height: 30px;
+        width: 25%;
+    }
+    
+    .product-quantity-box .product-plus {
+        line-height: 32px;
+        height: 30px;
+        width: 25%;
+    }
+
+    .product-quantity-box .quantity {
+        padding: 6px;
+        width: 50%;
+        height: 30px;
+        min-height: initial;
+        font-size: 16px;
+    }
+
+    .qty-and-remove {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+  
+      
+    .cart-subscription-widget-container {
+        max-width: 300px;
+    }
+    
+    .cart-line-item-redesign-remove {
+        margin-left: 20px;
+        background: none;
+        font-size: 12px;
+        display: inline-block;
+        vertical-align: middle;
+        height: auto;
+        min-height: initial;
+        color: red;
+        padding: 10px;
+    }
+
+    .cart-line-item-redesign-remove:hover {
+        background: none;
+        opacity: 0.75;
+        border: none;
+    }
+
+    .subscribe-convert-container-redesign {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-top: 10px;
+        border: 1px solid #8080805c;
+        padding: 4px 10px;
+        border-radius: 3px;
+    }
+  
+    .subscribe-convert-label-redesign {
+        padding-left: 10px;
+        margin-bottom: 0;
+        font-weight: normal;
+        color: #4a4a4a;
+        font-size: 15px;
+    }
+
+    .subscription-disclaimer {
+        font-size: 11px;
+        line-height: 15px;
+        color: #999999;
+        font-style: italic;
+        display: block;
+        margin-top: 10px;
+        max-width: 360px;
+    }
+
+    /* Line Item End */
+
+    .continue-shopping-button {
+        min-height: 0;
+        height: initial;
+        font-size: 16px;
+        margin-left: auto;
+        margin-right: auto;
+        text-transform: uppercase;
+        display: block;
+        font-weight: bold;
+        letter-spacing: 1px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 100%;
+        border-radius: 4px;
+        line-height: initial;
+        background: #23b6e6;
+        color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-bottom: 20px;
+        transition: .15s opacity ease-out;
+        text-align: center;
+    }
+
+    .no-products-yet {
+        text-align: center;
+    }
+
+    .continue-shopping-button:hover {
+        opacity: 0.7;
+        color: white;
+    }
+
+    .mini-cart-new-outer {
+        display: none !important;
+    }
+
+    .container.main.content {
+        padding-bottom: 0;
+    }
+
+    .cart-title {
+        display: none;
+    }
+
+    .product-list-section {
+        padding: 10px 20px;
+    }
+
+    .product-list {
+        margin-bottom: 20px;
+    }
+
+    .subscription-reminder {
+        margin-bottom: 20px;
+    }
+
+    .icon-list-header {
+        font-weight: bold;
+    }
+
+    .icon-list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .icon-list-item {
+        width: 50%;
+        font-weight: bold;
+        font-size: 12px;
+        padding-left: 10px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 10px;
+    }
+
+    .icon-list-item i {
+        fill: #23b6e6;
+        outline: #23b6e6;
+        stroke: #23b6e6;
+        color: #23b6e6;
+        width: 25px;
+        margin-right: 10px;
+        font-size: 20px;
+    }
+
+    .summary-header {
+        display: none;
+    }
+
+    .summary-section {
+        padding: 10px 20px;
+        border-top: 1px solid #4a4a4a;
+        margin-bottom: 10px;
+    }
+
+    .subtotal-section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        font-weight: bold;
+        display: none;
+    }
+
+    .summary-divider {
+        display: none;
+    }
+
+    .total-section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+
+    .proceed-to-checkout {
+        min-height: 0;
+        height: initial;
+        font-size: 16px;
+        margin-left: auto;
+        margin-right: auto;
+        text-transform: uppercase;
+        display: block;
+        font-weight: bold;
+        letter-spacing: 1px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 100%;
+        border-radius: 4px;
+        line-height: initial;
+    }
+
+    .proceed-to-checkout:hover {
+        border: 0;
+    }
+
+    .toc-section {
+        padding: 20px;
+        background: #f7f7f7;
+        color: #4a4a4a;
+        font-size: 12px;
+    }
+
+    .toc-section p {
+        margin-bottom: 0;
+    }
+
+    .toc-section a {
+        text-decoration: underline;
+        color: #4a4a4a;
+    }
+
+    .toc-desktop {
+        display: none;
+    }
+
+    .cart-title-divider {
+        display: none;
+    }
+
+    .subscription-reminder-divider {
+        display: none;
+    }
+
+    #cart_form_new {
+        margin-bottom: 0;
+    }
+
+    .loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background: #000000;
+        opacity: 0.0;
+        pointer-events: none;
+        z-index: 1000;
+        transition: .15s opacity ease-out;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .loading-overlay.active {
+        pointer-events: auto;
+        opacity: 0.2;
+    }
+
+    .lds-roller {
+        display: inline-block;
+        position: relative;
+        width: 80px;
+        height: 80px;
+    }
+    .lds-roller div {
+        animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+        transform-origin: 40px 40px;
+    }
+    .lds-roller div:after {
+        content: " ";
+        display: block;
+        position: absolute;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #fff;
+        margin: -4px 0 0 -4px;
+    }
+    .lds-roller div:nth-child(1) {
+        animation-delay: -0.036s;
+    }
+    .lds-roller div:nth-child(1):after {
+        top: 63px;
+        left: 63px;
+    }
+    .lds-roller div:nth-child(2) {
+        animation-delay: -0.072s;
+    }
+    .lds-roller div:nth-child(2):after {
+        top: 68px;
+        left: 56px;
+    }
+    .lds-roller div:nth-child(3) {
+        animation-delay: -0.108s;
+    }
+    .lds-roller div:nth-child(3):after {
+        top: 71px;
+        left: 48px;
+    }
+    .lds-roller div:nth-child(4) {
+        animation-delay: -0.144s;
+    }
+    .lds-roller div:nth-child(4):after {
+        top: 72px;
+        left: 40px;
+    }
+    .lds-roller div:nth-child(5) {
+        animation-delay: -0.18s;
+    }
+    .lds-roller div:nth-child(5):after {
+        top: 71px;
+        left: 32px;
+    }
+    .lds-roller div:nth-child(6) {
+        animation-delay: -0.216s;
+    }
+    .lds-roller div:nth-child(6):after {
+        top: 68px;
+        left: 24px;
+    }
+    .lds-roller div:nth-child(7) {
+        animation-delay: -0.252s;
+    }
+    .lds-roller div:nth-child(7):after {
+        top: 63px;
+        left: 17px;
+    }
+    .lds-roller div:nth-child(8) {
+        animation-delay: -0.288s;
+    }
+    .lds-roller div:nth-child(8):after {
+        top: 56px;
+        left: 12px;
+    }
+    @keyframes lds-roller {
+        0% {
+        transform: rotate(0deg);
+        }
+        100% {
+        transform: rotate(360deg);
+        }
+    }
+
+@media (min-width: 1200px) {
+
+    .cart-title {
+        display: block;
+        font-size: 24px;
+        font-family: 'avenir';
+        font-weight: bold;
+        letter-spacing: 0.5px !important;
+        text-transform: none;
+        line-height: 28px;
+        margin-bottom: 15px;
+    }
+
+    .cart-title-divider {
+        border-color: #333333;
+    }
+
+    .cart-redesign-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    .product-list-section {
+        max-width: 750px;
+        width:  65%;
+    }
+
+    .product-list {
+        margin-top: 30px;
+    }
+
+    .subscription-reminder-divider {
+        border-color: #E5E5E5;
+    }
+
+    .icon-list-header {
+        font-size: 20px;
+        line-height: 28px;
+        color: #333333;
+        margin-top: 24px;
+        margin-bottom: 24px;
+    }
+
+    .icon-list {
+        flex-direction: column;
+    }
+
+    .icon-list-item {
+        font-size: 15px;
+        line-height: 21px;
+        margin-bottom: 18px;
+    }
+
+    .summary-section {
+        width: 375px;
+        border-top: none;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid #E5E5E5;
+    }
+
+    .summary-header {
+        font-family: 'avenir';
+        font-size: 20px;
+        line-height: 28px;
+        color: #333333;
+        letter-spacing: 0px !important;
+        font-weight: bold;
+        text-transform: none;
+        margin-top: 0;
+        display: block;
+    }
+
+    .summary-divider {
+        border-color: #E5E5E5;
+        display: block;
+    }
+
+    .cart-title-divider {
+        display: block;
+    }
+
+    .subscription-reminder-divider {
+        display: block;
+    }
+
+    
+    .subtotal-section {
+        display: flex;
+    }
+
+    .subtotal-section span {
+        line-height: 30px;
+        font-size: 15px;
+        color: #3c3c3c;
+    }
+
+    .total-section span {
+        font-size: 15px;
+        line-height: 28px;
+        font-weight: bold;
+        color: #333333;
+    }
+
+    .toc-desktop {
+        font-size: 12px;
+        line-height: 16px;
+        text-align: center;
+        display: block;
+        margin-top: 20px;
+    }
+
+    .toc-section {
+        display: none;
+    }
+}
+</style>
+<a name="pagecontent" id="pagecontent"></a>
+<div class="loading-overlay">
+    <div class="lds-roller">
+        <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+    </div>
+</div>
+{% render 'cart-redesign-body', cart: cart %}
+<script>
+  $(document).on('submit', 'form.subscription_checkout', function(e) {
+      e.preventDefault();
+      reChargeSaveCartNoteAndRedirect();
+  });
+  
+  function reChargeGetCookie(name) {
+    return (document.cookie.match('(^|; )' + name + '=([^;]*)')||0)[2];
+  }
+  
+  function reChargeReDirection(redirect_url) {
+    // Re-direct customer to desired URL
+    window.location.href = redirect_url;
+  }
+  
+  function reChargeBuildCheckoutURL() {
+    // Build the Checkout URL
+    var myshopify_domain = '{{ shop.permanent_domain }}';
+    var token = reChargeGetCookie('cart');
+    try {
+      // Cross-domain tracking with Google Analytics
+      var ga_linker = ga.getAll()[0].get('linkerParam');
+    } catch (e) {
+      // 'ga' is not available
+      var ga_linker = '';
+    }
+    // Customer email address for use in the Checkout URL
+    var customer_param = '{% if customer %}customer_id={{ customer.id }}&customer_email={{ customer.email }}{% endif %}';
+    var checkout_url = 'https://checkout.vitalproteins.com/r/checkout?myshopify_domain=' + myshopify_domain + '&cart_token=' + token + '&' + ga_linker + '&' + customer_param
+    var rechargeDiscount = getCookie('checkoutDiscountRecharge');
+    if(rechargeDiscount)
+      checkout_url += '&discount=' + rechargeDiscount;
+    return checkout_url;
+  }
+  
+  function reChargeSaveCartNoteAndRedirect() {
+    // Build the Checkout URL for later redirection
+    var checkout_url = reChargeBuildCheckoutURL();
+    try {
+      var has_cart_note_or_attribute = false;
+      var data = {};
+      // Store the Customer's response to the Terms and Conditions
+      if ($('#terms, #agree').val() != undefined) {
+        data['terms_and_conditions'] = $('#terms, #agree').val();
+        has_cart_note_or_attribute = true;
+      }
+      // Save Cart Attributes
+      $('[name*="attributes"]').each(function() {
+        var input = $(this);
+        var input_type = $(this).attr('type');
+        if (input.val() != '' && ((input_type != 'radio' && input_type != 'checkbox') || (input_type == 'radio' && input.is(':checked')) || (input_type == 'checkbox' && input.prop('checked')))) {
+          var name_attr = input.attr('name');
+          data[name_attr] = input.val();
+          has_cart_note_or_attribute = true;
+        }
+      });
+      // Save Cart Note
+      if ($('[name="note"]:visible').val() != "undefined") {
+        data['note'] = $('[name="note"]:visible').val();
+        has_cart_note_or_attribute = true;
+      }
+      // If store has either Terms and Conditions, Cart Attributes, or Notes, send data to update.js
+      if (has_cart_note_or_attribute) {
+        $.ajax({
+          type: 'POST',
+          data: data,
+          url: '/cart/update.js',
+          dataType: 'json',
+          success: function() {
+            // Redirect to ReCharge checkout after notes have been saved
+            reChargeReDirection(checkout_url);
+          }
+        });
+      } else {
+        // Redirect to ReCharge checkout
+        reChargeReDirection(checkout_url);
+      }
+    } catch (e) {
+      console.log(e);
+      // If an error occured, we'll still redirect customers to the ReCharge checkout.
+      reChargeReDirection(checkout_url);
+    }
+  }
+
+  $(document).ready(function() {
+    $.ajax({
+        url: '/cart.js',
+        dataType: "json",
+        cache: false,
+        success: function(cart) {
+            updateFreeGifts(cart);
+        },
+        error: function(data) {
+            alert("Something went wrong. Please reload the page and try again.");
+        }
+    });
+  });
+
+  $(document).on('click', '.cart-line-item-redesign-remove', function(e) {
+    $('.loading-overlay').addClass('active');
+    var lineID = $(this).data('line');
+     $(this).closest('.cart-line-item-redesign').animate({
+      	opacity: 0,
+      	height: 0
+      }, 200, function() {
+        $.ajax({
+            url: '/cart/change.js',
+            dataType: 'json',
+            cache: false,
+            type: 'post',
+            data: { quantity: 0, line: lineID },
+            success: function (data) {
+                updateFreeGifts(data);
+            }
+        });
+      });
+  });
+
+  $(document).on('click', '.cart-redesign-wrapper .js-change-quantity', function(e) {
+      console.log("Change qty");
+      $('.loading-overlay').addClass('active');
+      var input = $(this).siblings('.quantity');
+      var lineID = input.data('line-id');
+
+      if (input.val() <= 0) {
+        $(this).closest('.cart-line-item-redesign').animate({
+            opacity: 0,
+            height: 0
+        }, 200, function() {
+            $.ajax({
+                url: '/cart/change.js',
+                dataType: 'json',
+                cache: false,
+                type: 'post',
+                data: { quantity: 0, id: lineID },
+                success: function (data) {
+                    console.log(data);
+                    updateFreeGifts(data);
+                }
+            });
+        });
+      } else {
+        $.ajax({
+            url: '/cart/change.js',
+            dataType: 'json',
+            cache: false,
+            type: 'post',
+            data: { quantity: input.val(), id: lineID },
+            success: function (data) {
+                console.log(data);
+                updateFreeGifts(data);
+            }
+        });
+      }
+  });
+
+    $(document).on('change', '.cart-redesign-wrapper .quantity', function(e) {
+        $('.loading-overlay').addClass('active');
+        var lineID = $(this).data('line-id');
+
+        if ($(this).val() <= 0) {
+            $(this).closest('.cart-line-item-redesign').animate({
+                opacity: 0,
+                height: 0
+            }, 200, function() {
+                $.ajax({
+                    url: '/cart/change.js',
+                    dataType: 'json',
+                    cache: false,
+                    type: 'post',
+                    data: { quantity: 0, id: lineID },
+                    success: function (data) {
+                        updateFreeGifts(data);
+                    }
+                });
+            });
+        } else {
+            $.ajax({
+                url: '/cart/change.js',
+                dataType: 'json',
+                cache: false,
+                type: 'post',
+                data: { quantity: $(this).val(), id: lineID },
+                success: function (data) {
+                    updateFreeGifts(data);
+                }
+            });
+        }
+    });
+
+    $(document).on('change', '.cart-redesign-wrapper .subscribe-convert-frequency-select', function(value) {
+        $('.loading-overlay').addClass('active');
+        var frequency = $(this).val();
+        var itemData = $(this).data();
+        var frequencyType = itemData.frequencyType;
+        var lineItemIndex = itemData.line;
+        var itemQuantity = itemData.quantity;
+        var itemKey = itemData.lineItemKey;
+            
+        
+        $.ajax({
+            type: 'POST',
+            url: '/cart/change.js',
+            dataType: 'json',
+            data: {
+                line: lineItemIndex,
+                quantity: parseInt(itemQuantity),
+                properties: {
+                    'shipping_interval_frequency': frequency,
+                    'shipping_interval_unit_type': frequencyType,
+                }
+            }
+        }).then(function() {
+            $.ajax({
+                url: '/cart.js',
+                dataType: "json",
+                cache: false,
+                success: function(cart) {
+                    updateFreeGifts(cart);
+                },
+                error: function(data) {
+                    alert("Something went wrong. Please reload the page and try again.");
+                }
+            });
+        }).catch(function(error) {
+            alert("Something went wrong. Please reload the page and try again");
+        });
+
+    });
+
+    $(document).on('change', '.subscribe-convert-container-redesign input[type=checkbox]', function(e) {
+        $('.loading-overlay').addClass('active');
+        var requestQueue = [];
+        addSubscriptionToCart($(this).data(), requestQueue);
+    });
+
+    function addSubscriptionToCart(itemData, convertQueue) {
+      convertQueue = [];
+
+      var lineItemIndex = itemData.line;
+      var variantID = itemData.variantId;
+      var itemQuantity = itemData.quantity;
+      var hasSubscriptionAvailable = itemData.subscription;
+      var itemKey = itemData.lineItemKey;
+      
+      // Create the first request to remove
+      var removeRequest = {
+        type: "remove",
+        data: {
+          quantity: 0,
+          id: itemKey
+        }
+      };  
+      
+      // Check if this product is a subscription being converted to a one-time
+      if (itemData.originalHandle) {
+        var originalHandle = itemData.originalHandle;
+        // make ajax call
+        $.getJSON('/products/' + originalHandle + '.js', function(product) {
+          var originalVariant = product.variants.filter(function(variant) {
+            return variant.sku === itemData.sku;
+          });
+          
+          if (originalVariant.length > 0) {
+            // Create the second request to add the convert product
+            var addRequest = {
+              type: "add",
+              data: {
+                quantity: itemQuantity,
+                id: originalVariant[0].id
+              }
+            }
+
+            convertQueue.push(addRequest);
+            convertQueue.push(removeRequest);
+
+            // Start the chain of calls
+            subscriptionMoveAlong(convertQueue);
+          }
+        });
+                                                                                                         
+      } 
+      // One-time being converted to a subscription
+      else {
+
+        // Create the second request to add the convert product
+        var addRequest = {
+          type: "add",
+          data: {
+            quantity: itemQuantity,
+            id: variantID
+          }
+        }
+
+        if (hasSubscriptionAvailable === 'True') {
+          addRequest.data.id = itemData.discountVariantId;
+          addRequest.data.properties = {
+            'shipping_interval_frequency': {{ settings.default_subscription_frequency }},
+            'shipping_interval_unit_type': itemData.frequencyType,
+          }
+        }
+
+        convertQueue.push(addRequest);
+        convertQueue.push(removeRequest);
+
+        // Start the chain of calls
+        subscriptionMoveAlong(convertQueue);
+      }
+    }
+    
+	var subscriptionMoveAlong = function(convertQueue) {
+      if (convertQueue.length) {
+        var request = convertQueue.shift();
+
+        if (request.type === 'add') {
+          addConvertItem(request.data, convertQueue);
+        } else if (request.type === 'remove') {
+          removeConvertItem(request.data, convertQueue);
+        }
+      } else {
+        $.ajax({
+            url: '/cart.js',
+            dataType: "json",
+            cache: false,
+            success: function(cart) {
+                updateFreeGifts(cart);
+            }, error: function(status) {
+                alert("Something went wrong, please refresh page and try again.");
+            }
+        });
+      }
+    }
+
+    var removeConvertItem = function(removeData, convertQueue) {
+      $.ajax({
+        type: 'POST',
+        url: '/cart/change.js',
+        dataType: 'json',
+        data: removeData
+      }).then(function() {
+        subscriptionMoveAlong(convertQueue);
+      }).catch(function(error) {
+        alert("Something went wrong. Please reload the page and try again");
+      });
+    }
+
+    var addConvertItem = function(postData, convertQueue) {
+      $.ajax({
+        //post to Shopify's /cart/add endpoint
+        type: 'POST',
+        url: '/cart/add',
+        dataType: 'json',
+        data: postData
+      }).then(function() {
+        subscriptionMoveAlong(convertQueue);
+      }).catch(function(error) {
+        alert("Something went wrong. Please reload the page and try again");
+      });
+    }
+
+    function refreshRedesignCart() {
+        $.ajax({
+            type: 'GET',
+            url: '/cart?view=redesign-data',
+            success: function(response) {
+                $('.cart-redesign-wrapper').replaceWith(response);
+                $('.loading-overlay').removeClass('active');
+            }, error: function(status) {
+                alert("Something went wrong, please refresh page and try again.");
+            }
+        });
+    }
+
+    function updateFreeGifts(cart) {
+        var freeGiftVariantID_1 = 21714211110972;
+        var freeGiftVariantID_2 = 21714226872380;
+        var freeGiftMinimum = 5000;
+        
+        var hasFreeGift_1 = cart.items.some((item) => item.variant_id === freeGiftVariantID_1);
+        var hasFreeGift_2 = cart.items.some((item) => item.variant_id === freeGiftVariantID_2);
+        
+        var updates = {
+            updates: {}
+        };
+        
+        
+        if ((cart.total_price >= freeGiftMinimum) && (hasFreeGift_1 == false || hasFreeGift_2 == false)) {           
+            updates.updates[freeGiftVariantID_1] = 1;
+            updates.updates[freeGiftVariantID_2] = 1;    
+        } else if (cart.total_price < freeGiftMinimum && (hasFreeGift_1 == true || hasFreeGift_2 == true)) {
+            updates.updates[freeGiftVariantID_1] = 0;
+            updates.updates[freeGiftVariantID_2] = 0;  
+        }
+        
+        if (Object.keys(updates.updates).length > 0) {
+            $.ajax({
+                url: '/cart/update.js',
+                dataType: 'json',
+                cache: false,
+                type: 'post',
+                data: updates,
+                success: function (data) {
+                    $('.cart_count').text(data.item_count);
+                    refreshRedesignCart();
+                }
+            });
+        } else {
+            $('.cart_count').text(cart.item_count);
+            refreshRedesignCart();
+        }
+    }
+</script>

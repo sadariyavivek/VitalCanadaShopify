@@ -1,0 +1,136 @@
+<div id="perzonalization-custom" class="hidden"></div>
+
+<script>
+!function(){
+  if(!window.usePersonalization)
+    return;
+  
+  var docReady = $.Deferred();
+  $(docReady.resolve);
+
+  var slider = null;
+  var userId = {% if customer %} '{{ customer.id }}' {% else %} null {% endif %};
+  var product = {{ product | json }};
+  if(product){
+    product = { 
+      id: product.id,
+      price: (product.price/100).toFixed(2).toString()
+    };
+  }
+
+  var cart = {{ cart | json }};
+
+  var products = cart.items.map(function(product){
+    return {
+      id: product.product_id.toString(),
+      price: (product.price/100).toFixed(2).toString()
+    };
+  });
+
+  var personalizationSessionKey = 'personalizationSession';
+  var visitorId = window.localStorage.getItem(personalizationSessionKey);
+
+  function uuidv4() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+      return v.toString(16);
+    });
+  }
+
+  if(!visitorId){
+    visitorId = uuidv4();
+    window.localStorage.setItem(personalizationSessionKey, visitorId);
+  }
+
+  $.when(docReady).then(function(){
+    slider = $('{{ container }}');
+  });
+
+  function makePerzonalizationCall(url, data, success){
+    $.ajax({
+      type: 'POST',
+      url: 'https://api.perzonalization.com/v1.1/stores/shopify.vital-proteins/' + url,
+      xhrFields:{
+        withCredentials: true
+      },
+      headers: {
+        'Authorization': 'Basic ' + btoa('vital-proteins-prod:zc0rgk49xt6gtd18whxlx7m83owort6qjn9pden0gj6xmdbplzq1lqzqm1looh1r')
+      },
+      data: JSON.stringify(data),
+      contentType: 'application/json',
+      success: success
+    });
+  }
+
+  makePerzonalizationCall(
+    'pages/{{ page }}/guide',
+    {
+      currency: 'USD',
+      language: 'EN',
+      userId: userId,
+      visitorId: visitorId,
+      products: {% if page == 'home' %}[]{% elsif page == 'product' %}[product]{% else %}products{% endif %},
+      count: { max: {{ max }} },
+      filter: {
+        excludedProductIds: ['4480211877948', '2535833403452']
+      }
+    },
+    function (data){
+      var products = data.widgets[0].products;
+
+      var productPromises = [];
+      $.each(products, function(index, product){
+        var parts = product.url.split('/');
+        var handle = parts.pop() || parts.pop();
+        productPromises.push($.get('/products/' + handle + '?view={{ template }}'));
+      });
+
+      $.when(docReady).then(function(){
+        if(products.length == 0){
+          console.log('Perzonalization page {{ page }} returned no products');
+          return;
+        }
+        var isFlickity = {% if flickity %}true{% else %}false{% endif %};
+        
+        $.when.apply($, productPromises).then(function(){
+          var placeholders = slider.find('{{ items }}');
+
+          if(isFlickity)
+            slider.flickity('remove', placeholders);
+          else{
+            placeholders.remove();
+          }
+          
+          $.each(arguments, function(index, argument){
+            
+            if(argument[1] == 'success'){
+              var html = $(argument[0]);
+
+              //Send Click Tracking
+              html.click(function(){
+                makePerzonalizationCall(
+                  'products/' + products[index].id  + '/clicks',
+                  {
+                    currency: 'USD',
+                    language: 'EN',
+                    pageType: '{{ page }}',
+                    widgetName: data.widgets[0].name,
+                    userId: userId,
+                    visitorId: visitorId
+                  }
+                );
+              });
+
+              if(isFlickity)
+                slider.flickity('append', html);
+              else
+                slider.append(html);
+            }
+          });
+        });
+      });
+    }
+  );
+  
+}();
+</script>

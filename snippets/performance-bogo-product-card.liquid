@@ -1,0 +1,49 @@
+{% comment %}Map 5oz variant IDs to main product IDs for reviews{% endcomment %} 
+{% case variant.id %}
+
+{% comment %}Pre SKUS{% endcomment %} 
+{% when 32452236705852 %}
+	{% assign review_id = 4129335017532 %}
+{% when 32452236738620 %}
+	{% assign review_id = 4129344880700 %}
+{% when 32452236771388 %}
+	{% assign review_id = 3902883758140 %}
+{% when 32452236804156 %}
+	{% assign review_id = 3906571731004 %}
+{% when 32452236836924 %}
+	{% assign review_id = 3902843650108 %}
+
+{% comment %}Recover SKUS{% endcomment %} 
+{% when 32452262625340 %}
+	{% assign review_id = 3739631124540 %}
+{% when 32452262658108 %}
+	{% assign review_id = 3837467852860 %}
+{% when 32452262690876 %}
+	{% assign review_id = 3840504561724 %}
+{% when 32452262723644 %}
+	{% assign review_id = 3739826520124 %}
+{% when 32452262756412 %}
+	{% assign review_id = 3906548432956 %}
+
+{% comment %}Sleep SKUS{% endcomment %} 
+{% when 32452265574460 %}
+	{% assign review_id = 4471927930940 %}
+{% when 32452265607228 %}
+	{% assign review_id = 4471935860796 %}
+{% when 32452265639996 %}
+	{% assign review_id = 4420102684732 %}
+
+{% else %}
+	{% assign review_id = product.id %}
+{% endcase %}
+<div class="perf-sampling-product-card {{ category }}" data-category="{{ category }}">
+  <img class="lazyload" data-src="{{ variant.image | img_url: '240x' }}"/>
+  <span class="product-cart-price">{{ variant.price | money_without_trailing_zeros }}</span>
+  <span class="product-card-title">{{ category | capitalize }} - {{ variant.title }}</span>
+  <!--<div data-bv-show="inline_rating" data-bv-product-id="{{ review_id }}" data-bv-seo="false" style="margin-top: 10px; min-height: 28px;"></div>-->
+  {% if variant.available %}
+  	<button class="add-to-bundle {{ category }}" data-category="{{ category }}" data-variant-id={{ variant.id }}>Add to Cart</button>
+  {% else %}
+  	<button class="add-to-bundle inactive {{ category }}" disabled data-category="{{ category }}" data-variant-id={{ variant.id }}>Sold Out</button>
+  {% endif %}
+</div>

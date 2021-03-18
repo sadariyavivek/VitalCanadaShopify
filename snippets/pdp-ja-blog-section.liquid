@@ -1,0 +1,296 @@
+<style>
+    .pdp-ja-blog-section {
+        padding-top: 40px;
+        padding-bottom: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .pdp-ja-blog-section h5 {
+        text-align: center;
+        font-family: 'KapraNeue';
+        font-size: 72px;
+        line-height: 90px;
+        margin-bottom: 0;
+        letter-spacing: 0.8px !important;
+        color: #393D40;
+        text-transform: uppercase;
+    }
+
+    .pdp-ja-blog-section .blog-subheader {
+        font-size: 28px;
+        font-family: 'avenir';
+        line-height: 38px;
+        letter-spacing: 1px;
+        text-align: center;
+        color: #5A5A5B;
+        display: block;
+    }
+
+    .pdp-ja-blog-section .articles-wrapper {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: row;
+        max-width: 1440px;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: space-between;
+    }
+
+    a.primary-article {
+        width: 49%;
+        box-shadow: 0 0 12px 0 rgba(0,0,0,0.08);
+        border-radius: 8px;
+        overflow: hidden;
+        transition: .15s opacity ease-out;
+    }
+
+    a.primary-article:hover {
+        opacity: 0.75;
+    }
+
+    .primary-article .article-image {
+        height: 250px;
+        width: 100%;
+        background-size: cover;
+        background-position: 50% 50%;
+    }
+
+    .primary-article .article-text-wrapper {
+        padding: 44px 28px;
+    }
+
+    .primary-article .article-date {
+        color: #868686;
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .primary-article .article-headline {
+        font-size: 28px;
+        line-height: 38px;
+        font-family: 'avenir';
+        color: #0B0B0B;
+        letter-spacing: 0px !important;
+        text-transform: none;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+    }
+
+    .primary-article .article-link {
+        color: #6F5950;
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .secondary-articles-wrapper {
+        width: 49%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    a.secondary-article {
+        height: 47%;
+        display: flex;
+        flex-direction: row;
+        border-radius: 8px;
+        box-shadow: 0 0 12px 0 rgba(0,0,0,0.08);
+        overflow: hidden;
+        transition: .15s opacity ease-out;
+    }
+
+    a.secondary-article:hover {
+        opacity: 0.75;
+    }
+
+    .secondary-article .article-text-wrapper {
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        width: calc(100% - 200px);
+    }
+
+    .secondary-article .article-date {
+        color: #868686;
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .secondary-article .article-headline {
+        font-size: 28px;
+        text-transform: none;
+        letter-spacing: 0px !important;
+        font-family: 'avenir';
+        line-height: 38px;
+        color: #0B0B0B;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+    }
+
+    .secondary-article .article-image {
+        height: 100%;
+        width: 200px;
+        background-size: cover;
+        background-position: 50% 50%;
+    }
+
+    .secondary-article .article-link {
+        color: #6F5950;
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    @media screen and (max-width: 800px) {
+        .pdp-ja-blog-section h5 {
+            font-size: 24px;
+            line-height: 30px;
+            letter-spacing: 0.7px !important;
+        }
+
+        .pdp-ja-blog-section .blog-subheader { 
+            font-size: 16px;
+            line-height: 22px;
+        }
+
+        .pdp-ja-blog-section .articles-wrapper {
+            flex-direction: column;
+            margin-top: 20px;
+        }
+
+        a.primary-article {
+            width: 100%;
+            margin-bottom: 11px;
+            border-radius: 4px;
+        }
+
+        .primary-article .article-image {
+            height: 115px;
+        }
+
+        .primary-article .article-text-wrapper {
+            padding: 15px 12px;
+        }
+
+        .primary-article .article-date {
+            color: #868686;
+            font-size: 8px;
+            line-height: 11px;
+        }
+
+        .primary-article .article-headline {
+            font-size: 12px;
+            line-height: 16px;
+            margin-bottom: 0;
+        }
+
+        .primary-article .article-link {
+            font-size: 8px;
+            line-height: 11px;
+        }
+
+        .secondary-articles-wrapper {
+            width: 100%;
+        }
+
+        a.secondary-article {
+            height: 96px;
+            margin-bottom: 11px;
+            border-radius: 4px;
+        }
+
+        .secondary-article .article-image {
+            width: 90px;
+        }
+
+        .secondary-article .article-date { 
+            font-size: 8px;
+            line-height: 11px;
+        }
+
+        .secondary-article .article-headline {
+            font-size: 12px;
+            line-height: 16px;
+        }
+
+        .secondary-article .article-link {
+            font-size: 8px;
+            line-height: 11px;
+        }
+
+        .secondary-article .article-text-wrapper { 
+            padding: 13px;
+            width: calc(100% - 90px);
+        }
+
+        .pdp-ja-blog-section {
+            padding-bottom: 0;
+            padding-top: 20px;
+        }
+    }
+</style>
+
+{% if articlesOverride %}
+    {% assign articleHandles = articlesOverride %}
+{% else %}
+    {% assign articleHandles = product.metafields.vital.blog_article %}
+{% endif %}
+{% assign articleHandles = articleHandles | split: '|' %}
+
+<div class="pdp-ja-blog-section">
+    <h5>Raise Your Collagen IQ</h5>
+    <span class="blog-subheader">Welcome To #VitalVersity</span>
+    <div class="articles-wrapper">
+      	
+      	{% if articleHandles[0] %}
+        	{% assign primaryArticle = articles[articleHandles[0]] %}
+      	{% else %}
+      		{% assign primaryArticle = articles['stay-vital/what-is-collagen'] %}
+      	{% endif %}
+        <a href="{{ primaryArticle.url }}" class="primary-article">
+            <div class="article-image lazyload" data-bg="{{ primaryArticle.image | img_url: '800x' }}"></div>
+            <div class="article-text-wrapper">
+                <span class="article-date">{{ primaryArticle.updated_at | date: "%d %B %Y" }}</span>
+                <h6 class="article-headline">{{ primaryArticle.title }}</h6>
+                <span class="article-link">Read more</span>
+            </div>
+        </a>
+		
+      	{% if articleHandles[1] %}
+        	{% assign article = articles[articleHandles[1]] %}
+      	{% else %}
+      		{% assign article = articles['recipes/how-to-use-collagen'] %}
+      	{% endif %}
+        <div class="secondary-articles-wrapper">
+          <a href="{{ article.url }}" class="secondary-article">
+            <div class="article-image lazyload" data-bg="{{ article.image | img_url: '400x' }}"></div>
+            <div class="article-text-wrapper">
+              <span class="article-date">{{ article.updated_at | date: "%d %B %Y" }}</span>
+              <h6 class="article-headline">{{ article.title }}</h6>
+              <span class="article-link">Read more</span>
+            </div>
+          </a>
+  
+		  {% if articleHandles[2] %}
+              {% assign article = articles[articleHandles[2]] %}
+          {% else %}
+              {% assign article = articles['stay-vital/collagen-peptides-types'] %}
+          {% endif %}
+           
+          <a href="{{ article.url }}" class="secondary-article">
+            <div class="article-image lazyload" data-bg="{{ article.image | img_url: '400x' }}"></div>
+            <div class="article-text-wrapper">
+              <span class="article-date">{{ article.updated_at | date: "%d %B %Y" }}</span>
+              <h6 class="article-headline">{{ article.title }}</h6>
+              <span class="article-link">Read more</span>
+            </div>
+          </a>
+        </div>
+    </div>
+</div>

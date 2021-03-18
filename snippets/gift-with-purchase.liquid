@@ -1,0 +1,61 @@
+<script>
+var samplerVariantID = 31639285006396;
+
+var hasSampler = false;
+  
+var item1Threshold = 10000;
+
+var boldSubtotal = {{ bold_cart_total_price }};
+  
+$(document).ready(function() {
+    getCartContents();
+});
+
+function getCartContents() {
+  var postRequired = false;
+  var postData = { 
+    updates: {}
+  }
+  
+  $.ajax({
+    url: '/cart.js',
+    dataType: "json",
+    success: function(cart) {
+	  if (cart.items.filter((item) => item.variant_id === samplerVariantID).length > 0) {
+        hasSampler = true;
+      }
+      
+      if (boldSubtotal >= item1Threshold) {
+        if (hasSampler === false) {
+
+          postData.updates = {
+            [samplerVariantID]: 1
+          };
+          
+          postRequired = true;
+        }
+
+      } else if (boldSubtotal < item1Threshold && (hasSampler === true)) {
+
+        postData.updates = {
+          [samplerVariantID]: 0
+        };
+        
+        postRequired = true;
+      }
+      
+      if (postRequired === true) {
+        $.ajax({
+          url: '/cart/update.js',
+          dataType: "json",
+          method: 'POST',
+          data: postData,
+          success: function(data) {
+            document.location.href = '/cart';
+          }
+        });
+      }
+    }
+  });
+}
+</script>

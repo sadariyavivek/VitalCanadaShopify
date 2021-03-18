@@ -1,0 +1,651 @@
+<a name="pagecontent" id="pagecontent"></a>
+
+</div>
+
+{% assign purpleDark 	= '#5956a5' %}
+{% assign purpleLight 	= '#9B9BCD' %}
+{% assign darkRed 		= '#f1484d' %}
+{% assign lightRed 		= '#fe7771' %}
+{% assign yellow 		= '#f9b351' %}
+{% assign default = '1400x' %}
+{% assign size1 = '480x' %}
+{% assign size2 = '765x' %}
+{% assign size3 = '900x' %}
+{% assign size4 = '1000x' %}
+{% assign size5 = '1100x' %}
+{% assign size6 = '1300x' %}
+{% assign size7 = '1500x' %}
+{% assign size8 = '1700x' %}
+{% assign size9 = '1900x' %}
+{% assign size10 = '2000x' %}
+{% assign size11 = '2100x' %}
+<style>
+  
+  .container.main.content {
+    padding: 0;
+  }
+  
+  .mm-banner-section {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .mm-banner-image {
+    width: 100%;
+    position: relative;
+    display: block;
+  }
+  
+  .mm-banner-image.desktop {
+  	display: block;
+  }
+
+  .mm-banner-image.mobile {
+   	display: none;
+  }
+  
+  .mm-twinkle-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .twinkle {
+    position: absolute;
+    animation: twinkle .5s ease-out infinite alternate;
+  }
+  
+  .dust {
+    position: absolute;
+    animation: dustA 5s linear infinite;
+  }
+  
+  @keyframes twinkle {
+    0% { transform: scale(0) translateY(0px); opacity: 0;}
+    60% { transform: scale(1.25); opacity: 1 }
+    80% { transform: scale(1.25); opacity: 0.75 }
+    100% { transform: scale(1.25); opacity: 1; }
+  }
+  
+  @keyframes dustA {
+    0% { transform: scale(0) translateY(0px); opacity: 0;}
+    50% { transform: scale(1.25) translateY(-20px); opacity: 1; }
+    100% { transform: scale(1.0) translateY(-40px); opacity: 0; }
+  }
+  
+  
+  .mm-divider-section {
+    background-color: {{ darkRed }};
+    border-top: 12px solid {{ yellow }};
+  }
+  
+  .mm-divider-section .divider-text {
+    max-width: 1200px;
+    color: white;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 28px;
+    padding: 10px;
+  }
+  
+  .divider-text .new-callout {
+    text-transform: uppercase;
+    font-weight: bold;
+    opacity: 0.6;
+  }
+  
+  .mm-cta-section {
+    position: relative;
+    padding: 10px 20px;
+    overflow: hidden;
+  }
+  
+  .rtd-slider {
+    margin-bottom: 30px;
+  }
+  
+  .flickity-page-dots .dot {
+    background-color: {{ lightRed }};
+  }
+  
+  .mm-slider-cell {
+    width: 100%;
+  }
+  
+  .mm-cta-content-wrapper {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+    z-index: 100;
+    position: relative;
+  }
+  
+  .mm-cta-text-section {
+    width: 60%;
+    padding: 20px;
+  }
+  
+  .mm-cta-purchase-section {
+    width: 50%;
+  }
+  
+  .mm-cta-purchase-section .add_to_cart {
+    background-color: {{ darkRed }};
+    color: white;
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    font-size: 36px;
+    padding: 6px 30px;
+    border-radius: 10px;
+    width: auto;
+    border: none;
+  }
+  
+  .mm-cta-purchase-section .add_to_cart:hover {
+    opacity: 0.7;
+    cursor: pointer;
+    transform: translateY(-2px);
+  }
+  
+  .mm-product-price {
+    letter-spacing: 0 !important;
+    font-size: 48px;
+    margin-bottom: 0;
+  }
+  
+  .mm-product-price s {
+    font-size: 32px;
+    color: gray;
+  }
+  
+  .mm-product-title {
+    font-family: 'avenir';
+    text-transform: none;
+    letter-spacing: 0 !important;
+    font-weight: bold;
+  }
+  
+  .mm-cta-purchase-section img {
+    max-height: 400px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .mm-cta-header-title {
+    text-align: center;
+    color: {{ lightRed }};
+    text-transform: uppercase;
+    letter-spacing: 0 !important;
+    font-size: 60px;
+    margin: 0;
+  }
+  
+  .mm-cta-header-subtitle {
+    text-align: center;
+    color: #a5a5a5;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .mm-cta-icons-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+  
+  .mm-cta-icons-container img { 
+    position: absolute;
+    max-width: 100px;
+  }
+  
+  .mm-moon-phase-section {
+    padding: 20px;
+  }
+  
+  .moon-phases-image {
+    width: 100%;
+    max-width: 1200px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  
+  .mm-nutrition-facts-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .mm-nutrition-facts-container img {
+    width: calc(100% / 6);
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 20px;
+  }
+  
+  .mm-ingredients-section {
+    padding: 20px;
+  }
+  
+  .mm-ingredients-header-text {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding: 10px;
+    width: 100%;
+  }
+  
+  .mm-ingredient-blocks-wrapper {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  .mm-ingredient-block {
+    text-align: center;
+    width: 25%;
+  }
+  
+  .mm-ingredient-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  
+  .mm-ingredient-wrapper img {
+    width: 70%;
+    margin-bottom: 10px;
+  }
+  
+  .mm-ingredient-block .block-title {
+    text-transform: uppercase;
+    letter-spacing: 0 !important;
+    color: {{ lightRed }};
+    font-size: 28px;
+    font-family: 'kapraregular';
+    margin-bottom: 10px;
+  }
+  
+  .mm-ingredient-block p {
+    color: #a5a5a5;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .mm-lively-section {
+    position: relative; 
+    padding-top: 40px;
+    padding-bottom: 40px;
+    overflow: hidden;
+  }
+  
+  .mm-lively-inner {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    z-index: 100;
+    position: relative;
+  }
+  
+  .mm-lively-title {
+    color: {{ lightRed }};
+    letter-spacing: 0px !important;
+    text-transform: uppercase;
+    font-size: 48px;
+  }
+  
+  .mm-lively-articles-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .mm-lively-article-container {
+    width: 33.33%;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    transition: .25s all ease-out;
+  }
+  
+  .mm-lively-article-container:hover {
+    opacity: 0.7;
+    transform: scale(1.03);
+    cursor: pointer;
+  }
+  
+  .mm-lively-article-image-container {
+    width: 100%;
+    height: 240px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: {{ purpleLight }};
+    border-radius: 20px;
+  }
+  
+  .mm-lively-article-title {
+    color: {{ lightRed }};
+    text-transform: none;
+    letter-spacing: 0px !important;
+    text-align: center;
+    font-size: 36px;
+    line-height: 44px;
+  }
+  
+  .get-up-and-go {
+    width: 100%;
+  }
+  
+  .gif-section img {
+    width: 100%;
+    display: block;
+  }
+  
+  .subscription-widget-new {
+    display: none;
+  }
+  
+  .energy-secondary-banner {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .energy-secondary-banner img {
+    width: 100%;
+  }
+  
+  .mm-cta-text-section {
+    display: none;
+  }
+  
+  @media screen and (max-width: 800px) {
+    .energy-secondary-banner {
+    	display: none;
+    }
+    
+   .mm-cta-text-section {
+    display: block;
+  }
+    
+    .mm-banner-image.desktop {
+      display: none;
+    }
+    
+    .mm-banner-image.mobile {
+      display: block;
+    }
+    
+    .mm-cta-text-section {
+      width: 100%;
+    }
+    
+    .mm-cta-purchase-section {
+      width: 100%;
+    }
+    
+    .mm-nutrition-facts-container img {
+      width: calc(100% / 3);
+    }
+    
+     .mm-cta-content-wrapper {
+       flex-direction: column-reverse;
+     }
+    
+         .mm-cta-purchase-section img {
+       max-height: 300px;
+     }
+    
+    .mm-ingredient-block {
+      width: 100%;
+      padding-left: 10%;
+      padding-right: 10%;
+    }
+    
+    .mm-ingredient-block .block-title {
+      font-size: 18px;
+    }
+    
+    .mm-lively-article-container {
+      width: 100%;
+    }
+  }
+  
+   @media screen and (max-width: 480px) {
+     
+     .mm-cta-header-title {
+       font-size: 36px;
+       line-height: 40px;
+     }
+     
+     .mm-cta-header-subtitle {
+       font-size: 18px;
+     }
+     
+     .mm-product-price {
+       font-size: 24px;
+     }
+     
+     .mm-product-price s {
+       font-size: 18px;
+     }
+     
+     .mm-divider-section .divider-text {
+       font-size: 16px;
+     }
+     
+     .mm-cta-icons-container img {
+       max-width: 50px;
+     }
+     
+     .mm-nutrition-facts-container img {
+      width: 50%;
+     }
+     
+     .mm-cta-section {
+       padding-left: 0;
+       padding-right: 0;
+     }
+     
+     .mm-cta-text-section {
+       padding-left: 0;
+       padding-right: 0;
+     }
+     
+     .mm-ingredient-block p {
+       font-size: 16px;
+       margin-bottom: 30px;
+     }
+     
+     .mm-ingredient-block .block-title {
+      font-size: 24px;
+      margin-bottom: 0;
+      line-height: 30px;
+     }
+     
+     .mm-lively-title {
+     	font-size: 24px;
+     }
+     
+     .mm-lively-article-title {
+       font-size: 21px;
+       line-height: 28px;
+     }
+     
+     .dust {
+       max-width: 40px;
+     }
+   }
+</style>
+<div class="moon-milk-page-wrapper">
+  <div class="mm-banner-section">
+    <img class="mm-banner-image desktop lazyload"  src="{{ 'energy_Header_Desktop.png' | file_img_url: '100x', format: 'pjpg' }}"
+                alt="Small Bottle, Big Energy."
+                sizes="100vw"
+                data-src="{{ 'energy_Header_Desktop.png' | file_img_url: default, format: 'pjpg' }}"
+                srcset="
+                {{ 'energy_Header_Desktop.png' | file_img_url: default, format: 'pjpg' }} {{default | replace: 'x', 'w'}},
+                {{ 'energy_Header_Desktop.png' | file_img_url: size1, format: 'pjpg' }} {{size1 | replace: 'x', 'w'}},
+                {{ 'energy_Header_Desktop.png' | file_img_url: size2, format: 'pjpg' }} {{size2 | replace: 'x', 'w'}},
+                {{ 'energy_Header_Desktop.png' | file_img_url: size3, format: 'pjpg' }} {{size3 | replace: 'x', 'w'}},
+                {{ 'energy_Header_Desktop.png' | file_img_url: size4, format: 'pjpg' }} {{size4 | replace: 'x', 'w'}},
+                {{ 'energy_Header_Desktop.png' | file_img_url: size5, format: 'pjpg' }} {{size5 | replace: 'x', 'w'}},
+                {{ 'energy_Header_Desktop.png' | file_img_url: size6, format: 'pjpg' }} {{size6 | replace: 'x', 'w'}},
+                {{ 'energy_Header_Desktop.png' | file_img_url: size7, format: 'pjpg' }} {{size7 | replace: 'x', 'w'}},
+                {{ 'energy_Header_Desktop.png' | file_img_url: size8, format: 'pjpg' }} {{size8 | replace: 'x', 'w'}},
+                {{ 'energy_Header_Desktop.png' | file_img_url: size9, format: 'pjpg' }} {{size9 | replace: 'x', 'w'}},
+                {{ 'energy_Header_Desktop.png' | file_img_url: size10, format: 'pjpg' }} {{size10 | replace: 'x', 'w'}},
+                {{ 'energy_Header_Desktop.png' | file_img_url: size11, format: 'pjpg' }} {{size11 | replace: 'x', 'w'}}"
+
+                 />
+    <img class="mm-banner-image mobile lazyload" src="{{ 'energy_Header_Mobile.png' | file_img_url: '800x' | format: 'jpg' }}" alt="Small Bottle, Big Energy."/>
+  </div>
+  <div class="mm-divider-section">
+    <p class="divider-text">Power through your day with <span class="new-callout">NEW</span> Energy Collagen Shot&trade;</p>
+  </div>
+  <div class="energy-secondary-banner">
+    <img src="{{ 'Energy_Product_Description2.png' | file_img_url: '1200x' }}"/>
+  </div>
+  <div class="mm-cta-section">
+    
+    <div class="mm-cta-content-wrapper">
+      <div class="mm-cta-text-section">
+    	<img class="get-up-and-go lazyload" alt="Get up and go mode. Packed with 7g of Collagen Peptides, electrolytes, Alpha GPC and caffeine, the newest addition to our Collagen Shot&trade; line gives you the boost you need, right at your fingertips. Flavor is Pink Grapefruit." src="{{ 'energy_Product_Description.png' | file_img_url: '1000x' | format: 'jpg' }}"/>
+      </div>
+      {% assign product = all_products["collagen-shot-energy"] %}
+      <div class="mm-cta-purchase-section">
+        <div class="rtd-slider official">
+          <div class="mm-slider-cell">
+            <a href="{{ product.url }}" style="color: inherit;">
+              <img class="lazyload" data-flickity-lazyload="https://cdn.shopify.com/s/files/1/2074/9385/products/ProductPage_Assets_Energy_Shot_800x.png?v=1583768636" src="https://cdn.shopify.com/s/files/1/2074/9385/products/ProductPage_Assets_Energy_Shot_800x.png?v=1583768636"/>
+            </a>
+          </div>
+          <div class="mm-slider-cell">
+            <a href="{{ product.url }}" style="color: inherit;">
+              <img class="lazyload" data-flickity-lazyload="https://cdn.shopify.com/s/files/1/2074/9385/products/energy_supp_facts_800x.png?v=1583791260" src="https://cdn.shopify.com/s/files/1/2074/9385/products/energy_supp_facts_800x.png?v=1583791260"/>
+            </a>
+          </div>
+        </div>
+        <h3 class="mm-product-price">{{ product.price | money_without_trailing_zeros }} {% if product.compare_at_price %}<s>{{ product.compare_at_price | money_without_trailing_zeros }}</s>{% endif %}</h3>
+        <h3 class="mm-product-title">Collagen Shot&trade; - Energy (12 ct.)</h3>
+        {% include 'product-form-mini' %}
+      </div>
+      {% assign product = all_products["collagen-shot-trio-bundle"] %}
+      <div class="mm-cta-purchase-section">
+        <div class="rtd-slider official">
+          {% for image in product.images %}
+          <div class="mm-slider-cell">
+            <a href="{{ product.url }}" style="color: inherit;">
+              <img class="lazyload" data-flickity-lazyload="{{ image | img_url: '800x' }}" src="{{ image | img_url: '800x' }}"/>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+        <h3 class="mm-product-price">{{ product.price | money_without_trailing_zeros }} {% if product.compare_at_price %}<s>{{ product.compare_at_price | money_without_trailing_zeros }}</s>{% endif %}</h3>
+        <h3 class="mm-product-title">{{ product.title }}</h3>
+        {% include 'product-form-mini' %}
+      </div>
+    </div>
+  </div>
+  <div class="gif-section">
+    <img class="lazyload"  src="{{ 'EnergyAnimation_LandingPage.gif' | file_img_url: '100x' }}"
+                alt="Big energy coming your way"
+                sizes="100vw"
+                data-src="{{ 'EnergyAnimation_LandingPage.gif' | file_img_url: default }}"
+                srcset="
+                {{ 'EnergyAnimation_LandingPage.gif' | file_img_url: default}} {{default | replace: 'x', 'w'}},
+                {{ 'EnergyAnimation_LandingPage.gif' | file_img_url: size1 }} {{size1 | replace: 'x', 'w'}},
+                {{ 'EnergyAnimation_LandingPage.gif'  | file_img_url: size2 }} {{size2 | replace: 'x', 'w'}},
+                {{ 'EnergyAnimation_LandingPage.gif'  | file_img_url: size3 }} {{size3 | replace: 'x', 'w'}},
+                {{ 'EnergyAnimation_LandingPage.gif'  | file_img_url: size4 }} {{size4 | replace: 'x', 'w'}},
+                {{ 'EnergyAnimation_LandingPage.gif'  | file_img_url: size5 }} {{size5 | replace: 'x', 'w'}},
+                {{ 'EnergyAnimation_LandingPage.gif'  | file_img_url: size6 }} {{size6 | replace: 'x', 'w'}},
+                {{ 'EnergyAnimation_LandingPage.gif'  | file_img_url: size7 }} {{size7 | replace: 'x', 'w'}},
+                {{ 'EnergyAnimation_LandingPage.gif'  | file_img_url: size8 }} {{size8 | replace: 'x', 'w'}},
+                {{ 'EnergyAnimation_LandingPage.gif'  | file_img_url: size9 }} {{size9 | replace: 'x', 'w'}},
+                {{ 'EnergyAnimation_LandingPage.gif'  | file_img_url: size10 }} {{size10 | replace: 'x', 'w'}},
+                {{ 'EnergyAnimation_LandingPage.gif'  | file_img_url: size11 }} {{size11 | replace: 'x', 'w'}}"
+
+                 />
+  </div>
+  <div class="mm-moon-phase-section">
+    <div class="mm-nutrition-facts-container">
+      <img src="{{ 'EnergyShot_LandingPage-04.png' | file_img_url: '600x' }}" data-aos="fade-down" data-aos-easing="ease-out" data-aos-once="false" data-aos-delay="0" data-aos-duration="300"/>
+      <img src="{{ 'EnergyShot_LandingPage-05.png' | file_img_url: '600x' }}" data-aos="fade-down" data-aos-easing="ease-out" data-aos-once="false" data-aos-delay="50" data-aos-duration="300"/>
+      <img src="{{ 'EnergyShot_LandingPage-06.png' | file_img_url: '600x' }}" data-aos="fade-down" data-aos-easing="ease-out" data-aos-once="false" data-aos-delay="100" data-aos-duration="300"/>
+      <img src="{{ 'EnergyShot_LandingPage-03.png' | file_img_url: '600x' }}" data-aos="fade-down" data-aos-easing="ease-out" data-aos-once="false" data-aos-delay="150" data-aos-duration="300"/>
+      <img src="{{ 'EnergyShot_LandingPage-07.png' | file_img_url: '600x' }}" data-aos="fade-down" data-aos-easing="ease-out" data-aos-once="false" data-aos-delay="200" data-aos-duration="300"/>
+      <img src="{{ 'EnergyShot_LandingPage-08.png' | file_img_url: '600x' }}" data-aos="fade-down" data-aos-easing="ease-out" data-aos-once="false" data-aos-delay="250" data-aos-duration="300"/>
+    </div>
+  </div>
+  <div class="mm-ingredients-section">
+    <div class="mm-ingredient-blocks-wrapper">
+      <div class="mm-ingredient-block">
+        <div class="mm-ingredient-wrapper">
+        	<img src="{{ 'energy_Callout_1.png' | file_img_url: '600x' }}"/>
+        </div>
+        <h4 class="block-title">Alpha GPC &amp; Coffeeberry&reg; Energy</h4>
+        <p>Helps to promote mental sharpness &amp; give an extra oopmh to your day.**</p>
+      </div>
+      <div class="mm-ingredient-block">
+        <div class="mm-ingredient-wrapper">
+        	<img src="{{ 'energy_Callout_2.png' | file_img_url: '600x' }}"/>
+        </div>
+        <h4 class="block-title">Collagen Peptides</h4>
+        <p>Each serving contains 7g of collagen peptides plus functional ingredients to help boost your overall wellness routine.**</p>
+      </div>
+      <div class="mm-ingredient-block">
+        <div class="mm-ingredient-wrapper">
+        	<img src="{{ 'energy_Callout_3.png' | file_img_url: '600x' }}"/>
+        </div>
+        <h4 class="block-title">Hyaluronic Acid &amp; Electrolytes</h4>
+        <p>Functional ingredients to help keep you going (and going, and going...).**</p>
+      </div>
+    </div>
+  </div>
+  <div class="mm-lively-section">
+    <div class="mm-lively-inner">
+      <h5 class="mm-lively-title">Learn More from Lively</h5>
+      <div class="mm-lively-articles-wrapper">
+        {% assign article1 = articles['stay-vital/energy-collagen-shot'] %}
+        <a href="{{ article1.url }}" class="mm-lively-article-container">
+          <div class="mm-lively-article-image-container" style="background-image: url('{{ article1.image | img_url: '800x' }}');"></div>
+          <h6 class="mm-lively-article-title">{{ article1.title }}</h6>
+        </a>
+        {% assign article1 = articles['stay-vital/what-is-hyaluronic-acid'] %}
+        <a href="{{ article1.url }}" class="mm-lively-article-container">
+          <div class="mm-lively-article-image-container" style="background-image: url('{{ 'energy_blog_2.jpg'| file_img_url: '800x' }}');"></div>
+          <h6 class="mm-lively-article-title">{{ article1.title }}</h6>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

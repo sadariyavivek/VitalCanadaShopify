@@ -1,0 +1,75 @@
+{% assign cart_has_subscription_item = false %}
+{% for i in cart.items %}
+	{% for p in i.properties %}
+		{% if p.first == 'shipping_interval_frequency' %}
+			{% assign cart_has_subscription_item = true %}
+		{% endif %}
+	{% endfor %}
+{% endfor %}
+<div class="cart-redesign-wrapper">
+{% if cart.item_count == 0 %}
+    <div class="empty-cart-container animated fadeIn">
+        <p class="no-products-yet">Your cart is empty!</p>
+        <img class="no-products-icon" alt="Shopping Cart Icon" src='{{ "Bag_iconx2.png" | file_img_url: '200x' }}'/>
+        <a class="continue-shopping-button" href="/collections/collagen">Continue Shopping</a>
+    </div>
+{% else %}
+    <div class="product-list-section">
+        <div>
+            <a href="/" class="continue-shopping-link"><i class="fas fa-chevron-left"></i>Continue Shopping</a>
+        </div>
+        <h1 class="cart-title">Review Order</h1>
+        <hr class="cart-title-divider"/>
+        <div class="product-list">
+            {% for item in cart.items %}
+                {% render 'cart-line-item', item: item, lineIndex: forloop.index %}
+            {% endfor %}
+        </div>
+        <hr class="subscription-reminder-divider"/>
+        <div class="subscription-reminder">
+            <p class="icon-list-header">With subscription, you will receive:</p>
+            <div class="icon-list">
+                <span class="icon-list-item"><i class="fal fa-truck"></i> Free Shipping</span>
+                <span class="icon-list-item"><i class="fal fa-gift"></i> Free samples</span>
+                <span class="icon-list-item"><i class="fal fa-tag"></i> Cancel any time</span>
+                <span class="icon-list-item"><i class="fal fa-times-circle"></i> 25% discount</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="summary-section">
+        <h2 class="summary-header">Summary</h2>
+        <hr class="summary-divider"/>
+        <div class="subtotal-section">
+            <span>Subtotal:</span>
+            <span>{{ cart.items_subtotal_price | money }}</span>
+        </div>
+        <div class="subtotal-section">
+            <span>Shipping:</span>
+            <span>Calculated at checkout</span>
+        </div>
+        <div class="subtotal-section">
+            <span>Taxes:</span>
+            <span>Calculated at checkout</span>
+        </div>
+      	<div class="subtotal-section">
+            <span>Discounts:</span>
+            <span>Calculated at checkout</span>
+        </div>
+        <hr class="summary-divider"/>
+        <div class="total-section">
+            <span>Estimated Total:</span>
+            <span>{{ cart.total_price | money }}</span>
+        </div>
+        <div>
+            <form action="/checkout" method="post" id="cart_form_new" class="{% if cart_has_subscription_item == true %}subscription_checkout{% endif %}">
+                <button type="submit" class="proceed-to-checkout">Proceed To Checkout</button>
+                <span class="toc-desktop">By clicking "Proceed to Checkout" and submitting this order, you agree to <a href="https://www.vitalproteins.com/pages/terms-conditions">Vital Proteins Terms of Use and Privacy Policy</a></span>
+            </form>
+        </div>
+    </div>
+    <div class="toc-section">
+        <p>By clicking "Proceed to Checkout" and submitting this order, you agree to <a href="https://www.vitalproteins.com/pages/terms-conditions">Vital Proteins Terms of Use and Privacy Policy.</a></p>
+    </div>
+{% endif %}
+</div>

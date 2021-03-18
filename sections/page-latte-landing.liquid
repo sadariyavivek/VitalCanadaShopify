@@ -1,0 +1,573 @@
+<style>
+  .container.main.content {
+    display: none;
+  }
+  
+  .collagen-latte-landing-page-container {
+    text-align: center;
+  }
+  
+  .collagen-latte-landing-page-container h2, h3 {
+    color: #fe9415;
+  }
+  
+  .collagen-latte-landing-page-container h3 {
+  	font-size: 48px;
+  }
+  
+  .cl-hero-image {
+    /*background-image: url('{{ section.settings.hero_image_desktop | img_url: '1800x' }}');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;*/
+    display: block;
+  }
+  
+  .cl-hero-image h2 {
+    padding-top: 160px;
+    padding-bottom: 160px;
+    text-align: left;
+    font-size: 60px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding-left: 40px;
+    text-transform: none;
+  }
+  
+  .cl-sub-hero-callout {
+    /*background-color: #ffc629;*/
+    color: white;
+    background: url('https://cdn.shopify.com/s/files/1/2074/9385/files/Header_Banner.png?15610');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .cl-sub-hero-callout p {
+    font-size: 24px;
+    margin-bottom: 0;
+    padding-bottom: 10px;
+  }
+  
+  .cl-banner-container {
+    background-color: #ffc629;
+    margin-bottom: 40px;
+  }
+  
+  .cl-banner-container h3 {
+    color: white;
+    letter-spacing: 1px !important;
+    font-size: 60px
+  }
+  
+  .cl-banner-container p {
+    color: white;
+    font-size: 18px;
+  }
+  
+  .cl-banner-text-container {
+    padding-left: 10%;
+    width: 50%;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  
+  .cl-banner-image-container {
+    position: relative;
+  }
+  
+  .cl-banner-image-container img {
+    position: absolute;
+    right: 0;
+    top: -337px;
+    width: 530px;
+  }
+  
+  .cl-sub-hero-container {
+    margin-bottom: 40px;
+  }
+  
+  .cl-product-section {
+    margin-top: 40px;
+  }
+  
+  .cl-sourcing-section {
+    margin-bottom: 40px;
+    margin-top: 40px;
+  }
+  
+  .cl-sourcing-section h3 {
+    color: #fe9415;
+  }
+  
+  .sourcing-inner-container {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .cl-bovine-section {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .cl-chicken-section {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .badge-container {
+    width: 40%;
+  }
+  
+  .flavor-container {
+    width: 60%;
+    text-align: left;
+  }
+  
+  .badge-container img {
+    width: 50%;
+  }
+  
+  .dot-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .dot-container p {
+    margin-top: 0;
+    margin-bottom: 0;
+    display: inline-block;
+    margin-left: 10px;
+    font-family: 'kapraregular';
+    font-size: 21px;
+    letter-spacing: 1px;
+  }
+  
+  .color-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    background-color: #23b6e6;
+    display: inline-block;
+  }
+  
+  .color-dot.cocoa {
+    background-color: #623726;
+  }
+  
+  .color-dot.vanilla {
+    background-color: #fdc806;
+  }
+  
+  .color-dot.caramel {
+    background-color: #fb9207;
+  }
+  
+  .color-dot.golden-milk {
+    background-color: #fcae04;
+  }
+  
+    .color-dot.cherry {
+    background-color: #f74b47;
+  }
+  
+  .cl-ingredients-section {
+    background-color: #ffc629;
+  }
+  
+  .cl-ingredients-outer-container {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .cl-ingredient-container {
+    width: 33%;
+    text-align: center;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  
+  .cl-ingredient-container img {
+    width: 100%;
+  }
+  
+  .cl-ingredient-container h4 {
+    color: #fe9415;
+    text-transform: uppercase;
+    font-size: 28px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  
+  .cl-ingredient-container hr {
+    margin-top: 0;
+    border-color: #fe9415;
+    border-width: 2px;
+  }
+  
+  .pattern-background-half img {
+    width: 45%;
+    text-align: left;
+    display: block;
+    margin-bottom: 40px;
+  }
+  
+  .cl-blog-article-outer-container {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .cl-blog-article-container {
+    width: 33%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .cl-blog-article-container img {
+    border-radius: 20px;
+    width: 100%;
+    transition: 1s all cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  
+  .cl-blog-article-container h4 {
+    color: #fe9415;
+    letter-spacing: 1px !important;
+    font-size: 32px;
+    transition: .3s opacity ease-out;
+  }
+  
+  .cl-blog-article-container a:hover img {
+    transform: scale(1.02);
+  }
+  
+  .cl-blog-article-container a:hover h4 {
+    opacity: 0.7;
+  }
+  
+  @media screen and (max-width: 800px) {
+    .collagen-latte-landing-page-container {
+      margin-top: 120px;
+    }
+    
+    .cl-hero-image {
+      /*background-image: url('{{ section.settings.hero_image_desktop | img_url: '1200x' }}');*/
+    }
+    
+    .cl-hero-image h2 {
+      font-size: 48px;
+      margin-bottom: 0px;
+      margin-top: 0px;
+      padding-left: 20px;
+      padding-right: 20px;
+      text-align: center;
+      line-height: 48px;
+      background-color: rgba(255,255,255,0.5);
+    }
+    .cl-sub-hero-callout p {
+      padding-bottom: 40px;
+      padding-left: 10px;
+      padding-right: 10px;
+      font-size: 18px;
+    }
+    
+    .cl-banner-text-container {
+        padding-left: 20px;
+    	padding-right: 20px;
+    	width: 100%;
+      	padding-top: 20px;
+    	padding-bottom: 20px;
+    }
+    
+    .cl-banner-text-container h3 {
+      font-size: 36px;
+    }
+    
+    .cl-banner-image-container {
+      display: none;
+    }
+    
+    .container.sourcing-inner-container {
+      flex-direction: column;
+    }
+    
+    .cl-bovine-section {
+      width: 100%;
+    }
+    
+    .cl-chicken-section {
+      width: 100%;
+      margin-top: 20px;
+    }
+    
+    .cl-ingredients-outer-container {
+      flex-direction: column;
+    }
+    
+    .cl-ingredient-container {
+      	width: 60%;
+    	margin-left: auto;
+    	margin-right: auto;
+    }
+    
+    .cl-blog-article-outer-container {
+      flex-direction: column;
+    }
+    
+    .cl-blog-article-container {
+      	width: 75%;
+    	margin-left: auto;
+    	margin-right: auto;
+    }
+    
+    .pattern-background-half img {
+      width: 100%;
+    }
+  }
+  
+</style>
+<div class="collagen-latte-landing-page-container">
+  <div class="cl-hero-image">
+    <img style="width: 100%; display: block;" src="{{ section.settings.hero_image_desktop | img_url: '1800x' }}"/>
+    <!--<h2>{{ section.settings.hero_text }}</h2>-->
+  </div>
+  <div class="cl-sub-hero-container">
+    <div class="container cl-sub-hero-callout">
+      <p>{{ section.settings.sub_hero_text }}</p>
+    </div>
+  </div>
+  <div class="container cl-product-section">
+    
+    {% assign limit = 6 %}
+    {% assign collection = collections['collagen-lattes'] %}
+    {% assign products = collections['collagen-lattes'].products %}
+    {% assign products_per_row = 4 %}
+   
+    {% include 'product-loop' %}
+  </div>
+  <div class="cl-banner-container">
+    <div class="cl-banner-text-container">
+    	<h3>{{ section.settings.banner_header_text }}</h3>
+    	<p>{{ section.settings.banner_sub_text }}</p>
+    </div>
+    <div class="cl-banner-image-container">
+      <img src="{{ 'CollagenLatte_LP_Assets_CCA-02.png' | file_img_url: '800x' }}"/>
+    </div>
+  </div>
+  <div class="cl-sourcing-section">
+    <h3>{{ section.settings.sourcing_header }}</h3>
+    <div class="container sourcing-inner-container">
+      <div class="cl-bovine-section">
+        <div class="badge-container">
+          <img src="{{ section.settings.bovine_badge_image | img_url: '800x' }}"/>
+        </div>
+        <div class="flavor-container">
+          <p>Organic grass-fed, pasture-raised bovine</p>
+          <div class="dot-container"><span class="color-dot cocoa"></span><p>HOT COCOA</p></div>
+          <div class="dot-container"><span class="color-dot vanilla"></span><p>MADAGASCAR VANILLA</p></div>
+          <div class="dot-container"><span class="color-dot caramel"></span><p>COCOA CARAMEL</p></div>
+          <div class="dot-container"><span class="color-dot cherry"></span><p>CHOCOLATE CHERRY ALMOND</p></div>
+        </div>
+      </div>
+      <div class="cl-chicken-section">
+        <div class="badge-container">
+          <img src="{{ section.settings.chicken_badge_image | img_url: '800x' }}"/>
+        </div>
+        <div class="flavor-container">
+          <p>Organic free-range chickens</p>
+          <div class="dot-container"><span class="color-dot golden-milk"></span><p>GOLDEN MILK</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cl-ingredients-section">
+    <div class="container cl-ingredients-outer-container">
+      <div class="cl-ingredient-container">
+        <img src="{{ section.settings.ingredient_image_1 | img_url: '800x' }}" alt="{{ section.settings.ingredient_header_1 }}"/>
+        <h4>{{ section.settings.ingredient_header_1 }}</h4>
+        <hr>
+        <p>{{ section.settings.ingredient_sub_text_1 }}</p>
+      </div>
+      <div class="cl-ingredient-container">
+        <img src="{{ section.settings.ingredient_image_2 | img_url: '800x' }}" alt="{{ section.settings.ingredient_header_2 }}"/>
+        <h4>{{ section.settings.ingredient_header_2 }}</h4>
+        <hr>
+        <p>{{ section.settings.ingredient_sub_text_2 }}</p>
+      </div>
+      <div class="cl-ingredient-container">
+        <img src="{{ section.settings.ingredient_image_3 | img_url: '800x' }}" alt="{{ section.settings.ingredient_header_3 }}"/>
+        <h4>{{ section.settings.ingredient_header_3 }}</h4>
+        <hr>
+        <p>{{ section.settings.ingredient_sub_text_3 }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="pattern-background-half">
+    <img src="https://cdn.shopify.com/s/files/1/2074/9385/files/Ingredients_Pattern.png?15466" />
+  </div>
+  <div class="cl-recipes-section">
+    <h3>latte loving recipes</h3>
+    <div class="container cl-blog-article-outer-container">
+      <div class="cl-blog-article-container">
+        <a href="https://www.vitalproteins.com/blogs/recipes/iced-cocoa-caramel-latte">
+          <img src="{{ section.settings.blog_image_1 | img_url: '600x', format: 'jpg' }}" alt="Iced Cocoa Caramel Latte"/>
+          <h4>Iced Cocoa Caramel Latte</h4>
+        </a>
+      </div>
+      <div class="cl-blog-article-container">
+        <a href="https://www.vitalproteins.com/blogs/stay-vital/bone-broth-collagen-lattes">
+          <img src="{{ section.settings.blog_image_2 | img_url: '600x', format: 'jpg' }}" alt="Golden Milk &amp; Hot Cocoa Lattes"/>
+          <h4>Golden Milk &amp; Hot Cocoa Lattes</h4>
+        </a>
+      </div>
+      <div class="cl-blog-article-container">
+        <a href="https://www.vitalproteins.com/blogs/recipes/cocoa-latte-recipe">
+          <img src="{{ section.settings.blog_image_3 | img_url: '600x', format: 'jpg' }}" alt="Cinnamon Cocoa Latte"/>
+          <h4>Cinnamon Cocoa Latte</h4>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Collagen Latte Landing",
+    "settings": [
+		{
+          "type": "image_picker",
+          "id": "hero_image_desktop",
+          "label": "Hero image desktop"
+        },
+		{
+          "type": "text",
+          "id": "hero_text",
+          "label": "Hero Text",
+		  "default": "meet your new Collagen Lattes"
+        },
+		{
+          "type": "text",
+          "id": "sub_hero_text",
+          "label": "Sub-Hero Text",
+		  "default": "A delicious dairy-free collagen latte featuring bone broth, organic ashwagandha and MCTs."
+        },
+		{
+          "type": "text",
+          "id": "banner_header_text",
+          "label": "Banner Header Text",
+		  "default": "Sippable wellness, over ice."
+        },
+		{
+          "type": "textarea",
+          "id": "banner_sub_text",
+          "label": "Banner Secondary Text",
+		  "default": "With 10g of collagen, purpose-driven, functional ingredients, and 1g of sugar, there are a latte reasons to start sipping."
+        },
+		{
+          "type": "text",
+          "id": "sourcing_header",
+          "label": "Sourcing Section Header Text",
+		  "default": "10g of collagen sourced from"
+        },
+		{
+          "type": "image_picker",
+          "id": "bovine_badge_image",
+          "label": "Bovine Badge Image"
+        },
+		{
+          "type": "image_picker",
+          "id": "chicken_badge_image",
+          "label": "Chicken Badge Image"
+        },
+		{
+          "type": "image_picker",
+          "id": "ingredient_image_1",
+          "label": "Ingredient Image 1"
+        },
+		{
+          "type": "text",
+          "id": "ingredient_header_1",
+          "label": "Ingredient Header Text 1",
+		  "default": "Ashwagandha"
+        },
+		{
+          "type": "textarea",
+          "id": "ingredient_sub_text_1",
+          "label": "Ingredient Body Text 1",
+		  "default": "Helps promote a healthy response to stress and supports normal levels of mental clarity."
+		},
+		{
+          "type": "image_picker",
+          "id": "ingredient_image_2",
+          "label": "Ingredient Image 2"
+        },
+		{
+          "type": "text",
+          "id": "ingredient_header_2",
+          "label": "Ingredient Header Text 2",
+		  "default": "MCTS"
+        },
+		{
+          "type": "textarea",
+          "id": "ingredient_sub_text_2",
+          "label": "Ingredient Body Text 2",
+		  "default": "Naturally-occuring in coconut milk powder. Great for energy-boosting benefits."
+		},
+		{
+          "type": "image_picker",
+          "id": "ingredient_image_3",
+          "label": "Ingredient Image 3"
+        },
+		{
+          "type": "text",
+          "id": "ingredient_header_3",
+          "label": "Ingredient Header Text 3",
+		  "default": "1G OF SUGAR"
+        },
+		{
+          "type": "textarea",
+          "id": "ingredient_sub_text_3",
+          "label": "Ingredient Body Text 3",
+		  "default": "From real, whole-food ingredients."
+		},
+		{
+          "type": "image_picker",
+          "id": "blog_image_1",
+          "label": "Blog Image 1"
+        },
+		{
+          "type": "image_picker",
+          "id": "blog_image_2",
+          "label": "Blog Image 2"
+        },
+		{
+          "type": "image_picker",
+          "id": "blog_image_3",
+          "label": "Blog Image 3"
+        },
+		{
+           "type": "article",
+           "id": "blog_post_1",
+           "label": "Blog Post 1"
+        },
+		{
+           "type": "article",
+           "id": "blog_post_2",
+           "label": "Blog Post 2"
+        },
+		{
+           "type": "article",
+           "id": "blog_post_3",
+           "label": "Blog Post 3"
+        }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

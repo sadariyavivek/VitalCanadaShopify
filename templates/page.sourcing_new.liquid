@@ -1,0 +1,291 @@
+<a name="pagecontent" id="pagecontent"></a>
+
+</div>
+<div class="sourcing-intro-banner">
+  <h1>Collagen Commitment: Ingredient Transparency.</h1>
+  <p>At Vital Proteins, ingredient transparency is the foundation on which our product collection is built. Vital Proteins makes every effort to source all ingredients used in our products with minimal environmental impact, including two of our flagship products: Collagen Peptides and Marine Collagen.</p>
+</div>
+<div class="sourcing-video-section-wrapper">
+  <div class="new-container sourcing-video-section">
+    <div class="info-container">
+      <h2>our sourcing story</h2>
+      <p>Hear what Vital Proteins founder &amp; CEO, Kurt Seidensticker, has to say about our best-selling Collagen Peptides.</p>
+    </div>
+    <div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/dVmyLKepGl8?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe></div>
+  </div>
+</div>
+<div class="vital-difference-section">
+  <h3>the vital difference</h3>
+  <div class="block-section">
+    <div class="block-container">
+      <div class="block-heading"><h4>Transparency</h4></div>
+      <div class="block-body"><p>We believe our customers deserve the highest-quality ingredients, and to know where the come from, how they’re made and why.</p></div>
+    </div>
+    <div class="block-container">
+      <div class="block-heading"><h4>Quality</h4></div>
+      <div class="block-body"><p>We’re committed to creating premium, collagen-based products made with simple, whole food-based ingredients that help nourish those seeking a full, vibrant life.</p></div>
+    </div>
+    <div class="block-container">
+      <div class="block-heading"><h4>Clean Labels</h4></div>
+      <div class="block-body"><p>We don’t include any artificial ingredients, binders or sweeteners in any of our products. Rather, our products are made with real food ingredients that consumers can recognize.</p></div>
+    </div>
+  </div>
+</div>
+<div class="container featured-favorites-section">
+  <h4>featured favorites</h4>
+    {% assign limit = 4 %}
+    {% assign collection = collections['sustainability'] %}
+    {% assign products = collection.products %}
+    {% assign products_per_row = 3 %}
+    {% include 'product-loop' %}
+</div>
+<div class="sourcing-footer">
+  <p>“there’s nothing more important than one’s health, and we believe the body needs and deserves high-quality building blocks for life’s adventures”</p>
+  <div class="image-angled"></div>
+</div>
+<style>
+  .main.content {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .new-container {
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .sourcing-intro-banner {
+    background-color: #6bdad5;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  
+  .sourcing-intro-banner h1 {
+    color: white;
+    font-size: 90px;
+    letter-spacing: 1px !important;
+    text-transform: none;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: initial;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .sourcing-intro-banner p {
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    max-width: 1400px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .sourcing-video-section-wrapper {
+    background-color: #e1f8f7;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  
+  .sourcing-video-section {
+    display: flex;
+    align-items: center;
+    
+  }
+  
+  .sourcing-video-section .info-container {
+    width: 50%;
+    text-align: left;
+  }
+  
+  .sourcing-video-section .video-container {
+    width: 50%;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  
+  .sourcing-video-section h2 {
+    color: #23b6e6;
+    font-size: 90px;
+    letter-spacing: 1px !important;
+    text-transform: none;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-top: 0;
+  }
+  
+  .sourcing-video-section .info-container p {
+    font-weight: bold;
+    font-size: 24px;
+    color: #595a5c;
+  }
+  
+  .vital-difference-section {
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .vital-difference-section h3 {
+    color: #23b6e6;
+    font-size: 90px;
+    letter-spacing: 1px !important;
+    text-transform: none;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  
+  .block-section {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .block-container {
+    width: 30%;
+    box-shadow: 4px 8px 12px rgb(35, 182, 230, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 40px;
+  }
+  
+  .block-heading {
+    background-color: #ffbb22;
+  }
+  
+  .block-heading h4 {
+    margin-bottom: 0;
+    color: white;
+    text-transform: uppercase;
+    font-size: 48px;
+  }
+  
+  .block-body {
+    background-color: #ffcd69;
+  }
+  
+  .block-body p {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 20px;
+    height: 300px;
+    margin-bottom: 0;
+  }
+  
+  .featured-favorites-section h4 {
+    color: #23b6e6;
+    font-size: 90px;
+    letter-spacing: 1px !important;
+    text-transform: none;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  
+  .sourcing-footer {
+    background-color: #6bdad5;
+    position: relative;
+  }
+  
+  .sourcing-footer p {
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+    max-width: 70%;
+    margin-bottom: 0;
+    padding: 80px;
+  }
+  
+  .sourcing-footer .image-angled {
+    position: absolute;
+    height: 100%;
+    width: 30%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    clip-path: polygon(100% 0, 100% 100%, 10% 100%, 0 0%);
+    background-image: url({{ 'VP_WEBSITE_SOURCING_Image.jpg' | file_img_url: '800x' }});
+    background-position: 50%;
+    background-size: cover;
+  }
+  
+  @media only screen and (max-width: 1200px) {
+    .block-body p {
+      height: 360px;
+      font-size: 21px;
+    }
+  }
+  
+  @media only screen and (max-width: 800px) {
+    .sourcing-intro-banner h1 {
+      font-size: 48px;
+    }
+    
+    .sourcing-video-section {
+      flex-direction: column;
+    }
+    
+    .sourcing-video-section .info-container {
+      width: 100%;
+      text-align: center;
+    }
+    
+    .sourcing-video-section .video-container {
+      width: 100%;
+    }
+    
+    .sourcing-video-section h2 {
+      font-size: 48px;
+    }
+    
+    .vital-difference-section h3 {
+      font-size: 48px;
+    }
+    
+    .block-section {
+      flex-direction: column;
+    }
+    
+    .block-container {
+      width: 100%;
+    }
+    
+    .block-body p {
+      height: 240px;
+      font-size: 21px;
+    }
+    
+    .featured-favorites-section h4 {
+      font-size: 48px;
+    }
+    
+    .sourcing-footer p {
+      max-width: 100%;
+      font-size: 24px;
+      text-align: center;
+    }
+    
+    .image-angled {
+      display: none;
+    }
+  }
+</style>

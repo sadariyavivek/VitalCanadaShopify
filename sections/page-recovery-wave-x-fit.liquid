@@ -1,0 +1,655 @@
+{% assign slateColor = '#565a5b' %}
+{% assign orangeColor = '#f9b700' %}
+{% assign pinkColor = '#f82a7a' %}
+{% assign darkGrayColor = '#a1a4a6' %}
+{% assign lightGrayColor = '#bec0c0' %}
+{% assign blueColor = '#23b6e6' %}
+
+<style>
+  .container.main.content {
+    padding: 0;
+  }
+  
+  .intro-section {
+    background-color: {{ slateColor }};
+    box-shadow: 0px 20px 20px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .lifting-man {
+    position: absolute;
+    top: 0;
+    left: 12%;
+    bottom: 0;
+    width: auto;
+    height: 100%;
+  }
+  
+  .fighting-woman {
+    position: absolute;
+    top: 5%;
+    right: 12%;
+    bottom: 0;
+    width: auto;
+    height: 90%;
+  }
+  
+  .top-wave {
+    position: absolute;
+   	right: 0;
+    left: 0;
+    bottom: 0px;
+    width: 200%;
+    height: 60%;
+  }
+  
+  .top-wave.first {
+    background-image: url('{{ 'top_wave_final_fixed_2.png' | file_img_url: '1600x'}}');
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    transform-origin: center bottom;
+    background-size: 50% 100%;
+    animation: move_wave_less 8s  cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+  }
+  
+  .top-wave.second {
+    bottom: 35%;
+	height: 10%;
+    background-image: url('{{ 'Top_wave_2_new.png' | file_img_url: 'master'}}');
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    transform-origin: center bottom;
+    background-size: 50% 100%;
+      animation: move_wave 12s  cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+  }
+  
+  .top-wave.third {
+    height: 10%;
+    bottom: 38%;
+    background-image: url('{{ 'Top_wave_3_new.png' | file_img_url: 'master'}}');
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    transform-origin: center bottom;
+    background-size: 50% 100%;
+      animation: move_wave 12s  cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+  }
+  
+  .main-product-loop-container {
+    margin-top: 60px !important;
+    margin-bottom: 120px !important;
+  }
+  
+  .intro-logo-container {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 400px;
+    position: relative;
+  }
+  
+  .intro-logo-container img {
+    width: 100%;
+  }
+  
+  .intro-text-section {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 40%;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    position: relative;
+    
+  }
+  
+  .intro-text-section h4 {
+    color: {{ orangeColor }};
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    font-style: italic;
+    font-size: 60px;
+    margin-bottom: 0;
+  }
+  
+  .intro-text-section p {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: initial;
+  }
+  
+  .cta-section {
+   /* background-size: cover;
+    background-position: 50%;
+    background-image: url('{{ 'VITAL_PERFORMANCE_Background_Texture.jpg' | file_img_url: '1400x' }}');*/
+    padding-bottom: 240px;
+    padding-top: 120px;
+  }
+  
+  .cta-section .product-container {
+    max-width: 900px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 80px;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  
+  .cta-section .product-container .cta-text-container {
+    width: 60%;
+  }
+  
+  .cta-section .product-container .product-title {
+    text-transform: none;
+    color: white;
+    text-align: center;
+    font-size: 60px;
+    font-style: italic;
+    letter-spacing: 0 !important;
+    margin-bottom: 0;
+    line-height: initial;
+  }
+  
+  .cta-section .product-container .product-price {
+    color: {{ blueColor }};
+    text-align: center;
+    font-size: 60px;
+    letter-spacing: 1px !important;
+  }
+  
+  .cta-section .product-container .image-container {
+  	width: 25%;
+    z-index: 2000;
+  }
+  
+  .cta-section .product-container .image-container.left {
+    position: relative;
+    right: -20px;
+  }
+  
+  .cta-section .product-container .image-container.right {
+    position: relative;
+    left: -20px;
+  }
+  .cta-section .product-container .image-container img {
+    width: 100%;
+    transform: scale(1.5);
+    z-index: 2000;
+  }
+  
+  .cta-section .product-title-container {
+    background-color: {{ blueColor }};
+    border-radius: 10px;
+    display: flex;
+    overflow: hidden;
+  }
+  
+ /* button.add_to_cart {
+  	transform: skew(-12deg);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 320px;
+    background-color: {{ slateColor }};
+    border: none;
+  }
+  
+  button.add_to_cart:hover {
+    opacity: 0.7;
+    background-color: {{ slateColor }};
+    border: 0;
+  }
+  
+  button.add_to_cart .text {
+    font-family: 'kapraregular';
+    color: white;
+    transform: skew(12deg);
+    text-transform: uppercase;
+    font-size: 36px;
+  }*/
+  
+  .product-title-container .color-block {
+    width: 10%;
+    background-color: {{ pinkColor }};
+  }
+  
+  .product-container.passion .product-title-container .color-block {
+    background-color: {{ orangeColor }};
+  }
+  
+  .product-title-container .text-block {
+    width: 90%;
+  }
+  
+  .product-title-container.skew-left {
+  	transform: skew(12deg);
+  }
+  
+  .product-title-container.skew-left .product-title {
+    transform: skew(-12deg);
+  }
+  
+  .product-title-container.skew-right {
+    transform: skew(-12deg);
+  }
+  
+  .product-title-container.skew-right .product-title {
+    transform: skew(12deg);
+  }
+  
+  .fact-tags-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .fact-tags-container .tag-wrapper {
+    background-image: linear-gradient(to right, {{ lightGrayColor }}, {{ darkGrayColor }}, {{ lightGrayColor }}, {{ darkGrayColor }}, {{ lightGrayColor }}); 
+	margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    transform: skew(-20deg);
+    border-radius: 8px;
+  }
+  
+  .fact-tags-container span {
+    color: {{ slateColor }};
+    font-family: 'kapraregular';
+    font-style: italic;
+    font-size: 60px;
+    transform: skew(20deg);
+    display: inline-block;
+    padding: 30px 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .education-section {
+    background-color: {{ slateColor }};
+    padding-top: 40px;
+    padding-bottom: 40px;
+    box-shadow: 0px -20px 40px rgba(0,0,0,0.2);
+  }
+  
+  .education-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .education-text-container {
+    width: 50%;
+    padding-left: 80px;
+    padding-right: 40px;
+    padding-bottom: 60px;
+  }
+  
+  .education-image-container {
+    width: 50%;
+    position: relative;
+  }
+  
+  .education-image-container.overlap-container {
+    margin-bottom: -240px;
+  }
+  
+  .education-image-container img {
+    width: 100%;
+  }
+  
+  .education-image-container img.overlap {
+    position: relative;
+    top: -240px;
+    right: 0;
+  }
+  
+  .education-text-container h4 {
+    color: {{ blueColor }};
+    font-family: 'kapraregular';
+    text-transform: none;
+    letter-spacing: 1px;
+    letter-spacing: 0 !important;
+    font-size: 48px;
+  }
+  
+  .education-text-container p {
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: initial;
+    width: 90%;
+  }
+  
+  .icon-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    background-image: linear-gradient(to right, {{ lightGrayColor }}, {{ darkGrayColor }}, {{ lightGrayColor }}, {{ darkGrayColor }}, {{ lightGrayColor }}); 
+  	padding: 40px;
+  }
+  
+  .icon-image-container {
+    width: 12.5%;
+  }
+  
+  .icon-image-container img {
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .wave-section {
+    height: 340px;
+    background-size: cover;
+    background-position: 50%;
+    background-image: url('{{ 'VITAL_PERFORMANCE_Background_Texture.jpg' | file_img_url: '1400x' }}');
+    position: relative;
+      overflow: hidden;
+      width: 100%;
+  
+  }
+  
+  .bottom-wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 200%;
+  }
+  
+  .bottom-wave.first {
+    height: 60%;
+    background-image: url('{{ 'Bottom_wave_1_new.png' | file_img_url: '1600x'}}');
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    transform-origin: center top;
+    background-size: 50% 100%;
+      
+      animation: move_wave 12s  cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+  }
+  
+  .bottom-wave.second {
+    height: 70%;
+    background-image: url('{{ 'Bottom_wave_2_new.png' | file_img_url: '1600x'}}');
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    transform-origin: center top;
+    background-size: 50% 100%;
+      
+     animation: move_wave 8s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+  }
+  
+  .bottom-wave.third {
+    height: 80%;
+    background-image: url('{{ 'Bottom_wave_3_new.png' | file_img_url: '1600x'}}');
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    transform-origin: center top;
+    background-size: 50% 100%;
+      
+    animation: move_wave 10s  cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+  }
+  
+  @keyframes move_wave {
+      0% {
+          transform: translateX(0) translateZ(0) scaleY(1)
+      }
+      50% {
+          transform: translateX(-25%) translateZ(0) scaleY(0.55)
+      }
+      100% {
+          transform: translateX(-50%) translateZ(0) scaleY(1)
+      }
+  }
+  
+  @keyframes move_wave_less {
+      0% {
+          transform: translateX(0) translateZ(0) scaleY(1)
+      }
+      50% {
+          transform: translateX(-25%) translateZ(0) scaleY(0.85)
+      }
+      100% {
+          transform: translateX(-50%) translateZ(0) scaleY(1)
+      }
+  }
+  
+  @media only screen and (max-width: 1300px) {
+    .lifting-man {
+      left: 0;
+    }
+    
+    .fighting-woman {
+      right: 0;
+    }
+    
+    .fact-tags-container span {
+      font-size: 36px;
+    }
+  }
+  
+  @media only screen and (max-width: 1200px) {
+    .education-image-container.overlap-container {
+      margin-bottom: -120px;
+    }
+  
+    .education-image-container img.overlap {
+      top: -120px;
+    }
+  }
+  
+  @media only screen and (max-width: 1000px) { 
+    .lifting-man {
+      display: none;
+    }
+    
+    .fighting-woman {
+      display: none;
+    }
+  }
+  
+  @media only screen and (max-width: 900px) {
+    
+    
+    .cta-section {
+      padding-bottom: 40px;
+    }
+    
+    .intro-text-section {
+      width: 90%;
+    }
+    
+    .intro-text-section h4 {
+      font-size: 48px;
+    }
+    
+    .icon-image-container {
+      width:25%;
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media only screen and (max-width: 800px) {
+    .education-container {
+      flex-direction: column;
+    }
+    
+    .education-text-container {
+      width: 100%;
+    }
+    
+    .education-image-container {
+      width: 100%;
+    }
+    
+    .education-image-container.overlap-container {
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+    
+    .education-image-container img.overlap {
+      top: 0;
+    }
+    
+    .education-container.image-right {
+      flex-direction: column-reverse;
+    }
+    
+    .cta-section .product-container .product-title {
+      font-size: 48px;
+    }
+  }
+  
+  @media only screen and (max-width: 500px) {
+    .intro-text-section h4 {
+      font-size: 36px;
+    }
+    
+    .product-container.guava {
+      flex-direction: column-reverse;
+    }
+    
+    .product-container.passion {
+      flex-direction: column;
+    }
+    
+    .cta-section .product-container .cta-text-container {
+      width: 100%;
+    }
+    
+    .cta-section .product-container .product-price {
+      margin-bottom: 0;
+    }
+    
+    .image-container {
+      left: 0 !important;
+      right: 0 !important;
+      width: 50% !important;;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      margin-bottom: 20px;
+    }
+    
+    .education-text-container {
+      padding-left: 20px;
+      padding-right: 20px;
+      text-align: center;
+    }
+    
+    .education-text-container h4 {
+      font-size: 36px;
+      line-height: initial;
+    }
+    
+    .education-text-container p {
+      width: 100%;
+    }
+  }
+</style>
+<div class="recovery-wave-main-container">
+  <div class="intro-section">
+    <img class="fighting-woman lazyload {{ settings.image_loading_style }}" alt="Woman Boxing" src="{{ 'VITAL_PERFORMANCE_Athlete_Behind_Wave.png' | file_img_url: '500x' }}"/>
+    <div class="top-wave first"></div>
+    <div class="intro-logo-container">
+      <img class="lazyload {{ settings.image_loading_style }}" src="{{ 'VITAL_PERFORMANCE_Product_Title.png' | file_img_url: '600x' }}" alt="Vital Proteins Performance RecoveryWAVE"/>
+    </div>
+    <div class="intro-text-section">
+      <h4>Collagen / EAA / BCAA</h4>
+      <p>Rehydrate, refuel &amp; recover after every workout with Vital Performance RecoveryWAVE, a first-of-its-kind support system for muscles and joints.</p>
+    </div>
+    <img class="lifting-man lazyload {{ settings.image_loading_style }}" alt="Man Lifting" src="{{ 'VITAL_PERFORMANCE_Athlete_Front_Wave_final.png' | file_img_url: '500x' }}"/>
+    
+    
+  </div>
+	{% assign limit = 20 %}
+  {% assign collection = collections['vital-performance-events'] %}
+  {% assign products = collection.products %}
+  {% assign products_per_row = 3 %}
+  <div class="container main-product-loop-container section-container" id="products-fwmy">
+    
+    <div class="">
+      {% include 'product-loop' %}
+    </div>
+  </div>
+  <div class="education-section">
+    <div class="education-container image-right">
+      <div class="education-text-container left">
+        <h4>What is RecoveryWAVE?</h4>
+        <p>Boasting powerhouse ingredients such as collagen peptides and full-spectrum amino acids, RecoveryWAVE is the first premium recovery product designed to help rebuild muscles and support healthy joints. It's time to conquer your post-workout recovery.</p>
+      </div>
+      <div class="education-image-container overlap-container">
+        <img class="overlap lazyload {{ settings.image_loading_style }}" src="{{ 'VP_WEBSITE_VITAL_PERFORMANCE_What_is_recovery_Image.png' | file_img_url: '1200x' }}" />
+      </div>
+    </div>
+    <div class="education-container image-left">
+      <div class="education-image-container">
+      	<img class="lazyload {{ settings.image_loading_style }}" src="{{ 'VP_WEBSITE_VITAL_PERFORMANCE_What_are_the_benefits_Image.png' | file_img_url: '1200x' }}" />
+      </div>
+      <div class="education-text-container right">
+        <h4>What are the benefits?</h4>
+        <p>Rehydrate after your workout with electrolytes, refuel with EAA and BCAA to support muscle protein synthesis, and recover with protein, collagen, and antioxidants (vitamin C, selenium, and zinc). Vital Performance contains no artificial sweeteners and is made without dairy, gluten or soy - it’s the perfect complement to your biggest fitness goals.</p>
+      </div>
+    </div>
+    <div class="education-container image-right">
+      <div class="education-text-container left">
+        <h4>Why BCAA?</h4>
+        <p>In order to maximize muscle protein and collagen synthesis, each serving includes 5g of branched-chain amino acids (BCAA) (2.8g of leucine), as well as glutamine, the most abundant amino acid in the body.</p>
+      </div>
+      <div class="education-image-container">
+        <img class="lazyload {{ settings.image_loading_style }}" src="{{ 'VP_WEBSITE_VITAL_PERFORMANCE_Why_BCAAs_Image.png' | file_img_url: '1200x' }}" />
+      </div>
+    </div>
+  </div>
+  <div class="icon-section">
+    <div class="icon-image-container">
+      <img class="lazyload {{ settings.image_loading_style }}" src="{{ 'VITAL_PERFORMANCE_Gluten_Free_Icon.png' | file_img_url: '400x' }}"/>
+    </div>
+    <div class="icon-image-container">
+      <img class="lazyload {{ settings.image_loading_style }}" src="{{ 'VITAL_PERFORMANCE_Dairy_Free_Icon.png' | file_img_url: '400x' }}"/>
+    </div>
+    <div class="icon-image-container">
+      <img class="lazyload {{ settings.image_loading_style }}" src="{{ 'VITAL_PERFORMANCE_Soy_Free_Icon.png' | file_img_url: '400x' }}"/>
+    </div>
+    <div class="icon-image-container">
+      <img class="lazyload {{ settings.image_loading_style }}" src="{{ 'VITAL_PERFORMANCE_No_Added_Sugars_Icon.png' | file_img_url: '400x' }}"/>
+    </div>
+    <div class="icon-image-container">
+      <img class="lazyload {{ settings.image_loading_style }}" src="{{ 'VITAL_PERFORMANCE_Taurine_and_Glutamine_Icon.png' | file_img_url: '400x' }}"/>
+    </div>
+    <div class="icon-image-container">
+      <img class="lazyload {{ settings.image_loading_style }}" src="{{ 'VITAL_PERFORMANCE_Zinc_and_Magnesium_Icon.png' | file_img_url: '400x' }}"/>
+    </div>
+    <div class="icon-image-container">
+      <img class="lazyload {{ settings.image_loading_style }}" src="{{ 'VITAL_PERFORMANCE_Electrolytes_Icon.png' | file_img_url: '400x' }}"/>
+    </div>
+    <div class="icon-image-container">
+      <img class="lazyload {{ settings.image_loading_style }}" src="{{ 'VITAL_PERFORMANCE_Vitamins_C_B2_B6_Icon.png' | file_img_url: '400x' }}"/>
+    </div>
+  </div>
+  <div class="wave-section">
+    <div class="bottom-wave first"></div>
+    <div class="bottom-wave second"></div>
+    <div class="bottom-wave third"></div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": []
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

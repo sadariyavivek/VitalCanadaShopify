@@ -1,0 +1,66 @@
+{% assign donationProduct = all_products['donation-primo-center'] %}
+<style>
+  .donation-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .donation-button {
+    border: 1px solid #23b6e6;
+    padding: 10px 20px;
+    font-family: 'kapraregular';
+    font-size: 21px;
+    color: #23b6e6;
+    border-radius: 10px;
+    transition: .2s all ease-out;
+    margin-bottom: 10px;
+    margin-left: 4px;
+    margin-right: 4px;
+  }
+  
+  .donation-button:hover {
+    color: white;
+    background: #23b6e6;
+  }
+  
+  .donation-button:focus {
+    outline: 2px solid gray;
+  }
+  
+  @media screen and (max-width: 800px) {
+    .donation-container {
+      justify-content: flex-start;
+      
+    }
+  }
+</style>
+<div class="donation-container">
+{% for variant in donationProduct.variants %}
+	{% if variant.sku != 'PRIMO1' %}
+    	<a class="donation-button" aria-label="Add {{ variant.title }} {{ donationProduct.title }} to bag." data-variant-id="{{variant.id}}" href="#">{{ variant.title }}</a>
+	{% endif %}
+{% endfor %}
+</div>
+<script>
+  $('.donation-button').click(function(e) {
+    e.preventDefault();
+    
+    var variantID = $(this).data("variant-id");
+    console.log(variantID);
+    $.ajax({
+      url:'/cart/add.js',
+      method:'POST',
+      dataType:'json',
+      data:{
+        quantity:1,
+        id: variantID
+      }
+    }).then(function(data){
+      location.href = '/cart';
+    });
+  });
+</script>

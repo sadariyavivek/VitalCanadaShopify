@@ -1,0 +1,430 @@
+<style>
+  .all-offers-container {
+    padding-top: 80px !important;
+  }
+  
+  .all-offers-container a:focus {
+    outline: 2px solid gray;
+  }
+  
+  .header-banner-container {
+    position: relative;
+    /*padding-top: calc(100vw / {{section.settings.banner_image.aspect_ratio}});*/
+    width: 100%;
+  }
+  
+  .header-banner-container .header-no-image {
+    text-align: center;
+    color: #23b6e6;
+    font-size: 72px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  .banner-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    z-index: 40;
+    background-color: rgba(0,0,0,0.1);
+  }
+  
+  .banner-text-wrapper {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+  
+  .banner-text-wrapper h2 {
+    font-size: 72px;
+    color: white;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+  
+  .banner-text-wrapper p {
+    font-size: 24px;
+    color: white;
+  }
+  .banner-background-image {
+
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+  
+  .featured-offer-container {
+    margin-bottom: 80px;
+    /*margin-top: 80px;*/
+  }
+  
+  .offer-container {
+    display: flex;
+    flex: 1;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 80px;
+  }
+  
+  .offer-container.reverse {
+    flex-direction: row-reverse;
+  }
+  
+  .offer-image-container {
+    flex: 0.5;
+    align-self: flex-start;
+  }
+  
+  .offer-image-container img {
+    border-radius: 20px;
+    width: 100%;
+  }
+  
+  .offer-text-container {
+    flex: 0.5;
+    text-align: center;
+    padding: 20px;
+    align-self: flex-start;
+  }
+  
+  .offer-text-container h3 {
+    letter-spacing: 0 !important;
+    font-size: 36px;
+  }
+  
+  .offer-text-container p {
+    margin-bottom: 40px;
+  }
+  
+  .offer-text-container .main-cta {
+    background-color: #23b6e6;
+    font-family: 'kapraregular';
+    font-size: 36px;
+    text-transform: uppercase;
+    border-radius: 10px;
+    padding: 4px 40px;
+    color: white;
+    max-width: 240px !important;
+    border: 1px solid #23b6e6;
+    transition: .25s all ease-in-out;
+  }
+  
+  .offer-text-container .main-cta:hover {
+    background-color: white;
+    color: #23b6e6;
+  }
+  
+  .offer-disclaimer-container {
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  .offer-disclaimer-container .conspire-drawer-header {
+    font-size: 24px;
+    letter-spacing: 0 !important;
+    font-family: 'kapraregular';
+    color: #23b6e6;
+  }
+  
+  .trending-offer-container h3 {
+    letter-spacing: 0 !important;
+    font-size: 36px;
+    text-align: center;
+  }
+  
+  .banner-background-image.desktop {
+    width: 100%;
+    display: block;
+  }
+  
+  .banner-background-image.mobile {
+    width: 100%;
+    display: none;
+  }
+  
+  #pagecontent {
+    padding-bottom: 0 !important;
+  }
+  
+  @media screen and (max-width: 800px) {
+    div.content {
+      margin-top: 110px;
+    }
+    
+    .header-banner-container .header-no-image {
+      font-size: 36px;
+    }
+    
+    .banner-text-wrapper h2 {
+      font-size: 36px;
+    }
+    
+    .featured-offer-container {
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+    
+    .offer-container {
+      flex-direction: column;
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+    
+    .offer-container.reverse {
+      flex-direction: column;
+    }
+    
+      
+    .banner-background-image.mobile {
+      width: 100%;
+      display: block;
+    }
+
+    .banner-background-image.desktop {
+      width: 100%;
+      display: none;
+    }
+  }
+</style>
+<a name="pagecontent" id="pagecontent"></a>
+<div>
+  {% if section.settings.banner_image %}
+  <div class="header-banner-container">
+    <!--<div class="banner-text-container">
+      <!--<div class="animated fadeInDown banner-text-wrapper">
+        <h2>{{ page.title }}</h2>
+      </div>
+    </div>-->
+    <img class="banner-background-image desktop" src="{{ section.settings.banner_image | img_url: '2000x' }}" alt="Offers Landing Page"/>
+    <img class="banner-background-image mobile" src="{{ section.settings.mobile_banner_image | img_url: '1000x' }}" alt="Offers Landing Page"/>
+  </div>
+  {% else %}
+  <div class="container header-banner-container">
+    <h2 class="header-no-image">{{ page.title }}</h2>
+  </div>
+  {% endif %}
+
+  <div class="container all-offers-container">
+    {% for block in section.blocks %}
+       {% if block.type == 'Featured' %}
+          <div class="featured-offer-container">
+            {% if block.settings.featured_offer_image != null %}
+              <div class="offer-image-container">
+                    <img src="{{ block.settings.featured_offer_image | img_url: '1200x' }}" alt="{{ block.settings.featured_offer_image.alt }}"/>
+              </div>
+            {% endif %}
+            <div class="offer-text-container">
+              <h3>{{ block.settings.featured_offer_heading }}</h3>
+              {{ block.settings.featured_offer_body }}
+              <a class="main-cta" aria-label="Shop products related to '{{ block.settings.featured_offer_heading }}' offer now." href="{{ block.settings.featured_button_link }}">{{ block.settings.featured_button_text }}</a>
+            </div>
+            {% if block.settings.show_disclaimer_text == true %}
+              <div class="offer-disclaimer-container">
+                <a href="#" class="conspire-drawer-header" aria-label="Expand Offer Details" aria-expanded="false">offer details <span>+</span></a>
+                <div class="conspire-drawer">
+                    <p>{{ block.settings.featured_offer_disclaimer }}</p>
+                </div>
+              </div>
+            {% endif %}
+          </div>
+    
+    	{% elsif block.type == 'Trending' %}
+          {% assign limit = 5 %}
+          {% assign collection = collections[block.settings.trending_collection] %}
+          {% assign products = collections[block.settings.trending_collection].products %}
+          {% assign products_per_row = 4 %}
+          <div class="trending-offer-container">
+            <h3>{{ block.settings.trending_products_heading }}</h3>
+            <div class="">
+              {% include 'product-loop' %}
+            </div>
+          </div>
+       	{% else %}
+          <div class="offer-container {% if block.settings.image_on_right == true %} reverse {% endif %}" >
+            <div class="offer-image-container">
+              <img src="{{ block.settings.offer_image | img_url: '1200x' }}" alt="{{ block.settings.offer_image.alt }}"/>
+            </div>
+            <div class="offer-text-container">
+              <h3>{{ block.settings.offer_heading }}</h3>
+              {{ block.settings.offer_body }}
+              <a aria-label="Shop products related to '{{ block.settings.offer_heading }}' offer now." class="main-cta" href="{{ block.settings.button_link }}">{{ block.settings.button_text }}</a>
+              {% if block.settings.offer_show_disclaimer_text == true %}
+                <div class="offer-disclaimer-container">
+                  <a href="#" class="conspire-drawer-header" aria-label="Expand Offer Details" aria-expanded="false">offer details <span>+</span></a>
+                  <div class="conspire-drawer">
+                      <p>{{ block.settings.offer_disclaimer }}</p>
+                  </div>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+      	{% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  $('.conspire-drawer-header').click(function(e) {
+    e.preventDefault();
+    
+    if ($(this).attr('aria-expanded') === "true") {
+        $(this).attr('aria-expanded', 'false');
+  	} else {
+      $(this).attr('aria-expanded', 'true');
+    }                   
+  });
+</script>
+
+{% schema %}
+{
+    "name": "Subscription Perks Page",
+  	"class": "subscription-perks-section",
+    "settings": [
+		{
+          "type": "image_picker",
+          "id": "banner_image",
+          "label": "Banner"
+      	},
+		{
+          "type": "image_picker",
+          "id": "mobile_banner_image",
+          "label": "Mobile Banner"
+      	}
+	],
+	"blocks": [
+		{
+          "name": "Offer",
+          "type": "Content",
+          "settings": [
+            {
+              "type": "image_picker",
+              "id": "offer_image",
+              "label": "Offer Image",
+              "info": "Square image recommended"
+            },
+			{
+              "type": "checkbox",
+              "id": "image_on_right",
+              "label": "Place offer image after text",
+              "default": false
+            },
+            {
+              "type": "text",
+              "id": "offer_heading",
+              "label": "Offer Heading",
+              "default": "Offer Heading"
+            },
+            {
+              "type": "richtext",
+              "id": "offer_body",
+              "label": "Offer Body Text",
+              "default": "<p>Check out this offer for exclusive deals!</p>"
+            },
+			{
+              "type": "text",
+              "id": "button_text",
+              "label": "Offer Button Text",
+              "default": "Shop Now"
+            },
+            {
+              "type": "url",
+              "id": "button_link",
+              "label": "Offer Button Link"
+            },
+			{
+              "type": "checkbox",
+              "id": "offer_show_disclaimer_text",
+              "label": "Show disclaimer text (offer details)",
+              "default": false
+            },
+			{
+              "type": "textarea",
+              "id": "offer_disclaimer",
+              "label": "Offer Disclaimer Text",
+              "default": "Offer Disclaimer Text"
+            }
+          ]
+        },
+		{
+          "name": "Featured Offer",
+          "type": "Featured",
+          "settings": [
+            {
+              "type": "image_picker",
+              "id": "featured_offer_image",
+              "label": "Featured Offer Image",
+              "info": "Rectangular image recommended"
+            },
+            {
+              "type": "text",
+              "id": "featured_offer_heading",
+              "label": "Featured Offer Heading",
+              "default": "Featured Offer Heading"
+            },
+            {
+              "type": "richtext",
+              "id": "featured_offer_body",
+              "label": "Featured Offer Body Text",
+              "default": "<p>Check out this offer for exclusive deals!</p>"
+            },
+			{
+              "type": "text",
+              "id": "featured_button_text",
+              "label": "Featured Offer Button Text",
+              "default": "Shop Now"
+            },
+            {
+              "type": "url",
+              "id": "featured_button_link",
+              "label": "Offer Button Link"
+            },
+			{
+              "type": "checkbox",
+              "id": "show_disclaimer_text",
+              "label": "Show disclaimer text (offer details)",
+              "default": false
+            },
+			{
+              "type": "textarea",
+              "id": "featured_offer_disclaimer",
+              "label": "Featured Offer Disclaimer Text",
+              "default": "Featured Offer Disclaimer Text"
+            }
+          ]
+        },
+		{
+          "name": "Trending Products",
+          "type": "Trending",
+          "settings": [
+            {
+              "type": "text",
+              "id": "trending_products_heading",
+              "label": "Trending Products Heading",
+              "default": "Trending Products"
+            },
+            {
+              "type": "collection",
+              "id": "trending_collection",
+              "label": "Collection"
+            }
+          ]
+        }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

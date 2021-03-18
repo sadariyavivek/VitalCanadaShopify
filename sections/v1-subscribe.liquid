@@ -1,0 +1,146 @@
+<div class="v1-section">	
+<div class="v1-section-inner-dark">
+	<h2> {{ section.settings.v1-subscribe-headline }} </h2>
+	{{ section.settings.v1-subscribe-text }}
+        <a href="https://www.vitalproteins.com/collections/" class="callout-button">Subscribe Now</a>
+</div>
+</div>
+
+<style>
+  
+  .v1-subscribe-section .callout-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 32px;
+    background: #00AF9A;
+    color: #ffffff;
+    min-width: 300px;
+    max-width: 400px;
+    height: 45px;
+    text-decoration: none;
+    line-height: 1em;
+    border-radius: 5px;
+    font-family: 'Avenir';
+    letter-spacing: 1px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 5px;
+}
+	
+	.v1-section {
+	    background-color: #f0f3f5;
+	    padding-top: 25px;
+	    padding-bottom: 25px;
+	    position: relative;
+	    overflow: hidden;
+	}
+
+.v1-section-inner-dark {
+    display: flex;
+    width: 100%;
+    max-width: 1220px;
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    overflow: hidden;
+}
+  
+.v1-section-inner-dark h2 {
+    color: #23b6e6;
+    font-size: 50px;
+    line-height: 1em;
+    margin-bottom: 0;
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    width: 100%;
+    font-weight: 400 !important;
+    -webkit-font-smoothing: antialiased;
+    margin-top: 0px;
+    letter-spacing: .25px !important;
+}
+  
+  .v1-section-inner-dark p {
+    font-family: 'avenir';
+    color: #626677;
+    font-size: 22px;
+    line-height: 30px;
+    -webkit-font-smoothing: antialiased;
+}
+  
+  
+  
+.v1-subscribe-section .v1-section {
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    padding-top: 35px;
+}
+  
+.v1-subscribe-section .v1-section-inner-dark {
+    justify-content: center;
+    align-items: center;
+    padding-top: 25px;
+    padding-bottom: 15px;
+}
+  
+    @media only screen and (max-width: 800px) {
+
+  
+.v1-subscribe-section .callout-button {
+    max-width: 95%;
+    font-size: .9em;
+}
+      
+   .v1-subscribe-section .v1-section-inner-dark h2, .v1-subscribe-section .v1-section-inner-dark p  {
+      max-width: 80%;
+      }
+      
+.v1-subscribe-section .v1-section {
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+      
+    }
+  
+  
+  
+</style>
+
+{% schema %}
+	{
+  "name": "Subscribe Section",
+  "class": "v1-subscribe-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "v1-subscribe-headline",
+      "label": "Subscribe Title",
+	  "default": "Subscribe and Save 25%"
+	},
+	{
+      "type": "richtext",
+      "id": "v1-subscribe-text",
+      "label": "Subscribe Text"
+}
+  ],
+  "presets": [{
+    "name": "Subscribe Section",
+    "category": "V1 Sections",
+    "settings": {
+
+    }
+  }]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

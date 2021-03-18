@@ -1,0 +1,43 @@
+<div class="recommended-products-wrapper">
+  <div class="recommended-products-inner-wrapper">
+    <h4>{{ list_title }}</h4>
+    <div class="product-grid-scroll">
+      {% assign collection = collections[collection_handle] %}
+      {% assign limit = 4 %}
+      {% assign mainProductID = product.id %}
+      {% for currentProduct in collection.products limit: 10 %}
+        {% if currentProduct.id == product.id %}
+          {% assign limit = 5 %}
+        {% endif %}
+      {% endfor %}
+      {% for product in collection.products limit: limit %}
+        {% unless product.id == mainProductID %}
+        <div class="product-grid-item">
+          <a href="{{ product.url }}" class="product-image">
+            <img class="lazyload" src="{{ product.featured_image | img_url : '100x' }}" data-src="{{ product.featured_image | img_url : '400x' }}"/>
+          </a>
+          <div class="product-card">
+            <p class="product-title">{{ product.title }}</p>
+            {% comment %}
+            <!-- /snippets/bv-inline-ratings.liquid -->
+            <!-- Bazaarvoice Inline Rating -->
+            {% endcomment %}
+            <div data-bv-show="inline_rating"
+            data-bv-product-id="{{product.id}}" data-bv-redirect-url="{{
+            product.url }}" data-bv-seo="false" style="margin-top: 10px"></div>
+            <! –– Bazaarvoice Shopify Integration Version 1.8 ––>
+            {% comment %}
+            <!-- End Bazaarvoice Inline Rating -->
+            {% endcomment %}
+            <p class="product-price">{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</p>
+            <!--<a class="product-grid-cta" href="#">Add to Bag</a>-->
+            <div class="product-details">
+              {% include 'product-form-mini' with product %}
+            </div>
+          </div>
+        </div>
+        {% endunless %}
+      {% endfor %}
+    </div>
+  </div>
+</div>

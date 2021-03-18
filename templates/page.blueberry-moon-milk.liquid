@@ -1,0 +1,530 @@
+<a name="pagecontent" id="pagecontent"></a>
+
+</div>
+
+{% assign purpleDark 	= '#5956a5' %}
+{% assign purpleLight 	= '#9B9BCD' %}
+
+<style>
+  
+  .container.main.content {
+    padding: 0;
+  }
+  
+  .mm-banner-section {
+    background-size: cover;
+    background-color: {{ purpleLight }};
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .mm-banner-image {
+    width: 100%;
+    position: relative;
+  }
+  
+  .mm-twinkle-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .twinkle {
+    position: absolute;
+    animation: twinkle .5s ease-out infinite alternate;
+  }
+  
+  .dust {
+    position: absolute;
+    animation: dustA 5s linear infinite;
+  }
+  
+  @keyframes twinkle {
+    0% { transform: scale(0) translateY(0px); opacity: 0;}
+    60% { transform: scale(1.25); opacity: 1 }
+    80% { transform: scale(1.25); opacity: 0.75 }
+    100% { transform: scale(1.25); opacity: 1; }
+  }
+  
+  @keyframes dustA {
+    0% { transform: scale(0) translateY(0px); opacity: 0;}
+    50% { transform: scale(1.25) translateY(-20px); opacity: 1; }
+    100% { transform: scale(1.0) translateY(-40px); opacity: 0; }
+  }
+  
+  /*.mm-banner-section img {
+    width: 100%;
+    display: block;
+  }*/
+
+  .mm-divider-section img {
+    width: 100%;
+    display: block;
+  }
+  
+  .mm-cta-section {
+    position: relative;
+    padding: 10px 20px;
+    overflow: hidden;
+  }
+  
+  .rtd-slider {
+    margin-bottom: 30px;
+  }
+  
+  .flickity-page-dots .dot {
+    background-color: {{ purpleLight }};
+  }
+  
+  .mm-slider-cell {
+    width: 100%;
+  }
+  
+  .mm-cta-content-wrapper {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+    z-index: 100;
+    position: relative;
+  }
+  
+  .mm-cta-text-section {
+    width: 60%;
+    padding: 20px;
+  }
+  
+  .mm-cta-purchase-section {
+    width: 40%;
+  }
+  
+  .mm-cta-purchase-section .add_to_cart {
+    background-color: {{ purpleDark }};
+    color: white;
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    font-size: 36px;
+    padding: 6px 30px;
+    border-radius: 10px;
+    width: auto;
+    border: none;
+  }
+  
+  .mm-cta-purchase-section .add_to_cart:hover {
+    opacity: 0.7;
+    cursor: pointer;
+    transform: translateY(-2px);
+  }
+  
+  .mm-product-price {
+    letter-spacing: 0 !important;
+    font-size: 48px;
+    margin-bottom: 0;
+  }
+  
+  .mm-product-title {
+    font-family: 'avenir';
+    text-transform: none;
+    letter-spacing: 0 !important;
+    font-weight: bold;
+  }
+  
+  .mm-cta-purchase-section img {
+    max-height: 400px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .mm-cta-header-title {
+    text-align: center;
+    color: {{ purpleDark }};
+    text-transform: uppercase;
+    letter-spacing: 0 !important;
+    font-size: 60px;
+    margin: 0;
+  }
+  
+  .mm-cta-header-subtitle {
+    text-align: center;
+    color: {{ purpleDark }};
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .mm-cta-icons-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+  
+  .mm-cta-icons-container img { 
+    position: absolute;
+    max-width: 100px;
+  }
+  
+  .mm-moon-phase-section {
+    background-color: {{ purpleDark }};
+    padding: 40px 20px;
+  }
+  
+  .moon-phases-image {
+    width: 100%;
+    max-width: 1200px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  
+  .mm-nutrition-facts-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 30px;
+  }
+  
+  .mm-nutrition-facts-container img {
+    width: calc(100% / 6);
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .mm-ingredients-section {
+    background-color: {{ purpleLight }};
+    padding: 20px;
+  }
+  
+  .mm-ingredients-header-text {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding: 10px;
+    width: 100%;
+  }
+  
+  .mm-ingredient-blocks-wrapper {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  .mm-ingredient-block {
+    text-align: center;
+    width: 25%;
+  }
+  
+  .mm-ingredient-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 120px;
+  }
+  
+  .mm-ingredient-wrapper img {
+    height: 70%;
+  }
+  
+  .mm-ingredient-block .block-title {
+    text-transform: uppercase;
+    letter-spacing: 0 !important;
+    color: {{ purpleDark }};
+    border-bottom: 2px solid {{ purpleDark }};
+    font-size: 28px;
+    font-family: 'avenir';
+    font-weight: bold;
+  }
+  
+  .mm-ingredient-block p {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 21px;
+  }
+  
+  .mm-lively-section {
+    position: relative; 
+    padding-top: 40px;
+    padding-bottom: 40px;
+    overflow: hidden;
+  }
+  
+  .mm-lively-inner {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    z-index: 100;
+    position: relative;
+  }
+  
+  .mm-lively-title {
+    color: {{ purpleDark }};
+    letter-spacing: 0px !important;
+    text-transform: none;
+    font-size: 48px;
+  }
+  
+  .mm-lively-articles-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .mm-lively-article-container {
+    width: 33.33%;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    transition: .25s all ease-out;
+  }
+  
+  .mm-lively-article-container:hover {
+    opacity: 0.7;
+    transform: scale(1.03);
+    cursor: pointer;
+  }
+  
+  .mm-lively-article-image-container {
+    width: 100%;
+    height: 240px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: {{ purpleLight }};
+    border-radius: 20px;
+  }
+  
+  .mm-lively-article-title {
+    color: {{ purpleDark }};
+    text-transform: none;
+    letter-spacing: 0px !important;
+    text-align: center;
+    font-size: 36px;
+  }
+  
+  @media screen and (max-width: 800px) {
+    .mm-cta-text-section {
+      width: 100%;
+    }
+    
+    .mm-cta-purchase-section {
+      width: 100%;
+    }
+    
+    .mm-nutrition-facts-container img {
+      width: calc(100% / 3);
+    }
+    
+    .mm-ingredient-block {
+      width: 80%;
+      padding-left: 10%;
+      padding-right: 10%;
+    }
+    
+    .mm-ingredient-block .block-title {
+      font-size: 18px;
+    }
+    
+    .mm-lively-article-container {
+      width: 100%;
+    }
+  }
+  
+   @media screen and (max-width: 480px) {
+     .mm-cta-header-title {
+       font-size: 36px;
+       line-height: 40px;
+     }
+     
+     .mm-cta-header-subtitle {
+       font-size: 18px;
+     }
+     
+     .mm-cta-icons-container img {
+       max-width: 50px;
+     }
+     
+     .mm-nutrition-facts-container img {
+      width: 50%;
+    }
+     
+     .dust {
+       max-width: 40px;
+     }
+   }
+</style>
+<div class="moon-milk-page-wrapper">
+  <div class="mm-banner-section">
+    <img class="mm-banner-image" src="{{ 'BMM_Header_2.jpg' | file_img_url: '2000x' }}" alt="A new flavor, a new phase of the moon. Introducing Blueberry Moon Milk."/>
+    <div class="mm-twinkle-container">
+      <img class="twinkle" style="top: 10%; left: 14%; animation-delay: .5s;" src="{{ 'BMM_Shine_5.png' | file_img_url: '300x' }}"/>
+      <img class="twinkle" style="bottom: 10%; right: 8%; animation-delay: .7s;" src="{{ 'BMM_Shine_5.png' | file_img_url: '300x' }}"/>
+      <img class="twinkle" style="top: 40%; left: 30%; animation-delay: .45s;" src="{{ 'BMM_Shine_3.png' | file_img_url: '300x' }}"/>
+      <img class="twinkle" style="top: 20%; left: 4%; animation-delay: .25s;" src="{{ 'BMM_Shine_5.png' | file_img_url: '300x' }}"/>
+      <img class="twinkle" style="bottom: 15%; left: 5%; animation-delay: .1s;" src="{{ 'BMM_Shine_5.png' | file_img_url: '300x' }}"/>
+      <img class="twinkle" style="top: 60%; left: 60%; animation-delay: .9s;" src="{{ 'BMM_Shine_3.png' | file_img_url: '300x' }}"/>
+      
+      <img class="dust" style="top: 5%; left: 2%; animation-delay: 0s;" src="{{ 'BMM_Dust_1.png' | file_img_url: '100x' }}"/>
+      <img class="dust" style="top: 12%; left: 4%%; animation-delay: .5s;" src="{{ 'BMM_Dust_2.png' | file_img_url: '100x' }}"/>
+      <img class="dust" style="top: 45%; left: 12%; animation-delay: .3s;" src="{{ 'BMM_Dust_3.png' | file_img_url: '100x' }}"/>
+      <img class="dust" style="top: 60%; left: 4%; animation-delay: .2s;" src="{{ 'BMM_Dust_2.png' | file_img_url: '100x' }}"/>
+      <img class="dust" style="top: 75%; left: 40%; animation-delay: .5s;" src="{{ 'BMM_Dust_1.png' | file_img_url: '100x' }}"/>
+      <img class="dust" style="top: 85%; left: 50%; animation-delay: .4s;" src="{{ 'BMM_Dust_1.png' | file_img_url: '100x' }}"/>
+      <img class="dust" style="top: 95%; left: 8%; animation-delay: .9s;" src="{{ 'BMM_Dust_2.png' | file_img_url: '100x' }}"/>
+      <img class="dust" style="top: 2%; right: 12%; animation-delay: 1.1s;" src="{{ 'BMM_Dust_3.png' | file_img_url: '100x' }}"/>
+      <img class="dust" style="top: 10%; right: 20%; animation-delay: .8s;" src="{{ 'BMM_Dust_4.png' | file_img_url: '100x' }}"/>
+      <img class="dust" style="top: 25%; right: 6%; animation-delay: 4.5s;" src="{{ 'BMM_Dust_5.png' | file_img_url: '100x' }}"/>
+      <img class="dust" style="top: 32%; right: 40%; animation-delay: .6s;" src="{{ 'BMM_Dust_1.png' | file_img_url: '100x' }}"/>
+      <img class="dust" style="top: 50%; right: 15%; animation-delay: 1.25s;" src="{{ 'BMM_Dust_2.png' | file_img_url: '100x' }}"/>
+      <img class="dust" style="top: 65%; right: 32%; animation-delay: 1.9s;" src="{{ 'BMM_Dust_3.png' | file_img_url: '100x' }}"/>
+      <img class="dust" style="top: 80%; right: 5%; animation-delay: 2s;" src="{{ 'BMM_Dust_4.png' | file_img_url: '100x' }}"/>
+      <img class="dust" style="top: 90%; right: 45%; animation-delay: 0.75s;" src="{{ 'BMM_Dust_1.png' | file_img_url: '100x' }}"/>
+      <img class="dust" style="top: 95%; right: 12%; animation-delay: 1.1s;" src="{{ 'BMM_Dust_5.png' | file_img_url: '100x' }}"/>
+    </div>
+  </div>
+  <div class="mm-divider-section">
+    <img src="{{ 'BMM_Border_beneath_header.png' | file_img_url: '2000x' }}"/>
+  </div>
+  <div class="mm-cta-section">
+    
+    <div class="mm-cta-content-wrapper">
+      <div class="mm-cta-text-section">
+        <h2 class="mm-cta-header-title">Kick Back &amp; Chill Out</h2>
+        <p class="mm-cta-header-subtitle">Each serving offers 10g of bone broth collagen, plus melatonin, GABA and magnesium for additional relaxation and a blissful end to a busy day.</p>
+      </div>
+      {% assign product = all_products["blueberry-moon-milk-collagen-latte"] %}
+      <div class="mm-cta-purchase-section">
+        <div class="rtd-slider official">
+          <div class="mm-slider-cell">
+            <a href="{{ product.url }}" style="color: inherit;">
+              <img class="lazyload" data-flickity-lazyload="https://cdn.shopify.com/s/files/1/2074/9385/products/BMM_POW_c162ff5a-94a3-49fe-bf62-2a0f02e9a07f.jpg?v=1578518566" src="https://cdn.shopify.com/s/files/1/2074/9385/products/BMM_POW_c162ff5a-94a3-49fe-bf62-2a0f02e9a07f.jpg?v=1578518566"/>
+            </a>
+          </div>
+          <div class="mm-slider-cell">
+            <a href="{{ product.url }}" style="color: inherit;">
+              <img class="lazyload" data-flickity-lazyload="https://cdn.shopify.com/s/files/1/2074/9385/products/SuppFacts_1365x2048_BMM_800x.jpg?v=1576100564" src="https://cdn.shopify.com/s/files/1/2074/9385/products/SuppFacts_1365x2048_BMM_800x.jpg?v=1576100564"/>
+            </a>
+          </div>
+        </div>
+        <h3 class="mm-product-price">$39</h3>
+        <h3 class="mm-product-title">Blueberry Moon Milk Collagen Latte&trade;</h3>
+        {% include 'product-form-mini' %}
+      </div>
+    </div>
+    <div class="mm-cta-icons-container">
+      
+      <img style="top: 0%; left: 2%;" src="{{ 'BMM_Star_2.png' | file_img_url: '300x' }}" data-aos="fade-up" data-aos-easing="ease-out" data-aos-once="false" data-aos-delay="50"/>
+      <img style="top: 30%; left: 10%;" src="{{ 'BMM_Sparkle_2.png' | file_img_url: '300x' }}" data-aos="fade-up" data-aos-easing="ease-out" data-aos-once="false" data-aos-delay="100"/>
+      <img style="top: 60%; left: 1%;" src="{{ 'BMM_Sparkle_circle.png' | file_img_url: '300x' }}" data-aos="fade-up" data-aos-easing="ease-out" data-aos-once="false" data-aos-delay="150"/>
+      <img style="top: 75%; left: 3%;" src="{{ 'BMM_Moon_right_1.png' | file_img_url: '300x' }}" data-aos="fade-up" data-aos-easing="ease-out" data-aos-once="false" data-aos-delay="150"/>
+      <img style="top: 85%; left: 8%;" src="{{ 'BMM_Star_1.png' | file_img_url: '300x' }}" data-aos="fade-up" data-aos-easing="ease-out" data-aos-once="false" data-aos-delay="200"/>
+      
+      <img style="top: 20%; right: 4%;" src="{{ 'BMM_Moon_left_1.png' | file_img_url: '300x' }}" data-aos="fade-up" data-aos-easing="ease-in-out-back" data-aos-once="false" data-aos-delay="0"/>
+      <img style="top: 35%; right: 1%; width: 70px;" src="{{ 'BMM_Sparkle_2.png' | file_img_url: '300x' }}" data-aos="fade-up" data-aos-easing="ease-in-out-back" data-aos-once="false" data-aos-delay="50"/>
+      <img style="top: 45%; right: 12%; width: 60px;" src="{{ 'BMM_Star_1.png' | file_img_url: '300x' }}" data-aos="fade-up" data-aos-easing="ease-in-out-back" data-aos-once="false" data-aos-delay="100"/>
+      <img style="top: 60%; right: 3%;" src="{{ 'BMM_Sparkle_circle.png' | file_img_url: '300x' }}" data-aos="fade-up" data-aos-easing="ease-in-out-back" data-aos-once="false" data-aos-delay="100"/>
+      <img style="top: 75%; right: 10%;" src="{{ 'BMM_Star_1.png' | file_img_url: '300x' }}" data-aos="fade-up" data-aos-easing="ease-in-out-back" data-aos-once="false" data-aos-delay="50"/>
+      <img style="top: 90%; right: 1%;" src="{{ 'BMM_Star_3.png' | file_img_url: '300x' }}" data-aos="fade-up" data-aos-easing="ease-in-out-back" data-aos-once="false" data-aos-delay="50"/>
+      
+    </div>
+  </div>
+  <div class="mm-moon-phase-section">
+    <div class="mm-nutrition-facts-container">
+      <img src="{{ 'BMM_Callout_Bone_Broth_Collagen.png' | file_img_url: '600x' }}" data-aos="fade-down" data-aos-easing="ease-out" data-aos-once="false" data-aos-delay="0" data-aos-duration="300"/>
+      <img src="{{ 'BMM_Callout_Ashwagandha.png' | file_img_url: '600x' }}" data-aos="fade-down" data-aos-easing="ease-out" data-aos-once="false" data-aos-delay="50" data-aos-duration="300"/>
+      <img src="{{ 'BMM_Callout_Magnesium.png' | file_img_url: '600x' }}" data-aos="fade-down" data-aos-easing="ease-out" data-aos-once="false" data-aos-delay="100" data-aos-duration="300"/>
+      <img src="{{ 'BMM_Callout_GABA.png' | file_img_url: '600x' }}" data-aos="fade-down" data-aos-easing="ease-out" data-aos-once="false" data-aos-delay="150" data-aos-duration="300"/>
+      <img src="{{ 'BMM_Callout_Melatonin.png' | file_img_url: '600x' }}" data-aos="fade-down" data-aos-easing="ease-out" data-aos-once="false" data-aos-delay="200" data-aos-duration="300"/>
+      <img src="{{ 'BMM_Callout_Dairy_Free.png' | file_img_url: '600x' }}" data-aos="fade-down" data-aos-easing="ease-out" data-aos-once="false" data-aos-delay="250" data-aos-duration="300"/>
+    </div>
+    <img class="moon-phases-image" src="{{ 'BMM_Moon_phases.png' | file_img_url: '1400x' }}" data-aos="fade-up" data-aos-easing="ease-out-back" data-aos-once="false" data-aos-delay="300" data-aos-duration="500"/>
+  </div>
+  <div class="mm-ingredients-section">
+    <img class="mm-ingredients-header-text" src="{{ 'BMM_Give_new_meaning.png' | file_img_url: '2000x' }}" alt="Give new meaning to beauty sleep"/>
+    <div class="mm-ingredient-blocks-wrapper">
+      <div class="mm-ingredient-block">
+        <div class="mm-ingredient-wrapper">
+        	<img src="{{ 'BMM_Icon_Ashwagandha.png' | file_img_url: '600x' }}"/>
+        </div>
+        <h4 class="block-title">Ashwagandha</h4>
+        <p>Helps promote a healthy response to stress.**</p>
+      </div>
+      <div class="mm-ingredient-block">
+        <div class="mm-ingredient-wrapper">
+        	<img src="{{ 'BMM_Icon_Magnesium.png' | file_img_url: '600x' }}"/>
+        </div>
+        <h4 class="block-title">Magnesium</h4>
+        <p>Helps promote calmness and relaxation.**</p>
+      </div>
+      <div class="mm-ingredient-block">
+        <div class="mm-ingredient-wrapper">
+        	<img src="{{ 'BMM_Icon_Gaba-Melatonin.png' | file_img_url: '600x' }}"/>
+        </div>
+        <h4 class="block-title">Gaba &amp; Melatonin</h4>
+        <p>Helps promote restful sleep.**</p>
+      </div>
+    </div>
+  </div>
+  <div class="mm-divider-section">
+    <img src="{{ 'BMM_Border_beneath_callouts.png' | file_img_url: '2000x' }}"/>
+  </div>
+  <div class="mm-influencer-testimonial-section">
+   
+  </div>
+  <div class="mm-lively-section">
+    <div class="mm-lively-inner">
+      <h5 class="mm-lively-title">Learn More from Lively</h5>
+      <div class="mm-lively-articles-wrapper">
+        {% assign article1 = articles['stay-vital/blueberry-moon-milk'] %}
+        <a href="{{ article1.url }}" class="mm-lively-article-container">
+          <div class="mm-lively-article-image-container" style="background-image: url('{{ article1.image | img_url: '800x' }}');"></div>
+          <h6 class="mm-lively-article-title">{{ article1.title }}</h6>
+        </a>
+        {% assign article1 = articles['lifestyle/essential-nightstand-items'] %}
+        <a href="{{ article1.url }}" class="mm-lively-article-container">
+          <div class="mm-lively-article-image-container" style="background-image: url('{{ article1.image | img_url: '800x' }}');"></div>
+          <h6 class="mm-lively-article-title">{{ article1.title }}</h6>
+        </a>
+      </div>
+    </div>
+    <div class="mm-cta-icons-container">
+      <img style="top: 0%; left: 20px; width: 100px;" src="{{ 'BMM_Star_2.png' | file_img_url: '300x' }}" data-aos="fade-up" data-aos-easing="ease-out" data-aos-once="false" data-aos-delay="0"/>
+      <img style="top: 5%; left: 10%;" src="{{ 'BMM_Sparkle_circle.png' | file_img_url: '300x' }}" data-aos="fade-up" data-aos-easing="ease-out" data-aos-once="false" data-aos-delay="50"/>
+      <img style="top: 25%; left: 10px;" src="{{ 'BMM_Star_3.png' | file_img_url: '300x' }}" data-aos="fade-up" data-aos-easing="ease-out" data-aos-once="false" data-aos-delay="50"/>
+      <img style="top: 30%; left: 8%;" src="{{ 'BMM_Sparkle_2.png' | file_img_url: '300x' }}" data-aos="fade-up" data-aos-easing="ease-out" data-aos-once="false" data-aos-delay="50"/>
+      <img style="top: 50%; left: 10px;" src="{{ 'BMM_Sparkle_2.png' | file_img_url: '300x' }}" data-aos="fade-up" data-aos-easing="ease-out" data-aos-once="false" data-aos-delay="100"/>
+      <img style="top: 65%; left: 20px;" src="{{ 'BMM_Moon_right_1.png' | file_img_url: '300x' }}" data-aos="fade-up" data-aos-easing="ease-out" data-aos-once="false" data-aos-delay="100"/>
+      <img style="top: 75%; left: 5%;" src="{{ 'BMM_Sparkle_circle.png' | file_img_url: '300x' }}" data-aos="fade-up" data-aos-easing="ease-out" data-aos-once="false" data-aos-delay="50"/>
+      
+      <img style="top: 0%; right: 20px;" src="{{ 'BMM_Star_2.png' | file_img_url: '300x' }}" data-aos="fade-up" data-aos-easing="ease-in-out-back" data-aos-once="false" data-aos-delay="0"/>
+      <img style="top: 5%; right: 10%;" src="{{ 'BMM_Sparkle_circle.png' | file_img_url: '300x' }}" data-aos="fade-up" data-aos-easing="ease-in-out-back" data-aos-once="false" data-aos-delay="50"/>
+      <img style="top: 25%; right: 10px;" src="{{ 'BMM_Star_1.png' | file_img_url: '300x' }}" data-aos="fade-up" data-aos-easing="ease-in-out-back" data-aos-once="false" data-aos-delay="100"/>
+      <img style="top: 30%; right: 9%;" src="{{ 'BMM_Sparkle_circle.png' | file_img_url: '300x' }}" data-aos="fade-up" data-aos-easing="ease-in-out-back" data-aos-once="false" data-aos-delay="0"/>
+      <img style="top: 50%; right: 10px;" src="{{ 'BMM_Sparkle_2.png' | file_img_url: '300x' }}" data-aos="fade-up" data-aos-easing="ease-in-out-back" data-aos-once="false" data-aos-delay="100"/>
+      <img style="top: 65%; right: 20px;" src="{{ 'BMM_Moon_left_1.png' | file_img_url: '300x' }}" data-aos="fade-up" data-aos-easing="ease-in-out-back" data-aos-once="false" data-aos-delay="50"/>
+      <img style="top: 75%; right: 7%;" src="{{ 'BMM_Sparkle_2.png' | file_img_url: '300x' }}" data-aos="fade-up" data-aos-easing="ease-in-out-back" data-aos-once="false" data-aos-delay="100"/>
+    </div>
+  </div>
+</div>

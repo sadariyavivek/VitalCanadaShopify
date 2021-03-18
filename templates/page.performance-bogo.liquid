@@ -1,0 +1,627 @@
+<a name="pagecontent" id="pagecontent"></a>
+
+<style>
+  .container.main.content {
+    height: 0;
+    padding: 0;
+  }
+  
+  #v1-top-nav, .top-shout-bar {
+     display: none; 
+  }
+  
+  .mobile_nav-fixed--true {
+   	display: none; 
+  }
+  
+  .pbg-header-image {
+    text-align: center;
+    background: url({{ 'Performance-Sampler-Header_forweb.jpg' | file_img_url: '1400x' }});
+    background-size: cover;
+    background-position: center;
+    padding: 40px 20px;
+  }
+
+  .pbg-header-text {
+    letter-spacing: 1px !important;
+    text-transform: none;
+    font-size: 60px;
+    line-height: initial;
+    color: #5f8984;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  .pbg-price-text {
+  	font-size: 90px; 
+  }
+
+  .how-it-works-header {
+    letter-spacing: 0px !important;
+    text-transform: none;
+    color: #575a5b;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .how-it-works-list {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+    position: relative;
+  }
+  
+  .how-it-works-line {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 8px;
+    z-index: 1;
+  }
+
+  .how-it-works-item {
+     text-align: center;
+     max-width: 200px;
+     width: 33%;
+     z-index: 10;
+  }
+  
+  .how-it-works-item p {
+   	font-size: 18px;
+    line-height: initial;
+    color: #4b4c4f;
+  }
+
+  .how-it-works-number {
+    color: #23b6e6;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid gray;
+    font-size: 24px;
+    font-weight: bold;
+    background: white;
+    margin-bottom: 14px;
+  }
+
+  .pbg-sticky-cta-section {
+    background: black;
+    color: white;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .pbg-sticky-cta-section .cta-text {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .pbg-collection-header {
+    letter-spacing: 0px !important;
+    text-transform: none;
+    color: #23b6e6;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 60px;
+    margin-bottom: 0;
+    line-height: 72px;
+  }
+  
+  .pbg-info-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  
+  .pbg-title-section {
+    background: #cad3dc;
+    color: #575a5b;
+    text-align: center;
+    width: 30%;
+    padding: 10px 20px;
+    transform: skewX(-20deg);
+    margin-right: -5%;
+    z-index: 10;
+  }
+  
+  .pbg-product-title {
+    text-transform: none;
+    letter-spacing: 0.5px !important;
+    margin-bottom: 0;
+    font-size: 48px;
+    line-height: initial;
+    padding: 0;
+    transform: skewX(20deg);
+  }
+  
+  .pbg-product-title .title-super {
+   	font-size: 32px;
+    vertical-align: top;
+  }
+  
+  .pbg-product-subheader {
+    display: block;
+    font-weight: bold;
+    font-size: 18px;
+    transform: skewX(20deg);
+  }
+  
+  .pbg-product-info-section {
+    text-align: center;
+    color: white;
+    background: #e7a156;
+    padding: 20px 10%;
+    transform: skewX(-20deg);
+    width: 75%;
+  }
+  
+  .pbg-info-section-inner {
+    transform: skewX(20deg);
+  }
+  
+  .pbg-product-info-section.green {
+    background: #6c8982;
+  }
+  
+  .pbg-product-info-section.blue {
+    background: #5498aa;
+  }
+  
+  .pbg-product-info-section p {
+  	margin-bottom: 0px;
+    font-size: 18px;
+    line-height: initial;
+  }
+  
+  .pbg-product-info-section .pbg-patent {
+    font-size: 12px; 
+  }
+  
+  .pbg-product-list {
+  	display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+  
+  .perf-sampling-product-card {
+    width: calc(20% - 16px);
+    text-align: center;
+    padding: 20px 10px;
+    border: 1px solid #d8d9da;
+    margin-right: 8px;
+    margin-left: 8px;
+    margin-bottom: 20px;
+    position: relative;
+    transition: .15s opacity ease-in-out;
+  }
+  
+  
+  .perf-sampling-product-card.inactive {
+   	opacity: 0.6; 
+  }
+  
+  .perf-sampling-product-card.active .selected-indicator-inner {
+  	background-color: #23b6e6;  
+    transform: scale(1.15);
+  }
+  
+  .selected-indicator {
+   	position: absolute;
+    top: 10px;
+    left: 10px;
+    border: 1px solid gray;
+    border-radius: 100%;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .selected-indicator-inner {
+    display: block;
+    border-radius: 100%;
+    height: 18px;
+    width: 18px;
+    border: 1px solid gray;
+    transition: .15s background ease-out, .3s transform cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  }
+  
+  .perf-sampling-product-card img {
+  	max-height: 200px;
+    max-width: 100%;
+  }
+  
+  .product-cart-price {
+  	display: block;
+    font-family: 'kapraregular';
+    color: #4a4a4a;
+    text-align: center;
+    font-size: 21px;
+  }
+  
+  .perf-sampling-product-card .product-card-title {
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    line-height: initial;
+    font-size: 12px;
+  }
+  
+  .perf-sampling-product-card .bv_main_container {
+    justify-content: center;
+  }
+  
+  .perf-sampling-product-card .add-to-bundle {
+  	min-height: 0;
+    height: initial;
+    background: #00af9a;
+    color: white;
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    width: 100%;
+    padding-top: 6px;
+    padding-bottom: 4px;
+    line-height: 24px;
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    border: 2px solid #00af9a;
+    letter-spacing: 0.5px;
+  }
+  
+  .perf-sampling-product-card .add-to-bundle:hover {
+   	border: 2px solid #00af9a;
+    opacity: 0.7;
+  }
+  
+  .perf-sampling-product-card .add-to-bundle.selected {
+   	background: white;
+    color: #00af9a;
+  }
+  
+  .perf-sampling-product-card .add-to-bundle.inactive {
+    color: white;
+    background: gray;
+    border-color: gray;
+  }
+  
+  .pbg-done-button-container {
+    transform: translateY(125%);
+    transition: .2s all;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    bottom: 0;
+    width: 100%;
+    right: 0;
+    z-index: 100000;
+    background-color: white;
+    border: 2px solid #b9b9b9;
+    box-shadow: 0px 5px 20px 2px rgba(0, 0, 0, 0.48);
+  }
+  
+  .pbg-done-button-container.active { 
+	transform: translateY(0);
+  }
+  
+  .pbg-done-button-container p {
+  	font-weight: bold; 
+  }
+  
+  .pbg-done-button {
+    min-height: 0;
+    height: initial;
+    background: #d61569;
+    color: white;
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    width: 100%;
+    padding-top: 12px;
+    padding-bottom: 8px;
+    font-size: 28px
+    line-height: 32px;
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 2px solid #d61569;
+    letter-spacing: 0.5px;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: .2s all ease-out;
+    transform: translateY(-20px);
+  }
+  
+  .pbg-done-button.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0px);
+  }
+  
+  .pbg-done-button:hover {
+   	border: 2px solid #d61569;
+    opacity: 0.7;
+    background: #d61569;
+  }
+  
+  
+  @media only screen and (max-width: 1200px) {
+    
+    .perf-sampling-product-card {
+      width: calc(33.33% - 16px);
+    }
+  }
+  
+  @media only screen and (max-width: 768px) {
+    
+    .how-it-works-list {
+    	flex-direction: column; 
+    }
+    
+    .how-it-works-line {
+     	display: none; 
+    }
+    
+    .how-it-works-item {
+     	width: 60%;
+    	margin-left: auto;
+      	margin-right: auto;
+      	margin-bottom: 10px;
+    }
+ 
+    
+    .pbg-info-wrapper {
+    	flex-direction: column;
+    }
+    
+    .perf-sampling-product-card {
+    	width: calc(50% - 16px);
+    }
+    
+    .perf-sampling-product-card .add-to-bundle {
+       font-size: 18px; 
+    }
+    
+    .perf-sampling-product-card .product-card-title {
+     	height: 28px; 
+    }
+    
+    .pbg-title-section {
+     	width: 75%;
+      	margin-bottom: -20px;
+        margin-right: 0;
+    }
+    
+    .pbg-product-info-section {
+     	width: 100%;
+        transform: skewX(0deg);
+    }
+    
+    .pbg-info-section-inner {
+      transform: skewX(0deg);
+       padding-top: 20px;
+    }
+    
+    .pbg-header-text {
+     	font-size: 32px; 
+    }
+    
+    .pbg-price-text {
+    	font-size: 48px;
+    }
+  }
+</style>
+</div>
+<div class="performance-bogo-page">
+  <div class="pbg-header-image">
+    <h2 class="pbg-header-text">Buy One, Get One</h2>
+    <p>Rehydrate + Refuel + Recover**</p>
+  </div>
+  <div class="container">
+    <div class="pbg-how-it-works">
+      <h3 class="how-it-works-header">How it Works</h3>
+      <div class="how-it-works-list">
+          <div class="how-it-works-item">
+              <span class="how-it-works-number">1</span>
+              <p>Choose Your First Product</p>
+          </div>
+          <div class="how-it-works-item">
+              <span class="how-it-works-number">2</span>
+              <p>Add Another Product Of Equal Or Lesser Value</p>
+          </div>
+          <div class="how-it-works-item">
+              <span class="how-it-works-number">3</span>
+              <p>Fuel Every Moment</p>
+          </div>
+        	<hr class="how-it-works-line"/>
+      </div>
+    </div>
+    <div class="pbg-select-section">
+      <div class="pbg-products-section">
+          <div>
+            <div class="pbg-info-wrapper">
+              <div class="pbg-title-section">
+                <h4 class="pbg-product-title">PRE<span class="title-super">&trade;*</span></h4>
+                <span class="pbg-product-subheader">Before Your Workout</span>
+              </div>
+              <div class="pbg-product-info-section">
+                <div class="pbg-info-section-inner">
+                  <p><strong>Vital Performance&trade; Pre</strong> is the only pre-workout on the market that contains collagen. The addition of citrulline, arginine and creatine - three types of nitric oxide producers that help increase blood flow during your workout.</p>
+                  <span class="pbg-patent">*patent pending</span>
+                </div>
+              </div>
+            </div>
+            <div class="pbg-product-list">
+              {% for product in collections['vital-performance-pre'].products %}
+              	{% assign variant = product.variants.first %}
+                {% render 'performance-bogo-product-card', product: product, variant: variant, category: 'pre' %}
+              {% endfor %}
+            </div>
+          </div>
+          <div>
+            <div class="pbg-info-wrapper">
+              <div class="pbg-title-section">
+                <h4 class="pbg-product-title">RECOVER<span class="title-super">&trade;*</span></h4>
+                <span class="pbg-product-subheader">Take It Past The Finish Line</span>
+              </div>
+              <div class="pbg-product-info-section green">
+                <div class="pbg-info-section-inner">
+                  <p><strong>Vital Performance&trade; RECOVER</strong> provides a unique combination of collagen and a full-spectrum amino acid profile designed to help promote athletic longevity** and keep you in the game.</p>
+                  <span class="pbg-patent">*patent pending</span>
+                </div>
+              </div>
+            </div>
+            <div class="pbg-product-list">
+              {% for product in collections['recoverywave'].products %}
+              	{% assign variant = product.variants.first %}
+                {% render 'performance-bogo-product-card', product: product, variant: variant, category: 'recover' %}
+              {% endfor %}
+            </div>
+            <div class="pbg-product-list">
+              {% for product in collections['vital-performance-recover'].products %}
+              	{% assign variant = product.variants.first %}
+              	{% for v in product.variants %}
+              		{% if v.title == '24 oz. 12 ct. Pack' %}
+              			{% assign variant = v %}
+              		{% endif %}
+              	{% endfor %}
+                {% render 'performance-bogo-product-card', product: product, variant: variant, category: 'recover' %}
+              {% endfor %}
+            </div>
+          </div>
+          <div>
+            <div class="pbg-info-wrapper">
+              <div class="pbg-title-section">
+                  <h4 class="pbg-product-title">SLEEP</h4>
+                  <span class="pbg-product-subheader">Rest &amp; Recover Like A Warrior</span>
+              </div>
+              <div class="pbg-product-info-section blue">
+                <div class="pbg-info-section-inner">
+                  <p><strong>Vital Performance&trade; SLEEP</strong> skips melatonin and instead boasts tryptophan sources to help boost the body's natural production of melatonin** so you can reach deep sleep (the restorative stage of sleep) and power through the next day's workout.</p>
+                </div>
+              </div>
+            </div>
+            <div class="pbg-product-list">
+              {% for product in collections['performance-sleep'].products %}
+              	{% assign variant = product.variants.first %}
+                {% render 'performance-bogo-product-card', product: product, variant: variant, category: 'sleep' %}
+              {% endfor %}
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="pbg-done-button-container">
+      <button class="pbg-done-button">Proceed to Checkout</button>
+      <p class="add-more-message">Add another product to get one free!</p>
+      <p class="item-count-message"><span class="free-item-count">0</span> of your <span class="total-item-count">0</span> items will be free!</p>
+    </div>
+  </div>
+</div>
+<script>
+  var selectedProducts = [];
+  var discount = "PERFORMANCEBOGO50";
+  
+  $(document).on('click', '.bv_main_container', function(e) {
+    e.preventDefault();
+  });
+  
+  $(document).on('mousedown', '.add-to-bundle', function(e) {
+    e.preventDefault();
+  });
+  
+  $(document).on('click', '.add-to-bundle', function(e) {
+    e.preventDefault();
+    
+    var category = $(this).data('category');
+    var variantID = $(this).data('variant-id');
+    
+    if ($(this).hasClass('selected')) {
+      $('.perf-sampling-product-card.' + category).removeClass('inactive');
+      $(this).removeClass('selected');
+      $(this).html('Add to Cart');
+      
+      removeVariant(variantID);
+      
+    } else if ($(this).hasClass('inactive') == false) {
+      
+        $(this).addClass('selected');
+        $(this).html('Remove');
+    	$(this).attr('disabled', false);
+
+        addVariant(variantID);
+    }
+    
+    if (selectedProducts.length > 0) {
+    	$('.pbg-done-button').addClass('active');
+    	$('.pbg-done-button-container').addClass('active');
+    } else {
+      $('.pbg-done-button').removeClass('active');
+      $('.pbg-done-button-container').removeClass('active');
+    }
+    
+    if (selectedProducts.length <= 1) {
+    	$('.add-more-message').show();
+    	$('.item-count-message').hide();
+    } else {
+    	$('.add-more-message').hide();
+    	$('.item-count-message').show();
+    }
+    
+    $('.total-item-count').html(selectedProducts.length);
+    $('.free-item-count').html(Math.floor(selectedProducts.length / 2));
+  });
+  
+  $(document).on('click', '.pbg-done-button', function(e) {
+  	e.preventDefault();
+    var checkoutURL = 'https://vitalproteins.com/cart/';
+    
+    selectedProducts.forEach((product) => checkoutURL += (product + ':1,'));
+    
+    var checkoutURL = checkoutURL.slice(0, -1);
+    
+    checkoutURL += ("?discount=" + discount);
+    
+    window.location.href = checkoutURL;
+  });
+  
+  function addVariant(variantID) {
+    selectedProducts.push(variantID);
+  }
+  
+  function removeVariant(variantID) {
+    var productIndex = selectedProducts.indexOf(variantID);
+
+    if (productIndex > -1) {
+      selectedProducts.splice(productIndex, 1);
+    }
+  }
+</script>

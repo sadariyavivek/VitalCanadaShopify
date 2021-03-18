@@ -1,0 +1,58 @@
+	<style>
+	.sample-hero {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+      
+      #shopify-section-1599240698987 {display:none;}
+      
+	</style>	
+
+
+<div class="sample-hero">
+		<a href="{{ section.settings.sample-link }}">
+	<picture>
+  <source media="(min-width:800px)" srcset="{{ section.settings.sample-desktop-image| img_url: '1440x' }}">
+  <source media="(min-width:265px)" srcset="{{ section.settings.sample-mobile-image| img_url: '800x' }}">
+  <img src="{{ section.settings.sample-desktop-image| img_url: '1440x' }}" alt="Simple as 1,2,3!" style="width:100%;">
+</picture>
+			</a>
+	</div>
+
+
+{% schema %}
+	{
+  "name": "Sample Hero",
+  "class": "vital-hero-v3-section",
+  "settings": [
+	    {
+      "type": "image_picker",
+      "id": "sample-desktop-image",
+      "label": "Desktop Image"
+	}, 
+ {
+      "type": "image_picker",
+      "id": "sample-mobile-image",
+      "label": "Mobile Image"
+	}, 
+	{
+      "type": "url",
+      "id": "sample-link",
+      "label": "Link"
+	}
+  ],
+  "presets": [{
+    "name": "Sample Hero",
+    "category": "V3 Sections",
+    "settings": {
+
+    }
+  }]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

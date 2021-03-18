@@ -1,0 +1,1617 @@
+{% comment %}
+** Header - 2020 Redesign **
+- Static section
+{% endcomment %}
+
+<style>
+  #mobileNavigation {
+    opacity: 0;
+  }
+  #productsNav #dropMenu.single-product-list {
+    width: 17% !important;
+    padding: 0 20px !important;
+    min-height: 175px !important;
+    height: 175px !important; 
+}
+ .topMenu .topMenuItem a img {
+    border-right: 2px solid #D2CCC6;
+    padding: 2px 10px 2px 0;
+}
+  #vitalMessages p a {
+    font-weight: 400 !important;
+    text-decoration: underline !important;
+  	text-decoration-color: black;
+}
+#vitalMessages p a:hover {
+  	color: blue;   
+  	text-decoration: unset !important;
+}
+</style>
+
+<meta name="google-site-verification" content="f8yKrNvGNNYRUvRMeitXzxUtZ7qEDk-3s5TqmfYtxBE" />
+
+{% comment %}  //////////////////////////  New Header Styles  //////////////////////////  {% endcomment %}
+
+
+<div class="newStyles2021">
+
+  {% comment %}  Skip Link for Accessiblity  {% endcomment %}
+  <div id="skip">
+    <a href="#pagecontent" style="padding-bottom:0px !important;">Skip to Main Content</a>
+  </div>
+
+
+  {% comment %}   New Top Shout Bar   {% endcomment %}
+  
+  <div class="vitalShoutBar">
+    <ul id="vitalMessages">
+      <li id="1a">
+        {{ section.settings.promo_text }}
+      </li>
+      <li id="2">
+        {{ section.settings.promo_text_2 }}
+      </li>
+      <li id="3">
+        {{ section.settings.promo_text_3 }} 
+      </li>
+    </ul>
+  </div>
+
+  {% comment %}
+  <script>
+    function startAnimations() {
+      $("#vitalMessages li").hide();
+
+      function loop() {
+        var $li = $("#vitalMessages li:first-child").fadeIn(500, function () {
+
+          setTimeout(
+            function() 
+            {
+
+              $li.fadeOut(500, function () {
+                $li.appendTo('#vitalMessages');;
+                loop()
+              })
+
+            }, 4000);
+
+        });
+      }
+      loop()
+    }
+
+    startAnimations();
+  </script>
+  {% endcomment %}
+
+
+  {% comment %}   New Navigation 2020   {% endcomment %}
+
+  <div class="headerOuter" id="vpNavBar">
+    <header>
+      <div class="header_min">
+        <div class="header_left">
+<!--           <div class="flexIcons">
+            <div class="headerIcons menuBox" id="menuIcon">
+              <img src="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/Frame_5.png?v=1608136611">
+            </div>
+          </div> -->
+          <ul class="topMenu">
+          <li class="topMenuItem" id="languageNav">
+            <a href="#"><img src="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/Frame_5.png?v=1608136611"></a>
+            <div id="dropMenu">
+              <div id="dropMenuInner" class="row mb-16">
+                <div class="language_div">
+                  <div class="language_text">
+                    <h3>Select your language</h3>
+<!--                     <p>Be sure to pick the location that matches your shipping address.</p> -->
+                  </div>
+                  <div class="language_bar">
+                    <label class="canada">
+                      <img src="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/CA.png?v=1609177122" alt="icon">
+                      <span>Canada</span>
+                    </label>
+                    <span>English</span>
+                    <span>français</span>
+                  </div>	
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="topMenuItem" id="productsNav">
+            <a href="#">Products</a>
+            <div id="dropMenu" class="single-product-list">
+              <div id="dropMenuInner" class="row mb-16" style="margin-left: 0px !important;">
+                <div class="col-12 pt-8">
+                  <div>
+<!--                     <h4>Powders</h4>
+                    <hr class="altDivider"> -->
+                    <ul class="noBullets dropMenuInnerMenu">
+                      {% for link in linklists.VP2020-powders.links %}
+                      <li><a href="{{ link.url }}">{{ link.title }}</a></li> 
+                      {% endfor %}
+                    </ul>
+                  </div>
+                </div>
+<!--                 <div class="col-2 pt-8">
+                  <div>
+                    <h4>Supplements</h4>
+                    <hr class="altDivider">
+                    <ul class="noBullets dropMenuInnerMenu">
+                      {% for link in linklists.VP2020-capsules.links %}
+                      <li><a href="{{ link.url }}">{{ link.title }}</a></li>       
+                      {% endfor %}
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-2 pt-8">
+                  <div>
+                    <h4>Drinks</h4>
+                    <hr class="altDivider">
+                    <ul class="noBullets dropMenuInnerMenu">
+                      {% for link in linklists.VP2020-drinks.links %}
+                      <li><a href="{{ link.url }}">{{ link.title }}</a></li>       
+                      {% endfor %}
+                    </ul>
+                    <h4>Bars</h4>
+                    <hr class="altDivider">
+                    <ul class="noBullets dropMenuInnerMenu">
+                      <li><a href="/collections/collagen-bars">Shop Collagen Bars</a></li>
+
+                    </ul>
+                  </div>
+                </div> -->
+<!--                 <div class="col-2 pt-8">
+                  <div>
+                    <h4>What's New</h4>
+                    <hr class="altDivider">
+                    <ul class="noBullets dropMenuInnerMenu">
+                      {% for link in linklists.v2-new-products.links %}
+                      <li><a href="{{ link.url }}">{{ link.title }}</a></li>       
+                      {% endfor %}
+                    </ul>
+                  </div>
+                </div> -->
+<!--                 <div class="col-4 pt-8">
+                  <div class="flexRow">
+                    <div class="flexCol center ie-fix1">
+                      <h2>Subscribe &amp; Save 25%</h2>
+                      <p class="detailText">Receive 25% off your first order of Collagen Peptides and {{ settings.subscription_discount_secondary_amount }}% off each order after (plus free shipping) when you subscribe. Other restrictions may apply.</p>
+                      <button type="button" class="mt-16 mb-8" onclick="location.href='/products/collagen-peptides'">Subscribe Now</button>
+                      <p style="font-weight:bold;" class="detailText">Our Bestseller - Collagen Peptides</p>
+                    </div>
+                    <div class="flexCol ml-16">
+                      <picture class="imgTransparency">
+                        <source media="(min-width:800px)" srcset="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/imgpsh_fullsize_anim.png?v=1608748930">
+                        <source media="(min-width:465px)" srcset="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/imgpsh_fullsize_anim.png?v=1608748930">
+                        <img src="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/imgpsh_fullsize_anim.png?v=1608748930" alt="Vital Proteins Collagen Peptides" style="">
+                      </picture>
+                    </div>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </li>
+<!--           <li class="topMenuItem" id="benefitsNav">
+            <a href="#">by Health Need</a>
+            <div id="dropMenu">
+              <div id="dropMenuInner" class="row mb-16">
+                <div class="col-8 pt-8">
+                  <div>
+                    <h4>by Health Need</h4>
+                    <hr class="altDivider">
+                    <ul class="noBullets dropMenuInnerMenu">
+                      {% for link in linklists.VP2020-benefits.links %}
+                      <li><a href="{{ link.url }}">{{ link.title }}</a></li>       
+                      {% endfor %}
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-4 pt-8">
+                  <div class="flexRow">
+                    <div class="flexCol center ie-fix1">
+                      <h2>Subscribe &amp; Save 25%</h2>
+                      <p class="detailText">Receive 25% off your first order of Collagen Peptides and {{ settings.subscription_discount_secondary_amount }}% off each order after (plus free shipping) when you subscribe. Other restrictions may apply.</p>
+                      <button type="button" class="mt-16 mb-8" onclick="location.href='/products/collagen-peptides'">Subscribe Now</button>
+                      <p style="font-weight:bold;" class="detailText">Our Bestseller - Collagen Peptides</p>
+                    </div>
+                    <div class="flexCol ml-16">
+                      <picture class="imgTransparency">
+                        <source media="(min-width:800px)" srcset="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/imgpsh_fullsize_anim-1_2500x.png">
+                        <source media="(min-width:465px)" srcset="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/imgpsh_fullsize_anim-1_2500x.png">
+                        <img src="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/imgpsh_fullsize_anim-1_2500x.png" alt="Vital Proteins Collagen Peptides" style="">
+                      </picture>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="topMenuItem" id="favoritesNav">
+            <a href="#">Favorites</a>
+            <div id="dropMenu">
+              <div id="dropMenuInner" class="row mb-16">
+                <div class="col-2 pt-8">
+                  {% assign article = articles['collagen/jennifer-aniston-vital-proteins'] %}
+                  <div class="picks-container" style="position:relative;">
+                    <div class="pick-img celeb-pick" style="background-image: url( {{ 'JA_Blog_Peptides.jpg' | file_img_url: '400x' }} );">
+                      <a href="/blogs/stay-vital/jennifer-aniston-vital-proteins" style="position:absolute;width:100%;height:100%"></a>
+                    </div>
+                    <h3>Celeb Picks</h3>
+                    <p><a href="/blogs/stay-vital/jennifer-aniston-vital-proteins">Jen Aniston shares her collagen routine</a></p>
+
+                    <a href="/collections/jennifer-anistons-vital-picks" class="prod-link-text">Shop Jen's Top Picks</a>
+                  </div>
+                </div>
+                <div class="col-2 pt-8">
+                  {% assign article = articles['wellness/george-brown-fitness-routine-collagen'] %}
+
+                  <div class="picks-container" style="position:relative;">
+                    <div class="pick-img celeb-pick" style="background-image: url( {{ article.image.src | img_url: '400x' }} );">
+                      <a href="{{ article.url }}" style="position:absolute;width:100%;height:100%"></a>
+                    </div>
+                    <h3>Influencer Picks</h3>
+                    <p><a href="{{ article.url }}">Bodybuilder George Brown uses Vital Performance</a></p>
+                    <a href="/pages/vital-performance" class="prod-link-text">Shop Performance</a>
+                  </div>
+                </div>
+                <div class="col-2 pt-8">
+                  {% assign article = articles['lifestyle/hydration-collagen-routine'] %}
+
+                  <div class="picks-container" style="position:relative;">
+                    <div class="pick-img celeb-pick" style="background-image: url( {{ article.image.src | img_url: '400x' }} );">
+                      <a href="{{ article.url }}" style="position:absolute;width:100%;height:100%"></a>
+                    </div>
+                    <h3>Staff Picks</h3>
+                    <p><a href="{{ article.url }}">Vital's Hannah Tate loves Hydration**+ Collagen</a></p>
+                    <a href="/pages/hydrate-electrolyte-drink" class="prod-link-text">Hydration**+ Collagen</a>
+                  </div>
+                </div>
+                <div class="col-2 pt-8">
+                  {% assign article = articles['stay-vital/matcha-vs-green-tea-difference'] %}
+
+                  <div class="picks-container" style="position:relative;">
+                    <div class="pick-img celeb-pick" style="background-image: url( {{ article.image.src | img_url: '400x' }} );">
+                      <a href="{{ article.url }}" style="position:absolute;width:100%;height:100%"></a>
+                    </div>
+                    <h3>Top Rated</h3>
+                    <p><a href="{{ article.url }}">Try our fan-favorite Matcha Collagen</a></p>
+                    <a href="/products/matcha-collagen" class="prod-link-text">Shop Matcha Collagen</a>
+                  </div>
+                </div>
+                <div class="col-4 pt-8">
+                  <div class="flexRow">
+                    <div class="flexCol center ie-fix1">
+                      <h2>Subscribe &amp; Save 25%</h2>
+                      <p class="detailText">Receive 25% off your first order of Collagen Peptides and {{ settings.subscription_discount_secondary_amount }}% off each order after (plus free shipping) when you subscribe. Other restrictions may apply.</p>
+                      <button type="button" class="mt-16 mb-8" onclick="location.href='/products/collagen-peptides'">Subscribe Now</button>
+                      <p style="font-weight:bold;" class="detailText">Our Bestseller - Collagen Peptides</p>
+                    </div>
+                    <div class="flexCol ml-16">
+                      <picture class="imgTransparency">
+                        <source media="(min-width:800px)" srcset="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/imgpsh_fullsize_anim-1_2500x.png">
+                        <source media="(min-width:465px)" srcset="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/imgpsh_fullsize_anim-1_2500x.png"> 
+                        <img src="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/imgpsh_fullsize_anim-1_2500x.png" alt="Vital Proteins Collagen Peptides" style="">
+                      </picture>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li> -->
+            <li class="topMenuItem" id="performanceNav">
+                <a href="#">Vital Performance</a>
+                <div id="dropMenu">
+                  <div id="dropMenuInner" class="row mb-16">
+                    <div class="col-3 pt-12">
+                      <div>
+                        <h4>Shop Vital Performance</h4>
+                        <hr class="altDivider">
+                        <ul class="noBullets dropMenuInnerMenu">
+                          {% for link in linklists.v2-performance.links %}
+                          <li><a href="{{ link.url }}">{{ link.title }}</a></li>       
+                          {% endfor %}
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-5 pt-12">
+                      <div class="perfTeaser">
+                        <div>
+                          <h2>The Ultimate Game Changer®</h2>
+                          <p class="mb-16">Our three-phase system combines collagen with premium ingredients to help you conquer every movement.</p>
+                          <button type="button" class="mt-16 mb-8" onclick="location.href='/pages/vital-performance'">Explore Vital Performance™</button>
+                        </div>
+                        <div style="max-width: 315px;margin-left: 40px; width: 315px; vertical-align: top !important;">
+                          <img src="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/RECOVER_PF_Product_200x_7a08d210-53ef-4657-8ed0-2ad061461aee.png?v=1608129050" style="width:100%;">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-4 pt-12">
+                      <div class="flexRow">
+                        <div class="flexCol center ie-fix1">
+                          <h2>Subscribe &amp; Save 25%</h2>
+                          <p class="detailText">Receive 25% off your first order of Collagen Peptides and {{ settings.subscription_discount_secondary_amount }}% off each order after (plus free shipping) when you subscribe. Other restrictions may apply.</p>
+                          <button type="button" class="mt-16 mb-8" onclick="location.href='/products/collagen-peptides'">Subscribe Now</button>
+                          <p style="font-weight:bold;" class="detailText">Our Bestseller - Collagen Peptides</p>
+                        </div>
+                        <div class="flexCol ml-16">
+                          <picture class="imgTransparency">
+                            <source media="(min-width:800px)" srcset="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/imgpsh_fullsize_anim-1_2500x.png">
+                            <source media="(min-width:465px)" srcset="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/imgpsh_fullsize_anim-1_2500x.png">
+                            <img src="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/imgpsh_fullsize_anim-1_2500x.png" alt="Vital Proteins Collagen Peptides" style="">
+                          </picture>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="topMenuItem" id="brandNav">
+                <a href="#">Brand</a>
+                <div id="dropMenu">
+                  <div id="dropMenuInner" class="row mb-16">
+                    <div class="col-2 pt-8">
+                      <div>
+                        <h4>Our Brand</h4>
+                        <hr class="altDivider">
+                        <ul class="noBullets dropMenuInnerMenu">
+                          {% for link in linklists.v1-brand-menu.links %}
+                          <li><a href="{{ link.url }}">{{ link.title }}</a></li>       
+                          {% endfor %}
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-3 pt-8">
+                      <div class="brandTeaser mt-5">
+                      </div>
+                    </div>
+<!--                     <div class="col-3 pt-8">
+                      <div>
+                        <img src="{{ 'influencer-ts.jpg' | file_img_url: '400x' }}" style="width:100%">
+                        <h4>Become a Vital Influencer</h4>
+				                     
+                        <p class="mt-8">Hint: It’s the easiest way to score free collagen! </p>
+                        <p class="mt-8"><a href="//influencer.vitalproteins.com/" style="font-size: 16px;">Apply Now</a></p>
+                      </div>
+                    </div> -->
+                    <div class="col-7 pt-8">
+                      <div class="flexRow">
+                        <div class="flexCol center ie-fix1">
+                          <h2>Subscribe &amp; Save 25%</h2>
+                          <p class="detailText">Receive 25% off your first order of Collagen Peptides and {{ settings.subscription_discount_secondary_amount }}% off each order after (plus free shipping) when you subscribe. Other restrictions may apply.</p>
+                          <button type="button" class="mt-16 mb-8" onclick="location.href='/products/collagen-peptides'">Subscribe Now</button>
+                          <p style="font-weight:bold;" class="detailText">Our Bestseller - Collagen Peptides</p>
+                        </div>
+                        <div class="flexCol ml-16">
+                          <picture class="imgTransparency">
+                            <source media="(min-width:800px)" srcset="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/imgpsh_fullsize_anim-1_2500x.png">
+                            <source media="(min-width:465px)" srcset="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/imgpsh_fullsize_anim-1_2500x.png">
+                            <img src="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/imgpsh_fullsize_anim-1_2500x.png" alt="Vital Proteins Collagen Peptides" style="">
+                          </picture>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+        </ul>
+        </div>
+        <div class="header_center">
+          <div style="display: flex;height: 100%;justify-content: center;align-items: center;">
+          <a href="/"><picture class="vital-header-logo">
+            <source media="(min-width:800px)" srcset="{{ 'vital_proteins_logo_horizontal.png' | file_img_url: '400x' }}">
+            <source media="(min-width:465px)" srcset="{{ 'vital-shield.png' | file_img_url: '200x' }}">
+            <img src="{{ 'vital_proteins_logo_horizontal.png' | file_img_url: '400x' }}" alt="Vital Proteins" style="max-height: 65px;">
+            </picture></a>
+        </div>
+        </div>
+        <div class="header_right">	
+        <div class="header_right_menu">
+<!--             <ul class="topMenu"></ul> -->
+            <div class="vital-header-search-box" id="search-box-main"> 
+              <input type="hidden" name="type" value="product"> 
+              <form style="width:100%;position:relative;">
+                <input aria-label="Search Vital Proteins. Enter search terms here." type="text" name="q" placeholder="Search" value="" x-webkit-speech="" autocapitalize="off" autocomplete="off" autocorrect="off" class="snize-input-style">
+              </form> 
+              <button aria-label="Submit Search" type="submit" name="submit" class="search__button icon-search" value=" "> 
+                <span> 
+                  <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.7099 19.29L16.9999 15.61C18.44 13.8144 19.1374 11.5353 18.9487 9.24133C18.76 6.94733 17.6996 4.81281 15.9854 3.27667C14.2713 1.74053 12.0337 0.919537 9.73283 0.982497C7.43194 1.04546 5.24263 1.98759 3.61505 3.61517C1.98747 5.24275 1.04534 7.43207 0.982375 9.73295C0.919414 12.0338 1.74041 14.2714 3.27655 15.9855C4.81269 17.6997 6.94721 18.7601 9.2412 18.9488C11.5352 19.1375 13.8143 18.4401 15.6099 17L19.2899 20.68C19.3829 20.7738 19.4935 20.8482 19.6153 20.8989C19.7372 20.9497 19.8679 20.9758 19.9999 20.9758C20.1319 20.9758 20.2626 20.9497 20.3845 20.8989C20.5063 20.8482 20.6169 20.7738 20.7099 20.68C20.8901 20.4936 20.9909 20.2444 20.9909 19.985C20.9909 19.7257 20.8901 19.4765 20.7099 19.29ZM9.9999 17C8.61544 17 7.26206 16.5895 6.11091 15.8203C4.95977 15.0511 4.06256 13.9579 3.53275 12.6788C3.00293 11.3997 2.86431 9.99226 3.13441 8.63439C3.4045 7.27653 4.07119 6.02925 5.05016 5.05028C6.02912 4.07131 7.27641 3.40463 8.63427 3.13453C9.99214 2.86443 11.3996 3.00306 12.6787 3.53287C13.9578 4.06268 15.051 4.95989 15.8202 6.11103C16.5894 7.26218 16.9999 8.61556 16.9999 10C16.9999 11.8565 16.2624 13.637 14.9497 14.9498C13.6369 16.2625 11.8564 17 9.9999 17Z" fill="#355C7E"></path></svg>
+                </span>
+              </button>
+            </div>
+            <div class="headerIcons_bar">
+              <div class="flexIcons headerIcons">
+                <div class="headerIcons menuBox" onclick="myFunction()" id="menuIcon">
+                  <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="bars" class="svg-inline--fa fa-bars fa-w-14" style="max-width: 22px;" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg>
+                </div>
+                <div onclick="openDesktopSearch()" class="closeLink headerIcons" id="tablet-search">
+                  <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.7099 19.29L16.9999 15.61C18.44 13.8144 19.1374 11.5353 18.9487 9.24133C18.76 6.94733 17.6996 4.81281 15.9854 3.27667C14.2713 1.74053 12.0337 0.919537 9.73283 0.982497C7.43194 1.04546 5.24263 1.98759 3.61505 3.61517C1.98747 5.24275 1.04534 7.43207 0.982375 9.73295C0.919414 12.0338 1.74041 14.2714 3.27655 15.9855C4.81269 17.6997 6.94721 18.7601 9.2412 18.9488C11.5352 19.1375 13.8143 18.4401 15.6099 17L19.2899 20.68C19.3829 20.7738 19.4935 20.8482 19.6153 20.8989C19.7372 20.9497 19.8679 20.9758 19.9999 20.9758C20.1319 20.9758 20.2626 20.9497 20.3845 20.8989C20.5063 20.8482 20.6169 20.7738 20.7099 20.68C20.8901 20.4936 20.9909 20.2444 20.9909 19.985C20.9909 19.7257 20.8901 19.4765 20.7099 19.29ZM9.9999 17C8.61544 17 7.26206 16.5895 6.11091 15.8203C4.95977 15.0511 4.06256 13.9579 3.53275 12.6788C3.00293 11.3997 2.86431 9.99226 3.13441 8.63439C3.4045 7.27653 4.07119 6.02925 5.05016 5.05028C6.02912 4.07131 7.27641 3.40463 8.63427 3.13453C9.99214 2.86443 11.3996 3.00306 12.6787 3.53287C13.9578 4.06268 15.051 4.95989 15.8202 6.11103C16.5894 7.26218 16.9999 8.61556 16.9999 10C16.9999 11.8565 16.2624 13.637 14.9497 14.9498C13.6369 16.2625 11.8564 17 9.9999 17Z" fill="#355C7E"/></svg>
+                </div>
+              </div>
+              <div class="headerIcons login_icon">
+                <a aria-label="Account Login" href="/pages/account-landing-page/" class="" style="position: relative;">
+                  <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="user-circle" style="max-width: 22px;" class="svg-inline--fa fa-user-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M248 104c-53 0-96 43-96 96s43 96 96 96 96-43 96-96-43-96-96-96zm0 144c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zm0-240C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 448c-49.7 0-95.1-18.3-130.1-48.4 14.9-23 40.4-38.6 69.6-39.5 20.8 6.4 40.6 9.6 60.5 9.6s39.7-3.1 60.5-9.6c29.2 1 54.7 16.5 69.6 39.5-35 30.1-80.4 48.4-130.1 48.4zm162.7-84.1c-24.4-31.4-62.1-51.9-105.1-51.9-10.2 0-26 9.6-57.6 9.6-31.5 0-47.4-9.6-57.6-9.6-42.9 0-80.6 20.5-105.1 51.9C61.9 339.2 48 299.2 48 256c0-110.3 89.7-200 200-200s200 89.7 200 200c0 43.2-13.9 83.2-37.3 115.9z"></path></svg>
+                </a>
+              </div>
+              <div class="headerIcons cartBox">
+                <a aria-label="View items in Bag" href="/cart" class="">
+                  <span class="cartCount">{{ cart.item_count }}</span>
+                  <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="shopping-cart" class="svg-inline--fa fa-shopping-cart fa-w-18" style="max-width: 22px;" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M551.991 64H144.28l-8.726-44.608C133.35 8.128 123.478 0 112 0H12C5.373 0 0 5.373 0 12v24c0 6.627 5.373 12 12 12h80.24l69.594 355.701C150.796 415.201 144 430.802 144 448c0 35.346 28.654 64 64 64s64-28.654 64-64a63.681 63.681 0 0 0-8.583-32h145.167a63.681 63.681 0 0 0-8.583 32c0 35.346 28.654 64 64 64 35.346 0 64-28.654 64-64 0-18.136-7.556-34.496-19.676-46.142l1.035-4.757c3.254-14.96-8.142-29.101-23.452-29.101H203.76l-9.39-48h312.405c11.29 0 21.054-7.869 23.452-18.902l45.216-208C578.695 78.139 567.299 64 551.991 64zM208 472c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm256 0c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm23.438-200H184.98l-31.31-160h368.548l-34.78 160z"></path></svg>
+                </a>
+              </div>
+      		</div>
+        </div>
+      </div>
+	  </div>
+    </header>
+  </div>
+  
+  {% comment %} New Mobile Navigation 2021 {% endcomment %}
+
+  <div id="mobileNavigation">
+    <div class="mobileNavigationHeader">
+      <div onclick="myFunction()" class="closeLink headerIcons closeIt">
+			<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg>
+		</div>
+    </div>
+    <div class="mobileNavigationContent">
+      <ul>
+        <li class="lvl1 parent megamenu">Products<span class="right plusminus">+</span></li>
+        <div id="productMenuInner" class="sub-menu" style="display:none;">
+          <div class="pl-16 pt-8 pr-16 flexRow">
+            <div style="width: 50%;">
+<!--               <h4>Powders</h4>
+              <hr class="altDivider"> -->
+              <ul class="noBullets dropMenuInnerMenu" style="">
+                {% for link in linklists.VP2020-powders.links %}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>       
+                {% endfor %}
+              </ul>
+            </div>
+<!--             <div class="pl-16" style="width: 50%;">
+              <h4>Supplements</h4>
+              <hr class="altDivider">
+              <ul class="noBullets dropMenuInnerMenu">
+                {% for link in linklists.VP2020-capsules.links %}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>       
+                {% endfor %}
+              </ul>
+            </div> -->
+          </div>
+<!--           <div class="pl-16 pt-8 pr-16 flexRow">
+            <div style="width: 50%;">
+              <h4>Drinks</h4>
+              <hr class="altDivider">
+              <ul class="noBullets dropMenuInnerMenu">
+                {% for link in linklists.VP2020-drinks.links %}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>       
+                {% endfor %}
+              </ul>
+            </div>
+            <div class="pl-16" style="width: 50%;">
+              <h4>Collagen Bars</h4>
+              <hr class="altDivider">
+              <ul class="noBullets dropMenuInnerMenu">
+                <li><a href="/products/collagen-bar-12-pack-variety-sampler">12 Pack Variety</a></li>
+                <li><a href="/products/collagen-bar-6-pack-variety-bundle">6 Pack Variety</a></li>
+                <li><a href="/collections/collagen-bars">Shop Collagen Bars</a></li>
+              </ul>
+            </div>
+
+          </div> -->
+<!--           <div class="pl-16 pt-8 pr-16">
+            <h4>What's New</h4>
+            <hr class="altDivider">
+            <ul class="noBullets dropMenuInnerMenu">
+              {% for link in linklists.v2-new-products.links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>       
+              {% endfor %}
+            </ul>
+          </div> -->
+        </div>       
+        
+<!--         <li class="lvl1 parent megamenu">By Health Need<span class="right plusminus">+</span></li>
+        <div id="healthMenuInner" class="sub-menu" style="display:none;">
+          <div class="pl-16 pr-16 pt-8">
+            <ul class="noBullets dropMenuInnerMenu">
+              {% for link in linklists.VP2020-benefits.links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>       
+              {% endfor %}
+            </ul>
+          </div>
+        </div>         -->
+        
+<!--         <li class="lvl1 parent megamenu">Favourites<span class="right plusminus">+</span></li> -->
+        <div id="favoritesMenuInner" class="sub-menu" style="display:none;">
+          <div class="pl-16 pr-16 pt-8 mb-24 pb-16">
+            <h4>Celeb Picks</h4>
+            <hr class="altDivider">
+            {% assign article = articles['stay-vital/jennifer-aniston-vital-proteins'] %}
+            <div class="picks-container mb-8" style="position:relative;">
+              <div class="pick-img celeb-pick" style="background-image: url( {{ 'JA_Blog_Peptides.jpg' | file_img_url: '400x' }} );">
+                <a href="/blogs/stay-vital/jennifer-aniston-vital-proteins" style="position:absolute;width:100%;height:100%"></a>
+              </div>
+              <p><a href="/blogs/stay-vital/jennifer-aniston-vital-proteins">Jen Aniston shares her collagen routine</a></p>
+              <a href="/collections/jennifer-anistons-vital-picks" class="prod-link-text">Shop Jen's Top Picks</a>
+            </div>
+
+            <h4>Influencer Picks</h4>
+            <hr class="altDivider">
+            {% assign article = articles['wellness/george-brown-fitness-routine-collagen'] %}
+
+            <div class="picks-container mb-8" style="position:relative;">
+              <div class="pick-img celeb-pick" style="background-image: url( {{ article.image.src | img_url: '400x' }} );">
+                <a href="{{ article.url }}" style="position:absolute;width:100%;height:100%"></a>
+              </div>
+              <p><a href="{{ article.url }}">Bodybuilder George Brown uses Vital Performance</a></p>
+              <a href="/pages/vital-performance" class="prod-link-text">Shop Performance</a>
+            </div>
+
+            <h4>Staff Picks</h4>
+            <hr class="altDivider">
+            {% assign article = articles['lifestyle/hydration-collagen-routine'] %}
+
+            <div class="picks-container mb-8" style="position:relative;">
+              <div class="pick-img celeb-pick" style="background-image: url( {{ article.image.src | img_url: '400x' }} );">
+                <a href="{{ article.url }}" style="position:absolute;width:100%;height:100%"></a>
+              </div>
+              <p><a href="{{ article.url }}">Vital's Hannah Tate loves Hydration**+ Collagen</a></p>
+              <a href="/pages/hydrate-electrolyte-drink" class="prod-link-text">Hydration**+ Collagen</a>
+            </div>
+            <h4>Top Rated</h4>
+            <hr class="altDivider">
+            {% assign article = articles['stay-vital/matcha-vs-green-tea-difference'] %}
+
+            <div class="picks-container mb-8" style="position:relative;">
+              <div class="pick-img celeb-pick" style="background-image: url( {{ article.image.src | img_url: '400x' }} );">
+                <a href="{{ article.url }}" style="position:absolute;width:100%;height:100%"></a>
+              </div>
+              <p><a href="{{ article.url }}">Try our fan-favorite Matcha Collagen</a></p>
+              <a href="/products/matcha-collagen" class="prod-link-text">Shop Matcha Collagen</a>
+            </div>
+          </div>
+        </div>        
+        
+<!--         <li class="lvl1 parent megamenu">Vital Performance<span class="right plusminus">+</span></li> -->
+        <div id="performanceMenuInner" class="sub-menu" style="display:none;">
+          <div class="pl-16 pr-16 pt-8">
+            <h4>Shop Vital Performance</h4>
+            <hr class="altDivider">
+            <ul class="noBullets dropMenuInnerMenu">
+              {% for link in linklists.v2-performance.links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>       
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="perfTeaser">
+            <div>
+              <h2>The Ultimate Game Changer®</h2>
+              <p class="mb-16">Our three-phase system combines collagen with premium ingredients to help you conquer every movement.</p>
+              <a href="/pages/vital-performance">Explore Vital Performance™</a>
+            </div>
+          </div>
+        </div>        
+        
+        <li class="lvl1 parent megamenu">Brand<span class="right plusminus">+</span></li>
+        <div id="brandMenuInner" class="sub-menu" style="display:none;">
+          <div class="pt-8 pl-16 pr-16">
+            <h4>Our Brand</h4>
+            <hr class="altDivider">
+            <ul class="noBullets dropMenuInnerMenu">
+              {% for link in linklists.v1-brand-menu.links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>       
+              {% endfor %}
+            </ul>
+            <h4>Apply to become a Vital Influencer</h4>
+            <hr class="altDivider">
+            <img src="{{ 'influencer-ts.jpg' | file_img_url: '400x' }}" alt="Vital Influencers" style="width:100%">
+            <p class="mt-8">Hint: It's the easiest way to score free collagen! <a href="//influencer.vitalproteins.com/" style="font-size: 16px;">Apply Now</a></p>
+          </div>
+
+        </div>
+        <li class="lvl1"><a href="/pages/account-landing-page/">My Account<span class="right plusminus" style="transform: rotate(270deg);">+</span></a></li>
+      </ul>
+    </div>    
+
+    <div id="mobileSearchContainer">
+      <div class="vital-header-search-box"> <input type="hidden" name="type" value="product"> <form style="width:100%;position:relative;"><input aria-label="Search Vital Proteins. Enter search terms here." type="text" name="q" placeholder="Search Products" value="" x-webkit-speech="" autocapitalize="off" autocomplete="off" autocorrect="off" class="snize-input-style"></form> <button aria-label="Submit Search" type="submit" name="submit" class="search__button icon-search" value=" "> <span> <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-alt-right" class="svg-inline--fa fa-arrow-alt-right fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"> <path fill="currentColor" d="M0 304v-96c0-13.3 10.7-24 24-24h200V80.2c0-21.4 25.8-32.1 41-17L441 239c9.4 9.4 9.4 24.6 0 34L265 448.7c-15.1 15.1-41 4.4-41-17V328H24c-13.3 0-24-10.7-24-24z"></path></svg></span></button></div>
+      <div onclick="openSearch()" class="closeLink headerIcons">
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg>
+      </div>
+    </div>
+  </div>
+
+  <div id="backdrop" onclick="myFunction()"></div>
+
+  <div id="desktopSearchContainer" class="desktopSearchContainer">
+    <div class="vital-header-search-box"> <input type="hidden" name="type" value="product"> <form style="width:100%;position:relative;"><input aria-label="Search Vital Proteins. Enter search terms here." type="text" name="q" placeholder="Search Products" value="" x-webkit-speech="" autocapitalize="off" autocomplete="off" autocorrect="off" class="snize-input-style"></form> <button aria-label="Submit Search" type="submit" name="submit" class="search__button icon-search" value=" "> <span> <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-alt-right" class="svg-inline--fa fa-arrow-alt-right fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"> <path fill="currentColor" d="M0 304v-96c0-13.3 10.7-24 24-24h200V80.2c0-21.4 25.8-32.1 41-17L441 239c9.4 9.4 9.4 24.6 0 34L265 448.7c-15.1 15.1-41 4.4-41-17V328H24c-13.3 0-24-10.7-24-24z"></path></svg></span></button></div>
+    <div onclick="openDesktopSearch()" class="closeLink headerIcons">
+      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg>
+    </div>
+  </div>
+
+</div>
+<script>
+  $(".lvl1.parent.megamenu").click(function(){
+    if($(this).find("span").hasClass("dropdown-custom-1"))
+  		$(this).find("span").removeClass("dropdown-custom-1")
+    else
+  		$(this).find("span").addClass("dropdown-custom-1")
+  })
+</script>
+{% if template contains "index" %}
+	{% assign feature_image = true %}
+{% elsif template contains "collection" %}
+	{% assign feature_image = true %}
+{% elsif template contains "blog" %}
+	{% assign feature_image = true %}
+{% elsif template contains "article" %}
+	{% assign feature_image = true %}
+{% elsif template contains "contact" %}
+	{% assign feature_image = true %}
+{% elsif template contains "details" %}
+	{% assign feature_image = true %}
+{% else %}
+	{% assign feature_image = false %}
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Header",
+    "class": "header-section",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "promo_text",
+        "label": "Announcement Message 1"
+      },
+      {
+        "type": "richtext",
+        "id": "promo_text_2",
+        "label": "Announcement Message 2"
+      },
+      {
+        "type": "richtext",
+        "id": "promo_text_3",
+        "label": "Announcement Message 3"
+      },
+      {
+      "type": "header",
+      "content": "Logos"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo_light",
+        "label": "Logo Light",
+        "info": "400 x 100px recommended"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo_dark",
+        "label": "Logo Dark",
+        "info": "400 x 100px recommended"
+      },
+      {
+        "type": "header",
+        "content": "Menus"
+      },
+      {
+        "type": "link_list",
+        "id": "powder_linklist",
+        "label": "Powder Menu"
+      }
+	]
+ }
+{% endschema %}
+
+<script>
+  function myFunction() {
+    var element = document.getElementById("mobileNavigation");
+
+    if (element.classList) { 
+      element.classList.toggle("displayMenu");
+    } else {
+      var classes = element.className.split(" ");
+      var i = classes.indexOf("displayMenu");
+
+      if (i >= 0) 
+        classes.splice(i, 1);
+      else 
+        classes.push("displayMenu");
+      element.className = classes.join(" "); 
+    }
+
+    var element = document.getElementById("backdrop");
+
+    if (element.classList) { 
+      element.classList.toggle("backdropOn");
+    } else {
+      var classes = element.className.split(" ");
+      var i = classes.indexOf("backdropOn");
+
+      if (i >= 0) 
+        classes.splice(i, 1);
+      else 
+        classes.push("backdropOn");
+      element.className = classes.join(" "); 
+    }
+
+  }
+
+
+  function openSearch() {
+    var element = document.getElementById("mobileSearchContainer");
+
+    if (element.classList) { 
+      element.classList.toggle("displaySearch");
+    } else {
+      var classes = element.className.split(" ");
+      var i = classes.indexOf("displaySearch");
+
+      if (i >= 0) 
+        classes.splice(i, 1);
+      else 
+        classes.push("displaysearch");
+      element.className = classes.join(" "); 
+    }
+
+  }
+
+  function openDesktopSearch() {
+    var element = document.getElementById("desktopSearchContainer");
+
+    if (element.classList) { 
+      element.classList.toggle("displaySearch");
+    } else {
+      var classes = element.className.split(" ");
+      var i = classes.indexOf("displaySearch");
+
+      if (i >= 0) 
+        classes.splice(i, 1);
+      else 
+        classes.push("displaysearch");
+      element.className = classes.join(" "); 
+    }
+
+  }
+
+</script>
+
+<script>
+  $(document).ready(function() {
+  //toggle the component with class sub-menu
+  $(".parent.megamenu").click(function() {
+    if ($('.sub-menu').is(':visible')) {
+      $(".sub-menu").slideUp(300);
+      $(".plusminus").text('+');
+    }
+    if ($(this).next(".sub-menu").is(':visible')) {
+      $(this).next(".sub-menu").slideUp(300);
+      $(this).children(".plusminus").text('+');
+    } else {
+      $(this).next(".sub-menu").slideDown(300);
+      $(this).children(".plusminus").text('-');
+    }
+  });
+});
+</script> 
+
+<style>
+
+  /* Navigation STYLES 2021 */
+
+  body {margin: 0;}
+
+  .headerOuter {
+    background: #ffffff;
+    position: -webkit-sticky;
+    position: fixed;
+    border-bottom: 1px solid #54717826;
+    top: 35px;
+    -webkit-font-smoothing: antialiased;
+    z-index: 2000;
+    width: 100%;
+  }
+
+  .newStyles2021 header {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    height: 70px;
+    align-items: center;
+    padding: 15px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    width:100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    -webkit-transform: translate3d(0,0,0);
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    display:flex !important;
+    flex-basis: auto;
+    flew-flow: row;
+
+  }
+
+  #mobileNavigation {
+    transform: translateX(-400px);
+    transition: 300ms ease all;
+    z-index: -1;
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: #ffffff;
+    overflow-y: scroll;
+    opacity: 0;
+  }
+
+  #mobileNavigation ul {
+    list-style: none;
+    padding-left: 0px;
+    padding: 15px;
+    font-family: 'avenir';
+    width: 100%;
+  }
+
+  #mobileNavigation ul li {
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #ececec;
+  }
+
+  #mobileNavigation ul a {
+    text-decoration: none;
+    color: #393D40;
+    font-size: 16px;
+    width: 100%;
+    display: block;
+    height: 100%;
+  }
+
+  #productMenuInner ul, #healthMenuInner ul, #newMenuInner ul, #performanceMenuInner ul, #brandMenuInner ul {
+    list-style: none;
+    padding-left: 0px;
+    padding: 0;
+    font-family: 'avenir';
+    width: 100%;
+  }
+
+
+
+  #productMenuInner  ul a, #healthMenuInner ul a, #newMenuInner ul a, #performanceMenuInner ul a, #brandMenuInner ul a {
+    text-decoration: none;
+    color: #393D40;
+    font-size: 16px;
+    width: 100%;
+    display: block;
+    height: 100%;
+  }
+
+  .mobileNavigationHeader {
+    height: 70px;
+    background: #f9f9f9;
+    border-bottom: 1px solid #ececec;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .mobileNavigationContent img {
+    width: 150px;
+    position: relative;
+    top: 25px;
+  }
+
+  .mobileNavigationHeader .headerIcons svg {
+    width: 20px;
+  }
+
+  .mobileNavigationContent {
+    display: flex;
+  }
+
+  .vital-header-logo img {
+    max-width: 230px;
+    margin-left: 15px;
+    margin-right: 15px;
+    position: relative;
+  }
+
+  .displayMenu {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: #ffffff;
+    transition: 300ms ease all;
+    transform: translateX(0px) !important;
+    box-shadow: 2px 0px 6px #0000001a;
+    opacity:1 !important;
+  }
+
+  .displaySearch {
+    transform: translatey(0px) !important;
+    transition: 200ms ease all;
+  }
+
+  #backdrop {transform: translatey(-5000px);transition: 400ms ease all;}
+
+  .backdropOn {
+    width: 100%;
+    height: 100%;
+    background: #00000080;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom:0;
+    z-index: 2000;
+    transform: translatey(0px) !important;
+    transition: 400ms ease all;
+  }
+  
+  #mobileSearchContainer {
+    position: absolute;
+    background: #f9f9f9;
+    height: 70px;
+    box-shadow: 0px 2px 6px #0000001f;
+    border-bottom: 1px solid #e2e2e2;
+    top: 0px;
+    width: 100%;
+    transition: 200ms ease all;
+    transform: translateY(-150px);
+    display: flex;
+    align-items: center;
+  }
+
+  #mobileSearchContainer svg {
+    width: 14px;
+  }
+
+  #mobileSearchContainer .search__button svg path {
+    fill:#ffffff;
+  }
+
+  .mainButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 280px;
+    font-family: 'avenir';
+    margin: 0 auto;
+    background: #02ABE3;
+    border-radius: 4px;
+    height: 44px;
+    font-size: 16px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    border: 0px;
+  }
+
+
+  .textShadow {
+    text-shadow: 0px 0px 8px #00000042;
+  }
+
+  .headerIcons svg {
+    width: 22px;
+    max-width: 22px;
+    height: 25px;
+    max-height: 25px;
+  }
+  #tablet-search.headerIcons svg {
+    width: 20px !important;
+  }
+
+  .headerIcons svg path {
+    fill: #393D40;
+  }
+
+  .headerIcons {
+    width: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .cartBox {
+    position: relative;
+  }
+
+  .cartCount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #393D40;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    min-height: 14px;
+    color: #ffffff;
+    font-family: 'avenir';
+    font-size: 10px;
+    line-height: 10px;
+    font-weight: bold;
+    position: absolute;
+    right: -5px;
+    top: -5px;
+  }
+
+  .vital-header-search-box {
+    background: #ffffff;
+    border-radius: 5px;
+    margin: 16px 0;
+    width: 60%;
+    border: 1px solid #C6D2D4;
+    overflow: hidden;
+    display: flex;
+    position: relative;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 34px;
+    max-height: 34px;
+    align-items: center;
+  }
+
+  .vital-header-search-box input {
+    border: transparent;
+    text-indent: 10px;
+    font-size: 16px;
+    line-height: 1em;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+  }
+
+  .vital-header-search-box form {
+    margin-bottom: 0px !important;
+  }
+
+  .vital-header-search-box button {
+    height: 100%;
+    width: 38px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    border: 0px;
+    align-items: center;
+    background: #215D6B;
+    right: 0px;
+    top: 0px;
+    border-radius: 0px;
+  }
+
+  .search__button span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .vital-header-search-box button svg {
+    width: 16px;
+    color: #ffffff !important;
+  }
+
+  .vital-header-search-box button svg path {
+    color: #ffffff !important;
+  }
+
+  .menuBox {padding-left:0px;}
+  .cartBox {padding-right:0px;}
+
+  .topMenu {
+    list-style: none;
+    padding-left: 0px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-family: 'avenir';
+    color: #585A5B;
+    font-weight: 500;
+    padding-left: 25px;
+    align-items: center;
+    height: 100%;
+    padding-right: 25px;
+    margin-bottom: 0px;
+    position: realtive;
+    -ms-flex: 1;
+    -webkit-flex: 1;
+  }
+
+  .topMenu .topMenuItem {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin: 0px;
+  }
+
+  #benefitsNav ul {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  #benefitsNav ul li {
+    display: flex;
+    border-radius: 4px;
+    border: 1px solid #ececec;
+    background: #ffffff;
+    width: 17%;
+    min-height: 50px;
+    margin-bottom: 12px;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 0px;
+  }
+
+  #benefitsNav ul li:last-of-type {
+    width: 100%;
+  }
+
+  #benefitsNav ul li a {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    line-height: 1.1em;
+    align-items: center;
+    padding: 8px;
+    text-align: center;
+  }
+
+  #benefitsNav ul li:hover {
+    background: #ececec;
+  }
+
+
+  #menuIcon {display:none;}
+
+  .vitalShoutBar {
+    height: 35px;
+    background: #D2CCC6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'avenir';
+    font-weight: bold;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+    position: fixed;
+    z-index: 2000;
+    width:100%;
+  }
+
+  .vitalShoutBar a {
+    color: #393D40;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .flexIcons {
+    display: flex;
+    width: 80px;
+    min-width: 80px;
+  }
+
+  .vitalShoutBar ul {
+    list-style: none;
+    padding-left: 0px;
+    margin: 0px;
+  }
+
+  .vitalShoutBar ul li {
+    margin: 0px;
+  }
+
+  #dropMenuInner {
+    display: block;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  #tablet-search {cursor:pointer;}
+
+  .prod-link-text  {
+    color: #215d6b !important;
+    font-weight: bold !important;
+  }
+
+  .picks-container p {
+    font-size: 14px;
+    line-height: 14px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+  }
+
+  .picks-container p a {
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .pick-img {
+    height: 100px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 1px solid #ececec;
+    background-position: center center;
+    margin-bottom: 8px;
+  }
+
+
+  .blogTeaser {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    align-items: center;
+  }
+
+  .blogTeaserImg {
+    height: 80px;
+    width: 160px;
+    min-width: 160px;
+    background-size: cover !important;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    margin-right: 16px;
+  }
+
+  .perfTeaser {
+    background: #e4e4e400;
+    padding: 24px 24px 13px;
+    border: 1px solid #ececec;
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    border-radius: 4px;
+  }
+
+  .perfTeaser h2 {
+    color: #1a4459;
+  }
+  #brandNav #dropMenu .col-3.pt-8 {
+    margin-top: 0;
+    padding-top: 0px !important;
+    margin-right: 0;
+    margin-left: 23px;
+  }
+  .brandTeaser {
+    background-image: url(//cdn.shopify.com/s/files/1/0518/0335/7361/files/imgpsh_fullsize_anim_1.png?v=1608314472);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    min-height: 280px;
+    width: 100%;
+    display: block;
+    border-radius: 4px;
+  }
+
+  #dropMenuInner .imgTransparency, #dropMenuInner .imgTransparency img {
+    mix-blend-mode: multiply;
+    max-width: 140px;
+  }
+
+  @media only screen and (min-width: 801px) {
+
+    header {
+      justify-content: space-between;
+    }
+
+/*     #search-box-main {display:none;} */
+
+    .cartBox {
+      padding-right: 0px;
+      padding-left: 0px;
+      position: relative;
+    }
+
+    .menuBox {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+
+    #tablet-search {
+      width: auto;
+    }
+
+    .vital-logo {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+
+  @media only screen and (max-width: 1220px) {
+
+    .topMenu {
+      display:none;
+    }
+    #menuIcon {display:flex;}
+
+    .desktopSearchContainer {display:none;}
+    
+    .pick-img {
+      height: 150px;
+    }
+    .perfTeaser {
+      padding: 16px;
+      border: 0px solid #ececec;
+      height: auto;
+    }
+    .rewardDetails {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      height: 100%;
+      background: #ffffff;
+      padding: 16px;
+      top: 0;
+      display:none;
+    }
+    .slideLogo  {    position: relative;
+      top: -4px;
+    }
+    .showhidden {display:flex;}
+  }
+
+  @media only screen and (max-width: 800px) {
+    .vital-header-logo img {
+      max-width: 160px;
+      margin-left: 5px;
+      margin-right: 5px;
+      position: relative;
+      top: 1px;
+    }
+    .vital-logo img {
+      width:50px !important;
+      max-width: 50px !important;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+
+    .vital-logo img {max-width:50px;}
+
+    .flexIcons {
+      display: flex;
+      width: auto;
+      min-width: auto;
+    }
+  }
+  
+  .topMenu a {
+    color: #393D40;
+    text-decoration: none;
+    -webkit-font-smoothing: initial;
+    letter-spacing: .25px;
+    font-weight: bold;
+    line-height: 1.1em;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .topMenu a:hover {
+    color: #212121;
+    text-decoration: none;
+  }
+
+  #dropMenu {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 71px;
+    background: #ffffff;
+    display: none;
+    box-shadow: 0px 2px 4px #0000001f;
+    transform: translateY(-2000px);
+    transition: 200ms ease all;
+    background: #fbfbfb;
+    background: linear-gradient(0deg, rgb(253 253 253) 0%, rgba(255,255,255,1) 71%);
+  }
+
+
+  .topMenu .topMenuItem:hover #dropMenu {
+    display:block;
+    transform: translateY(0px);
+  }
+
+  .rightLine  {
+    border-right: 1px solid #ececec;
+    padding-right:16px;
+  }
+
+  .ie-fix1 {max-width: 60%;}
+
+  .dropMenuInnerMenu li {
+    padding-bottom: 4px;
+    border-bottom: 0px solid #ececec;
+    margin-bottom: 4px;
+    display: block;
+  }
+
+  .dropMenuInnerMenu li a {
+    color: #585A5B;
+  }
+
+  .dropMenuInnerMenu li a:hover {
+    color: #393D40;
+    text-decoration:underline;
+  }
+
+  .slideLogo img {
+    max-width: 220px;
+    position: relative;
+    top: 5px;
+  }
+
+  .closeIt svg {
+    width: 16px !important;
+  }
+
+  .desktopSearchContainer {
+    display: flex;
+    background: #f9f9f9;
+    border-bottom: 1px solid #ececec;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    border-left: 1px solid #ececec;
+    border-right: 1px solid #ececec;
+    position: absolute;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    z-index: 999;
+    transform: translatey(-200px);
+    margin: auto;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 105px;
+  }
+
+  .desktopSearchContainer .headerIcons svg {
+    width: 16px;
+  }
+
+  .icon-search:before {
+    display:none;
+  }
+
+  .disclaimer-tag {
+    display: inline-block;
+  }
+
+  .disclaimer-tag:after {
+    display: inline-block;
+    content: '**';
+    position: relative;
+    text-decoration:none;
+    left: 1px;
+    top: 0;
+    font-size: .6em;
+  }
+
+  .prop65-link {
+    color: #717F86 !important;
+  }
+
+  .prop65-link:hover {
+    color: #5a5b5a !important;
+  }
+
+  div.snize-ac-results.snize-ac-results-mobile li.snize-close-area {
+    height: 100% !important;
+    background: #ffffffeb !important;
+    border-top: 0px solid #ddd !important;
+    margin-top: 0px;
+    z-index: -1;
+  }
+
+  div.snize-ac-results li, div.snize-ac-results li a.snize-view-link {
+    text-transform: capitalize;
+  }
+
+  .snize-results-page h1, .snize-results-page .feature_divider {
+    display: none;
+  }
+
+  .snize-results-page div.content {
+    padding: 10px 0px 15px 0;
+  }
+
+  div.snize div.snize-search-results-header {
+    font-size: 24px;
+  }
+
+  div.snize div.snize-header {
+    color: #666;
+  }
+
+  div.snize-search-results#snize_results a {
+    text-transform: capitalize;
+  }
+
+  div.snize-ac-results.snize-ac-results-mobile li.snize-mobile-top-panel {
+    border-bottom: 1px solid #b3b3b3;
+  }
+
+  div.snize-ac-results.snize-ac-results-mobile li.snize-mobile-top-panel button.snize-close-button-arrow {
+    height: 22px;
+    margin: 2px 5px 0 15px;
+    width: 20px;
+    background-size: 20px;
+  }
+
+  @media only screen and (max-width: 600px) {
+
+    div.snize-ac-results {
+      width: 100% !important;
+      left: 0px !important;
+    }
+    .collection .banner, .no-banner-image-title {
+      display:none !important;
+    }
+
+    h1.conspire-title {
+      letter-spacing: 0px;
+      color: #15a7e0;
+      font-size: 50px;
+      line-height: 1em;
+      margin-bottom: 0px !important;
+      text-transform: capitalize;
+      max-width: 90%;
+      margin: 0 auto;
+    }
+
+    .hide-mobile {
+      display: none !important;
+    }
+    .container.collection {padding-top:0px;}
+  }
+
+  #pagecontent {
+    padding-bottom: 0px !important;
+    padding-top: 105px !important;
+    display: block;
+  }
+
+  .footer-menu-wrap, .container.collection {
+    max-width: 1400px;
+  }
+
+  .no-banner-image-title {
+    color: #23b6e6;
+    font-size: 60px;
+    text-transform: capitalize;
+    margin-bottom: 0px !important;
+    margin-top: 24px;
+  }
+
+  @media (max-width: 798px) {
+    .mobile_nav-fixed--true .page_banner, .mobile_nav-fixed--false .page_banner {
+      margin-top: 0px;
+    }
+  }
+
+</style>

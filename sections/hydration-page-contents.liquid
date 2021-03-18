@@ -1,0 +1,1356 @@
+<style>
+  
+		.page-hydration-lp div.content {
+			padding: 0px !important;
+		}
+  
+		.page-hydration-lp h2 {
+			color: #585A5B;
+			font-family: "kapraregular";
+			font-size: 48px;
+			letter-spacing: 1.32px;
+			line-height: 1.2em;
+			text-align: center;
+			text-transform: capitalize;
+		}
+
+  
+		.mm-prod-info .mm-slider-cell {
+			width: 100%;
+			position: absolute;
+			left: 100%;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+		}
+  
+		.mm-cta-purchase-section .add_to_cart {
+			background-color: #01ace8;
+			color: white;
+			font-family: 'kapraregular';
+			text-transform: uppercase;
+			font-size: 24px;
+			padding: 0px;
+			line-height: 1em;
+			min-height: 40px !important;
+			height: 40px !important;
+			max-height: 40px;
+			border-radius: 10px;
+			width: 100%;
+			border: none;
+			border-radius: 4px;
+			background-color: #00AF9A;
+		}
+  
+		.mm-cta-purchase-section .add_to_cart:hover {
+			opacity: 0.7;
+			cursor: pointer;
+			transform: translateY(-2px);
+		}
+  
+		.mm-product-price, .price {
+			letter-spacing: 0 !important;
+			font-size: 48px;
+			margin-bottom: 0;
+			font-family: "kapraregular";
+		}
+  
+		.mm-product-price s {
+			font-size: 32px;
+			color: gray;
+		}
+  
+		.mm-product-title, .product-meta-text .title {
+			font-family: 'avenir' !important;
+			text-transform: Capitalize !important;
+			letter-spacing: 0 !important;
+			font-weight: bold !important;
+			text-align: center !important;
+			line-height: 1.3em !important;
+			margin-bottom: 5px !important;
+			font-size: 18px;
+			max-width: 80%;
+			margin: 0 auto;
+			margin-top: 25px;
+		}
+  
+		.smaller-title {
+			font-size: 18px;
+		}
+  
+		.mm-cta-purchase-section img {
+			max-height: 400px;
+			text-align: center;
+			margin-left: auto;
+			margin-right: auto;
+		}
+  
+  
+		.mm-cta-section {
+			width: 100%;
+			max-width: 1220px;
+			margin: 0 auto;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+  
+		.mm-cta-content-wrapper {
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
+			max-width: 900px;
+			margin-bottom: 35px;
+		}
+  
+  
+		.mm-cta-purchase-section {
+			max-width: 400px;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+		}
+  
+		.mm-prod-info .mm-slider-cell {
+			width: 100%;
+			position: absolute;
+			left: 100%;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+		}
+  
+  
+		.mm-prod-info .flickity-viewport {
+			height: 500px !important
+		}
+  
+		.mm-prod-info .mm-slider-cell img {
+			max-width: 1000px;
+			width: 100%;
+		}
+  
+  
+		.mm-prod-info .mm-slider-cell a {
+			color: inherit;
+			width: 80%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+  
+		.mm-slider-cell {
+			width: 100%;
+			margin-top: 25px;
+		}
+  
+		.product-details {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			margin-top: 50px;
+		}
+  
+		.bv_inline_rating_container {
+			margin-bottom: 10px;
+		}
+  
+  
+
+
+		.hydration-max-screen {
+			background: #f7f7f7;
+		}
+  
+		.hydration-inner {
+			background: #ffffff;
+			max-width: 1440px;
+			margin: 0 auto;
+			height: 100%;
+			min-height: 500px;
+			box-shadow: 0px 0 8px -8px black;
+			padding-bottom: 35px;
+		}
+		
+		.hydration-hero {
+			height: 360px;
+			background-image: url({{'hero-new-hydro.jpg' | file_img_url: '1800x'}});
+			background-size: cover;
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			padding-left: 100px;
+			padding-right: 150px;
+			z-index: 2;
+			position: relative;
+		}
+  
+  .sold_out {display:none;}
+		
+		.hydration-hero-text {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		}
+		
+		.hydration-hero h1 {
+		font-family: 'kapraregular';
+		color: #02ABE3;
+		font-size: 5.5vw;
+		text-align: center;
+		margin: 0px;
+		line-height: 1em;
+		text-transform: capitalize;
+		}
+		
+		.hydration-hero p {
+		color: #02ABE3;
+		font-size: 2vw;
+		background: #ffffff;
+		padding: 10px;
+		text-align: center;
+		margin: 0px;
+		margin-top: 25px;
+		font-family: 'avenir';
+		font-weight: bold;
+		font-size: 1.25vw;
+		letter-spacing: 0;
+		text-align: center;
+		line-height: 28px;
+		width: 100%;
+		}
+		
+		.hydration-products {
+		min-height: 500px;
+		position: relative;
+		overflow: hidden;
+		padding-top: 15px;
+		}
+		
+		.splash-one {
+		background-image: url({{'watersplash1and3.jpg' | file_img_url: '800x'}});
+		display: block;
+		width: 600px;
+		height: 560px;
+		background-size: cover;
+		position: absolute;
+		top: -177px;
+		left: -190px;
+		}
+		
+		.splash-two {
+		background-image: url({{'watersplash2.jpg' | file_img_url: '800x'}});
+		display: block;
+		width: 600px;
+		height: 560px;
+		background-size: cover;
+		position: absolute;
+		top: -107px;
+		left: -187px;
+		}
+		
+		.splash-three {
+		background-image: url({{'watersplash4.jpg' | file_img_url: '800x'}});
+		display: block;
+		width: 786px;
+		height: 673px;
+		background-size: cover;
+		position: absolute;
+		top: -258px;
+		transform: rotate(-45deg);
+		right: -280px;
+		}
+		
+		.splash-four {
+		background-image: url({{'watersplash1and3.jpg' | file_img_url: '800x'}});
+		display: block;
+		width: 786px;
+		height: 673px;
+		background-size: cover;
+		position: absolute;
+		top: -258px;
+		transform: rotate(8deg);
+		right: -392px;
+		}
+		
+		.hydration-three-across {
+		width: 100%;
+		max-width: 1220px;
+		margin: 0 auto;
+		padding-top: 15px;
+		padding-bottom: 35px;
+		display: flex;
+		text-align: center;
+		justify-content: space-between;
+		align-items: flex-start;
+		}
+  
+		.hydration-three-across-item {
+		max-width: 300px;
+		}
+  
+		.hydration-three-across-item p {
+		color: #4B4C4F;
+		font-family: "Avenir Next";
+		font-size: 20px;
+		letter-spacing: 0;
+		line-height: 27px;
+		text-align: center;
+		}
+  
+		.hydration-three-across-item img {
+		width: 200px;
+		height: auto;
+		margin-bottom: 20px;
+		}
+		
+		.hydration-inner h2 {
+		color: #585A5B;
+		font-family: "kapraregular";
+		font-size: 48px;
+		letter-spacing: 1.32px;
+		line-height: 1.2em;
+		text-align: center;
+		text-transform: capitalize;
+		margin: 0px;
+		margin-top: 25px;
+		margin-bottom: 35px;
+		}
+		
+		.hydration-feature {
+		height: 360px;
+		background-image: url({{'HydrationCollagenLP_Assets_ingredients.png' | file_img_url: '1800x'}});
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		padding-left: 100px;
+		padding-right: 100px;
+		}
+
+		.hydration-information {
+		min-height: 500px;
+		position: relative;
+		overflow: hidden;
+		padding: 50px;
+		}
+		
+		.hydration-information-text {
+		position: relative;
+		z-index: 2;
+		max-width: 600px;
+		margin: 0 auto;
+		text-align: center;
+		margin-bottom: 75px;
+		}
+		
+		.hydration-animation {
+		max-width: 1220px;
+		display: flex;
+		margin: 0 auto;
+		position: relative;
+		z-index: 2;
+		margin-top: 100px;
+		margin-bottom: 35px;
+		}
+		
+		.stick-graphic {
+		width: 55%;
+		height: 440px;
+		background-image: url(//cdn.shopify.com/s/files/1/2074/9385/files/openstick.gif?v=1598638107);
+		background-size: contain;
+		margin-left: 5%;
+		background-repeat: no-repeat;
+		background-position: center;
+		}
+		
+		.open-pour-hydrate {
+		width: 40%;
+		height: 440px;
+		background-image: url({{'OpenPourHydrate_desktop.png' | file_img_url: '1200x'}});
+		background-size: cover;
+		}
+		
+		.gradient-icon-bar {
+		background-image: linear-gradient(270deg, #02ABE3 0%, #9FC637 100%);
+		padding: 50px;
+		}
+		
+		.gradient-icon-bar h2, .gradient-type-bar h2 {
+		color: #ffffff;
+		margin-bottom: 25px;
+		}
+		
+		.gradient-icon-bar p {
+		color: #ffffff;
+		}
+		
+		.gradient-icon-bar h3 {
+		color: #ffffff;
+		margin: 0 auto;
+		margin-top: 15px;
+		text-transform: capitalize;
+		text-align: center;
+		line-height: 1.1em;
+		}
+		
+		.gradient-icon-bar-item {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-start;
+		width: calc(20% - 20px);
+		text-align: center;
+		padding: 10px;
+		}
+		
+		.gradient-icon-bar-item img {
+		height: 60px;
+		}
+		
+		.icons-inner {
+		display: flex;
+		max-width: 1220px;
+		margin: 0 auto;
+		margin-top: 35px;
+		justify-content: center;
+		}
+		
+		.hydration-ingedients {
+		min-height: 500px;
+		position: relative;
+		overflow: hidden;
+		padding-top: 60px;
+		}
+		
+		.gradient-type-bar {
+		background-image: linear-gradient(270deg, #FF223A 0%, #02ABE3 80%);
+		padding: 50px;
+		display: flex;
+		flex-direction: column;
+		justify-items: center;
+		text-align: center;
+		align-content: center;
+		}
+		
+		.gradient-type-bar p {
+		color: #ffffff;
+		max-width: 800px;
+		margin: 0 auto;
+		text-align: center;
+		padding: 0px;
+		}
+		
+		.dark-cta-button {
+		background: #00AF9A;
+		border-radius: 4px;
+		}
+		
+		.dark-cta-button {
+		background: #00AF9A;
+		border-radius: 4px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: #00AF9A;
+		margin: 0 auto;
+		border-radius: 4px;
+		text-transform: uppercase;
+		font-family: "kapraregular";
+		font-size: 22px;
+		line-height: 1em;
+		width: 300px;
+		height: 40px;
+		border: 0px !important;
+		padding: 5px;
+		margin-top: 32px;
+		color: #ffffff;
+		text-decoration: none;
+		letter-spacing: 1px !important;
+		}
+  
+		.dark-cta-button:hover {
+		background: #00D9B2;
+		color: #ffffff;
+		}
+  
+  
+		.hydration-hero sup {
+		top: -2vw;
+		margin-right: -15px;
+		margin-left: -10px;
+		font-size: 2vw;
+		}
+  
+		h2 sup {
+		top: -15px;
+		font-size: 18px;
+		}
+  
+		.v3-featured-blogs {
+		display: flex;
+		max-width: 1440px;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin: 0 auto;
+		padding: 32px;
+		}
+		
+		.v3-featured-blogs-inner {
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+		align-content: space-between;
+		}
+  
+		.v3-featured-blogs-inner-main, .v3-featured-blogs-inner-sub {
+		width: calc(48%);
+		height: auto;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		}
+		
+		.v3-featured-blogs-inner-main, .v3-featured-blogs-inner-sub-inner {
+		height: auto;
+		background: #efefef;
+		display: flex;
+		flex-direction: column;
+		background: #FFFFFF;
+		box-shadow: 0 0 12px 0 rgba(0,0,0,0.08);
+		border-radius: 8px;
+		justify-content: space-between;
+		}
+		
+		
+		.v3-featured-blogs-image {
+		display: block;
+		height: 250px;
+		background: url();
+		background-size: cover;
+		background-repeat: no-repeat;
+		}
+  
+		.v3-featured-blogs-text {
+		padding: 32px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		}
+  
+		.v3-featured-blogs-text .category-title {
+		color: #868686;
+		font-family: "Avenir Next";
+		font-size: 16px;
+		}
+  
+		.v3-featured-blogs h3 {
+		color: #57595a;
+		font-size: 22px;
+		font-family: "Avenir Next", sans-serif;
+		font-weight: 500;
+		margin: 0px;
+		text-transform: none !important;
+		letter-spacing: .1em !important;
+		max-width: 80%;
+		margin: 0 auto;
+		line-height: 1.2em;
+		margin-top: 0;
+		margin-bottom: 32px;
+		}
+  
+  
+		.v3-featured-blogs-text h4 {
+		letter-spacing: 0px !important;
+		font-family: "Avenir Next";
+		font-size: 26px;
+		line-height: 1.3em;
+		text-transform: capitalize;
+		}
+  
+  
+		.v3-featured-blogs h2 {
+		color: #585A5B;
+		font-size: 5em;
+		margin-bottom: 0;
+		margin: 0px;
+		font-family: 'kapraregular';
+		text-transform: capitalize;
+		}
+  
+		.v3-featured-blogs-text .v1-read-more {
+		color: #0077AF;
+		font-family: "Avenir Next";
+		font-size: 16px;
+		}
+  
+		.v3-featured-blogs-inner-sub-inner {
+    flex-direction: row;
+    display: flex;
+    height: 45%;
+    justify-content: flex-start;
+}
+  
+  
+		.v3-featured-blogs-inner-sub-inner .v3-featured-blogs-image {
+		width: 200px;
+		background-size: cover;
+		background-repeat: no-repeat;
+		display: block;
+		height: 100%;
+		}
+  
+		#shop-hydration {
+		padding-top: 100px;
+		margin-top: -100px;
+		z-index: 1;
+		position: relative;
+		}
+  
+		.money-was {
+		display: none;
+		justify-content: center;
+		width: 100%;
+		height: 30px;
+		top: 35px;
+		position: relative;
+		text-decoration: line-through;
+		}
+  
+		.strike-it-hide {
+		display: none;
+		}
+		.strike-it-show {
+		display: inline-flex;
+		}
+  
+		
+		
+		
+		@media only screen and (max-width: 1310px) {
+
+			.hydration-hero {
+			padding-right: 100px;
+			}
+        
+			.splash-two {
+			left: -345px;
+			}
+        
+			.splash-three {
+			right: -407px;
+			}
+        
+			.open-pour-hydrate {
+			background-image: url({{'OpenPourHydrate_mobile.png' | file_img_url: '800x'}});
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
+			}
+        
+			.hydration-three-across {
+			max-width: 1000px;
+			}
+        
+			.hydration-three-across-item img {
+			width: 150px;
+			}
+
+		}
+  
+  
+  
+		@media only screen and (max-width: 1040px) {
+
+			.hydration-hero {
+			height: 600px;
+			background-image: url({{'mobile-updated-hydro.jpg' | file_img_url: '900x'}});
+			background-size: cover;
+			background-position-x: center;
+			background-position-y: bottom;
+			background-repeat: no-repeat;
+			display: flex;
+			align-items: flex-start;
+			justify-content: center;
+			padding-left: 50px;
+			padding-right: 50px;
+			padding-top: 25px;
+			}
+          
+			.hydration-hero h1 {
+			font-size: 80px;
+			}
+          
+			.hydration-hero p {
+			font-size: 24px;
+			}
+          
+			.hydration-three-across {
+			max-width: 600px;
+			}
+          
+			.hydration-three-across-item {
+			max-width: 200px;
+			}
+          
+			.hydration-three-across-item img {
+			width: 100px;
+			}
+          
+			.hydration-three-across-item p {
+			font-size: 14px;
+			line-height: 18px;
+			}
+          
+			.hydration-feature {
+			height: 50vw;
+			background-image: url(//cdn.shopify.com/s/files/1/2074/9385/files/HydrationCollagenLP_Assets_ingredients_MOBILE.jpg?v=1598661705);
+			background-size: contain;
+			}
+
+		}
+  
+  
+		
+		
+		@media only screen and (max-width: 600px) {
+
+  
+			.v3-featured-blogs h2 {
+			text-align: center;
+			line-height: 1em;
+			}
+      
+			.v3-featured-blogs h3 {
+			font-size: 20px;
+			max-width: 100%;
+			text-align: center;
+			margin: 0 auto;
+			line-height: 1.2em;
+			padding-left: 5px;
+			padding-right: 5px;
+			margin-top: 15px;
+			margin-bottom: 32px;
+			}
+      
+			.v3-featured-blogs-inner {
+			width: 100%;
+			flex-direction: column;
+			}
+      
+    
+			.v3-featured-blogs-inner-main, .v3-featured-blogs-inner-sub {
+			width: 100%;
+			}
+      
+			.v3-featured-blogs-image {
+			background-position: center center;
+			}
+      
+			.v3-featured-blogs-inner-sub-inner {
+			flex-direction: column !important;
+			border-radius: 4px !important;
+			margin-top: 16px;
+			}
+      
+			.v3-featured-blogs h2 {
+			font-size: 3.5em;
+			}
+      
+			.v3-featured-blogs-text h4 {
+			font-size: 16px;
+			line-height: 1.3em;
+			}
+
+		}
+  
+	
+	/*//////////   Hydration x Phones Only   //////////*/
+  
+  
+		@media only screen and (max-width: 500px) {
+
+			.hydration-hero {
+			padding: 25px;
+			background-position-x: -75px;
+			background-position-y: top;
+			background-size: 130%;
+			}
+              
+			.newsletter_section h6 .news-message {
+			line-height: 15px;
+			height: 32px;
+			top: 20px;
+			font-size: 14px;
+			margin-top: -6px;
+			max-width: 300px;
+			}
+              
+			#email_signup {
+			max-width: 285px;
+			margin: 0 auto;
+			flex-direction: column;
+			}
+
+		}
+  
+  
+		@media only screen and (max-width: 800px) {
+
+			.page-hydration-lp div.content {
+			height: 120px;
+			}
+            
+			.open-pour-hydrate {
+			width: 100%;
+			height: 265px;
+			}
+            
+			.stick-graphic {
+			width: 100%;
+			height: 220px;
+			margin-left: 0;
+			}
+            
+			.icons-inner {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			flex-flow: wrap;
+			justify-items: center;
+			max-width: 1220px;
+			margin: 0 auto;
+			margin-top: 35px;
+			justify-content: center;
+			}
+            
+			.gradient-icon-bar-item {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: flex-start;
+			width: 50%;
+			text-align: center;
+			padding: 10px;
+			}
+            
+			.hydration-animation {
+			flex-direction: column;
+			margin-top: 0px;
+			margin-bottom: 0px;
+			}
+            
+			.splash-three, .splash-four {
+			display: none;
+			}
+            
+			.hydration-hero h1 {
+			font-size: 48px;
+			}
+            
+			.hydration-hero {
+			height: 400px;
+			padding: 25px;
+              background-image: url({{'mobile-updated-hydro.jpg' | file_img_url: '900x'}});
+			}
+            
+			.hydration-hero p {
+			font-size: 16px;
+			line-height: 20px;
+			margin-top: 15px;
+			}
+            
+			.hydration-three-across {
+   			 max-width: 100%;
+    		 flex-direction: column;
+    		 align-items: center;
+			}
+            
+			.hydration-three-across-item {
+			max-width: 90%;
+			}
+            
+			.hydration-three-across-item img {
+			width: 200px;
+			}
+            
+			.hydration-three-across-item p {
+			font-size: 18px;
+			line-height: 20px;
+			}
+            
+			.hydration-hero-text img {
+			width: 90px !important;
+			}
+			.mm-cta-content-wrapper {
+			flex-direction: column;
+			align-items: center;
+			}
+            
+			.mm-cta-purchase-section {
+			max-width: 90%;
+			}
+            
+			.hydration-hero sup {
+			top: -17px;
+			left: 7px;
+			margin-right: -5px;
+			margin-left: -11px;
+			font-size: 14px;
+			}
+            
+			.splash-two {
+			left: -480px;
+			}
+            
+			.hydration-inner h2, .inside-title {
+			font-size: 36px !important;
+			margin-top: 0;
+			margin-bottom: 20px;
+			}
+            
+			.hydration-information-text h2 {
+			line-height: 1em;
+			}  
+  
+			.hydration-feature {
+			height: 65vw;
+			}
+  
+			h2 sup {
+			top: -8px;
+			left: -2px;
+			font-size: 14px;
+			letter-spacing: -.5px;
+			}
+  
+			.hydration-information {
+			padding-top: 25px;
+			padding-bottom: 25px;
+			}
+            
+			.hydration-ingedients {
+			padding-top: 20px;
+			}
+            
+			.dark-cta-button {
+			width: 100%;
+			}
+          
+            .hydration-information-text {
+    		margin-bottom: 45px;
+			}
+
+		}
+  
+	@media only screen and (min-width: 1445px) {
+          
+		.hydration-hero h1 {
+		font-size: 90px;
+		}
+          
+		.hydration-hero p {
+		font-size: 18px;
+		}
+          
+		.hydration-hero sup {
+		top: -35px;
+		margin-right: -15px;
+		margin-left: -10px;
+		font-size: 28px;
+		}
+
+	}
+  
+  .coming-soon-cta {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    font-size: 24px;
+    background: #CDD2D5;
+    color: #ffffff;
+    line-height: 1em;
+    min-height: 40px !important;
+    height: 40px !important;
+    max-height: 40px;
+    border-radius: 4px;
+    margin-top: 25px;
+}
+
+  
+    		@media only screen and (max-width: 1000px) {
+.v3-featured-blogs-inner-main, .v3-featured-blogs-inner-sub {
+    width: 100%;
+    margin-bottom: 20px;
+}
+          
+          .v3-featured-blogs-inner {
+    width: 100%;
+    flex-direction: column;
+}
+              
+              .v3-featured-blogs-inner-sub-inner {
+    margin-bottom: 20px;
+}
+          
+        }
+  
+ .prod-two {
+    position: relative;
+}
+ 
+.soon-tag {
+    width: 100px;
+    position: absolute;
+    z-index: 2;
+    right: 0px;
+  display:none;
+}
+		
+</style>
+
+
+
+
+	<div class="hydration-max-screen">
+		<div class="hydration-inner">
+          
+          
+		<div class="hydration-hero">
+			<div class="hydration-hero-text">
+              <img class="lazyload" data-flickity-lazyload="{{ 'new_fabb681f-6cc8-4dc7-a51a-1bd2c09c5b65.png' | file_img_url: '400x' }}" src="{{ 'new_fabb681f-6cc8-4dc7-a51a-1bd2c09c5b65.png' | file_img_url: '400x' }}" style="width:10vw;max-width: 175px;"/>
+              <h1>Hydration<sup>**</sup> + Collagen</h1>
+				<p>{{ section.settings.hydro-hero-text }}</p>
+			</div>
+		</div>
+		<div class="hydration-products" id="shop-hydration">
+			<div class="splash-one"></div>
+          	<div class="hydration-products">
+  				<div class="mm-cta-section">
+    				<div class="mm-cta-content-wrapper">
+      					{% assign product = all_products["hydration-collagen-lemon-lime"] %}
+            				<div class="mm-cta-purchase-section prod-one">
+        						<div class="rtd-slider official">
+          							{% for image in product.images %}
+          							<div class="mm-slider-cell">
+            						<a href="{{ product.url }}" style="color: inherit;">
+              						<img class="lazyload" data-flickity-lazyload="{{ image | img_url: '800x' }}" src="{{ image | img_url: '800x' }}"/>
+            						</a>
+          							</div>
+          							{% endfor %}
+       							</div>
+       						<span class="money-was">{{ product.price | money_without_trailing_zeros }}</span>
+        					{% include "product-info" %}
+        					{% include 'product-form-mini' %}
+							</div>
+      						{% assign product = all_products["hydration-collagen-tropical-blast"] %}
+      <div class="mm-cta-purchase-section prod-two">
+        <img class="soon-tag" src="//cdn.shopify.com/s/files/1/2074/9385/files/XAcPIaW6.png?v=1598908060"/>
+        <div class="rtd-slider official">
+          {% for image in product.images %}
+          <div class="mm-slider-cell">
+            <a href="{{ product.url }}" style="color: inherit;">
+              <img class="lazyload" data-flickity-lazyload="{{ image | img_url: '800x' }}" src="{{ image | img_url: '800x' }}"/>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+        <span class="money-was">{{ product.price | money_without_trailing_zeros }}</span>
+        {% include "product-info" %}
+        <div class="coming-soon-cta">Coming Soon!</div>
+      </div>
+    </div>
+  </div>
+</div>
+		</div>
+			
+          <h2>3 Things To Know About Hydration<sup>**</sup>+ Collagen:</h2>
+<div class="hydration-three-across">
+  <div class="hydration-three-across-item">
+    {% if section.settings.hydro-circle-one-img != blank %}
+        <img class="lazyload" data-flickity-lazyload="{{ section.settings.hydro-circle-one-img| img_url: '400x' }}" src="{{ section.settings.hydro-circle-one-img| img_url: '400x' }}"/>
+    {% else %}
+    <img class="lazyload" data-flickity-lazyload="{{ 'low-sodium.png' | file_img_url: '400x' }}" src="{{ 'low-sodium.png' | file_img_url: '400x' }}"/>
+    {% endif %}
+    <p>{{ section.settings.hydro-circle-one }}</p>
+  </div>
+  <div class="hydration-three-across-item">
+    {% if section.settings.hydro-circle-two-img != blank %}
+        <img class="lazyload" data-flickity-lazyload="{{ section.settings.hydro-circle-two-img| img_url: '400x' }}" src="{{ section.settings.hydro-circle-two-img| img_url: '400x' }}"/>
+    {% else %}
+		<img class="lazyload" data-flickity-lazyload="{{ '3Key_FunctionalIngredients.png' | file_img_url: '400x' }}" src="{{ '3Key_FunctionalIngredients.png' | file_img_url: '400x' }}"/>
+    {% endif %}
+    <p>{{ section.settings.hydro-circle-two }}</p>
+  </div>
+  <div class="hydration-three-across-item">
+    {% if section.settings.hydro-circle-three-img != blank %}
+        <img class="lazyload" data-flickity-lazyload="{{ section.settings.hydro-circle-three-img| img_url: '400x' }}" src="{{ section.settings.hydro-circle-three-img| img_url: '400x' }}"/>
+    {% else %}
+		<img class="lazyload" data-flickity-lazyload="{{ 'circle3.png' | file_img_url: '400x' }}" src="{{ 'circle3.png' | file_img_url: '400x' }}"/>
+    {% endif %}
+    <p>{{ section.settings.hydro-circle-three }}</p>
+  </div>
+</div>
+			
+	
+			<div class="hydration-feature"></div>
+			
+			
+			<div class="hydration-information">
+			<div class="splash-two"></div>
+			<div class="splash-three"></div>
+				<div class="hydration-information-text">
+                  <h2>Effective<sup>*</sup> Hydration</h2>
+				<p>{{ section.settings.hydro-info }}</p>
+				<a href="#shop-hydration" class="dark-cta-button">BUY NOW</a>	
+              </div>
+				<div class="hydration-animation">
+				<div class="open-pour-hydrate"></div>
+				<div class="stick-graphic"></div>	
+				</div>
+		</div>
+			
+			<div class="gradient-icon-bar">
+              <h2>Take Hydration<sup>**</sup>+ Collagen When You ...</h2>
+				<div class="icons-inner">
+				<div class="gradient-icon-bar-item">
+					<img class="lazyload" data-flickity-lazyload="{{ 'icon1.png' | file_img_url: '400x' }}" src="{{ 'icon1.png' | file_img_url: '400x' }}"/>
+					<h3>1. Wake Up.</h3>
+					</div>
+					<div class="gradient-icon-bar-item">
+					<img class="lazyload" data-flickity-lazyload="{{ 'icon2.png' | file_img_url: '400x' }}" src="{{ 'icon2.png' | file_img_url: '400x' }}"/>
+					<h3>2. Crave a boost anytime of day. </h3>
+					</div>
+					<div class="gradient-icon-bar-item">
+					<img class="lazyload" data-flickity-lazyload="{{ 'icon3.png' | file_img_url: '400x' }}" src="{{ 'icon3.png' | file_img_url: '400x' }}"/>
+					<h3>3. Finally conquer that workout you’ve been putting off.</h3>
+					</div>
+					<div class="gradient-icon-bar-item">
+					<img class="lazyload" data-flickity-lazyload="{{ 'icon4.png' | file_img_url: '400x' }}" src="{{ 'icon4.png' | file_img_url: '400x' }}"/>
+					<h3>4. Need to make up for the night before.</h3>
+					</div>
+					<div class="gradient-icon-bar-item">
+					<img class="lazyload" data-flickity-lazyload="{{ 'icon5.png' | file_img_url: '400x' }}" src="{{ 'icon5.png' | file_img_url: '400x' }}"/>
+					<h3>5. Remember “drink more water” is your New year’s resolution.</h3>
+					</div>
+				</div>
+			</div>
+			
+			<div class="hydration-ingedients">
+					<div class="splash-four"></div>
+              <div style="position:relative;z-index:2;">
+        {% assign product = all_products["hydration-collagen-lemon-lime"] %}
+        {% render 'pdp-new-ingredient-list', product: product %}  
+</div>
+</div>
+			
+			<div class="gradient-type-bar">
+				<h2>Why Is Hydration Important?</h2>
+				<p>Hydration goes beyond drinking a few glasses of water per day. We lose water all day, every day — even when we breathe! Staying properly hydrated with a balanced blend of sodium, electrolytes and sugar helps keep key functions in check, like body temperature, mood, brain activity and sleep quality.</p>
+				<a href="#shop-hydration" class="dark-cta-button">BUY NOW</a>
+			</div>
+          
+          <div class="v3-featured-blogs">
+	<h2 class="main-sub-headings">{{ section.settings.v3-feature-blogs-heading }}</h2>
+      	<h3>{{ section.settings.v3-feature-blogs-subhead }}</h3>
+
+		<div class="v3-featured-blogs-inner">
+			<div class="v3-featured-blogs-inner-main">
+				<a href="{{ articles[section.settings.featured_article_1].url }}" target="_blank">
+				<div class="v3-featured-blogs-image"  title="{{ articles[section.settings.featured_article_1].title }}" style="background-image: url('{{ articles[section.settings.featured_article_1].image | img_url: '600x', format: 'jpg' }}')"></div></a>
+				<div class="v3-featured-blogs-text">
+				 {% assign splitURL = articles[section.settings.featured_article_1].url | split: "/" %}
+      
+       <a href="{{ blogs[splitURL[2]].url }}" class="category-title" target="_blank">{{ blogs[splitURL[2]].title }}</a>
+      <a href="{{ articles[section.settings.featured_article_1].url }}" target="_blank"><h4 style="letter-spacing:0px !important;">{{ articles[section.settings.featured_article_1].title }}</h4></a>
+       	  <a href="{{ articles[section.settings.featured_article_1].url }}" class="v1-read-more" target="_blank">Read more</a>
+				</div>
+			</div>
+			<div class="v3-featured-blogs-inner-sub">
+				<div class="v3-featured-blogs-inner-sub-inner">
+                  <a href="{{ articles[section.settings.featured_article_2].url }}" target="_blank">
+				<div class="v3-featured-blogs-image"  title="{{ articles[section.settings.featured_article_2].title }}" style="background-image: url('{{ articles[section.settings.featured_article_2].image | img_url: '600x', format: 'jpg' }}')"></div></a>
+				<div class="v3-featured-blogs-text">
+				 {% assign splitURL = articles[section.settings.featured_article_2].url | split: "/" %}
+      
+       <a href="{{ blogs[splitURL[2]].url }}" class="category-title" target="_blank">{{ blogs[splitURL[2]].title }}</a>
+      <a href="{{ articles[section.settings.featured_article_2].url }}" target="_blank"><h4 style="letter-spacing:0px !important;">{{ articles[section.settings.featured_article_2].title }}</h4></a>
+       	  <a href="{{ articles[section.settings.featured_article_2].url }}" class="v1-read-more" target="_blank">Read more</a>
+				</div>
+              </div>
+              <div class="v3-featured-blogs-inner-sub-inner">
+                <a href="{{ articles[section.settings.featured_article_3].url }}" target="_blank">
+				<div class="v3-featured-blogs-image"  title="{{ articles[section.settings.featured_article_3].title }}" style="background-image: url('{{ articles[section.settings.featured_article_3].image | img_url: '600x', format: 'jpg' }}')"></div></a>
+				<div class="v3-featured-blogs-text">
+				 {% assign splitURL = articles[section.settings.featured_article_3].url | split: "/" %}
+      
+       <a href="{{ blogs[splitURL[2]].url }}" class="category-title" target="_blank">{{ blogs[splitURL[2]].title }}</a>
+      <a href="{{ articles[section.settings.featured_article_3].url }}" target="_blank"><h4 style="letter-spacing:0px !important;">{{ articles[section.settings.featured_article_3].title }}</h4></a>
+       	  <a href="{{ articles[section.settings.featured_article_3].url }}" class="v1-read-more" target="_blank">Read more</a>
+				</div>
+              </div>
+			</div>
+		</div>
+	</div>
+			
+			
+		</div>
+	</div>
+
+<script>
+$(document).ready(function() {
+    
+    setTimeout(function() {
+      $('[id^="subscription-widget-select"]').val(4).change();
+    }, 100);
+  
+  $(document).on('change', '.prod-one [id^="subscription-widget-select"]', function(e) {
+      var quickSubProductID = $(this).data('product-id');
+      var selectedFrequency = $(this).val();
+      var originalVariant = $(this).data('original-variant-id');
+      var subscriptionVariant = $(this).data('subscription-variant-id');
+      if (selectedFrequency == 0) {
+        $('.prod-one .price .money').text($(this).data('price'));
+        $(".prod-one .money-was").addClass("strike-it-hide");
+        $(".prod-one .money-was").removeClass("strike-it-show");
+      } else {
+        $('.prod-one .price .money').text($(this).data('discount-price'));
+        $(".prod-one .money-was").addClass("strike-it-show");
+        $(".prod-one .money-was").removeClass("strike-it-hide");
+      }
+  	});
+  
+    $(document).on('change', '.prod-two [id^="subscription-widget-select"]', function(e) {
+      var quickSubProductID = $(this).data('product-id');
+      var selectedFrequency = $(this).val();
+      var originalVariant = $(this).data('original-variant-id');
+      var subscriptionVariant = $(this).data('subscription-variant-id');
+      if (selectedFrequency == 0) {
+        $('.prod-two .price .money').text($(this).data('price'));
+        $(".prod-two .money-was").addClass("strike-it-hide");
+        $(".prod-two .money-was").removeClass("strike-it-show");
+      } else {
+        $('.prod-two .price .money').text($(this).data('discount-price'));
+        $(".prod-two .money-was").addClass("strike-it-show");
+        $(".prod-two .money-was").removeClass("strike-it-hide");
+      }
+  	});
+
+});
+</script>
+
+{% schema %}
+  {
+    "name": "Hydration Page",
+    "class": "hydration-page",
+    "settings": [
+	{
+   		"type": "header",
+  		"content": "Hero"
+	},
+	{
+         "type": "image_picker",
+         "id": "hydro-hero-img",
+         "label": "Hero Image"
+	},
+	{
+         "type": "text",
+         "id": "hydro-hero-text",
+         "label": "Hero Text",
+		 "default": "Add more power to your sip with this hydration supercharger.**"
+     },
+	{
+   		"type": "header",
+  		"content": "Three Circles"
+	},
+	{
+         "type": "image_picker",
+         "id": "hydro-circle-one-img",
+         "label": "Circle One Image"
+	},
+	{
+         "type": "text",
+         "id": "hydro-circle-one",
+         "label": "Circle One Text",
+		 "default": "A low-sodium, effective* hydration supplement made without any dyes and 1g of functional sugar."
+     },
+	{
+         "type": "image_picker",
+         "id": "hydro-circle-two-img",
+         "label": "Circle Two Image"
+	},
+	{
+         "type": "text",
+         "id": "hydro-circle-two",
+         "label": "Circle Two Text",
+		 "default": "Boosted with functional ingredients, like collagen, that users can feel good about consuming every day. "
+     },
+	{
+         "type": "image_picker",
+         "id": "hydro-circle-three-img",
+         "label": "Circle Three Image"
+	},
+	{
+         "type": "text",
+         "id": "hydro-circle-three",
+         "label": "Circle Three Text",
+		 "default": "Contains electrolytes, which help balance the amount of water in your body and its pH level.**"
+     },
+	{
+   		"type": "header",
+  		"content": "Hydration Info"
+	},
+	{
+         "type": "text",
+         "id": "hydro-info",
+         "label": "Hydration Text",
+		 "default": "The World Health Organization (WHO) discovered that a balanced ratio of sodium and glucose allows water and essential minerals to be pulled directly into your system. Our balanced blend of nutrients, which includes electrolytes and functional sugar, was inspired by the WHO’s hydration guidelines that also align with general needs of a natural diet. Together, these ingredients help promote the benefits of effective* hydration while simultaneously promoting overall wellness.**"
+     },
+	{
+   		"type": "header",
+  		"content": "Blog Settings"
+	},
+	{
+         "type": "text",
+         "id": "v3-feature-blogs-heading",
+         "label": "Section Heading",
+		 "default": "Learn More On Our Lively Blog"
+     },
+	{
+           "type": "text",
+           "id": "v3-feature-blogs-subhead",
+           "label": "Section SubHead",
+		   "default": "Welcome To #VitalVersity"
+     },
+	{
+      "type": "article",
+       "id": "featured_article_1",
+           "label": "Featured Article 1"
+        },
+		{
+           "type": "article",
+           "id": "featured_article_2",
+           "label": "Featured Article 2"
+        },
+		{
+           "type": "article",
+           "id": "featured_article_3",
+           "label": "Featured Article 3"
+        }
+]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

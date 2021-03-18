@@ -1,0 +1,34 @@
+{% render 'personalization',
+  container: '#shopify-section-1586991357457 .products-slider',
+  items: '.gallery-cell',
+  template: 'homepage-personalization',
+  page: 'home'
+  max: 6,
+  flickity: true
+%}
+
+{% schema %}
+
+{
+  "name": "Personalization",
+  "class": "personalization-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Title",
+	    "default": "Just for You"
+	  }
+  ],
+  "presets": [
+    {
+      "name": "Personalization",
+      "category": "Personalization",
+      "settings": {
+
+      }
+    }
+  ]
+}
+
+{% endschema %}

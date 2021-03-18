@@ -1,0 +1,191 @@
+<style>
+		
+		
+	.v3-full-container {
+			max-width:100%;
+			padding:20px;
+			display:flex;
+			flex-direction:column;
+			justify-content: center;
+			align-items: center;
+			padding-top:35px;
+			padding-bottom:35px;
+			margin:0 auto;
+		}
+		
+.v3-full-container h1 {
+    color: #585A5B !important;
+    margin: 0;
+    font-family: 'kapraregular', Arial, sans-serif;
+    font-size: 32px;
+    letter-spacing: 0.55px;
+    line-height: 1em;
+    font-size: 90px;
+    letter-spacing: 2.47px !important;
+    line-height: 85px;
+    font-weight: 400 !important;
+    text-transform: capitalize !important;
+    margin-bottom: 25px;
+}
+		
+				.v3-full-container p {
+			font-family: "avenir", arial, sans-serif;
+			font-size: 16px;
+			color: #393D40;
+			letter-spacing: 0;
+			line-height: 22px;	
+		}
+		
+		.v3-standard-button {
+		    background: #00AF9A;
+		    border-radius: 4px;
+		    max-width: 300px;
+		    font-family: 'kapraregular', Arial, sans-serif;
+		    min-width: 240px;
+		    font-size: 22px;
+		    min-height: 40px;
+		    font-weight: 400;
+		    -webkit-font-smoothing: antialiased;
+		    display: flex;
+		    align-content: center;
+		    align-items: center;
+		    justify-content: center;
+		    line-height: 1em;
+		    color: #ffffff;
+		    text-decoration: none;
+		    text-transform: uppercase;
+		}
+			.v3-standard-button:hover {
+		    background: #00D9B2;
+		}
+		
+		
+		.pull-left {
+    align-items: flex-start !important;
+    justify-content: center !important;
+    text-align: left !important;
+    padding-left: 15% !important;
+    padding-top: 100px !important;
+    padding-bottom: 75px !important;
+    background: #ececec;
+          background-position: center center !important;
+}
+		
+		.v3-full-container.pull-left p, .v3-full-container.pull-left h1 {
+			max-width:55%;
+		}
+  
+    .lil-sub-text {font-size:.9em !important;}
+
+		
+		@media only screen and (max-width: 1000px) {
+			.v3-full-container {
+				background-position: 60% 50% !important;
+			}
+			
+.pull-left {
+	padding:25px;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+}
+			
+			.v3-full-container.pull-left p, .v3-full-container.pull-left h1 {
+    max-width: 70%;
+}
+			
+.v3-full-container h1 {
+    font-size: 44px !important;
+    line-height: 44px;
+}
+			
+.v3-full-container.pull-left p, .v3-full-container.pull-left h1 {
+    max-width: 60%;
+    text-align: left;
+}
+		.v3-full-container p {
+    font-family: "avenir", arial, sans-serif;
+    font-size: 14px;
+    color: #393D40;
+    letter-spacing: 0;
+    line-height: 18px;
+}	
+			
+			.v3-full-container {
+    background-position: 65% 50% !important;
+				min-height: auto;
+                  background-position: 65% 50% !important;
+    padding-top: 25px !important;
+    padding-bottom: 25px !important;
+    padding-left: 25px !important;
+              background-position-x: 65% !important;
+}
+		}
+			
+			
+
+		
+	</style>
+
+	<div class="v3-full-container pull-left" style="
+			background: url(https://birdowl.com/HTML/071218-Vital-Proteins0936_jpg.png) !important;
+            background: url ({{ section.settings.v3-sub-hero-imge| img_url: '1440x' }}) !important;
+		    background-size: cover !important;
+            background-position: center center !important;
+            background-position-x: 65% !important;
+    		">
+		<h1>{{ section.settings.v3-sub-hero-headline }}</h1>
+		<p>{{ section.settings.v3-sub-hero-subheadline }}</p>
+		<a href="{{ section.settings.v3-sub-hero-link }}" class="v3-standard-button">{{ section.settings.v3-sub-hero-button-text }}</a>
+		<p class="lil-sub-text">{{ section.settings.v3-sub-hero-sub-text }}</p>
+	</div>
+
+
+{% schema %}
+	{
+  "name": "Hero Section",
+  "class": "v3-sub-hero",
+  "settings": [
+	{
+      "type": "image_picker",
+      "id": "v3-sub-hero-imge",
+      "label": "Main Image"
+	},
+	{
+      "type": "text",
+      "id": "v3-sub-hero-headline",
+      "label": "Main Headline",
+	  "default": "Your Collagen Routine, Made Easy."
+	},
+	{
+      "type": "text",
+      "id": "v3-sub-hero-subheadline",
+      "label": "Main Headline",
+	  "default": "Subscribe and get 25% off your first order, and 15% off ALL recurring orders after that.* Oh, and did we mention FREE shipping? (Yep, it’s that good.)"
+	},
+	{
+      "type": "url",
+      "id": "v3-sub-hero-link",
+      "label": "Button Link"
+	},
+	{
+      "type": "text",
+      "id": "v3-sub-hero-button-text",
+      "label": "Button Text",
+	  "default": "Let's GO!"
+	},
+	{
+      "type": "text",
+      "id": "v3-sub-hero-sub-text",
+      "label": "Button Sub Text",
+	  "default": "BESTSELLER- Collagen Peptides (Unflavored)"
+	}
+
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

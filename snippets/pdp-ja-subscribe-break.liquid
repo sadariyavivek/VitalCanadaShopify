@@ -1,0 +1,228 @@
+<style>
+    .pdp-ja-subscribe-break-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 50px 20px;
+        width: 100%;
+        background: #F4F7F7;
+        text-align: center;
+        margin-top: 14px;
+    }
+
+    .pdp-ja-subscribe-break-wrapper h4 {
+        font-family: 'KapraNeue';
+        font-size: 72px;
+        line-height: 90px;
+        letter-spacing: 0.8px !important;
+        text-align: center;
+        color: #393D40;
+        text-transform: uppercase;
+    }
+
+    .pdp-ja-subscribe-break-wrapper p {
+        font-size: 24px;
+        line-height: 33px;
+        color: #585A5B;
+        letter-spacing: 1px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .pdp-ja-subscribe-break-wrapper a {
+        color: white;
+        background-color: #215D6B;
+        border-radius: 4px;
+        max-width: 350px;
+        margin-left: auto;
+        margin-right: auto;
+        font-weight: bold;
+        height: 48px;
+        letter-spacing: 1.2px;
+        font-size: 22px;
+        vertical-align: middle;
+        display: block;
+        width: 100%;
+        line-height: 30px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        transition: .15s opacity ease-out;
+    }
+
+    .pdp-ja-subscribe-break-wrapper a:hover {
+        opacity: 0.75;
+    }
+    .subscribe-break-cust-2 {
+        padding: 0 0px 0 100px;
+    }
+  	.subscribe-break-cust-2 h6 {
+      font-family: 'Avenir Next';
+      text-transform: uppercase;
+      font-weight: 600;
+      color: white;
+      text-align: center;
+      background-color: yellow;
+      width: 115px;
+      vertical-align: middle;
+      font-size: 12px;
+      border-radius: 5px;
+      line-height: 12px;
+	}
+    .subscribe-break-cust-1 img {
+      width: 100%;
+      height: 165px;
+  	}
+    .subscribe-break-cust-1 p.subscribe-break-cust-1a {
+      position: absolute;
+      right: -10px;
+      top: -10px;
+      height: 26px;
+      width: 25px;
+      vertical-align: top;
+      padding: 0 9px 25px;
+      background-color: red;
+      border-radius: 50%;
+  	}
+    .pdp-ja-subscribe-break-wrapper .subscribe-break-cust-1 span {
+      color: white;
+      font-size: 25px;
+      font-weight: 900;
+      position: absolute;
+      top: -5px;
+      right: 7px;
+  	}
+    .pdp-ja-subscribe-break-wrapper .subscribe-break-cust-1aa {
+      background-color: white;
+      border: 2px dashed #E5E9EC;
+      width: 168px;
+      height: 168px;
+      padding: 20px;
+      margin: 0 12px;
+      max-width: 29%;
+  	}
+    .pdp-ja-subscribe-break-wrapper p.subscribe-break-cust-1ab {
+      color: #355C7E;
+      padding: 25px 0 0;
+  	}
+  	.pdp-ja-subscribe-break-wrapper .subscribe-break-cust-1ad {
+      background-color: white;
+      border: 2px dashed #E5E9EC;
+      width: 168px;
+      height: 168px;
+      padding: 0px;
+      margin: 0 12px;
+      max-width: 29%;
+  	}
+    .pdp-ja-subscribe-break-wrapper p.subscribe-break-cust-1ac {
+      color: #888888;
+      font-size: 12px;
+      font-family: 'Avenir Next';
+      font-weight: 600;
+      line-height: 18px;
+  	}
+  	.pdp-ja-subscribe-break-wrapper .subscribe-break-cust-2 h4 {
+      font-family: 'KapraNeue' !important;
+      font-size: 36px !important;
+      font-weight: 500;
+      line-height: 45px;
+      text-align: left;
+	}
+ 	.pdp-ja-subscribe-break-wrapper .subscribe-break-cust-2 p {
+      font-family: 'Avenir Next';
+      font-size: 16px;
+      line-height: 24px !important;
+      font-weight: 400;
+      color: black;
+      text-align: left;
+  	}
+  	.pdp-ja-subscribe-break-wrapper .subscribe-break-cust-2 a {
+      background: #355C7E !important;
+      border: 1px solid #355c7E;
+      font-size: 16px;
+      line-height: 22px;
+      font-weight: bold;
+      min-height: 40px;
+      border-radius: 4px;
+      float: left;
+      width: 35%;
+	}
+
+    @media screen and (max-width: 800px) {
+        .pdp-ja-subscribe-break-wrapper {
+            padding: 36px 40px;
+        }
+        
+        .pdp-ja-subscribe-break-wrapper h4 {
+            font-size: 24px;
+            line-height: 36px;
+            letter-spacing: 0.7px !important;
+            text-align: center;
+            color: #393D40;
+        }
+
+        .pdp-ja-subscribe-break-wrapper p {
+            font-size: 12px;
+            line-height: 16px;
+            letter-spacing: 0.3px;
+            text-align: center;
+            color: #585A5B;
+        }
+
+        .pdp-ja-subscribe-break-wrapper a {
+            max-width: 150px;
+            font-size: 14px;
+            letter-spacing: 0.2px;
+            text-align: center;
+        }
+    }
+</style>
+
+{% if product.metafields.subscriptions.discount_percentage %} 
+    {% assign discount_amount = product.metafields.subscriptions.discount_percentage | round %}
+    {% assign discount_message = "Subscribe Now " | append: discount_amount | append: "%" %}
+{% endif %}
+
+<div class="pdp-ja-subscribe-break-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 subscribe-break-cust-1">
+          <div class="row">
+            <div class="col-md-4 subscribe-break-cust-1ad">
+            	<img src="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/416ffa41b0ff598e9af67c175bed6adf_2500x.png">
+              <p class="subscribe-break-cust-1a"><span>-</span></p>
+            </div>
+            <div class="col-md-4 subscribe-break-cust-1aa">
+              <p class="subscribe-break-cust-1ab">+</p>
+              <p class="subscribe-break-cust-1ac">+5% OFF</p>
+            </div>
+            <div class="col-md-4 subscribe-break-cust-1aa">
+              <p class="subscribe-break-cust-1ab"><i class="fa fa-eye-slash" aria-hidden="true"></i></p>
+              <p class="subscribe-break-cust-1ac">+10% OFF</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 subscribe-break-cust-1aa">
+              <p class="subscribe-break-cust-1ab"><i class="fa fa-eye-slash" aria-hidden="true"></i></p>
+              <p class="subscribe-break-cust-1ac">+5% OFF</p>
+            </div>
+            <div class="col-md-4 subscribe-break-cust-1aa">
+              <p class="subscribe-break-cust-1ab"><i class="fa fa-eye-slash" aria-hidden="true"></i></p>
+              <p class="subscribe-break-cust-1ac">+5% OFF</p>
+            </div>
+            <div class="col-md-4 subscribe-break-cust-1aa">
+              <p class="subscribe-break-cust-1ab"><i class="fa fa-eye-slash" aria-hidden="true"></i></p>
+              <p class="subscribe-break-cust-1ac">+10% OFF</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 subscribe-break-cust-2">
+          <h6>Special DeaL</h6>
+        	<h4>Build your own bundle <br> to save upto 35%</h4>
+        	<p>The more you buy, the more you save. Add two or more products and unlock big savings.</p>
+        	<a href="{{ button_url }}">Add to Cart</a>
+          </div>
+        </div>
+    </div>
+</div>
+<!-- {{ discount_message }} -->

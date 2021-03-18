@@ -1,0 +1,60 @@
+<div class="information-section-wrapper">
+  <div class="information-section">
+    <div class="nav-slider">
+      <a href="#" class="nav-slider-option active" data-content="description">Description</a>
+      {% if product.metafields.conspire.benefits %}
+        <a href="#" class="nav-slider-option" data-content="benefits">Benefits</a>
+      {% endif %}
+      {% if product.metafields.conspire.ingredients %}
+        <a href="#" class="nav-slider-option" data-content="ingredients">Ingredients</a>
+      {% endif %}
+      {% if product.metafields.conspire.amino_acids %}
+        <a href="#" class="nav-slider-option" data-content="amino">Amino Acids</a>
+      {% endif %}
+      {% if product.metafields.conspire.how_to_use %}
+        <a href="#" class="nav-slider-option" data-content="how">How to Use</a>
+      {% endif %}
+      {% if product.metafields.vital.faq%}
+        <a href="#" class="nav-slider-option" data-content="faq">FAQs</a>
+      {% endif %}
+    </div>
+    <div class="content-container">
+      <div class="content-section description active">{{ product.description }}</div>
+      {% if product.metafields.conspire.benefits %}
+        <div class="content-section benefits">{{ product.metafields.conspire.benefits }}</div>
+      {% endif %}
+      {% if product.metafields.conspire.ingredients %}
+        <div class="content-section ingredients">{{ product.metafields.conspire.ingredients }}</div>
+      {% endif %}
+      {% if product.metafields.conspire.amino_acids %}
+        <div class="content-section amino">{{ product.metafields.conspire.amino_acids }}</div>
+      {% endif %}
+      {% if product.metafields.conspire.how_to_use %}
+        <div class="content-section how">{{ product.metafields.conspire.how_to_use }}</div>
+      {% endif %}
+      {% if product.metafields.vital.faq %}
+        <div class="content-section faq">
+            {% for faq in product.metafields.vital.faq %}
+              {% assign faqSplit = faq | split: '<hr>' %}
+              <div class="faq-container">
+                <button class="pdp-faq-button" data-index={{ forloop.index0 }}><span style="padding-right: 10px;">{{ faqSplit[0] }}</span> <i class="fas fa-chevron-down"></i></button>
+                <div class="pdp-faq-body hidden" id="pdp-faq-{{ forloop.index0 }}">{{ faqSplit[1] }}</div>
+              </div>
+            {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+    <div class="benefits-icon-container">
+      {% for icon in product.metafields.vital.pdp_benefit_icon_jen_a %}
+      <div class="benefits-icon-tile">
+        {% if icon.mime_type contains 'svg' %}
+          {{ icon.media_inline }}
+        {% else %}
+          <img class="lazyload" data-src="{{ icon.cloudinary_src | append: 'w_300' }}" alt="{{ icon.alt }}"/>
+        {% endif %}
+        <p>{{ icon.alt }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

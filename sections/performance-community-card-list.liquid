@@ -1,0 +1,41 @@
+{% for block in section.blocks %}
+<div class="community-card">
+  <div class="card-background" style="background-image: url({{ block.settings.post_image | img_url: '300x' }});"></div>
+  <div class="card-text">
+    <span class="card-name">{{ block.settings.poster_name }}</span>
+    <span class="card-hashtag">{{ block.settings.post_hashtags }}</span>
+  </div>
+</div>
+{% endfor %}
+
+{% schema %}
+  {
+    "name": "Performance Social Posts",
+    "blocks": [
+      {
+        "type": "social_post",
+        "name": "Community Social Post",
+        "limit": 6,
+        "settings": [
+			{
+              "type": "image_picker",
+              "id": "post_image",
+              "label": "Post Image"
+            },
+			{
+              "type": "text",
+              "id": "poster_name",
+              "label": "Poster Name/Handle",
+              "default": "Vital Proteins"
+            },
+			{
+              "type": "text",
+              "id": "post_hashtags",
+              "label": "Post Hashtags",
+              "default": "#Vital Performance #VitalAthlete"
+            }
+        ]
+      }
+	]
+  }
+{% endschema %}

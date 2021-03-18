@@ -1,0 +1,1484 @@
+<a name="pagecontent" id="pagecontent"></a>
+
+</div>
+{% assign perfBlue = '#244283' %}
+{% assign vitalBlue = '#23b6e6' %}
+{% assign watermelonColor = '#db5472' %}
+{% assign passionColor = '#f1c650' %}
+{% assign guavaColor = '#c74478' %}
+{% assign lemonGrapeColor = '#552b9a' %}
+{% assign yuzuColor = '#ea7e46' %}
+<style>
+  .main {
+    display: none;
+  }
+  
+  .vpr-header-section {
+    width: 100%;
+  }
+  
+  .vpr-header-section img {
+    width: 100%;
+    display: block;
+  }
+  
+  .vpr-cta-wrapper {
+    background-size: cover;
+    background-image: url('{{ 'VP_WEBSITE_VITAL_PERFORMANCE_UPDATED_WAVE_BCKGRND-07_max.jpg' | file_img_url: 'master' }}');
+    background-repeat: no-repeat;
+  }
+  
+  .vpr-header-education {
+    color: white;
+    background-color: #0E428A;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .vpr-header-education p {
+    font-style: italic;
+    color: white;
+    font-size: 21px;
+    margin-bottom: 0;
+  }
+  
+  .vpr-header-education .bolded {
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  .vpr-pre-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    max-height: 0;
+    overflow: hidden;
+    transition: .3s all ease-out;
+    opacity: 0;
+    visibility: hidden; 
+  }
+  
+  .vpr-pre-section.active {
+    max-height: 2000px;
+    opacity: 1;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    visibility: visible;
+  }
+  
+  .vpr-recovery-section {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    flex-wrap: wrap;
+    max-height: 0;
+    overflow: hidden;
+    transition: .3s all ease-out;
+    opacity: 0;
+    
+    visibility: hidden;
+  }
+  
+  .vpr-recovery-section.active {
+    max-height: 1200px;
+    opacity: 1;
+    visibility: visible;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  
+  .vpr-sleep-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    max-height: 0;
+    overflow: hidden;
+    transition: .3s all ease-out;
+    opacity: 0;
+    visibility: hidden; 
+  }
+  
+  .vpr-sleep-section.active {
+    max-height: 2000px;
+    opacity: 1;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    visibility: visible;
+  }
+  
+  button.vpr.add_to_cart {
+    display: none;
+  }
+  
+  .active button.vpr.add_to_cart {
+    display: inline-block;
+  }
+  
+  .vpr-pre-info {
+    width: 50%;
+    text-align: center;
+  }
+  
+  .vpr-pre-cta {
+    width: 50%;
+    text-align: center;
+  }
+  
+  .vpr-recovery-cta {
+    width: 40%;
+    text-align: center;
+  }
+  
+  .vpr-recovery-ctas-container {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+  }
+  
+  .vpr-recovery-info {
+    width: 50%;
+    text-align: center;
+  }
+  
+  .vpr-sleep-info {
+    width: 50%;
+    text-align: center;
+  }
+  
+  .vpr-sleep-cta {
+    width: 50%;
+    text-align: center;
+  }
+  
+  .vpr-flavor-diagram {
+    margin-top: 30px;
+  }
+  
+  .vpr-flavor-diagram img {
+    width: 60%;
+    max-width: 800px;
+    margin-bottom: 20px;
+  }
+  
+  .accordion-button-container {
+    display: flex;
+    flex-direction: row;
+    height: 140px;
+    transition: .2s opacity ease-out;
+    box-shadow: 0px 3px 11px 0px rgba(0, 0, 0, 0.04);
+    z-index: 9500;
+    position: relative;
+  }
+  
+  .accordion-button-container:hover {
+    opacity: 0.75;
+    cursor: pointer;
+  }
+  
+  .accordion-button-container:focus {
+    outline: 3px solid gray;
+    z-index: 9500 !important;
+  }
+  
+  .accordion-button-container.recovery {
+    z-index: 9000;
+  }
+  
+  .accordion-button-container.sleep {
+    z-index: 8000;
+  }
+  
+  .accordion-button-left {
+    width: 60%;
+    background-color: #23b6e6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+  }
+  
+  .accordion-button-left:after {
+    background: #a6d8e8;
+    bottom: 0;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    right: -30px;
+    top: 0;
+    width: 60px;
+    transform: skewX(-20.5deg);
+    transform-origin: 100%;
+    z-index: 9550;
+  }
+  
+  .accordion-button-left img {
+    display: block;
+    max-width: 50%;
+  }
+  
+  .accordion-button-left .icon-down-arrow {
+    -webkit-transition: .2s all ease-out;
+    -moz-transition: .2s all ease-out;
+    -ms-transition: .2s all ease-out;
+    -o-transition: .2s all ease-out;
+    transition: .2s all ease-out;
+    font-size: 24px !important;
+    color: white;
+    margin-right: 20px;
+
+  }
+  
+  .accordion-button-left .icon-down-arrow:before {
+    font-weight: bold;
+  }
+  
+  .accordion-button-left .icon-down-arrow.open {
+    transform: rotateX(-180deg);
+    -webkit-transform: rotate(-180deg);
+  }
+  
+  
+  .accordion-button-right {
+    width: 40%;
+    background-color: #a6d8e8;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+  }
+  
+  .accordion-description-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 75%;
+  }
+  
+  .accordion-reason {
+    color: white;
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 36px;
+    line-height: initial;
+    margin-bottom: 0;
+  }
+  
+  .accordion-form-factor {
+    color: #23b6e6;
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 36px;
+    line-height: initial;
+    margin-bottom: 0;
+    font-style: italic;
+  }
+  
+  .accordion-form-factor-images {
+    height: 100%;
+    width: 25%;
+  }
+  
+  .accordion-form-factor-images img {
+    display: block;
+    height: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .form-factor-text {
+  	color: #23b6e6;
+    text-transform: uppercase;
+    font-family: 'kapraregular';
+    font-size: 32px;
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  .vpr-product-title {
+    color: #23b6e6;
+    letter-spacing: 1px !important;
+    text-transform: none;
+    font-size: 108px;
+    margin-bottom: 0;
+    line-height: 100px;
+  }
+  
+  .vpr-product-img {
+    max-height: 360px;
+  }
+  
+  .vpr-select {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 240px;
+    margin-bottom: 0;
+    border-color: #dcdcdc8a;
+    font-family: 'kapraregular';
+    border-radius: 10px;
+    font-size: 21px;
+    padding-right: 40px;
+  }
+  
+  button.vpr.add_to_cart {
+    position: relative;
+    min-height: 0;
+    width: auto;
+    border-radius: 10px;
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    height: auto;
+    padding: 10px 20px;
+    font-size: 28px;
+    background-color: {{ passionColor }};
+    border: 0;
+  }
+  
+  button.vpr.add_to_cart:hover {
+    border: 0;
+    background-color: {{ passionColor }};
+    opacity: 0.8;
+  }
+  
+  .nutrition-callout-wrapper {
+   	display: flex;
+	flex-direction: row;
+    justify-content: space-evenly;
+    opacity: 1;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+  }
+  
+  .callout {
+    width: 33.33%;
+  }
+  
+  .callout:not(:last-child) {
+    border-right: 2px solid {{ perfBlue }};
+  }
+  
+  .nc-number {
+    font-family: 'kapraregular';
+    font-size: 60px;
+    color: {{ perfBlue }};
+    line-height: 62px;
+  }
+  
+  .nc-grams {
+    font-family: 'kapraregular';
+    font-size: 48px;
+    color: {{ perfBlue }};
+  }
+  
+  .nc-text {
+    font-family: 'kapraregular';
+    font-size: 24px;
+    color: {{ perfBlue }};
+    text-transform: uppercase;
+  }
+  
+  .vpr-ingredient-callout {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .vpr-ingredient-callout span {
+    background-color: #23b6e6;
+    color: white;
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    font-size: 28px;
+    padding: 10px 0px;
+    border: 1px solid #5ec4ec;
+    flex-grow: 1;
+    min-width: 30%;
+    letter-spacing: 1px;
+  }
+  
+  .vpr-ingredient-callout span.elevatp {
+    text-transform: none;
+  }
+  
+  .vpr-flavor-badges {
+    width: 100%;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  
+  .vpr-flavor-badges.mobile {
+    display: none;
+  }
+  
+  .vpr-more-banner {
+    background: #5f279d;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .vpr-more-header, .vpr-bundle-header-text {
+    text-transform: uppercase;
+    letter-spacing: 1px !important;
+    color: white;
+    font-size: 48px;
+    border-bottom: 2px solid white;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+    line-height: initial;
+    margin-bottom: 0;
+  }
+  
+  .vpr-more-subtext, .vpr-bundle-subtext {
+    color: white;
+    font-style: italic;
+    font-size: 21px;
+    font-weight: bold;
+    padding-top: 10px;
+    margin-bottom: 0;
+    text-transform: none;
+    text-align: center;
+  }
+  
+  .vpr-lively-header {
+    letter-spacing: 1px !important;
+    color: {{ perfBlue }};
+    text-align: center;
+    font-size: 32px;
+  }
+  
+  .vpr-lively-articles-container {
+    display: flex;
+    flex-direction: row;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap;
+  }
+  
+  .vpr-lively-article {
+    width: 50%;
+    padding: 20px;
+    transition: .2s all ease-out;
+  }
+  
+  .vpr-lively-article:hover {
+    opacity: 0.7
+  }
+  
+  .vpr-lively-article .vpr-image-container {
+    border-radius: 20px;
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    height: 240px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+  }
+  
+  .vpr-lively-article h6 {
+    text-transform: none;
+    letter-spacing: 1px !important;
+    font-size: 32px;
+    color: {{ perfBlue }};
+    text-align: center;
+    line-height: initial;
+  }
+  
+  .vpr-bundle-section-wrapper {
+    padding: 20px;
+  }
+  
+  .vpr-bundle-header {
+    background-color: {{ yuzuColor }};
+    width: 100%;
+  }
+  
+  .vpr-bundle-header-text-wrapper {
+    padding: 20px;
+  }
+  
+  .vpr-bundle-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .cta-wrapper {
+    width: 50%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .product-list-section {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  
+  .product-image-container {
+    width: 30%;
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    height: 240px;
+    border-radius: 20px;
+  }
+  
+  .product-image-container.pre {
+    background-image: url({{ 'PreWave_Lifestyle_Inhouse_boosted.jpg' | file_img_url: '600x', format: 'pjpg' }});
+  }
+  
+  .product-image-container.recovery {
+    background-image: url({{ 'RecoveryWAVE_family.jpg' | file_img_url: '600x', format: 'jpg' }});
+  }
+  
+  .product-swatch-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: fit-content;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  
+  .product-swatch-description {
+    margin-bottom: 40px;
+  }
+  
+  .product-swatch {
+    padding: 10px;
+    border: 2px solid #23b6e6;
+    color: #23b6e6;
+    font-family: 'kapraregular';
+    font-size: 21px;
+    border-radius: 10px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    transition: .15s all ease-out;
+    height: fit-content;
+  }
+  
+  .product-swatch:hover {
+    transform: translateY(-2px);
+    opacity: 0.7;
+    color: white !important;
+  }
+  
+  .product-swatch.active {
+    color: white !important;
+  }
+  
+  .product-swatch.active:hover {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  
+  .product-swatch.watermelon-blueberry:hover {
+    background-color: {{ watermelonColor }};
+  }
+  
+  .product-swatch.passion-fruit:hover {
+    background-color: {{ passionColor }};
+  }
+  
+  .product-swatch.guava-lime:hover {
+    background-color: {{ guavaColor }};
+  }
+  
+  .product-swatch.lemon-grape:hover {
+    background-color: {{ lemonGrapeColor }};
+  }
+  
+  .product-swatch.yuzu-clementine:hover {
+    background-color: {{ yuzuColor }};
+  }
+  
+  .product-swatch.watermelon-blueberry.active {
+    background-color: {{ watermelonColor }};
+  }
+  
+  .product-swatch.passion-fruit.active {
+    background-color: {{ passionColor }};
+  }
+  
+  .product-swatch.guava-lime.active {
+    background-color: {{ guavaColor }};
+  }
+  
+  .product-swatch.lemon-grape.active {
+    background-color: {{ lemonGrapeColor }};
+  }
+  
+  .product-swatch.yuzu-clementine.active {
+    background-color: {{ yuzuColor }};
+  }
+  
+  .step-text {
+    text-transform: uppercase;
+    letter-spacing: 1px !important;
+    color: #23b6e6;
+    font-size: 24px;
+    border-top: 2px solid #23b6e6;
+    border-bottom: 2px solid #23b6e6;
+    padding: 10px 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+  }
+  
+  .cta-wrapper {
+    margin: 0 auto;
+    max-width: 1200px;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  
+  .performance-add-to-bag {
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-family: 'kapraregular';
+    color: white;
+    letter-spacing: 1px;
+    font-size: 24px;
+    background-color: gray;
+    padding: 10px 20px;
+    /*margin-bottom: 20px;*/
+    margin-bottom: 0;
+    transition: .15s all ease-out;
+    display: inline-block;
+    min-width: 200px;
+    text-align: center;
+  }
+  
+  .performance-add-to-bag:hover {
+    color: white;
+    cursor: default;
+  }
+  
+  .performance-add-to-bag.active {
+    background-color: #23b6e6;
+  }
+  
+  .performance-add-to-bag.active:hover {
+    color: white;
+    opacity: 0.7;
+    transform: translateY(-2px);
+    cursor: pointer;
+  }
+  
+  .performance-add-to-bag.active:focus {
+    color: white;
+    outline: 1px solid black;
+  }
+  
+  .loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #23b6e6;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1.2s ease-out infinite;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .thumbanil .title {
+    height: 32px;
+  }
+  
+  .header.mobile {
+    display: none;
+  }
+  
+  .vpr-more-slider {
+    margin-top: 20px;
+  }
+  
+  .image__container img {
+    width: 65% !important;
+    height: auto;
+  }
+  
+  .pp-disclaimer {
+    margin-top: 20px;
+    font-size: 12px;
+    font-style: italic;
+    text-align: center;
+  }
+  
+  .vpr-price-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .vpr-price-container .flavor-callout {
+    padding-left: 10px;
+    display: block;
+    font-family: 'kapraregular';
+    font-size: 28px;
+    line-height: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: {{ perfBlue }};
+    text-transform: uppercase;
+  }
+  
+  .vpr-price {
+    display: block;
+    font-family: 'kapraregular';
+    font-size: 48px;
+    line-height: 48px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: {{ perfBlue }};
+    border-right: 2px solid {{ perfBlue }};
+    padding-right: 10px;
+  }
+  
+  .maxim-container {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    right: 0;
+    left: 0; 
+    bottom: 0;
+    background: rgba(0,0,0,0.1);
+  }
+  
+  .maxim-section {
+    text-align: center;
+    animation-duration: 0.5s;
+    border: 4px solid #23b6e6;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 20px;
+  }
+  
+  .maxim-section h4 {
+    letter-spacing: 0px !important;
+    text-transform: none;
+    color: #4a4a4a;
+    font-size: 32px;
+    margin-bottom: 0;
+  }
+  
+  .maxim-section .discount-code {
+    color: #23b6e6;
+    font-size: 42px;
+  }
+  
+  .maxim-section .percent-off {
+    color: {{ passionColor }};
+  }
+  
+  .call-out-messaging {
+    margin-top: 20px;
+  }
+  
+  @media screen and (max-width: 800px) {
+    .main.content {
+      display: block;
+      padding: 0;
+    }
+    
+    .header.mobile {
+      display: block;
+    }
+    
+    .header.desktop {
+      display: none;
+    }
+    
+    .vpr-header-education p {
+      font-size: 16px;
+    }
+    
+    .vpr-flavor-badges.mobile {
+      display: block;
+    }
+    
+    .vpr-flavor-badges.desktop {
+      display: none;
+    }
+    
+    .vpr-pre-info {
+      width: 100%;
+    }
+    
+    .vpr-pre-cta {
+      width: 100%;
+    }
+    
+    .vpr-sleep-info {
+      width: 100%;
+    }
+    
+    .vpr-sleep-cta {
+      width: 100%;
+    }
+    
+    .nutrition-callout-wrapper {
+      width: 100%;
+    }
+    
+    .vpr-pre-section, .vpr-sleep-section {
+      flex-direction: column-reverse;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    
+    .vpr-recovery-section {
+      flex-direction: column;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    
+    .vpr-recovery-info {
+      width: 100%;
+    }
+    
+    .vpr-recovery-cta {
+      width: 50%;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    
+    .cta-wrapper {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    
+    .vpr-product-title {
+      font-size: 36px;
+    }
+    
+    .nc-number {
+      font-size: 36px;
+    }
+    
+    .nc-grams {
+      font-size: 24px;
+    }
+    
+    .nc-text {
+      font-size: 24px;
+    }
+    
+    .vpr-ingredient-callout {
+      width: 100%;
+    }
+    
+    .vpr-more-header, .vpr-bundle-header-text {
+      font-size: 36px;
+      text-align: center;
+    }
+    
+    .vpr-lively-article {
+      width: 100%;
+    }
+    
+    .product-swatch-container {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    
+    .accordion-button-left {
+      justify-content: flex-start;
+      padding: 10px;
+    }
+    
+    .accordion-button-right {
+      padding: 10px;
+    }
+    
+    .accordion-button-left img {
+      max-width: 80%;
+    }
+    
+    .accordion-button-left .icon-down-arrow {
+      font-size: 16px !important;
+      margin-right: 4px;
+    }
+    
+    .accordion-reason {
+      font-size: 21px;
+      z-index: 9600;
+    }
+
+    .accordion-form-factor {
+      font-size: 16px;
+      z-index: 9600;
+    }
+    
+    .accordion-form-factor-images {
+      display: none;
+    }
+    
+    .accordion-button-container {
+      height: 90px;
+    }
+    
+    
+    .accordion-button-left:after {
+        background: #a6d8e8;
+        bottom: 0;
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        right: -13px;
+        top: 0;
+        width: 30px;
+        transform: skewX(-10.5deg);
+        transform-origin: 100%;
+        z-index: 9550;
+    }
+    
+    .vpr-recovery-ctas-container {
+      width: 100%;
+    }
+    
+    .vpr-product-img {
+      width: 100%;
+    }
+    
+    .vpr-pre-cta .vpr-product-img {
+      width: 50%;
+      max-height: initial;
+    }
+    
+    .vpr-sleep-cta .vpr-product-img {
+      width: 50%;
+      max-height: initial;
+    }
+    
+    .vpr-cta-section.container {
+      padding-top: 0;
+      width: 100%;
+    }
+    
+    .vpr-product-title {
+      display: none;
+    }
+    
+    .vpr-price-container .flavor-callout {
+      font-size: 21px;
+      line-height: 24px;
+    }
+    
+    .vpr-price {
+      font-size: 24px;
+      line-height: 26px;
+    }
+  }
+</style>
+<div class="vital-performance-redux">
+  <div class="vpr-header-section">
+    <img class="header desktop lazyload"
+         sizes="(min-width: 1200px) 1200w,
+                (min-width: 1400px) 1400w,
+                (min-width: 1600px) 1600w,
+                (min-width: 2000px) 2000w,
+                (min-width: 2560px) 2560w"
+         srcset="
+                 {{ 'VP_Performance_Header_Desktop_V4_x2_a3e5bb1e-5243-4008-a052-7363a0c29ef3.jpg' | file_img_url: '1200x' }} 1200w,
+                 {{ 'VP_Performance_Header_Desktop_V4_x2_a3e5bb1e-5243-4008-a052-7363a0c29ef3.jpg' | file_img_url: '1400x' }} 1400w,
+                 {{ 'VP_Performance_Header_Desktop_V4_x2_a3e5bb1e-5243-4008-a052-7363a0c29ef3.jpg' | file_img_url: '1600x' }} 1600w,
+                 {{ 'VP_Performance_Header_Desktop_V4_x2_a3e5bb1e-5243-4008-a052-7363a0c29ef3.jpg' | file_img_url: '2000x' }} 2000w,
+                 {{ 'VP_Performance_Header_Desktop_V4_x2_a3e5bb1e-5243-4008-a052-7363a0c29ef3.jpg' | file_img_url: '2560x' }} 2560w"
+         src="{{ 'VP_Performance_Header_Desktop_V4_x2_a3e5bb1e-5243-4008-a052-7363a0c29ef3.jpg' | file_img_url: '1600x' }}" alt="Vital Performance. Your fitness routine, amplified."/>
+    <img class="header mobile lazyload" src="{{ 'VP_Performance_Header_Mobile_V4.jpg' | file_img_url: '800x' }}"/>
+  </div>
+  <div class="vpr-header-education">
+    <p><span class="bolded">Vital Performance&trade; Pre, Recover &amp; Sleep</span> a first-of-its-kind support system for muscles and joints.</p>
+  </div>  
+  <div class="vpr-cta-wrapper">
+    <div class="vpr-cta-section container">
+      <a href="#" class="accordion-button-container pre" aria-expanded="true">
+        <div class="accordion-button-left">
+          <span aria-label="(Expand dropdown icon)" class="right icon-down-arrow open"></span>
+          <img src="{{ 'PRE.png' | file_img_url: '800x'}}" alt="Phase 1: PRE"/>
+        </div>
+        <div class="accordion-button-right">
+          <div class="accordion-description-container">
+            <p class="accordion-reason">PREPARE + ENERGIZE</p>
+            <p class="accordion-form-factor">(Powder)</p>
+          </div>
+          <div class="accordion-form-factor-images">
+            <img src="{{ 'PRE_CANISTER_ICON_22d81c9d-fb90-4668-8fe3-36e830af3c80.png' | file_img_url: '800x'}}" alt="PRE Canister"/>
+          </div>
+        </div>
+      </a>
+      <div class="vpr-pre-section active">
+        <div class="vpr-pre-info">
+          <h3 class="vpr-product-title">PRE</h3>
+          <div class="nutrition-callout-wrapper">
+            <div class="callout">
+              <p>
+                <span class="nc-number">5</span>
+                <span class="nc-grams">G</span>
+                <br>
+                <span class="nc-text">Collagen</span>
+              </p>
+            </div>
+            <div class="callout">
+              <p>
+                <span class="nc-number">5</span>
+                <span class="nc-grams">G</span>
+                <br>
+                <span class="nc-text">BCAA</span>
+              </p>
+            </div>
+            <div class="callout">
+              <p>
+                <span class="nc-number">3</span>
+                <span class="nc-grams">G</span>
+                <br>
+                <span class="nc-text">Citrulline</span>
+              </p>
+            </div>
+          </div>
+          <div class="vpr-ingredient-callout">
+            <span>Alpha GPC</span>
+            <span>Caffeine</span>
+            <span class="elevatp">elevATP&reg;</span>
+            <span>Creatine Nitrate</span>
+            <span>Arginine Nitrate</span>
+          </div>
+          <div class="call-out-messaging">
+            <p>Vital Performance™ Pre provides a unique combination of 5g of collagen, 5g of BCAAs, 3g of citrulline and caffeine to fuel your every moment.</p>
+          </div>
+        </div>
+        <div class="vpr-pre-cta">
+          {% assign product = collections['vital-performance-pre'].products.first %}
+          <a href="{{ product.url }}" style="color: inherit;">
+            <img id="product-image-pre" class="vpr-product-img" alt="{{ product.featured_image.alt }}" src="{{ product.featured_image | img_url: '600x' }}"/>
+          </a>
+          <form action="/cart/add"
+                method="post"
+                class="clearfix product_form init {% if product.variants.size > 1 or product.options.size > 1 %}product_form_options{% endif %}"
+                id="product-form-{{ product.id }}"
+                data-money-format="{{ shop.money_format }}"
+                data-shop-currency="{{ shop.currency }}"
+                data-select-id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}"
+                data-enable-state="{% if template contains 'product' %}true{% else %}false{% endif %}"
+                data-product="{{ product | json | escape }}"
+                {% if settings.limit_quantity or settings.display_inventory_left %}
+                data-variant-inventory='[{%- for v in product.variants -%}{"id":{{v.id}},"inventory_quantity":{{v.inventory_quantity}},"inventory_management":"{{v.inventory_management}}","inventory_policy":"{{v.inventory_policy}}"}{% if forloop.last == false %},{% endif %}{%- endfor -%}]'
+                {% endif %}
+                data-product-id="{{ product.id }}"
+                >
+            <div aria-label="Option select box for {{ product.title }}" class="custom-select">
+              <select class="vpr-select" {% if product.available == false %}style="opacity: 0;"{% endif %} id="{{ product.id }}">
+                {% for product in collections['vital-performance-pre'].products %}
+                  {% assign productTitle = product.title | split: '-' %}
+                  {% if product.variants.first.available %}
+                  		<option value="{{ product.variants.first.id }}" data-product-type="pre" data-image="{{ product.variants.first.image | img_url: '600x' }}" data-price="{{ product.variants.first.price }}">{{ productTitle[1] }} - {{ product.variants.first.title }}</option>
+                  {% else %}
+                	<option value="{{ product.variants.first.id }}" disabled data-product-type="pre" data-image="{{ product.variants.first.image | img_url: '600x' }}" data-price="{{ product.variants.first.price }}">{{ productTitle[1] }} - {{ product.variants.first.title }} (Sold Out)</option>
+                  {% endif %}
+                {% endfor %}
+              </select>
+            </div>
+            <div class="vpr-price-container">
+              <span class="vpr-price">$49</span>
+              <span class="flavor-callout">In 5 Flavors!</span>
+            </div>
+            <input type="hidden" name="id" id="product-form-variant-value-{{product.id}}" value="{{ product.variants.first.id }}">
+            {% capture add_to_cart_label %}{% if collection_handles contains 'pre-order' %}{{ 'collections.general.pre_order' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}{% endcapture %}
+            <button aria-label="Add {{product.title}} to bag." type="submit" name="add" class="vpr action_button add_to_cart product-cta {% if product.available == false %}disable-button{% endif %}" {% if product.available == false %}disabled{% endif %} data-label={{ add_to_cart_label | json }}>
+              <span class="text">{% if product.available == false %} Sold out {% else %}Add to Bag {% endif %}</span>
+              <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark">
+                <path fill="none" stroke="{{ settings.btn_text_color }}" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/>
+              </svg>
+            </button>
+            <div class="added-to-bag-notification" style="height:0; overflow: hidden;" aria-atomic="true" aria-live="assertive"></div>
+            <i style="display: block; margin-top: 10px;">Product packaging may vary</i>
+          </form>
+        </div>
+      </div>
+      <a href="#" class="accordion-button-container recovery" aria-expanded="true">
+        <div class="accordion-button-left">
+          <span aria-label="(Expand dropdown icon)" class="right icon-down-arrow open"></span>
+          <img src="{{ 'RECOVER_1.png' | file_img_url: '800x'}}" alt="Phase 1: PRE"/>
+        </div>
+        <div class="accordion-button-right">
+          <div class="accordion-description-container">
+            <p class="accordion-reason">HYDRATION + ELECTROLYTES</p>
+            <p class="accordion-form-factor">(Powder &amp; Liquid)</p>
+          </div>
+          <div class="accordion-form-factor-images">
+            <img src="{{ 'CANISTER_BOTTLE.png' | file_img_url: '800x'}}" alt="RECOVER available in powder and liquid form factors."/>
+          </div>
+        </div>
+      </a>
+      <div class="vpr-recovery-section active">
+        <div class="vpr-recovery-ctas-container">
+          <div class="vpr-recovery-cta">
+            {% assign product = collections['recoverywave'].products.first %}
+            <a href="{{ product.url }}" style="color: inherit;">
+              <img id="product-image-recovery" class="vpr-product-img" alt="{{ product.featured_image.alt }}" src="{{ product.featured_image | img_url: '600x' }}"/>
+            </a>
+            <span class="form-factor-text">Powder</span>
+            <form action="/cart/add"
+                  method="post"
+                  class="clearfix product_form init {% if product.variants.size > 1 or product.options.size > 1 %}product_form_options{% endif %}"
+                  id="product-form-{{ product.id }}"
+                  data-money-format="{{ shop.money_format }}"
+                  data-shop-currency="{{ shop.currency }}"
+                  data-select-id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}"
+                  data-enable-state="{% if template contains 'product' %}true{% else %}false{% endif %}"
+                  data-product="{{ product | json | escape }}"
+                  {% if settings.limit_quantity or settings.display_inventory_left %}
+                  data-variant-inventory='[{%- for v in product.variants -%}{"id":{{v.id}},"inventory_quantity":{{v.inventory_quantity}},"inventory_management":"{{v.inventory_management}}","inventory_policy":"{{v.inventory_policy}}"}{% if forloop.last == false %},{% endif %}{%- endfor -%}]'
+                  {% endif %}
+                  data-product-id="{{ product.id }}"
+                  >
+              <div aria-label="Option select box for {{ product.title }}" class="custom-select">
+                <select class="vpr-select" {% if product.available == false %}style="opacity: 0;"{% endif %} id="{{ product.id }}">
+                  {% for product in collections['recoverywave'].products %}
+                    {% assign productTitle = product.title | split: '-' %}
+                    {% if product.variants.first.available %}
+                      <option value="{{ product.variants.first.id }}" data-product-type="recovery" data-image="{{ product.variants.first.image | img_url: '600x' }}" data-price="{{ product.variants.first.price }}">{{ productTitle[1] }} - {{ product.variants.first.title }}</option>
+                  	{% else %}
+                  		<option value="{{ variant.id }}" disabled data-product-type="recover-rtd" data-image="{{ variant.image | img_url: '600x' }}" data-price="{{ variant.price }}">{{ productTitle[1] }} - {{ variant.title }}</option>
+                    {% endif %}
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="vpr-price-container">
+                <span class="vpr-price">$49</span>
+                <span class="flavor-callout">In 5 Flavors!</span>
+              </div>
+              <input type="hidden" name="id" id="product-form-variant-value-{{product.id}}" value="{{ product.variants.first.id }}">
+              {% capture add_to_cart_label %}{% if collection_handles contains 'pre-order' %}{{ 'collections.general.pre_order' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}{% endcapture %}
+              <button aria-label="Add {{product.title}} to bag." type="submit" name="add" class="vpr action_button add_to_cart product-cta {% if product.available == false %}disable-button{% endif %}" {% if product.available == false %}disabled{% endif %} data-label={{ add_to_cart_label | json }}>
+                <span class="text">{% if product.available == false %} Sold out {% else %}Add to Bag {% endif %}</span>
+                <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark">
+                  <path fill="none" stroke="{{ settings.btn_text_color }}" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/>
+                </svg>
+              </button>
+              <div class="added-to-bag-notification" style="height:0; overflow: hidden;" aria-atomic="true" aria-live="assertive"></div>
+              <i style="display: block; margin-top: 10px;">Product packaging may vary</i>
+            </form>
+          </div>
+          <div class="vpr-recovery-cta">
+            {% assign product = collections['vital-performance-recover'].products.first %}
+            <a href="{{ product.url }}" style="color: inherit;">
+              <img id="product-image-recover-rtd" class="vpr-product-img" alt="{{ product.featured_image.alt }}" src="{{ product.featured_image | img_url: '600x' }}"/>
+            </a>
+            <span class="form-factor-text">Liquid</span>
+            <form action="/cart/add"
+                  method="post"
+                  class="clearfix product_form init {% if product.variants.size > 1 or product.options.size > 1 %}product_form_options{% endif %}"
+                  id="product-form-{{ product.id }}"
+                  data-money-format="{{ shop.money_format }}"
+                  data-shop-currency="{{ shop.currency }}"
+                  data-select-id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}"
+                  data-enable-state="{% if template contains 'product' %}true{% else %}false{% endif %}"
+                  data-product="{{ product | json | escape }}"
+                  {% if settings.limit_quantity or settings.display_inventory_left %}
+                  data-variant-inventory='[{%- for v in product.variants -%}{"id":{{v.id}},"inventory_quantity":{{v.inventory_quantity}},"inventory_management":"{{v.inventory_management}}","inventory_policy":"{{v.inventory_policy}}"}{% if forloop.last == false %},{% endif %}{%- endfor -%}]'
+                  {% endif %}
+                  data-product-id="{{ product.id }}"
+                  >
+              <div aria-label="Option select box for {{ product.title }}" class="custom-select">
+                <select class="vpr-select" {% if product.available == false %}style="opacity: 0;"{% endif %} id="{{ product.id }}">
+                  {% for product in collections['vital-performance-recover'].products %}
+                    {% assign productTitle = product.title | split: '-' %}
+                 
+                  	{% for variant in product.variants %}
+                  		{% if variant.available %}
+                      		<option value="{{ variant.id }}" data-product-type="recover-rtd" data-image="{{ variant.image | img_url: '600x' }}" data-price="{{ variant.price }}">{{ productTitle[1] }} - {{ variant.title }}</option>
+                  		{% else %}
+                  			<option value="{{ variant.id }}" disabled data-product-type="recover-rtd" data-image="{{ variant.image | img_url: '600x' }}" data-price="{{ variant.price }}">{{ productTitle[1] }} - {{ variant.title }} (Sold out)</option>
+                    	{% endif %}
+                  	{% endfor %}
+       
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="vpr-price-container">
+                <span class="vpr-price rtd">$5</span>
+                <span class="flavor-callout">In 3 Flavors!</span>
+              </div>
+              <input type="hidden" name="id" id="product-form-variant-value-{{product.id}}" value="{{ product.variants.first.id }}">
+              {% capture add_to_cart_label %}{% if collection_handles contains 'pre-order' %}{{ 'collections.general.pre_order' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}{% endcapture %}
+              <button aria-label="Add {{product.title}} to bag." type="submit" name="add" class="vpr action_button add_to_cart product-cta {% if product.available == false %}disable-button{% endif %}" {% if product.available == false %}disabled{% endif %} data-label={{ add_to_cart_label | json }}>
+                <span class="text">{% if product.available == false %} Sold out {% else %}Add to Bag {% endif %}</span>
+                <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark">
+                  <path fill="none" stroke="{{ settings.btn_text_color }}" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/>
+                </svg>
+              </button>
+              <div class="added-to-bag-notification" style="height:0; overflow: hidden;" aria-atomic="true" aria-live="assertive"></div>
+            </form>
+          </div>
+        </div>
+        <div class="vpr-recovery-info">
+          <h3 class="vpr-product-title">RECOVER</h3>
+          <div class="nutrition-callout-wrapper">
+            <div class="callout">
+              <p>
+                <span class="nc-number">20</span>
+                <span class="nc-grams">G</span>
+                <br>
+                <span class="nc-text">Collagen</span>
+              </p>
+            </div>
+            <div class="callout">
+              <p>
+                <span class="nc-number">8</span>
+                <span class="nc-grams">G</span>
+                <br>
+                <span class="nc-text">EAA</span>
+              </p>
+            </div>
+            <div class="callout">
+              <p>
+                <span class="nc-number">5</span>
+                <span class="nc-grams">G</span>
+                <br>
+                <span class="nc-text">BCAA</span>
+              </p>
+            </div>
+          </div>
+          <div class="vpr-ingredient-callout">
+            <span>Taurine</span>
+            <span>Glutamine</span>
+            <span>Vitamin C, B2, B6</span>
+          </div>
+          <div class="call-out-messaging">
+            <p>Vital Performance™ Recover, on the other hand, helps promote athletic longevity** by delivering 20g of collagen, a full spectrum amino acid profile and 3g of leucine to help maximize protein synthesis. It’s taken during or after you complete your workout. Just how our Collagen Water™ makes it easier for people to up their collagen intake, Vital Performance™ Recover is also available as a beverage for peak enjoyment.</p>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="accordion-button-container sleep" aria-expanded="true">
+        <div class="accordion-button-left">
+          <span aria-label="(Expand dropdown icon)" class="right icon-down-arrow open"></span>
+          <img src="{{ 'SLEEP.png' | file_img_url: '800x'}}" alt="Phase 3: SLEEP"/>
+        </div>
+        <div class="accordion-button-right">
+          <div class="accordion-description-container">
+            <p class="accordion-reason">RESTORE + DEEP SLEEP</p>
+            <p class="accordion-form-factor">(Powder)</p>
+          </div>
+          <div class="accordion-form-factor-images">
+            <img src="{{ 'PRE_CANISTER_ICON_22d81c9d-fb90-4668-8fe3-36e830af3c80.png' | file_img_url: '800x'}}" alt="PRE Canister"/>
+          </div>
+        </div>
+      </a>
+      <div class="vpr-sleep-section active">
+        <div class="vpr-sleep-info">
+          <h3 class="vpr-product-title">SLEEP</h3>
+          <div class="nutrition-callout-wrapper">
+            <div class="callout">
+              <p>
+                <span class="nc-number">10</span>
+                <span class="nc-grams">G</span>
+                <br>
+                <span class="nc-text">Collagen</span>
+              </p>
+            </div>
+            <div class="callout">
+              <p>
+                <span class="nc-number">230</span>
+                <span class="nc-grams">MG</span>
+                <br>
+                <span class="nc-text">MAGNESIUM</span>
+              </p>
+            </div>
+            <div class="callout">
+              <p>
+                <span class="nc-number">400</span>
+                <span class="nc-grams">MG</span>
+                <br>
+                <span class="nc-text">GABA</span>
+              </p>
+            </div>
+          </div>
+          <div class="vpr-ingredient-callout">
+            <span>Gaba</span>
+            <span>5-HTP</span>
+            <span >B Vitamins</span>
+            <span>Magensium Glycinate</span>
+            <span>L-Theanine</span>
+          </div>
+          <div class="call-out-messaging">
+            <p>Supercharge your nighttime routine with Vital Performance™ Sleep, which boasts superstar ingredients, GABA, L-theanine and magnesium.</p>
+          </div>
+        </div>
+        <div class="vpr-sleep-cta">
+          {% assign product = collections['performance-sleep'].products.first %}
+          <a href="{{ product.url }}" style="color: inherit;">
+            <img id="product-image-sleep" class="vpr-product-img" alt="{{ product.featured_image.alt }}" src="{{ product.featured_image | img_url: '600x' }}"/>
+          </a>
+          <form action="/cart/add"
+                method="post"
+                class="clearfix product_form init {% if product.variants.size > 1 or product.options.size > 1 %}product_form_options{% endif %}"
+                id="product-form-{{ product.id }}"
+                data-money-format="{{ shop.money_format }}"
+                data-shop-currency="{{ shop.currency }}"
+                data-select-id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}"
+                data-enable-state="{% if template contains 'product' %}true{% else %}false{% endif %}"
+                data-product="{{ product | json | escape }}"
+                {% if settings.limit_quantity or settings.display_inventory_left %}
+                data-variant-inventory='[{%- for v in product.variants -%}{"id":{{v.id}},"inventory_quantity":{{v.inventory_quantity}},"inventory_management":"{{v.inventory_management}}","inventory_policy":"{{v.inventory_policy}}"}{% if forloop.last == false %},{% endif %}{%- endfor -%}]'
+                {% endif %}
+                data-product-id="{{ product.id }}"
+                >
+            <div aria-label="Option select box for {{ product.title }}" class="custom-select">
+              <select class="vpr-select" {% if product.available == false %}style="opacity: 0;"{% endif %} id="{{ product.id }}">
+                {% for product in collections['performance-sleep'].products %}
+                  {% assign productTitle = product.title | split: '-' %}
+                  {% if product.variants.first.available %}
+                  		<option value="{{ product.variants.first.id }}" data-product-type="sleep" data-image="{{ product.variants.first.image | img_url: '600x' }}" data-price="{{ product.variants.first.price }}">{{ productTitle[1] }} - {{ product.variants.first.title }}</option>
+                  {% else %}
+                	<option value="{{ product.variants.first.id }}" disabled data-product-type="sleep" data-image="{{ product.variants.first.image | img_url: '600x' }}" data-price="{{ product.variants.first.price }}">{{ productTitle[1] }} - {{ product.variants.first.title }} (Sold Out)</option>
+                  {% endif %}
+                {% endfor %}
+              </select>
+            </div>
+            <div class="vpr-price-container">
+              <span class="vpr-price">$36</span>
+              <span class="flavor-callout">In 3 Flavors!</span>
+            </div>
+            <input type="hidden" name="id" id="product-form-variant-value-{{product.id}}" value="{{ product.variants.first.id }}">
+            {% capture add_to_cart_label %}{% if collection_handles contains 'pre-order' %}{{ 'collections.general.pre_order' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}{% endcapture %}
+            <button aria-label="Add {{product.title}} to bag." type="submit" name="add" class="vpr action_button add_to_cart product-cta {% if product.available == false %}disable-button{% endif %}" {% if product.available == false %}disabled{% endif %} data-label={{ add_to_cart_label | json }}>
+              <span class="text">{% if product.available == false %} Sold out {% else %}Add to Bag {% endif %}</span>
+              <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark">
+                <path fill="none" stroke="{{ settings.btn_text_color }}" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/>
+              </svg>
+            </button>
+            <div class="added-to-bag-notification" style="height:0; overflow: hidden;" aria-atomic="true" aria-live="assertive"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $('.accordion-button-container.pre').on('click', function(e) {
+    e.preventDefault();
+    
+    if ($('.vpr-pre-section').hasClass('active')) {
+      $('.vpr-pre-section').removeClass('active');
+      $('.accordion-button-container.pre').attr('aria-expanded', "false");
+      
+      $('.accordion-button-container.pre .icon-down-arrow').removeClass('open');
+    } else {
+      $('.vpr-pre-section').addClass('active');
+      $('.accordion-button-container.pre').attr('aria-expanded', "true");
+      $('.accordion-button-container.pre .icon-down-arrow').addClass('open');
+    }
+  });
+  
+  $('.accordion-button-container.recovery').on('click', function(e) {
+    e.preventDefault();
+    
+    if ($('.vpr-recovery-section').hasClass('active')) {
+      $('.vpr-recovery-section').removeClass('active');
+      $('.accordion-button-container.recovery').attr('aria-expanded', "false");
+      $('.accordion-button-container.recovery .icon-down-arrow').removeClass('open');
+    } else {
+      $('.vpr-recovery-section').addClass('active');
+      $('.accordion-button-container.recovery').attr('aria-expanded', "true");
+      $('.accordion-button-container.recovery .icon-down-arrow').addClass('open');
+    }
+  });
+  
+  $('.accordion-button-container.sleep').on('click', function(e) {
+    e.preventDefault();
+    
+    if ($('.vpr-sleep-section').hasClass('active')) {
+      $('.vpr-sleep-section').removeClass('active');
+      $('.accordion-button-container.sleep').attr('aria-expanded', "false");
+      $('.accordion-button-container.sleep .icon-down-arrow').removeClass('open');
+    } else {
+      $('.vpr-sleep-section').addClass('active');
+      $('.accordion-button-container.sleep').attr('aria-expanded', "true");
+      $('.accordion-button-container.sleep .icon-down-arrow').addClass('open');
+    }
+  });
+  
+  $('select').on('change', function() {
+    var itemID = $(this).attr('id');
+    var selectedOption = $('#' + itemID + ' option:selected');
+    var selectedPrice = selectedOption.attr('data-price');
+    $('#price-' + itemID).text('$' + (selectedPrice / 100));
+    
+    $('#product-form-variant-value-' + itemID).val(selectedOption.val());
+    
+    if (selectedOption.data('product-type') === 'recovery') {
+      $('#product-image-recovery').attr('src', selectedOption.data('image'));
+    } else if (selectedOption.data('product-type') === 'pre') {
+      $('#product-image-pre').attr('src', selectedOption.data('image'));
+    } else if (selectedOption.data('product-type') === 'recover-rtd') {
+      $('#product-image-recover-rtd').attr('src', selectedOption.data('image'));
+      $('.vpr-price.rtd').text('$' + (selectedPrice / 100));
+    } else if (selectedOption.data('product-type') === 'sleep') {
+      $('#product-image-sleep').attr('src', selectedOption.data('image'));
+    }
+  });
+  
+  $(document).ready(function() {
+  	$.urlParam = function (name) {
+      var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.search);
+
+      return (results !== null) ? results[1] || 0 : false;
+    }
+    
+    if ($.urlParam('m') === "true") {
+      $('.vpr-cta-section.container').prepend('<div class="maxim-section animated fadeInUp"><h4>Use code<br/><span class="discount-code">VPMAXIM2020</span></br>to get <span class="percent-off">25% off</span> any Vital Performance&trade; products!*</h4></div>');
+    }
+  });
+</script>

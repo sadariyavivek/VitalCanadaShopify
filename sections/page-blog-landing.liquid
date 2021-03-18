@@ -1,0 +1,429 @@
+{% assign featuredBlogs = 'wellness,beauty,recipes,lifestyle,stay-vital' | split:',' %}
+
+<style>
+.tailwind .container:after {display:none;}
+
+
+</style>
+
+<div class="tailwind">
+  <div class="w-full relative flex items-center justify-center overflow-hidden" style="">
+    <picture>
+      <source media="(min-width:601px)" srcset="{{ 'VP_JA_Header2.jpg' | file_img_url: '1600x' }}">
+      <img src="{{ 'jen_mobile2.jpg' | file_img_url: '800x' }}" alt="Jenifer Aniston" class="" style="height: 100%;width: 1600px;">
+    </picture>
+    <img src="{{ 'VitalProteins_LivelyLogo_2021_White.png' | file_img_url: '400x' }}" alt="Jenifer Aniston" width="100%" style="max-width:220px;" class="z-10 absolute">
+  </div>
+  <div class="bg-taupe-light w-full p-3 lg:p-2">
+    <div class=" container lg:w-4/6 mx-auto flex justify-start md:justify-around items-center m-0 px-4 overflow-x-scroll lg:overflow-x-hidden" style="white-space: nowrap;">
+      <a href="/pages/blog" class="font-sans font-xl font-bold block px-4 py-4 lg:py-3 rounded hover:bg-white mr-4 lg:mr-0">
+          <p class="m-0">Blog Home</p>
+      </a>
+      {% for featuredBlog in featuredBlogs %}
+        <a href="{{ blogs[featuredBlog].url }}" class="font-sans font-xl font-bold block px-4 py-4 lg:py-3 rounded hover:bg-white mr-4 lg:mr-0">
+            <p class="m-0">{{ blogs[featuredBlog].title }}</p>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="container bg-silver w-11/12 md:w-full mx-auto">
+    <div class="p-4 md:p-10 flex mt-10 flex-col md:flex-row">
+      <div class="w-full md:w-3/6">
+        <img src="https://cdn.shopify.com/s/files/1/2074/9385/articles/vp_ja_2020_02b_shot_05_151_product_srgb_web_720_600x.jpg?v=1606860542" alt="" class="w-full">
+      </div>
+      <div class="w-full md:w-3/6 p-0  pt-4 pb-4 md:p-8 flex flex-col justify-center">
+        <a href="/blogs/wellness" class="font-header text-lg uppercase mb-2">Wellness</a>
+        <a href="/blogs/stay-vital/jennifer-aniston-vital-proteins">
+          <h4 class="font-header text-4xl uppercase mb-4">Jennifer Aniston Joins Vital Proteins</h4>
+        </a>
+        <p class=" text-lg mb-4">It’s official: Jennifer Aniston is joining the Vital Proteins® team as Chief Creative Officer!</p>
+        <a href="/blogs/stay-vital/jennifer-aniston-vital-proteins" class="text-white bg-cta px-4 py-2 rounded w-40 center block font-bold text-center">Read More</a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="grid grid-cols-1 md:grid-cols-2 my-10 gap-4 md:gap-12 px-4 md:px-10">
+      {% for featuredBlog in featuredBlogs limit: 4 %}    	
+        <div class="" style="animation-delay: {{ forloop.index | times: 0.15 }}s;">
+          {% assign splitURL = blogs[featuredBlog].articles[0].url | split: "/" %}
+          <a href="{{ blogs[featuredBlog].articles[0].url }}">
+            <div class="h-60 md:h-96">
+              <div class="lazyload h-60 md:h-full bg-no-repeat bg-cover" title="{{ blogs[splitURL[2]].title }}" data-bg="{{ blogs[featuredBlog].articles[0].image | img_url: '600x', format: 'jpg' }}"></div>
+            </div>
+          </a>
+          <div class="px-4 py-6">
+            <a href="{{ blogs[featuredBlog].url }}" class="font-header text-lg uppercase mb-2 block">{{ blogs[splitURL[2]].title }}</a>
+            <a href="{{ blogs[featuredBlog].articles[0].url }}"><h4 class="font-header text-2xl md:text-4xl uppercase mb-6">{{ blogs[featuredBlog].articles[0].title }}</h4></a>
+            <a href="{{ blogs[featuredBlog].articles[0].url }}" class="text-white bg-cta px-4 py-2 rounded w-40 center block font-bold text-center">Read More</a>
+          </div>
+        </div>    
+      {% endfor %}
+    </div>
+  </div>
+  <div class="container">
+    <div class="bg-silver p-4 pt-8 pb-8 md:p-12 center m-4 md:mb-10">
+      <a href="/blogs/collagen-my-way/">
+        <h2 class="mb-2 text-center">Collagen, My Way</h2>
+      </a>
+      <h3 class="capitalize mb-8 md:mb-10 text-center">How 6 real people add collagen to their everyday routines</h3>
+      <div class="grid grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10">
+        {% for myWayArticle in blogs['collagen-my-way'].articles limit: 6 %}
+          <div class="">
+            <a href="{{ myWayArticle.url }}">
+              <div class="w-full h-32 md:w-60 md:h-60 bg-cover mx-auto lazyload mb-4" data-bg="{{ myWayArticle.image | img_url: '400x', format: 'jpg' }}"></div>
+              <h4 class="font-header text-base md:text-xl uppercase md:mt-2 text-center mb-2">{{ myWayArticle.metafields.vital.cmw_name }}</h4>
+            </a>
+            <div class="flex flex-col md:flex-row center items-center justify-center mb-2 md:mb-4 leading-tight">
+              <a class="" href="https://instagram.com/{{ myWayArticle.metafields.vital.cmw_instagram_handle }}">@{{ myWayArticle.metafields.vital.cmw_instagram_handle }}</a>
+              <span class="px-2 hidden md:block">|</span>
+              <p class="mb-0">{{ myWayArticle.metafields.vital.cmw_profession }}</p>
+            </div>
+            <a href="{{ myWayArticle.url }}" class="border border-cta text-cta px-4 py-2 rounded mt-2 md:mt-4 w-full md:w-40 mx-auto block font-bold text-center">Read More</a>
+          </div>
+        {% endfor %}      
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style>
+  .blog-logo-container img {
+    max-width: 180px;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .featured-posts-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 3;
+    margin-top: 40px;
+  }
+  
+  .featured-post-container {
+    flex: 1;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+  }
+  
+  .featured-post-container .blog-image-container-wrapper {
+    height: 240px;
+    overflow: hidden;
+    border-radius: 0px;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+  }
+  
+  .featured-post-container .blog-image-container-wrapper.taller {
+    height: 400px;
+  }
+  
+  .featured-post-container .blog-image-container {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 1;
+    transition: .5s all cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .featured-post-container .blog-image-container:hover {
+    /*transform: scale(1.2);*/
+    opacity: 0.6;
+  }
+  
+  .featured-post-container .category-title {
+    font-family: 'kapraregular';
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    display: block;
+    color: #23b6e6;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    transition: .2s all cubic-bezier(0.23, 1, 0.32, 1);
+    background: -webkit-linear-gradient(45deg, #23b6e6, #47c1bf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .real-life-separator {
+    border-color: #23b6e64f;
+    border-width: 2px;
+    border-style: dashed;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .real-life-container {
+    text-align: center;
+    margin-top: 0px;
+  }
+  
+  .real-life-container h2 {
+    letter-spacing: 1px !important;
+    text-transform: uppercase;
+    letter-spacing: 1px !important;
+        background: -webkit-linear-gradient(45deg, #23b6e6, #47c1bf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 42px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 0;
+  }
+  
+  .real-life-subheader {
+    margin-bottom: 40px;
+    letter-spacing: 1px !important;
+    text-transform: lowercase;
+    color: #4a4a4a;
+    font-size: 28px;
+  }
+  
+  .real-life-profiles-container {
+    display: flex;
+    flex-wrap: wrap;
+    
+  }
+  
+  .real-life-profile-container {
+    width: 33.33%;
+    margin-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  
+  .profile-image-container {
+    border-radius: 100%;
+    width: 200px;
+    box-shadow: 6px 6px 0px 3px #23b6e6bf;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 24px;
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    transition: .2s all ease-out;
+  }
+  
+  .profile-image-container:hover {
+    opacity: 0.7;
+    transform: translateY(-2px);
+  }
+  
+  .real-life-container .real-life-name {
+    margin-bottom: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px !important;
+
+    font-size: 24px;
+    padding-top: 0;
+    padding-bottom: 0;
+    color: #4a4a4a;
+    transition: .2s opacity ease-out;
+  }
+  
+  .real-life-container .real-life-name:hover {
+    opacity: 0.7;
+  }
+  
+  .real-life-container .real-life-title {
+    font-family: 'kapraregular';
+    text-transform: lowercase;
+    font-size: 21px;
+    color: #7b7b7b;
+    
+  }
+  
+  .real-life-insta-handle {
+    color: #23b6e6;
+    transition: .2s all ease-out;
+    display: block;
+  }
+  
+  .real-life-insta-handle:hover {
+    opacity: 0.75;
+    transform: translateY(-1px);
+  }
+  
+  .most-recent-posts-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .most-recent-post-container {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    width: 33.33%;
+  }
+  
+  .most-recent-post-container .category-title {
+    font-family: 'kapraregular';
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    display: block;
+    color: #23b6e6;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    transition: .2s all cubic-bezier(0.23, 1, 0.32, 1);
+    background: -webkit-linear-gradient(45deg, #23b6e6, #47c1bf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .most-recent-post-container .blog-image-container-wrapper {
+    height: 240px;
+    overflow: hidden;
+    border-radius: 0px;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+  }
+  
+  .most-recent-post-container .blog-image-container-wrapper.taller {
+    height: 400px;
+  }
+  
+  .most-recent-post-container .blog-image-container {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 1;
+    transition: .5s all cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .most-recent-post-container .blog-image-container:hover {
+    /*transform: scale(1.2);*/
+    opacity: 0.6;
+  }
+  
+  .most-recent-posts-container h2 {
+    letter-spacing: 1px !important;
+    text-transform: uppercase;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: #23b6e6;
+      border-top: 2px solid #23b6e6;
+      border-bottom: 2px solid #23b6e6;
+      padding: 10px 20px;
+  }
+  
+  .most-recent-post-container h4 {
+    padding-top: 0px;
+    letter-spacing: 0 !important;
+    text-transform: capitalize !important;
+    text-align: center;
+    font-size: 28px;
+    transition: .25s all;
+    color: #4a4a4a;
+  }
+  
+  .most-recent-post-container h4:hover {
+    color: #23b6e6;
+  }
+  
+  .category-title:hover {
+    opacity: 0.7;
+  }
+  
+  .featured-post-container h4 {
+    padding-top: 0px;
+    letter-spacing: 0 !important;
+    text-transform: capitalize !important;
+    text-align: center;
+    font-size: 28px;
+    transition: .25s all;
+    color: #4a4a4a;
+  }
+  
+  .featured-post-container h4:hover {
+    color: #23b6e6;
+  }
+  
+  
+  @media screen and (max-width: 800px) {
+    
+    .featured-posts-container {
+      flex-direction: column;
+    }
+    
+    .featured-post-container:not(:last-child) {
+      margin-bottom: 40px;
+    }
+    
+    .most-recent-post-container {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    
+    .most-recent-posts-container h2 {
+      font-size: 24px;
+      text-align: center;
+      color: #23b6e6;
+      border-top: 2px solid #23b6e6;
+      border-bottom: 2px solid #23b6e6;
+      padding: 10px 20px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 40px;
+    }
+    
+    .real-life-profile-container { 
+      width: 50%;
+    }
+    
+    .profile-image-container {
+      width: 100%;
+      height: 120px;
+      width: 120px;
+    }
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Blog Landing Section",
+    "settings": [
+		{
+           "type": "article",
+           "id": "featured_article_1",
+           "label": "Featured Article 1"
+        },
+		{
+           "type": "article",
+           "id": "featured_article_2",
+           "label": "Featured Article 2"
+        },
+		{
+           "type": "article",
+           "id": "featured_article_3",
+           "label": "Featured Article 3"
+        },
+		{
+           "type": "article",
+           "id": "featured_article_4",
+           "label": "Featured Article 4 (Full Screen Banner)"
+        }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

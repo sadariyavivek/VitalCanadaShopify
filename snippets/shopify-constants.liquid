@@ -1,0 +1,48 @@
+<script>
+window.ShopifyConstants = {}
+
+{% if customer %}
+  window.ShopifyConstants.customer = {
+    first_name: '{{ customer.first_name }}',
+    last_name: '{{ customer.last_name }}',
+    email: '{{ customer.email }}',
+    id: {{ customer.id }},
+    tags: {{ customer.tags | json }}
+  }
+{% else %}
+  window.ShopifyConstants.customer = null
+{% endif %}
+
+window.ShopifyConstants.products = {}
+window.ShopifyConstants.products['collagen-peptides'] = {{ all_products['collagen-peptides'] | json }}
+window.ShopifyConstants.products['collagen-peptides'].metafields = {}
+window.ShopifyConstants.products['collagen-peptides'].metafields.subscriptions = {{ all_products['collagen-peptides'].metafields.subscriptions | json }}
+
+//{{ shop.metafields.free_gift_frontend.free_gift_variants_frontend }}
+window.ShopifyConstants.free_gifts = []
+{% assign free_gifts = shop.metafields.free_gift_frontend.free_gift_variants_frontend | split: "|" %}
+{% for free_gift in free_gifts %}
+  {% assign handle_and_variant_id = free_gift | split: ":" %}
+  {% assign handle = handle_and_variant_id[0] %}
+  {% assign variant_id = handle_and_variant_id[1] | plus: 0 %}
+  {% assign product = all_products[handle] %}
+
+  {% for variant in product.variants %}
+    {% if variant.id == variant_id %}
+      window.ShopifyConstants.free_gifts.push({{ variant | json }})
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
+window.ShopifyConstants.quiz_collections = []
+{% assign quiz_collections = "athletic-performance,youthful-appearance,wellness-1,hair,skin,nails,energy,sleep,pescatarian,vegan" | split: ',' %}
+{% for quiz_collection in quiz_collections %}
+window.ShopifyConstants.quiz_collections.push({{ collections[quiz_collection] | json }})
+window.ShopifyConstants.quiz_collections[window.ShopifyConstants.quiz_collections.length-1].products = []
+  {% for product in collections[quiz_collection].products %}
+    var productTemp = {{product | json }}
+    productTemp.metafields = { subscriptions: {{ product.metafields.subscriptions | json }} }
+    window.ShopifyConstants.quiz_collections[window.ShopifyConstants.quiz_collections.length-1].products.push(productTemp)
+  {% endfor %}
+{% endfor %}
+</script>

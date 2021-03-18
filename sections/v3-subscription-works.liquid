@@ -1,0 +1,251 @@
+	<style>
+		
+		.v3-full-container {
+			padding:20px;
+			display:flex;
+			flex-direction:column;
+			justify-content: center;
+			align-items: center;
+			padding-top:35px;
+			padding-bottom:35px;
+			margin:0 auto;
+		}
+		
+		.v3-full-container h2 {
+   			 color: #585A5B !important;
+   			 margin: 0;
+   			 font-family: "kapraregular", Arial, sans-serif;
+   			 font-size: 44px;
+  			  letter-spacing: 0.88px !important;
+  			  font-weight: 400 !important;
+  			  line-height: 1em;
+  			  text-transform: capitalize !important;
+		}
+		
+		.v3-full-container p {
+			font-family: "avenir", arial, sans-serif;
+			font-size: 16px;
+			color: #393D40;
+			letter-spacing: 0;
+			line-height: 22px;	
+		}
+		
+		.v3-steps-container {
+			width:80%;
+			display:flex;
+			justify-content: space-between;
+			margin-top:10px;
+			position: relative;
+			margin-bottom:15px;
+		}
+		
+		.v3-single-step {
+			width:30%;
+			padding:20px;
+			display:flex;
+			flex-direction:column;
+			justify-content: center;
+			align-items: center;
+			text-align:center;
+		}
+		
+					.v3-standard-button:hover {
+		    background: #00D9B2;
+                      color:#ffffff;
+		}
+		
+		.v3-single-step span {
+    font-family: "avenir", arial, sans-serif;
+    font-size: 31px;
+    line-height: 1em;
+    color: #02ABE3;
+    letter-spacing: 0;
+    text-align: center;
+    border: 3px solid #969696;
+    padding: 20px;
+    height: 20px;
+    width: 20px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    background: #ffffff;
+    z-index: 2;
+    position: relative;
+    top: 8px;
+}
+      
+     .v3-single-step:last-of-type {
+    top: -11px;
+    position: relative;
+}
+		
+		.v3-single-step h4 {
+			font-family: "avenir", arial, sans-serif;
+			font-size: 20px;
+			color: #4B4C4F;
+			letter-spacing: 0;
+			text-align: center;
+			font-weight:400;
+			line-height:1.2em;
+			margin: 0;
+			max-width:70%;
+          	  text-transform: capitalize !important;
+		}
+		
+		.v3-single-step p {
+			font-family: "avenir", arial, sans-serif;
+			font-size: 10px;
+			color: #393D40;
+			letter-spacing: 0;
+			text-align: center;
+			line-height: 14px;
+		}
+		.v3-step-connector {
+			height:3px;
+			width:100%;
+			background:#969696;
+			position:absolute;
+			top:50px;
+		}
+		
+		.v3-standard-button {
+			background: #00AF9A;
+			border-radius: 4px;
+			max-width:300px;
+			min-width:300px;
+			min-height:44px;
+			font-size:24px;
+			display: flex;
+			align-content: center;
+			align-items: center;
+			justify-content: center;
+			line-height:1em;
+			color:#ffffff;
+			text-decoration:none;
+			text-transform: uppercase;
+			font-family: "kapraregular", Arial, sans-serif;
+			font-weight:400;
+		}
+				@media only screen and (max-width: 900px) {
+
+					.v3-steps-container {
+						flex-direction:column
+					}
+					
+					.v3-single-step {
+			
+			width:100%
+		}
+					
+					.v3-step-connector {
+    display:none;
+}
+					
+					.v3-full-container p {
+			text-align:center;	
+		}
+		
+		
+		}
+	</style>
+	
+	<div class="v3-full-container">
+		<h2>{{ section.settings.v3-how-it-works-headline }}</h2>
+		<p>{{ section.settings.v3-how-it-works-subheadline }}</p>
+		<div class="v3-steps-container">
+			<div class="v3-step-connector"></div>
+			<div class="v3-single-step">
+				<span>1</span>
+				<h4>{{ section.settings.v3-how-it-works-step1-heading }}</h4>
+				<p>{{ section.settings.v3-how-it-works-step1-desc }}</p>
+			</div>
+			<div class="v3-single-step">
+				<span>2</span>
+				<h4>{{ section.settings.v3-how-it-works-step2-heading }}</h4>
+				<p>{{ section.settings.v3-how-it-works-step2-desc }}</p>
+			</div>
+			<div class="v3-single-step">
+				<span>3</span>
+				<h4>{{ section.settings.v3-how-it-works-step3-heading }}</h4>
+				<p>{{ section.settings.v3-how-it-works-step3-desc }}</p>
+			</div>
+		</div>
+		<a href="{{ section.settings.v3-how-it-works-link }}" class="v3-standard-button">{{ section.settings.v3-how-it-works-button-text }}</a>
+	</div>
+
+{% schema %}
+	{
+  "name": "How It Works",
+  "class": "v3-how-it-works",
+  "settings": [
+	{
+      "type": "text",
+      "id": "v3-how-it-works-headline",
+      "label": "Main Headline",
+	  "default": "How It Works"
+	},
+	{
+      "type": "text",
+      "id": "v3-how-it-works-subheadline",
+      "label": "Main Headline",
+	  "default": "The amazing benefits of collagen don’t happen overnight. Subscribing can help you stay on track. Good mail days ahead!"
+	},
+	{
+      "type": "text",
+      "id": "v3-how-it-works-step1-heading",
+      "label": "Step One Heading",
+	  "default": "Sign Up With Confidence"
+	},
+	{
+      "type": "text",
+      "id": "v3-how-it-works-step1-desc",
+      "label": "Step One Description",
+	  "default": "Swap, Skip, modify or cancel anytime."
+	},
+	{
+      "type": "text",
+      "id": "v3-how-it-works-step2-heading",
+      "label": "Step Two Heading",
+	  "default": "See The Results, Scoop By Scoop."
+	},
+	{
+      "type": "text",
+      "id": "v3-how-it-works-step2-desc",
+      "label": "Step Two Description",
+	  "default": "A more vibrant you in just 4-6 weeks*."
+	},
+	{
+      "type": "text",
+      "id": "v3-how-it-works-step3-heading",
+      "label": "Step Three Heading",
+	  "default": "Save BIG."
+	},
+	{
+      "type": "text",
+      "id": "v3-how-it-works-step3-desc",
+      "label": "Step Three Description",
+	  "default": "Vital VIPs save an average of $76 per year.."
+	},
+	{
+      "type": "url",
+      "id": "v3-how-it-works-link",
+      "label": "Button Link"
+	},
+	{
+      "type": "text",
+      "id": "v3-how-it-works-button-text",
+      "label": "Button Text",
+	  "default": "Let's GO!"
+	}
+
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

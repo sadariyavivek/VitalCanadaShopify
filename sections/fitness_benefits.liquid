@@ -1,0 +1,180 @@
+
+<div class="banner_pages small-hide">
+<img src="{{ section.settings.banner_image | img_url: 'master' }}"/>
+<div class="caption captionOverlay--true center">
+  <h1 class="headline">
+  {{ page.title }}
+  </h1>
+</div>
+</div>
+<div class="banner_pages large-hide" style="background: url('{{ section.settings.banner_image | img_url: 'master' }}')">
+<div class="caption captionOverlay--true center">
+  <h1 class="headline">
+  {{ page.title }}
+  </h1>
+</div>
+</div>
+<div class="page-step2">
+  <h2>
+  {{ section.settings.title }}
+  </h2>
+  <p>{{ section.settings.text }}</p>
+</div>
+<div class="page-step3 container">
+  <div class="five columns">
+  <img src="{{ section.settings.banner_image2 | img_url: 'master' }}"/>
+</div>
+<div class="seven columns">
+  <div class="part1">
+    <h3>
+      {{ section.settings.title1 }}
+    </h3>
+    <p>
+      {{ section.settings.text1 }}
+    </p>
+  </div>
+  <div class="part2">
+    <h3>
+      {{ section.settings.title2 }}
+    </h3>
+    <p>
+      {{ section.settings.text2 }}
+    </p>
+  </div>
+  <div class="part3">
+    <h3>
+      {{ section.settings.title5 }}
+    </h3>
+    <p>
+      {{ section.settings.text3 }}
+    </p>
+  </div>
+  <div class="part4">
+    <h3>
+      {{ section.settings.title6 }}
+    </h3>
+    <p>
+      {{ section.settings.text4 }}
+    </p>
+  </div>
+</div>
+</div>
+<!--<div class="page-video container center">
+  <h3>
+    {{ section.settings.title3 }}
+  </h3>
+  <img src="{{ section.settings.banner_image3 | img_url: 'master' }}" class="ifram-img"/>
+  <a href="" class="ifram-link">
+  </a>
+</div>-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+$('.page-video img').click(function(e) {
+     e.preventDefault();
+     $('.page-video img').hide();
+     $(".page-video a").addClass("test");
+     $('.page-video a').html('<iframe width="" height="" src="{{ section.settings.iframe_link }}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+   });
+});
+</script>
+{% schema %}
+  {
+    "name": "Beauty Benefits",
+    "settings": [
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Banner Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Your headline"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Promotion description appears here.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image2",
+      "label": "section3 Image"
+    },
+    {
+      "type": "text",
+      "id": "title1",
+      "label": "section3 Heading 1",
+      "default": "Your headline"
+    },
+    {
+      "type": "html",
+      "id": "text1",
+      "label": "section3 Text 1",
+      "default": "<p>Promotion description appears here.</p>"
+    },
+    {
+      "type": "text",
+      "id": "title2",
+      "label": "section3 Heading 2",
+      "default": "Your headline"
+    },
+    {
+      "type": "html",
+      "id": "text2",
+      "label": "section3 Text 2",
+      "default": "<p>Promotion description appears here.</p>"
+    },
+    {
+      "type": "text",
+      "id": "title5",
+      "label": "section3 Heading 3",
+      "default": "Your headline"
+    },
+    {
+      "type": "html",
+      "id": "text3",
+      "label": "section3 Text 3",
+      "default": "<p>Promotion description appears here.</p>"
+    },
+    {
+      "type": "text",
+      "id": "title6",
+      "label": "section3 Heading 4",
+      "default": "Your headline"
+    },
+    {
+      "type": "html",
+      "id": "text4",
+      "label": "section3 Text 4",
+      "default": "<p>Promotion description appears here.</p>"
+    },
+    {
+      "type": "text",
+      "id": "title3",
+      "label": "section4 Heading",
+      "default": "Your headline"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image3",
+      "label": "Section 4 Image"
+    },
+    {
+      "type": "url",
+      "id": "iframe_link",
+      "label": "Section 4 Video Link"
+    }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

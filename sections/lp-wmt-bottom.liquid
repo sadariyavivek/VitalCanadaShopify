@@ -1,0 +1,93 @@
+<div class="gray" style="box-shadow: inset 0px 2px 12px -5px #00000040;">
+	<div class="desktop-width" id="why-collagen">
+	  <div class="split-text">
+	  <h2>Why do I need Collagen?</h2>
+	  <p>Collagen is the glue that holds everything together. As we age, production declines. Our products focus on wellness within.<br/><br/>So how much should you take? Try our Collagen Calculator&trade; to find out.</p>
+	  <a href="#" class="main-dark-button" style="" onclick="openCollagenCalc()">Try Our Collagen Calculator</a>
+	  </div>
+	  <div class="split-text center-it">
+	  </div>
+	</div>
+	</div>
+
+	<div class="desktop-width" id="wmt-vp-top-prod">
+	<h2 class="small-headers">Top Products</h2>
+	<ul class="wmt-products-container">
+	{% for product in collections.shop-vital-at-walmart.products limit: 10 %}
+	<li class="wmt-product-cat grow">
+	<img src="{{ product.featured_image | product_img_url: '400x' }}" alt="{{ product.title | escape }}" />
+	  {% if product.metafields.vital.wmt_link %}
+	<a class="wmt-shop-now" href="{{ product.metafields.vital.wmt_link }}">{{ product.title | escape }} 
+	</a> 
+	  <div data-bv-show="inline_rating"
+	  data-bv-product-id="{{product.id}}" data-bv-redirect-url="{{ product.metafields.vital.wmt_link }}" data-bv-seo="false" style="margin-top: 10px;"></div>
+	  <a href="{{ product.metafields.vital.wmt_link }}" class="main-dark-button">BUY NOW</a>
+	  {% else %}
+	 <a class="wmt-shop-now" href="https://www.walmart.com/search/?cat_id=0&facet=retailer%3AWalmart.com&query=Vital+Proteins">{{ product.title | escape }} 
+	 </a> 
+	   <div data-bv-show="inline_rating"
+	   data-bv-product-id="{{product.id}}" data-bv-redirect-url="https://www.walmart.com/search/?cat_id=0&facet=retailer%3AWalmart.com&query=Vital+Proteins" data-bv-seo="false" style="margin-top: 10px;"></div>
+	   <a href="https://www.walmart.com/search/?cat_id=0&facet=retailer%3AWalmart.com&query=Vital+Proteins" class="main-dark-button">BUY NOW</a>
+	  {% endif %}
+	</li>
+	{% endfor %}
+	</ul>	
+	
+	</div>
+
+	<div class="desktop-width" id="wmt-faq">
+	<h2 class="small-headers">Frequently Asked Questions</h2>
+	<div class="so-accordion-wrapper">
+	{% for block in section.blocks %}
+
+	 <div class="so-tab">
+	    <input id="so-tab-{{ forloop.index }}" type="checkbox" name="tabs" />
+	    <label for="so-tab-{{ forloop.index }}">{{block.settings.faq-title}}</label>
+	    <div class="so-tab-content">
+	      <p>{{block.settings.faq-text}}</p>
+	    </div>
+	  </div>
+					{% endfor %}  
+	</div>
+
+
+	</div>
+
+
+
+
+	{% schema %}
+	  {
+	    "name": "Callout/FAQs",
+	    "settings": [],
+
+	"blocks": [
+	    {
+	      "type": "faq_block",
+	      "name": "FAQ",
+	      "settings": [
+	        {
+	          "type": "text",
+	          "id": "faq-title",
+	          "label": "FAQ Title",
+			  "default": "FAQ Title"
+	        },
+	        {
+	          "type": "textarea",
+	          "id": "faq-text",
+	          "label": "FAQ Text",
+	          "default": "FAQ Text goes here"
+	        }
+	      ]
+	    }
+	  ]
+
+	  }
+	{% endschema %}
+
+	{% stylesheet %}
+	{% endstylesheet %}
+
+	{% javascript %}
+	{% endjavascript %}
+	

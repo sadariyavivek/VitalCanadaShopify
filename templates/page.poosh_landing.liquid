@@ -1,0 +1,538 @@
+<a name="pagecontent" id="pagecontent"></a>
+
+</div>
+<style>
+  {% assign pink = '#f5a694' %}
+  {% assign purple = '#ce99e0' %}
+  {% assign light-purple = '#efe3f3' %}
+  {% assign text-gray = '#726d6a' %}
+  {% assign text-light-gray = '#aca7ae' %}
+  
+  .poosh-now-available-callout {
+    color: {{ pink }};
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    font-size: 60px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  .poosh-logos {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  
+  .poosh-cta-purple-section {
+    text-align: center;
+    position: relative;
+  }
+  
+  .poosh-cta-purple-section .poosh-products-container {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    flex-wrap: wrap;
+  }
+  
+  .moon-milk-cta-section {
+    width: 33%;
+  }
+  
+  .vibes-cta-section {
+    width: 33%;
+  }
+  
+  .bundle-cta-section {
+    width: 33%;
+  }
+  
+  .pink-background {
+    top: 15%;
+    left: 0;
+    right: 0;
+    height: 27.5%;
+    background-color: {{ pink }};
+    position: absolute;
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    opacity: .7;
+  }
+  
+  .purple-background {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 55%;
+    background-color: {{ light-purple }};
+    position: absolute;
+    opacity: .7;
+  }
+  
+  .poosh-products-container img {
+    width: 75%;
+    transition: .3s all cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 10px;
+  }
+  
+  .poosh-products-container img:hover {
+    transform: scale(1.02);
+  }
+  
+  .add_to_cart:hover {
+    opacity: 0.7;
+  }
+  
+  .poosh-products-container .add_to_cart {
+    background-color: {{ purple }};
+    color: white;
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    font-size: 36px;
+    padding: 6px 30px;
+    border-radius: 10px;
+    width: auto;
+    border: none;
+  }
+  
+  .poosh-cta:hover, .poosh-cta:focus {
+    color: white;
+    opacity: 0.7;
+  }
+  
+  .poosh-product-title {
+    text-transform: uppercase;
+    letter-spacing: 2px !important;
+    color: {{ text-gray }};
+    font-size: 36px;
+    margin-bottom: 10px;
+    line-height: 38px;
+  }
+  
+  .poosh-product-price {
+    text-transform: uppercase;
+    letter-spacing: 1px !important;
+    color: {{ text-gray }};
+    font-size: 36px;
+    margin-bottom: 20px;
+    line-height: 38px;
+  }
+  
+  .poosh-disclaimer {
+    color: {{ text-light-gray }};
+    padding: 30px;
+    font-size: 21px; 
+    position: relative;
+    margin-bottom: 0;
+  }
+  
+  .poosh-link-to-section {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .poosh-link-to-section h3 {
+    text-transform: none;
+    letter-spacing: 1px !important;
+    font-size: 60px;
+    color: {{ text-gray }};
+    padding: 20px 40px;
+    margin-bottom: 0;
+  }
+  
+  .poosh-link-to-section .poosh-link {
+    color: {{ purple }};
+    transition: .2s opacity ease-out;
+  }
+  
+  .poosh-link-to-section .poosh-link:hover {
+    opacity: 0.7;
+  }
+  
+  .poosh-education-section {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    margin-bottom: 20px;
+    max-width: 1680px;
+  }
+  
+  .poosh-education-product-image-container {
+    width: 33.33%;
+  }
+  
+  .poosh-education-product-image-container img {
+    width: 100%;
+    display: block;
+  }
+  
+  .education-info-section {
+    width: 66.66%;
+  }
+  
+  .education-info-top-section {
+    display: flex;
+    flex-direction: row;
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+  
+  .education-info-top-section .education-text-container {
+    width: 66.66%;
+  }
+  
+  .education-info-top-section .poosh-education-illustration-container {
+    width: 33.33%;
+  }
+  
+  
+  .poosh-education-illustration-container img {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+  
+  .poosh-education-title {
+    text-transform: none;
+    letter-spacing: 1px !important;
+    font-size: 48px;
+    margin-bottom: 0;
+  }
+  
+  .poosh-education-title.moon {
+    color: {{ pink }};
+  }
+  
+  .poosh-education-title.vibes {
+    color: {{ purple }};
+  }
+  
+  .education-text-container p {
+    font-size: 21px;
+  }
+  
+  .poosh-education-section .add_to_cart {
+    background-color: {{ purple }};
+    color: white;
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    font-size: 36px;
+    padding: 6px 30px;
+    border-radius: 10px;
+    width: auto;
+    border: none;
+  }
+  
+  .poosh-education-section.moon .add_to_cart {
+    background-color: {{ pink }}
+  }
+  
+  .poosh-icon-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  
+  .icon-image-container {
+    width: 25%;
+  }
+  
+  .icon-image-container img {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  
+  .poosh-icon-row.milk {
+    background-color: {{ pink }};
+  }
+  
+  .poosh-icon-row.vibes {
+    background-color: {{ purple }};
+  }
+  
+  .poosh-lively-section {
+    text-align: center;
+    color: {{ text-gray }};
+  }
+  
+  .poosh-lively-header {
+    font-size: 36px;
+    text-transform: none;
+    letter-spacing: 1px !important;
+    color: {{ text-gray }};
+  }
+  
+  .poosh-lively-articles-container {
+    display: flex;
+    flex-direction: row;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap;
+  }
+  
+  .poosh-lively-article {
+    width: 50%;
+    padding: 20px;
+    transition: .2s all ease-out;
+  }
+  
+  .poosh-lively-article:hover {
+    opacity: 0.7
+  }
+  
+  .poosh-lively-article .poosh-image-container {
+    border-radius: 20px;
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    height: 320px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+  }
+  
+  .poosh-lively-article h6 {
+    text-transform: none;
+    letter-spacing: 1px !important;
+    font-size: 36px;
+    color: {{ text-gray }};
+  }
+  
+  @media screen and (max-width: 800px) {
+    .poosh-cta-purple-section .poosh-products-container {
+      justify-content: center;
+    }
+    
+    .poosh-now-available-callout {
+    	font-size: 24px;
+    }
+    
+    .poosh-logos {
+    	max-width: 100%;
+    }
+    
+    .purple-background {
+      height: 65%;
+      display: none;
+    }
+    
+    .pink-background {
+      top: 7%;
+      height: 25%;
+      display: none;
+    }
+    
+    .poosh-products-container img {
+      width: 80%;
+    }
+    
+    .poosh-product-title, .poosh-product-price {
+      font-size: 24px;
+      line-height: 28px;
+    }
+    
+    .poosh-products-container .add_to_cart {
+      font-size: 24px;
+    }
+    
+    .poosh-link-to-section h3 {
+       font-size: 24px;
+    }
+    
+    .poosh-education-section {
+      flex-direction: column;
+    }
+    
+    .poosh-education-section.vibes {
+      flex-direction: column-reverse;
+    }
+    
+    .poosh-education-product-image-container {
+      width: 100%;
+    }
+    
+    .education-info-section {
+      width: 100%;
+    }
+    
+    .education-info-top-section {
+      	padding-left: 10px;
+    	padding-right: 10px;
+    }
+    
+    .education-info-top-section .education-text-container {
+      width: 100%;
+      text-align: center;
+    }
+    
+    .education-info-top-section .poosh-education-illustration-container {
+      display: none;
+    }
+    
+    .poosh-education-section .add_to_cart {
+      font-size: 24px;
+    }
+    
+    .poosh-education-title {
+      font-size: 36px;
+    }
+    
+    .education-text-container p {
+      font-size: 18px;
+      
+    }
+    .poosh-icon-row {
+      flex-wrap: wrap;
+    }
+    
+    .icon-image-container {
+      width: 50%;
+    }
+    
+    .poosh-lively-article {
+    	width: 100%;
+    }
+    
+    .poosh-lively-article .poosh-image-container {
+      height: 180px
+    }
+    
+    .poosh-lively-article h6 {
+    	font-size: 24px;
+    }
+    
+    .moon-milk-cta-section {
+      width: 50%;
+    }
+  
+    .vibes-cta-section {
+      width: 50%;
+    }
+
+    .bundle-cta-section {
+      width: 50%;
+    }
+  }
+</style>
+<div class="poosh-product-cta-section">
+  <h2 class="poosh-now-available-callout">Now Available Internationally!</h2>
+  <img class="poosh-logos lazyload" src="{{ 'POOSH_Logos.png' | file_img_url: 'master'}}" alt="Vital Proteins x Poosh"/>
+  <div class="poosh-cta-purple-section">
+    <div class="pink-background" style="background-image: url({{ 'POOSH_Pink_Pattern.png' | file_img_url: '1600x' }}"></div>
+    <div class="purple-background"></div>
+    <div class="poosh-products-container">
+      {% assign product = all_products["pink-moon-milk-collagen-latte"] %}
+      <div class="moon-milk-cta-section">
+        <a href="{{ product.url }}">
+          <img class="lazyload" src="{{ 'POOSH_PMM.png' | file_img_url: '800x'}}"/>
+          <h3 class="poosh-product-title">Pink Moon Milk</h3>
+          <h3 class="poosh-product-price">$49</h3>
+        </a>
+        {% include 'product-form-mini' %}
+      </div>
+      {% assign product = all_products["vital-proteins-x-poosh-blueberry-lemon-collagen-vibes"] %}
+      <div class="vibes-cta-section">
+        <a href="{{ product.url }}">
+          <img class="lazyload" src="{{ 'POOSH_CV.png' | file_img_url: '800x'}}"/>
+          <h3 class="poosh-product-title">Collagen Vibes</h3>
+          <h3 class="poosh-product-price">$44</h3>
+        </a>
+        {% include 'product-form-mini' %}
+      </div>
+      {% assign product = all_products["poosh-international-bundle"] %}
+      <div class="moon-milk-cta-section">
+        <a href="{{ product.url }}">
+          <img class="lazyload" src="{{ 'PooshBundle-02_Transparent.png' | file_img_url: '800x'}}"/>
+          <h3 class="poosh-product-title">Bundle</h3>
+          <h3 class="poosh-product-price">$83.70 (save 10%!)</h3>
+        </a>
+        {% include 'product-form-mini' %}
+      </div>
+    </div>
+    <p class="poosh-disclaimer">For international shipment only. Not valid with domestic orders.</p>
+  </div>
+</div>
+<div class="poosh-link-to-section">
+  <h3>Shopping in the U.S.? Head on over to <a class="poosh-link" target="_blank" href="https://shop.poosh.com">shop.poosh.com</a> to buy!</h3>
+</div>
+<div class="poosh-education-section moon">
+  {% assign product = all_products["pink-moon-milk-collagen-latte"] %}
+  <div class="poosh-education-product-image-container">
+  	<img class="lazyload" src="{{ 'POOSH_PMM_Call-out_cropped.png' | file_img_url: '800x' }}"/>
+  </div>
+  <div class="education-info-section">
+    <div class="education-info-top-section">
+      <div class="education-text-container">
+        <h4 class="poosh-education-title moon">What is Pink Moon Milk?</h4>
+        <p>Channel your inner zen and make your beauty dreams come true. This perfectly creamy, dairy-free strawberry-flavored treat offers 10g of bone broth collagen to help support a healthy sleep routine.**</p>
+        {% include 'product-form-mini' %}
+      </div>
+      <div class="poosh-education-illustration-container milk">
+		<img class="lazyload" src="{{ 'POOSH_PMM_Illustration.png' | file_img_url: '600x' }}"/>
+      </div>
+    </div>
+    <div class="poosh-icon-row milk">
+      <div class="icon-image-container lazyload"><img src="{{ 'POOSH_PMM-_Icon-BoneBroth.png' | file_img_url: '400x' }}"/></div>
+      <div class="icon-image-container lazyload"><img src="{{ 'POOSH_PMM_-_Icon-Melatonin.png' | file_img_url: '400x' }}"/></div>
+      <div class="icon-image-container lazyload"><img src="{{ 'POOSH_PMM_-_Icon-Ashwagandha.png' | file_img_url: '400x' }}"/></div>
+      <div class="icon-image-container lazyload"><img src="{{ 'POOSH_PMM_-_Icon-GlutenDairyFree.png' | file_img_url: '400x' }}"/></div>
+    </div>
+  </div>
+</div>
+<div class="poosh-education-section vibes">
+  {% assign product = all_products["vital-proteins-x-poosh-blueberry-lemon-collagen-vibes"] %}
+  <div class="education-info-section">
+    <div class="education-info-top-section">
+      <div class="poosh-education-illustration-container vibes">
+		<img class="lazyload" src="{{ 'POOSH_CV_Illustration.png' | file_img_url: '600x' }}"/>
+      </div>
+      <div class="education-text-container">
+        <h4 class="poosh-education-title vibes">What is Collagen Vibes?</h4>
+        <p>Combine collagen benefits with major superfood ingredients and antioxidants to help you glow from the inside out, courtesy of this light and refreshing blueberry lemon flavored drink.**</p>
+        {% include 'product-form-mini' %}
+      </div>
+    </div>
+    <div class="poosh-icon-row vibes">
+      <div class="icon-image-container lazyload"><img src="{{ 'POOSH_CV_-_Icon-_Peptides.png' | file_img_url: '400x' }}"/></div>
+      <div class="icon-image-container lazyload"><img src="{{ 'POOSH_CV_-_Icon_-15.png' | file_img_url: '400x' }}"/></div>
+      <div class="icon-image-container lazyload"><img src="{{ 'POOSH_CV_-_Icon_-HA.png' | file_img_url: '400x' }}"/></div>
+      <div class="icon-image-container lazyload"><img src="{{ 'POOSH_CV_-_Icon_-17.png' | file_img_url: '400x' }}"/></div>
+    </div>
+  </div>
+  <div class="poosh-education-product-image-container">
+    <img class="lazyload" src="{{ 'POOSH_CV_Call-out_cropped.png' | file_img_url: '800x' }}"/>
+  </div>
+</div>
+<div class="poosh-lively-section">
+  <h5 class="poosh-lively-header">Learn More from Lively</h5>
+  <div class="poosh-lively-articles-container">
+    {% assign article_1 = articles['wellness/moon-milk'] %}
+    {% assign article_2 = articles['lifestyle/kourtney-kardashian-interview'] %}
+    <a target="_blank" href="{{ article_1.url }}" class="poosh-lively-article">
+      <div class="poosh-image-container lazyload" style="background-image: url({{ article_1.image | img_url: '600x' }})"></div>
+      <h6>{{ article_1.title }}</h6>
+    </a>
+    <a target="_blank" href="{{ article_2.url }}" class="poosh-lively-article">
+      <div class="poosh-image-container lazyload" style="background-image: url({{ article_2.image | img_url: '600x' }})"></div>
+      <h6>{{ article_2.title }}</h6>
+    </a>
+  </div>
+</div>

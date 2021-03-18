@@ -1,0 +1,62 @@
+<div class="product-details">
+  {% if collection_handles contains 'coming-soon' %}
+    <span class="modal_price">{{ 'collections.general.coming_soon' | t }}</span>
+  {% elsif product.handle == 'build-your-own-stick-pack-sampler' %}
+  	 <span class="price">
+       {% if product.available %}
+       		<span aria-label="{{ product.price_min | money_without_trailing_zeros }}." class="money">{{ product.price_min | times: 5 | money_without_trailing_zeros }}</span>
+       {% else %}
+       		<span aria-label="{{ 'products.product.sold_out' | t }}." class="sold_out">{{ 'products.product.sold_out' | t }}</span>
+       {% endif %}
+  	 </span>
+  {% elsif product.handle == 'build-your-own-collagen-water-sampler' or product.handle == 'build-your-own-collagen-shot-sampler' %}
+  	 <span class="price">
+       {% if product.available %}
+       		<span aria-label="{{ product.price_min | money_without_trailing_zeros }}." class="money">{{ product.price_min | times: 4 | money_without_trailing_zeros }}</span>
+       {% else %}
+       		<span aria-label="{{ 'products.product.sold_out' | t }}." class="sold_out">{{ 'products.product.sold_out' | t }}</span>
+       {% endif %}
+  	 </span>
+  {% else %}
+    <span class="price {% if travelVariant.compare_at_price_max > travelVariant.price %}sale{% endif %}">
+      {% if travelVariant.available %}
+        {% if travelVariant.price_varies and travelVariant.price_min > 0 %}
+          <small><em>{{ 'products.general.from' | t }}</em></small>
+        {% endif %}
+          {% if travelVariant.price > 0 %}
+            <span aria-label="{{ travelVariant.price | money_without_trailing_zeros }}." class="money">{{ travelVariant.price | money_without_trailing_zeros }}</span>
+          {% else %}
+            {{ settings.free_price_text }}
+          {% endif %}
+      {% else %}
+        <span aria-label="{{ 'products.product.sold_out' | t }}." class="sold_out">{{ 'products.product.sold_out' | t }}</span>
+      {% endif %}
+      {% if travelVariant.compare_at_price > travelVariant.price %}
+        <span class="was_price">
+          <span aria-label="Original price was {{ travelVariant.compare_at_price | money_without_trailing_zeros }}." class="money">{{ travelVariant.compare_at_price | money_without_trailing_zeros }}</span>
+        </span>
+      {% endif %}
+    </span>
+  {% endif %}
+  <div class="product-meta-text">
+  <span aria-label="{{ product.title}} - {{ travelVariant.title }}." class="title" itemprop="name">{{ product.title }}<br><br>{{ travelVariant.title }}</span>
+  {% if template == 'list-collections' %}
+  <span class="meta-related-text">{{ product.metafields.short_description.product_ }}</span>
+  {% endif %}
+  </div>
+    {% comment %}
+  <!-- /snippets/bv-inline-ratings.liquid -->
+  <!-- Bazaarvoice Inline Rating -->
+  {% endcomment %}
+  {% assign reviewProductID = product.id %}
+  {% if variant.metafields.vital.original_product_id %}
+    {% assign reviewProductID = variant.metafields.vital.original_product_id %}
+  {% endif %}
+  <div data-bv-show="inline_rating"
+  data-bv-product-id="{{ reviewProductID }}" data-bv-redirect-url="{{
+  product.url }}" data-bv-seo="false" style="margin-top: 10px;"></div>
+  <!–– Bazaarvoice Shopify Integration Version 1.8 ––>
+  {% comment %}
+  <!-- End Bazaarvoice Inline Rating -->
+  {% endcomment %}
+</div>

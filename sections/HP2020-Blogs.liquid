@@ -1,0 +1,248 @@
+<div class="newStyles2020">
+  <h2 class="mt-32 center">Raise Your Collagen IQ</h2>
+  <p class="mt-8 center">Welcome To #VitalVersity</p>
+  	<div class="v3-featured-blogs">
+		<div class="v3-featured-blogs-inner">
+			<div class="v3-featured-blogs-inner-main">
+				<a href="{{ articles[section.settings.featured_article_1].url }}" target="_blank">
+				<div class="v3-featured-blogs-image"  title="{{ articles[section.settings.featured_article_1].title }}" style="background-image: url('{{ articles[section.settings.featured_article_1].image | img_url: '600x', format: 'jpg' }}')"></div></a>
+				<div class="v3-featured-blogs-text">
+				 {% assign splitURL = articles[section.settings.featured_article_1].url | split: "/" %}
+      
+       <a href="{{ blogs[splitURL[2]].url }}" class="category-title" target="_blank">{{ blogs[splitURL[2]].title }}</a>
+      <a href="{{ articles[section.settings.featured_article_1].url }}" target="_blank"><h4 style="letter-spacing:0px !important;">{{ articles[section.settings.featured_article_1].title }}</h4></a>
+       	  <a href="{{ articles[section.settings.featured_article_1].url }}" class="v1-read-more" target="_blank">Read more</a>
+				</div>
+			</div>
+			<div class="v3-featured-blogs-inner-sub">
+				<div class="v3-featured-blogs-inner-sub-inner">
+                  <a href="{{ articles[section.settings.featured_article_2].url }}" target="_blank">
+				<div class="v3-featured-blogs-image"  title="{{ articles[section.settings.featured_article_2].title }}" style="background-image: url('{{ articles[section.settings.featured_article_2].image | img_url: '600x', format: 'jpg' }}')"></div></a>
+				<div class="v3-featured-blogs-text">
+				 {% assign splitURL = articles[section.settings.featured_article_2].url | split: "/" %}
+      
+       <a href="{{ blogs[splitURL[2]].url }}" class="category-title" target="_blank">{{ blogs[splitURL[2]].title }}</a>
+      <a href="{{ articles[section.settings.featured_article_2].url }}" target="_blank"><h4 style="letter-spacing:0px !important;">{{ articles[section.settings.featured_article_2].title }}</h4></a>
+       	  <a href="{{ articles[section.settings.featured_article_2].url }}" class="v1-read-more" target="_blank">Read more</a>
+				</div>
+              </div>
+              <div class="v3-featured-blogs-inner-sub-inner">
+                <a href="{{ articles[section.settings.featured_article_3].url }}" target="_blank">
+				<div class="v3-featured-blogs-image"  title="{{ articles[section.settings.featured_article_3].title }}" style="background-image: url('{{ articles[section.settings.featured_article_3].image | img_url: '600x', format: 'jpg' }}')"></div></a>
+				<div class="v3-featured-blogs-text">
+				 {% assign splitURL = articles[section.settings.featured_article_3].url | split: "/" %}
+      
+       <a href="{{ blogs[splitURL[2]].url }}" class="category-title" target="_blank">{{ blogs[splitURL[2]].title }}</a>
+      <a href="{{ articles[section.settings.featured_article_3].url }}" target="_blank"><h4 style="letter-spacing:0px !important;">{{ articles[section.settings.featured_article_3].title }}</h4></a>
+       	  <a href="{{ articles[section.settings.featured_article_3].url }}" class="v1-read-more" target="_blank">Read more</a>
+				</div>
+              </div>
+			</div>
+		</div>
+	</div>
+
+</div>
+<style>
+.v3-featured-blogs {
+    display: flex;
+    max-width: 1440px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 32px;
+    padding-top: 32px;
+}
+		
+		.v3-featured-blogs-inner {
+			display: flex;
+			width:100%;
+			justify-content: space-between;
+			align-content: space-between;
+		}
+  
+  .v3-featured-blogs-inner-main, .v3-featured-blogs-inner-sub {
+    width: calc(48%);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+		
+.v3-featured-blogs-inner-main, .v3-featured-blogs-inner-sub-inner {
+    height: auto;
+    background: #efefef;
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    box-shadow: 0 0 12px 0 rgba(0,0,0,0.08);
+    border-radius: 8px;
+    justify-content: space-between;
+}
+		
+		
+		.v3-featured-blogs-image {
+    display: block;
+    height: 250px;
+    background: url(file:///Users/Holdraker/Desktop/recipe.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+  
+.v3-featured-blogs-text {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+  
+  .v3-featured-blogs-text .category-title {
+    color: #868686;
+    font-family: "Avenir Next";
+    font-size: 16px;
+}
+  
+.v3-featured-blogs h3 {
+    color: #57595a;
+    font-size: 22px;
+    font-family: "Avenir Next", sans-serif;
+    font-weight: 500;
+    margin: 0px;
+    text-transform: none !important;
+    letter-spacing: .1em !important;
+    max-width: 80%;
+    margin: 0 auto;
+    line-height: 1.2em;
+    margin-top: 0;
+    margin-bottom: 32px;
+}
+  
+  
+  .v3-featured-blogs-text h4 {
+    letter-spacing: 0px !important;
+    font-family: "Avenir Next";
+    font-size: 26px;
+    line-height: 1.3em;
+    text-transform: capitalize;
+}
+  
+  
+ .v3-featured-blogs h2 {
+    color: #585A5B;
+    font-size: 5em;
+    margin-bottom: 0;
+    margin: 0px;
+    font-family: 'kapraregular';
+    text-transform: capitalize;
+}
+  
+  .v3-featured-blogs-text .v1-read-more {
+    color:#0077AF;
+    font-family: "Avenir Next";
+    font-size: 16px;
+  }
+  
+.v3-featured-blogs-inner-sub-inner {
+    flex-direction: row;
+    display: flex;
+    height: 45%;
+}
+  
+  
+  .v3-featured-blogs-inner-sub-inner .v3-featured-blogs-image {
+    width:200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: block;
+    height: 100%;
+  }
+  
+    @media only screen and (max-width: 600px) {
+
+  
+ .v3-featured-blogs h2 {
+    text-align: center;
+    line-height: 1em;
+}
+      
+      .v3-featured-blogs h3 {
+    font-size: 20px;
+    max-width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 1.2em;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-top: 15px;
+    margin-bottom: 32px;
+}
+      
+      .v3-featured-blogs-inner {
+    width: 100%;
+    flex-direction: column;
+}
+      
+    
+      .v3-featured-blogs-inner-main, .v3-featured-blogs-inner-sub {
+    width: 100%;
+}
+      
+      .v3-featured-blogs-image {
+    background-position: center center;
+}
+      
+      .v3-featured-blogs-inner-sub-inner {
+    flex-direction: column !important;
+    border-radius: 4px !important;
+    margin-top: 16px;
+}
+      
+      .v3-featured-blogs h2 {
+    font-size: 2.5em;
+}
+      
+      .v3-featured-blogs-text h4 {
+    font-size: 16px;
+    line-height: 1.3em;
+}
+      
+   
+    }
+  
+</style>
+{% schema %}
+  {
+    "name": "Updated Blog Layout",
+	"class": "v3-feature-blogs",
+    "settings": [
+	{
+           "type": "article",
+           "id": "featured_article_1",
+           "label": "Featured Article 1"
+        },
+		{
+           "type": "article",
+           "id": "featured_article_2",
+           "label": "Featured Article 2"
+        },
+		{
+           "type": "article",
+           "id": "featured_article_3",
+           "label": "Featured Article 3"
+        }
+	],
+  "presets": [{
+    "name": "Blog Section",
+    "category": "HP2020 Sections",
+    "settings": {
+
+    }
+  }]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

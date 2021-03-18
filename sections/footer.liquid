@@ -1,0 +1,679 @@
+{% comment %}
+** Footer - default view **
+- Static section
+- Uses blocks
+{% endcomment %}
+<div class="newStyles2021">
+  <footer class="footer">
+    <div class="container footer-menu-wrap">
+      <div class="footer-logo">
+        <div class="text-align--{{section.settings.text_align}}">
+          {% if section.settings.image %}
+          <img  src="{{ section.settings.image | img_url: '100x' }}"
+               alt="{{ section.settings.image.alt | escape }}"
+               class="footer-logo lazyload {{ settings.image_loading_style }}"
+               data-sizes="25vw"
+               style="max-width: {{- section.settings.image.width -}}px"
+               data-src="{{ section.settings.image | img_url: '2048x' }}"
+               data-srcset=" {{ section.settings.image | img_url: '200x' }} 200w,
+                            {{ section.settings.image | img_url: '300x' }} 300w,
+                            {{ section.settings.image | img_url: '400x' }} 400w,
+                            {{ section.settings.image | img_url: '500x' }} 500w,
+                            {{ section.settings.image | img_url: '600x' }} 600w,
+                            {{ section.settings.image | img_url: '1000x' }} 1000w"
+               />
+          {% else %}
+          <div class="logo">{{ shop.name }}</div>
+          {% endif %}
+        </div>
+      </div>
+      {% for block in section.blocks %}
+      <div class="{% if forloop.length >= 5 %}two columns{% elsif forloop.length == 4 %}{% if block.type == 'newsletter' %} five {% else %} two {% endif %} columns {% elsif forloop.length == 3 %}four columns{% elsif forloop.length == 2 %}eight columns{% endif %}" {{ block.shopify_attributes }}>
+        {% if block.type == 'logo' %}
+        <div class="text-align--{{block.settings.text_align}}">
+          {% if block.settings.image %}
+          <img  src="{{ block.settings.image | img_url: '100x' }}"
+               alt="{{ block.settings.image.alt | escape }}"
+               class="footer-logo lazyload {{ settings.image_loading_style }}"
+               data-sizes="25vw"
+               style="max-width: {{- block.settings.image.width -}}px"
+               data-src="{{ block.settings.image | img_url: '2048x' }}"
+               data-srcset=" {{ block.settings.image | img_url: '200x' }} 200w,
+                            {{ block.settings.image | img_url: '300x' }} 300w,
+                            {{ block.settings.image | img_url: '400x' }} 400w,
+                            {{ block.settings.image | img_url: '500x' }} 500w,
+                            {{ block.settings.image | img_url: '600x' }} 600w,
+                            {{ block.settings.image | img_url: '1000x' }} 1000w"
+               />
+          {% else %}
+          <div class="logo">{{ shop.name }}</div>
+          {% endif %}
+        </div>
+
+        {% elsif block.type == 'newsletter' %}
+
+        <div class="newsletter_section">
+
+          {% if block.settings.title != blank %}
+
+          <h5><span class="shield"> {{ block.settings.footer_image | img_url:'50x' | img_tag }} </span><span class="news-message" id="subscribe-to-email-detail">{{ block.settings.title }}</span></h5>
+          {% endif %}
+          {% if block.settings.newsletter_text != blank %}
+          {{ block.settings.newsletter_text }}
+          {% endif %}
+
+          <div class="newsletter">
+            <span class="message"></span>
+
+            <form id="email_signup" class="klaviyo_styling klaviyo_gdpr_embed_PxCWVN" action="//manage.kmail-lists.com/subscriptions/subscribe" data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" method="GET" target="_blank" novalidate="novalidate">
+              <input type="hidden" name="g" value="PxCWVN"/>
+              <input type="hidden" name="C_LP_form_signup_source" value=" {{ page_title }} ">
+              <input type="hidden" name="$fields" value="$consent">
+              <input type="hidden" name="utm_source" value="Footer">
+              <input type="hidden" name="utm_medium" value="Form">
+              <input type="hidden" name="utm_term" value="Acquisition">
+              <input type="hidden" name="utm_content" value="Footer Signup">
+              <input type="hidden" name="$fields" value="C_LP_form_signup_source,utm_source,utm_medium,utm_term,utm_content">
+              <input type="hidden" name="$list_fields" value="$consent">
+              <div class="klaviyo_field_group">
+                <input class="footer-news-signup" type="email" value="" name="email" id="k_id_email" placeholder="example@outlook.com" />
+              </div>
+              <div class="klaviyo_messages">
+                <div class="success_message" style="display:none;"></div>
+                <div class="error_message" style="display:none;"></div>
+              </div>
+              <div class="klaviyo_form_actions">
+                <button type="submit" class="klaviyo_submit_button">Submit</button> </div>
+            </form>
+
+            <style>
+
+
+              #email_signup {
+                max-width: 475px;
+                display: flex;
+              }
+
+              .footer-hashtag {
+                font-size: 49px;
+                line-height: 52px;
+                font-family: 'kapraregular';
+                color: #fff;
+                display: inline !important;
+              }
+
+              .klaviyo_gdpr_embed_PxCWVN .footer-news-signup {
+                font-family: 'avenir',"Open Sans","Helvetica Neue",Arial,Helvetica,Verdana,sans-serif;
+                font-size: 15px;
+                border: none;
+                color: #109ad6;
+                background-color: #fff;
+                box-sizing: border-box;
+                height: 32px !important;
+                padding: 0px 0.4em;
+                display: inline-block;
+                margin: 0;
+                width: 100%;
+                vertical-align: top;
+                border-radius: 3px;
+                text-align: center;
+                font-weight: 600;
+                min-height: 40px;
+                width: 100%;
+                min-width: 285px;
+                margin-right:10px;
+              }
+
+              .klaviyo_gdpr_embed_PxCWVN .footer-news-signup::placeholder {
+                color: #109ad68c;
+                font-weight: 500;
+              }
+
+              .klaviyo_gdpr_embed_PxCWVN .klaviyo_submit_button {
+                width: 100%;
+                font-size: 13px;
+                border: none;
+                color: white;
+                background-color: #109ad6;
+                box-sizing: border-box;
+                height: 32px;
+                line-height: 32px;
+                padding: 0 18px;
+                display: inline-block;
+                margin: 0;
+                transition: all 0.23s ease-in-out 0s;
+                border-radius: 3px;
+                min-height: 40px;
+                min-width: 180px;
+              }
+
+              .klaviyo_gdpr_embed_PxCWVN .klaviyo_submit_button:hover {
+
+                color: #109ad6;
+                background-color: #ffffff;
+
+              }
+
+
+
+              @media only screen and (max-width: 1100px) {
+
+
+                #email_signup {
+                  max-width: 285px;
+                  flex-direction: column;
+                }
+
+              }
+
+
+            </style>
+
+            <script type="text/javascript" src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
+            <script type="text/javascript">
+              KlaviyoSubscribe.attachToForms('#email_signup', {
+                hide_form_on_success: true,
+                extra_properties: {
+                  $source: 'FooterSignup',
+                  $method_type: "Klaviyo Form",
+                  $method_id: 'embed',
+                  $consent_version: 'Embed default text'
+                }
+              });
+            </script>
+
+
+
+          </div> 
+
+          
+          {% if block.settings.show_social %}
+          {% include 'social-icons' %}
+          {% endif %}
+          <span class="footer-hashtag">#stayvital</span>
+        </div>
+
+        {% elsif block.type == 'link_list' %}
+        <div class="footer_menu">
+          {% if block.settings.menu != blank %}
+          <h6><a aria-expanded="false" href="#">{{ linklists[block.settings.menu].title }}</a><span class="right icon-down-arrow"></span></h6>
+          <div class="toggle_content">
+            <ul>
+              {% for link in linklists[block.settings.menu].links %}
+              <li><p><a href="{{ link.url }}">{{ link.title }}</a></p></li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% else %}
+          <h6>Menu title<span class="right icon-down-arrow"></span></h6>
+          <div class="toggle_content">
+            <ul>
+              <li><p>{{ 'homepage.onboarding.no_content' | t }}</p></li>
+            </ul>
+          </div>
+          {% endif %}
+        </div>
+
+        {% elsif block.type == 'text' %}
+        <div class="footer_content footer-text">
+          {% if block.settings.title != blank %}
+          <h6>{{ block.settings.title }}<span class="right icon-down-arrow"></span></h6>
+          <div class="toggle_content">
+            {{ block.settings.content }}
+          </div>
+          {% endif %}
+        </div>
+        {% elsif block.type == 'page' %}
+        <div class="footer_content footer-text">
+          {% if block.settings.page != blank %}
+          <h6>{{ pages[block.settings.page].title }}<span class="right icon-down-arrow"></span></h6>
+          <div class="toggle_content">
+            {{ pages[block.settings.page].content }}
+          </div>
+          {% else %}
+          <h6>Page title<span class="right icon-down-arrow"></span></h6>
+          <div class="toggle_content">
+            <p>{{ 'homepage.onboarding.no_content' | t }}</p>
+          </div>
+          {% endif %}
+        </div>
+
+        {% elsif block.type == 'html' %}
+        {% comment %}@TODO - Add HTML section for maps, widgets, embedding, etc{% endcomment %}
+
+        {% elsif block.type == 'empty' %}
+        <div class="empty-column"></div>
+
+        {% endif %}
+
+        {% assign social_media_column = section.settings.social_media_column | plus: 0  %}
+
+        {% if block.settings.social_icons_footer %}
+        {% assign social_icons = true %}
+        <div class="footer-social-icons">
+          {% include 'social-icons' %}
+        </div>
+        {% endif %}
+
+      </div>
+      {% if forloop.last and social_icons %}
+      <div class="footer-social-icons--mobile sixteen columns">
+        {% include 'social-icons' %}
+      </div>
+      {% endif %}
+      {% endfor %}
+
+      <div class="sixteen columns row footer_credits">
+        <p class="fda-statement">**These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
+        <p class="credits">
+          © {{ "now" | date: "%Y" }}
+          , Vital Proteins LLC.
+        </p>
+
+        {% if section.settings.display_payment_methods %}
+        <div class="payment_methods">
+          {% for type in shop.enabled_payment_types %}
+          <img src="{{ type | payment_type_img_url }}" alt="{{ type | replace: "_", " " | capitalize }}" />
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div><!--end footer_credits-->
+    </div>
+  </footer>
+</div>
+<script>
+setTimeout(
+    function() 
+    {
+      $('#shopify-section-160548132650428f42 button.action_button.add_to_cart .text').text('Add to Cart')
+
+
+    }, 2000);
+  			
+</script>
+<script>
+setTimeout(
+  	function() 
+    {
+      $('#shopify-section-collection-template button.action_button.add_to_cart.add_to_cart .text').text('Subscribe')
+
+
+    }, 4000);
+  			
+</script>
+<script>
+setTimeout(
+  	function() 
+    {
+      $('#shopify-section-product-template-redesign-2021 button.action_button.add_to_cart').text('Subscribe')
+
+
+    }, 4000);
+  			
+</script>
+
+
+
+<style>
+  .pdp-ja-subscribe-break-wrapper a,
+  .klaviyo_gdpr_embed_PxCWVN .klaviyo_submit_button,
+  .subscribe-button,
+  .hulk_cookie_bar button.bar_btn,
+  .what-is-collagen-text a,
+  .newStyles2021 .klaviyo_gdpr_embed_PxCWVN .klaviyo_submit_button,
+  .newStyles2021 a.button,
+  .newStyles2021 .button,
+  .newStyles2021 button,
+  .newStyles2021 input[type="submit"],
+  .newStyles2021 input[type="reset"],
+  .newStyles2021 input[type="button"],
+  .newStyles2021 .action_button,
+  .newStyles2021 a.action_button,
+  .newStyles2021 input.action_button[type="submit"],
+  .newStyles2021 input.action_button[type="button"],
+  .cc-submit-button {
+    background: #355C7E !important;
+    border: 1px solid #355c7E;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: bold;
+    min-height: 40px;
+    border-radius: 4px;
+  }
+
+  .newStyles2021 .klaviyo_gdpr_embed_PxCWVN .klaviyo_submit_button:hover,
+  .newStyles2021 a.button:hover,
+  .newStyles2021 button:hover,
+  .newStyles2021 input[type="submit"]:hover,
+  .newStyles2021 input[type="reset"]:hover,
+  .newStyles2021 input[type="button"]:hover,
+  .newStyles2021 .action_button:hover,
+  .newStyles2021 input.action_button[type="submit"]:hover,
+  .newStyles2021 input.action_button[type="button"]:hover,
+  .cc-submit-button:hover {
+    background: #355c7ed6 !important;
+  }
+
+  .what-is-collagen-text a,
+  .pdp-ja-subscribe-break-wrapper a {
+    height: 40px;
+    padding-top: 8px;
+    letter-spacing: .25px;
+  }
+
+  .cc-submit-button:disabled {
+    background-color: gray !important;
+    border: 0px !important;
+  }
+
+  .newStyles2021 .buttonWhite {
+    background: transparent !important;
+    border: 2px solid #ffffff !important;
+    color: #ffffff;
+  }
+
+  .subscribe-button:hover {
+    opacity: 0.75;
+    border: 1px solid #355c7ed6 !important;
+  }
+
+  .collection button {
+    background: #355C7E !important;
+    border: 1px solid #355C7E !important;
+    margin-top: 8px;
+    min-height: 40px;
+    height: 40px;
+  }
+
+
+  .collection button:hover, .article button:hover {
+    background: #355c7ed6 !important;
+    border: 1px solid #355c7ed6 !important;
+  }
+
+  .collection .add_to_cart-disabled, .collection .add_to_cart-disabled:hover {
+    background-color: gray !important;
+    border: 0px !important;
+  }
+
+
+  .collection .thumbnail button.add_to_cart .text, .article .thumbnail button.add_to_cart .text {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: bold;
+    font-family: 'avenir';
+    text-transform: capitalize;
+    letter-spacing: .25px;
+  }
+
+  .one-time-purchase-button {
+    background: none !important;
+    border: none !important;
+  }
+
+  .flickity-prev-next-button {
+    background: rgba(255,255,255,0.75) !important;
+  }
+
+  .packaging-option {background:#ffffff !important;}
+
+  .packaging-option:hover, .one-time-purchase-button:hover {
+    background: none !important;
+  }
+
+  .next-previous .pagination-button {
+    background: #355C7E !important;
+  }
+
+  #hulk_cookie_bar .bar_btn span {
+    line-height: 18px;
+  }
+
+  .footer-section .newsletter_section .newsletter input {
+    border-radius: 4px;
+  }
+
+  @media only screen and (max-width: 400px) {
+
+    .what-is-collagen-text a,
+    .pdp-ja-subscribe-break-wrapper a {
+      padding-top: 8px !important;
+    }
+  }
+
+  .community-section .triangle.bottom {
+    border-right: 100vw solid #d2ccc6;
+  }
+
+  @media screen and (min-width: 800px) {
+    .perf-v5-wrapper {
+      padding-top: 105px;
+    }
+  }
+
+</style>
+
+
+{% schema %}
+
+{
+  "name": "Footer",
+  "class": "footer-section",
+  "max_blocks": 5,
+  "settings": [
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright text"
+    },
+    {
+      "type": "checkbox",
+      "id": "display_designed_by",
+      "label": "Show theme designer credits",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "display_payment_methods",
+      "label": "Show payment method icons",
+      "default": true
+    },	
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Logo"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Logo alignment",
+      "options": [
+      {
+        "value": "left",
+        "label": "Left"
+      },
+      {
+        "value": "center",
+        "label": "Center"
+      },
+      {
+        "value": "right",
+        "label": "Right"
+      }
+    ],
+    "default": "left"
+    },
+    {
+      "type": "checkbox",
+      "id": "social_icons_footer",
+      "label": "Show social media footer icons",
+      "default": false
+    }      
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Logo"
+        },
+        {
+          "type": "select",
+          "id": "text_align",
+          "label": "Logo alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "checkbox",
+          "id": "social_icons_footer",
+          "label": "Show social media footer icons",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "newsletter",
+      "name": "Newsletter",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "footer_image",
+          "label": "Logo"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Subscribe today!"
+        },
+        {
+          "type": "richtext",
+          "id": "newsletter_text",
+          "label": "Text"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_firstname",
+          "label": "Show first name"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_lastname",
+          "label": "Show last name"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_social",
+          "label": "Show social media icons"
+        }
+      ]
+    },
+    {
+      "type": "link_list",
+      "name": "Menu",
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu",
+          "info": "This menu won't show dropdown items"
+        },
+        {
+          "type": "checkbox",
+          "id": "social_icons_footer",
+          "label": "Show social media footer icons",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "page",
+      "name": "Page",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "page",
+          "id": "page",
+          "label": "Content page"
+        },
+        {
+          "type": "checkbox",
+          "id": "social_icons_footer",
+          "label": "Show social media footer icons",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Text",
+          "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+        },
+        {
+          "type": "checkbox",
+          "id": "social_icons_footer",
+          "label": "Show social media footer icons",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "empty",
+      "name": "Empty column",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "social_icons_footer",
+          "label": "Show social media footer icons",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "logo"
+      },
+      {
+        "type": "link_list"
+      },
+      {
+        "type": "link_list"
+      },
+      {
+        "type": "text"
+      }
+    ]
+  }
+}
+
+{% endschema %}

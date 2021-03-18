@@ -1,0 +1,305 @@
+<style>
+  .container.main.content {
+    padding: 0 !important;
+  }
+  
+  .ap-header-image img {
+    width: 100%;
+  }
+  
+  .ap-how-it-works-section-header {
+    text-transform: uppercase;
+    letter-spacing: 1px !important;
+    font-size: 32px;
+    text-align: center;
+    margin-top: 20px;
+    color: #4a4a4a;
+  }
+  .ap-how-it-works-blocks-container {
+  	display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  .ap-how-it-works-block {
+    width: calc(100% / 3);
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .ap-how-it-works-block img {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .ap-block-header {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px !important;
+  }
+  
+  .ap-account-section {
+    background: #009688c9;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .ap-account-block {
+    padding: 20px;
+  }
+  
+  .ap-account-section-header {
+  	color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px !important;
+  }
+  
+  .ap-button {
+    background: #23b6e6;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-family: 'kapraregular';
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 21px;
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    transition: .2s all ease-out;
+  }
+  
+  .ap-button:hover {
+    color: white;
+    opacity: 0.7;
+    transform: translateY(-2px);
+  }
+  
+  .ap-button:active, .ap-button:focus {
+    color: white;
+    opacity: 0.7;
+    transform: translateY(-2px);
+  }
+  
+  .ap-faq-section {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .ap-faq-header {
+    text-transform: uppercase;
+    letter-spacing: 1px !important;
+    font-size: 32px;
+    text-align: center;
+    margin-top: 20px;
+    color: #4a4a4a;
+  }
+  
+  .conspire-drawer-header {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: fit-content;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .conspire-drawer-header .dropdown-header-text {
+    font-family: 'kapraregular';
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-transform: none;
+    font-size: 24px;
+    transition: .2s all ease-out;
+    letter-spacing: 1px !important;
+    width: fit-content;
+    color: #23b6e6;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .conspire-drawer-header .dropdown-header-text:hover {
+    opacity: 0.7;
+  }
+  
+  .icon-down-arrow {
+    -webkit-transition: .2s all ease-out;
+    -moz-transition: .2s all ease-out;
+    -ms-transition: .2s all ease-out;
+    -o-transition: .2s all ease-out;
+    transition: .2s all ease-out;
+    font-size: 18px !important;
+    position: absolute;
+    top: 0;
+    right: -20px;
+
+  }
+  
+  .icon-down-arrow:before {
+    font-weight: bold;
+    color: #23b6e6;
+  }
+  
+  .icon-down-arrow.open {
+    transform: rotateX(-180deg);
+    -webkit-transform: rotate(-180deg);
+  }
+  
+  
+  .disclaimer-section p {
+    font-size: 12px;
+    text-align: center;
+  }
+  
+  @media screen and (max-width: 800px) {
+    .ap-how-it-works-block {
+      width: 100%;
+      text-align: center;
+      padding: 20px;
+    }
+    
+    .ap-how-it-works-block img {
+      width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+</style>
+<a name="pagecontent" id="pagecontent"></a>
+</div>
+<div class="page-wrapper-afterpay">
+  <div class="ap-header-image">
+    
+	{% assign default = '1400x' %}
+    {% assign size1 = '480x' %}
+    {% assign size2 = '765x' %}
+    {% assign size3 = '900x' %}
+    {% assign size4 = '1000x' %}
+    {% assign size5 = '1100x' %}
+    {% assign size6 = '1300x' %}
+    {% assign size7 = '1500x' %}
+    {% assign size8 = '1700x' %}
+    {% assign size9 = '1900x' %}
+    {% assign size10 = '2000x' %}
+    {% assign size11 = '2200x' %}
+    {% assign size12 = '2400x' %}
+    {% assign size13 = '2500x' %}
+    <img alt="Afterpay banner" 
+         src="{{ 'AfterpayBanner.jpg' | file_img_url: 'master', format: 'jpg' }}"
+         sizes="100vw"
+         data-src="{{ 'AfterpayBanner.jpg' | file_img_url: default, format: 'jpg' }}"
+         srcset="
+                 {{ 'AfterpayBanner.jpg' | file_img_url: default, format: 'jpg' }} {{default | replace: 'x', 'w'}},
+                 {{ 'AfterpayBanner.jpg' | file_img_url: size1, format: 'jpg' }} {{size1 | replace: 'x', 'w'}},
+                 {{ 'AfterpayBanner.jpg' | file_img_url: size2, format: 'jpg' }} {{size2 | replace: 'x', 'w'}},
+                 {{ 'AfterpayBanner.jpg' | file_img_url: size3, format: 'jpg' }} {{size3 | replace: 'x', 'w'}},
+                 {{ 'AfterpayBanner.jpg' | file_img_url: size4, format: 'jpg' }} {{size4 | replace: 'x', 'w'}},
+                 {{ 'AfterpayBanner.jpg' | file_img_url: size5, format: 'jpg' }} {{size5 | replace: 'x', 'w'}},
+                 {{ 'AfterpayBanner.jpg' | file_img_url: size6, format: 'jpg' }} {{size6 | replace: 'x', 'w'}},
+                 {{ 'AfterpayBanner.jpg' | file_img_url: size7, format: 'jpg' }} {{size7 | replace: 'x', 'w'}},
+                 {{ 'AfterpayBanner.jpg' | file_img_url: size8, format: 'jpg' }} {{size8 | replace: 'x', 'w'}},
+                 {{ 'AfterpayBanner.jpg' | file_img_url: size9, format: 'jpg' }} {{size9 | replace: 'x', 'w'}},
+                 {{ 'AfterpayBanner.jpg' | file_img_url: size10, format: 'jpg' }} {{size10 | replace: 'x', 'w'}},
+                 {{ 'AfterpayBanner.jpg' | file_img_url: size11, format: 'jpg' }} {{size11 | replace: 'x', 'w'}},
+                 {{ 'AfterpayBanner.jpg' | file_img_url: size12, format: 'jpg' }} {{size12 | replace: 'x', 'w'}},
+                 {{ 'AfterpayBanner.jpg' | file_img_url: size13, format: 'jpg' }} {{size13 | replace: 'x', 'w'}}"
+    />
+  </div>
+  <div class="ap-how-it-works-section container">
+    <h2 class="ap-how-it-works-section-header">How Afterpay Works</h2>
+    <div class="ap-how-it-works-blocks-container">
+      <div class="ap-how-it-works-block">
+        <img src="{{ 'AfterpayIcons-SignUp.jpg' | file_img_url: '500x' }}"/>
+        <h3 class="ap-block-header">Simple Sign-Up</h3>
+        <p>Select “Afterpay” as your payment option at checkout for orders over $1. Just have your debit or credit card (Visa or Mastercard) on hand.*</p>
+      </div>
+      <div class="ap-how-it-works-block">
+        <img src="{{ 'AfterpayIcons_Shipping.jpg' | file_img_url: '500x' }}"/>
+        <h3 class="ap-block-header">Quick Approval + Shipment</h3>
+        <p>Receive your decision online with no long forms. Enjoy your purchase right away.</p>
+      </div>
+      <div class="ap-how-it-works-block">
+        <img src="{{ 'AfterpayIcons-NoFees.jpg' | file_img_url: '500x' }}"/>
+        <h3 class="ap-block-header">No Additional Fees**</h3>
+        <p>Pay over 4 payments with zero interest. No fees when you pay on time.** Automated payments are completed every 2 weeks in four equal installments.</p>
+      </div>
+    </div>
+  </div>
+  <div class="ap-account-section">
+    <div class="ap-account-block">
+      <h3 class="ap-account-section-header">New to Afterpay?</h3>
+      <p>All you need is a credit card, to be over 18 years old, and a U.S. resident.</p>
+      <a class="ap-button" href="https://portal.afterpay.com/us/login-email">Sign Up</a>
+    </div>
+    <div class="ap-account-block">
+      <h3 class="ap-account-section-header">Returning Afterpay Customer?</h3>
+      <p>View orders, make payments, and manage account details.</p>
+      <a class="ap-button" href="https://portal.afterpay.com/us/login-email">Login</a>
+    </div>
+  </div>
+  <div class="ap-faq-section container">
+    <h3 class="ap-faq-header">Frequently Asked Questions</h3>
+    <a href="#" class="conspire-drawer-header" aria-expanded="false"><span class="dropdown-header-text">How do I use Afterpay?</span> <span aria-label="(Expand dropdown icon)" class="right icon-down-arrow"></span></a>
+    <div class="conspire-drawer">
+      <p>Shop on vitalproteins.com and choose the “Afterpay” payment option at checkout. If you’re new to Afterpay, simply create an account and provide your credit card details (Visa or Mastercard). If you’re a returning Afterpay customer, login to your Afterpay account and complete your purchase. 
+Note: only carts over $1 will be eligible for Afterpay.</p>
+  	</div>
+    <a href="#" class="conspire-drawer-header" aria-expanded="false"><span class="dropdown-header-text">Can international customers use Afterpay?</span> <span aria-label="(Expand dropdown icon)" class="right icon-down-arrow"></span></a>
+    <div class="conspire-drawer">
+      <p>At this time, only customers using a U.S. billing address are eligible to use Afterpay.</p>
+  	</div>
+    <a href="#" class="conspire-drawer-header" aria-expanded="false"><span class="dropdown-header-text">When are my 4 installment payments completed?</span> <span aria-label="(Expand dropdown icon)" class="right icon-down-arrow"></span></a>
+    <div class="conspire-drawer">
+      <p>The first payment will be made at the time of initial purchase. All remaining payments will be charged to the credit card associated with your Afterpay account automatically every two weeks. Feel free to login into your Afterpay account to complete payments early or view your payment schedule.</p>
+  	</div>
+    <a href="#" class="conspire-drawer-header" aria-expanded="false"><span class="dropdown-header-text">Are there any late fees?</span> <span aria-label="(Expand dropdown icon)" class="right icon-down-arrow"></span></a>
+    <div class="conspire-drawer">
+      <p>If you are unable to complete your payment when it is due, late fees may apply. To learn more about Afterpay’s terms, <a href="https://www.afterpay.com/purchase-payment-agreement">click here.</a></p>
+  	</div>
+    <a href="#" class="conspire-drawer-header" aria-expanded="false"><span class="dropdown-header-text">When does my order get delivered if I use Afterpay?</span> <span aria-label="(Expand dropdown icon)" class="right icon-down-arrow"></span></a>
+    <div class="conspire-drawer">
+      <p>Your order will be fulfilled like any other Vital Proteins order. Standard shipping timing applies, unless a different shipping option is selected upon checkout. For more details, check out our <a href="https://www.vitalproteins.com/pages/shipping-information">Shipping Information.</a></p>
+  	</div>
+    <a href="#" class="conspire-drawer-header" aria-expanded="false"><span class="dropdown-header-text">Do I have to spend a certain amount in order to use Afterpay?</span> <span aria-label="(Expand dropdown icon)" class="right icon-down-arrow"></span></a>
+    <div class="conspire-drawer">
+      <p>Yes, Afterpay is available on orders over $1.</p>
+  	</div>
+    <a href="#" class="conspire-drawer-header" aria-expanded="false"><span class="dropdown-header-text">Are there any products I cannot purchase with Afterpay?</span> <span aria-label="(Expand dropdown icon)" class="right icon-down-arrow"></span></a>
+    <div class="conspire-drawer">
+      <p>Subscription products and eGift Cards are not eligible for purchase with Afterpay.</p>
+  	</div>
+    <a href="#" class="conspire-drawer-header" aria-expanded="false"><span class="dropdown-header-text">What is the return / exchange policy if I use Afterpay?</span> <span aria-label="(Expand dropdown icon)" class="right icon-down-arrow"></span></a>
+    <div class="conspire-drawer">
+      <p>Just like any other Vital Proteins purchase, we guarantee the quality of all our products. We ask that you notify us of problems within 30 days of the receipt of your order. For full details, visit the Returns page on our site <a href="https://www.vitalproteins.com/pages/returns">here.</a></p>
+  	</div>
+    <a href="#" class="conspire-drawer-header" aria-expanded="false"><span class="dropdown-header-text">What if I have more questions on Afterpay?</span> <span aria-label="(Expand dropdown icon)" class="right icon-down-arrow"></span></a>
+    <div class="conspire-drawer">
+      <p>Visit their website <a href="https://help.afterpay.com/hc/en-us">here</a> for additional information and FAQ’s.</p>
+  	</div>
+  </div>
+  <div class="disclaimer-section container">
+    <p>* Afterpay accepts Visa and MasterCard only. Must be 18 years or older and have a valid email address and US mobile phone number to sign up.</p>
+    <p>** If funds are not available or you otherwise do not make your payment when it is due, late fees may apply. Click <a href="https://www.afterpay.com/purchase-payment-agreement">here</a> for Afterpay’s full terms and conditions.</p>
+  </div>
+</div>
+
+<script>
+  $('.conspire-drawer-header').click(function(e) {
+    e.preventDefault();
+    var arrow = $(this).find('.icon-down-arrow');
+    
+    if (arrow.hasClass('open')) {
+      arrow.removeClass('open');
+      $(this).attr('aria-expanded', 'false');
+    } else {
+      arrow.addClass('open');
+      $(this).attr('aria-expanded', 'true');
+    }
+  });
+</script>

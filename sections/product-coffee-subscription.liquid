@@ -1,0 +1,710 @@
+<style>
+  .header-banner-container {
+    position: relative;
+    padding-top: calc(100vw / {{section.settings.banner_image.aspect_ratio}});
+  }
+  .banner-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    z-index: 40;
+    background-color: rgba(0,0,0,0.1);
+  }
+  
+  .banner-text-wrapper {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+  
+  .banner-text-wrapper button {
+    font-family: 'kapraregular';
+    font-size: 36px;
+    text-transform: lowercase;
+    border-radius: 40px;
+    padding: 0px 40px;
+  }
+  
+  .purchase-subscription-button {
+    font-family: 'kapraregular';
+    font-size: 36px;
+    text-transform: lowercase;
+    border-radius: 40px;
+    padding: 0px 40px;
+    max-width: 240px !important;
+    margin-top: 30px;
+  }
+  
+  
+  .banner-text-wrapper h2 {
+    font-size: 72px;
+    color: white;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+  .banner-text-wrapper p {
+    font-size: 24px;
+    color: white;
+  }
+  .banner-background-image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+  
+  .coffee-info-container {
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  
+  .coffee-info-container h4 {
+    font-size: 36px;
+    letter-spacing: 0 !important;
+  }
+  
+  .coffee-info-container p {
+    font-size: 18px;
+  }
+  
+  .coffee-info-container div {
+  	text-align: center;
+    flex: 0.33;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .coffee-info-container img {
+  	width: 100%;
+    max-width: 400px;
+  }
+  
+  .secondary-banner-container {
+    background-image: url("{{ section.settings.banner_image_2 | img_url: '1600x' }}");
+    height: 400px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; 
+  }
+  
+  .secondary-banner-image {
+    width: 100%;
+    vertical-align: middle;
+  }
+  
+  .product-container {
+    display: flex;
+    flex: 1;
+    align-items: flex-start;
+  }
+  
+  .product-container .current-roast-stats-header {
+    letter-spacing: 0 !important;
+    font-size: 36px;
+    color: #23b6e6;
+  }
+  
+  .product-container .current-roast-stats {
+    list-style: none;
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+  
+  .product-container .current-roast-stats li {
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+  
+  .current-roast-stats .stat-title {
+    font-family: 'kapraregular';
+    font-size: 24px;
+    text-transform: lowercase;
+    line-height: 48px;
+  }
+  
+  .product-image-wrapper {
+    /*background-image: url("{{ product.featured_image | img_url: '1200x' }}");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;*/
+    flex: 0.5;
+    text-align: center;
+  }
+  
+  .product-image-wrapper img {
+    width: 75%;
+    border-radius: 20px;
+    /*box-shadow: 0px 10px 40px rgba(0,0,0,0.2);*/
+  }
+  
+  .current-roast-container {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    flex: 0.5;
+    text-align: center;
+  }
+  
+  .current-roast-title {
+    color: #23b6e6;
+    border: 2px solid #23b6e6;
+    border-radius: 40px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: 0 !important;
+    font-size: 48px;
+  }
+  
+  .ro_widget {
+    display: none;
+  }
+  
+  .product_form {
+    margin-top: 40px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    border: 1px solid lightgray;
+    background: #fdfdfd;
+  }
+  
+  .product_form .section-title {
+    font-family: 'kapraregular';
+    font-size: 24px;
+    text-transform: lowercase;
+    line-height: 48px;
+    letter-spacing: 0 !important;
+  }
+  
+  .subscription-price {
+    letter-spacing: 0 !important;
+    font-size: 48px;
+    color: #23b6e6;
+    margin-top: 20px;
+  }
+  
+  .product-quantity-box {
+    width: 100%;
+    margin-bottom: 40px;
+    margin-top: 20px;
+  }
+  
+  .quantity-border {
+    width: 160px;
+    margin-left: auto;
+    height: 42px;
+    margin-right: auto;
+  }
+  
+  .product-quantity-box .quantity {
+    width: 50%;
+  }
+  
+  .conspire-purchase {
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .select-boxes, .select-boxes-subscription-type {
+    display: flex;
+    justify-content: space-evenly;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    flex: 1;
+  }
+  
+  .select-box-sub-type{
+    transition: .2s all;
+    flex: .25;
+    border-radius: 40px;
+    border: 1px solid #23b6e6;
+    color: #23b6e6;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .select-box-sub-type:hover {
+    cursor: pointer;
+    background-color: #23b6e6;
+    color: white;
+    transform: translateY(-4px);
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  }
+  
+  .select-box-sub-type.active:hover {
+    transform: translateY(0px);
+    box-shadow: none;
+  }
+  
+  .select-box-sub-type p {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 10px 6px;
+  }
+  
+  .select-box-sub-type.active {
+  	color: white;
+    background-color: #23b6e6;
+  }
+  
+  .select-box {
+    transition: .2s all;
+    flex: .25;
+    border-radius: 40px;
+    border: 1px solid #23b6e6;
+    color: #23b6e6;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .select-box:hover {
+    cursor: pointer;
+    background-color: #23b6e6;
+    color: white;
+    transform: translateY(-4px);
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  }
+  
+  .select-box.active:hover {
+    transform: translateY(0px);
+    box-shadow: none;
+  }
+  
+  .select-box p {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 10px 6px;
+  }
+  
+  .select-box.active {
+  	color: white;
+    background-color: #23b6e6;
+  }
+  
+  .frequency-section {
+    height: 0;
+    transition: .2s all ease-in;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  .frequency-section.active {
+    height: 160px;
+    opacity: 1;
+    visibility: initial;
+  }
+  
+  .shipping-note {
+    margin-top: 20px;
+  }
+  
+  .mobile-text-header {
+    display: none;
+  }
+  
+  
+  @media screen and (max-width: 800px) {
+    .header-banner-container {
+      display: none;
+    }
+    
+    .banner-text-wrapper h2 {
+      font-size: 36px;
+    }
+    
+    .banner-text-wrapper p {
+      font-size: 18px;
+    }
+    
+    .coffee-info-container {
+      flex-direction: column;
+    }
+    
+    .product-container {
+      margin-top: 40px;
+      flex-direction: column;
+    }
+    
+    .product-container .product-image-wrapper {
+      height: 400px;
+    }
+    
+    .current-roast-title {
+      width: 90%;
+      font-size: 36px;
+    }
+    
+    .select-boxes {
+      width: 100%;
+      flex-direction: column;
+    }
+    
+    .select-box:not(:last-child) {
+      margin-bottom: 20px;
+    }
+    
+    .select-box {
+      border-radius: 20px;
+    }
+    
+    .select-boxes-subscription-type {
+      width: 100%;
+      flex-direction: column;
+    }
+    
+    .select-box-sub-type:not(:last-child) {
+      margin-bottom: 20px;
+    }
+    
+    .select-box-sub-type {
+      border-radius: 20px;
+    }
+    
+    .frequency-section.active {
+      height: 340px;
+      opacity: 1;
+    }
+    
+    .purchase-subscription-button {
+    	font-size: 24px;
+    }
+    
+    .mobile-text-header {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      letter-spacing: 0 !important;
+      font-size: 36px;
+      color: #23b6e6;
+    }
+  }
+</style>
+<a name="pagecontent" id="pagecontent"></a>
+<div class="header-banner-container">
+  <div class="banner-text-container">
+    <div class="animated fadeInDown banner-text-wrapper">
+      <h2>{{ section.settings.headerText }}</h2>
+      <p>{{ section.settings.bodyText }}</p>
+      <!--<button href="#coffee-purchase">Learn More</button>-->
+    </div>
+  </div>
+  <img class="banner-background-image" src="{{ section.settings.banner_image | img_url: '1600x' }}" alt="Coffee Subscription"/>
+</div>
+<div class="product-container">
+  <h2 class="mobile-text-header">{{ section.settings.headerText }}</h2>
+  <div class="product-image-wrapper">
+  	<img alt="{{ product.featured_image.alt }}" class="coffee-product-image" id="coffee-purchase" src="{{ product.featured_image | img_url: '1200x' }}"/>
+  </div>
+  <div class="current-roast-container">
+    <h4 class="current-roast-stats-header">Current Roast</h4>
+    <h4 class="current-roast-title">{{ section.settings.roast_title }}</h4>
+    <ul class="current-roast-stats">
+      <li><span class="stat-title">Country of Origin</span><br>{{ section.settings.origin_country }}</li>
+      <li><span class="stat-title">Farm Source</span><br>{{ section.settings.farm_source }}</li>
+      <li><span class="stat-title">Flavor Profile</span><br>{{ section.settings.flavor_profile }}</li>
+      <!--<li><span class="stat-title">Cup of Excellence Score</span><br>{{ section.settings.coe_score }}</li>-->
+    </ul>
+    {% assign variant = product.selected_or_first_available_variant %}
+	{% if variant.available %}
+    {%- comment -%}
+    <form action="/cart/add"
+          method="post"
+          class="clearfix product_form init {% if product.variants.size > 1 or product.options.size > 1 %}product_form_options{% endif %}"
+          id="product-form-{{ product.id }}"
+          data-money-format="{{ shop.money_format }}"
+          data-shop-currency="{{ shop.currency }}"
+          data-select-id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}"
+          data-enable-state="{% if template contains 'product' %}true{% else %}false{% endif %}"
+          data-product="{{ product | json | escape }}"
+          {% if settings.limit_quantity or settings.display_inventory_left %}
+            data-variant-inventory='[{%- for v in product.variants -%}{"id":{{v.id}},"inventory_quantity":{{v.inventory_quantity}},"inventory_management":"{{v.inventory_management}}","inventory_policy":"{{v.inventory_policy}}"}{% if forloop.last == false %},{% endif %}{%- endfor -%}]'
+          {% endif %}
+          data-product-id="{{ product.id }}"
+          >
+{%- endcomment -%}
+      <form action="/cart/add"
+        method="post"
+        class="clearfix product_form init {% if product.variants.size > 1 or product.options.size > 1 %}product_form_options{% endif %}"
+        id="product-form-{{ product.id }}"
+        data-money-format="{{ shop.money_format }}"
+        data-shop-currency="{{ shop.currency }}"
+        data-select-id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}"
+        data-enable-state="{% if template contains 'product' %}true{% else %}false{% endif %}"
+        data-product="{{ product | json | escape }}"
+        {% if settings.limit_quantity or settings.display_inventory_left %}
+          data-variant-inventory='[{%- for v in product.variants -%}{"id":{{v.id}},"inventory_quantity":{{v.inventory_quantity}},"inventory_management":"{{v.inventory_management}}","inventory_policy":"{{v.inventory_policy}}"}{% if forloop.last == false %},{% endif %}{%- endfor -%}]'
+        {% endif %}
+        data-product-id="{{ product.id }}"
+        >
+        <input type="hidden" class="coffee-id-input" name="id" value="{{ variant.id }}" />
+      <h4 class="subscription-price">{{ product.price | money_without_trailing_zeros }} per bag</h4>
+      <h4 class="section-title">One-time or Subscription Purchase?</h4>
+      <div class="select-boxes-subscription-type">
+          <a href="#" data-interval=0 class="select-box-sub-type active">
+              <p>One-time</p>
+          </a>
+          <a href="#" data-interval=2 class="select-box-sub-type">
+              <p>Subscription*</p>
+          </a>
+      </div>
+      <p>*Sign up for a subscription and save {{ settings.subscription_discount_amount }}% (<span style="color: #23b6e6; font-weight: bold;">{{ product.price | times: 0.25 | money }}</span>) on your first order and {{ settings.subscription_discount_secondary_amount }}% (<span style="color: #23b6e6; font-weight: bold;">{{ product.price | times: 0.15 | money }}</span>) on all following orders!</p>
+      <div class="frequency-section">
+        <h4 class="section-title">How often do you want your coffee?</h4>
+        <div class="select-boxes">
+            <a href="#" data-interval=1 class="select-box">
+                <p>Every 1 Week</p>
+            </a>
+            <a href="#" data-interval=2 class="select-box">
+                <p>Every 2 Weeks</p>
+            </a>
+            <a href="#" data-interval=4 class="select-box active">
+                <p>Every 4 Weeks</p>
+            </a>
+            <a href="#" data-interval=8 class="select-box">
+                <p>Every 8 Weeks</p>
+            </a>
+        </div>
+      </div>
+      <div class="product-quantity-box">
+        <h4 class="section-title">Qty</h4>
+        <div aria-label="Quantity" class="quantity-border"> 
+        	<span aria-label="Decrease quantity" class="ss-icon product-minus js-change-quantity" data-func="minus">
+            	<span class="icon-minus"></span>
+          	</span> 
+        	<input aria-label="Current quantity" type="number" min="1" size="2" class="quantity" name="quantity" id="quantity" value="1" max="14088"/> 
+          	<span aria-label="Increase quantity" class="ss-icon product-plus js-change-quantity" data-func="plus">
+            	<span class="icon-plus"></span>
+          	</span>
+        </div>
+      </div>
+      <div class="hidden-input pid-{{ product.id }}">
+        <input class="frequency-num"  type="hidden" value="{{ settings.default_subscription_frequency }}" >
+        <input class="frequency-type" type="hidden" value="{{ product.metafields.subscriptions.shipping_interval_unit_type }}">
+      </div>
+      <div class="conspire-purchase clearfix">
+        <div class="purchase inline_purchase">
+          {% if settings.cart_action == 'reload_page' %}
+            <input type="hidden" name="return_to" value="back" />
+          {% elsif settings.cart_action == 'redirect_checkout' %}
+            <input type="hidden" name="return_to" value="/checkout" />
+          {% endif %}
+          {% capture add_to_cart_label %}{% if collection_handles contains 'pre-order' %}{{ 'collections.general.pre_order' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}{% endcapture %}
+          <button aria-label="Add {{ product.title }} to bag." type="submit" name="add" class="action_button add_to_cart addtocart purchase-subscription-button" data-label={{ add_to_cart_label | json }}>
+            <span class="text">{{ add_to_cart_label }}</span>
+            <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark">
+              <path fill="none" stroke="{{ settings.btn_text_color }}" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <p></p>
+      <div class="added-to-bag-notification" style="height:0; overflow: hidden;" aria-atomic="true" aria-live="assertive"></div>
+      <!--<p class="shipping-note">Note: Orders will be shipped on Tuesdays</p>-->
+    </form>
+    {% else %}
+    <h4 style="letter-spacing: 1px !important;
+    text-transform: uppercase;
+    font-size: 36px;
+    color: #23b6e6;">Sold Out</h4>
+    {% endif %}
+  </div>
+</div>
+<div class="secondary-banner-container">
+  <!--<img class="secondary-banner-image" src="{{ section.settings.banner_image_2 | img_url: '1600x' }}" alt="Coffee Subscription"/>-->
+</div>
+<div class="coffee-info-container">
+  <div class="animated fadeInUp">
+    <img alt="{{ section.settings.info_icon_1.alt }}" src="{{ section.settings.info_icon_1 | img_url: '600x'}}"/>
+  	<h4>{{ section.settings.subscription_info_header_1 }}</h4>
+    <p>{{ section.settings.subscription_info_text_1 }}</p>
+  </div>
+  <div class="animated fadeInUp">
+    <img alt="{{ section.settings.info_icon_2.alt }}" src="{{ section.settings.info_icon_2 | img_url: '600x' }}"/>
+    <h4>{{ section.settings.subscription_info_header_2 }}</h4>
+    <p>{{ section.settings.subscription_info_text_2 }}</p>
+  </div>
+  <div class="animated fadeInUp">
+    <img alt="{{ section.settings.info_icon_3.alt }}" src="{{ section.settings.info_icon_3 | img_url: '600x' }}"/>
+    <h4>{{ section.settings.subscription_info_header_3 }}</h4>
+    <p>{{ section.settings.subscription_info_text_3 }}</p>
+  </div>
+</div>
+
+<script>
+$(".select-box").click(function(e) {
+  e.preventDefault();
+  
+  //remove selected from others
+  $(".select-box").removeClass("active");
+  //do active to selected
+  $(this).addClass("active");
+  //get value
+  var optVal = $(this).data("interval");
+  $('.hidden-input.pid-{{ product.id }} .frequency-num').val(optVal);
+});
+  
+$(".select-box-sub-type").click(function(e) {
+  e.preventDefault();
+  
+  //remove selected from others
+  $(".select-box-sub-type").removeClass("active");
+  //do active to selected
+  $(this).addClass("active");
+  //get value
+  var subTypeVal = $(this).data("interval");
+  
+  if (subTypeVal === 2) {
+    $('.frequency-section').addClass("active");
+    $('.hidden-input.pid-{{ product.id }} .frequency-num').attr('name', 'properties[shipping_interval_frequency]');
+    $('.hidden-input.pid-{{ product.id }} .frequency-type').attr('name', 'properties[shipping_interval_unit_type]');
+    $('.coffee-id-input').val({{ variant.metafields.subscriptions.discount_variant_id }});
+  } else {
+    $('.frequency-section').removeClass("active");
+    $('.hidden-input.pid-{{ product.id }} .frequency-num').removeAttr('name');
+    $('.hidden-input.pid-{{ product.id }} .frequency-type').removeAttr('name');
+    $('.coffee-id-input').val({{ variant.id }});
+  }
+});
+</script>
+{% schema %}
+  {
+    "name": "Coffee Subscription Page",
+    "class": "product-template product-coffee-subscription-template",
+    "settings": [
+	{
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Banner Image"
+    },
+    {
+      "type": "text",
+      "id": "headerText",
+      "label": "Header Text",
+      "default": "Vital Coffee"
+    },
+    {
+      "type": "textarea",
+      "id": "bodyText",
+      "label": "Body Text",
+      "default": "Information about coffee subscription"
+    },
+	{
+      "type": "image_picker",
+      "id": "banner_image_2",
+      "label": "Secondary Banner Image"
+    },
+	{
+      "type": "image_picker",
+      "id": "info_icon_1",
+      "label": "Subscription Info Icon 1"
+    },
+    {
+      "type": "text",
+      "id": "subscription_info_header_1",
+      "label": "Subscription Info Header 1",
+      "default": "More Info 1"
+    },
+    {
+      "type": "textarea",
+      "id": "subscription_info_text_1",
+      "label": "Subscription Info Text 1",
+      "default": "Turkish flavour irish dark at mug seasonal. Mug cream redeye coffee eu grounds mocha percolator. Coffee, whipped, arabica, beans latte pumpkin spice spoon doppio plunger pot qui fair trade. Grinder rich mazagran macchiato, variety doppio chicory cinnamon affogato iced lungo kopi-luwak. Cultivar as foam a caffeine decaffeinated cup aroma."
+    },
+	{
+      "type": "image_picker",
+      "id": "info_icon_2",
+      "label": "Subscription Info Icon 2"
+    },
+    {
+      "type": "text",
+      "id": "subscription_info_header_2",
+      "label": "Subscription Info Header 2",
+      "default": "More Info 2"
+    },
+    {
+      "type": "textarea",
+      "id": "subscription_info_text_2",
+      "label": "Subscription Info Text 2",
+      "default": "Turkish flavour irish dark at mug seasonal. Mug cream redeye coffee eu grounds mocha percolator. Coffee, whipped, arabica, beans latte pumpkin spice spoon doppio plunger pot qui fair trade. Grinder rich mazagran macchiato, variety doppio chicory cinnamon affogato iced lungo kopi-luwak. Cultivar as foam a caffeine decaffeinated cup aroma."
+    },
+	{
+      "type": "image_picker",
+      "id": "info_icon_3",
+      "label": "Subscription Info Icon 3"
+    },
+    {
+      "type": "text",
+      "id": "subscription_info_header_3",
+      "label": "Subscription Info Header 3",
+      "default": "More Info 3"
+    },
+    {
+      "type": "textarea",
+      "id": "subscription_info_text_3",
+      "label": "Subscription Info Text 3",
+      "default": "Turkish flavour irish dark at mug seasonal. Mug cream redeye coffee eu grounds mocha percolator. Coffee, whipped, arabica, beans latte pumpkin spice spoon doppio plunger pot qui fair trade. Grinder rich mazagran macchiato, variety doppio chicory cinnamon affogato iced lungo kopi-luwak. Cultivar as foam a caffeine decaffeinated cup aroma."
+    },
+    {
+      "type": "text",
+      "id": "roast_title",
+      "label": "Roast Title",
+      "default": "La Perla Del Cafe"
+    },
+    {
+      "type": "text",
+      "id": "origin_country",
+      "label": "Country of Origin",
+      "default": "Costa Rica 🇨🇷"
+    },
+    {
+      "type": "text",
+      "id": "farm_source",
+      "label": "Farm Source",
+      "default": "Finca La Casa"
+    },
+    {
+      "type": "textarea",
+      "id": "flavor_profile",
+      "label": "Flavor Profile",
+      "default": "Rich sugary sweetness with big clean fruit acidity and a thick creamy mouthfeel; intense caramelized sugar flavor with blackberry, plum, raisin, lime and red grape."
+    },
+    {
+      "type": "text",
+      "id": "coe_score",
+      "label": "Cup of Excellence Score/Notes",
+      "default": "84"
+    }
+]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

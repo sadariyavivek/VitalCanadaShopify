@@ -1,0 +1,1602 @@
+<a name="pagecontent" id="pagecontent"></a>
+
+</div>
+<style>
+  .top_bar {
+    background: #1C2127;
+  }
+  .container.main.content {
+    display: none;
+  }
+  
+  #talkable-offer-iframe {
+    display: none;
+  }
+  
+  .perf-v5-wrapper {
+    padding-top: 60px;
+    background: #d8d8d7;
+    color: white;
+    overflow: hidden;
+  }
+
+  .perf-v5-wrapper * {
+    font-family: 'avenir';
+  }
+  
+  .hero-image-section {
+    height: 50vh;
+    background: #1C2127;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*background-image: url('{{ 'Performance_v5_Hero.jpeg' | file_img_url: '2000x' }}');*/
+    background-size: cover;
+    position: relative;
+    background-position: 50% 50%;
+      overflow: hidden;
+  }
+  
+  #hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 998;
+    overflow: hidden;
+  }
+  
+  .logo-text-container {
+    z-index: 999;
+  }
+  
+  .hero-image-section .image-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    opacity: 0.3;
+  }
+  
+  .hero-image-section .hero-logo {
+    width: 65%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  
+  .hero-image-section .hero-subtitle {
+    color: white;
+    display: block;
+    text-align: center;
+    font-family: 'kapraregular';
+    text-transform: none;
+    font-size: 28px;
+    line-height: 34px;
+    letter-spacing: 0 !important;
+  }
+  
+  .why-vp-section .why-vp-header {
+    color: #1a4459;
+    font-family: 'kapraregular';
+    font-size: 38px;
+    line-height: 46px;
+    letter-spacing: 1.6px !important;
+    text-align: center;
+    display: block;
+    text-transform: none;
+    padding-left: 24px;
+    padding-right: 24px;
+     margin-top: 20px;
+  }
+  
+  .why-vp-section .why-vp-body {
+    color: #666666;
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    line-height: 24px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  
+  .nsf-section {
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .nsf-image {
+    width: 140px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .nsf-icons-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 25px;
+    margin-top: 25px;
+  }
+  
+  .nsf-icon-container svg {
+    width: 60%;
+    margin-bottom: 10px;
+    max-width: 60px;
+    display: inline-block;
+  }
+  
+  .nsf-icon-container {
+    width: 25%;
+  }
+  
+  .nsf-icon-text {;
+    font-size: 14px;
+    color: #666666;
+    line-height: 16px;
+    text-align: center;
+    display: block;
+  }
+  
+  .intro-section {
+    height: 70vh;
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: #3C4B62; /* placeholder */
+    background-position: 50% 50%;
+    background-size: cover;
+  }
+  
+  .intro-section .insta-handle {
+    position: absolute;
+    right: 0px;
+    top: 10%;
+    background-color: #607D8B;
+    color: white;
+    z-index: 99;
+    padding: 10px;
+    padding-right: 20px;
+    opacity: 0.7;
+  }
+  
+  .intro-section .insta-handle p {
+    color: white;
+    margin-bottom: 0;
+  }
+  
+  .intro-section.pre {
+    background-image: url('{{ 'performance_banner_new_pre.jpg' | file_img_url: '2000x' }}');
+    background-position: 50% 25%;
+  }
+  
+  .intro-section.recover {
+    background-image: url('{{ 'performance_banner_new_recover.jpg' | file_img_url: '2000x' }}');
+    background-position: 50% 30%;
+  }
+  
+  .intro-section.sleep {
+    background-image: url('{{ 'performance_sleep_influencer_1.jpg' | file_img_url: '2000x' }}');
+  }
+  
+  .intro-section .image-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgb(29,34,43);
+	background: linear-gradient(169deg, rgba(29,34,43,0.2) 0%, rgba(29,34,43,0) 100%);
+    opacity: 1.0;
+  }
+  
+  .intro-section-text-container {
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 100;
+  }
+  
+  .intro-section-text-container svg {
+    width: 80px;
+    margin-top: 13px;
+    margin-bottom: 13px;
+    filter: drop-shadow(1px 1px 5px #4a4a4a);
+    display: inline-block;
+  }
+  
+  .intro-section-text-container svg text {
+    font-family: 'kapraregular';
+  }
+  
+  .intro-section-text-container .phase-header {
+    display: block;
+    text-align: center;
+    color: white;
+    font-family: 'kapraregular';
+    font-size: 58px;
+    line-height: 61px;
+    text-shadow: 1px 1px 5px #4a4a4a;
+  }
+  
+  .intro-section-text-container .phase-subheader {
+    display: block;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 38px;
+    line-height: 52px;
+    color: white;
+    text-shadow: 1px 1px 5px #4a4a4a;
+  }
+  
+  .intro-section-text-container .phase-subheader .no-bold {
+    font-weight: normal;
+  }
+  
+  .intro-section .triangle.bottom {
+    border-top: 140px solid transparent;
+    border-right: 100vw solid #d8d8d7;
+    position: absolute;
+    bottom: 0;
+    z-index: 100;
+  }
+  
+  .intro-section .triangle.top {
+    border-bottom: 140px solid transparent;
+    border-left: 100vw solid #d8d8d7;
+    position: absolute;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .pre-details-section {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .details-header {
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    font-size: 48px;
+    line-height: 59px;
+    letter-spacing: 1.33px !important;
+    color: #1a4459;
+    text-align: center;
+    margin-left: 30px;
+  }
+  
+  .details-subheader {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 27px;
+    text-align: center;
+    color: #666666;
+  }
+  
+  .details-body {
+    color: #666666;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    margin-bottom: 40px;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  
+  .details-body .patent {
+    font-size: 12px;
+    line-height: 24px;
+    text-align: center;
+    color: #666666;
+    display: block;
+  }
+  
+  .pre-details-section .product-price {
+    font-family: 'kapraregular';
+    font-size: 42px;
+    line-height: 52px;
+    color: #1a4459;
+    display: block;
+    text-align: center;
+  }
+  
+  .pre-details-section .product-form-factor {
+    font-size: 14px;
+    line-height: 19px;
+    text-align: center;
+    color: #39697a;
+    font-family: 'avenir';
+    display: block;
+  }
+  
+  .desktop-image-container {
+    display: none;
+  }
+  
+  .image-ingredients-section {
+  	display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+  }
+  
+  .image-ingredients-section.liquid {
+    flex-direction: row-reverse;
+  }
+  
+  .ingredients-wrapper {
+    width: 65%;
+    margin-top: 22px;
+  }
+  
+  .ingredient-gram-cards-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
+  .ingredient-gram-card {
+    border: 0.5px solid #515B6B;
+    border-radius: 10px;
+    width: 30%;
+    padding: 10px 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+  }
+  
+  .ingredient-gram-card.shrink {
+  	flex-shrink: 1;
+    width: auto;
+  }
+  
+  .ingredient-gram-card.grow {
+    flex-grow: 1;
+    width: auto;
+  }
+  
+  .ingredient-gram-card .ingredient-grams {
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    color: #515B6B;
+  }
+  
+  .ingredient-gram-card .ingredient-name {
+    color: #515B6B;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    display: block;
+  }
+  
+  .ingredient-gram-card hr {
+    border-color: #515B6B;
+    border-width: .5px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .product-image-container {
+    width: 35%;
+  }
+  
+  .ingredient-below-container {
+    margin-top: 16px;
+    margin-bottom: 50px;
+  }
+  
+  .ingredient-below-container .ingredient-below-text {
+    font-size: 12px;
+    line-height: 16px;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    color: #B0B2B3;
+    margin-bottom: 0;
+  }
+  
+  .view-more-ingredients {
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: #02ABE3;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .view-more-icon {
+    margin-right: 5px;
+  }
+  
+  .view-more-icon * {
+    stroke: #02ABE3 !important;
+  }
+  
+  .perf-image {
+    width: 100%;
+  }
+  
+  .perf-v5-wrapper .product-select {
+    background: white url({{ 'select.png' | asset_img_url: '100x' }}) no-repeat 96% 50%;
+    color: #515B6B;
+    border: 1px solid #9B9B9B;
+    max-width: 250px;
+    height: 36px;
+    border-radius: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 0;
+    padding-bottom: 0;
+    min-height: 0;
+    margin-bottom: 12px;
+    padding-right: 40px;
+  }
+  
+  .perf-v5-wrapper .product-select option {
+    background-color: white;
+    color: #4a4a4a;
+  }
+
+  .perf-v5-wrapper .product-select option[disabled] {
+      color: #d8d8d7;
+  }
+  
+  .perf-v5-wrapper .product-cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 36px;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.8px;
+    background-color: #00AF9A;
+    border-radius: 4px;
+    max-width: 250px;
+    font-weight: normal;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    text-transform: uppercase;
+    width: 100%;
+    min-height: 0;
+    border: 0;
+  }
+
+  .perf-v5-wrapper .product-cta .text {
+    font-family: 'kapraregular';
+    font-size: 22px;
+    letter-spacing: 1.38px;
+  }
+  
+  hr.product-divider {
+    border-color: #515B6B;
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 56px;
+    margin-bottom: 34px;
+    border-width: 0.6px;
+  }
+  
+  .community-section {
+    padding-top: 140px;
+    position: relative;
+    background-color: #5f8984;
+  }
+  
+  .community-section-text-container {
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .community-section-text-container .community-header {
+    display: block;
+    text-align: center;
+    color: white;
+    font-weight: normal;
+    font-size: 44px;
+    line-height: 52px;
+    color: white;
+    font-family: 'kapraregular';
+  }
+  
+  .community-section .triangle.bottom {
+    border-top: 140px solid transparent;
+    border-right: 100vw solid #d8d8d7;
+    position: absolute;
+    bottom: 0;
+  }
+  
+  .community-section .triangle.top {
+    border-bottom: 140px solid transparent;
+    border-left: 100vw solid #d8d8d7;
+    position: absolute;
+    top: 0;
+  }
+  
+  .community-slider {
+    white-space: nowrap;
+    overflow-x: scroll;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    padding-left: 10px;
+    padding-right: 10px;
+    z-index: 999;
+    position: relative;
+  }
+  
+  .community-slider::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 0;
+    height: 0;
+  } 
+  
+  .community-card {
+    height: 325px;
+    width: 65vw;
+    background-color: white;
+    display: inline-block;
+    margin-left: 15px;
+    margin-right: 15px;
+    box-shadow: 0px 5px 20px 0 rgba(0,0,0, 0.5);
+    max-width: 340px;
+  }
+  
+  .community-card .card-background {
+    width: 100%;
+    height: 75%;
+    background-color: #23b6e6;
+    background-size: cover;
+  }
+  
+  .community-card .card-text {
+    width: 100%;
+    height: 25%;
+    background-color: #1C2127;
+    color: white;
+    padding: 16px 18px;
+  }
+  
+  .community-card .card-text .card-name {
+    display: block;
+    text-align: left;
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 5px;
+  }
+  
+  .community-card .card-text .card-hashtag {
+    display: block;
+    text-align: left;
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  @media only screen and (max-width: 1100px) {
+    #email_signup {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  @media (max-width: 798px) {
+    #subscribe-to-email-detail {
+      line-height: initial;
+    }
+  }
+  
+  .footer {
+    background-color: #d8d8d7;
+  }
+  
+  .footer_menu a {
+    letter-spacing: 0;
+    color: #666666;
+    font-size: 16px;
+    font-family: 'avenir';
+    line-height: 18px;
+  }
+
+  .footer_menu a:visited {
+    color: #666666;
+  }
+
+  .credits {
+    color: #666666;
+  }
+
+  .fda-statement {
+    color: #666666;
+    border-color: #666666;
+  }
+
+  .footer-section .newsletter_section span{
+    color: #666666;
+  }
+
+  .footer-section .newsletter_section .footer-hashtag {
+    color: #E0655D;
+  }
+
+  .klaviyo_gdpr_embed_PxCWVN .klaviyo_submit_button {
+    background-color: #00AF9A !important;
+    font-family: 'avenir';
+  }
+
+  .klaviyo_gdpr_embed_PxCWVN .klaviyo_submit_button:hover {
+    color: white;
+    opacity: 0.75;
+  }
+
+  .footer-section .newsletter_section .newsletter input {
+    color: #666666;
+  }
+
+  footer .social_icons a, footer .social_icons a:visited {
+    color: #666666;
+  }
+  
+  .modal-wrapper {
+    width: 100%;
+    position: fixed;
+    opacity: 1;
+    top: 0px;
+    bottom: 0px;
+    overflow-y: hidden;
+    z-index: 8000;
+    background: rgba(0,0,0,0.0);
+    transition: .4s background cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+  }
+  
+  .modal-wrapper.active {
+    background: rgba(0,0,0,0.6);
+    pointer-events: initial;
+    overflow-y: scroll;
+  }
+  
+  .modal-wrapper.active .modal-inner {
+    transform: translateY(0);
+  }
+  
+  .modal-inner {
+    transform: translateY(125%);
+    transition: .4s transform cubic-bezier(0.4, 0, 0.2, 1);
+   	border-radius: 10px 10px 0 0;
+    background-color: white;
+    margin-top: 200px;
+    padding: 20px;
+    position: relative;
+    min-height: calc(100vh - 200px);
+  }
+  
+  .close-modal {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 20px;
+    right: 20px;
+    opacity: 0.3;
+  }
+  
+  .close-modal:hover {
+    opacity: 1;
+  }
+  
+  .modal-section {
+    display: none;
+  }
+  
+  .modal-section.active {
+    display: block;
+  }
+  
+  .modal-image-section {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 90px;
+    position: relative;
+  }
+  
+  .modal-image-section .modal-image {
+    height: 150%;
+    position: absolute;
+    top: -100%;
+  }
+  
+  .modal-section .ingredient-gram-cards-container {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 27px;
+    justify-content: center;
+  }
+  
+  .modal-section .ingredient-gram-cards-container .ingredient-gram-card {
+    border-color: #23b6e6;
+    max-width: 90px;
+  }
+  
+  .modal-section .ingredient-gram-cards-container .ingredient-gram-card .ingredient-name {
+    font-size: 12px;
+    line-height: 16px;
+    color: #4a4a4a;
+    opacity: 0.7;
+  }
+  
+  .modal-section .ingredient-gram-cards-container .ingredient-gram-card hr {
+    border-color: #515B6B;
+    opacity: 0.5;
+  }
+  
+  .modal-section .ingredient-gram-cards-container .ingredient-gram-card .ingredient-grams {
+    font-weight: bold;
+    color: #000000;
+    font-size: 18px;
+    line-height: 25px;
+  }
+  
+  .modal-ingredient-list {
+    text-align: center;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+    line-height: 24px;
+    color: #717F86;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+  }
+  
+  .ingredients-block {
+    margin-bottom: 35px;
+  }
+  
+  .ingredients-block .block-header {
+    color: #23b6e6;
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    line-height: 19px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  
+  .ingredients-block .block-body {
+    color: #717F86;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  .block-body.patent {
+    color: #666666;
+    font-size: 12px;
+  }
+  
+  @media screen and (min-width: 768px) {   
+    .hero-image-section .hero-subtitle {
+      font-size: 48px;
+      line-height: 59px;
+    }
+    
+    .why-vp-section {
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .why-vp-section .why-vp-header {
+      font-size: 48px;
+      line-height: 59px;
+    }
+    
+    .why-vp-section .why-vp-body {
+      font-size: 18px;
+    }
+    
+    .pre-details-section {
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 80%;
+    }
+    
+    .details-header {
+      margin-bottom: 10px;
+      font-size: 60px;
+      line-height: 74px;
+    }
+    
+    .details-subheader {
+      font-size: 28px;
+      line-height: 38px;
+    }
+    
+    .details-body {
+      font-size: 18px;
+      line-height: 28px;
+    }
+    
+    .pre-details-section .product-price {
+      font-size: 48px;
+      line-height: 59px;
+    }
+    
+    .pre-details-section .product-form-factor {
+      font-size: 18px;
+      line-height: 25px;
+    }
+    
+    .desktop-ingredients-form-image-container {
+      display: flex;
+      flex-direction: row;
+    }
+    
+    .desktop-ingredients-form-image-container.liquid {
+      flex-direction: row-reverse;
+    }
+    
+    .desktop-ingredients-form-container {
+      width: 65%;
+    }
+    
+    .desktop-image-container {
+      display: block;
+      width: 35%;
+    }
+    
+    .product-image-container.mobile {
+      display: none;
+    }
+    
+    .product-select {
+      font-size: 18px;
+      line-height: 25px;
+    }
+    
+    .ingredients-wrapper {
+      padding-left: 60px;
+      padding-right: 60px;
+      width: 100%;
+    }
+    
+    .ingredient-gram-cards-container {
+      justify-content: center;
+    }
+    
+    .ingredient-below-container {
+      margin-bottom: 30px;
+    }
+    
+    .ingredient-gram-card {
+      max-width: 90px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    
+    .ingredient-gram-card .ingredient-grams {
+      font-size: 21px;
+      line-height: 29px;
+    }
+    
+    .perf-image {
+      max-width: 300px;
+    }
+    
+    .modal-inner {
+      width: 80%;
+   	  margin-left: auto;
+      margin-right: auto;
+      padding: 60px;
+      max-width: 600px;
+    }
+    
+    .modal-image-section {
+      height: 80px;
+    }
+    
+    .modal-image-section .modal-image {
+      height: 200%;
+      top: -125%;
+    }
+    
+    .modal-section .ingredient-gram-cards-container {
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .modal-ingredient-list {
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .ingredients-text-section {
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .community-card {
+      max-width: 240px;
+      margin-left: 32px;
+      margin-right: 32px;
+    }
+    
+    #hero-video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: 998;
+      overflow: hidden;
+      display: block;
+    }
+  }
+  
+  @media screen and (min-width: 800px) {
+    .perf-v5-wrapper {
+      padding-top: 0;
+    }
+  }
+  
+</style>
+<div class="perf-v5-wrapper">
+  <div class="hero-image-section">
+    <div class="logo-text-container">
+      <img class="hero-logo" src="{{ 'VitalPerformance_White.png' | file_img_url: '800x' }}" alt="Vital Performance&trade;"/>
+      <h2 class="hero-subtitle">Rehydrate + Refuel + Recover<span style="font-size: 60%;">**</span></h2>
+    </div>
+    <div class="image-overlay lazyload"></div>
+    <video autoplay loop muted playsinline autobuffer id="hero-video">
+      <source src="https://cdn.shopify.com/s/files/1/2074/9385/files/Vital_Proteins_-_Eric_Hinman_Horizontal_Version_V2.mp4?v=1587672325" type="video/mp4">
+    </video>
+  </div>
+  <div class="why-vp-section">
+    <h2 class="why-vp-header">The Ultimate Game Changer<sup style="font-size: 50%; font-family: 'avenir';">&reg;</sup></h2>
+    <p class="why-vp-body">Our three-phase system combines collagen with premium ingredients to help you conquer every movement.</p>
+    <div class="nsf-section">
+      	<div class="nsf-icons-wrapper">
+          <div class="nsf-icon-container">
+          	<svg aria-label="No Artificial Sweeteners Icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39.21 39.21"><defs><style>.cls-1{fill:#fff;}</style></defs><title>Asset 9</title><g id="Layer_2" data-name="Layer 2"><g id="RTD_Callouts" data-name="RTD Callouts"><path class="cls-1" d="M19.61,39.21a19.61,19.61,0,1,1,19.6-19.6A19.63,19.63,0,0,1,19.61,39.21Zm0-37A17.37,17.37,0,1,0,37,19.61,17.39,17.39,0,0,0,19.61,2.24Z"/><rect class="cls-1" x="18.81" y="0.38" width="2.37" height="37.25" transform="translate(-5.54 29.44) rotate(-65.77)"/><path class="cls-1" d="M15.85,29.1a6.05,6.05,0,0,1-4.91-2.48l-.08-.11a1.68,1.68,0,0,1,.42-2.28L29.94,10.78h0a1.69,1.69,0,0,1,2.35.38,1.71,1.71,0,0,1,.31,1.28,1.68,1.68,0,0,1-.67,1.1L21.55,21A6.08,6.08,0,0,1,19.38,28,6,6,0,0,1,15.85,29.1Zm14.7-17.48L11.89,25.07a.65.65,0,0,0-.15.89A5,5,0,0,0,20.45,21a.51.51,0,0,1,.17-.63l10.7-7.71a.66.66,0,0,0,.15-.91.66.66,0,0,0-.92-.17Z"/><circle class="cls-1" cx="8.42" cy="22.05" r="0.96"/><circle class="cls-1" cx="8.17" cy="24.52" r="0.96"/><circle class="cls-1" cx="11.83" cy="22.97" r="0.96"/><circle class="cls-1" cx="14.74" cy="21.74" r="0.96"/><circle class="cls-1" cx="9.96" cy="28.64" r="0.96"/></g></g></svg>
+            <span class="nsf-icon-text">No Sweeteners</span>
+          </div>
+          <div class="nsf-icon-container">
+          	<svg aria-label="Gluten Free Icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39.21 39.21"><defs><style>.cls-1{fill:#fff;}</style></defs><title>Asset 13</title><g id="Layer_2" data-name="Layer 2"><g id="RTD_Callouts" data-name="RTD Callouts"><path class="cls-1" d="M14,30.85a.64.64,0,0,1-.64-.64v-17a.64.64,0,0,1,.64-.63.63.63,0,0,1,.63.63v17A.64.64,0,0,1,14,30.85Z"/><path class="cls-1" d="M15.27,26.86a2.89,2.89,0,0,1-1.58-.48.63.63,0,0,1-.28-.58A2.89,2.89,0,0,1,15,23.44h0a2.88,2.88,0,0,1,2.85.18.64.64,0,0,1,.28.58,2.89,2.89,0,0,1-1.6,2.36A2.85,2.85,0,0,1,15.27,26.86Zm-.52-1.36A1.59,1.59,0,0,0,16,25.42a1.61,1.61,0,0,0,.82-.92,1.59,1.59,0,0,0-1.23.08h0A1.61,1.61,0,0,0,14.75,25.5ZM15.29,24h0Z"/><path class="cls-1" d="M15.27,22.23a2.94,2.94,0,0,1-1.58-.47.64.64,0,0,1-.28-.58A2.89,2.89,0,0,1,15,18.82h0a2.88,2.88,0,0,1,2.85.18.63.63,0,0,1,.28.58,2.86,2.86,0,0,1-2.87,2.65Zm-.52-1.35A1.64,1.64,0,0,0,16,20.8a1.61,1.61,0,0,0,.82-.92,1.59,1.59,0,0,0-1.23.08h0A1.61,1.61,0,0,0,14.75,20.88Zm.54-1.49h0Z"/><path class="cls-1" d="M15.27,17.61a2.94,2.94,0,0,1-1.58-.47.64.64,0,0,1-.28-.59A2.89,2.89,0,0,1,15,14.2h0a2.88,2.88,0,0,1,2.85.18.63.63,0,0,1,.28.58,2.89,2.89,0,0,1-1.6,2.36A3,3,0,0,1,15.27,17.61Zm-.52-1.35A1.64,1.64,0,0,0,16,16.18a1.61,1.61,0,0,0,.82-.92,1.55,1.55,0,0,0-1.23.08h0A1.61,1.61,0,0,0,14.75,16.26Zm.54-1.49h0Z"/><path class="cls-1" d="M12.57,26.86a2.81,2.81,0,0,1-1.26-.3A2.88,2.88,0,0,1,9.7,24.2a.63.63,0,0,1,.29-.58,2.86,2.86,0,0,1,2.84-.18h0a2.88,2.88,0,0,1,1.61,2.36.62.62,0,0,1-.29.58A2.84,2.84,0,0,1,12.57,26.86ZM11.05,24.5a1.61,1.61,0,0,0,2,1,1.6,1.6,0,0,0-.81-.92h0A1.6,1.6,0,0,0,11.05,24.5Z"/><path class="cls-1" d="M12.57,22.23a2.8,2.8,0,0,1-1.26-.29A2.88,2.88,0,0,1,9.7,19.58.62.62,0,0,1,10,19a2.86,2.86,0,0,1,2.84-.18h0a2.88,2.88,0,0,1,1.61,2.36.63.63,0,0,1-.29.58A2.92,2.92,0,0,1,12.57,22.23Zm-1.52-2.35a1.6,1.6,0,0,0,.81.92,1.64,1.64,0,0,0,1.23.08,1.6,1.6,0,0,0-.81-.92h0A1.6,1.6,0,0,0,11.05,19.88Z"/><path class="cls-1" d="M12.57,17.61a2.94,2.94,0,0,1-1.26-.29A2.88,2.88,0,0,1,9.7,15a.62.62,0,0,1,.29-.58,2.86,2.86,0,0,1,2.84-.18h0a2.88,2.88,0,0,1,1.61,2.35.63.63,0,0,1-.29.59A2.92,2.92,0,0,1,12.57,17.61Zm-1.52-2.35a1.61,1.61,0,0,0,2,1,1.6,1.6,0,0,0-.81-.92h0A1.55,1.55,0,0,0,11.05,15.26Z"/><path class="cls-1" d="M14,13.81a.64.64,0,0,1-.33-.1,2.88,2.88,0,0,1,0-5,.63.63,0,0,1,.65,0,2.88,2.88,0,0,1,0,5A.63.63,0,0,1,14,13.81Zm0-3.71a1.61,1.61,0,0,0,0,2.27,1.61,1.61,0,0,0,0-2.27Z"/><path class="cls-1" d="M26.18,30.85a.64.64,0,0,1-.63-.64v-17a.63.63,0,0,1,.63-.63.64.64,0,0,1,.64.63v17A.64.64,0,0,1,26.18,30.85Z"/><path class="cls-1" d="M27.42,26.86a2.84,2.84,0,0,1-1.58-.48.62.62,0,0,1-.29-.58,2.88,2.88,0,0,1,1.61-2.36h0a2.86,2.86,0,0,1,2.84.18.63.63,0,0,1,.29.58,2.88,2.88,0,0,1-1.61,2.36A2.81,2.81,0,0,1,27.42,26.86ZM26.9,25.5a1.61,1.61,0,0,0,2-1,1.6,1.6,0,0,0-1.23.08h0A1.63,1.63,0,0,0,26.9,25.5ZM27.44,24h0Z"/><path class="cls-1" d="M27.42,22.23a2.92,2.92,0,0,1-1.58-.47.63.63,0,0,1-.29-.58,2.88,2.88,0,0,1,1.61-2.36h0A2.86,2.86,0,0,1,30,19a.62.62,0,0,1,.29.58,2.88,2.88,0,0,1-1.61,2.36A2.8,2.8,0,0,1,27.42,22.23Zm-.52-1.35a1.64,1.64,0,0,0,1.23-.08,1.6,1.6,0,0,0,.81-.92,1.6,1.6,0,0,0-1.23.08h0A1.63,1.63,0,0,0,26.9,20.88Zm.54-1.49h0Z"/><path class="cls-1" d="M27.42,17.61a2.92,2.92,0,0,1-1.58-.47.63.63,0,0,1-.29-.59,2.88,2.88,0,0,1,1.61-2.35h0a2.86,2.86,0,0,1,2.84.18.62.62,0,0,1,.29.58,2.88,2.88,0,0,1-1.61,2.36A2.94,2.94,0,0,1,27.42,17.61Zm-.52-1.35a1.64,1.64,0,0,0,1.23-.08,1.6,1.6,0,0,0,.81-.92,1.55,1.55,0,0,0-1.23.08h0A1.63,1.63,0,0,0,26.9,16.26Zm.54-1.49h0Z"/><path class="cls-1" d="M24.72,26.86a2.85,2.85,0,0,1-1.27-.3,2.89,2.89,0,0,1-1.6-2.36.64.64,0,0,1,.28-.58A2.88,2.88,0,0,1,25,23.44h0a2.88,2.88,0,0,1,1.61,2.36.64.64,0,0,1-.29.58A2.87,2.87,0,0,1,24.72,26.86ZM23.19,24.5a1.61,1.61,0,0,0,.82.92,1.59,1.59,0,0,0,1.23.08,1.61,1.61,0,0,0-.82-.92h0A1.59,1.59,0,0,0,23.19,24.5Z"/><path class="cls-1" d="M24.72,22.23a2.86,2.86,0,0,1-2.87-2.65.63.63,0,0,1,.28-.58A2.88,2.88,0,0,1,25,18.82h0a2.88,2.88,0,0,1,1.61,2.36.65.65,0,0,1-.29.58A2.94,2.94,0,0,1,24.72,22.23Zm-1.53-2.35a1.61,1.61,0,0,0,.82.92,1.64,1.64,0,0,0,1.23.08,1.61,1.61,0,0,0-.82-.92h0A1.59,1.59,0,0,0,23.19,19.88Z"/><path class="cls-1" d="M24.72,17.61a3,3,0,0,1-1.27-.29A2.89,2.89,0,0,1,21.85,15a.63.63,0,0,1,.28-.58A2.88,2.88,0,0,1,25,14.2h0a2.88,2.88,0,0,1,1.61,2.35.63.63,0,0,1-.29.59A2.94,2.94,0,0,1,24.72,17.61Zm-1.53-2.35a1.61,1.61,0,0,0,.82.92,1.59,1.59,0,0,0,1.23.08,1.61,1.61,0,0,0-.82-.92h0A1.55,1.55,0,0,0,23.19,15.26Z"/><path class="cls-1" d="M26.18,13.81a.63.63,0,0,1-.32-.1,2.88,2.88,0,0,1,0-5,.63.63,0,0,1,.65,0,2.88,2.88,0,0,1,0,5A.64.64,0,0,1,26.18,13.81Zm0-3.71a1.61,1.61,0,0,0,0,2.27,1.61,1.61,0,0,0,0-2.27Z"/><path class="cls-1" d="M19.61,39.21a19.61,19.61,0,1,1,19.6-19.6A19.63,19.63,0,0,1,19.61,39.21Zm0-37A17.37,17.37,0,1,0,37,19.61,17.39,17.39,0,0,0,19.61,2.24Z"/><rect class="cls-1" x="18.81" y="0.38" width="2.37" height="37.25" transform="translate(-5.54 29.44) rotate(-65.77)"/></g></g></svg>
+            <span class="nsf-icon-text">Gluten Free</span>
+          </div>
+          <div class="nsf-icon-container">
+          	<svg aria-label="Dairy Free Icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39.21 39.21"><defs><style>.cls-1{fill:#fff;}</style></defs><title>Asset 11</title><g id="Layer_2" data-name="Layer 2"><g id="RTD_Callouts" data-name="RTD Callouts"><path class="cls-1" d="M22.22,31.41H17a2.25,2.25,0,0,1-2.26-2V16.44a5.45,5.45,0,0,1,1.08-2.91,12.1,12.1,0,0,0,.6-1.06,7.23,7.23,0,0,0,.45-1.06v-.24a1.81,1.81,0,0,1,.95-3.36h3.6a1.82,1.82,0,0,1,.95,3.36v.27a9,9,0,0,0,.44,1c.18.37.4.72.6,1.06h0a5.44,5.44,0,0,1,1.07,2.91V29.27A2.25,2.25,0,0,1,22.22,31.41ZM15.91,29.3a1.09,1.09,0,0,0,1.09.93h5.22a1.1,1.1,0,0,0,1.09-1V16.44a4.34,4.34,0,0,0-.9-2.29h0A13.15,13.15,0,0,1,21.74,13a7,7,0,0,1-.56-1.41v-.78a.6.6,0,0,1,.42-.56A.64.64,0,0,0,22,9.62.63.63,0,0,0,21.41,9h-3.6a.63.63,0,0,0-.19,1.24.6.6,0,0,1,.41.56v.65a.33.33,0,0,1,0,.14,6.75,6.75,0,0,1-.56,1.4,11,11,0,0,1-.66,1.17,4.42,4.42,0,0,0-.9,2.29V29.3Z"/><path class="cls-1" d="M19.61,39.21a19.61,19.61,0,1,1,19.6-19.6A19.63,19.63,0,0,1,19.61,39.21Zm0-37A17.37,17.37,0,1,0,37,19.61,17.39,17.39,0,0,0,19.61,2.24Z"/><rect class="cls-1" x="18.81" y="0.38" width="2.37" height="37.25" transform="translate(-5.54 29.44) rotate(-65.77)"/></g></g></svg>
+            <span class="nsf-icon-text">Dairy Free</span>
+          </div>
+          <div class="nsf-icon-container">
+          	<svg aria-label="Soy Free Icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39.21 39.21"><defs><style>.cls-1{fill:#fff;}</style></defs><title>Asset 10</title><g id="Layer_2" data-name="Layer 2"><g id="RTD_Callouts" data-name="RTD Callouts"><path class="cls-1" d="M10.34,31.39c-.35-.35-.21-.85,0-1.42a4.62,4.62,0,0,0,.24-1.24c0-.5,0-1-.09-1.56A7.27,7.27,0,0,1,10.91,23a9.32,9.32,0,0,1,1.14-1.49c.24-.27.48-.54.69-.82a4.17,4.17,0,0,0,.18-1.57,3.4,3.4,0,0,1,0-.49,5.75,5.75,0,0,1,.36-1.91,5.8,5.8,0,0,1,1.18-1.78,2.57,2.57,0,0,0,.85-2.61,5,5,0,0,1,1.1-4,7.46,7.46,0,0,0,1.29-1.78l.07-.19c.2-.5.35-.87.72-1a1.05,1.05,0,0,1,.78,0,6.93,6.93,0,0,1,2.9,4.17,6.46,6.46,0,0,1-.07,3.31,3.8,3.8,0,0,1-.77,1.63c-.37.51-.6.81-.12,2.33l-1,.32c-.6-1.88-.28-2.52.27-3.27a3,3,0,0,0,.61-1.29,5.66,5.66,0,0,0,.05-2.83,6.23,6.23,0,0,0-2.27-3.4c0,.1-.1.26-.16.39l-.07.19A8.3,8.3,0,0,1,17.17,9a4,4,0,0,0-.83,3.12,3.56,3.56,0,0,1-1.1,3.48,4.39,4.39,0,0,0-1,1.46A4.7,4.7,0,0,0,14,18.65c0,.12,0,.25,0,.41a3.86,3.86,0,0,1-.38,2.21c-.23.3-.48.59-.74.87a7.48,7.48,0,0,0-1,1.32,6.45,6.45,0,0,0-.34,3.62c0,.57.1,1.13.1,1.65a5.62,5.62,0,0,1-.29,1.53,3.42,3.42,0,0,0-.13.56.28.28,0,0,0-.09-.16Z"/><path class="cls-1" d="M11.41,31.65c-.65,0-1-.1-1.23-.44s0-.83.31-1.3a7.65,7.65,0,0,0,.59-1.09c.18-.46.33-1,.48-1.49a7.25,7.25,0,0,1,2-3.76,9.1,9.1,0,0,1,1.6-1c.32-.16.64-.33.94-.51a6.21,6.21,0,0,0,.73-1.35A9.93,9.93,0,0,1,18,18.6a5.43,5.43,0,0,1,1.74-1.23,2.58,2.58,0,0,0,1.75-2.13A5,5,0,0,1,24,11.93a18.62,18.62,0,0,0,1.9-1.6c.48-.51.76-.81,1.18-.82a1.06,1.06,0,0,1,.73.34,7.89,7.89,0,0,1,1.29,5.38,5.07,5.07,0,0,1-2.24,3.84,3.22,3.22,0,0,0-1.51,2.51C25,24.29,22,25.89,20.42,26.36c-.29.09-.49.47-.78,1.07a6.32,6.32,0,0,1-1.43,2.08c-1.56,1.37-4.58,2-6.13,2.11Zm-.14-1c.16,0,.4,0,.75,0a10.84,10.84,0,0,0,5.5-1.86A5.19,5.19,0,0,0,18.71,27c.34-.71.67-1.38,1.41-1.61,1.52-.47,3.89-1.9,4.16-3.93a4.21,4.21,0,0,1,1.91-3.18A4.18,4.18,0,0,0,28,15.07a7.15,7.15,0,0,0-1-4.48c-.1.09-.25.25-.38.39a19.6,19.6,0,0,1-2.13,1.8l-.07.05a3.94,3.94,0,0,0-1.93,2.62,3.59,3.59,0,0,1-2.3,2.84,4.31,4.31,0,0,0-1.44,1,8.65,8.65,0,0,0-1.06,1.89c-.45,1-.73,1.55-1.13,1.79s-.66.38-1,.55a8.18,8.18,0,0,0-1.43.85,6.41,6.41,0,0,0-1.62,3.26c-.17.54-.32,1.08-.52,1.57a7.08,7.08,0,0,1-.68,1.26Z"/><path class="cls-1" d="M24.88,18a1.83,1.83,0,0,1-1-.26,2.39,2.39,0,0,1-.49-3.31h0a2.88,2.88,0,0,1,1.42-1.22,1.9,1.9,0,0,1,2.61,1.33,2.84,2.84,0,0,1-.37,2.1,2.93,2.93,0,0,1-1.42,1.22A2.22,2.22,0,0,1,24.88,18Zm-.57-3a1.39,1.39,0,0,0,.14,1.89,1,1,0,0,0,.84,0,1.89,1.89,0,0,0,.9-.79,1.76,1.76,0,0,0,.25-1.31.92.92,0,0,0-.39-.58.94.94,0,0,0-.84,0,1.87,1.87,0,0,0-.9.78Z"/><path class="cls-1" d="M15.32,29a2,2,0,0,1-1.51-.65,2.39,2.39,0,0,1,.56-3.3,2.83,2.83,0,0,1,2-.72,1.93,1.93,0,0,1,1.34.65,2.39,2.39,0,0,1-.56,3.3A2.84,2.84,0,0,1,15.32,29Zm.89-3.64a1.86,1.86,0,0,0-1.17.47c-.63.55-.84,1.39-.45,1.84a1.41,1.41,0,0,0,1.89-.17,1.39,1.39,0,0,0,.45-1.84.91.91,0,0,0-.63-.3ZM20.43,24a1.84,1.84,0,0,1-1.11-.36,2.38,2.38,0,0,1-.19-3.34h0a2.4,2.4,0,0,1,3.25-.81A2,2,0,0,1,23.15,21a2.91,2.91,0,0,1-.58,1.78A2.77,2.77,0,0,1,20.43,24ZM20,20.87a1.39,1.39,0,0,0,0,1.89,1.39,1.39,0,0,0,1.8-.59A1.84,1.84,0,0,0,22.12,21a1,1,0,0,0-.36-.77c-.48-.35-1.3-.08-1.8.6Z"/><path class="cls-1" d="M19.61,39.21a19.61,19.61,0,1,1,19.6-19.6A19.63,19.63,0,0,1,19.61,39.21Zm0-37A17.37,17.37,0,1,0,37,19.61,17.39,17.39,0,0,0,19.61,2.24Z"/><rect class="cls-1" x="18.81" y="0.38" width="2.37" height="37.25" transform="translate(-5.54 29.44) rotate(-65.77)"/></g></g></svg>
+            <span class="nsf-icon-text">Soy Free</span>
+          </div>
+      	</div>
+    	<img class="nsf-image lazyload" src="{{ 'CERT_for_SPORT_COLOR_Horizontal_548a980d-d03c-430b-bbb1-5fff65898552.png' | file_img_url: '300x' }}" alt="NSF Certified Sport"/>
+    </div>
+  </div>
+  <div class="intro-section pre">
+    <div class="triangle top"></div>
+    <div class="intro-section-text-container">
+      <span class="phase-header">PHASE</span>
+      <svg aria-label="Phase 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60.43 65.18"><defs><style>.cls-1,.cls-2{fill:#fff;}.cls-2{font-size:32px;font-family:Kapra-Regular, Kapra;}</style></defs><title>Asset 14</title><g id="Layer_2" data-name="Layer 2"><g id="ARTWORK"><path class="cls-1" d="M55.15,8.83l-1.42-.16-.57-.06c-1.26-.14-2.45-.28-3.55-.5A44.72,44.72,0,0,1,34.34,1.42,7.62,7.62,0,0,0,30.41,0h-.19a7.63,7.63,0,0,0-4.09,1.4c-7.5,4.73-13.76,7-20.32,7.4a6.19,6.19,0,0,0-4.55,1.95A5.81,5.81,0,0,0,0,15.23l.45,5.12c.4,4.76.75,8.7,1.11,12.4l0,.54c0,.5.09,1,.14,1.47A29,29,0,0,0,3,40.61,30.93,30.93,0,0,0,11,53.4,51.42,51.42,0,0,0,28.14,64.78a5.57,5.57,0,0,0,2,.4h.19a5.77,5.77,0,0,0,2.3-.56c.27-.14.55-.26.82-.39l.17-.08.11,0,.1,0c1.6-.75,3.25-1.53,4.91-2.47A45.14,45.14,0,0,0,52.55,49.85,27.11,27.11,0,0,0,58.38,36.7c.11-.85.21-1.75.31-2.75l.76-8,.3-3.35c.22-2.56.44-5.1.65-7.64C60.69,11.67,58.62,9.25,55.15,8.83Zm1.9,6.43h0q-.31,3.77-.65,7.54l-.29,3.3L55.35,34c-.1.94-.2,1.79-.31,2.6A23.31,23.31,0,0,1,49.89,48,41.73,41.73,0,0,1,37.12,58.68C35.57,59.55,34,60.3,32.43,61l0,0-.09,0-.22.1-.9.42a2.23,2.23,0,0,1-.93.22h-.11a2,2,0,0,1-.73-.15A48.05,48.05,0,0,1,13.36,51.16,27.36,27.36,0,0,1,6.19,39.89a26,26,0,0,1-1.07-5.13c0-.48-.09-1-.14-1.44l-.05-.54c-.35-3.65-.7-7.53-1.1-12.23l-.45-5.06a2.63,2.63,0,0,1,.42-2A3.39,3.39,0,0,1,6,12.73c7.15-.42,13.91-2.83,21.91-7.81a4.53,4.53,0,0,1,2.26-.87h.11a4.62,4.62,0,0,1,2.24.87A48.25,48.25,0,0,0,48.93,12c1.26.25,2.52.39,3.85.54l.61.07,1.34.15C57.25,13,57.1,14.71,57.05,15.26Z"/><text class="cls-2" transform="translate(26.26 43.01)">1</text></g></g></svg>
+      <span class="phase-subheader">Before your<br/>workout</span>
+    </div>
+    <div class="image-overlay"></div>
+    <div class="triangle bottom"></div>
+  </div>
+  <div class="pre-details-section">
+    <h2 class="details-header">Pre<sup style="font-size: 60%;">&trade;*</sup></h2>
+    <p class="details-subheader">Gear Up For A Challenge</p>
+    <p class="details-body"><strong>Vital Performance&trade; PRE</strong> is the only pre-workout on the market that contains collagen. Another performance game changer? The addition of citrulline, arginine and creatine - three types of nitric oxide producers that help increase blood flow during your workout. <span class="patent">*patent pending</span></p>
+    <div class="price-form-factor-section">
+      <span class="product-price pre">{{ collections['vital-performance-pre'].products.first.variants.first.price | money_without_trailing_zeros }}</span>
+      <span class="product-form-factor">Powder</span>
+    </div>
+    <div class="desktop-ingredients-form-image-container">
+      <div class="desktop-ingredients-form-container">
+        <div class="image-ingredients-section">
+          <div class="ingredients-wrapper">
+            <div class="ingredient-gram-cards-container">
+              <div class="ingredient-gram-card">
+                <span class="ingredient-grams">5g</span>
+                <hr/>
+                <span class="ingredient-name">Collagen</span>
+              </div>
+              <div class="ingredient-gram-card">
+                <span class="ingredient-grams">5g</span>
+                <hr/>
+                <span class="ingredient-name">BCAA</span>
+              </div>
+              <div class="ingredient-gram-card">
+                <span class="ingredient-grams">3g</span>
+                <hr/>
+                <span class="ingredient-name">Citrulline</span>
+              </div>
+            </div>
+            <div class="ingredient-below-container">
+              <a href="#" data-product="pre" class="view-more-ingredients"><svg class="view-more-icon" xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 512 512'><path d='M448,256c0-106-86-192-192-192S64,150,64,256s86,192,192,192S448,362,448,256Z' style='fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:32px'/><line x1='256' y1='176' x2='256' y2='336' style='fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/><line x1='336' y1='256' x2='176' y2='256' style='fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/></svg>View More Ingredients</a>
+            </div>
+          </div>
+          {% assign product = collections['vital-performance-pre'].products.first %}
+          <a href="{{ product.url }}" class="product-image-container mobile">
+            <img class="perf-image pre lazyload" src="{{ product.featured_image | img_url: '600x' }}" alt="Vital Performance Pre"/>
+          </a>
+        </div>
+        <div class="form-section pre">
+          <form action="/cart/add"
+                    method="post"
+                    class="clearfix product_form init {% if product.variants.size > 1 or product.options.size > 1 %}product_form_options{% endif %}"
+                    id="product-form-{{ product.id }}"
+                    data-money-format="{{ shop.money_format }}"
+                    data-shop-currency="{{ shop.currency }}"
+                    data-select-id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}"
+                    data-enable-state="{% if template contains 'product' %}true{% else %}false{% endif %}"
+                    data-product="{{ product | json | escape }}"
+                    {% if settings.limit_quantity or settings.display_inventory_left %}
+                    data-variant-inventory='[{%- for v in product.variants -%}{"id":{{v.id}},"inventory_quantity":{{v.inventory_quantity}},"inventory_management":"{{v.inventory_management}}","inventory_policy":"{{v.inventory_policy}}"}{% if forloop.last == false %},{% endif %}{%- endfor -%}]'
+                    {% endif %}
+                    data-product-id="{{ product.id }}"
+                    >
+            <select class="product-select" id="{{ product.id }}">
+              {% for product in collections['vital-performance-pre'].products %}
+                  {% assign productTitle = product.title | split: '-' %}
+                  {% if product.variants.first.available %}
+                      <option value="{{ product.variants.first.id }}" data-product-type="pre" data-image="{{ product.variants.first.image | img_url: '600x' }}" data-price="{{ product.variants.first.price }}">{{ productTitle[1] }} - {{ product.variants.first.title }}</option>
+                  {% else %}
+                      <option value="{{ product.variants.first.id }}" disabled data-product-type="pre" data-image="{{ product.variants.first.image | img_url: '600x' }}" data-price="{{ product.variants.first.price }}">{{ productTitle[1] }} - {{ product.variants.first.title }} (Sold Out)</option>
+                  {% endif %}
+              {% endfor %}
+            </select>
+            <input type="hidden" name="id" id="product-form-variant-value-{{product.id}}" value="{{ product.variants.first.id }}">
+            <button aria-label="Add {{product.title}} to bag." type="submit" name="add" class="vpr action_button add_to_cart product-cta {% if product.available == false %}disable-button{% endif %}" {% if product.available == false %}disabled{% endif %} data-label={{ add_to_cart_label | json }}>
+              <span class="text">{% if product.available == false %} Sold out {% else %}Add to Cart{% endif %}</span>
+              <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark">
+                <path fill="none" stroke="{{ settings.btn_text_color }}" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/>
+              </svg>
+            </button>
+            <div class="added-to-bag-notification" style="height:0; overflow: hidden;" aria-atomic="true" aria-live="assertive"></div>
+            <span style="display: block;text-align: center;margin-top: 10px;font-size: 14px;font-weight: bold; color: #666666;">&dagger; Packaging may vary</span>
+          </form>
+        </div>
+      </div>
+      <div class="desktop-image-container">
+        <a href="{{ product.url }}" class="product-image-container desktop">
+          <img class="perf-image pre lazyload" src="{{ product.featured_image | img_url: '600x' }}" alt="Vital Performance Pre"/>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="intro-section recover">
+    <div class="triangle top"></div>
+    <div class="intro-section-text-container">
+      <span class="phase-header">PHASE</span>
+      <svg aria-label="Phase 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60.43 65.18"><defs><style>.cls-1,.cls-2{fill:#fff;}.cls-2{font-size:32px;font-family:Kapra-Regular, Kapra;}</style></defs><title>Asset 15</title><g id="Layer_2" data-name="Layer 2"><g id="ARTWORK"><path class="cls-1" d="M55.15,8.83l-1.42-.16-.57-.06c-1.26-.14-2.45-.28-3.55-.5A44.72,44.72,0,0,1,34.34,1.42,7.62,7.62,0,0,0,30.41,0h-.19a7.63,7.63,0,0,0-4.09,1.4c-7.5,4.73-13.76,7-20.32,7.4a6.19,6.19,0,0,0-4.55,1.95A5.81,5.81,0,0,0,0,15.23l.45,5.12c.4,4.76.75,8.7,1.11,12.4l0,.54c0,.5.09,1,.14,1.47A29,29,0,0,0,3,40.61,30.93,30.93,0,0,0,11,53.4,51.42,51.42,0,0,0,28.14,64.78a5.57,5.57,0,0,0,2,.4h.19a5.77,5.77,0,0,0,2.3-.56c.27-.14.55-.26.82-.39l.17-.08.11,0,.1,0c1.6-.75,3.25-1.53,4.91-2.47A45.14,45.14,0,0,0,52.55,49.85,27.11,27.11,0,0,0,58.38,36.7c.11-.85.21-1.75.31-2.75l.76-8,.3-3.35c.22-2.56.44-5.1.65-7.64C60.69,11.67,58.62,9.25,55.15,8.83Zm1.9,6.43h0q-.31,3.77-.65,7.54l-.29,3.3L55.35,34c-.1.94-.2,1.79-.31,2.6A23.31,23.31,0,0,1,49.89,48,41.73,41.73,0,0,1,37.12,58.68C35.57,59.55,34,60.3,32.43,61l0,0-.09,0-.22.1-.9.42a2.23,2.23,0,0,1-.93.22h-.11a2,2,0,0,1-.73-.15A48.05,48.05,0,0,1,13.36,51.16,27.36,27.36,0,0,1,6.19,39.89a26,26,0,0,1-1.07-5.13c0-.48-.09-1-.14-1.44l-.05-.54c-.35-3.65-.7-7.53-1.1-12.23l-.45-5.06a2.63,2.63,0,0,1,.42-2A3.39,3.39,0,0,1,6,12.73c7.15-.42,13.91-2.83,21.91-7.81a4.53,4.53,0,0,1,2.26-.87h.11a4.62,4.62,0,0,1,2.24.87A48.25,48.25,0,0,0,48.93,12c1.26.25,2.52.39,3.85.54l.61.07,1.34.15C57.25,13,57.1,14.71,57.05,15.26Z"/><text class="cls-2" transform="translate(24.45 43.01)">2</text></g></g></svg>
+      <span class="phase-subheader">After your<br/>workout</span>
+    </div>
+    <div class="image-overlay"></div>
+    <div class="triangle bottom"></div>
+  </div>
+  <div class="pre-details-section">
+    <h2 class="details-header">Recover<sup style="font-size: 60%;">&trade;*</sup></h2>
+    <p class="details-subheader">Take It Past The Finish Line</p>
+    <p class="details-body"><strong>Vital Performance&trade; RECOVER</strong> provides a unique combination of collagen and a full-spectrum amino acid profile designed to help promote athletic longevity** and keep you in the game. Unlike other post-workout supplements, ours contains no dairy, gluten, soy or artificial sweeteners. <span class="patent">*patent pending</span></p>
+    <div class="price-form-factor-section">
+      <span class="product-price recover">{{ collections['recoverywave'].products.first.variants.first.price | money_without_trailing_zeros }}</span>
+      <span class="product-form-factor">Powder</span>
+    </div>
+    <div class="desktop-ingredients-form-image-container">
+      <div class="desktop-ingredients-form-container">
+        <div class="image-ingredients-section">
+          <div class="ingredients-wrapper">
+            <div class="ingredient-gram-cards-container">
+              <div class="ingredient-gram-card">
+                <span class="ingredient-grams">20g</span>
+                <hr/>
+                <span class="ingredient-name">Collagen</span>
+              </div>
+              <div class="ingredient-gram-card">
+                <span class="ingredient-grams">8g</span>
+                <hr/>
+                <span class="ingredient-name">EAA</span>
+              </div>
+              <div class="ingredient-gram-card">
+                <span class="ingredient-grams">5g</span>
+                <hr/>
+                <span class="ingredient-name">BCAA</span>
+              </div>
+            </div>
+            <div class="ingredient-below-container">
+              <a href="#" data-product="recover" class="view-more-ingredients"><svg class="view-more-icon" xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 512 512'><path d='M448,256c0-106-86-192-192-192S64,150,64,256s86,192,192,192S448,362,448,256Z' style='fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:32px'/><line x1='256' y1='176' x2='256' y2='336' style='fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/><line x1='336' y1='256' x2='176' y2='256' style='fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/></svg>View More Ingredients</a>
+            </div>
+          </div>
+          {% assign product = collections['recoverywave'].products.first %}
+          <a href="{{ product.url }}" class="product-image-container mobile">
+            <img class="perf-image recover lazyload" src="{{ product.featured_image | img_url: '600x' }}" alt="Vital Performance Recover"/>
+          </a>
+        </div>
+        <div class="form-section recover">
+          <form action="/cart/add"
+                    method="post"
+                    class="clearfix product_form init {% if product.variants.size > 1 or product.options.size > 1 %}product_form_options{% endif %}"
+                    id="product-form-{{ product.id }}"
+                    data-money-format="{{ shop.money_format }}"
+                    data-shop-currency="{{ shop.currency }}"
+                    data-select-id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}"
+                    data-enable-state="{% if template contains 'product' %}true{% else %}false{% endif %}"
+                    data-product="{{ product | json | escape }}"
+                    {% if settings.limit_quantity or settings.display_inventory_left %}
+                    data-variant-inventory='[{%- for v in product.variants -%}{"id":{{v.id}},"inventory_quantity":{{v.inventory_quantity}},"inventory_management":"{{v.inventory_management}}","inventory_policy":"{{v.inventory_policy}}"}{% if forloop.last == false %},{% endif %}{%- endfor -%}]'
+                    {% endif %}
+                    data-product-id="{{ product.id }}"
+                    >
+            <select class="product-select" id="{{ product.id }}">
+              {% for product in collections['recoverywave'].products %}
+                {% assign productTitle = product.title | split: '-' %}
+                {% for variant in product.variants %}
+                  {% if variant.available %}
+                    <option value="{{ variant.id }}" data-product-type="recover" data-image="{{ variant.image | img_url: '600x' }}" data-price="{{ variant.price }}">{{ productTitle[1] }} - {{ variant.title }}</option>
+                  {% else %}
+                    <option value="{{ variant.id }}" disabled data-product-type="recover-rtd" data-image="{{ variant.image | img_url: '600x' }}" data-price="{{ variant.price }}"><s>{{ productTitle[1] }} - {{ variant.title }}</s></option>
+                  {% endif %}
+                {% endfor %}
+              {% endfor %}
+            </select>
+            <input type="hidden" name="id" id="product-form-variant-value-{{product.id}}" value="{{ product.variants.first.id }}">
+            <button aria-label="Add {{product.title}} to bag." type="submit" name="add" class="vpr action_button add_to_cart product-cta {% if product.available == false %}disable-button{% endif %}" {% if product.available == false %}disabled{% endif %} data-label={{ add_to_cart_label | json }}>
+              <span class="text">{% if product.available == false %} Sold out {% else %}Add to Cart{% endif %}</span>
+              <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark">
+                <path fill="none" stroke="{{ settings.btn_text_color }}" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/>
+              </svg>
+            </button>
+            <div class="added-to-bag-notification" style="height:0; overflow: hidden;" aria-atomic="true" aria-live="assertive"></div>
+            <span style="display: block;text-align: center;margin-top: 10px;font-size: 14px;font-weight: bold; color: #666666;">&dagger; Packaging may vary</span>
+          </form>
+        </div>
+      </div>
+      <div class="desktop-image-container">
+        <a href="{{ product.url }}" class="product-image-container desktop">
+          <img class="perf-image recover lazyload" src="{{ product.featured_image | img_url: '600x' }}" alt="Vital Performance Pre"/>
+        </a>
+      </div>
+    </div>
+    <hr class="product-divider"/>
+    <div class="price-form-factor-section">
+      <span class="product-price recover-rtd">$4</span>
+      <span class="product-form-factor">Liquid</span>
+    </div>
+    <div class="desktop-ingredients-form-image-container liquid">
+      <div class="desktop-ingredients-form-container">
+        <div class="image-ingredients-section liquid">
+          <div class="ingredients-wrapper">
+            <div class="ingredient-gram-cards-container">
+              <div class="ingredient-gram-card">
+                <span class="ingredient-grams">20g</span>
+                <hr/>
+                <span class="ingredient-name">Collagen</span>
+              </div>
+              <div class="ingredient-gram-card">
+                <span class="ingredient-grams">8g</span>
+                <hr/>
+                <span class="ingredient-name">EAA</span>
+              </div>
+              <div class="ingredient-gram-card">
+                <span class="ingredient-grams">5g</span>
+                <hr/>
+                <span class="ingredient-name">BCAA</span>
+              </div>
+            </div>
+            <div class="ingredient-below-container">
+              <a href="#" data-product="recover-rtd" class="view-more-ingredients"><svg class="view-more-icon" xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 512 512'><path d='M448,256c0-106-86-192-192-192S64,150,64,256s86,192,192,192S448,362,448,256Z' style='fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:32px'/><line x1='256' y1='176' x2='256' y2='336' style='fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/><line x1='336' y1='256' x2='176' y2='256' style='fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/></svg>View More Ingredients</a>
+            </div>
+          </div>
+          {% assign product = collections['vital-performance-recover'].products.first %}
+          <a href="{{ product.url }}" class="product-image-container mobile">
+            <img class="perf-image recover-rtd lazyload" src="{{ product.featured_image | img_url: '600x' }}" alt="Vital Performance Recover"/>
+          </a>
+        </div>
+        <div class="form-section recover-rtd">
+          <form action="/cart/add"
+                    method="post"
+                    class="clearfix product_form init {% if product.variants.size > 1 or product.options.size > 1 %}product_form_options{% endif %}"
+                    id="product-form-{{ product.id }}"
+                    data-money-format="{{ shop.money_format }}"
+                    data-shop-currency="{{ shop.currency }}"
+                    data-select-id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}"
+                    data-enable-state="{% if template contains 'product' %}true{% else %}false{% endif %}"
+                    data-product="{{ product | json | escape }}"
+                    {% if settings.limit_quantity or settings.display_inventory_left %}
+                    data-variant-inventory='[{%- for v in product.variants -%}{"id":{{v.id}},"inventory_quantity":{{v.inventory_quantity}},"inventory_management":"{{v.inventory_management}}","inventory_policy":"{{v.inventory_policy}}"}{% if forloop.last == false %},{% endif %}{%- endfor -%}]'
+                    {% endif %}
+                    data-product-id="{{ product.id }}"
+                    >
+            <select class="product-select" id="{{ product.id }}">
+              {% for product in collections['vital-performance-recover'].products %}
+                {% assign productTitle = product.title | split: '-' %}
+                {% for variant in product.variants %}
+                  {% if variant.available %}
+                    <option value="{{ variant.id }}" data-product-type="recover-rtd" data-image="{{ variant.image | img_url: '600x' }}" data-price="{{ variant.price }}">{{ productTitle[1] }} - {{ variant.title }}</option>
+                  {% else %}
+                    <option value="{{ variant.id }}" disabled data-product-type="recover-rtd" data-image="{{ variant.image | img_url: '600x' }}" data-price="{{ variant.price }}">{{ productTitle[1] }} - {{ variant.title }} (Sold out)</option>
+                  {% endif %}
+                {% endfor %}
+
+              {% endfor %}
+            </select>
+            <input type="hidden" name="id" id="product-form-variant-value-{{product.id}}" value="{{ product.variants.first.id }}">
+            <button aria-label="Add {{product.title}} to bag." type="submit" name="add" class="vpr action_button add_to_cart product-cta {% if product.available == false %}disable-button{% endif %}" {% if product.available == false %}disabled{% endif %} data-label={{ add_to_cart_label | json }}>
+              <span class="text">{% if product.available == false %} Sold out {% else %}Add to Cart{% endif %}</span>
+              <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark">
+                <path fill="none" stroke="{{ settings.btn_text_color }}" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/>
+              </svg>
+            </button>
+            <div class="added-to-bag-notification" style="height:0; overflow: hidden;" aria-atomic="true" aria-live="assertive"></div>
+            <span style="display: block;text-align: center;margin-top: 10px;font-size: 14px;font-weight: bold; color: #666666;">&dagger; Packaging may vary</span>
+          </form>
+        </div>
+      </div>
+      <div class="desktop-image-container">
+        <a href="{{ product.url }}" class="product-image-container desktop">
+          <img class="perf-image recover-rtd lazyload" src="{{ product.featured_image | img_url: '600x' }}" alt="Vital Performance Pre"/>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="intro-section sleep">
+    <div class="insta-handle">
+      <p>@erichinman</p>
+    </div>
+    <div class="triangle top"></div>
+    <div class="intro-section-text-container">
+      <span class="phase-header">PHASE</span>
+      <svg aria-label="Phase 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60.43 65.18"><defs><style>.cls-1,.cls-2{fill:#fff;}.cls-2{font-size:32px;font-family:Kapra-Regular, Kapra;}</style></defs><title>Asset 16</title><g id="Layer_2" data-name="Layer 2"><g id="ARTWORK"><path class="cls-1" d="M55.15,8.83l-1.42-.16-.57-.06c-1.26-.14-2.45-.28-3.55-.5A44.72,44.72,0,0,1,34.34,1.42,7.62,7.62,0,0,0,30.41,0h-.19a7.63,7.63,0,0,0-4.09,1.4c-7.5,4.73-13.76,7-20.32,7.4a6.19,6.19,0,0,0-4.55,1.95A5.81,5.81,0,0,0,0,15.23l.45,5.12c.4,4.76.75,8.7,1.11,12.4l0,.54c0,.5.09,1,.14,1.47A29,29,0,0,0,3,40.61,30.93,30.93,0,0,0,11,53.4,51.42,51.42,0,0,0,28.14,64.78a5.57,5.57,0,0,0,2,.4h.19a5.77,5.77,0,0,0,2.3-.56c.27-.14.55-.26.82-.39l.17-.08.11,0,.1,0c1.6-.75,3.25-1.53,4.91-2.47A45.14,45.14,0,0,0,52.55,49.85,27.11,27.11,0,0,0,58.38,36.7c.11-.85.21-1.75.31-2.75l.76-8,.3-3.35c.22-2.56.44-5.1.65-7.64C60.69,11.67,58.62,9.25,55.15,8.83Zm1.9,6.43h0q-.31,3.77-.65,7.54l-.29,3.3L55.35,34c-.1.94-.2,1.79-.31,2.6A23.31,23.31,0,0,1,49.89,48,41.73,41.73,0,0,1,37.12,58.68C35.57,59.55,34,60.3,32.43,61l0,0-.09,0-.22.1-.9.42a2.23,2.23,0,0,1-.93.22h-.11a2,2,0,0,1-.73-.15A48.05,48.05,0,0,1,13.36,51.16,27.36,27.36,0,0,1,6.19,39.89a26,26,0,0,1-1.07-5.13c0-.48-.09-1-.14-1.44l-.05-.54c-.35-3.65-.7-7.53-1.1-12.23l-.45-5.06a2.63,2.63,0,0,1,.42-2A3.39,3.39,0,0,1,6,12.73c7.15-.42,13.91-2.83,21.91-7.81a4.53,4.53,0,0,1,2.26-.87h.11a4.62,4.62,0,0,1,2.24.87A48.25,48.25,0,0,0,48.93,12c1.26.25,2.52.39,3.85.54l.61.07,1.34.15C57.25,13,57.1,14.71,57.05,15.26Z"/><text class="cls-2" transform="translate(24.48 43.01)">3</text></g></g></svg>
+      <span class="phase-subheader">Before You<br/>snooze</span>
+    </div>
+    <div class="image-overlay"></div>
+    <div class="triangle bottom"></div>
+  </div>
+  <div class="pre-details-section">
+    <h2 class="details-header">Sleep<sup style="font-size: 60%;">&trade;*</sup></h2>
+    <p class="details-subheader">Rest &amp; Recover Like A Warrior</p>
+    <p class="details-body"><strong>Vital Performance&trade; SLEEP</strong> skips melatonin and instead boasts tryptophan sources to help boost the body's natural production of melatonin** so you can reach deep sleep (the restorative stage of sleep) and power through the next day's workout. <span class="patent">*patent pending</span></p>
+    <div class="price-form-factor-section">
+      <span class="product-price sleep">$36</span>
+      <span class="product-form-factor">Powder</span>
+    </div>
+    <div class="desktop-ingredients-form-image-container">
+      <div class="desktop-ingredients-form-container">
+    
+      	<div class="image-ingredients-section">
+          <div class="ingredients-wrapper">
+            <div class="ingredient-gram-cards-container">
+              <div class="ingredient-gram-card shrink">
+                <span class="ingredient-grams">10g</span>
+                <hr/>
+                <span class="ingredient-name">Collagen</span>
+              </div>
+              <div class="ingredient-gram-card grow">
+                <span class="ingredient-grams">230mg</span>
+                <hr/>
+                <span class="ingredient-name">Magnesium</span>
+              </div>
+              <div class="ingredient-gram-card grow">
+                <span class="ingredient-grams">400mg</span>
+                <hr/>
+                <span class="ingredient-name">GABA</span>
+              </div>
+            </div>
+            <div class="ingredient-below-container">
+              <a href="#" data-product="sleep" class="view-more-ingredients"><svg class="view-more-icon" xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 512 512'><path d='M448,256c0-106-86-192-192-192S64,150,64,256s86,192,192,192S448,362,448,256Z' style='fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:32px'/><line x1='256' y1='176' x2='256' y2='336' style='fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/><line x1='336' y1='256' x2='176' y2='256' style='fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/></svg>View More Ingredients</a>
+            </div>
+          </div>
+          {% assign product = collections['performance-sleep'].products.first %}
+          <a href="{{ product.url }}" class="product-image-container mobile">
+            <img class="perf-image sleep lazyload" src="{{ product.featured_image | img_url: '600x' }}" alt="Vital Performance Sleep"/>
+          </a>
+        </div>
+        <div class="form-section sleep">
+          <form action="/cart/add"
+                    method="post"
+                    class="clearfix product_form init {% if product.variants.size > 1 or product.options.size > 1 %}product_form_options{% endif %}"
+                    id="product-form-{{ product.id }}"
+                    data-money-format="{{ shop.money_format }}"
+                    data-shop-currency="{{ shop.currency }}"
+                    data-select-id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}"
+                    data-enable-state="{% if template contains 'product' %}true{% else %}false{% endif %}"
+                    data-product="{{ product | json | escape }}"
+                    {% if settings.limit_quantity or settings.display_inventory_left %}
+                    data-variant-inventory='[{%- for v in product.variants -%}{"id":{{v.id}},"inventory_quantity":{{v.inventory_quantity}},"inventory_management":"{{v.inventory_management}}","inventory_policy":"{{v.inventory_policy}}"}{% if forloop.last == false %},{% endif %}{%- endfor -%}]'
+                    {% endif %}
+                    data-product-id="{{ product.id }}"
+                    >
+            <select class="product-select" id="{{ product.id }}">
+              {% for product in collections['performance-sleep'].products %}
+                {% assign productTitle = product.title | split: '-' %}
+                {% if product.variants.first.available %}
+                  <option value="{{ product.variants.first.id }}" data-product-type="sleep" data-image="{{ product.variants.first.image | img_url: '600x' }}" data-price="{{ product.variants.first.price }}">{{ productTitle[1] }} - {{ product.variants.first.title }}</option>
+                {% else %}
+                  <option value="{{ product.variants.first.id }}" disabled data-product-type="sleep" data-image="{{ product.variants.first.image | img_url: '600x' }}" data-price="{{ product.variants.first.price }}">{{ productTitle[1] }} - {{ product.variants.first.title }} (Sold Out)</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+            <input type="hidden" name="id" id="product-form-variant-value-{{product.id}}" value="{{ product.variants.first.id }}">
+            <button aria-label="Add {{product.title}} to bag." type="submit" name="add" class="vpr action_button add_to_cart product-cta {% if product.available == false %}disable-button{% endif %}" {% if product.available == false %}disabled{% endif %} data-label={{ add_to_cart_label | json }}>
+              <span class="text">{% if product.available == false %} Sold out {% else %}Add to Cart{% endif %}</span>
+              <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark">
+                <path fill="none" stroke="{{ settings.btn_text_color }}" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/>
+              </svg>
+            </button>
+            <div class="added-to-bag-notification" style="height:0; overflow: hidden;" aria-atomic="true" aria-live="assertive"></div>
+            <span style="display: block;text-align: center;margin-top: 10px;font-size: 14px;font-weight: bold; color: #666666;">&dagger; Packaging may vary</span>
+          </form>
+        </div>
+      </div>
+      <div class="desktop-image-container">
+        <a href="{{ product.url }}" class="product-image-container desktop">
+          <img class="perf-image sleep lazyload" src="{{ product.featured_image | img_url: '600x' }}" alt="Vital Performance Pre"/>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="community-section">
+    <div class="triangle top"></div>
+    <div class="community-section-text-container">
+      <span class="community-header">Our community</span>
+      <div class="community-slider">
+		{% section 'performance-community-card-list' %}
+      </div>
+    </div>
+    <div class="triangle bottom"></div>
+  </div>
+</div>
+<div class="modal-wrapper">
+  <div class="modal-inner">
+    <a href="#" class="close-modal"><svg xmlns='http://www.w3.org/2000/svg' width='25' height='25' viewBox='0 0 512 512'><title>ionicons-v5-l</title><line x1='368' y1='368' x2='144' y2='144' style='fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/><line x1='368' y1='144' x2='144' y2='368' style='fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/></svg></a>
+    <div class="modal-section pre">
+      <div class="modal-image-section">
+        {% assign product = collections['vital-performance-pre'].products.first %}
+        <img class="modal-image pre lazyload" src="{{ product.featured_image | img_url: '600x' }}" alt="Vital Performance Sleep"/>
+      </div>
+      <div class="ingredient-gram-cards-container">
+        <div class="ingredient-gram-card">
+          <span class="ingredient-grams">5g</span>
+          <hr/>
+          <span class="ingredient-name">Collagen</span>
+        </div>
+        <div class="ingredient-gram-card">
+          <span class="ingredient-grams">5g</span>
+          <hr/>
+          <span class="ingredient-name">BCAA</span>
+        </div>
+        <div class="ingredient-gram-card">
+          <span class="ingredient-grams">3g</span>
+          <hr/>
+          <span class="ingredient-name">CITRULLINE</span>
+        </div>
+      </div>
+      <div>
+        <p class="modal-ingredient-list">AlphaSize&reg; Alpha GPC / Caffeine / <span style="text-transform: lowercase;">elev</span>ATP&reg; / Creatine Nitrate / Arginine Nitrate</p>
+      </div>
+      <div class="ingredients-text-section">
+        <div class="ingredients-block">
+          <p class="block-header">COLLAGEN</p>
+          <p class="block-body">Amino acid profile is uniquely concentrated with proline, hydroxyproline, and glycine. Supports muscle, tendon, ligament and joint health.**</p>
+        </div>
+        <div class="ingredients-block">
+          <p class="block-header">BCAA</p>
+          <p class="block-body">As three of the nine essential amino acids – leucine, isoleucine and valine – Branched-Chain Amino Acids (BCAA) are involved in muscle protein synthesis. They help support protein and collagen synthesis.**</p>
+        </div>
+        <div class="ingredients-block">
+          <p class="block-header">Creatine Nitrate AND <span style="text-transform: lowercase;">elevATP</span><sup>&reg;</sup></p>
+          <p class="block-body">Creatine Nitrate and <span style="text-transform: lowercase;">elev</span>ATP<sup>&reg;</sup> (a pairing of ancient peat and apple polyphenols) work together to help boost muscle strength and power output.**</p>
+        </div>
+        <div class="ingredients-block">
+          <p class="block-header">Coffeeberry<sup>&reg;</sup> Energy</p>
+          <p class="block-body">Sourced from the fruit of the coffee arabica plant, Coffeeberry<sup>&reg;</sup> is a patented extract that delivers organic, native caffeine and polyphenols from coffee cherries - not just the coffee bean.</p>
+        </div>
+        <p class="block-body patent">*patent pending</p>
+      </div>
+    </div>
+    <div class="modal-section recover">
+      <div class="modal-image-section">
+        {% assign product = collections['recoverywave'].products.first %}
+        <img class="modal-image recover lazyload" src="{{ product.featured_image | img_url: '600x' }}" alt="Vital Performance Sleep"/>
+      </div>
+      <div class="ingredient-gram-cards-container">
+        <div class="ingredient-gram-card">
+          <span class="ingredient-grams">20g</span>
+          <hr/>
+          <span class="ingredient-name">Collagen</span>
+        </div>
+        <div class="ingredient-gram-card">
+          <span class="ingredient-grams">8g</span>
+          <hr/>
+          <span class="ingredient-name">EAA</span>
+        </div>
+        <div class="ingredient-gram-card">
+          <span class="ingredient-grams">5g</span>
+          <hr/>
+          <span class="ingredient-name">BCAA</span>
+        </div>
+      </div>
+      <div>
+        <p class="modal-ingredient-list">Taurine / L-GLUTAMINE / VITAMINS C, B2, B6</p>
+      </div>
+      <div class="ingredients-text-section">
+        <div class="ingredients-block">
+          <p class="block-header">EAA</p>
+          <p class="block-body">Essential Amino Acids (L-leucine, L-lysine, L-valine, L-Isoleucine, L-threonine, L-phenylalanine, L-histidine, L-methionine, L-tryptophan) that assist in protein muscle synthesis.**</p>
+        </div>
+        <div class="ingredients-block">
+          <p class="block-header">L-GLUTAMINE</p>
+          <p class="block-body">An amino acid used to help support the immune system, gastrointestinal integrity neurological activity and muscle protein synthesis.**</p>
+        </div>
+        <div class="ingredients-block">
+          <p class="block-header">TAURINE</p>
+          <p class="block-body">An amino acid used to help promote healthy metabolism and energy levels.**</p>
+        </div>
+        <p class="block-body patent">*patent pending</p>
+      </div>
+    </div>
+    <div class="modal-section recover-rtd">
+      <div class="modal-image-section">
+        {% assign product = collections['vital-performance-recover'].products.first %}
+        <img class="modal-image recover-rtd lazyload" src="{{ product.featured_image | img_url: '600x' }}" alt="Vital Performance Sleep"/>
+      </div>
+      <div class="ingredient-gram-cards-container">
+        <div class="ingredient-gram-card">
+          <span class="ingredient-grams">20g</span>
+          <hr/>
+          <span class="ingredient-name">Collagen</span>
+        </div>
+        <div class="ingredient-gram-card">
+          <span class="ingredient-grams">8g</span>
+          <hr/>
+          <span class="ingredient-name">EAA</span>
+        </div>
+        <div class="ingredient-gram-card">
+          <span class="ingredient-grams">5g</span>
+          <hr/>
+          <span class="ingredient-name">BCAA</span>
+        </div>
+      </div>
+      <div>
+        <p class="modal-ingredient-list">Taurine / L-GLUTAMINE / VITAMINS C, B2, B6</p>
+      </div>
+      <div class="ingredients-text-section">
+        <div class="ingredients-block">
+          <p class="block-header">EAA</p>
+          <p class="block-body">Essential Amino Acids (L-leucine, L-lysine, L-valine, L-Isoleucine, L-threonine, L-phenylalanine, L-histidine, L-methionine, L-tryptophan) that assist in protein muscle synthesis.**</p>
+        </div>
+        <div class="ingredients-block">
+          <p class="block-header">L-GLUTAMINE</p>
+          <p class="block-body">An amino acid used to help support the immune system, gastrointestinal integrity neurological activity and muscle protein synthesis.**</p>
+        </div>
+        <div class="ingredients-block">
+          <p class="block-header">TAURINE</p>
+          <p class="block-body">An amino acid used to help promote healthy metabolism and energy levels.**</p>
+        </div>
+        <p class="block-body patent">*patent pending</p>
+      </div>
+    </div>
+    <div class="modal-section sleep">
+      <div class="modal-image-section">
+        {% assign product = collections['performance-sleep'].products.first %}
+        <img class="modal-image sleep lazyload" src="{{ product.featured_image | img_url: '600x' }}" alt="Vital Performance Sleep"/>
+      </div>
+      <div class="ingredient-gram-cards-container">
+        <div class="ingredient-gram-card">
+          <span class="ingredient-grams">10g</span>
+          <hr/>
+          <span class="ingredient-name">Collagen</span>
+        </div>
+        <div class="ingredient-gram-card">
+          <span class="ingredient-grams">230mg</span>
+          <hr/>
+          <span class="ingredient-name">Magnesium</span>
+        </div>
+        <div class="ingredient-gram-card">
+          <span class="ingredient-grams">400mg</span>
+          <hr/>
+          <span class="ingredient-name">GABA</span>
+        </div>
+      </div>
+      <div>
+        <p class="modal-ingredient-list">GABA / 5-HTP / B VITAMINS / MAGNESIUM GLYCINATE / L-THEANINE</p>
+      </div>
+      <div class="ingredients-text-section">
+        <div class="ingredients-block">
+          <p class="block-header">GABA</p>
+          <p class="block-body">Acting as the body’s leading inhibitory neurotransmitter, GABA is responsible for pumping the brakes on nerve impulses when placed in stressful situations.**</p>
+        </div>
+        <div class="ingredients-block">
+          <p class="block-header">MAGNESIUM</p>
+          <p class="block-body">Promotes a more restful night’s sleep by helping to maintain healthy levels of GABA, a neurotransmitter associated with restorative sleep.**</p>
+        </div>
+        <div class="ingredients-block">
+          <p class="block-header">L-THEANINE</p>
+          <p class="block-body">An amino acid that increases alpha waves in the brain, thus promoting a steady state of relaxation.**</p>
+        </div>
+        <p class="block-body patent">*patent pending</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $('.view-more-ingredients').on('click', function(e) {
+    e.preventDefault();
+    
+    var product = $(this).data("product");
+    
+    $('.modal-section').removeClass('active');
+    $('.modal-section.' + product).addClass('active');
+    $('.modal-wrapper').addClass('active');
+  });
+  
+  $('.close-modal').on('click', function(e) {
+    e.preventDefault();
+    
+    $('.modal-wrapper').removeClass('active');
+  });
+  
+  $('.form-section select').on('change', function() {
+    var itemID = $(this).attr('id');
+    var selectedOption = $('#' + itemID + ' option:selected');
+    var selectedPrice = selectedOption.data('price');
+    var selectedProductType = selectedOption.data('product-type');
+    
+    $('.product-price.' + selectedProductType).text('$' + (selectedPrice / 100));
+    
+    $('#product-form-variant-value-' + itemID).val(selectedOption.val());
+    
+    if (selectedProductType) {
+      $('.perf-image.' + selectedProductType).attr('src', selectedOption.data('image'));
+      $('.modal-image.' + selectedProductType).attr('src', selectedOption.data('image'));
+    }
+    
+  });
+  
+  $(document).ready(function() {
+	var bgvideo = $('#hero-video')[0];
+    bgvideo.attr("muted", "");
+    bgvideo.attr("playsinline", "");
+	bgvideo.play();
+  });
+</script>

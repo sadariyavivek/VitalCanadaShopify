@@ -1,0 +1,29 @@
+
+<div class="container full-width social-feeds-section instagram-feed pb-0 social-feeds-wrap">
+    <div class="sixteen columns">
+        <h2 class="title center">
+        {% if settings.instagram_link != blank %}
+            <a aria-label="Open Vital Proteins on Instagram in a new window. " href="{{ settings.instagram_link }}" target="_blank">
+        {% endif %}
+        #stayvital
+        {% if settings.instagram_link != blank %}
+            </a>
+        {% endif %}
+        </h2>
+        
+
+        {% if settings.instagram_client_id != blank %}
+        <div id="instafeed" class=" js-instafeed " data-client-id="{{ settings.instagram_client_id | strip }}" data-count="4"></div>
+        {% else %}
+        <div id="instafeed" class="clearfix placeholder-instagram">
+            {% for i in (1..4) %}
+            <div class="three columns instagram__item">
+                <a href="#" class="instagram__link">
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--instagram' }}
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</div>

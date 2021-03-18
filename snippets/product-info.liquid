@@ -1,0 +1,63 @@
+<div class="product-details pid-{{product.id}}">
+  <div class="product-meta-text">
+    <span aria-label="{{ product.title}}." class="title" itemprop="name">{{ product.title }}</span>
+    <span class="meta-related-text">{{ product.metafields.short_description.product_ }}</span>    
+  </div>
+  {% if collection_handles contains 'coming-soon' %}
+    <span class="modal_price">{{ 'collections.general.coming_soon' | t }}</span>
+  {% elsif product.handle == 'build-your-own-stick-pack-sampler' %}
+  	 <span class="price">
+       {% if product.available %}
+       		<span aria-label="{{ product.price_min | money_without_trailing_zeros }}." class="money">{{ product.price_min | times: 5 | money_without_trailing_zeros }}</span>
+       {% else %}
+       		<span aria-label="{{ 'products.product.sold_out' | t }}." class="sold_out">{{ 'products.product.sold_out' | t }}</span>
+       {% endif %}
+  	 </span>
+  {% elsif product.handle == 'build-your-own-collagen-water-sampler' or product.handle == 'build-your-own-collagen-shot-sampler' %}
+  	 <span class="price">
+       {% if product.available %}
+       		<span aria-label="{{ product.price_min | money_without_trailing_zeros }}." class="money">{{ product.price_min | times: 4 | money_without_trailing_zeros }}</span>
+       {% else %}
+       		<span aria-label="{{ 'products.product.sold_out' | t }}." class="sold_out">{{ 'products.product.sold_out' | t }}</span>
+       {% endif %}
+  	 </span>
+  {% else %}
+    <span class="price {% if product.compare_at_price_max > product.price %}sale{% endif %}">
+      {% if product.available %}
+        {% assign variant = product.selected_or_first_available_variant %}
+          {% if variant.price > 0 %}
+            <span aria-label="{{ variant.price | money_without_trailing_zeros }}." class="money">{{ variant.price | money_without_trailing_zeros }}</span>
+          {% else %}
+            {{ settings.free_price_text }}
+          {% endif %}
+      {% else %}
+        <span aria-label="{{ 'products.product.sold_out' | t }}." class="sold_out">{{ 'products.product.sold_out' | t }}</span>
+      {% endif %}
+      {% if variant.compare_at_price > variant.price %}{% comment %}This should be changed to check for compare_at_min?{% endcomment %}
+        <span class="was_price">
+          <span aria-label="Original price was {{ variant.compare_at_price | money_without_trailing_zeros }}." class="">{{ variant.compare_at_price | money_without_trailing_zeros }}</span>
+        </span>
+      {% endif %}
+    </span>
+  {% endif %}
+  
+  {% comment %}
+  <!-- /snippets/bv-inline-ratings.liquid -->
+  <!-- Bazaarvoice Inline Rating -->
+  {% endcomment %}
+  {% assign reviewProductID = product.id %}
+  {% if variant.metafields.vital.original_product_id %}
+    {% assign reviewProductID = variant.metafields.vital.original_product_id %}
+  {% endif %}
+  <div data-bv-show="inline_rating"
+  data-bv-product-id="{{ reviewProductID }}" data-bv-redirect-url="{{
+  product.url }}" data-bv-seo="false" style="margin-top: 10px;"></div>
+  <! –– Bazaarvoice Shopify Integration Version 1.8 ––>
+  {% comment %}
+  <!-- End Bazaarvoice Inline Rating -->
+  {% endcomment %}
+  {% if settings.display_vendor %}
+    <span itemprop="brand" class="brand">{{ product.vendor }}</span>
+  {% endif %}
+
+</div>

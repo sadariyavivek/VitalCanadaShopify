@@ -1,0 +1,76 @@
+{% if template == 'index' %}
+
+{% assign timerLinkURL = 'https://www.vitalproteins.com/pages/collagen-water' %}
+<style>
+  .countdownContainer {
+    background: #f59574;
+  }
+  
+  .countdownContainer a {
+    transition: .2s all ease-out;
+  }
+  
+  .countdownContainer a:hover p  {
+    opacity: 0.7;
+    transform: translateY(-1px);
+  }
+  
+  .countdownText {
+    text-align: center;
+    font-family: 'kapraregular';
+    text-transform: lowercase;
+    font-size: 24px;
+    margin-bottom: 0;
+    color: white;
+    transition: .2s all ease-out;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+</style>
+<div id="countdownContainer" class="countdownContainer">
+  <a href="{{ timerLinkURL }}">
+  	<p id="countdownText" class="countdownText">Pre-order NEW Peach White Tea Collagen Water&trade; now! Only <span class="ct-days">d</span><span class="ct-hours">h</span><span class="ct-minutes">m</span><span class="ct-seconds">s</span> left!</p>
+  </a>
+</div>
+<script>
+  countDownStart();
+  
+  var timerInterval = setInterval(countDownStart, 1000);
+  
+  function countDownStart() {
+    var countDownDate = new Date(Date.UTC(2019, 8, 4, 4, 59, 59)).getTime();
+
+    var now = new Date().getTime();
+
+    var distance = countDownDate - now;
+    
+    if (distance > 0) {
+
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      //var timerText = "Only " + days + " days - " + hours + " hours - " + minutes + " minutes - " + seconds + " seconds left!";
+      
+      var daysString = days.toString() + 'd ';
+      if (days <= 0) {
+        daysString = '';
+      }
+      
+      var hoursString = hours.toString() + 'h ';
+      if (hours <= 0) {
+        hoursString = '';
+      }
+      $('.countdownText .ct-days').html(daysString);
+      $('.countdownText .ct-hours').html(hoursString);
+      $('.countdownText .ct-minutes').html(minutes.toString() + 'm ');
+      $('.countdownText .ct-seconds').html(seconds.toString() + 's ');
+    } else {
+      clearInterval(timerInterval);
+      $('.countdownContainer').hide();
+    }
+  }
+  
+</script>
+{% endif %}

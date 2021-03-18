@@ -1,0 +1,60 @@
+<style>
+  
+  	.v1-sub-benefits-teaser {
+	    display: flex;
+	    background: #00AF9A;
+	    padding: 25px;
+	    border-top: 5px solid #ffffff;
+	}
+
+.v1-sub-benefits-teaser h2 {
+    color: #ffffff;
+    font-family: 'Avenir';
+    text-align: center;
+    font-size: 26px;
+    text-transform: capitalize;
+    line-height: 36px;
+    font-weight: 500;
+    letter-spacing: 0px;
+    margin: 0px;
+}
+
+	.v1-sub-benefits-teaser-inner {
+	    width: 100%;
+	    margin: 0 auto;
+	    height: 100%;
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	}
+  
+</style>
+
+
+<div class="v1-sub-benefits-teaser">
+	<div class="v1-sub-benefits-teaser-inner">	
+		<h2>{{ section.settings.v1-callout-type }}</h2>
+	</div>
+</div>
+
+
+{% schema %}
+	{
+  "name": "Callout Bar",
+  "class": "v1-benefits-callout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "v1-callout-type",
+      "label": "Callout Text",
+	  "default": "Callout Title"
+	}]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+

@@ -1,0 +1,157 @@
+<a name="pagecontent" id="pagecontent"></a>
+</div>
+<style>
+  #full-top-navigation, #shopify-section-footer {display:none !important;}
+  div.content {
+    padding: 0px 0px 0px 0;
+    height: 0px !important;
+    overflow: hidden;
+}
+</style>
+
+{% section 'v3-subscription-landing-hero' %}
+{% section 'lp-benefits-teaser' %}
+{% section 'v3-subscription-works' %}
+{% section 'v3-subscription-color-block' %}
+{% section 'lp-product-slider' %}
+{% section 'lp-why-vital' %}
+{% section 'lp-reviews-section' %}
+<div class="lp-shop-all"><a href="https://www.vitalproteins.com/collections">Shop The Best Of Vital</a></div>
+
+
+<style>
+  .v1-vital-difference-info {
+        max-width: 500px;
+    margin: 0 auto;
+}
+  
+  .v1-vital-difference-info h1 {
+    font-size: 44px;
+    color:#5b5a5b;
+}
+  
+  #shopify-section-lp-product-slider h2 {
+    font-family: 'kapraregular' !important;
+    font-size: 44px !important;
+    text-transform: capitalize;
+    color:#5b5a5b;
+    margin: 0px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    letter-spacing:0px !important;
+}
+  
+  
+  .v1-why-vital-button, .v1-review-section .callout-button, .thumbnail button.action_button.add_to_cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #00AF9A;
+    margin: 0 auto;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-family: "kapraregular";
+    font-size: 22px;
+    line-height: 1em;
+    width: 300px;
+    height: 44px;
+    border: 0px !important;
+    padding: 5px;
+    margin-top: 5px;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 1px !important;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400 !important;
+}
+  
+  .v1-why-vital-button:hover, .v1-review-section .callout-button:hover {
+    background: #00D9B2 !important;
+    color: #ffffff !important;
+}
+  
+  .slider-gallery .gallery-cell .product-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+  
+  #shopify-section-lp-product-slider h2 {
+    max-width: 80%;
+    margin: 0 auto !important; 
+}
+  
+    .thumbnail button.action_button.add_to_cart {
+   
+    width: 100%;
+    
+}
+  
+  .lp-shop-all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    background: #01af9a;
+    color: #ffffff;
+}
+  
+  .lp-shop-all a {
+    font-size:24px;
+    line-height:28px;
+    color: #ffffff;
+}
+  
+  @media only screen and (max-width: 600px) {
+    .v1-why-vital-button, .v1-review-section .callout-button, .v3-color-section .callout-button, .v3-standard-button {
+    width: 200px !important;
+	min-width:200px;
+}
+    
+    .v1-vital-difference {
+    padding: 0px;
+}
+    
+    .v1-vital-difference-info {
+    max-width: 100%;
+}
+    
+    .v1-vital-difference-info h1 {
+    text-align: center;
+}
+    
+    .flickity-viewport {
+    height: 575px !important;
+}
+    
+   #shopify-section-lp-reviews-section .flickity-viewport {
+    height: 260px !important;
+}
+    
+   #shopify-section-lp-reviews-section {
+    margin-top: 25px;
+}
+    
+    .v3-single-step {
+    padding-bottom: 0px !important;
+}
+    
+      .lil-sub-text {font-size:.6em !important;}
+
+  }
+  
+</style>
+
+<script>
+  
+  $(document).ready(function() {
+    
+    setTimeout(function() {
+      $('[id^="subscription-widget-select"]').val( {{ settings.default_subscription_frequency }} ).change();
+
+    }, 1000);
+
+});
+  
+</script>

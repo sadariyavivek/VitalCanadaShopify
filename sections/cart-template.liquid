@@ -1,0 +1,51 @@
+{% comment %}
+** Cart page - default view **
+- Template section
+{% endcomment %}
+
+<a name="pagecontent" id="pagecontent"></a>
+
+<div class="section clearfix">
+  <div class="sixteen columns">
+    <h1 class="conspire-title">Shopping Cart</h1>
+    <a href="/collections/collagen">Continue Shopping</a>
+  </div>
+</div>
+<script>
+  $(document).ready(function() {
+    VitalTools.toggleMiniCart();
+  });
+</script>
+
+
+{% schema %}
+
+{
+  "name": "Cart page",
+  "class": "cart-section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "display_special_instructions",
+      "label": "Show \"note\" text box"
+    },
+    {
+      "type": "checkbox",
+      "id": "display_tos_checkbox",
+      "label": "Show \"agree to terms\" checkbox"
+    },
+    {
+      "type": "checkbox",
+      "id": "display_savings",
+      "label": "Show total savings",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "cart_message",
+      "label": "Cart message"
+    }
+  ]
+}
+
+{% endschema %}

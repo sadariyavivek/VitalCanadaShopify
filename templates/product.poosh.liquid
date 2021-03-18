@@ -1,0 +1,15 @@
+{% comment %}
+  The contents of the product.liquid template can be found in /sections/product-template.liquid
+{% endcomment %}
+
+{% section 'product-poosh-template' %}<!-- brontoBrowseObject:start -->
+<script>
+  (function(window) {
+    var BROWSE_PRODUCT = "brontoBrowseObject";
+    window[BROWSE_PRODUCT] = {
+      product: {{ product | json }}
+    };
+  })(window);
+</script>
+<!-- brontoBrowseObject:end -->
+

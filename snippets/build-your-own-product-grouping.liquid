@@ -1,0 +1,119 @@
+{% assign bundleItems = '' %}
+{% for item in cart.items %}
+	{% if item.properties %}
+		{% for p in item.properties %}
+			{% if p.first == 'bundle_cart_id' %}
+				{% assign existingItem = p.last | append: '_'  | append: item.product.handle | append: '@' %}
+				{% if bundleItems contains existingItem %}
+					{% assign newItem = p.last | append: '_' | append: item.product.handle | append: '@' | append: item.key | append: '^' | append: item.variant.title | append: ' qty:' | append: item.quantity | append: '`' | append: item.variant.price | append: ' , ' %}
+					{% assign bundleItems = bundleItems | replace: existingItem, newItem %}
+				{% else %}
+					{% assign bundleItems = bundleItems | append: '|' | append: p.last | append: '_' | append: item.product.handle | append: '@' | append: item.key | append: '^' | append: item.variant.title | append: ' qty:' | append: item.quantity | append: '`' | append: item.variant.price %}
+				{% endif %}
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+{% endfor %}
+
+{% assign bundleSplit = bundleItems | remove_first: '|' | split: '|' %}
+
+{% for bundle in bundleSplit %}
+	{% assign splitBundleInfoAndProducts = bundle | split: '@' %}
+	{% assign bundleMetaDataString = splitBundleInfoAndProducts[0] %}
+	{% assign bundleMetaDataList = bundleMetaDataString | split: '_' %}
+	{% assign productHandle = bundleMetaDataList[1] %}
+	{% assign bundleProductInfo = all_products[productHandle] %}
+	{% assign bundleItemsList = splitBundleInfoAndProducts[1] | split: ' , ' %}
+
+    <div class="section cart-item clearfix">
+      <div class="three columns alpha mobile-one-third">
+        <img  src="{{ bundleProductInfo.featured_image | img_url: '100x' }}"
+             alt="{{ bundleProductInfo.title }}"
+             class="lazyload {{ settings.image_loading_style }}"
+             style="max-width: {{- bundleProductInfo.featured_image.width -}}px"
+             data-sizes="auto"
+             data-src="{{ bundleProductInfo.featured_image | img_url: '900x' }}"
+             data-srcset=" {{ bundleProductInfo.featured_image | img_url: '300x' }} 300w,
+                          {{ bundleProductInfo.featured_image | img_url: '600x' }} 600w,
+                          {{ bundleProductInfo.featured_image | img_url: '900x' }} 900w"
+             />
+      </div>
+      <div class="seven columns omega cart_content_info mobile-two-third">
+        {% assign productKeys = '' %}
+        {% assign totalPrice = 0 %}
+        <h3>{{ bundleProductInfo.title }}</h3>
+        <p class="meta">Contains:
+          {% for item in bundleItemsList %}
+          {% assign itemKeyAndTitle = item | split: '^' %}
+          {% assign productKeys = productKeys | append: itemKeyAndTitle[0] | append: ',' %}
+          {% assign variantTitleQtyPrice = itemKeyAndTitle[1] | split: 'qty:' %}
+          {% assign variantQtyPrice = variantTitleQtyPrice[1] | split: '`' %}
+          
+          {% assign variantTitle = variantTitleQtyPrice[0] %}
+          {% assign variantQty = variantQtyPrice[0] %}
+          {% assign variantPrice = variantQtyPrice[1] %}
+          
+          {% assign priceForVariantQty = variantQty | times: variantPrice %}
+          
+          {% assign totalPrice = totalPrice | plus: priceForVariantQty %}
+          
+          <span class="label">{{ variantTitle }} x{{ variantQty }}</span><br>
+          {% endfor %}
+        </p>
+        <p class="modal_price">
+          <span class="money">{{ totalPrice | money }}</span>
+        </p>
+        <span data-removal-url="{{ productKeys }}" class="byo-remove-button">Remove</span>
+      </div>
+    </div>
+{% endfor %}
+
+<style>
+  .byo-remove-button {
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    color: #ff9393;
+    padding: 0;
+    border-radius: 10px;
+    font-size: 21px;
+    background-color: transparent;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    display: block;
+    width: fit-content;
+    height: initial;
+    min-height: initial;
+  }
+  
+  .byo-remove-button:hover {
+      cursor: pointer;
+      opacity: 0.7;
+      color: #ff9393;
+    padding: 0;
+    background-color: transparent;
+  }
+</style>
+<script>
+  $('.byo-remove-button').click(function() {
+    var cleanedRemovalString = $(this).data('removal-url').substring(0, $(this).data('removal-url').length-1);
+    var removalKeys = cleanedRemovalString.split(',');
+    var removalUpdates = {}
+    
+    for (var index in removalKeys) {
+      removalUpdates[removalKeys[index]] = 0;
+    }                
+    
+    $.ajax({
+      url:'/cart/update.js',
+      method:'POST',
+      dataType:'json',
+      data: {
+        updates: removalUpdates
+      }
+    }).then(function(data) {
+   		location.reload();
+    }).catch(function(error) {
+      	console.log(error.responseJSON);
+    });
+  });
+</script>

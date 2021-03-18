@@ -1,0 +1,277 @@
+{% if product.metafields.vital.ingredients_slider.size > 0 %}
+
+<h3 class="inside-title">It's all about What's Inside:</h3>
+
+{% assign ings = product.metafields.vital.ingredients_slider %} 
+
+
+<div class="ingredient-nav-carousel"
+  data-flickity='{ "asNavFor": ".ingredient-main-carousel", "contain": true, "pageDots": false, "imagesLoaded": true, "prevNextButtons": false }'>
+
+{% for ing in ings %} 
+  <div class="ingredient-nav-carousel-cell"><img src="{{ ing.imageURL }}" width="50px" height="50px"/></div>
+{% endfor %}
+
+</div>
+
+
+<div class="ingredient-main-carousel" data-flickity='{"pageDots": false, "imagesLoaded": true, "prevNextButtons": false }'>
+{% for ing in ings %}
+
+<div class="ingredient-main-carousel-cell">
+  	<div class="ingredient-details">
+		<div class="ingredient-details-main">
+			<h3>{{ ing.title }}</h3>
+			<p>{{ ing.subtitle }}</p>
+		</div>
+		<div class="ingredient-details-secondary" style="background-image: url( {{ ing.ingImage }} ); background-size: cover;min-height: 295px; margin-left: 0px;background-position: center center;">
+    
+          {% assign subings = ing.additionalInfoList %} 
+          {% for subing in subings %} 
+			<h4>{{ subing.title }}</h4>
+			<p>{{ subing.description }}</p>
+          
+          
+{% endfor %}
+         <style>
+  
+     
+  </style>
+          
+		</div>
+	</div>
+  </div>
+  
+  
+
+{% endfor %}
+  
+</div>
+
+{% endif %}
+  
+
+
+<style>
+		
+	.ingredient-main-carousel {
+	    background: #ffffff;
+	    margin-bottom: 0px;
+	    width: 100%;
+	    max-width: 1220px;
+	    margin: 0 auto;
+      overflow: hidden;
+	}
+  
+.inside-title {
+	margin-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-transform: uppercase;
+    font-size: 48px;
+    line-height: 58px;
+	letter-spacing: 0.8px !important;
+    color: #393D40;
+    padding-top: 0;
+    padding-bottom: 0;
+    text-align: center;
+	font-family: 'KapraNeue';
+
+}
+
+	.ingredient-main-carousel-cell {
+	    width: 100%;
+	    margin-right: 10px;
+	    border-radius: 0px;
+	    counter-increment: carousel-cell;
+	}
+
+	/* cell number 
+	.carousel-cell:before {
+	  display: block;
+	  text-align: center;
+	  content: counter(carousel-cell);
+	  line-height: 200px;
+	  font-size: 80px;
+	  color: white;
+	} */
+	
+
+
+	.ingredient-main-carousel-cell {
+	    min-height:450px;
+	}
+	
+.ingredient-nav-carousel {
+    border-top: 1px solid #cccccc;
+    height: 100px;
+    width: 100%;
+    max-width: 1220px;
+    margin: 0 auto;
+}
+	
+	.ingredient-nav-carousel-cell {
+    height: 100px;
+    width: 100px;
+    display: flex;
+    min-height: 90px;
+    align-items: center;
+    justify-content: center;
+}
+	
+	
+	.ingredient-nav-carousel-cell img {
+	    filter: grayscale(100%);
+	    cursor: pointer;
+	}
+	
+	.ingredient-nav-carousel-cell:hover img {
+	       filter: grayscale(0%);
+	}
+	
+	.ingredient-nav-carousel-cell.is-nav-selected img {
+       filter: grayscale(0%);
+	}
+
+	
+  
+  	.ingredient-main-carousel .flickity-viewport {
+	    min-height: 400px !important;
+	}
+  
+	.ingredient-main-carousel-cell .ingredient-details {
+	    display: flex;
+	    -webkit-font-smoothing: antialiased;
+	    min-height: 400px;
+	    width: 100% !important;
+	}
+
+	.ingredient-main-carousel .ingredient-details-main, .ingredient-main-carousel .ingredient-details-secondary {
+	    display: flex;
+	    flex-direction: column;
+	    width: 50%;
+	    max-width: 50%;
+	    padding: 50px;
+	    padding-top: 25px;
+	    padding-bottom: 25px;
+	}
+
+	.ingredient-main-carousel-cell .ingredient-details-main {
+    background: #C6D2D4;
+    justify-content: center;
+    align-items: center;
+	}
+	
+	.ingredient-main-carousel-cell .ingredient-details-main h3 {
+	    color: #585A5B;
+	    font-family: 'avenir';
+	    font-size: 28px;
+	    font-weight: 900;
+	    letter-spacing: 0.53px;
+	    line-height: 38px;
+	    text-align: center;
+	    text-transform: uppercase;
+	    margin: 0px;
+	}
+	
+	
+	.ingredient-main-carousel-cell .ingredient-details-secondary h4 {
+		color: #585A5B;
+		font-family: 'avenir';
+		font-size: 20px;
+		font-weight: 500;
+		letter-spacing: 0;
+		line-height: 27px;
+		text-transform: uppercase;
+		margin: 0px;
+		max-width: 90%;
+	}
+	
+	.ingredient-main-carousel-cell .ingredient-details-main p {
+	  color: #585A5B;
+	  font-family: 'avenir';
+	  font-size: 20px;
+	  letter-spacing: 0;
+	  line-height: 26px;
+	  text-align: center;
+	  max-width: 80%;
+	  font-weight: 500;
+	}
+	
+	.ingredient-main-carousel-cell .ingredient-details-secondary p {
+	    color: #717F86;
+	    font-family: Avenir;
+	    font-size: 18px;
+	    font-weight: 500;
+	    letter-spacing: 0;
+	    line-height: 26px;
+	    margin-top: 5px;
+	    max-width: 90%;
+	}
+	
+	.ingredient-main-carousel-cell .ingredient-details-secondary {
+	    justify-content: center;
+	}
+  
+  
+  
+	
+	@media only screen and (max-width: 800px) {
+		.inside-title {
+			font-size: 24px;
+            line-height: 30px;
+            letter-spacing: 0.7px !important;
+		}
+
+		.ingredient-main-carousel {
+		    max-width: 100%;
+			width:100%;
+			min-width:100%;
+			margin-bottom: 20px;
+		}
+		
+		.ingredient-main-carousel-cell .ingredient-details {
+		    flex-direction: column;
+		    width: 100%;
+		    justify-content: center;
+		    align-items: center;
+		    min-width: 100%;
+		    max-width: 100%;
+		    overflow-x: hidden;
+		}
+	
+		.ingredient-main-carousel-cell .ingredient-details-main, .ingredient-main-carousel-cell .ingredient-details-secondary {
+		    max-width: 100%;
+		    width: 100%;
+			min-width:100%;
+		    padding: 25px !important;
+		}
+		
+		.ingredient-main-carousel-cell .ingredient-details-secondary {
+		    margin-left: 25px;
+		    padding-left: 0px;
+		    padding-right: 0px;
+		}
+		
+		.ingredient-nav-carousel-cell.is-nav-selected:before {
+		    width: 0;
+		    content: '';
+		    display: block;
+		    background: transparent;
+		    position: absolute;
+		    bottom: 0px;
+		    height: 0;
+		    border-style: solid;
+		    border-width: 0 25px 10px 25px;
+		    border-color: transparent transparent #C6D2D4 transparent;
+		}
+      
+      .ingredient-main-carousel-cell .ingredient-details-main {
+    min-height: 350px;
+}
+
+	
+}
+	
+	
+</style>

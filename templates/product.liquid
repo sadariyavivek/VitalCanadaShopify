@@ -1,0 +1,50 @@
+{% comment %}
+  The contents of the product.liquid template can be found in /sections/product-template.liquid
+{% endcomment %}
+
+{% section 'product-template' %}<!-- brontoBrowseObject:start -->
+<script>
+  (function(window) {
+    var BROWSE_PRODUCT = "brontoBrowseObject";
+    window[BROWSE_PRODUCT] = {
+      product: {{ product | json }}
+    };
+  })(window);
+</script>
+<!-- brontoBrowseObject:end -->
+
+
+<script text="text/javascript">
+  var _learnq = _learnq || [];
+
+  var item = {
+    Name: {{ product.title|json }},
+    ProductID: {{ product.id|json }},
+    Categories: {{ product.collections|map:'title'|json }},
+    ImageURL: "https:{{ product.featured_image.src|img_url:'grande' }}",
+    URL: "{{ shop.secure_url }}{{ product.url }}",
+    Brand: {{ product.vendor|json }},
+    Price: {{ product.price|money|json }},
+    CompareAtPrice: {{ product.compare_at_price_max|money|json }}
+  };
+
+  _learnq.push(['track', 'Viewed Product', item]);
+  _learnq.push(['trackViewedItem', {
+    Title: item.Name,
+    ItemId: item.ProductID,
+    Categories: item.Categories,
+    ImageUrl: item.ImageURL,
+    Url: item.URL,
+    Metadata: {
+      Brand: item.Brand,
+      Price: item.Price,
+      CompareAtPrice: item.CompareAtPrice
+    }
+  }]);
+  
+  	$(".product_form .add_to_cart").on('click', function () {
+ 		_learnq.push(['track', 'Added to Cart', item]);
+	});
+</script>
+
+<!--PERZONALIZATION-START Do not modify or delete this comment--><div id="perzonalization" class="perzonalization"></div><script type='text/javascript'>var productDetailsForPrz = {{ product | json }};var basketDetailsForPrz = {{ cart | json }};var filterDetailsForPrz = {{ collection | json }};var detailsForPrz = { userId: '{{ customer.id }}', language: '{{ shop.locale }}', currency:'{{ shop.currency }}' };var searchDetailsForPrz = {{ search.results | json }};if(productDetailsForPrz) { productDetailsForPrz.collections = []; }{% for collection in product.collections %}   if(productDetailsForPrz) { productDetailsForPrz.collections.push("{{ collection.title }}") }{% endfor %}if (filterDetailsForPrz) { filterDetailsForPrz.products = []; }{% for product in collection.products %}   if(filterDetailsForPrz) { filterDetailsForPrz.products.push({ id:"{{ product.id }}", handle:"{{ product.handle }}" }) }{% endfor %}</script><!--Do not modify or delete this comment PERZONALIZATION-END-->

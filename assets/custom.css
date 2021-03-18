@@ -1,0 +1,666 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.header_min {width: 100%; max-width:1440px; margin: 0 auto; padding: 0;}
+.headerOuter header ul li a {display: inline-block;  margin: 0; padding: 0; width: auto; font-family: Avenir Next !important; font-style: normal; font-weight: 600; font-size: 12px; line-height:70px; text-transform: uppercase; color: #355C7E;}
+.headerOuter header {width: 100%; margin: 0 auto;}
+.headerOuter header .header_left {width: 33.33%; float: left; margin: 0; padding: 0; display: flex; align-items: center;}
+.headerOuter header .header_center {width: 33.33%; float: left; margin: 0; padding: 0;}
+.headerOuter header .header_right {width: 33.33%; margin: 0; padding: 0; float: right;}
+.headerOuter header .header_right .header_right_menu {width: 100%; display: flex; margin: 0; padding: 0; align-items: center; justify-content: left;}
+.headerOuter header .header_right .header_right_menu .headerIcons_bar .flexIcons {width: auto; margin: 0; padding: 0; display: inline-block; min-width: auto;}
+.headerOuter header .header_right .header_right_menu .headerIcons_bar .headerIcons {width: auto; display: inline-block; margin: 0 0 0 30px; padding: 0;}
+.headerOuter header .header_right .header_right_menu .headerIcons_bar .headerIcons.flexIcons {margin-left: 0;}
+.headerOuter header .header_left .flexIcons {width: auto; min-width: auto;}
+.headerOuter header .header_left .flexIcons #menuIcon {display: inline-block; vertical-align: middle;}
+.header_min .topMenu .topMenuItem #dropMenu div h4 {font-family: "Avenir Next" !important; font-style: normal; font-weight: 600; font-size: 12px; line-height: 18px; text-transform: uppercase !important; color: #888888;padding-top: 20px !important;}
+.header_min .topMenu #brandNav #dropMenu .col-3.pt-8 h4 {font-family: 'Avenir Next' !important;font-style: normal;font-weight: 600; text-transform: unset !important;font-size: 16px;line-height: 150%;color: #393D40;}
+.header_min .topMenu #brandNav #dropMenu .col-3.pt-8 p.mt-8 { font-family: 'Avenir Next' !important; font-style: normal; font-weight: normal; font-size: 16px; line-height: 150%; color: #393D40;padding-right: 10px;}
+.header_min .topMenu #brandNav #dropMenu .col-3.pt-8 p.mt-8 a {font-family: 'Avenir Next'; font-style: normal; font-weight: 600; font-size: 12px !important;line-height: 18px; text-transform: capitalize;color: #355C7E;}
+.header_min .topMenu .topMenuItem #dropMenu div hr.altDivider { border: 1px solid #E5E9EC; margin: 5px 0 15px 0; padding: 0; width: 72%;}
+.header_min .topMenu #brandNav #dropMenu div hr.altDivider { width: 100%;}
+.header_min .topMenu .topMenuItem #dropMenu div ul {width: 100%; float: left; margin:0 0 10px 0; padding: 0;}
+.header_min .topMenu .topMenuItem #dropMenu div ul li {display: inline-block; margin:0 0 8px 0; padding: 0; width: 100%;}
+.header_min .topMenu .topMenuItem #dropMenu div ul li:last-child{margin-bottom:0;}
+.newStyles2021 #performanceNav #dropMenu #dropMenuInner .col-3 { width: 18%;}
+.header_min .topMenu .topMenuItem #dropMenu div ul li a {font-family: 'Avenir Next' !important; font-style: normal; font-weight: 600; font-size: 12px; line-height: 18px; text-transform: capitalize; color: #215D6B;}
+.newStyles2021 header {max-width: 100% !important; padding: 15px 150px !important;}
+.header_min .topMenu .topMenuItem #dropMenu {background: #F4F7F7 !important; bbox-shadow: none !important; padding: 0 190px;}
+.header_min .topMenu .topMenuItem #dropMenu::after {content: '';display:none; background: #E5E9EC; width: 38%; height: 100%; position: absolute; right: 0; top: 0;}
+.header_min .topMenu .topMenuItem #dropMenu #dropMenuInner .col-4 {margin-top: 0px; padding-top: 3px; margin-bottom: 0; padding-bottom: 5px; margin-right: 0; max-width: 36.3%; width: 36.3%; background: #E5E9EC; position: relative; z-index: 9; padding-left: 15px; margin-left: 0;}
+.header_min .topMenu .topMenuItem #dropMenu #dropMenuInner .col-4 .flexCol.center.ie-fix1 {width: 71%; max-width: 100%;}
+.header_min .topMenu .topMenuItem #dropMenu #dropMenuInner .col-4 .flexCol.ml-16 {width: 50%;}
+.header_min .topMenu .topMenuItem #dropMenu #dropMenuInner .col-4 .flexCol.ml-16 .imgTransparency {width: 100%; max-width: 100%;margin: 42px 0 0 20px;}
+.header_min .topMenu .topMenuItem #dropMenu #dropMenuInner .col-4 .flexCol.ml-16 .imgTransparency img {width: 100%; max-width: 100%;}
+.header_min .topMenu .topMenuItem #dropMenu div .flexRow .flexCol {text-align: left;}
+#dropMenu {min-height: 259px !important; height: 259px !important; }
+#performanceNav #dropMenu {min-height: 242px !important; height: 242px !important;}
+#brandNav #dropMenu { min-height: 280px !important; height: 280px !important;}
+#dropMenuInner { display: block; padding-left: 16px; padding-right: 0px; margin-left: 72px !important;}
+#dropMenuInner > div.col-5.pt-12 { background-color: #e5e9ec; margin: 0px 0 0 16px; padding: 0px 0px 0px;border-right: 1px solid #ccc;}
+.header_min .topMenu .topMenuItem #dropMenu div .flexRow .flexCol h2 {font-family: 'Avenir Next' !important; font-style: normal; font-weight: 600; font-size: 16px; line-height: 150%; color: #393D40; margin: 10px 0 16px 0;}
+.header_min .topMenu #brandNav #dropMenu div .flexRow .flexCol h2 {font-family: 'Avenir Next' !important; font-style: normal; font-weight: 600; font-size: 16px; line-height: 150%; color: #393D40; margin: 30px 0 16px 0;}
+#brandNav #dropMenu #dropMenuInner > div:nth-child(3) {margin-top: 8px;}
+#brandNav #dropMenu #dropMenuInner .col-4.pt-8 {min-height: 280px;height: 280px;margin-left: 20px;max-width: 33.3%;width: 33.3%;}
+.header_min .topMenu .topMenuItem #dropMenu div .flexRow .flexCol .detailText {font-family: 'Avenir Next' !important; font-style: normal; font-weight: normal !important; font-size: 12px; line-height: 150%; color: #393D40;}
+.header_min .topMenu .topMenuItem #dropMenu div .flexRow .flexCol button {background: #355C7E !important; border-radius: 4px; width: auto; display: inline-block; max-width: inherit; font-family: 'Avenir Next' !important; font-style: normal; font-weight: 600; font-size: 16px; line-height: 150%; color: #FFFFFF; padding: 0; margin: 15px 0 12px 0;}
+.newStyles2021 .header_min .topMenu .topMenuItem #dropMenu .perfTeaser h2 {font-family: 'Avenir Next' !important;font-style: normal;font-weight: 600;font-size: 16px !important; line-height: 150% !important; color: #393D40 !important;}
+.newStyles2021 .header_min .topMenu .topMenuItem #dropMenu .perfTeaser p.mb-16 { font-family: 'Avenir Next' !important; font-style: normal; font-weight: normal; font-size: 12px; line-height: 150%; color: #393D40; margin-top: 18px;}
+.newStyles2021 .header_min .topMenu .topMenuItem #dropMenu .perfTeaser button.mt-16.mb-8 {font-family: 'Avenir Next';font-style: normal;font-weight: 600; font-size: 16px; line-height: 150%; color: #FFFFFF;}
+.header_min .topMenu #benefitsNav #dropMenu #dropMenuInner div .noBullets li {width: 25%; margin:0 0 24px 0; padding: 0 12px; background: transparent; border: 0; min-height: auto; line-height: normal;}
+.header_min .topMenu #benefitsNav #dropMenu #dropMenuInner div .noBullets li:last-child{width:50%;}
+.header_min .topMenu #benefitsNav #dropMenu #dropMenuInner div .noBullets li a {font-family: Avenir Next !important; font-style: normal; font-weight: 600; font-size: 12px; line-height: 18px; display: flex; align-items: center; text-align: center; text-transform: capitalize; color: #355C7E; background: #FFFFFF; box-shadow: 0px 2px 5px rgba(53, 92, 126, 0.2); border-radius: 4px; padding: 0 16px; height: 60px;}
+.headerOuter header ul li > a:after{content:'';}
+.headerOuter header ul li > a:hover:after {content: ''; position: absolute; top: 45px;  left: 0; right: 0; width: 100%; height: 2px; background: #0B4756;}
+.header_min .topMenu .topMenuItem #dropMenu div ul li a:after{display:none;}
+
+
+.headerOuter header ul li#favoritesNav #dropMenu #dropMenuInner h4 {display: none;}
+.headerOuter header ul li#favoritesNav #dropMenu #dropMenuInner h4 + hr{display:none;}
+.headerOuter header ul li#favoritesNav #dropMenu #dropMenuInner .picks-container .pick-img {width: 100%; display: inline-block; margin: 0; padding: 0;}
+.headerOuter header ul li#favoritesNav #dropMenu #dropMenuInner .picks-container p a {font-family: Avenir Next !important; font-style: normal; font-weight: normal; font-size: 12px; line-height: 150%; color: #393D40; text-transform: capitalize; width: 100%; display: inline-block;}
+.headerOuter header ul li#favoritesNav #dropMenu #dropMenuInner .picks-container .prod-link-text {font-family: Avenir Next !important; font-style: normal; font-weight: 600 !important; font-size: 12px; line-height: 18px; text-transform: capitalize; color: #355C7E !important; margin: 16px 0 0 0;}
+.headerOuter header ul li#favoritesNav #dropMenu #dropMenuInner .picks-container p {width: 100%; margin: 8px 0 0 0; padding: 0; display: inline-block;}
+.headerOuter header .header_right .header_right_menu #performanceNav #dropMenu::after {width: 71%;}
+.headerOuter header .header_right .header_right_menu #performanceNav #dropMenu #dropMenuInner .col-5 {position: relative; z-index: 9;}
+.headerOuter header .header_right .header_right_menu #performanceNav #dropMenu #dropMenuInner .perfTeaser {padding: 0 10px 0 0; border: 0; align-items: flex-start; justify-content: flex-start; border-right: 1px solid #C6D2D4; border-radius: 0;}
+.headerOuter header .header_right .header_right_menu #performanceNav #dropMenu #dropMenuInner .perfTeaser div h2 {font-family: Avenir Next !important; font-style: normal; font-weight: 600; font-size: 16px; line-height: 150%; color: #393D40; margin: 0 0 15px 0; padding: 0 !important;}
+.headerOuter header .header_right .header_right_menu #performanceNav #dropMenu #dropMenuInner .perfTeaser div .mb-16 {font-family: Avenir Next !important; font-style: normal; font-weight: normal; font-size: 12px; line-height: 150%; color: #393D40; max-width: 236px;}
+.headerOuter header .header_right .header_right_menu #performanceNav #dropMenu #dropMenuInner .perfTeaser div .mt-16.mb-8 {background: #355C7E !important; border-radius: 4px; width: auto; min-width: auto; margin: 0; padding: 0 24px; font-family: Avenir Next !important; font-style: normal; font-weight: 600; font-size: 16px;line-height: 150%; color: #FFFFFF;}
+.headerOuter header .header_right .header_right_menu #performanceNav #dropMenu #dropMenuInner .perfTeaser div {width: 50% !important; max-width: 100% !important;}
+.headerOuter header .header_right .header_right_menu #performanceNav #dropMenu #dropMenuInner .perfTeaser div img {width: auto !important; max-width: 150px; float: right;}
+.headerOuter header .header_right .header_right_menu .topMenu #brandNav #dropMenu div img {display: inline-block; margin: 0 0 10px 0; padding: 0;}
+.headerOuter header .header_right .header_right_menu .topMenu #brandNav #dropMenu div .mt-8 {font-family: Avenir Next !important; font-style: normal; font-weight: normal; font-size: 16px; line-height: 150%; color: #393D40;}
+.headerOuter header .header_right .header_right_menu .topMenu #brandNav #dropMenu div .mt-8 a {font-family: Avenir Next !important; font-style: normal; font-weight: 600; font-size: 12px !important; line-height: 18px; text-transform: capitalize; color: #355C7E;}
+.newStyles2021 #desktopSearchContainer {top: 0; position: relative; z-index: 9999; max-width: 1285px; left: -17px; padding:15px 0; background: #fff; border: 0;}
+.newStyles2021 #desktopSearchContainer .vital-header-search-box {background: #FFFFFF; border: 1px solid #C6D2D4; box-sizing: border-box; border-radius: 4px; height: 40px; max-height: 40px;}
+.newStyles2021 #desktopSearchContainer .vital-header-search-box .search__button.icon-search {background: transparent url(https://cdn.shopify.com/s/files/1/0518/0335/7361/files/Vector.svg?v=1608229541) no-repeat !important; border: 0; height: 40px !important; background-position: 50% 40% !important;}
+.newStyles2021 #desktopSearchContainer .closeLink.headerIcons {height: 40px;}
+.newStyles2021 #desktopSearchContainer .vital-header-search-box .search__button.icon-search span {display: none !important;}
+#shopify-section-footer {width: 100%; float: left; margin: 0px 0 0 0; padding: 0; background: #ECE5DD;}
+#shopify-section-footer .footer {background-color: #ECE5DD !important; width: 100%; float: left; margin: 0; padding: 80px 15px 40px 15px;}
+#shopify-section-footer .footer .footer-logo {width: 100%; float: left; margin: 0 0 25px 0; padding: 0;}
+#shopify-section-footer .footer .two .footer_menu {width: 100%; float: left; margin: 0; padding: 0;}
+#shopify-section-footer .footer .two .footer_menu .toggle_content {width: 100%; float: left; margin: 0; padding: 0;}
+#shopify-section-footer .footer .two .footer_menu .toggle_content ul {margin: 0; padding: 0; float: left; width: 100%;}
+#shopify-section-footer .footer .two .footer_menu .toggle_content ul li {display: inline-block; margin: 0 0 14px 0; padding: 0; width: 100%;}
+#shopify-section-footer .footer .two .footer_menu .toggle_content ul li:last-child{margin:0;}
+#shopify-section-footer .footer .two .footer_menu .toggle_content ul li a {font-family: Avenir Next !important; font-style: normal; font-weight: normal; font-size: 16px; line-height: 150%; color: #393D40 !important;}
+#shopify-section-footer .footer .five .newsletter_section {width: 100%; float: left; margin: 0; padding: 0;}
+#shopify-section-footer .footer .five .newsletter_section h5 {width: 100%; float: left; margin: 0 0 24px 0; padding: 0; font-style: normal; font-weight: normal; font-size: 20px; line-height: 90%; color: #393D40;	font-family: 'Playfair Display', serif !important; max-width: 334px;text-transform: unset;}
+#shopify-section-footer .footer .five .newsletter_section h5 .news-message {margin: 0; padding: 0; text-transform: full-size-kana;}
+#shopify-section-footer .footer .five .newsletter_section .newsletter #email_signup .klaviyo_form_actions .klaviyo_submit_button {background: #355C7E !important; border-radius: 4px; font-family: Avenir Next !important; font-style: normal; font-weight: 600; font-size: 16px; line-height: 150%; color: #FFFFFF; width: auto; max-width: 100%; min-width: auto; text-transform: unset !important;}
+#shopify-section-footer .footer .five .newsletter_section .newsletter #email_signup .klaviyo_field_group {width: 100%; padding: 0 16px 0 0;}
+#shopify-section-footer .footer .five .newsletter_section .newsletter #email_signup .klaviyo_field_group #k_id_email {width: 100%; text-align: left; padding: 0 15px; font-family: Avenir Next !important; font-style: normal; font-weight: normal; font-size: 16px; line-height: 150%; color: #888888; border: 1px solid #C6D2D4; box-sizing: border-box; border-radius: 2px; margin: 0;}
+#shopify-section-footer .footer .five .newsletter_section .newsletter #email_signup .klaviyo_field_group #k_id_email::-webkit-input-placeholder {color: #888888;}
+#shopify-section-footer .footer .five .newsletter_section .newsletter #email_signup .klaviyo_field_group #k_id_email:-ms-input-placeholder {color: #888888;}
+#shopify-section-footer .footer .five .newsletter_section .newsletter #email_signup .klaviyo_field_group #k_id_email::placeholder {color: #888888;}
+.footer-section .newsletter_section .newsletter {width: 100%; margin: 0 0 30px 0;}
+#shopify-section-footer .footer .five .newsletter_section .social_icons {float: left; margin: 0; padding: 0; display: flex; align-items: center; justify-content: center;}
+#shopify-section-footer .footer .five .newsletter_section .social_icons li {width: auto; margin: 0 20px 0 0; padding: 0; display: inline-block;}
+#shopify-section-footer .footer .five .newsletter_section .social_icons li:last-child{margin:0;}
+#shopify-section-footer .footer .five .newsletter_section .social_icons li a {font-size: 22px; margin: 0 !important; padding: 0; line-height: normal;}
+#shopify-section-footer .footer .five .newsletter_section .social_icons li a:before{display:none;}
+#shopify-section-footer .footer .five .newsletter_section .social_icons li a::after {width: 22px; height: 22px; float: left; background-size: 22px 22px; background-repeat: no-repeat !important; vertical-align: middle;}
+#shopify-section-footer .footer .five .newsletter_section .social_icons li .icon-twitter:after {content: ""; background: url(https://cdn.shopify.com/s/files/1/0518/0335/7361/files/twitter.png?v=1608895293);}
+#shopify-section-footer .footer .five .newsletter_section .social_icons li .icon-facebook:after {content: ""; background: url(https://cdn.shopify.com/s/files/1/0518/0335/7361/files/facebook.png?v=1608895293);}
+#shopify-section-footer .footer .five .newsletter_section .social_icons li .icon-youtube:after {content: ""; background: url(https://cdn.shopify.com/s/files/1/0518/0335/7361/files/youtube.png?v=1608895293); }
+#shopify-section-footer .footer .five .newsletter_section .social_icons li .icon-pinterest:after {content: ""; background: url(https://cdn.shopify.com/s/files/1/0518/0335/7361/files/Vector.png?v=1608895293);}
+#shopify-section-footer .footer .five .newsletter_section .social_icons li .icon-instagram:after {content: ""; background: url(https://cdn.shopify.com/s/files/1/0518/0335/7361/files/instagram.png?v=1608895293);}
+#shopify-section-footer .footer .five .newsletter_section .footer-hashtag {font-style: normal; font-weight: normal; font-size: 20px !important; line-height: 90%; color: #393D40; margin: 0 0 0 15px; font-family: 'Playfair Display', serif !important; text-transform: inherit;}
+#shopify-section-footer .footer .sixteen.columns.row.footer_credits {width: 100%; float: left; margin: 70px 0 0 0; padding: 0; text-align: left;}
+#shopify-section-footer .footer .sixteen.columns.row.footer_credits .fda-statement {width: 100%; float: left; margin: 0 0 48px 0; padding: 0; text-align: left; font-family: Avenir Next !important; font-style: normal; font-weight: normal; font-size: 12px; line-height: 150%; color: #393D40; max-width: 470px;}
+#shopify-section-footer .footer .sixteen.columns.row.footer_credits .credits {width: 100%; float: left; margin: 0; padding: 0; text-align: left; font-family: Avenir Next !important; font-style: normal; font-weight: normal; font-size: 12px; line-height: 150%; color: #393D40;}
+#shopify-section-footer .footer .five .newsletter_section .newsletter #email_signup .klaviyo_messages {position: absolute; bottom: 35px; left: 2px;}
+.headerOuter header ul li#favoritesNav #dropMenu #dropMenuInner .picks-container h3 {font-family: Avenir Next !important; font-style: normal; font-weight: 600; font-size: 16px; line-height: 150%; color: #393D40; letter-spacing: 0.8px; margin: 10px 0 0 0;}
+.header_min .topMenu #benefitsNav #dropMenu #dropMenuInner div h4 {display: none;}
+.header_min .topMenu #benefitsNav #dropMenu #dropMenuInner div h4 + hr{display: none;}
+.header_right_menu .vital-header-search-box button.search__button.icon-search {background-color: transparent !important;border: none !important; box-shadow: none !important;margin-top: 0;}
+.headerOuter header .header_right .header_right_menu #brandNav #dropMenu #dropMenuInner .col-2.pt-8 + .col-3.pt-8 {   position: relative; margin-top: 0;  margin-bottom: 0; padding-top: 0; padding-bottom: 0;}
+.headerOuter header .header_right .header_right_menu #brandNav #dropMenu #dropMenuInner .col-2.pt-8 + .col-3.pt-8 .brandTeaser { position: absolute; min-height: 289px; background-size: cover;}
+.headerIcons svg path {fill: #355C7E !important;}
+.cartCount{background: #EF3A4C !important; right: -10px !important; top: -1px !important;}
+#shopify-section-product-coffee-v3 #pagecontent {padding: 0px !important;}
+
+.displayMenu{z-index: 99999 !important;}
+
+.topMenu #languageNav #dropMenu {width: 444px; margin: 0 auto; padding: 32px 31px 30px 33px; left: auto; background: #fff !important;}
+.topMenu #languageNav #dropMenu #dropMenuInner {margin: 0; padding: 0;}
+.topMenu #languageNav #dropMenu #dropMenuInner .language_div {width: 100%; float: left; margin: 0; padding: 0;}
+.topMenu #languageNav #dropMenu #dropMenuInner .language_div .language_text {border-bottom: 1px solid #ECE5DD; width: 100%;  float: left; margin: 0 0 18px 0; padding: 0;}
+.topMenu #languageNav #dropMenu #dropMenuInner .language_div .language_text h3 {font-style: normal; font-weight: 900; font-size: 21px;line-height: 125%; text-transform: uppercase !important; color: #393D40; margin: 0 0 16px 0;}
+.topMenu #languageNav #dropMenu #dropMenuInner .language_div .language_text p {font-style: normal; font-weight: normal; font-size: 16px; line-height: 150%; color: #393D40; margin: 0 0 30px 0;}
+.topMenu #languageNav #dropMenu #dropMenuInner .language_div .language_bar {width: 100%; float: left; margin: 0; padding: 0;}
+.topMenu #languageNav #dropMenu #dropMenuInner .language_div .language_bar .canada {font-style: normal; font-weight: 600; font-size: 16px; line-height: 150%; color: #393D40; width: 100%; margin:0 0 16px 0; padding: 0;}
+.topMenu #languageNav #dropMenu #dropMenuInner .language_div .language_bar .canada span {font-style: normal; font-weight: 600;font-size: 16px; 	line-height: 150%; color: #393D40; display: inline-block; margin: 0 0 0 10px; padding: 0; float: none; width: auto;}
+.topMenu #languageNav #dropMenu #dropMenuInner .language_div .language_bar span {font-family: Avenir Next; font-style: normal; font-weight: 600; font-size: 16px; line-height: 150%; color: #355C7E; float: left; width: 50%; padding:0 0 0 36px;}
+.topMenu #languageNav #dropMenu:after{display:none;}
+
+.article-jen-a #pagecontent{padding-top:36px !important;}
+.quote-box-image {position: relative;}
+.pdp-quote-box .quote-box-image:after{content: ' '; width: 10%; height: 0; padding-bottom: 10%; background-image: url('//cdn.shopify.com/s/files/1/2074/9385/t/289/assets/play-icon.svg?v=5087301010523263495'); position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); background-size: contain; background-repeat: no-repeat;}
+
+.article-jen-a .header_min .topMenu .topMenuItem #dropMenu #dropMenuInner .col-4 {width: 33%;}
+.article-jen-a .header_min .topMenu .topMenuItem #dropMenu #dropMenuInner .col-4 {width: 33%;}
+.article .header_min .topMenu .topMenuItem #dropMenu #dropMenuInner .col-4{width: 33%;}
+.mobile_nav-fixed--false .tailwind{padding: 35px 0 0 0;}
+.article #pagecontent{padding-top: 0 !important;}
+.article .cartCount {   background: #EF3A4C !important; right: -33px !important; top: -2px !important; z-index: 9;}
+.article-jen-a .cartCount {   background: #EF3A4C !important; right: -33px !important; top: -2px !important; z-index: 9;}
+.article-jen-a .headerOuter header .header_right .header_right_menu #brandNav #dropMenu #dropMenuInner .col-2.pt-8 + .col-3.pt-8 .brandTeaser{min-height: 280px;}
+#dropMenu{min-height: 289px;}
+.mobile_nav-fixed--false #pagecontent {padding-top: 0 !important;}
+.no-touchevents {padding-bottom: 0 !important;}
+
+#shopify-section-160548118507fcac75 .heroContent {position: absolute; top: 54%; left: 0; width: 100%; bottom: 0; display: inline-block; transform: translate(0,-50%);}
+#shopify-section-160548118507fcac75 .heroContent .container {max-width: 1140px; padding: 0 10px;}
+.banner_text {max-width: 450px;}
+#shopify-section-1605481337ae236559 .newStyles2020 .container {max-width: 1160px;margin: 0 auto; padding: 0 0;}
+#shopify-section-1605481337ae236559 .newStyles2020 .container .grid-3 {width: 100%; margin: 0; padding: 0;}
+#shopify-section-1605481337ae236559 .newStyles2020 .container .grid-3 .bgWhite {width: 31.6%; margin: 0 10px; padding: 0 0;}
+#shopify-section-1605481337ae236559 .cardContent {text-align: left !important; align-items: flex-start; padding: 0px 30px;}
+#shopify-section-1605481337ae236559 .cardContent h2 {font-family: 'KapraNeue' !important; text-align: left; font-size: 24px; font-weight: 500; line-height: 36px; margin: 55px 0 15px 0 !important; color: white;}
+#shopify-section-1605481337ae236559 .cardContent p {font-family: 'Avenir Next' !important; font-size: 12px; font-weight: 400; color: white; line-height: 18px; margin-bottom: 5px !important;}
+#shopify-section-1605481337ae236559 .cardContent button.buttonWhite.mt-16 {text-transform: uppercase;font-family: 'Avenir Next'; font-weight:600; font-size: 12px; line-height: 18px; background-color: transparent; padding: 0px; margin: 25px 0 0;  display: block !important; border: none !important; min-height: 20px; outline: none; box-shadow: none !important; height: 20px;}
+#shopify-section-1605481337ae236559 .newStyles2020 h2 {margin: 0 0 20px 0;}
+#shopify-section-16054905822ec2980e .whit-is-collagen {width: 1140px; margin: 0 auto; height: 400px;}
+#shopify-section-1605534235ad6819f9 .pdp-ja-subscribe-break-wrapper.inf-styles {background-color: transparent; width: 1140px; margin: 0 auto;}
+.what-is-collagen-text .box-wrapper .box-body {max-width: 400px;}
+#shopify-section-160548132650428f42 .grid-4 { text-align: left !important; max-width: 1160px ; width: 1160px;margin:0 auto;}
+div#shopify-section-160548132650428f42 {margin-bottom: 30px;}
+#shopify-section-16054813673edf11f7 .cc-form {width: 465px;}
+#shopify-section-160548132650428f42 .product-meta-text { text-align: left !important; justify-content: left;}
+#shopify-section-160548132650428f42 .newProductCard { max-width: 23%; width: 22.95%; display: inline-flex; margin: 0 10px 30px;  padding: 0 !important; border: 0px solid #ececec; }
+#shopify-section-160548132650428f42 .newProductCard a {background-color: #E4E9ED;}
+#shopify-section-collection-template h1 {font-family: 'KapraNeue';font-size: 40px;line-height: 50px; text-transform: uppercase; color: #393D40;font-weight: 500;}
+#shopify-section-1605534235ad6819f9 .pdp-ja-subscribe-break-wrapper.inf-styles .container{max-width: 1400px; width: 100%;}
+
+
+
+
+
+
+
+
+  
+@media screen and (max-width:798px) and (min-width: 320px) {  
+/*==================== Footer ==================== */
+    .newStyles2021 .footer .footer-menu-wrap h6.active {border: 0;}
+    #shopify-section-footer .footer {padding: 15px 0 40px;}
+    #shopify-section-footer .footer .footer-logo {display: none;}
+    .footer .footer-menu-wrap h6 {border-bottom:1px solid #D2CCC6; margin-bottom: 0; padding: 10px 3px 10px; display: block; color: #fff; border-top: 0;}
+    .footer .footer-menu-wrap h6:last-child{border:0;}
+    #shopify-section-footer .footer .two .footer_menu h6 span {	padding: 6px 0 !important;}
+    #shopify-section-footer .footer .two .footer_menu .toggle_content {width: 100%; float: left; margin: 0 0 15px 0; padding: 0;}
+    #shopify-section-footer .footer .five .newsletter_section .newsletter #email_signup .klaviyo_field_group {width: 100%; padding: 0 0 0 0;}
+    .newStyles2021 .footer .footer-menu-wrap h6 a {font-family: Avenir Next !important; font-style: normal; font-weight: 600; font-size: 16px; line-height: 150%; color: #393D40 !important;}
+    #shopify-section-footer .footer .two .footer_menu h6 span::before {content: ''; background: url(https://cdn.shopify.com/s/files/1/0518/0335/7361/files/plusminus_icon_8a5356b7-a0b0-412a-84c4-71b0e8f483ed.png?v=1609003401) no-repeat; width: 13px; height: 8px;}
+    #shopify-section-footer .footer .five .newsletter_section h5 {border: 0; text-align: center; margin: 0 0 30px 0;}
+    #shopify-section-footer .footer .five .newsletter_section h5 #subscribe-to-email-detail {font-family: Playfair Display !important; font-style: normal; font-weight: normal; font-size: 20px; line-height: 150%; text-align: center; color: #393D40;}
+    #shopify-section-footer .footer .five .newsletter_section .newsletter #email_signup .klaviyo_form_actions {width: 100%; text-align: center;}
+    #shopify-section-footer .footer .five .newsletter_section .newsletter #email_signup .klaviyo_form_actions .klaviyo_submit_button {background: #355C7E !important; border-radius: 4px; font-family: Avenir Next !important; font-style: normal; font-weight: 600; font-size: 16px; line-height: 150%; color: #FFFFFF; max-width: 100%; min-width: auto; width: 100%;}
+    #shopify-section-footer .footer .five .newsletter_section .social_icons {margin: 7px 0 0 0; width: 100%;}
+    #shopify-section-footer .footer .five .newsletter_section .footer-hashtag {font-style: normal; font-weight: normal; font-size: 20px !important; line-height: 90%; color: #393D40; margin: 20px 0 0 0; font-family: 'Playfair Display', serif !important; text-transform: inherit; width: 100%; float: left;}
+    #shopify-section-footer .footer .sixteen.columns.row.footer_credits {width: 100%; float: left; margin:25px 0 0 0 !important; padding: 0; text-align: center;}
+    #shopify-section-footer .footer .sixteen.columns.row.footer_credits .fda-statement {width: 100%; float: left; margin: 0 0 30px 0; padding: 0; text-align: center; font-family: Avenir Next !important; font-style: normal;	font-weight: normal; font-size: 12px; line-height: 150%; color: #393D40; max-width: 100%;}
+    #shopify-section-footer .newStyles2021 .footer .footer-menu-wrap .columns {margin: 0 auto !important; width: 100%; padding: 0 15px;} 
+    #shopify-section-footer .footer .five .newsletter_section {text-align: center;}
+    #shopify-section-footer .footer .five .newsletter_section h5 {border: 0; text-align: center; margin: 30px auto 30px auto; float: none;}
+    #shopify-section-product-coffee-v3 #pagecontent {padding: 60px !important;}
+    .article-jen-a #pagecontent{padding-top:75px !important;}
+    #shopify-section-1605481337ae236559 .newStyles2020 .container .grid-3 .bgWhite {width: 100%; margin: 0 0 15px 20px; padding: 0 0;}
+    #shopify-section-1605481337ae236559 .cardContent {text-align: left !important; align-items: flex-start; padding: 0px 30px; justify-content: center !important;}
+    #shopify-section-1605481337ae236559 .newStyles2020 h2 {margin: 0 0 20px 0; top: 0; position: static;}  
+    #shopify-section-16054905822ec2980e .whit-is-collagen {width:100%; margin: 0 auto; height: auto;}
+    .banner_text {max-width: 210px;}
+    #shopify-section-160548118507fcac75 .heroContent{position: absolute; top:60% !important; left: 0; width: 100%; bottom: 0; display: inline-block; bottom: auto;}
+    #shopify-section-160548118507fcac75 .heroContent h1 a {font-family: 'Avenir Next' !important; font-size: 12px; color: white; line-height: 18px; letter-spacing: 1px; font-weight: 600; text-transform: none !important; border: 2px solid white; border-radius: 5px; width: 240px; text-align: center; padding: 10px 0; border: 0; text-transform: uppercase !important;}
+    #shopify-section-160548118507fcac75 .heroContent {position: absolute; 	top: 40%; left: 0; width: 100%; bottom: 0; display: inline-block; bottom: auto;}
+    #shopify-section-160548118507fcac75 .heroContent a::after {content: ""; width: 32px; height: 2px; display: inline-block; position: absolute; background: #fff; left: 0; top: 0;}
+    #shopify-section-160548118507fcac75 .heroContent h1 {font-size: 40px; color: #ffffff; line-height: 150%; font-weight: 500; text-transform: uppercase !important; letter-spacing: 1px !important; text-align: left !important; font-family: 'KapraNeue' !important;}
+}
+
+@media screen and (max-width:1100px) and (min-width: 799px) {
+    #shopify-section-footer .footer{padding:80px 20px 40px 20px;}
+    #shopify-section-footer .footer .five .newsletter_section .newsletter #email_signup .klaviyo_field_group #k_id_email{min-width:auto;}
+    #shopify-section-footer .footer .five .newsletter_section .newsletter #email_signup .klaviyo_field_group {width: 100%; padding: 0 16px 0 0; float: left;}
+    #shopify-section-footer .footer .five .newsletter_section .newsletter #email_signup .klaviyo_form_actions {width: 100%;}
+    #shopify-section-footer .footer .five .newsletter_section .newsletter #email_signup .klaviyo_field_group {width: 100%; padding: 0; float: left;}
+    #shopify-section-footer .footer .five .newsletter_section .newsletter #email_signup .klaviyo_form_actions .klaviyo_submit_button{width:100%;}
+    #shopify-section-1605481337ae236559 .newStyles2020 .container {max-width: 1160px;margin:0 auto; padding: 0 0; width: 100%;} 
+    #shopify-section-1605481337ae236559 .newStyles2020 .container .grid-3 .bgWhite {width: 31.6%; margin: 0 10px; padding: 0 0;}
+    #shopify-section-1605481337ae236559 .cardContent {text-align: left !important; align-items: flex-start; padding: 0px 30px; justify-content: center !important;}
+    #shopify-section-1605481337ae236559 .newStyles2020 h2{top:0;}  
+}
+
+@media screen and (max-width:1221px) and (min-width: 1101px) {
+    #shopify-section-1605481337ae236559 .newStyles2020 .container {max-width: 1160px;margin:0 auto; padding: 0 0; width: 100%;} 
+    #shopify-section-1605481337ae236559 .newStyles2020 .container .grid-3 .bgWhite {width: 31.6%; margin: 0 10px; padding: 0 0;}
+    #shopify-section-1605481337ae236559 .cardContent {text-align: left !important; align-items: flex-start; padding: 0px 30px; justify-content: center !important;}
+    #shopify-section-1605481337ae236559 .newStyles2020 h2{top:0;}  
+}
+
+
+@media screen and (max-width: 1220px) and (min-width: 320px) {
+/*==================== Header ==================== */
+
+  .newStyles2021 header {max-width: 100% !important; padding: 15px 20px !important;}
+  .headerOuter header .header_left #menuIcon {display: none !important;}
+  .headerOuter header .header_right .header_right_menu {display: inline-block;}
+  .vital-header-search-box{display:none !important;}
+  .newStyles2021 header{height:60px !important;}
+  .headerOuter header .header_right .header_right_menu .headerIcons_bar .headerIcons#menuIcon {position: absolute; left: 0; top:20px; height: auto;}
+  .headerOuter header .header_right .header_right_menu .headerIcons_bar .headerIcons#tablet-search {position: absolute; left: 45px; top: 20px; height: auto;}
+  .headerOuter header .header_center {width: auto; float: none; margin: 23px 0 0 0; padding: 0; text-align: center;}
+  .headerOuter header .header_center div {display: inline-block !important; margin: 0; padding: 0;}
+  .headerOuter header .header_right {width: auto; margin: 0; padding: 0; float: right;}
+  .headerOuter header .header_left {width: auto; float: left; margin: 0; padding: 0; display: flex; align-items: center;}
+  .headerOuter header .header_right .header_right_menu .headerIcons_bar .headerIcons {width: auto; display: inline-block; margin: 0 0 0 30px; padding: 0;}
+  .headerOuter header .header_right .header_right_menu .headerIcons_bar .headerIcons.cartBox {position: absolute; right: 20px; top: 20px; height: auto;}
+  .headerOuter header .header_right .header_right_menu .headerIcons_bar .headerIcons.login_icon {position: absolute; right: 65px; top: 20px; height: auto; margin: 0;}
+  #shopify-section-header .newStyles2021 #desktopSearchContainer {width: 75%; padding: 10px 0; left: 0;}
+  #shopify-section-header .newStyles2021 .displaySearch {margin-bottom: -75px;height: 40px;background:transparent;}
+  #shopify-section-header .newStyles2021 #desktopSearchContainer.displaySearch .vital-header-search-box {display: block !important;margin-top: 3px; width: 100%;margin-left: 15px;}
+  #shopify-section-header .newStyles2021 #desktopSearchContainer .closeLink.headerIcons {	position: absolute;	right: 10px;top: 13px;}
+  #shopify-section-header .newStyles2021 #desktopSearchContainer .closeLink.headerIcons .svg-inline--fa.fa-times.fa-w-11 {width: 10px; cursor: pointer;}
+  .displayMenu .mobileNavigationHeader .headerIcons .svg-inline--fa.fa-times.fa-w-11 {display: none;}
+  #shopify-section-footer .footer .sixteen.columns.row.footer_credits .credits{text-align:center;}
+  .displayMenu .mobileNavigationHeader .headerIcons {	background: url(https://cdn.shopify.com/s/files/1/0518/0335/7361/files/short_left.png?v=1609002685) no-repeat; background-position: 50%; background-size: 16px 12px; cursor: pointer; width: 50px;}
+  .newStyles2021 .displayMenu .mobileNavigationHeader {margin: 0 0 16px 0;}
+  .displayMenu .mobileNavigationContent ul {padding:0 0 !important;}
+  .displayMenu .mobileNavigationContent ul li {width: 100%; margin: 0 0 16px 0 !important; padding: 0 15px 16px 16px !important; border-bottom: 1px solid #E5E9EC !important; font-family: Avenir Next !important; font-style: normal; font-weight: 600; font-size: 16px; line-height: 150%; color: #355C7E;}
+  .displayMenu .mobileNavigationContent ul li .plusminus {font-size: 0; background: url(https://cdn.shopify.com/s/files/1/0518/0335/7361/files/plusminus_icon_8a5356b7-a0b0-412a-84c4-71b0e8f483ed.png?v=1609003401) no-repeat; width: 13px; height: 8px; margin: 9px 10px 0 0; cursor: pointer;}
+  .displayMenu .mobileNavigationContent ul .sub-menu {width: 100%; margin: -73px 0 16px 0; padding: 56px 0 0 0; background: #F4F7F7;border-bottom: 1px solid #E5E9EC;}
+  /*.displayMenu .mobileNavigationContent ul .sub-menu::after {content: ""; background: #F4F7F7; position: absolute; left: -20px; top: 0; width: 10%; height: 100%;}
+  .displayMenu .mobileNavigationContent ul .sub-menu::before {content: ""; background: #F4F7F7; position: absolute; right:-20px; top: 0; width: 10%; height: 100%;} */
+  .displayMenu .mobileNavigationContent ul .sub-menu .pl-16 {width: 100%; display: inline-block; max-width: 100% !important; padding: 0 16px; max-width: 100%;}
+  .displayMenu .mobileNavigationContent ul .sub-menu .pl-16 div {width: 100% !important; padding: 0; margin: 0;}
+  .displayMenu .mobileNavigationContent ul .sub-menu .pl-16 div h4 , .displayMenu .mobileNavigationContent ul .sub-menu .pl-16 h4{font-family: Avenir Next !important; font-style: normal; font-weight: 600; font-size: 12px; line-height: 18px; color: #355C7E; margin: 0 0 16px 0; text-transform: uppercase !important;}
+  .displayMenu .mobileNavigationContent ul .sub-menu .pl-16 div .altDivider, .displayMenu .mobileNavigationContent ul .sub-menu .pl-16 .altDivider {display: block; margin-bottom: 20px; border-top: 1px solid #C6D2D4;}
+  .displayMenu .mobileNavigationContent ul .sub-menu .pl-16 div ul {margin: 0;  padding: 0 !important;}
+  .displayMenu .mobileNavigationContent ul .sub-menu .pl-16 div ul li, .displayMenu .mobileNavigationContent ul .sub-menu .pl-16 ul li {margin: 0 !important; padding: 0 0 24px 0 !important; border: 0 !important;}
+  .displayMenu .mobileNavigationContent ul .sub-menu .pl-16 div ul li a , .displayMenu .mobileNavigationContent ul .sub-menu .pl-16 ul li a {font-family: Avenir Next !important; font-style: normal; font-weight: 600; font-size: 12px !important; line-height: 18px; text-transform: uppercase; color: #355C7E !important;}
+  .displayMenu .mobileNavigationContent ul .sub-menu img {top: 0; margin: 0 0 10px 0;}
+  .displayMenu .mobileNavigationContent ul .sub-menu .mt-8 {margin: 0 0 20px 0; font-family: Avenir Next !important; font-style: normal; font-weight: 600; font-size: 12px; line-height: 18px; text-transform: capitalize; color: #355C7E;}
+  .displayMenu .mobileNavigationContent ul .sub-menu .mt-8 a {margin: 8px 0 20px 0; font-family: Avenir Next !important; font-style: normal; font-weight: 600; font-size: 12px !important; line-height: 18px; text-transform: capitalize; color: #355C7E !important;}
+  .displayMenu .mobileNavigationContent ul .sub-menu .pl-16 div .pick-img {margin: 0 0 16px 0;}
+  .displayMenu .mobileNavigationContent ul .sub-menu .pl-16 div .prod-link-text {font-family: Avenir Next !important; font-style: normal; font-weight: 600 !important; font-size: 12px !important; line-height: 18px; color: #355C7E !important; margin: 0 0 10px 0;}
+  .displayMenu .mobileNavigationContent ul .sub-menu .pl-16 div p a {	font-family: Avenir Next !important; font-style: normal; font-weight: 600; font-size: 12px !important; line-height: 18px; color: #355C7E !important; margin: 0 0 10px 0;}
+  .displayMenu .mobileNavigationContent ul .sub-menu div h2 {font-family: Avenir Next !important; font-style: normal; font-weight: 600; font-size: 12px; line-height: 18px; color: #355C7E; margin: 0 0 16px 0; text-transform: uppercase !important;}
+  .displayMenu .mobileNavigationContent ul .sub-menu div .mb-16 {font-family: Avenir Next !important; font-style: normal; font-weight: 600; font-size: 12px !important; line-height: 18px; color: #355C7E !important;}
+  .displayMenu .mobileNavigationContent ul .sub-menu div a { font-family: Avenir Next !important; font-style: normal; font-weight: 600; font-size: 12px !important; line-height: 18px; color: #355C7E !important;}
+  .displayMenu .mobileNavigationContent ul li a {font-family: Avenir Next !important; font-style: normal; font-weight: 600; font-size: 16px; line-height: 150%; color: #355C7E !important;}
+}
+@media screen and (max-width: 2400px) and (min-width: 1600px) {
+	.newStyles2021 .header_min {width: 66%;}
+	.newStyles2021 .topMenu { padding-left: 0px !important;}
+	#shopify-section-16054813673edf11f7 .cc-intro-page-inner { width: 1340px;}
+	div#tablet-search { display: none;}
+  	.single-product-list {left: 324px !important;}
+  	.influencer-cust-1 {max-width: 59.5% !important;}
+  	.header_min .vital-header-search-box { margin-left: 10px;margin-right: 15px;}
+  	#performanceNav #dropMenu {min-height: 280px !important;height: 280px !important;}
+  	.perfTeaser {padding: 24px 24px 6px ;}
+}
+@media screen and (max-width: 1500px) and (min-width: 1400px) {
+  	#dropMenuInner .perfTeaser div:nth-child(1) {width: 650px;}
+  	.perfTeaser {padding: 24px 24px 70px !important;}
+  	.header_min .topMenu .topMenuItem #dropMenu div .flexRow .flexCol h2 { margin: 0px 0 16px 0;}
+  	.header_min .topMenu .topMenuItem #dropMenu #dropMenuInner .col-4 .flexCol.center.ie-fix1 { padding: 20px 0 0px;}
+  	#performanceNav #dropMenu { min-height: 260px !important;height: 260px !important;}
+  	.header_min .topMenu .topMenuItem #dropMenu #dropMenuInner .col-4 { height: 260px;}
+} 
+@media screen and (max-width: 1920px) and (min-width: 1400px) {
+  	.topMenuItem .single-product-list {width: 13% !important;left: 324px !important;}
+  	.pdp-ja-favorites .newStyles2021 .grid-4 {margin-left: 132px !important;}
+  	.pdp-ja-favorites .newStyles2021 .grid-4 .newProductCard {max-width: 362px;width: 362px;}
+  	.influencer-cust-1 {max-width: 59.5%;}
+  	#dropMenu {min-height: auto !important;height: auto !important;}
+  	.newStyles2021 .mb-16 {	margin-bottom: 0px !important;}
+  	#shopify-section-1605534235ad6819f9 .influencer-cust-1 { max-width: 100% !important;}
+  	.newStyles2021 .header_min {width: 1140px;}
+  	#performanceNav #dropMenu {min-height: 280px !important;height: 280px !important;}
+  	.perfTeaser {padding: 24px 24px 6px !important;}
+  	.header_min .topMenu .topMenuItem #dropMenu #dropMenuInner .col-4 .flexCol.ml-16 .imgTransparency {margin: 0px 0 0 20px;}
+  	.header_min .topMenu .topMenuItem #dropMenu #dropMenuInner .col-4 {height: 280px;}
+  	.header_min .topMenu .topMenuItem #dropMenu #dropMenuInner .col-4 .flexCol.ml-16 {padding: 40px 0 0;}
+  	.header_min .topMenu .topMenuItem #dropMenu #dropMenuInner .col-4 .flexCol.center.ie-fix1 {padding: 20px 0 60px;}
+}
+@media screen and (max-width: 1500px) and (min-width: 1221px) {
+  .newStyles2021 .header_min {width: 88.5%;}
+  .newStyles2021 header {max-width: 100% !important; padding: 15px 20px !important;}
+  .headerOuter header .header_right .header_right_menu .headerIcons_bar .headerIcons {margin: 0 0 0 20px;}
+  .header_min .topMenu .topMenuItem #dropMenu{padding:0 20px;}
+  .header_min .topMenu #productsNav #dropMenu {padding: 0 20px;left: 172px;}
+  .header_min .topMenu .topMenuItem #dropMenu::after {width: 34.5%;}
+  .headerOuter header .header_right .header_right_menu #performanceNav #dropMenu::after {width: 74%;}
+  #shopify-section-1605481337ae236559 .newStyles2020 .container {max-width: 1160px;margin:0 auto; padding: 0 0; width: 100%;} 
+  #shopify-section-1605481337ae236559 .newStyles2020 .container .grid-3 .bgWhite {width: 31.6%; margin: 0 10px; padding: 0 0;}
+  #shopify-section-1605481337ae236559 .cardContent {text-align: left !important; align-items: flex-start; padding: 0px 30px; justify-content: center !important;}
+  #shopify-section-1605481337ae236559 .newStyles2020 h2{top:0;}
+  div#tablet-search { display: none;}
+}
+
+@media screen and (max-width: 1789px) and (min-width: 1501px) {
+  .header_min .topMenu .topMenuItem #dropMenu::after {width:38%;}    
+  .headerOuter header .header_right .header_right_menu #performanceNav #dropMenu:after {width: 68%;}
+
+}
+
+
+
+
+/* ====================== 18-2-2021====================== */
+
+#dropMenuInner{margin-left:0 !important;}
+.topMenu #productsNav {position: relative;}
+body #productsNav #dropMenu.single-product-list {width: 199px !important; padding: 0 20px !important; min-height: 175px !important; height: 175px !important; left: -38px !important;}
+.topMenu #performanceNav #dropMenu #dropMenuInner .col-4.pt-12:after {content: ""; background: #E5E9EC; position: absolute; right: -100%; width: 100%; height: 100%; top: 0; left: auto; z-index: -8;}
+.topMenu #brandNav #dropMenu #dropMenuInner .col-4.pt-8:after {content: ""; background: #E5E9EC; position: absolute; right: -100%; width: 100%; height: 100%; top: 0; left: auto; z-index: -8;}
+.newStyles2021 .header_min {width: 1133px;}
+#dropMenuInner > div.col-5.pt-12 {min-height: 280px;}
+.header_min .topMenu .topMenuItem #dropMenu {padding: 0 342px;}
+.newStyles2021 .header_min .topMenu .topMenuItem #dropMenu .perfTeaser button.mt-16.mb-8{font-size:14px;}
+.container .twelve.columns, .container .sixteen.columns {width: 100%; max-width: 1160px; margin: 0 auto; float: none; display: block;}
+.pdp-redesign-wrapper .js-product_section {margin-top: 40px; max-width: 1178px; margin-left: auto; margin-right: auto;}
+.quote-box-text {padding: 0 0 0 108px !important; justify-content: flex-start !important;}
+body.product-dynamic-variants .pdp-ja-favorites .newStyles2021 .grid-4 {margin-left: auto !important; max-width:1152px !important; width: 100% !important;}
+body.product-pdp-2021 .pdp-ja-favorites .newStyles2021 .grid-4 {margin-left: auto !important; max-width:1152px !important; width: 100% !important;}
+body .shopify-section .newStyles2020 .heroContainer .heroContent .container {max-width: 1162px !important;}
+.pdp-redesign-wrapper .information-section {max-width: 1180px; margin-left: auto; margin-right: auto; background: none;}
+.pdp-ja-favorites .newStyles2021 .grid-4 .newProductCard{margin:0 6px 30px;}
+.pdp-quote-box p.quote-body {width: 100%;}
+.purchase.clearfix.inline_purchase .action_button.add_to_cart {width: 100%; margin: 10px 0 0 0;	padding: 0; max-width: 100%;}
+
+
+
+@media screen and (max-width: 1600px) and (min-width: 900px) {
+.header_min .topMenu .topMenuItem #dropMenu {padding: 0 180px;}
+/* #dropMenuInner > div.col-5.pt-12 {min-height: auto !important;} */
+
+  
+#dropMenuInner {margin: 0 auto !important; max-width: 1220px !important; width: 100%;} 
+.header_min .topMenu .topMenuItem #dropMenu {padding: 0 0px !important;	margin: 0 auto !important; left: 0; right: auto; width: 100%;}  
+  
+}
+@media screen and (max-width: 1680px) and (min-width: 1050px) {
+.header_min .topMenu .topMenuItem #dropMenu {padding: 0 220px;}
+}
+@media screen and (max-width: 1366px) and (min-width: 768px) {
+#dropMenuInner > div.col-5.pt-12 {min-height: auto !important;}
+.header_min .topMenu .topMenuItem #dropMenu {padding: 0 56px !important;}
+.newStyles2021 .mb-16 {margin-bottom: 19px !important;}
+.header_min .topMenu .topMenuItem #dropMenu #dropMenuInner .col-4{padding-bottom: 14px;}
+.newStyles2021 .header_min {width: 100%; max-width: 1140px;}
+.influencer-cust-1 {max-width: 1140px !important; width: 100% !important;}
+.pdp-ja-favorites .newStyles2021 .grid-4 .newProductCard {margin: 0 9px 30px;}
+#shopify-section-16054813673edf11f7 .cc-form {width: 450px;}
+  
+#dropMenuInner {margin: 0 auto !important; max-width: 1220px !important; width: 100%;} 
+.header_min .topMenu .topMenuItem #dropMenu {padding: 0 0px !important;	margin: 0 auto !important; left: 0; right: auto; width: 100%;}  
+  
+}
+
+@media screen and (max-width:767px) and (min-width: 320px) {
+  .headerOuter header .header_right .header_right_menu .headerIcons_bar .headerIcons#menuIcon {left: 15px; margin: 0;}
+.headerOuter header .header_right .header_right_menu .headerIcons_bar .headerIcons#tablet-search {left: 55px; margin: 0;}
+.headerOuter header .header_right .header_right_menu .headerIcons_bar .headerIcons.cartBox {right: 25px; margin: 0;}
+.headerOuter header .header_right .header_right_menu .headerIcons_bar .headerIcons.login_icon {right: 60px;}
+#shopify-section-1605481337ae236559 {margin: 30px auto 10px; width: 100% !important;}
+#shopify-section-16054813673edf11f7 h4.box-header {font-size: 27px; line-height: normal;}
+#shopify-section-16133850530a092be8 h2 {font-size: 27px;line-height: normal;}
+#shopify-section-1613382006a1ee0546 {padding: 0; margin: 0 0 30px; background: transparent; display: inline-block; text-align: center; border: none;}
+#shopify-section-1613382006a1ee0546 blockquote {font-size: 18px; line-height: 25px; border: none;}  
+#shopify-section-1613382933937324fe h2{font-size:30px;}
+  #shopify-section-1613382933937324fe h2 { font-size: 30px;margin: 0 0 40px 0;}
+#shopify-section-1613382006a1ee0546 blockquote span {margin: 14px 0 0; display: inline-block;  width: 100%;}
+.what-is-collagen-text .box-wrapper {padding: 26px 20px 40px;}
+#shopify-section-16133850530a092be8 {background-color: #ECE5DD; margin: 10px 0 0;}
+#shopify-section-160548132650428f42 .newProductCard {width: 260px; max-width: 100%;}
+#shopify-section-16054905822ec2980e .col-md-6 {width: 100%; display: inline-block; padding: 0px !important; background: transparent; text-align: center;}
+#shopify-section-16054905822ec2980e h4.box-header{text-align: center;}
+#shopify-section-16054905822ec2980e p.box-body {text-align: center; max-width: 100%;}
+#shopify-section-16054905822ec2980e a {text-align: center !important;margin: 0 auto;}
+#shopify-section-16054813673edf11f7 .cc-form {width: 465px; margin: 0 auto;}
+#shopify-section-16054905822ec2980e img.whit-is-collagen-2 {width: 100%; height: auto;}
+#shopify-section-16054905822ec2980e {margin-bottom: 0px;}
+.cc-input-section {margin: 30px 0 0 0;}
+#shopify-section-16054813673edf11f7 .what-is-collagen-text {background: transparent; padding: 0 15px 0 0;}
+#shopify-section-1605534235ad6819f9 .pdp-ja-subscribe-break-wrapper.inf-styles {width: 100%; margin: 0 auto; max-width: 1140px; padding: 0 15px;}
+#shopify-section-1613382006a1ee0546 {text-align: center; width: 100%;}
+#shopify-section-1613382006a1ee0546 .index .container {width: 100%; margin: 0 auto; float: none; display: block;}
+#shopify-section-1605534235ad6819f9 h4{font-size:30px;}
+#shopify-section-header .newStyles2021 #desktopSearchContainer.displaySearch .vital-header-search-box {margin-left: 0; margin-right: 0;}
+#shopify-section-header .newStyles2021 #desktopSearchContainer {width: 77%; padding: 10px 0; left: 0; margin-top: 0; top: 30px;}
+.cc-intro-page-inner {flex-direction: row !important; display: flex; flex-wrap: wrap;}
+#shopify-section-16054813673edf11f7 .what-is-collagen-text {background: #fff; padding: 0 15px 0 0;}
+#shopify-section-16054813673edf11f7 .what-is-collagen-text {background: #fff; padding: 0 0 0 0;}
+#shopify-section-16054813673edf11f7 .cc-info-container {background-color: #fff; order: 0;}
+#shopify-section-16054813673edf11f7 .cc-form-container {background: #fff; padding-bottom: 60px; order: 1;}
+#shopify-section-16054813673edf11f7 h4.box-header{text-align:center;}
+#shopify-section-16054813673edf11f7 p.box-body{text-align:center;}
+#shopify-section-16054813673edf11f7 a {margin: 0 auto; text-align: center !important;}
+
+#shopify-section-collection-template .four.columns.test.thumbnail {width: 100% !important; margin: 0 auto 24px;}
+#shopify-section-collection-template .four.columns.test.thumbnail .product-wrap {height: auto; background-color: #f6f9f9;}
+#shopify-section-collection-template .container.collection {width: 100%; margin: 0 auto; padding: 80px 15px 0;}
+ 
+  
+.pdp-redesign-wrapper .js-product_section {margin-top: 60px;}
+.pdp-redesign-wrapper .pdp-price {font-weight: 500; font-size: 32px; line-height: 125%;}
+.pdp-redesign-wrapper .title-price-wrapper .title-wrapper + div {display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end;}
+.pdp-redesign-wrapper .title-price-wrapper .title-wrapper + div .was_price {order: 1; display: block; width: 100%; text-align: right;}
+.pdp-redesign-wrapper .title-price-wrapper .title-wrapper + div .was_price .money {font-size: 12px;  color: #393D40;}
+.pdp-redesign-wrapper .pdp-price {color: #393D40; font-family: 'KapraNeue'; letter-spacing: 0.3px; font-weight: 500; font-size: 32px; line-height: 125%;}
+.pdp-redesign-wrapper .product-form-container .product-form-info-images-wrapper {margin: 0 0 50px 0 !important; background-color: transparent !important; width: 100% !important;}
+.pdp-redesign-wrapper .title-price-wrapper {padding: 0 15px;}
+.pdp-redesign-wrapper .product-form-info-images-wrapper .product_gallery {margin-bottom: 0; max-width: 100%;}
+.pdp-redesign-wrapper .flickity-page-dots {width: 100%; margin-left: 0px !important; bottom: -55px !important;}
+.pdp-form-inputs-wrapper {border: 0; margin-top: 0px;}
+.pdp-redesign-wrapper input[type="number"].qty-number{color:#000;}
+.inner-disclaimer-container span {text-align: center; font-style: normal !important;}
+.information-section-wrapper .nav-slider {width: 100%; padding: 10px 0 20px;}
+.quote-box-text {padding: 30px 0 0 0 !important; justify-content: flex-start !important;}
+.pdp-ja-what-is-collagen-box.whit-is-collagen .what-is-collagen-text {background-color: transparent; width: 100%; text-align: center; padding: 70px 20px 0 !important;}
+.pdp-ja-what-is-collagen-box.whit-is-collagen a {max-width: 170px;}
+.pdp-redesign-wrapper .product-form-container .pdp-form-inputs-wrapper {width:100% !important; margin-right: 19px; padding: 15px;}
+.quote-box-text > div{width:100%;}
+.pdp-quote-box p.quote-body {width: 100%; margin: auto;}
+.quote-body span {font-size: 80px; line-height: 20px !important; height: 40px;}
+.pdp-ja-what-is-collagen-box.whit-is-collagen {width: 100%; argin: 0 auto; height: auto; padding: 0 0;}
+.what-is-collagen-text .box-wrapper {padding: 26px 20px; margin: 0 auto;}
+.pdp-ja-what-is-collagen-box.whit-is-collagen h4.box-header {text-align: center;}
+.pdp-ja-what-is-collagen-box.whit-is-collagen p.box-body {text-align: center; margin: 0 auto 15px;}
+.pdp-ja-what-is-collagen-box.whit-is-collagen a {max-width: 170px; margin: 0 auto; text-align: center !important;}
+
+.pdp-redesign-wrapper .featured-carousel {margin-bottom: 0px; padding-bottom: 50px; background-color: #E5E9EC; padding: 0 0 20px;}
+.pdp-redesign-wrapper .mobile-show {padding: 10px 0 !important;}
+.product-dynamic-variants .pdp-redesign-wrapper .product-form-container .pdp-form-inputs-wrapper .inner-cta-container {padding: 0 0 !important;}
+body.product-dynamic-variants .pdp-redesign-wrapper .pdp-ja-favorites {margin: 60px auto 60px !important;}
+
+
+
+
+
+
+
+
+
+
+  
+  
+}
+
+@media screen and (max-width:480px) and (min-width: 320px) {
+#shopify-section-header .newStyles2021 #desktopSearchContainer {width: 75%; padding: 10px 0; left: 0; margin-top: 0; top: 0px;}
+.headerOuter header .header_right .header_right_menu .headerIcons_bar .headerIcons.cartBox {right: 12px; margin: 0;}
+  
+}
+
+@media screen and (max-width:991px) and (min-width:768px) {
+#shopify-section-1613382006a1ee0546 {display: inline-block; width: 100%; padding: 20px 0;}
+#shopify-section-1613382006a1ee0546 .newStyles2020 blockquote {border: 0; text-align: center;}
+#shopify-section-1613382933937324fe .newStyles2020 h2 { margin: 0 0 40px 0;}
+#shopify-section-1605481337ae236559 {margin: 60px auto 50px; width: 100% !important; display: block;}
+#shopify-section-160548132650428f42 .grid-4 {text-align: left !important; max-width: 100%; width: 100%; margin: 0 auto;}
+#shopify-section-160548132650428f42 .newProductCard {max-width: 340px !important; width: 340px !important;}
+#shopify-section-16054905822ec2980e .col-md-6 { width: 100%; display: inline-block; padding: 0px !important; flex: 0 0 100%; max-width: 100%;}
+#shopify-section-16054813673edf11f7 .cc-form {width: 450px; margin: 0 auto;}
+#shopify-section-16054905822ec2980e{margin-bottom:0;}
+.cc-input-section {	margin: 30px 0 0 0;}
+#shopify-section-16054813673edf11f7 .what-is-collagen-text {background: transparent; padding: 0 15px 0 0;}
+#shopify-section-1605534235ad6819f9 .pdp-ja-subscribe-break-wrapper.inf-styles {background-color: transparent; width: 100%; margin: 0 auto; max-width: 1140px; padding: 0 15px;}
+#shopify-section-1605481337ae236559 .newStyles2020 .container .grid-3 .bgWhite { width: 30.6%; margin: 0 10px; padding: 0 0;}
+#shopify-section-footer .newStyles2021 div.container {padding: 0px; margin: 0 auto; width: 100%; max-width: 1145px !important;}
+#shopify-section-header .newStyles2021 #desktopSearchContainer {margin-top: 0; top: 30px;}
+#shopify-section-16054905822ec2980e .whit-is-collagen {width: 1140px; margin: 0 auto; height: auto;} 
+/* .collagen-calc-wrapper-inner .cc-info-container {width: 40%; display: flex; justify-content: center; align-items: center;background: #ffffff;} */
+#shopify-section-16054813673edf11f7 .cc-form{width:100%;}
+#shopify-section-16054813673edf11f7 .cc-input-section {border-radius: 8px; padding: 30px 15px;}
+.what-is-collagen-text .box-wrapper {padding: 26px 20px; width: 100%; max-width: 100%; text-align: center; margin: 0 auto;}  
+#shopify-section-16054905822ec2980e .whit-is-collagen {width: 100%; margin: 0 auto; height: auto; max-width: 1140px;}
+#shopify-section-16054905822ec2980e .col-md-6 {width: 100%; display: inline-block; padding: 0px !important; flex: 0 0 100%; /* max-width: 100%; */ background: transparent; margin: 0 auto;}
+#shopify-section-16054905822ec2980e h4.box-header{text-align:center;}
+#shopify-section-16054905822ec2980e p.box-body {text-align: center; margin: 0 auto 40px;}
+#shopify-section-16054905822ec2980e a{margin:0 auto;}
+
+#shopify-section-collection-template .container.collection {width: 100%; margin: 90px auto 0; padding: 0 15px;}
+.container div.thumbnail.even {clear: none;}
+.container .thumbnail.even, .container .thumbnail.odd {width: 239px !important;}
+
+  
+.pdp-redesign-wrapper .js-product_section {margin-top: 60px;}
+.pdp-redesign-wrapper .pdp-price {font-weight: 500; font-size: 32px; line-height: 125%;}
+.pdp-redesign-wrapper .title-price-wrapper .title-wrapper + div {display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end;}
+.pdp-redesign-wrapper .title-price-wrapper .title-wrapper + div .was_price {order: 1; display: block; width: 100%; text-align: right;}
+.pdp-redesign-wrapper .title-price-wrapper .title-wrapper + div .was_price .money {font-size: 12px;  color: #393D40;}
+.pdp-redesign-wrapper .pdp-price {color: #393D40; font-family: 'KapraNeue'; letter-spacing: 0.3px; font-weight: 500; font-size: 32px; line-height: 125%;}
+.pdp-redesign-wrapper .product-form-container .product-form-info-images-wrapper {margin: 50px 0 50px 0 !important; background-color: transparent !important; width: 100% !important;}
+.pdp-redesign-wrapper .title-price-wrapper {padding: 0 15px;}
+.pdp-redesign-wrapper .product-form-info-images-wrapper .product_gallery {margin-bottom: 0; max-width: 100%;}
+.pdp-redesign-wrapper .flickity-page-dots {width: 100%; margin-left: 0px !important; bottom: -55px !important;}
+.pdp-form-inputs-wrapper {border: 0; margin-top: 0px;}
+.pdp-redesign-wrapper input[type="number"].qty-number{color:#000;}
+.inner-disclaimer-container span {text-align: center; font-style: normal !important;}
+.information-section-wrapper .nav-slider {width: 100%; padding: 10px 0 20px;}
+.quote-box-text {padding: 30px 0 0 0 !important; justify-content: flex-start !important;}
+.pdp-ja-what-is-collagen-box.whit-is-collagen .what-is-collagen-text {background-color: transparent; width: 100%; text-align: center; padding: 0 20px 0 !important; flex: 0 0 100%; max-width: 100%;}
+.pdp-ja-what-is-collagen-box.whit-is-collagen a {max-width: 170px;}
+.pdp-redesign-wrapper .product-form-container .pdp-form-inputs-wrapper {width:100% !important; margin-right: 19px; padding: 15px;}
+.quote-box-text > div{width:100%;}
+.pdp-quote-box p.quote-body {width: 100%; margin: auto;}
+.quote-body span {font-size: 80px; line-height: 20px !important; height: 40px;}
+.pdp-ja-what-is-collagen-box.whit-is-collagen {width: 100%; argin: 0 auto; height: auto; padding: 0 0;}
+.what-is-collagen-text .box-wrapper {padding: 26px 20px; margin: 0 auto;}
+.pdp-ja-what-is-collagen-box.whit-is-collagen h4.box-header {text-align: center;}
+.pdp-ja-what-is-collagen-box.whit-is-collagen p.box-body {text-align: center; margin: 0 auto 15px;}
+.pdp-ja-what-is-collagen-box.whit-is-collagen a {max-width: 170px; margin: 0 auto; text-align: center !important;}
+.pdp-ja-what-is-collagen-box.whit-is-collagen .what-is-collagen-image {width: 100%; height: 200px; flex: 0 0 100%; max-width: 100%;}
+div.container {margin: 0 auto; padding: 20px 15px;}
+  
+.pdp-redesign-wrapper .featured-carousel {margin-bottom: 0px; padding-bottom: 50px; background-color: #E5E9EC; padding: 0 0 20px;}
+.pdp-redesign-wrapper .mobile-show {padding: 10px 0 !important;}
+.product-dynamic-variants .pdp-redesign-wrapper .product-form-container .pdp-form-inputs-wrapper .inner-cta-container {padding: 0 0 !important;}
+body.product-dynamic-variants .pdp-redesign-wrapper .pdp-ja-favorites {margin: 60px auto 60px !important;}  
+
+
+}
+
+@media screen and (max-width:1220px) and (min-width:992px) {
+#shopify-section-1605481337ae236559 .newStyles2020 .container .grid-3 .bgWhite {width: 30.6%; margin: 0 10px; padding: 0 0;}
+#shopify-section-1605481337ae236559 .newStyles2020 .container .grid-3 .bgWhite {width: 31.1%; margin: 0 10px; padding: 0 0;}
+#shopify-section-160548132650428f42 .newProductCard {max-width: 100%; width: 300px; display: inline-flex; margin: 0 10px 30px; padding: 0 !important; border: 0px solid #ececec;}
+#shopify-section-1605534235ad6819f9 .pdp-ja-subscribe-break-wrapper.inf-styles {background-color: transparent; width: 100%; margin: 0 auto; max-width: 1140px; padding: 0 15px;}
+#shopify-section-footer .newStyles2021 div.container {padding: 0px; margin: 0 auto; width: 100%; max-width: 1145px !important;}
+#shopify-section-header .newStyles2021 #desktopSearchContainer {margin-top: 0; top: 30px;}
+#shopify-section-collection-template .container.collection {width: 100%; margin: 0 auto; padding: 0 15px;}
+.pdp-redesign-wrapper .product-form-container .product-form-info-images-wrapper{margin-left: 0 !important;}
+.headerOuter header .header_right .header_right_menu .headerIcons_bar .headerIcons#menuIcon{ left: 22px; margin: 0;}
+.quote-box-text {padding: 0 0 0 60px !important; justify-content: flex-start !important;}  
+body.product-pdp-2021 .pdp-ja-favorites .newStyles2021 .grid-4 {padding: 0 15px;}
+.pdp-ja-what-is-collagen-box.whit-is-collagen {width: 100%; margin: 0 auto; height: 400px; max-width: 1140px;}
+.newStyles2020 {margin: 50px 0 0; padding: 0 15px;}
+
+.pdp-redesign-wrapper .js-product_section {	padding: 0 15px;}
+.product-dynamic-variants .pdp-redesign-wrapper .product-form-container .pdp-form-inputs-wrapper {margin-right:0 !important;}
+.product-dynamic-variants .newStyles2020 {padding: 0 10px;}
+  
+}
+@media screen and (max-width:1365px) and (min-width:1221px) {
+#shopify-section-160548132650428f42 .newProductCard {max-width: 100%; width: 300px;}
+#dropMenuInner {margin: 0 auto !important; max-width: 1220px !important; width: 100%;} 
+.header_min .topMenu .topMenuItem #dropMenu {padding: 0 0px !important;	margin: 0 auto !important; left: 0; right: auto; width: 100%;}
+  
+}
+
+.newProductCard button.action_button:after{display:none!important;}
+#shopify-section-16054905822ec2980e p.box-body {
+    font-family: 'Avenir Next';
+    font-size: 16px;
+    line-height: 24px !important;
+    font-weight: 400;
+    color: black;
+    text-align: left;
+    letter-spacing: 0px!important;
+}
+#shopify-section-16054813673edf11f7 p.box-body {
+    font-size: 16px;
+    text-align: left;
+    font-family: 'Avenir Next';
+    color: black;
+    line-height: 24px !important;
+    font-weight: 400;
+	    letter-spacing: 0px!important;
+}
+.v3-section .subscription-types-container-new .subscription-widget-select {
+border-radius: 4px;
+height: 40px;
+  border-color: #C6D2D4 ;
+}
+v3-section .subscription-types-container-new .subscription-widget-select {
+    border-radius: 4px;
+  color:#393D40 ;
+}
+#shopify-section-16054905822ec2980e a {
+background-color: transparent !important;
+border: none;
+padding: 0;
+white-space: nowrap;
+text-transform: uppercase;
+color: #355C7E;
+margin: 0;
+text-align: left !important;
+max-width: 110px;
+display: text-block;
+  font-weight:600;
+}
+#shopify-section-16054813673edf11f7 a {
+background-color: transparent !important;
+border: none;
+  font-weight:600;
+padding: 0;
+color: #355C7E;
+margin: 0;
+text-align: left !important;
+  white-space: nowrap;
+
+max-width: 110px;
+text-transform: uppercase;
+}
+#performanceNav
+{
+display:none!important;
+}
+.brandTeaser {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    min-height: 200px!important;
+    width: 100%;
+    display: block;
+    border-radius: 4px;
+  	margin-top: 3em!important;
+}#dropMenuInner .imgTransparency, #dropMenuInner .imgTransparency img {
+    mix-blend-mode: multiply;
+    max-width: 140px;
+    margin-top: 20px;
+}

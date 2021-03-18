@@ -1,0 +1,187 @@
+
+{% capture content %}
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="{{ shop.locale }}"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="{{ shop.locale }}"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="{{ shop.locale }}"> <![endif]-->
+<!--[if IE 9 ]><html class="ie ie9" lang="{{ shop.locale }}"> <![endif]-->
+<!--[if (gte IE 10)|!(IE)]><!--><html lang="{{ shop.locale }}"> <!--<![endif]-->
+<head>
+  {% include 'elevar-head' %}
+  <meta charset="utf-8">
+  <meta http-equiv="cleartype" content="on">
+
+  	<meta name="robots" content="index,follow">
+
+  {% comment %}
+    <!-- Custom Fonts -->
+    {% if settings.logo_font contains 'Google' or settings.headline_font contains 'Google' or settings.nav_font contains 'Google' or settings.slideshow_subtitle_font contains 'Google' or settings.slideshow_headline_font contains 'Google' or settings.regular_font contains 'Google' %}
+      <link href="//fonts.googleapis.com/css?family=.|{% if settings.logo_font contains 'Google' %}{{ settings.logo_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold|{% endif %}{% if settings.headline_font contains 'Google' %}{{ settings.headline_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold|{% endif %}{% if settings.nav_font contains 'Google' %}{{ settings.nav_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold|{% endif %}{% if settings.slideshow_headline_font contains 'Google' %}{{ settings.slideshow_headline_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold|{% endif %}{% if settings.slideshow_subtitle_font contains 'Google' %}{{ settings.slideshow_subtitle_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold|{% endif %}{% if settings.regular_font contains 'Google' %}{{ settings.regular_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold{% endif %}" rel="stylesheet" type="text/css" />
+    {% endif %}
+  {% endcomment %}
+  <!-- Stylesheets for Conspire 3.0.2 -->
+  {{ 'styles.scss.css' | asset_url | stylesheet_tag }}
+
+  {% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %}{% endif %}
+  <title>{% if template contains "index" %}{{ page_title }}{% else %}{{ page_title }}{% if current_tags %} {{ 'general.meta.tagged_html' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} {{ 'general.meta.page' | t: page_number: current_page }}{% endif %}{% unless page_title contains shop.name %} - {{ shop.name }}{% endunless %}{% endif %}</title>
+
+  {% if page_description %}
+    <meta name="description" content="{{ page_description | escape }}{% if current_tags %} {{ 'general.meta.tagged_html' | t: tags: meta_tags | escape }}.{% endif %}{% if current_page != 1 %} {{ 'general.meta.page' | t: page_number: current_page }}.{% endif %}" />
+  {% endif %}
+
+  {% include 'social-meta-info' %}
+
+  <!-- Mobile Specific Metas -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="{{ settings.shop_bg_color }}">
+
+  {% if settings.favicon != nil %}
+    <link rel="shortcut icon" type="image/x-icon" href="{{ settings.favicon | img_url: '32x32' }}">
+  {% else %}
+    <link rel="shortcut icon" type="image/x-icon" href="{{ 'favicon.png' | asset_url }}">
+  {% endif %}
+  <link rel="canonical" href="{{ canonical_url }}" />
+  
+  {{ content_for_header }}
+  
+  <script defer src="https://kit.fontawesome.com/80be4589ae.js" crossorigin="anonymous"></script>
+  <!-- jQuery Import -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- End jQuery Import -->
+  <!-- Optimizely -->
+  <script src="https://cdn.optimizely.com/js/17260515767.js"></script>
+  <!-- End Optimizely Import -->
+
+  <meta name="google-site-verification" content="f8yKrNvGNNYRUvRMeitXzxUtZ7qEDk-3s5TqmfYtxBE" />
+  <!-- Begin Talkable integration code -->
+  <script type="text/javascript">
+    window._talkableq = [['init', {
+      site_id: 'vital-proteins' // REQUIRED - Replace with your Talkable Site ID
+    }]];
+    {% if customer %}
+      _talkableq.push(['authenticate_customer', {
+        email:      '{{ customer.email }}',
+        first_name: '{{ customer.first_name }}',
+        last_name:  '{{ customer.last_name }}'
+      }]);
+    {% endif %}
+    _talkableq.push(['register_affiliate', {}]);
+  </script>
+  
+  <script defer src="https://d2jjzw81hqbuqv.cloudfront.net/integration/clients/vital-proteins.min.js" type="text/javascript"></script>
+  <!-- End Talkable integration code -->
+  
+  {% include 'gsf-conversion-pixels' %}
+  {% comment %}Animate on Slide package{% endcomment %}
+  <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+{% render 'gsf-conversion-pixels' %}
+  <script defer src="{{ 'lazysizes.min.js' | asset_url }}"></script>
+</head>
+
+<noscript>
+  <style>
+    .product_section .product_form {
+      opacity: 1;
+    }
+
+    .multi_select,
+    form .select {
+      display: block !important;
+    }
+  </style>
+</noscript>
+
+<body class="{{ template | replace: '.', '-' | handle }}"
+  data-money-format="{{ shop.money_format }}">
+
+
+  {% unless feature_image %}
+    <div class="container main content">
+  {% endunless %}
+
+    {{ content_for_layout }}
+  </div>
+
+  {% unless template contains 'index' or settings.secondary_newsletter_banner == false %}
+    {% section 'newsletter' %}
+  {% endunless %}
+
+ 
+  <script defer src="{{ 'moment.min.js' | asset_url }}"></script>
+  <script src="{{ 'app.js' | asset_url }}"></script>
+  
+  
+
+  <script>
+    {{ settings.custom_scripts }}
+  </script>
+  
+
+  <!-- google dynamic remarketing tag for theme.liquid -->
+{% if template contains 'product' %}
+<script type="text/javascript">
+  var json_product = {{ product | json }};
+</script>
+<script>
+  var ecomm_prodid=[];
+  for(var i=0;i<json_product.variants.length;i++)
+    ecomm_prodid.push('shopify_US_{{product.id}}_'+json_product.variants[i].id);
+</script>
+<script type="text/javascript">
+  var google_tag_params = {
+    ecomm_prodid: ecomm_prodid,
+    ecomm_pagetype: 'product',
+    ecomm_totalvalue: parseFloat('{{ product.price | money_without_currency | remove: ","}}')
+  };
+</script>
+{% elsif template contains 'collection' %}
+<script type="text/javascript">
+  var google_tag_params = {
+    ecomm_pagetype: 'category'
+  };
+</script>
+{% elsif template contains 'cart' %}
+<script type="text/javascript">
+  var id = new Array();
+  {% for item in cart.items %}
+  id.push('shopify_US_{{item.product.id}}_{{item.variant.id}}');
+   {% endfor %}
+
+   var google_tag_params = {
+     ecomm_prodid: id,
+     ecomm_pagetype: 'cart',
+     ecomm_totalvalue: parseFloat('{{ cart.total_price | money_without_currency | remove: ","}}')
+   };
+</script>
+{% elsif template contains 'search' %}
+<script type="text/javascript">
+  var google_tag_params = {
+    ecomm_pagetype: 'searchresults'
+  };
+</script>
+{% elsif template contains 'index' %}
+<script type="text/javascript">
+  var google_tag_params = {
+    ecomm_pagetype: 'home'
+  };
+</script>
+{% else %}
+<script type="text/javascript">
+  var google_tag_params = {
+    ecomm_pagetype: 'other'
+  };
+</script>
+{% endif %}
+{% include 'elevar-body-end' %}
+<!-- CRITEO START -->
+{% include 'criteo-tracking' %}
+<!-- CRITEO END -->
+
+</body>
+</html>
+{% endcapture %}
+{% assign content = content | replace_first: '<!DOCTYPE', '!DOCTYPE' | split: ' <' %}
+{% for html in content %}{% assign htmlblock = html | strip | prepend: ' <' %}{{htmlblock | replace: ' </', '</'}}{% endfor %}

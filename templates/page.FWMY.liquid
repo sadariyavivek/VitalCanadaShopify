@@ -1,0 +1,15 @@
+{% comment %}
+  The contents of the page.FYMY.liquid template can be found in /sections/feed-what-moves-you.liquid
+{% endcomment %}
+  <div role="navigation" class="breadcrumb_text center" itemscope itemtype="http://schema.org/BreadcrumbList">
+    <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a aria-label="Breadcrumb - {{ 'general.breadcrumbs.home' | t }}" href="{{ shop.url }}" title="{{ shop.name | escape }}" itemprop="item" class="breadcrumb_link"><span itemprop="name">{{ 'general.breadcrumbs.home' | t }}</span></a></span>
+    <span class="breadcrumb-divider">/</span>
+    <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      {% if page %}
+        <a aria-label="Breadcrumb - {{ page.title }}" aria-current="page" href="{{ page.url }}" title="{{ page.title | escape }}" itemprop="item" class="breadcrumb_link shop-link"><span itemprop="name">{{ page.title }}</span></a>
+
+      {% endif %}
+    </span>
+  </div>
+</div>
+{% section 'feed-what-moves-you' %}

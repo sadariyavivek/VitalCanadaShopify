@@ -1,0 +1,329 @@
+{% assign colorPrimary = '#23b6e6'  %}
+{% assign colorSecondary = '#ffcc31'  %}
+
+{% if page.metafields.vitalproteins.ingredient_color_primary %}
+	{% assign colorPrimary = page.metafields.vitalproteins.ingredient_color_primary %}
+{% endif %}
+
+{% if page.metafields.vitalproteins.ingredient_color_secondary %}
+	{% assign colorSecondary = page.metafields.vitalproteins.ingredient_color_secondary %}
+{% endif %}
+<style>
+  .new-container {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .ingredient-intro-section {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 60px;
+  }
+  
+  .ingredient-intro-section .intro-image-container {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .ingredient-intro-section .intro-image-container img {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: -20px 20px 0px {{ colorPrimary }};
+    border-radius: 20px;
+  }
+  
+  .ingredient-intro-section .intro-text-container {
+    width: 55%;
+  }
+  
+  .ingredient-intro-section .intro-text-container h1 {
+    text-transform: none;
+    letter-spacing: 1px !important;
+    color: {{ colorPrimary }};
+    font-size: 60px;
+    margin-bottom: 0;
+  }
+  
+  .ingredient-intro-section .intro-text-container p {
+    font-size: 24px;
+  }
+  
+  .ingredient-intro-section .intro-text-container a {
+    color: {{ colorPrimary }};
+    transition: .2s opacity linear;
+  }
+  
+  .ingredient-intro-section .intro-text-container a:hover {
+    color: {{ colorPrimary }};
+    opacity: 0.7;
+  }
+  
+  hr {
+    border-color: {{ colorPrimary }};
+  }
+  
+  .secondary-education-section {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 90px;
+  }
+  
+  .secondary-education-section h2 {
+    text-transform: none;
+    letter-spacing: 1px !important;
+    color: {{ colorPrimary }};
+    font-size: 48px;
+    margin-bottom: 0;
+  }
+  
+  .secondary-image-container {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .secondary-image-container img {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 20px 20px 0px {{ colorPrimary }};
+    border-radius: 20px;
+  }
+  
+  .secondary-text-container {
+    width: 55%;
+  }
+  
+  .secondary-text-container p {
+    font-size: 24px;
+  }
+  
+  .benefits-section {
+    max-width: 100%;
+    background-color: {{ colorPrimary }};
+    text-align: center;
+  }
+  
+  .benefits-section h3 {
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 1px !important;
+    font-size: 60px;
+    padding-top: 20px;
+  }
+  
+  .benefits-images-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding-bottom: 40px;
+  }
+  
+  .benefit-container {
+    width: 33.3%;
+  }
+  
+  .benefit-container:not(:last-child) {
+    border-right: 2px solid {{ colorSecondary }};
+  }
+  
+  .benefit-container img {
+    /*width: 50%;*/
+    max-height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .lively-section {
+    text-align: center;
+  }
+  
+  .lively-section h4 {
+    text-transform: none;
+    color: {{ colorPrimary }};
+    letter-spacing: 1px !important;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    font-size: 48px;
+    margin-bottom: 0;
+  }
+  
+  .blog-post-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-around;
+  }
+  
+  .blog-post-section h5 {
+    text-transform: uppercase;
+    font-family: 'kapraregular';
+    letter-spacing: 1px !important;
+    color: {{ colorPrimary }};
+    font-size: 36px;
+    margin-top: 20px;
+  }
+  
+  .blog-post-container {
+    width: 50%;
+    padding: 40px;
+    transition: .2s all ease-out;
+    -webkit-backface-visibility: hidden;
+  }
+  
+  .blog-post-container:hover {
+    opacity: 0.7;
+    -webkit-backface-visibility: hidden;
+  }
+  
+  .blog-post-container:focus {
+    border: 2px solid gray;
+  }
+  
+  
+  .blog-post-image {
+    background-size: cover;
+    background-position: 50%;
+    height: 320px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+  }
+  
+  @media (max-width: 800px) {
+    .ingredient-intro-section {
+      flex-direction: column;
+    }
+    
+    .ingredient-intro-section .intro-image-container {
+      width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .ingredient-intro-section .intro-text-container {
+      width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    
+    .secondary-education-section {
+      flex-direction: column-reverse;
+    }
+    
+    .secondary-image-container {
+      width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .secondary-text-container {
+      width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    
+    .benefits-images-container {
+      flex-direction: column;
+    }
+    
+    .benefit-container {
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 20px;
+    }
+    
+    .benefit-container:not(:last-child) {
+      border: none;
+    }
+    
+    .benefit-container img {
+      	width: 50%;
+    	max-height: initial;
+    }
+    
+    .blog-post-section {
+      flex-direction: column;
+    }
+    
+    .blog-post-container {
+      width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  
+</style>
+<a name="pagecontent" id="pagecontent"></a>
+</div>
+<div class="ingredient-showcase-wrapper animated fadeInUp" style="animation-delay: 0.5s; animation-duration: 0.6s;">
+  <div class="ingredient-intro-section new-container">
+    <div class="intro-image-container"><img src="{{ page.metafields.vitalproteins.ingredient_image_1 }}"/></div>
+    <div class="intro-text-container">
+      <h1>{{ page.metafields.vitalproteins.ingredient_name }}</h1>
+      <hr>
+      <p>Found in:</p>
+      {{ page.metafields.vitalproteins.ingredient_found_in }}
+    </div>
+  </div>
+  <div class="secondary-education-section new-container">
+    <div class="secondary-text-container">
+      {% assign whatIsCopy = "What is " | append: page.metafields.vitalproteins.ingredient_name | append: "?" %}
+      
+      {% if page.metafields.vitalproteins.ingredient_name == 'Probiotics' %}
+      	{% assign whatIsCopy = "What are " | append: page.metafields.vitalproteins.ingredient_name | append: "?" %}
+      {% endif %}
+      <h2>{{ whatIsCopy }}</h2>
+      <hr>
+      <p>{{ page.metafields.vitalproteins.ingredient_what_is_it }}</p>
+      <h2>{{ page.metafields.vitalproteins.ingredient_secondary_header }}</h2>
+      <hr>
+      <p>{{ page.metafields.vitalproteins.ingredient_what_does_it_do }}</p>
+    </div>
+    <div class="secondary-image-container"><img src="{{ page.metafields.vitalproteins.ingredient_image_2 }}"/></div>
+  </div>
+  <div class="benefits-section">
+    <div class="new-container">
+      <h3>BENEFITS</h3>
+      <div class="benefits-images-container">
+        <div class="benefit-container">
+          <img src="{{ page.metafields.vitalproteins.ingredient_benefit_1 }}"/>
+        </div>
+        <div class="benefit-container">
+          <img src="{{ page.metafields.vitalproteins.ingredient_benefit_2 }}"/>
+        </div>
+        <div class="benefit-container">
+          <img src="{{ page.metafields.vitalproteins.ingredient_benefit_3 }}"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="lively-section new-container">
+    <h4>Learn More from Lively</h4>
+    <div class="blog-post-section">
+      <a class="blog-post-container" href="{{ articles[page.metafields.vitalproteins.ingredient_blog_post_1].url }}">
+        <div class="blog-post-image" style="background-image: url('{{ articles[page.metafields.vitalproteins.ingredient_blog_post_1].image | img_url: '600x' }}')"></div>
+        <h5>{{ articles[page.metafields.vitalproteins.ingredient_blog_post_1].title }}</h5>
+      </a>
+      <a class="blog-post-container" href="{{ articles[page.metafields.vitalproteins.ingredient_blog_post_2].url }}">
+        <div class="blog-post-image" style="background-image: url('{{ articles[page.metafields.vitalproteins.ingredient_blog_post_2].image | img_url: '600x' }}')"></div>
+        <h5>{{ articles[page.metafields.vitalproteins.ingredient_blog_post_2].title }}</h5>
+      </a>
+    </div>
+  </div>
+</div>
+

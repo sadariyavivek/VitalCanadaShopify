@@ -1,0 +1,646 @@
+<style>
+
+  .v3-section h2 {
+      font-family: 'KapraNeue' !important;
+      text-transform: uppercase;
+      font-size: 36px;
+      font-weight: 500;
+      line-height: 45px;
+  }
+  .v3-section .v1-full-col {
+      margin: 0 auto;
+  }
+  .v3-section div.thumbnail.even:nth-child(1) {
+      padding-left: 0px !important;
+      padding-right: 20px !important;
+  }
+  .v3-section div.thumbnail.even:nth-child(3) {
+      padding-right: 0px !important;
+      padding-left: 20px !important;
+  }
+  .v3-section a.product-info__caption {
+      background: #F4F7F7;
+      margin: 0px !important;
+      padding: 25px 20px 0px;
+  }
+  .v3-section .product-meta-text {
+      width: 100%;
+      display: block;
+      height: 100% !important;
+  }
+  .v3-section span.title {
+      font-family: 'KapraNeue';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 36px;
+      text-transform: uppercase;
+      color: #393D40;
+      text-align: left;
+      display: block;
+  }
+  .v3-section span.meta-related-text {
+      font-family: 'Avenir Next';
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 24px;
+      color: #393D40;
+      text-align: left;
+      display: block;
+  }
+  .v3-section span.price.sale {
+      text-align: left;
+      padding-top: 15px;
+      margin-bottom: 0px !important;
+  }
+  .v3-section span.money {
+      font-family: 'KapraNeue';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 125%;
+      text-transform: uppercase;
+      color: #393D40 !important; 
+  }
+  .v3-section span.price.sale span.was_price span.money {
+      font-family: 'Avenir Next';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 150%;
+      text-decoration-line: line-through;
+      color: #888888 !important;
+  }
+  .v3-section .product-details form {
+      margin: 0 auto !important;
+      background-color: #f4f7f7;
+      padding: 20px 20px 20px;
+  }
+  .v3-section .product-details div:nth-child(3) {
+      margin: 0px !important;
+  }
+  .v3-section button.action_button.add_to_cart {
+      background: #355C7E !important;
+      border: 1px solid #355C7E !important;
+      font-size: 16px;
+      color: white;
+      text-transform: unset;
+      line-height: 24px;
+      font-weight: 400;
+      font-family: 'Avenir Next';
+      padding: 0 !important;
+      min-height: 40px !important;
+      height: 40px !important;
+      margin-top: 20px !important;
+  }
+  .v3-section button.action_button.add_to_cart span.text {
+      text-transform: capitalize !important;
+  }
+  .v3-section {
+    margin: 50px 0;
+    background-color: #ffffff !important;
+    padding-top: 0px !important;
+    padding-bottom: 25px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .v1-collection-slider .v1-section-inner {
+    display: flex;
+    width: 100%;
+    background-color: #ffffff;
+    min-height: 200px;
+    margin: 0 auto;
+    flex-direction: column;
+    padding-bottom: 20px;
+    padding-top: 50px;
+    position:relative;
+    overflow: hidden;
+  }
+
+  .v1-section-divider {
+    background: #f0f3f5;
+    height: 2px;
+    width: 100%;
+    max-width: 40%;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    margin-top: 25px;
+  }
+
+
+
+  .v3-section h4 {
+    font-family: 'avenir';
+    font-size: 28px;
+    line-height: 32px;
+    -webkit-font-smoothing: antialiased;
+    color: #393d40;
+    font-weight: 500;
+    text-transform: capitalize;
+    margin: 0px;
+  }
+
+  .v3-section p {
+    font-family: 'avenir';
+    color: #717F86;
+    font-size: 22px;
+    line-height: 30px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .v1-full-col {
+    display: flex;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-left:25px;
+    padding-right:25px;
+    flex-direction: column;
+    margin-top: 25px;
+    z-index:2;
+  }
+
+  .v1-two-col {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    z-index: 2;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .v1-two-col-left, .v1-two-col-right {
+    display:flex;
+    flex-direction:column;
+    width:50%;
+  }
+
+  .v1-two-col-right {
+    padding-left: 32px;
+    justify-content:center;
+  }
+
+  .v1-img-container {
+    width: 100%;
+    height: 100%;
+    min-height: 320px;
+    max-height: 320px;
+    background: #efefef;
+    border-radius: 8px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  .v1-read-more {
+    font-family: 'avenir';
+    color: #15a7e0;
+    text-transform: capitalize;
+    font-weight: 400 !important;
+    font-size: 20px;
+    line-height: 22px;
+    text-decoration: none;
+  }
+
+  .v3-section .js-product-slider .flickity-prev-next-button {
+    opacity: 1;
+  }
+  
+
+
+  .v3-section .flickity-prev-next-button svg {
+    border: 1px solid #afafaf;
+    height: 36px !important;
+    width: 36px;
+    border-radius: 50px !important;
+    background: #ffffff;
+  }
+
+
+  .v3-section .flickity-prev-next-button {
+    background: rgba(255, 255, 255, 0);
+  }
+
+
+  .v3-section .flickity-prev-next-button.previous {
+    left: -5px;
+  }
+  .v3-section .flickity-prev-next-button.next {
+    right: -5px;
+  }
+
+
+  .v3-section .flickity-slider .product-wrap {
+    border: 1px solid #e4e4e4;
+    border-radius: 0px;
+    box-shadow: 2px 2px 8px #0000000d;
+    transform: scale(.95);
+    transition: 300ms ease all;
+    background: #ffffff;
+  }
+
+  .v3-section .flickity-slider .product-wrap:hover  {
+    transform: scale(1);
+    transition: 300ms ease all;
+  }
+
+  .v3-section .featured-collection-section {
+    padding-bottom: 0px; 
+  }
+
+
+  .v3-section .flickity-slider .product-wrap .image__container img {width:95% !important}
+
+
+  .v3-section .slider-gallery .thumbnail .product-info__caption {
+    display: block;
+    margin-top: 0px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .v3-section .slider-gallery .thumbnail .product-info__caption {
+    display: block;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+  }  
+
+  .v1-product-form-mini {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+
+  .v3-section .slider-gallery {
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .v1-collection-slider .product-wrap {
+    border: 1px solid #e4e4e4;
+    border-radius: 0px;
+    box-shadow: 2px 2px 8px #0000000d;
+    transform: scale(.95);
+    transition: 300ms ease all;
+    background: #ffffff;
+    padding: 15px;
+  }
+
+
+  .products-slider.slider-gallery .gallery-cell.visible-3 {
+    width: calc(30.05% - 10px);
+  }
+
+
+
+  @media only screen and (max-width: 800px) {
+
+    .v1-two-col {
+      flex-direction: column;
+      margin-bottom: 10px;
+    }
+    .v1-two-col-left, .v1-two-col-right {
+      width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .v1-img-container {
+      min-height: 220px;
+      max-height: 220px;
+    }
+
+    .v1-two-col-right {
+      padding-left: 20px;
+      justify-content: flex-start;
+    }
+
+    .v1-two-col-right .v1-section h2 {
+      font-size: 50px;
+      line-height: 1.5em;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .v1-collection-slider .v1-section p {
+      font-size: 18px !important;
+      text-align: left;
+      padding-left: 0;
+      padding-right: 20px;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -webkit-font-smoothing: subpixel-antialiased;
+    }
+    .featured-benefit-section .v1-section h2 {
+      font-size: 50px;
+      line-height: 1.5em;
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+    }
+
+    .v1-collection-slider .v1-section-inner {
+      padding-bottom: 0px;
+      padding-top: 35px;
+    }
+
+    .v1-collection-slider .v3-section h4 {
+      font-size: 22px;
+      line-height: 26px;
+      padding-left: 20px;
+    }
+
+    .v1-full-col {
+      margin-top: 0px;
+    }
+
+
+    .products-slider.slider-gallery .gallery-cell.visible-3 {
+      width: calc(60%) !important;
+    }
+
+    .v1-collection-slider .slider-gallery  {
+      margin-bottom: -10px;
+    }
+
+    .v1-collection-slider .homepage-product-slider {
+      width: 100vw !important;
+      padding-bottom: 0px !important;
+    }
+
+    .v1-circle-fill , .v1-circle-fill-two {display:none;}
+
+
+
+    .v3-section .flickity-prev-next-button.previous {
+      left: 5px !important;
+    }
+    .v3-section .flickity-prev-next-button.next {
+      right: 5px !important;
+    }
+
+    .v1-circle-fill , .v1-circle-fill-two {display:none;}
+
+
+    .v1-collection-slider .slider-gallery .gallery-cell {
+      width: calc(60%) !important;
+    }
+    .v1-sg-approved-button, .v1-section .thumbnail button.action_button.add_to_cart {
+      width: 100% !important;
+    }
+
+    .thumbnail .inline_purchase button.add_to_cart .text {
+      font-size: 22px !important;
+    }
+
+
+    .v3-section {
+      padding-top: 0px !important;
+      margin-bottom: -35px !important;
+    }
+
+    .v3-section .slider-gallery {
+      max-height: 550px !important;
+    }
+
+  }
+
+
+
+
+  .v3-section .flickity-slider .product-wrap {
+    padding: 15px !important;
+  }
+  .v3-section .flickity-slider .flickity-slider img {
+    border-radius: 4px;
+  }
+
+  .v3-section .subscription-types-container-new .subscription-widget-select {
+    border-radius: 4px;
+  }
+
+  .v3-section .slider-gallery .thumbnail .product-info__caption {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+</style>
+
+
+
+<div class="v3-section">
+  <div class="v1-section-inner">
+    <div class="v1-full-col">
+      <h2 style="text-align: center;">BUNDLE AND SAVE</h2>
+
+      <!-- this is product start -->
+
+      {% comment %}
+      ** Single featured collection - homepage partial **
+      - Draggable section
+      {% endcomment %}
+
+      {% if section.settings.collection == blank %}
+      {%- assign section_onboarding = true -%}
+      {% comment %}assign product length to be selected limit for onboarding{% endcomment %}
+      {% assign products_length = section.settings.products_limit | plus: 0 %}
+      {% else %}
+      {%- assign section_onboarding = false -%}
+      {% endif %}
+
+
+
+
+      {% assign limit = section.settings.products_limit %}
+
+      {% if section.settings.collection_style == 'slider' %}
+      {% assign col = section.settings.collection %}
+      {% assign products = collections[section.settings.collection].products %}
+      {% assign per_slide = section.settings.products_per %}
+
+      <div class="container js-product-slider homepage-product-slider full-width {% if per_slide == 2 or per_slide == 4 or per_slide == 6 %}even-num-slides{% endif %}">
+        {% if section_onboarding == false %}
+        {% if col and collections[col].all_products_count > 0 %}
+        {% include 'v1-product-slider', per_slide: section.settings.products_per, featured_collection: col  %}
+        {% endif %}
+        {% else %}
+        <div class="slider-gallery products-slider products-length-{{ products_length }}"
+             data-products-per-slide="{{ per_slide }}"
+             data-products-limit="{{ limit }}"
+             data-products-available="{{ products_length }}">
+          {% for i in (1..limit) %}
+          {% assign per_slide_num = section.settings.products_per | plus: 0 %}
+          <div class="gallery-cell thumbnail
+                      {% if products_length > per_slide_num %}visible-{{ per_slide }}{% else %}visible-{{ products_length }}{% endif %}
+                      ">
+            <div class="product-wrap">
+              <div class="relative product_image">
+                <a href="#" itemprop="url">
+                  <object class="placeholder-image">
+                    {% capture num %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
+                    {{ 'product-' | append: num | placeholder_svg_tag: 'placeholder-svg placeholder-svg--product' }}
+                  </object>
+                </a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      {% else %}
+      {% if section_onboarding == false %}
+      {% assign limit = section.settings.products_limit %}
+      {% assign collection = collections[section.settings.collection] %}
+      {% assign products = collections.all.products %}
+      {% assign products_per_row = section.settings.products_per %}
+      <div class="container">
+        <div class="">
+          {% assign product_found = false %}
+{% assign skip = false %}
+{% assign collection_group = products | map: 'id' %}
+{% assign collection_group_thumb = collection_group | append : 'thumb' %}
+{% assign collection_group_mobile = collection_group | append : 'mobile' %}
+
+{% if template contains 'collection' %}
+  {% assign matrixType = 'collection-matrix' %}
+{% elsif template contains 'search' %}
+  {% assign matrixType = 'search-matrix' %}
+{% endif %}
+
+{% capture new_row %}
+    <br class="clear product_clear" />
+{% endcapture %}
+
+<div itemtype="http://schema.org/ItemList" class="product-list {{ matrixType }} clearfix">
+  {% for product in collections.all.products %}
+  	{% unless product.tags contains 'Affiliate' or product.price == 0 %}
+      {% if product.id == skip_product.id or skip == true %}
+        {% assign product_found = true %}
+      {% else %}
+        {% if forloop.rindex0 == 0 and product_found == false and forloop.length != products.count and template != 'search' and template != 'index' %}
+          {% assign skip = true %}
+        {% else %}
+
+          {% include 'product-thumbnail', sidebar: sidebar %}
+
+          {% if products_per_row == 2 %}
+            {% cycle collection_group: '', new_row %}
+          {% elsif products_per_row == 3 %}
+            {% cycle collection_group: '', '', new_row %}
+          {% elsif products_per_row == 4 %}
+            {% cycle collection_group: '', '', '', new_row %}
+          {% elsif products_per_row == 5 %}
+            {% cycle collection_group: '', '', '', '', new_row %}
+          {% elsif products_per_row == 6 %}
+            {% cycle collection_group: '', '', '', '', '', new_row %}
+          {% elsif products_per_row == 7 %}
+            {% cycle collection_group: '', '', '', '', '', '', new_row %}
+          {% endif %}
+        {% endif %}
+      {% endif %}
+  	{% endunless %}
+  {% endfor %}
+  {% if template contains 'collection' %}
+    {% if settings.pagination_type == 'load_more' or settings.pagination_type == 'infinite_scroll' %}
+      {% if paginate.next.url %}
+        <div class="js-load-more load-more">
+          <a href="{{ paginate.next.url }}" data-no-instant class="load-more__btn action_button continue-button">
+            {% if template contains 'collection' %}
+              {{ 'collections.general.load_more' | t }}
+            {% elsif template contains 'search' %}
+              {{ 'general.search.load_more' | t }}
+            {% endif %}
+          </a>
+        </div>
+      {% endif %}
+    {% endif %}
+  {% elsif template contains 'search' %}
+    {% if settings.search_pagination_type == 'load_more' or settings.search_pagination_type == 'infinite_scroll' %}
+      {% if paginate.next.url %}
+        <div class="js-load-more load-more">
+          <a href="{{ paginate.next.url }}" data-no-instant class="load-more__btn action_button continue-button">
+            {% if template contains 'collection' %}
+              {{ 'collections.general.load_more' | t }}
+            {% elsif template contains 'search' %}
+              {{ 'general.search.load_more' | t }}
+            {% endif %}
+          </a>
+        </div>
+      {% endif %}
+    {% endif %}
+  {% endif %}
+</div>
+<div class="load-more__icon"></div>
+        </div>
+      </div>
+      {% else %}
+      {% assign products_per_row = section.settings.products_per %}
+      <div class="container">
+        <div class="sixteen columns">
+          {% capture new_row %}
+          <br class="clear product_clear" />
+          {% endcapture %}
+
+          <div itemtype="http://schema.org/ItemList" class="product-list collection-matrix clearfix">
+            {% for i in (1..limit) %}
+            {% comment %}{% assign collection_group = products | map: 'id' %}{% endcomment %}
+            {% assign collection_group_thumb = collection_group | append : 'thumb' %}
+            {% assign collection_group_mobile = collection_group | append : 'mobile' %}
+            <div class="
+                        {% if products_per_row == 2 %}
+                        eight columns {% cycle collection_group_thumb: 'alpha', 'omega' %}
+                        {% elsif products_per_row == 3 %}
+                        four columns {% cycle collection_group_thumb: 'alpha', '', 'omega' %}
+                        {% elsif products_per_row == 4 %}
+                        three columns {% cycle collection_group_thumb: 'alpha', '', '', 'omega' %}
+                        {% elsif products_per_row == 5 %}
+                        one-fifth column {% cycle collection_group_thumb: 'alpha', '', '', '', 'omega' %}
+                        {% elsif products_per_row == 6 %}
+                        one-sixth column {% cycle collection_group_thumb: 'alpha', '', '', '', '', 'omega' %}
+                        {% else %}
+                        one-seventh column {% cycle collection_group_thumb: 'alpha', '', '', '', '', '', 'omega' %}
+                        {% endif %} thumbnail {% cycle collection_group_mobile: 'even', 'odd' %}">
+
+              <div class="product-wrap">
+                <div class="relative product_image swap-{{ settings.collection_secondary_image }}">
+                  <a href="#" itemprop="url">
+                    {% capture num %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
+                    {{ 'product-' | append: num | placeholder_svg_tag: 'placeholder-svg placeholder-svg--product' }}
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {% if products_per_row == 2 %}
+            {% cycle collection_group: '', new_row %}
+            {% elsif products_per_row == 3 %}
+            {% cycle collection_group: '', '', new_row %}
+            {% elsif products_per_row == 4 %}
+            {% cycle collection_group: '', '', '', new_row %}
+            {% elsif products_per_row == 5 %}
+            {% cycle collection_group: '', '', '', '', new_row %}
+            {% elsif products_per_row == 6 %}
+            {% cycle collection_group: '', '', '', '', '', new_row %}
+            {% elsif products_per_row == 7 %}
+            {% cycle collection_group: '', '', '', '', '', '', new_row %}
+            {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endif %}
+
+
+      <!-- this is product end -->      
+
+
+    </div>
+  </div>	
+</div>

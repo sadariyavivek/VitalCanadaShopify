@@ -1,0 +1,417 @@
+{% assign pinkColor = '#ffc7e0' %}
+{% assign redColor = '#fb5373' %}
+{% assign product = all_products['beauty-collagen-watermelon-mint'] %}
+<style>
+  .container.main.content {
+    padding: 0;
+  }
+  
+  .watermelon-banner-section-container {
+    background-size: cover;
+    background-position: 50%;
+    background-image: url("{{ section.settings.top_banner_image | img_url: '2000x' }}");
+    height: calc(100vw / {{ section.settings.top_banner_image.aspect_ratio }});
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .watermelon-banner-section-container h2 {
+    color: white;
+    text-transform: none;
+    font-size: 72px;
+    text-align: center;
+    line-height: 72px;
+  }
+  
+  .watermelon-banner-section-container .text-container {
+    width: 50%;
+    margin-right: 10%;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  
+  .watermelon-banner-section-container .toptext {
+    font-style: italic;
+  }
+  
+  .watermelon-banner-section-container .subtext {
+    color: {{ redColor }};
+  } 
+  
+  .watermelon-cta-section-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  
+  .cta-block {
+    display: flex;
+    padding: 20px 0 !important;
+    align-items: center;
+  }
+  
+  .cta-block .cta-info-container {
+    width: 50%;
+    padding: 20px;
+  }
+  
+  .cta-block .cta-info-container .add_to_cart {
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    max-width: 320px;
+    font-size: 28px;
+    height: auto;
+    min-height: 0;
+    padding: 10px;
+    float: right;
+  }
+  
+  .cta-block .cta-info-container .product-title {
+    color: {{ redColor }};
+    text-transform: none;
+    font-size: 60px;
+	text-align: right;
+    margin-bottom: 0;
+    line-height: 60px;
+  }
+  
+  
+  .cta-block .cta-info-container .product-price {
+    font-size: 48px;
+    text-align: right;
+    letter-spacing: 1px !important;
+  }
+  
+  .cta-block .cta-image-container {
+    width: 50%;
+    padding: 20px;
+  }
+  
+  .cta-block .cta-image-container img {
+    width: 75%;
+  }
+  
+  .callout-blocks {
+    text-align: center;
+    position: relative;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 80px;
+  }
+  
+  .primary-block {
+    background-color: {{ pinkColor }};
+    color: white;
+    width: 100%;
+  }
+  
+  .primary-block p {
+    font-weight: bold;
+    font-size: 24px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+   	padding: 20px 40px;
+  }
+  
+  .secondary-block {
+    background-color: {{ redColor }};
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 20px;
+    left: -20px;
+    z-index: -10;
+  }
+  
+  .icons-container {
+    display: flex;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap;
+  }
+  
+  .icon-container {
+    width: 25%;
+  }
+  
+  .icon-container img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .watermelon-recipe-section-container {
+    background-size: cover;
+    background-position: 50%;
+    background-image: url({{ section.settings.recipe_background | img_url: '1400x' }});
+    text-align: center;
+    padding-bottom: 80px;
+    padding-top: 20px;
+  }
+  
+  .watermelon-recipe-section-container h4 {
+    text-transform: none;
+    letter-spacing: 1px !important;
+    color: white;
+    font-size: 72px;
+    text-shadow: 6px 4px 4px rgba(0,0,0,0.1);
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+  
+  .watermelon-recipe-section-container h4 > span {
+    color: {{ redColor }};
+  }
+  
+  .recipe-image-container {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .recipe-image-container img {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .flickity-page-dots .dot {
+    background: #22af91;
+    height: 20px;
+    width: 20px;
+  }
+  
+  .flickity-prev-next-button {
+    width: 60px;
+    height: 44px;
+    border-radius: 100%;
+    top: 50%;
+  }
+  
+  @media screen and (max-width: 1200px) {
+    .watermelon-banner-section-container h2 {
+      font-size: 48px;
+      line-height: 48px;
+    }
+  }
+  
+  @media screen and (max-width: 800px) {
+    .watermelon-banner-section-container h2 {
+      font-size: 36px;
+      line-height: 36px;
+    }
+    
+    .cta-block {
+      flex-direction: column-reverse;
+    }
+    
+    .cta-block .cta-info-container {
+      width: 100%;
+    }
+    
+    .cta-block .cta-image-container {
+      width: 100%;
+    }
+    
+    .cta-block .cta-image-container img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .cta-block .cta-info-container .product-title {
+      text-align: center;
+    }
+    
+    .cta-block .cta-info-container .product-price {
+      text-align: center;
+    }
+    
+    .cta-block .cta-info-container .add_to_cart {
+      float: none;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .container.recipe-slider-container {
+      width: auto;
+    }
+    
+    .recipe-image-container img {
+      width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .watermelon-banner-section-container h2 {
+      font-size: 18px;
+      line-height: 18px;
+    }
+    
+    .watermelon-recipe-section-container h4 {
+      font-size: 36px;
+    }
+    
+    .icon-container {
+      width: 50%;
+    }
+    
+    .cta-block .cta-info-container .product-title {
+      text-align: center;
+      font-size: 36px;
+      line-height: 36px;
+    }
+    
+    .cta-block .cta-info-container .product-price {
+      text-align: center;
+      font-size: 36px;
+      line-height: 36px;
+    }
+  }
+  
+  @media screen and (max-width: 400px) {
+    .watermelon-banner-section-container h2 {
+      font-size: 16px;
+      line-height: 16px;
+    }
+    
+    .cta-block .cta-info-container .product-title {
+      text-align: center;
+      font-size: 36px;
+      line-height: 36px;
+    }
+    
+    .cta-block .cta-info-container .product-price {
+      text-align: center;
+      font-size: 36px;
+      line-height: 36px;
+    }
+    
+    .primary-block p {
+      font-size: 18px;
+    }
+  }
+</style>
+<div class="watermelon-landing-container">
+  <div class="watermelon-banner-section-container">
+    <div class="text-container">
+      <h2 class="toptext">Your Summer Forecast Called</h2>
+      <h2 class="subtext">it's Watermelon Mint Beauty Collagen season</h2>
+    </div>
+  </div>
+  <div class="watermelon-cta-section-container">
+    <div class=" container cta-block">
+      <div class="cta-info-container">
+        <h4 class="product-title">Watermelon Mint<br>Beauty Collagen</h4>
+        <h4 class="product-price">{{ product.price | money_without_trailing_zeros }}</h4>
+        {% include 'product-form-mini' %}
+      </div>
+      <div class="cta-image-container">
+        <img src="{{ section.settings.product_feature_image | img_url: '800x' }}" alt="Watermelon Mint Beauty Collagen"/>
+      </div>
+    </div>
+    <div class="callout-blocks">
+      <div class="primary-block">
+        <p>Stir up your summer skin secret with new Watermelon Mint Beauty Collagen. Help enhance skin hydration, improve elasticity and maintain firm skin while celebrating the fruit of the season.</p>
+        <div class="icons-container">
+          <div class="icon-container">
+          	<img src="{{ section.settings.icon_1 | img_url: '600x' }}" alt="15g Collagen Peptides"/>
+          </div>
+          <div class="icon-container">
+          	<img src="{{ section.settings.icon_2 | img_url: '600x' }}" alt="120mg Hyaluronic Acid"/>
+          </div>
+          <div class="icon-container">
+          	<img src="{{ section.settings.icon_3 | img_url: '600x' }}" alt="No Artificial Sweeteners"/>
+          </div>
+          <div class="icon-container">
+          	<img src="{{ section.settings.icon_4 | img_url: '600x' }}" alt="2B CFU Probiotics"/>
+          </div>
+        </div>
+      </div>
+      <div class="secondary-block"></div>
+    </div>
+  </div>
+  <div class="watermelon-recipe-section-container">
+    <h4><span>Mix up</span> your Recipe Routine</h4>
+    <div class="container recipe-slider-container">
+      <div class="recipe-image-container">
+        <img src="{{ section.settings.recipe_1 | img_url: '1600x' }}" alt="Recipe 1 - Watermelon Mint Agua Fresca (Makes 4 to 6 Servings). Ingredients: 1 quart fresh watermelon juice, 1 cup lime juice, 4 scoops Vital Proteins Watermelon Mint Beauty Collagen, Lime Slices, for garnish, Fresh min, for garnish, Ice. Directions: Add watermelon juice, lime juice and Watermelon Mint Beauty Collagen to a pitcher and stir until fully mixed. Serve in glasses add ice and fresh mint with lime wedges to garnish. Cheers!"/>
+      </div>
+      <div class="recipe-image-container">
+        <img src="{{ section.settings.recipe_2 | img_url: '1600x' }}" alt="Recipe 2 - Watermelon Mint Iced Tea (Makes 4 to 6 servings). Ingredients: 7 black tea bags, 6 cups hot water, 1 quart fresh watermelon juice, 4 scoops Vital Proteins Watermelon Mint Beauty Collagen, Fresh mint leaves, ice. Directions: Boil 6 cups of hot water. Remove from heat, add tea bags and let steep for 5 minutes. Add Watermelon Mint Beauty Collagen and stir until fully mixed. Add watermelon juice to tea, stir until fully mixed. Serve in glasses over ice with fresh mint leaves."/>
+      </div>
+      <div class="recipe-image-container">
+        <img src="{{ section.settings.recipe_3 | img_url: '1600x' }}" alt="Recipe 3 - Watermelon Mint Smoothie (1 Serving). Ingredients: 1 cup unsweetened coconut milk, 1/4 cup lime juice, 4 cups frozen watermelon, cubed, Handful of fresh mint leaves, 1 scoop Vital Proteins Watermelon Mint Beauty Collagen, 1 Scoop Vital Proteins Coconut Collagen Creamer. Directions: Add coconut milk, lime juice and mint leaves to blender and blend until smooth. Add frozen watermelon, Coconut Creamer and Watermelon Mint Beauty Collagen until fully mixed. Garnish with fresh mint and watermelon wedge, serve immediately and enjoy!"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Watermelon Mint Landing",
+    "settings": [
+		{
+          "type": "image_picker",
+          "id": "top_banner_image",
+          "label": "Top Banner Image"
+        },
+		{
+          "type": "image_picker",
+          "id": "product_feature_image",
+          "label": "Product Image"
+        },
+		{
+          "type": "image_picker",
+          "id": "icon_1",
+          "label": "Icon 1"
+        },
+		{
+          "type": "image_picker",
+          "id": "icon_2",
+          "label": "Icon 2"
+        },
+		{
+          "type": "image_picker",
+          "id": "icon_3",
+          "label": "Icon 3"
+        },
+		{
+          "type": "image_picker",
+          "id": "icon_4",
+          "label": "Icon 4"
+        },
+		{
+          "type": "image_picker",
+          "id": "recipe_1",
+          "label": "Recipe 1"
+        },
+		{
+          "type": "image_picker",
+          "id": "recipe_2",
+          "label": "Recipe 2"
+        },
+		{
+          "type": "image_picker",
+          "id": "recipe_3",
+          "label": "Recipe 3"
+        },
+		{
+          "type": "image_picker",
+          "id": "recipe_background",
+          "label": "Recipe Section Background"
+        }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,687 @@
+{% comment %}
+  The contents of the product.liquid template can be found in /sections/product-template.liquid
+{% endcomment %}
+
+<style>
+  @media (max-width: 798px) {
+    .mobile_nav-fixed--true #pagecontent, .mobile_nav-fixed--false #pagecontent {
+      padding-bottom: 120px;
+    }
+
+    .pdp-thumbnails {
+      display: none !important;
+    }
+  }
+  
+  #talkable-offer {
+    display: none;
+  }
+  
+  #chat-widget {
+    display: none;
+  }
+  
+  #chat-widget-container {
+    display: none;
+  }
+  
+  #preview-bar-iframe {
+   display: none;
+  }
+
+  .pdp-redesign-wrapper .information-section-wrapper {
+    width: 100%;
+    background: #ECE5DD;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-top: 50px;
+  }
+  
+  .pdp-redesign-wrapper .selector-wrapper select {
+    font-size: 16px;
+  }
+  
+  .pdp-redesign-wrapper .information-section {
+    margin-bottom:30px
+  }
+  
+  .pdp-original-buy-box {
+    display: none;
+  }
+
+  .buy-box-container {
+    display: block;
+  }
+
+  img.amino-acid {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    width: 400px;
+  }
+
+  .faq-container {
+  	margin-bottom: 10px;  
+  }
+  
+  .pdp-faq-body {
+  	padding: 10px 20px;
+  }
+  
+  .pdp-faq-body.hidden {
+    display: none;
+  }
+  
+  .pdp-faq-button {
+   	width: 100%;
+    display: block;
+    background: transparent;
+    min-height: 30px;
+    height: initial;
+    font-size: 16px;
+    color: #4a4a4a;
+    text-align: left;
+    border: 0;
+    height: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: none;
+  }
+  
+  .pdp-faq-button p {
+    margin-bottom: 0;
+  }
+  
+  .pdp-faq-button:hover {
+    border: 0;
+    background: transparent;
+    color: #23b6d6;
+  }
+  .product-dynamic-variants .pdp-ja-blog-section {
+    display: none;
+  }
+  .product-dynamic-variants .newStyles2020 {
+    margin: 50px 0 0;
+  }
+  .product-dynamic-variants .newStyles2020 .pdp-ja-subscribe-break-wrapper h4 {
+    font-family: 'KapraNeue' !important;
+    text-transform: uppercase;
+    font-size: 32px;
+    text-align: center;
+    font-weight: 500;
+    line-height: 40px;
+  }
+  .product-dynamic-variants .influencer-cust-3 h5 {
+    text-align: left;
+    font-size: 20px;
+    line-height: 36px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-family: 'KapraNeue';
+  }
+  .product-dynamic-variants .inner-disclaimer-container {
+      display: none;
+  }
+  .product-dynamic-variants .quote-box-text {
+    background-color: #F4F7F7 !important;
+  }
+  .product-dynamic-variants .subscription-sect-cust-1 {
+    display: none;
+  }
+  .product-dynamic-variants .newStyles2020 .pdp-ja-subscribe-break-wrapper {
+    padding: 0px 0px;
+    background: transparent;
+    margin-top: 0px;
+  }
+  .product-dynamic-variants .pdp-ja-favorites .newStyles2021 .grid-4 {
+    margin-left: 105px !important;
+  }
+  .product-dynamic-variants .breadcrumb_text {
+    margin-left: 20px;
+  }
+  .product-dynamic-variants .pdp-redesign-wrapper .product-form-container .product-form-info-images-wrapper {
+    padding: 10px 0px 0px 0px !important;
+    background-color: #e5e9ec;
+    width: 48.5%;
+    margin-left: 19px;
+  }
+  .product-dynamic-variants .pdp-redesign-wrapper .product-form-container .pdp-form-inputs-wrapper {
+    width: 48.5%;
+    margin-right: 19px;
+  }
+  .information-section-wrapper .nav-slider {
+    width: 44%;
+  }
+  .information-section-wrapper a.nav-slider-option.active {
+    font-family: Avenir Next;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px !important;
+    line-height: 150% !important;
+    text-align: center;
+    text-transform: uppercase;
+    color: #355C7E;
+    background-color: transparent !important;
+    border-radius: 0px !important;
+    border-bottom: 2px solid #355c7e !important;
+  }
+  .pdp-redesign-wrapper .nav-slider .nav-slider-option {
+    font-family: Avenir Next;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px !important;
+    line-height: 150% !important;
+    text-align: center;
+    text-transform: uppercase;
+    color: #393D40;
+    background-color: transparent !important;
+    border-radius: 0px !important;
+  }
+  .pdp-redesign-wrapper button.flickity-prev-next-button.previous {
+    position: absolute;
+    top: 488px !important;
+    color: #355C7E !important;
+    left: 125px !important;
+    border: 0px solid gray !important;
+    background-color: transparent !important;
+    height: 35px;
+    width: 35px;
+  }
+  .pdp-redesign-wrapper button.flickity-prev-next-button.next {
+    position: absolute;
+    top: 488px !important;
+    color: #355C7E !important;
+    right: 125px !important;
+    border: 0px solid gray !important;
+    background-color: transparent !important;
+    height: 35px;
+    width: 35px;
+  }
+  .product-dynamic-variants .pdp-redesign-wrapper .flickity-page-dots {
+    width: 54%;
+    margin-left: 130px !important;
+    bottom: -35px;
+  }
+  .pdp-quote-box .quote-box-image:after {
+    display: none;
+  }
+
+  @media screen and (max-width: 800px) {
+    .pdp-redesign-wrapper .information-section-wrapper {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .product-dynamic-variants .inner-disclaimer-container {
+      display: block !important;
+      margin-top: 20px;
+    }
+    .product-dynamic-variants .pdp-ja-favorites .newStyles2021 .grid-4 {
+      max-width: 100% !important;
+      width: 100% !important;
+      overflow: scroll;
+      margin-left: 0px !important;
+    }
+    .product-dynamic-variants .pdp-ja-favorites .newStyles2021 .newProductCard {
+      max-width: 315px !important;
+      width: 315px !important;
+      border-right: 0px solid #fff !important;
+      margin: 0 0px 30px 30px !important;
+    }
+    .product-dynamic-variants .pdp-quote-box p.quote-body span:nth-child(1) {
+      padding-bottom: 80px !important;
+    }
+    .product-dynamic-variants .quote-body span.test-monial-cust-1 {
+      line-height: 40px;
+    }
+    .product-dynamic-variants .pdp-ja-what-is-collagen-box.whit-is-collagen {
+      flex-direction: column-reverse !important;
+      width: 100%;
+    }
+    .product-dynamic-variants .pdp-ja-what-is-collagen-box.whit-is-collagen .what-is-collagen-text {
+      width: 100%;
+      padding: 0px 0px 0 !important;
+    }
+    .product-dynamic-variants .pdp-ja-what-is-collagen-box.whit-is-collagen h4.box-header {
+      text-align: center;
+    }
+    .product-dynamic-variants .pdp-ja-what-is-collagen-box.whit-is-collagen p.box-body {
+      text-align: center;
+    }
+    .product-dynamic-variants .pdp-ja-what-is-collagen-box.whit-is-collagen a {
+      text-transform: capitalize;
+      border: 2px solid #355C7E;
+      text-align: center !important;
+      max-width: 90%;
+      padding: 8px 0 0;
+      margin: 0 auto;
+    }
+    .product-dynamic-variants .pdp-redesign-wrapper .pdp-ja-favorites {
+      margin: 30px auto 340px !important;
+    }
+    .product-dynamic-variants .pdp-redesign-wrapper .pdp-ja-favorites .detailsNew {
+      justify-content: left;
+    }
+    .product-dynamic-variants .pdp-redesign-wrapper .pdp-ja-favorites label.subscription-widget-select-label {
+      display: none;
+    }
+    .information-section-wrapper .nav-slider {
+      width: 100%;
+    }
+    .product-dynamic-variants .pdp-redesign-wrapper .product-form-container .product-form-info-images-wrapper {
+      padding: 0px 0px 0px 0px !important;
+      background-color: #e5e9ec;
+      width: 100%;
+      margin-left: 0px;
+      margin-top: 80px;
+    }
+    .pdp-redesign-wrapper .mobile-show {
+      display: block;
+      padding: 10px 20px;
+      background-color: white;
+    }
+    .pdp-redesign-wrapper button.flickity-prev-next-button.previous {
+      top: 180px !important;
+      color: #355C7E !important;
+      left: 0px !important;
+      background-color: white !important;
+      opacity: 99;
+      border-radius: 0px !important;
+    }
+    .pdp-redesign-wrapper button.flickity-prev-next-button.next {
+      top: 180px !important;
+      color: #355C7E !important;
+      right: 0% !important;
+      background-color: white !important;
+      opacity: 99;
+      border-radius: 0px !important;
+    }
+    .product-dynamic-variants .pdp-redesign-wrapper .product-form-container .pdp-form-inputs-wrapper {
+      width: 100%;
+      margin-right: 0px;
+    }
+    .product-dynamic-variants .pdp-redesign-wrapper .flickity-page-dots {
+      width: 100%;
+      margin-left: 0px !important;
+      bottom: 10px;
+    }
+    .pdp-redesign-wrapper .featured-carousel {
+      margin-bottom: 0px;
+      padding-bottom: 50px;
+    }
+    .subscribe-button .main-text {
+      text-transform: capitalize;
+      display: block;
+      font-size: 20px;
+      line-height: 24px;
+      letter-spacing: 0.4px;
+      font-weight: 600;
+      font-family: 'Avenir Next' !important;
+    }
+    .subscribe-button .secondary-text {
+      font-size: 12px;
+      display: block;
+      line-height: 18px;
+      font-family: 'Avenir Next';
+      font-weight: 400;
+    }
+    .pdp-redesign-wrapper .information-section-wrapper {
+      margin-top: -20px;
+    }
+    .product-dynamic-variants .pdp-redesign-wrapper .product-form-container .pdp-form-inputs-wrapper .inner-cta-container {
+      padding: 0 20px;
+    }
+    .product-dynamic-variants .newStyles2020 .pdp-ja-subscribe-break-wrapper h4 {
+      padding: 0 20px;
+    }
+    .prop65-link {
+      padding-left: 15px;
+    }
+  }
+</style>
+{% assign variant = product.selected_or_first_available_variant %}
+{% assign discountedFactor = 100.0 | minus: settings.subscription_discount_amount %}
+{% assign discountedFactor = discountedFactor | divided_by: 100.0 %}
+{% assign hasSubscription = product.metafields.subscriptions.has_subscription %}
+
+<a name="pagecontent" id="pagecontent"></a>
+<div class="pdp-redesign-wrapper">
+  <div class="js-product_section product-{{ product.id }}">
+    <div class="clearfix breadcrumb-collection">
+      <div role="navigation" aria-label="Breadcrumb Nav" class="breadcrumb_text" itemscope itemtype="http://schema.org/BreadcrumbList">
+        <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href="{{ shop.url }}" title="{{ shop.name | escape }}" itemprop="item" class="breadcrumb_link"><span itemprop="name">{{ 'general.breadcrumbs.home' | t }}</span></a></span>
+        <span class="breadcrumb-divider">/</span>
+        <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          {% if collection %}
+          <a href="{{ collection.url }}" title="{{ collection.title | escape }}" itemprop="item" class="breadcrumb_link"><span itemprop="name">{{ collection.title }}</span></a>
+          {% else %}
+          <a href="/collections/all" title="{{ collections.all.title }}" class="breadcrumb_link"><span>{{ collections.all.title }}</span></a>
+          {% endif %}
+        </span>
+        <span class="breadcrumb-divider">/</span>
+        <span class="product-breadcrumb-title"><a class="product-breadcrumb-title" href="{{ product.url }}" aria-current="page">{{ product.title }}</a></span>
+      </div>
+    </div>
+    <form action="/cart/add" data-productid="{{ product.id }}"
+          method="post"
+          class="clearfix product_form init"
+          id="product-form-{{ product.id }} primary"
+          data-money-format="{{ shop.money_format }}"
+          data-shop-currency="{{ shop.currency }}"
+          data-select-id="product-select-{{ product.id }}{{ section.id }}{{ block.id }}"
+          data-enable-state="{% if template contains 'product' %}true{% else %}false{% endif %}"
+          data-product="{{ product | json | escape }}"
+          {% if settings.limit_quantity or settings.display_inventory_left %}
+            data-variant-inventory='[{%- for v in product.variants -%}{"id":{{v.id}},"inventory_quantity":{{v.inventory_quantity}},"inventory_management":"{{v.inventory_management}}","inventory_policy":"{{v.inventory_policy}}"}{% if forloop.last == false %},{% endif %}{%- endfor -%}]'
+          {% endif %}
+          data-product-id="{{ product.id }}"
+        >
+  	  <div class="product-form-container">
+        <div class="product-form-info-images-wrapper padding">
+          <div class="title-price-review-badge-wrapper mobile-show">
+            <div class="title-price-wrapper">
+              <div class="title-wrapper">
+                {% assign title = product.title | split: '-' %}
+                <p class="pdp-product-title-primary">{{ title[0] }}</p>
+                <p class="pdp-product-title-secondary">{{ title[1] }}</p>
+              </div>
+              <div>
+                <span class="was_price">
+                        {% if variant.price < variant.compare_at_price and variant.available %}
+                          <span aria-label="Original Price was {{ variant.compare_at_price | money }}." class="money">{{ variant.compare_at_price | money_without_trailing_zeros }}</span>
+                        {% endif %}
+                      </span>
+                <span class="pdp-price">{{ variant.price | money_without_trailing_zeros }}</span>
+              </div>   
+            </div>
+            {% render 'bv-summary' %}
+          </div>
+          <div class="pdp-product-images-container">
+            {% render 'pdp-images-variants', product: product %}
+          </div>
+        </div>
+        <div class="pdp-form-inputs-wrapper">
+          <div class="title-price-review-badge-wrapper desktop-show">
+            <div class="title-price-wrapper">
+              <div class="title-wrapper">
+                {% assign title = product.title | split: '-' %}
+                <p class="pdp-product-title-primary">{{ title[0] }}</p>
+                <p class="pdp-product-title-secondary">{{ title[1] }}</p>
+              </div>
+              <div>
+                <span class="was_price">
+                        {% if variant.price < variant.compare_at_price and variant.available %}
+                          <span aria-label="Original Price was {{ variant.compare_at_price | money }}." class="money">{{ variant.compare_at_price | money_without_trailing_zeros }}</span>
+                        {% endif %}
+                      </span>
+                <span class="pdp-price">{{ variant.price | money_without_trailing_zeros }}</span>
+              </div>   
+            </div>
+            {% render 'bv-summary' %}
+          </div>
+          
+          {% render 'pdp-buy-box-v3', product: product, initialVariant: variant %}
+          {% if product.tags contains 'PROP65' or product.handle == 'collagen-latte-golden-milk' or product.handle == 'holiday-sampler-box-1' or product.handle == 'collagen-beauty-greens' or product.handle == 'collagen-sports-greens' or product.handle == 'matcha-collagen-latte' or product.handle == 'matcha-collagen-latte-vanilla' or product.handle == 'matcha-collagen' or product.handle == 'matcha-collagen-peach' or product.handle == 'blackberry-collagen-blast' %}
+              {% include 'prop-65-modal' %}
+          {% endif %}
+        </div>
+      </div>
+    </form>
+  </div>
+  
+  {% render 'pdp-additional-variant-info', product: product %}
+  {% render 'pdp-new-ingredient-list', product: product %}  
+  {% assign imageURL = 'VP_JA_Yoga_Hero.jpg' | file_img_url: '1200x' %}
+  {% assign quote = "I’ve been seeing a difference! </br> My nails are stronger and there’s </br> a healthier… It’s sort of that working </br> from the inside-out thing." %}
+  {% render 'pdp-quote-box', imageURL: imageURL, quote: quote %}
+  {% include 'pdp-ja-favorites' %}
+
+  {% render 'pdp-ja-what-is-collagen' %}
+  <div class="subscription-sect-cust-1">
+  {% if hasSubscription %}
+  	{% render 'pdp-ja-subscribe-break', product: product, button_url: "#" %}
+  {% endif %}
+  </div>
+  <div class="newStyles2020">
+  {% include 'HP2020-Influencer-Snippet' %}
+  </div>
+  {% render 'pdp-ja-blog-section', product: product %}
+  {% render 'pdp-review-section', product: product %}
+  
+</div>
+
+<script>
+  var variantMetafields = {};
+  
+  {% for variant in product.variants %}
+    variantMetafields[{{ variant.id }}] = {{ variant.metafields.vital | json }};
+
+  {% endfor %}
+  
+  $('.qty-button.minus').on('click', function(e) {
+    e.preventDefault();
+    var newQty = $('#qty-number').data('qty') - 1;
+
+    if (newQty >= 1) {
+      $('#qty-number').data('qty', newQty);
+      $('#qty-number').val(newQty);
+    }
+  });
+
+  $('.qty-button.plus').on('click', function(e) {
+    e.preventDefault();
+
+    var newQty = $('#qty-number').data('qty') + 1;
+    $('.qty-number').data('qty', newQty);
+    $('.qty-number').val(newQty);
+  });
+
+  function updateOutOfStock(available){
+    if(available) {
+      $('.pdp-cta-button').removeAttr('disabled');
+      if ($('.widget-anchor.subscribe').hasClass('active')) {
+        $('.pdp-cta-button').val('Subscribe Now');
+      } else {
+        $('.pdp-cta-button').val('Add to Bag');
+      }
+    } else {
+      $('.pdp-cta-button').val('Sold Out');
+      $('.pdp-cta-button').attr('disabled', 1);
+    }
+  }
+  
+  $('.nav-slider-option').on('click', function(e) {
+    e.preventDefault();
+    
+    $('.nav-slider-option').removeClass('active');
+    $(this).addClass('active');
+
+    var selectedSection = $(this).data('content');
+
+
+    $('.content-section').removeClass('active');
+    $('.content-section.' + selectedSection).addClass('active');
+    
+    // Scroll to center
+    var activeWidthCenter = $(this).width() / 2;
+	  var selectedItemPos = $(this).position().left + activeWidthCenter;
+  	var sliderPosition = $('.nav-slider').scrollLeft(); 
+  	var sliderWidth = $('.nav-slider').width(); 
+  	selectedItemPos = selectedItemPos + sliderPosition - sliderWidth / 2; 
+
+    $('.nav-slider').animate({ scrollLeft: selectedItemPos }, 300);
+  });
+
+
+  $('.pdp-faq-button').on('mousedown', function(e) {
+    e.preventDefault();
+  });
+  
+  $('.pdp-faq-button').on('click', function(e) {
+    e.preventDefault();
+    if ($("#pdp-faq-" + $(this).data('index')).hasClass('hidden') === false) {
+      $("#pdp-faq-" + $(this).data('index')).addClass('hidden');
+    } else {
+    	$("#pdp-faq-" + $(this).data('index')).removeClass('hidden');
+    }
+  });
+  
+  $(document).ready(function() {
+      setTimeout(function() {
+      $(".product-4629796487228 .cta-button-wrapper input").val("Coming Soon");
+    }, 2000);
+    
+  	updateVariantContent({{ product.selected_or_first_available_variant.id }});
+    updateActiveThumbnail();
+  });
+  
+  function updateActiveThumbnail() {
+    $('.featured-carousel').on('select.flickity', function(event, index) {
+      var variantID = $(this).data('variant');
+      var index = $(this).data('flickity').selectedIndex;
+
+      $('.pdp-thumbnails.' + variantID + ' .thumbnail-image').removeClass('active');
+      $('.pdp-thumbnails.' + variantID + ' .thumbnail-image.index-' + index).addClass('active');
+    });
+
+    $(document).on('click', '.thumbnail-image', function(e) {
+      var variantID = $(this).data('variant');
+      var index = $(this).data('index');
+
+      $('.pdp-thumbnails.' + variantID + ' .thumbnail-image').removeClass('active');
+      $(this).addClass('active');
+
+      $('.featured-carousel.' + variantID).flickity('selectCell', index);
+    });
+  }
+
+  function updateVariantContent(variantID) {
+    var resetActiveTab = false;
+
+    // Description
+    $('.content-section.description').html(variantMetafields[variantID].description);
+    
+    // Benefits
+    if (variantMetafields[variantID].benefits) {
+      $('.nav-slider-option.benefits').show();
+      $('.content-section.benefits').html(variantMetafields[variantID].benefits);
+    } else {
+    //  $('.nav-slider-option.benefits').hide();
+
+      if ($('.nav-slider-option.benefits').hasClass('active')) {
+        resetActiveTab = true
+      }
+    }
+
+    // Ingredients
+    if (variantMetafields[variantID].ingredients) {
+      $('.nav-slider-option.ingredients').show();
+      $('.content-section.ingredients').html(variantMetafields[variantID].ingredients);
+    } else {
+   //   $('.nav-slider-option.ingredients').hide();
+
+      if ($('.nav-slider-option.ingredients').hasClass('active')) {
+        resetActiveTab = true
+      }
+    }
+
+    // Amino
+    if (variantMetafields[variantID].amino_acids) {
+      $('.nav-slider-option.amino').show();
+      $('.content-section.amino').html('<img class="amino-acid" src="' + variantMetafields[variantID].amino_acids[0].cloudinary_src + 'h_600" />"');
+    } else {
+//$('.nav-slider-option.amino').hide();
+
+      if ($('.nav-slider-option.amino').hasClass('active')) {
+        resetActiveTab = true
+      }
+    }
+
+    // How to Use
+    if (variantMetafields[variantID].how_to_use) {
+      $('.nav-slider-option.how').show();
+      $('.content-section.how').html(variantMetafields[variantID].how_to_use);
+    } else {
+  //    $('.nav-slider-option.how').hide();
+
+      if ($('.nav-slider-option.how').hasClass('active')) {
+        resetActiveTab = true
+      }
+    }
+
+    // We are switching to a variant that doesn't have the currently selected tab - default back to description
+    if (resetActiveTab) {
+      $('.nav-slider-option').removeClass('active');
+      $('.content-section').removeClass('active')
+      $('.nav-slider-option.description').addClass('active');
+      $('.content-section.description').addClass('active');
+    }
+
+    // Featured Carousel
+    $('.featured-carousel').hide();
+    $('.featured-carousel.' + variantID).show();
+    $('.featured-carousel.' + variantID).flickity('resize');
+
+    // Thumbnails
+    $('.pdp-thumbnails').removeClass('active');
+    $('.pdp-thumbnails.' + variantID).addClass('active');
+
+    // Pause any carousel videos that might be playing
+    $('.carousel-video').trigger('pause');
+
+    // Reviews
+    $('[data-bv-show="rating_summary"]').attr('data-bv-product-id', variantMetafields[variantID].original_product_id);
+    $('[data-bv-show="reviews"]').attr('data-bv-product-id', variantMetafields[variantID].original_product_id);
+    $('[data-bv-show="questions"]').attr('data-bv-product-id', variantMetafields[variantID].original_product_id);
+  }
+
+  function setQueryStringParameter(name, value) {
+      const params = new URLSearchParams(window.location.search);
+      params.set(name, value);
+      window.history.replaceState({}, "", decodeURIComponent(`${window.location.pathname}?${params}`));
+  } 
+</script>
+
+
+
+<script text="text/javascript">
+  var _learnq = _learnq || [];
+
+  var item = {
+    Name: {{ product.title|json }},
+    ProductID: {{ product.id|json }},
+    Categories: {{ product.collections|map:'title'|json }},
+    ImageURL: "https:{{ product.featured_image.src|img_url:'grande' }}",
+    URL: "{{ shop.secure_url }}{{ product.url }}",
+    Brand: {{ product.vendor|json }},
+    Price: {{ product.price|money|json }},
+    CompareAtPrice: {{ product.compare_at_price_max|money|json }}
+  };
+
+  _learnq.push(['track', 'Viewed Product', item]);
+  _learnq.push(['trackViewedItem', {
+    Title: item.Name,
+    ItemId: item.ProductID,
+    Categories: item.Categories,
+    ImageUrl: item.ImageURL,
+    Url: item.URL,
+    Metadata: {
+      Brand: item.Brand,
+      Price: item.Price,
+      CompareAtPrice: item.CompareAtPrice
+    }
+  }]);
+  
+  	$(".product_form .add_to_cart").on('click', function () {
+ 		_learnq.push(['track', 'Added to Cart', item]);
+	});
+</script>
+
+<!--PERZONALIZATION-START Do not modify or delete this comment--><div id="perzonalization" class="perzonalization"></div><script type='text/javascript'>var productDetailsForPrz = {{ product | json }};var basketDetailsForPrz = {{ cart | json }};var filterDetailsForPrz = {{ collection | json }};var detailsForPrz = { userId: '{{ customer.id }}', language: '{{ shop.locale }}', currency:'{{ shop.currency }}' };var searchDetailsForPrz = {{ search.results | json }};if(productDetailsForPrz) { productDetailsForPrz.collections = []; }{% for collection in product.collections %}   if(productDetailsForPrz) { productDetailsForPrz.collections.push("{{ collection.title }}") }{% endfor %}if (filterDetailsForPrz) { filterDetailsForPrz.products = []; }{% for product in collection.products %}   if(filterDetailsForPrz) { filterDetailsForPrz.products.push({ id:"{{ product.id }}", handle:"{{ product.handle }}" }) }{% endfor %}</script><!--Do not modify or delete this comment PERZONALIZATION-END-->

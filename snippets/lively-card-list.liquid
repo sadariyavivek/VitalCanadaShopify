@@ -1,0 +1,17 @@
+{% assign articleHandles = product.metafields.vital.blog_article %}
+
+{% if articleHandles == blank %}
+  {% assign articleHandles = 'stay-vital/what-is-collagen|recipes/how-to-use-collagen|stay-vital/collagen-peptides-types|stay-vital/collagen-faq' %}
+{% endif %}
+{% assign articleHandles = articleHandles | split: '|' %}
+<div class="lively-wrapper">
+  <div class="lively-header-wrapper">
+    <h4 class="lively-blog-header-text">Lively Blog</h4>
+    <a href="/pages/blog" class="lively-blog-show-all-link">See all articles <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 512 512'><title>ionicons-v5-a</title><polyline points='268 112 412 256 268 400' style='fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px'/><line x1='392' y1='256' x2='100' y2='256' style='fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px'/></svg></a>
+  </div>
+  <div class="lively-grid-scroll">
+    {% for articleHandle in articleHandles %}
+    	{% render 'lively-card' with articleHandle as article_handle %}
+    {% endfor %}
+  </div>
+</div>

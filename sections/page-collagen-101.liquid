@@ -1,0 +1,666 @@
+<style>
+  {% assign pinkColor = '#00a4b4' %}
+  {% assign yellowColor = '#f7cd54' %}
+  
+  .main.content {
+    display: none;
+  }
+  
+  .stamped-widget-title {
+   	display: none; 
+  }
+  
+  .product-info-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .intro-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+  }
+  
+  .intro-container .intro-image-container {
+    width: 40%;
+    background-size: cover;
+    background-position: 50%;
+    height: 100%;
+    position: relative;
+  }
+  
+  .intro-container .intro-text-container {
+    width: 60%;
+    background-color: {{ yellowColor }};
+    color: white;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .intro-container .intro-text-container h2 {
+    color: white;
+    text-transform: none;
+    text-align: center;
+    font-size: 90px;
+    padding: 5%;
+  }
+  
+  .one-oh-one-product-image-container {
+    width: 50%;
+  }
+  
+  .one-oh-one-product-image-container img {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  
+  .kit-description p {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .one-oh-one-product-info-container {
+    width: 50%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .one-oh-one-product-info-container .kit-title {
+    color: {{ pinkColor }};
+    text-transform: capitalize;
+    font-size: 60px;
+  }
+  
+  .one-oh-one-product-info-container .kit-price {
+    font-size: 36px;
+    letter-spacing: 0px !important;
+    margin-top: 0;
+  }
+  
+  .was-price-strikethrough {
+    position: relative;
+    color: {{ pinkColor}};
+    opacity: 0.75;
+  }
+  
+  .was-price-strikethrough:before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 50%;
+    right: 0;
+    border-top: 2px solid;
+    border-color: inherit;
+
+    -webkit-transform:rotate(15deg);
+    -moz-transform:rotate(15deg);
+    -ms-transform:rotate(15deg);
+    -o-transform:rotate(15deg);
+    transform:rotate(15deg);
+  }
+
+  .one-oh-one-product-info-container .add_to_cart {
+    width: 340px;
+  }
+  
+  .benefits-callout {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .benefits-callout .benefit-image-container {
+    width: calc(100% / 6);
+  }
+  
+  .benefits-callout .benefit-image-container img {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  
+  .collagen-101-section {
+    background-color: white;
+    text-align: center;
+    padding: 40px
+  }
+  
+  .collagen-101-section h2 {
+    text-transform: capitalize;
+    color: {{ pinkColor }};
+    font-size: 96px;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 96px;
+  }
+  
+  .collagen-101-section h4 {
+    text-transform: uppercase;
+    color: {{ pinkColor }};
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-family: 'Avenir';
+    opacity: 0.6;
+  }
+  
+  .collagen-101-section .facts-container {
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 80%;
+    margin: 0px auto;
+    flex: 3;
+  }
+  
+  .collagen-101-section .facts-container .fact-container {
+    flex: 1;
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 25%;
+  }
+  
+  
+  .collagen-101-section .facts-container .fact-container img {
+    width: auto;
+    height: 70px;
+  }
+  
+  .collagen-101-section .facts-container .fact-container p {
+    font-family: 'Avenir';
+    color: #4a4a4a;
+    font-size: 18px;
+  }
+  
+  .collagen-101-section .facts-container .fact-container:not(:last-child) {
+    border-right: 2px solid {{ yellowColor }};
+  }
+  
+  .cl-recipes-section {
+    margin-top: 40px;
+    padding-left: 60px;
+    padding-right: 60px;
+    
+    background-color: {{ yellowColor }};
+  }
+  
+  .cl-recipes-section h3 {
+    text-align: center;
+    font-size: 36px;
+    letter-spacing: 1px !important;
+  }
+  
+  .cl-blog-article-outer-container {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    width: 80%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .cl-blog-article-container {
+    width: 33%;
+    padding: 20px;
+  }
+  
+  .cl-blog-article-container img {
+    border-radius: 20px;
+    width: 100%;
+    transition: 1s all cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  
+  .cl-blog-article-container h4 {
+    color: white;
+    letter-spacing: 1px !important;
+    font-size: 32px;
+    transition: .3s opacity ease-out;
+    text-align: center;
+  }
+  
+  .cl-blog-article-container a:hover img {
+    transform: scale(1.02);
+  }
+  
+  .cl-blog-article-container a:hover h4 {
+    opacity: 0.7;
+  }
+  
+  .product-dropdown-section {
+    display: flex;
+  }
+  
+  .product-dropdown-section .product-dropdown-text {
+    background-color: {{ pinkColor }};
+    width: 50%;
+    padding: 20px 10%;
+    color: white;
+  }
+  
+  .product-dropdown-section .product-dropdown-text h4 {
+    text-transform: uppercase;
+    color: white;
+    font-size: 36px;
+  }
+  
+  .product-dropdown-section .product-dropdown-text a {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    display: block;
+    margin-bottom: 20px;
+  }
+  
+  .product-dropdown-section .icon-down-arrow {
+    -webkit-transition: .2s all ease-out;
+    -moz-transition: .2s all ease-out;
+    -ms-transition: .2s all ease-out;
+    -o-transition: .2s all ease-out;
+    transition: .2s all ease-out;
+    font-size: 18px !important;
+
+  }
+  
+  .product-dropdown-section .icon-down-arrow:before {
+    font-weight: bold;
+  }
+  
+  .product-dropdown-section .icon-down-arrow.open {
+    transform: rotateX(-180deg);
+    -webkit-transform: rotate(-180deg);
+  }
+  
+  .product-dropdown-section .dropdown-header-text {
+    display: inline-block;
+    width: 80%;
+    text-align: left;
+  }
+  
+  .conspire-drawer {
+    margin-bottom: 20px;
+  }
+  
+  .product-dropdown-section .product-dropdown-image { 
+    width: 50%;
+    background-size: cover;
+    background-position: 50%;
+  }
+  
+  .ebook-cta-section {
+    background-color: {{ yellowColor }};
+    text-align: center;
+  }
+  
+  .ebook-cta-section h4 {
+    color: white;
+    text-transform: none;
+    letter-spacing: 0px !important;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Avenir';
+    padding: 20px;
+  }
+  
+  .disclaimer-section {
+    text-align: center;
+  }
+  
+  
+  @media only screen and (max-width: 1400px) {
+    .intro-container .intro-text-container h2 {
+      font-size: 72px;
+      line-height: 72px;
+    }
+    
+    .collagen-101-section .facts-container {
+      flex-wrap: wrap;
+    }
+    
+    .collagen-101-section .facts-container .fact-container {
+      width: 50%;
+      flex: none;
+    }
+    
+    .collagen-101-section .facts-container .fact-container img {
+      height: 60px;
+      width: auto;
+    }
+    
+    .collagen-101-section .facts-container .fact-container:not(:last-child) {
+      border: none;
+    }
+  }
+  
+  @media only screen and (max-width: 900px) {
+    .product-dropdown-section {
+      flex-direction: column-reverse;
+    }
+    
+    .product-dropdown-section .product-dropdown-text {
+      width: 100%;
+    }
+    
+    .product-dropdown-section .product-dropdown-image {
+      width: 100%;
+      height: 200px;
+    }
+  }
+  
+  @media only screen and (max-width: 800px) {
+    .intro-container .intro-text-container h2 {
+      font-size: 36px;
+      line-height: 36px;
+    }
+    
+    .one-oh-one-product-info-container .add_to_cart {
+      width: 240px;
+    }
+    
+    .page-collagen-101-container {
+      margin-top: 120px;
+    }
+    
+    .product-info-container {
+      flex-direction: column;
+    }
+    
+    .one-oh-one-product-image-container {
+      width: 100%;
+    }
+    
+    .one-oh-one-product-info-container {
+      	width: 100%;
+        text-align: center;
+    	margin-bottom: 40px;
+    }
+    
+    .one-oh-one-product-info-container .kit-title {
+      font-size: 48px;
+    }
+    
+    .benefits-callout {
+      flex-wrap: wrap;
+    }
+    
+    .benefits-callout .benefit-image-container {
+      width: 50%;
+    }
+    
+    .facts-container {
+      flex-direction: column;
+    }
+    
+    .collagen-101-section h2 {
+      font-size: 48px;
+    }
+    
+    .collagen-101-section .facts-container {
+      width: 100%;
+    }
+    
+    .collagen-101-section .facts-container .fact-container:not(:last-child) {
+      border: none;
+    }
+    
+    .collagen-101-section .facts-container .fact-container .fact-image-container {
+      height: initial;
+    }
+    
+    .collagen-101-section .facts-container .fact-container p {
+      height: initial;
+    }
+    
+    .collagen-101-section .facts-container .fact-container img {
+      height: 70px;
+      width: auto;
+    }
+    
+    .collagen-101-section .facts-container .fact-container {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    
+    .cl-blog-article-outer-container {
+      flex-direction: column;
+    }
+    
+    .cl-blog-article-container {
+      	width: 100%;
+    	margin-left: auto;
+    	margin-right: auto;
+    }
+  }
+</style>
+<div class="page-collagen-101-container">
+  <div class="intro-container">
+    <div class="intro-image-container" style="background-image: url('{{ section.settings.header_image_1 | img_url: '600x', format: 'jpg' }}')">
+      
+    </div>
+    <div class="intro-text-container">
+      <h2>Collagen-boosting benefits are just a sip away</h2>
+    </div>
+  </div>
+  <div class="container product-info-container kit-description">
+    <p>Sip your way to supporting healthy hair, skin, nails, and joint with Vital Proteins! Our Collagen 101 Kit is the perfect way to try all things collagen with a 21-day supply of best-selling Collagen Peptides, new Collagen Waters, and more at an exclusive price of <strong>$29</strong> (a <strong>$51 value</strong>)!* Get sipping now.</p>
+  </div>
+  <div class="container product-info-container">
+    <div class="one-oh-one-product-image-container">
+      <img src="https://cdn.shopify.com/s/files/1/2074/9385/products/Collagen_101_Kit_Site_Bundle-01_cropped_1200x.jpg" alt="Collagen 101"/>
+    </div>
+    <div class="one-oh-one-product-info-container">
+      <h1 class="kit-title">Collagen 101 Kit</h1>
+      <h2 class="kit-price"><span class="was-price-strikethrough">{{ 5100 | money_without_trailing_zeros }}</span> {{ 2900 | money_without_trailing_zeros }}</h2>
+      <a class="action_button add_to_cart kapra" href="https://vital-proteins.myshopify.com/cart/28553243426876:1?channel=buy_button">Get Started</a>
+    </div>
+  </div>
+  <div class="product-dropdown-section">
+    <div class="product-dropdown-text">
+      <h4>The Collagen 101 Contents:</h4>
+      <a href="#" class="conspire-drawer-header" aria-expanded="false"><span class="dropdown-header-text">10 oz. Collagen Peptides canister</span> <span aria-label="(Expand dropdown icon)" class="right icon-down-arrow"></span></a>
+      <div class="conspire-drawer">Unflavored &amp; easily mixed into your favorite hot or cold beverage.</div>
+      <a href="#" class="conspire-drawer-header" aria-expanded="false"><span class="dropdown-header-text">Collagen Water - Strawberry Lemon</span> <span aria-label="(Expand dropdown icon)" class="right icon-down-arrow"></span></a>
+      <div class="conspire-drawer">Ready to drink wherever you go with a light twist of flavor.</div>
+      <a href="#" class="conspire-drawer-header" aria-expanded="false"><span class="dropdown-header-text">Collagen Water - Blackberry Hibiscus</span> <span aria-label="(Expand dropdown icon)" class="right icon-down-arrow"></span></a>
+      <div class="conspire-drawer">Blackberry refreshment with a twist of hibiscus anytime, anywhere.</div>
+      <a href="#" class="conspire-drawer-header" aria-expanded="false"><span class="dropdown-header-text">Collagen Shot - Sleep</span> <span aria-label="(Expand dropdown icon)" class="right icon-down-arrow"></span></a>
+      <div class="conspire-drawer">Keep on dreamin’ on with ingredients like GABA and magnesium.</div>
+      <a href="#" class="conspire-drawer-header" aria-expanded="false"><span class="dropdown-header-text">Collagen Beauty Glow - Tropical Hibiscus Stick Pack</span> <span aria-label="(Expand dropdown icon)" class="right icon-down-arrow"></span></a>
+      <div class="conspire-drawer">With collagen, biotin, and vitamin c, healthy skin is refreshingly easy.</div>
+      <a href="#" class="conspire-drawer-header" aria-expanded="false"><span class="dropdown-header-text">Matcha Collagen - Peach Stick Pack</span> <span aria-label="(Expand dropdown icon)" class="right icon-down-arrow"></span></a>
+      <div class="conspire-drawer">A pick-me-up full of antioxidants and without the jitters.</div>
+      <a href="#" class="conspire-drawer-header" aria-expanded="false"><span class="dropdown-header-text">Collagen Creamer - Coconut Stick Pack</span> <span aria-label="(Expand dropdown icon)" class="right icon-down-arrow"></span></a>
+      <div class="conspire-drawer">Free of dairy and added sugars to start your day the best way.</div>
+      <a href="#" class="conspire-drawer-header" aria-expanded="false"><span class="dropdown-header-text">Collagen Peptides Stick Pack</span> <span aria-label="(Expand dropdown icon)" class="right icon-down-arrow"></span></a>
+      <div class="conspire-drawer">A collagen classic in stick pack form to fit your on-the-go lifestyle.</div>
+    </div>
+    <div class="product-dropdown-image" style="background-image: url('{{ section.settings.header_image_2 | img_url: '1200x', format: 'jpg' }}');">
+    </div>
+  </div>
+  <div class="ebook-cta-section">
+    <h4>Plus, enjoy a Collagen eBook delivered right to your inbox with recipes, FAQ's, and more!</h4>
+  </div>
+  <div>
+    {% assign product = all_products['collagen-101-kit'] %}
+    <div id="stamped-reviews-widget" data-widget-type="full-page" data-review-ids="15378852, 15428500, 15435004, 15441812"></div>
+  </div>
+  <div class="collagen-101-section">
+    <h2>Vital Collagen Basics</h2>
+    <h4>Here's why collagen should be a part of your every day.</h4>
+    <div class="facts-container">
+      <div class="fact-container">
+        <div class="fact-image-container">
+          <img class="lazyload" src="{{ section.settings.benefit_image_1 | img_url: '800x' }}"/>
+        </div>
+        <p>It helps to support stronger hair, skin and nails.</p>
+      </div>
+      <div class="fact-container">
+        <div class="fact-image-container">
+          <img class="lazyload" src="{{ section.settings.benefit_image_2 | img_url: '800x' }}"/>
+        </div>
+        <p>It helps keep joints healthy and happy during your toughest workouts.</p>
+      </div>
+      <div class="fact-container">
+        <div class="fact-image-container">
+          <img class="lazyload" src="{{ section.settings.benefit_image_3 | img_url: '800x' }}"/>
+        </div>
+        <p>All of the benefits without the bad stuff.</p>
+      </div>
+      <div class="fact-container">
+        <div class="fact-image-container">
+          <img class="lazyload" src="{{ section.settings.benefit_image_4 | img_url: '800x' }}"/>
+        </div>
+        <p>Fit for any lifestyle to support overall health.</p>
+      </div>
+    </div>
+  </div>
+  <div class="cl-recipes-section">
+    <div class="cl-blog-article-outer-container">
+      <div class="cl-blog-article-container">
+       
+          <h4>The ultimate classic.</h4>
+          <img src="{{ section.settings.blog_image_1 | img_url: '600x', format: 'jpg' }}" alt="Iced Cocoa Caramel Latte"/>
+          <h4>Unflavored &amp; versatile.</h4>
+     
+      </div>
+      <div class="cl-blog-article-container">
+   
+          <h4>Twist. Sip. Repeat.</h4>
+          <img src="{{ section.settings.blog_image_2 | img_url: '600x', format: 'jpg' }}" alt="Golden Milk &amp; Hot Cocoa Lattes"/>
+          <h4>Enjoy anywhere.</h4>
+
+      </div>
+      <div class="cl-blog-article-container">
+    
+          <h4>Get up &amp; glow.</h4>
+          <img src="{{ section.settings.blog_image_3 | img_url: '600x', format: 'jpg' }}" alt="Cinnamon Cocoa Latte"/>
+          <h4>Light &amp; refreshing.</h4>
+  
+      </div>
+      <div class="cl-blog-article-container">
+      
+          <h4>Keep on dreamin'.</h4>
+          <img src="{{ section.settings.blog_image_4 | img_url: '600x', format: 'jpg' }}" alt="Cinnamon Cocoa Latte"/>
+          <h4>Nighttime all-star.</h4>
+
+      </div>
+    </div>
+  </div>
+  <div class="container disclaimer-section">
+    <p>*Limit 1 per customer. Offer valid for U.S. customers only. Offer may not be used in combination with any other offer and / or any other purchase on vitalproteins.com. Offer not valid during certain promotional periods, and is for one-time use. Offer may not be used in combination with third party loyalty, reward, or cash-back programs. Offer may not be completed with items noted as ineligible (all other Vital Proteins products), or items that are not in stock at the time of purchase. Offer cannot be applied to previously placed or pending orders. Offer applied to authorized purchases only. Only authorized orders will be processed and shipped. We reserve the right to cancel any order due to unauthorized, altered, or ineligible use of offer and to modify or cancel this promotion due to system error or unforeseen problems. All sales are final and cannot be exchanged or returned. Offer valid while supplies last. Other restrictions may apply.</p>
+  </div>
+</div>
+
+<script>
+  $('.product-dropdown-text .conspire-drawer-header').click(function(e) {
+    e.preventDefault();
+    var arrow = $(this).find('.icon-down-arrow');
+    
+    if (arrow.hasClass('open')) {
+      arrow.removeClass('open');
+      $(this).attr('aria-expanded', 'false');
+    } else {
+      arrow.addClass('open');
+      $(this).attr('aria-expanded', 'true');
+    }
+  });
+</script>
+{% schema %}
+  {
+    "name": "Page Collagen 101",
+    "settings": [
+		{
+          "type": "image_picker",
+          "id": "header_image_1",
+          "label": "Header Image 1"
+        },
+		{
+          "type": "image_picker",
+          "id": "header_image_2",
+          "label": "Header Image 2"
+        },
+		{
+          "type": "image_picker",
+          "id": "benefit_image_1",
+          "label": "Benefit Image 1"
+        },
+		{
+          "type": "image_picker",
+          "id": "benefit_image_2",
+          "label": "Benefit Image 2"
+        },
+		{
+          "type": "image_picker",
+          "id": "benefit_image_3",
+          "label": "Benefit Image 3"
+        },
+		{
+          "type": "image_picker",
+          "id": "benefit_image_4",
+          "label": "Benefit Image 4"
+        },
+		{
+          "type": "image_picker",
+          "id": "benefit_image_5",
+          "label": "Benefit Image 5"
+        },
+		{
+          "type": "image_picker",
+          "id": "benefit_image_6",
+          "label": "Benefit Image 6"
+        },
+		{
+          "type": "image_picker",
+          "id": "fact_image_1",
+          "label": "Fact Image 1"
+        },
+		{
+          "type": "image_picker",
+          "id": "fact_image_2",
+          "label": "Fact Image 2"
+        },
+		{
+          "type": "image_picker",
+          "id": "fact_image_3",
+          "label": "Fact Image 3"
+        },
+		{
+          "type": "image_picker",
+          "id": "blog_image_1",
+          "label": "Blog Image 1"
+        },
+		{
+          "type": "image_picker",
+          "id": "blog_image_2",
+          "label": "Blog Image 2"
+        },
+		{
+          "type": "image_picker",
+          "id": "blog_image_3",
+          "label": "Blog Image 3"
+        },
+		{
+          "type": "image_picker",
+          "id": "blog_image_4",
+          "label": "Blog Image 4"
+        }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

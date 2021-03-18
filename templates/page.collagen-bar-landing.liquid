@@ -1,0 +1,1142 @@
+<a name="pagecontent" id="pagecontent"></a>
+
+</div>
+
+{% assign chocolate = '#02abe3' %}
+{% assign chocolateSecondary = '#0066ba' %}
+{% assign lemon = '#ffce00' %}
+{% assign lemonSecondary = '#f6b221' %}
+{% assign berry = '#cc007b' %}
+{% assign berrySecondary = '#641143' %}
+{% assign raspberry = '#ff5a68' %}
+{% assign raspberrySecondary = '#e1085a' %}
+{% assign mint = '#34d9c3' %}
+{% assign mintSecondary = '#009578' %}
+{% assign peanutButter = '#b83d24' %}
+{% assign peanutButterSecondary = '#6f3c2f' %}
+
+<style>
+  
+  .subscription-widget-new {
+    display: none;
+  }
+  
+  .container.main.content {
+    display: none;
+  }
+  
+  .container.collagen-bar-page {
+    min-height: 800px;
+    max-width: 100%
+  }
+  
+  #box {
+    margin-top: 40px;
+    position: relative;
+    width: 900px;
+    height: 500px;
+    border: 2px solid #23b6e6;
+    perspective: 800px;
+    transform-style: preserve-3d;
+    transition: transform .75s ease 0.3s, opacity .2s ease;
+    margin-left: auto;
+    margin-right: auto;
+	border-radius: 10px;
+  }
+  
+  #box:hover {
+    cursor: pointer;
+  }
+  
+  #box.active:hover {
+    opacity: 1.0 !important;
+  }
+  
+  #box:hover #flap3 {
+    background: {{ chocolateSecondary }};
+  }
+  
+  #box:hover #bottom-flap {
+    background: {{ chocolateSecondary }};
+  }
+
+  #flap3,
+  #bottom-flap,
+  #flap-container {
+    position: absolute;
+  }
+
+  #flap3 {
+    width: 100%;
+    height: 100%;
+    background: #23b6e6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: .2s background-color ease-out;
+    border-radius: 8px;
+  }
+  
+  #flap3 h1 {
+    text-transform: uppercase;
+    letter-spacing: 1px !important;
+    color: white;
+    padding: 10px 20px;
+    font-size: 72px;
+  }
+  
+  #flap3 p {
+    color: #23b6e6;
+    font-size: 24px;
+    margin-bottom: 0;
+    font-weight: bold;
+    background: white;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  #flap3 .arrow-icon {
+    animation: bounce 0.5s cubic-bezier(0.4, 0, 1, 1) infinite alternate-reverse;
+  }
+  
+  #flap-container {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.75s ease 0.3s;
+    transform-origin: 0 0;
+    perspective: 800px;
+    transform-style: preserve-3d;
+  }
+  
+  #bottom-flap {
+    width: 100%;
+    height: 25%;
+    top: 100%;
+    border: 2px solid #23b6e6;
+    transform-origin: 0 0;
+    transform: rotateX(-90deg);
+    transition: transform .5s ease .85s;
+    background-color: #23b6e6;
+    background-size: cover;
+    background-position: 50% 100%;
+    background-repeat: no-repeat;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+
+  #box.active #flap-container {
+    transition: transform 0.75s ease 0.5s;
+    transform: rotateX(120deg);
+  }
+  
+  #box.active #bottom-flap {
+     transition: transform .5s ease 0.0s;
+     transform: rotateX(0deg);
+   }
+  
+
+  #box.active {
+    transition: all 0.5s ease 0.7s;
+    width: 100%;
+    height: auto;
+    border: 0;
+  }
+  
+  #box.active:hover {
+    cursor: initial;
+  }
+  
+  .box-contents {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .box-product-container {
+    height: 100%;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .bordered-box {
+    width: 80%;
+    margin: 0 auto;
+    max-width: 800px;
+    border: 8px solid #02abe3;
+  }
+  
+  .box-content-header {
+    width: 100%;
+    max-width: 800px;
+  }
+  
+  .discover-header {
+    letter-spacing: 1px !important;
+    text-transform: none;
+    color: white;
+    background-color: {{ mint }};
+    max-width: 1200px;
+    margin: 0;
+    text-align: center;
+    display: table;
+    padding: 0px 20px;
+    width: 100%;
+    max-width: 800px;
+    text-transform: uppercase;
+    font-size: 36px;
+  }
+  
+  .preorder-message-wrapper {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
+  }
+  
+  .preorder-message-wrapper img {
+    width: 20%;
+  }
+  
+  .preorder-message {
+    color: {{ chocolate }};
+    text-transform: uppercase;
+    letter-spacing: 1px !important;
+    font-size: 36px;
+    margin-bottom: 0;
+    line-height: 40px;
+    font-weight: bold;
+    width: 80%;
+  }
+  
+  .bar-tile {
+    width: 33.33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px;
+    display: none;
+    position: relative;
+    overflow: hidden;
+    transition: .2s all ease-out;
+    background-color: transparent;
+  }
+  
+  
+  .bar-tile .bar-image {
+    width: 90%;
+  }
+  
+  #box.active .bar-tile {
+    display: flex;
+ 	flex-direction: column;
+  }
+  
+  #box.active .bar-tile.variety {
+    height: 400px;
+  }
+  
+  .bar-title {
+    font-family: 'avenir black';
+    letter-spacing: 0 !important;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bold;
+    transition: .2s color ease-out;
+    color: white;
+    margin: 0;
+    padding: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .bar-price s {
+    color: #e0e0e0;
+  }
+  
+  .bar-size {
+    color: white;
+    font-family: 'kapraregular';
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .bar-tile.chocolate {
+    background-color: {{ chocolate }};
+  }
+  
+  .bar-tile.chocolate:hover {
+    background-color: {{ chocolateSecondary }};
+  }
+  
+  .bar-tile.lemon-vanilla {
+    background-color: {{ lemon }};
+  }
+  
+  .bar-tile.lemon-vanilla:hover {
+    background-color: {{ lemonSecondary }};
+  }
+  
+  .bar-tile.mixed-berry {
+    background-color: {{ berry }};
+  }
+  
+  .bar-tile.mixed-berry:hover {
+    background-color: {{  berrySecondary }};
+  }
+  
+  .bar-tile.raspberry-lemon  {
+    background-color: {{ raspberry }};
+  }
+  
+  .bar-tile.raspberry-lemon:hover {
+    background-color: {{ raspberrySecondary }};
+  }
+  
+  .bar-tile.mint {
+    background-color: {{ mint }};
+  }
+  
+  .bar-tile.mint:hover {
+    background-color: {{ mintSecondary }};
+  }
+  
+  .bar-tile.peanut-butter {
+    background-color: {{ peanutButter }};
+  }
+  
+  .bar-tile.peanut-butter:hover {
+    background-color: {{ peanutButterSecondary }};
+  }
+  
+  .bar-tile.lifestyle {
+    background-image: url({{ 'bars-landing-lifestyle.jpg' | file_img_url: '600x' }});
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+  }
+  
+  .bar-price {
+    display: block;
+    font-family: 'kapraregular';
+    font-size: 36px;
+    line-height: 40px;
+    margin-bottom: 6px;
+    transition: .2s color ease-out;
+    color: white;
+  }
+  
+  .product_form {
+    margin-bottom: 0;
+  }
+  
+  .bar-cta, button.add_to_cart {
+    background: transparent;
+    font-family: 'kapraregular';
+    font-size: 32px;
+    line-height: 32px;
+    text-transform: uppercase;
+    color: white;
+    padding: 0px 10px;
+    border: 2px solid white;
+    transition: .2s all ease-out;
+    border-radius: 6px;
+    min-height: initial;
+    height: auto;
+    width: auto;
+  }
+  
+  button.add_to_cart:hover {
+    background: white;
+    transform: translateY(-2px);
+    border: 2px solid white;
+  }
+  
+  .bar-cta:hover {
+    background: white;
+    transform: translateY(-2px);
+  }
+  
+  .bar-tile.chocolate .bar-cta:hover {
+    color: {{ chocolateSecondary }};
+  }
+  
+  .bar-tile.lemon-vanilla .bar-cta:hover {
+    color: {{ lemonSecondary }};
+  }
+  
+  .bar-tile.mixed-berry .bar-cta:hover {
+    color: {{ berrySecondary }};
+  }
+  .bar-tile.mint .bar-cta:hover {
+    color: {{ mintSecondary }};
+  }
+  .bar-tile.raspberry-lemon .bar-cta:hover {
+    color: {{ raspberrySecondary }};
+  }
+  .bar-tile.peanut-butter .bar-cta:hover {
+    color: {{ peanutButterSecondary }};
+  }
+  
+  .bar-tile.chocolate button.add_to_cart:hover {
+    color: {{ chocolateSecondary }};
+  }
+  
+  .bar-tile.lemon-vanilla button.add_to_cart:hover {
+    color: {{ lemonSecondary }};
+  }
+  
+  .bar-tile.mixed-berry button.add_to_cart:hover {
+    color: {{ berrySecondary }};
+  }
+  .bar-tile.mint button.add_to_cart:hover {
+    color: {{ mintSecondary }};
+  }
+  .bar-tile.raspberry-lemon button.add_to_cart:hover {
+    color: {{ raspberrySecondary }};
+  }
+  .bar-tile.peanut-butter button.add_to_cart:hover {
+    color: {{ peanutButterSecondary }};
+  }
+  
+  .ingredient-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .ingredient {
+    position: absolute;
+    height: auto;
+    max-width: 50px;
+    transition: .3s all ease-out;
+    opacity: 0;
+  }
+  
+  .ingredient.first {
+    top: -5px;
+    right: 15%;
+    transform: translate(-200px, -200px);
+  }
+  
+  .ingredient.second {
+    top: -10px;
+    right: -5px;
+    transform: translate(-200px, -200px);
+  }
+  
+  .ingredient.third {
+    top: 30%;
+    right: -20px;
+    transform: translate(100px, 0px);
+  }
+  
+  .ingredient.fourth {
+    right: -10px;
+    bottom: 10%;
+    transform: translate(200px, 200px);
+  }
+  
+  .ingredient.fifth {
+    right: 10%;
+    bottom: -10px;
+    transform: translate(200px, 200px);
+  }
+  
+  .ingredient.sixth {
+    bottom: -20px;
+    left: 25%;
+    transform: translate(0px, 200px);
+  }
+  
+  .ingredient.seventh {
+    bottom: -5px;
+    left: 20px;
+    transform: translate(-200px, 200px);
+  }
+  
+  .ingredient.eighth {
+    left: -10px;
+    bottom: 15%;
+    transform: translate(0px, 200px);
+  }
+  
+  .ingredient.ninth {
+    left: -20px;
+    top: 25%;
+    transform: translate(-200px, 0);
+  }
+  
+  .ingredient.tenth {
+    top: -5px;
+    left: 0px;
+    transform: translate(-200px, -200px);
+  }
+  
+  .bar-tile.lemon-vanilla:hover .ingredient {
+    opacity: 0.5;
+  }
+  
+  .bar-tile:hover .ingredient {
+    transform: translate(0, 0);
+    opacity: 0.3;
+  }
+  
+  .bar-education-section {
+    max-width: 1200px;
+    margin: 20px auto;
+  }
+  
+  .nutrition-callout-wrapper {
+   	display: flex;
+	flex-direction: row;
+    justify-content: space-evenly;
+    opacity: 1;
+    flex-wrap: wrap;
+  }
+  
+  .education-title {
+    letter-spacing: 1px !important;
+    text-transform: none;
+    color: {{ chocolate }};
+    font-size: 36px;
+    margin-bottom:0;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .education-subtitle-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  .dotted-line {
+    width: 30%;
+  }
+  
+  .education-subtitle {
+    font-family: 'avenir';
+    font-weight: bold;
+    letter-spacing: 0px !important;
+    font-size: 18px;
+    color: {{ chocolateSecondary }};
+    text-transform: none;
+    margin-bottom: 0;
+    padding: 10px;
+  }
+  
+  .education-divider {
+    border: 1px dotted {{ chocolate }}; 
+  }
+  
+  .callout {
+    width: 25%;
+  }
+  
+  .callout:not(:last-child) {
+    border-right: 2px solid {{ chocolateSecondary }};
+  }
+  
+  .nc-number {
+    font-family: 'kapraregular';
+    font-size: 60px;
+    color: {{ chocolateSecondary }};
+    line-height: 62px;
+  }
+  
+  .nc-grams {
+    font-family: 'kapraregular';
+    font-size: 48px;
+    color: {{ chocolateSecondary }};
+  }
+  
+  .nc-text {
+    font-size: 21px;
+    color: {{ chocolateSecondary }};
+    font-weight: bold;
+  }
+  
+  .disclaimer {
+    font-size: 12px;
+    text-align: center;
+    font-style: italic;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+  }
+  
+  @keyframes bounce {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(20px); }
+  }
+  
+  .callout-banner {
+    width: 100%;
+  }
+  
+  .callout-banner.mobile {
+    display: none;
+  }
+  
+  .product-dropdown-section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .conspire-drawer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .dropdown-header-text {
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bold;
+    color: {{ chocolateSecondary }};
+    text-decoration: underline;
+  }
+  
+  .product-dropdown-section .icon-down-arrow {
+    -webkit-transition: .2s all ease-out;
+    -moz-transition: .2s all ease-out;
+    -ms-transition: .2s all ease-out;
+    -o-transition: .2s all ease-out;
+    transition: .2s all ease-out;
+    font-size: 18px !important;
+    display: inline-block;
+
+  }
+  
+  .product-dropdown-section .icon-down-arrow:before {
+    font-weight: bold;
+  }
+  
+  .product-dropdown-section .icon-down-arrow.open {
+    transform: rotateX(-180deg) translateY(4px);
+    -webkit-transform: rotate(-180deg) translateY(4px);
+  }
+  
+  .bar-nutrition-facts {
+    width: 50%;
+    height: auto;
+  }
+  
+  .select-box-container {
+    z-index: 10000;
+    min-width: 120px;
+  }
+  
+  .bar-variant-select {    
+    color: white;
+    font-family: 'kapraregular';
+    font-size: 24px;
+    margin-bottom: 10px;
+    background: #fff url(//cdn.shopify.com/s/files/1/2074/9385/files/select-white.png?42940) no-repeat 96% 50%;
+    background-color: transparent;
+    border: none;
+    height: auto;
+  }
+  
+  .bar-variant-select:active, .bar-variant-select:focus {
+    color: #23b6e6;
+    border: 0;
+  }
+  
+  @media screen and (max-width: 800px) {
+    .callout-banner.mobile {
+      display: block;
+    }
+    
+    .callout-banner.desktop {
+      display: none;
+    }
+    
+    #box {
+      width: 90%;
+      margin-top: 0;
+    }
+    
+    #flap3 h1 {
+      font-size: 36px;
+    }
+    
+    #flap3 p {
+      font-size: 18px;
+    }
+    
+    #flap3 .arrow-icon {
+      width: 50px;
+    }
+    
+    .bar-tile {
+      width: 50%;
+    }
+    
+    .bar-tile.lifestyle {
+      display: none !important;
+    }
+    
+    .container.main.content {
+      display: block;
+      padding: 0;
+    }
+    
+    .callout {
+      width: 50%;
+      margin-bottom: 20px;
+    }
+    
+    .callout:not(:last-child) {
+      border-right: 0;
+    }
+    
+    .callout:nth-child(2n) {
+      border-left: 2px solid {{ chocolateSecondary }};
+    }
+    
+    .preorder-message {
+      font-size: 18px;
+      line-height: 21px;
+    }
+    
+    .discover-header {
+      font-size: 18px;
+    }
+    
+    .education-title {
+      font-size: 24px;
+      line-height: 28px;
+    }
+    
+    .bar-nutrition-facts {
+      width: 100%;
+      height: intrinsic;
+    }
+    
+    button .checkmark path {
+    	stroke: #23b6e6;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .select-box-container.variety {
+      min-width: 160px !important;
+      background-image: none;
+    }
+    
+    .select-box-container.variety .bar-variant-select {
+      background-image: none;
+    }
+    
+    .bar-variant-select {
+      font-size: 18px;
+    }
+    
+    #box {
+      height: 300px;
+    }
+    
+    #flap3 h1 {
+      font-size: 24px;
+    }
+    
+    #flap3 p {
+      font-size: 18px;
+    }
+    
+    .bar-tile {
+      width: 50%;
+    }
+    
+    .bar-title {
+      font-size: 16px;
+      line-height: 20px;
+      height: 40px;
+    }
+    
+    .ingredient {
+      max-width: 30px !important;
+    }
+  }
+  
+  @media only screen and (max-width: 798px) and (min-width: 480px) {
+    .container.collagen-bar-page {
+      width: 100%;
+    }
+  }
+
+</style>
+
+<div class="container collagen-bar-page">
+  <div id="box" class="active" tabindex="0">
+    <div class="box-contents">
+      <div class="bordered-box animated fadeInUp">
+      	<img class="box-content-header" src="{{ 'CollagenBar_Header_GIF.gif' | file_img_url: '1200x' }}"/>
+      	<h2 class="discover-header"><span style="font-style: italic; font-weight: bold;">Introducing...</span> Vital Proteins Collagen Bars&trade;</h2>
+      </div>
+      <div class="preorder-message-wrapper animated fadeInUp">
+        <img src="{{ 'CB_NEW.png' | file_img_url: '600x' }}" alt="New!"/>
+        <h3 class="preorder-message">Now Available! Try each flavor of Collagen Bars&trade; with new 6-pack and 12-pack Variety Bundles.</h3>
+      </div>
+      <div class="box-product-container">
+        {% assign product = all_products['collagen-bar-12-pack-variety-sampler'] %}
+        <div href="{{ product.url }}" class="bar-tile mint variety animated fadeInUp">
+          <div class="ingredient-container">
+            <img class="ingredient first" src="{{ 'Choc_Bar_left.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient second" src="{{ 'Mint_left.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient fourth" src="{{ 'Raspberry.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient fifth" src="{{ 'Choc_square_left.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient sixth" src="{{ 'Strawberry.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient seventh" src="{{ 'Blueberry_4.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient eighth" src="{{ 'Mint_right.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient ninth" src="{{ 'Lemon_Slice.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient tenth" src="{{ 'PB-Peanut_2.png' | file_img_url: '100x' }}"/>
+          </div>
+          <a href="{{ product.url }}">
+            <h4 class="bar-title">Variety Bundle</h4>
+            <img class="bar-image" src="{{ '12-pk-bar-crop.png' | file_img_url: '600x' }}" style="width: 50%; padding-top: 10px;"/>
+            <span class="bar-price" id="price-{{product.id}}">{{ product.variants.first.price | money_without_trailing_zeros }}{% if product.variants.first.compare_at_price %} <s>{{ product.variants.first.compare_at_price | money_without_trailing_zeros }}</s>{% endif %}</span>
+          </a>
+          <div aria-label="Option select box for {{ product.title }}" class="select-box-container variety" style="min-width: 240px;">
+            <select class="bar-variant-select" name="{{ product.title | handleize }}" {% if product.available == false %}style="opacity: 0;"{% endif %} id="{{ product.id }}">
+              {% for variant in product.variants %}
+              {% if variant.available %}
+              <option value="{{ variant.id}}" data-price="{{variant.price}}" data-compare-price="{{ variant.compare_at_price }}">{{variant.title}}</option>
+              {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+          {% include 'product-form-mini' %}
+        </div>
+        {% assign product = all_products['collagen-bar-6-pack-variety-bundle'] %}
+        <div href="{{ product.url }}" class="bar-tile raspberry-lemon variety animated fadeInUp" style="animation-delay: 0.1s;">
+          <div class="ingredient-container">
+            <img class="ingredient first" src="{{ 'Choc_Bar_left.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient second" src="{{ 'Mint_left.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient fourth" src="{{ 'Raspberry.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient fifth" src="{{ 'Choc_square_left.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient sixth" src="{{ 'Strawberry.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient seventh" src="{{ 'Blueberry_4.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient eighth" src="{{ 'Mint_right.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient ninth" src="{{ 'Lemon_Slice.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient tenth" src="{{ 'PB-Peanut_2.png' | file_img_url: '100x' }}"/>
+          </div>
+          <a href="{{ product.url }}">
+            <h4 class="bar-title">Variety Bundle</h4>
+            <img class="bar-image" src="{{ 'variety-bar-pack.png' | file_img_url: '600x' }}" style="width: 50%; padding-top: 10px;"/>
+            <span class="bar-price" id="price-{{product.id}}">{{ product.variants.first.price | money_without_trailing_zeros }}{% if product.variants.first.compare_at_price %} <s>{{ product.variants.first.compare_at_price | money_without_trailing_zeros }}</s>{% endif %}</span>
+          </a>
+          <div aria-label="Option select box for {{ product.title }}" class="select-box-container variety" style="min-width: 240px;">
+            <select class="bar-variant-select" name="{{ product.title | handleize }}" {% if product.available == false %}style="opacity: 0;"{% endif %} id="{{ product.id }}">
+              {% for variant in product.variants %}
+              {% if variant.available %}
+              <option value="{{ variant.id}}" data-price="{{variant.price}}" data-compare-price="{{ variant.compare_at_price }}">{{variant.title}}</option>
+              {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+          {% include 'product-form-mini' %}
+        </div>
+        {% assign product = all_products['collagen-bar-12-pack-variety-sampler'] %}
+        <div  class="bar-tile lifestyle animated fadeInUp variety" style="animation-delay: 0.15s;">
+         
+        </div>
+        {% assign product = all_products['collagen-bar-chocolate-almond-sea-salt'] %}
+        <div href="{{ product.url }}" class="bar-tile chocolate animated fadeInUp" style="animation-delay: 1s;">
+          <div class="ingredient-container">
+          	<img class="ingredient first" src="{{ 'CA_Choc_2.png' | file_img_url: '100x' }}"/>
+          	<img class="ingredient second" style="max-width: 30px;" src="{{ 'CA_Almond_2.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient third" style="max-width: 30px;" src="{{ 'CA_Almond_3.png' | file_img_url: '100x' }}"/>
+          	<img class="ingredient fourth" src="{{ 'CA_Choc_3.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient fifth" style="max-width: 30px;" src="{{ 'CA_CollagenBars-Almond.png' | file_img_url: '100x' }}"/>
+          	<img class="ingredient sixth" src="{{ 'CA_Choc_3.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient seventh" style="max-width: 30px;" src="{{ 'CA_Almond_2.png' | file_img_url: '100x' }}"/>
+          	<img class="ingredient eighth" src="{{ 'CA_CollagenBars-Chocolate.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient ninth" style="max-width: 30px;" src="{{ 'CA_Almond_3.png' | file_img_url: '100x' }}"/>
+          	<img class="ingredient tenth" src="{{ 'CA_Choc_1.png' | file_img_url: '100x' }}"/>
+          </div>
+          <a href="{{ product.url }}">
+            <h4 class="bar-title">Chocolate Almond Sea Salt</h4>
+            <img class="bar-image" src="{{ 'choc_sea_salt_shadow.png' | file_img_url: '600x' }}"/>
+            <span class="bar-price" id="price-{{product.id}}">{{ product.variants.first.price | money_without_trailing_zeros }}{% if product.variants.first.compare_at_price %} <s>{{ product.variants.first.compare_at_price | money_without_trailing_zeros }}</s>{% endif %}</span>
+          </a>
+          <div aria-label="Option select box for {{ product.title }}" class="select-box-container">
+            <select class="bar-variant-select" name="{{ product.title | handleize }}" {% if product.available == false %}style="opacity: 0;"{% endif %} id="{{ product.id }}">
+              {% for variant in product.variants %}
+                {% if variant.available %}
+                  <option value="{{ variant.id}}" data-price="{{variant.price}}" data-compare-price="{{ variant.compare_at_price }}">{{variant.title}}</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+  
+          {% include 'product-form-mini' %}
+        </div>
+        {% assign product = all_products['collagen-bar-lemon-vanilla'] %}
+        <div href="{{ product.url }}" class="bar-tile lemon-vanilla animated fadeInUp" style="animation-delay: 1.15s;">
+          <div class="ingredient-container">
+            {% comment %}Start in upper-right corner -> Move clockwise {% endcomment %}
+			<img class="ingredient first" src="{{ 'Lemon_Slice.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient second" src="{{ 'Vanilla_Flower.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient third" src="{{ 'Lemon_Half_1.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient fourth" src="{{ 'Vanilla_Flower.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient fifth" src="{{ 'Lemon_Slice_2.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient sixth" src="{{ 'Vanilla_Flower.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient seventh" src="{{ 'Lemon_Slice.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient eighth" src="{{ 'Vanilla_Flower.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient ninth" src="{{ 'Lemon_Slice_3.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient tenth" src="{{ 'Lemon_Half_1.png' | file_img_url: '100x' }}"/>
+          </div>
+          <a href="{{ product.url }}">
+          	<h4 class="bar-title">Lemon Vanilla</h4>
+          	<img class="bar-image" src="{{ 'Lemon_Vanilla_shadow.png' | file_img_url: '600x' }}"/>
+          	<span class="bar-price" id="price-{{product.id}}">{{ product.variants.first.price | money_without_trailing_zeros }}{% if product.variants.first.compare_at_price %} <s>{{ product.variants.first.compare_at_price | money_without_trailing_zeros }}</s>{% endif %}</span>
+          </a>
+            <div aria-label="Option select box for {{ product.title }}" class="select-box-container">
+            <select class="bar-variant-select" name="{{ product.title | handleize }}" {% if product.available == false %}style="opacity: 0;"{% endif %} id="{{ product.id }}">
+              {% for variant in product.variants %}
+                {% if variant.available %}
+                  <option value="{{ variant.id}}" data-price="{{variant.price}}" data-compare-price="{{ variant.compare_at_price }}">{{variant.title}}</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+          {% include 'product-form-mini' %}
+        </div>
+        {% assign product = all_products['collagen-bar-peanut-butter-chocolate'] %}
+        <div href="{{ product.url }}" class="bar-tile peanut-butter animated fadeInUp" style="animation-delay: 1.3s;">
+          <div class="ingredient-container">
+          	<img class="ingredient first" src="{{ 'PB-Chocolate_2.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient second" src="{{ 'PB-Peanut_2.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient third" src="{{ 'PB-Peanut_1.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient fourth" src="{{ 'PB-Chocolate.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient fifth" src="{{ 'PB-Peanut_1.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient sixth" src="{{ '	PB-Chocolate.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient seventh" src="{{ 'PB-Chocolate_1.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient eighth" src="{{ 'PB-Peanut_2.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient ninth" src="{{ 'PB-Chocolate.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient tenth" src="{{ 'PB-Peanut_1.png' | file_img_url: '100x' }}"/>
+          </div>
+          <a href="{{ product.url }}">
+          	<h4 class="bar-title">Peanut Butter Chocolate</h4>
+          	<img class="bar-image" src="{{ 'PB_Choc_shadow.png' | file_img_url: '600x' }}"/>
+          	<span class="bar-price" id="price-{{product.id}}">{{ product.variants.first.price | money_without_trailing_zeros }}{% if product.variants.first.compare_at_price %} <s>{{ product.variants.first.compare_at_price | money_without_trailing_zeros }}</s>{% endif %}</span>
+          </a>
+          <div aria-label="Option select box for {{ product.title }}" class="select-box-container">
+            <select class="bar-variant-select" name="{{ product.title | handleize }}" {% if product.available == false %}style="opacity: 0;"{% endif %} id="{{ product.id }}">
+              {% for variant in product.variants %}
+                {% if variant.available %}
+                  <option value="{{ variant.id}}" data-price="{{variant.price}}" data-compare-price="{{ variant.compare_at_price }}">{{variant.title}}</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+          {% include 'product-form-mini' %}
+        </div>
+        {% assign product = all_products['collagen-bar-mixed-berry'] %}
+        <div href="{{ product.url }}" class="bar-tile mixed-berry animated fadeInUp" style="animation-delay: 1.45s;">
+          <div class="ingredient-container">
+          	<img class="ingredient first" style="max-width: 30px;" src="{{ 'Blueberry_2.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient second" src="{{ 'Blueberry_4.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient fourth" style="max-width: 30px;" src="{{ 'Blueberry_3.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient fifth" src="{{ 'Strawberry_2.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient sixth" src="{{ 'Blackberry.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient seventh" style="max-width: 30px;" src="{{ 'Blueberry_1.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient eighth" src="{{ 'Blueberry_4.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient ninth" style="max-width: 30px;" src="{{ 'Blueberry_2.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient tenth" src="{{ 'Strawberry.png' | file_img_url: '100x' }}"/>
+          </div>
+          <a href="{{ product.url }}">
+          	<h4 class="bar-title">Mixed Berry</h4>
+          	<img class="bar-image" src="{{ 'Mixed_Berry_shadow.png' | file_img_url: '600x' }}"/>
+          	<span class="bar-price" id="price-{{product.id}}">{{ product.variants.first.price | money_without_trailing_zeros }}{% if product.variants.first.compare_at_price %} <s>{{ product.variants.first.compare_at_price | money_without_trailing_zeros }}</s>{% endif %}</span>
+          </a>
+          <div aria-label="Option select box for {{ product.title }}" class="select-box-container">
+            <select class="bar-variant-select" name="{{ product.title | handleize }}" {% if product.available == false %}style="opacity: 0;"{% endif %} id="{{ product.id }}">
+              {% for variant in product.variants %}
+                {% if variant.available %}
+                  <option value="{{ variant.id}}" data-price="{{variant.price}}" data-compare-price="{{ variant.compare_at_price }}">{{variant.title}}</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+          {% include 'product-form-mini' %}
+        </div>
+        {% assign product = all_products['collagen-bar-mint-chocolate'] %}
+        <div href="{{ product.url }}" class="bar-tile mint animated fadeInUp" style="animation-delay: 1.6s;">
+          <div class="ingredient-container">
+          	<img class="ingredient first" src="{{ 'Choc_Bar_left.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient second" src="{{ 'Mint_left.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient fourth" src="{{ 'Mint_left.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient fifth" src="{{ 'Choc_square_left.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient sixth" src="{{ 'Mint_right.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient seventh" src="{{ 'Choc_square_left.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient eighth" src="{{ 'Mint_right.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient ninth" src="{{ 'Choc_Bar_right.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient tenth" src="{{ 'Mint_left.png' | file_img_url: '100x' }}"/>
+          </div>
+          <a href="{{ product.url }}">
+          	<h4 class="bar-title">Mint Chocolate</h4>
+          	<img class="bar-image" src="{{ 'Mint_Chip_shadow.png' | file_img_url: '600x' }}"/>
+          	<span class="bar-price" id="price-{{product.id}}">{{ product.variants.first.price | money_without_trailing_zeros }}{% if product.variants.first.compare_at_price %} <s>{{ product.variants.first.compare_at_price | money_without_trailing_zeros }}</s>{% endif %}</span>
+          </a>
+         <div aria-label="Option select box for {{ product.title }}" class="select-box-container">
+            <select class="bar-variant-select" name="{{ product.title | handleize }}" {% if product.available == false %}style="opacity: 0;"{% endif %} id="{{ product.id }}">
+              {% for variant in product.variants %}
+                {% if variant.available %}
+                  <option value="{{ variant.id}}" data-price="{{variant.price}}" data-compare-price="{{ variant.compare_at_price }}">{{variant.title}}</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+          {% include 'product-form-mini' %}
+        </div>
+        {% assign product = all_products['collagen-bar-raspberry-lemon'] %}
+        <div href="{{ product.url }}" class="bar-tile raspberry-lemon animated fadeInUp" style="animation-delay: 1.75s;">
+          <div class="ingredient-container">
+          	<img class="ingredient first" src="{{ 'Raspberry.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient second" src="{{ 'Lemon_Slice_2.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient fourth" src="{{ 'Raspberry.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient fifth" src="{{ 'Lemon_Slice.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient sixth" src="{{ 'Raspberry.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient seventh" src="{{ 'Lemon_Slice.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient eighth" src="{{ 'Lemon_Slice_3.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient ninth" src="{{ 'Raspberry_1.png' | file_img_url: '100x' }}"/>
+            <img class="ingredient tenth" src="{{ 'Lemon_Half_1.png' | file_img_url: '100x' }}"/>
+          </div>
+          <a href="{{ product.url }}">
+          	<h4 class="bar-title">Raspberry Lemon</h4>
+          	<img class="bar-image" src="{{ 'Rasp_Lemon_shadow.png' | file_img_url: '600x' }}"/>
+          	<span class="bar-price" id="price-{{product.id}}">{{ product.variants.first.price | money_without_trailing_zeros }}{% if product.variants.first.compare_at_price %} <s>{{ product.variants.first.compare_at_price | money_without_trailing_zeros }}</s>{% endif %}</span>
+          </a>
+          <div aria-label="Option select box for {{ product.title }}" class="select-box-container">
+            <select class="bar-variant-select" name="{{ product.title | handleize }}" {% if product.available == false %}style="opacity: 0;"{% endif %} id="{{ product.id }}">
+              {% for variant in product.variants %}
+                {% if variant.available %}
+                  <option value="{{ variant.id}}" data-price="{{variant.price}}" data-compare-price="{{ variant.compare_at_price }}">{{variant.title}}</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+          {% include 'product-form-mini' %}
+        </div>
+      </div>
+      <div class="bar-education-section">
+        <h4 class="education-title">Discover your new favorite way to <span style="font-style: italic; font-weight: bold;">go with collagen</span></h4>
+        <div class="education-subtitle-container">
+          <img class="dotted-line lazyload" src="{{ 'CB_Dotted_Line.png' | file_img_url: 'master' }}"/>
+          <h4 class="education-subtitle">Each bar contains</h4>
+          <img class="dotted-line lazyload" src="{{ 'CB_Dotted_Line.png' | file_img_url: 'master' }}"/>
+        </div>
+        <div class="nutrition-callout-wrapper">
+          <div class="callout" data-aos="fade" data-aos-easing="ease-out" data-aos-once="true">
+            <p>
+              <span class="nc-number">12</span>
+              <span class="nc-grams">G</span>
+              <br>
+              <span class="nc-text">Collagen</span>
+            </p>
+          </div>
+          <div class="callout" data-aos="fade" data-aos-easing="ease-out" data-aos-once="true" data-aos-delay="200">
+            <p>
+              <span class="nc-number">16-17</span>
+              <span class="nc-grams">G</span>
+              <br>
+              <span class="nc-text">Protein</span>
+            </p>
+          </div>
+          <div class="callout" data-aos="fade" data-aos-easing="ease-out" data-aos-once="true" data-aos-delay="400">
+            <p>
+              <span class="nc-number">6-8</span>
+              <span class="nc-grams">G</span>
+              <br>
+              <span class="nc-text">Fiber*</span>
+            </p>
+          </div>
+          <div class="callout" data-aos="fade" data-aos-easing="ease-out" data-aos-once="true" data-aos-delay="600">
+            <p>
+              <span class="nc-number">4</span>
+              <span class="nc-grams">G</span>
+              <br>
+              <span class="nc-text">Sugar or Less</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="cb-nutrition-facts-section product-dropdown-section">
+        <a href="#" class="conspire-drawer-header" aria-expanded="false"><span class="dropdown-header-text">Nutrition Facts</span> <span aria-label="(Expand dropdown icon)" class="icon-down-arrow"></span></a>
+        <div class="conspire-drawer" style="display: none;">
+        	<img class="bar-nutrition-facts lazyload" src="{{ 'Bar-nutrition-CA.png' | file_img_url: '800x'}}" />
+        	<img class="bar-nutrition-facts lazyload" src="{{ 'Bar-nutrition-LV.png' | file_img_url: '800x'}}" />
+          	<img class="bar-nutrition-facts lazyload" src="{{ 'Bar-nutrition-PB.png' | file_img_url: '800x'}}" />
+          	<img class="bar-nutrition-facts lazyload" src="{{ 'Bar-nutrition-RL.png' | file_img_url: '800x'}}" />
+          	<img class="bar-nutrition-facts lazyload" src="{{ 'Bar-nutrition-MC.png' | file_img_url: '800x'}}" />
+          	<img class="bar-nutrition-facts lazyload" src="{{ 'Bar-nutrition-MB.png' | file_img_url: '800x'}}" />
+        </div>
+      </div>
+      <div class="callout-banner-wrapper">
+        <img class="callout-banner desktop lazyload" src="{{ 'Bar_Photo_DESKTOP.jpg' | file_img_url: '2000x' }}" alt="Collagen Bars are Dairy and Gluten free, contain no added flavors, colors, or additives. Finally, a bar worth biting for."/>
+        <img class="callout-banner mobile lazyload" src="{{ 'Bar_Photo_MOBILE.png' | file_img_url: '800x', format: 'jpg'}}" alt="Collagen Bars are Dairy and Gluten free, contain no added flavors, colors, or additives. Finally, a bar worth biting for."/>
+      </div>
+      <p class="disclaimer">Offer valid for one Collagen Bar&trade; 12 pack box for $25. Orders estimated to ship 12/1/19. While supplies last. Offer not valid for subscription. Offer not valid on wholesale orders. We reserve the right to cancel any order due to unauthorized, altered, or ineligible use of offer and to modify or cancel this promotion due to system error or unforeseen problems.  Offer cannot be applied to previously placed or pending orders. Offer applied to authorized purchases only. Other restrictions may apply.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  
+  $('select').on('change', function() {
+    var itemID = $(this).attr('id');
+    var selectedOption = $('#' + itemID + ' option:selected');
+    var selectedPrice = selectedOption.attr('data-price');
+    var compareAtPrice = selectedOption.attr('data-compare-price');
+    
+    if (compareAtPrice > selectedPrice) {
+      $('#price-' + itemID).html('$' + (selectedPrice / 100) + ' <s>' + '$' + (compareAtPrice / 100) + '</s>');
+    } else {
+      $('#price-' + itemID).html('$' + (selectedPrice / 100));
+    }
+    
+    $('#product-form-' + itemID + ' input[name="id"]').val(selectedOption.val());
+    
+    
+  });
+
+  $('.product-dropdown-section .conspire-drawer-header').click(function(e) {
+    e.preventDefault();
+    var arrow = $(this).find('.icon-down-arrow');
+    
+    if (arrow.hasClass('open')) {
+      arrow.removeClass('open');
+      $(this).attr('aria-expanded', 'false');
+    } else {
+      arrow.addClass('open');
+      $(this).attr('aria-expanded', 'true');
+    }
+  });
+</script>

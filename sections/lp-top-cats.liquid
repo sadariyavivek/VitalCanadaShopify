@@ -1,0 +1,514 @@
+<style>
+	.desktop-width {
+	    max-width: 1440px;
+	    margin: 0 auto;
+	    width: 100%;
+	    padding-left: 50px;
+	    padding-right: 50px;
+	    margin-top: 50px;
+	    margin-bottom: 50px;
+	}
+	.wmt-products-container {
+		    width: 100%;
+		    margin: 0 auto;
+		    min-height: 600px;
+		    display: flex;
+		    justify-content: space-between;
+		    flex-wrap: wrap;
+		}
+	
+		.wmt-product-cat {
+		    display: flex;
+		    flex-direction: column;
+		    width: 30%;
+		    height: 350px;
+		    margin-bottom: 3%;
+		    overflow: hidden;
+		    border-radius: 4px;
+		    border: 1px solid #e8e8e8;
+		    box-shadow: 2px 2px 4px #00000017;
+		}
+	
+		.wmt-product-cat-title {
+		    width: 100%;
+		    background: #ffffff;
+		    height: 60px;
+		    display: flex;
+		    align-items: center;
+		    padding-left: 20px;
+		    font-family: 'avenir';
+		    text-decoration: none;
+		    font-weight: bold;
+		}
+  
+	.wmt-product-cat-title h3 {
+	    font-family: 'avenir';
+	    font-weight: bold;
+	    text-transform: capitalize;
+	    font-size: 20px !important;
+	    line-height: 22px !important;
+	    color: #5a5a5a;
+	    letter-spacing: 0px !important;
+	    margin: 0px;
+	}
+	
+		.wmt-product-cat-title a {
+		    text-decoration: none;
+		    font-weight: bold;
+		    color: #5a5a5a;
+		}
+	
+		.wmt-product-cat-img {
+		    height: 100%;
+		    background-color: #ececec;
+		}
+	
+		.wmt-product-cat-quiz {
+		    background: #fbfbfb;
+		    text-align: center;
+		    justify-content: center;
+		}
+		.wmt-product-cat-quiz h3 {
+	    text-decoration: none;
+	    font-weight: bold;
+	    color: #5a5a5a;
+	    font-family: 'avenir';
+	    font-size: 34px;
+	    max-width: 70%;
+	    margin: 0 auto;
+	    line-height: 36px;
+	    text-transform: capitalize;
+	    letter-spacing: .25px !important;
+	    margin-bottom: 10px;
+	}
+	
+		.wmt-product-cat-quiz p {
+		    font-family: 'avenir';
+		    font-size: 18px;
+		    color: #5a5a5a;
+		}
+	
+		.wmt-product-cat-quiz a,
+	  	.main-dark-button {
+	    background: #1bb9e6;
+	    width: 100%;
+	    max-width: 260px;
+	    margin: 0 auto;
+	    height: 44px;
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    color: #ffffff;
+	    text-decoration: none;
+	    font-family: 'kapraregular';
+	    font-size: 22px;
+	    font-weight: 400;
+	    border-radius: 4px;
+	    text-transform: uppercase;
+    
+	}
+
+	  	.main-dark-button {
+	      margin-left: 0px;
+	      margin-top: 20px;
+	}
+  
+	  	.wmt-product-cat-quiz a:hover,
+	  	.main-dark-button:hover {
+	    background: #56cdef;
+	    color: #ffffff;
+	}
+	
+	.small-headers {
+	    width: 100%;
+	    margin: 0 auto;
+	    font-size: 26px;
+	    font-family: 'avenir';
+	    text-decoration: none;
+	    font-weight: bold;
+	    color: #5a5a5a;
+	    margin-top: 20px;
+	    text-transform: capitalize;
+	    letter-spacing: 0px !important;
+	    margin-bottom: 20px;
+	}
+	
+	@media only screen and (max-width: 1000px) {
+		.wmt-product-cat {
+		    height: 250px;
+		}
+		.wmt-product-cat-quiz h3 {
+		    font-size: 24px;
+		    line-height: 26px;
+		}
+		.wmt-product-cat-quiz p {
+		    font-size: 14px;
+		    line-height: 16px;
+		    max-width: 80%;
+		    margin: 0 auto;
+		    margin-bottom: 10px;
+		}
+		.wmt-product-cat-quiz a {
+		    max-width: 80%;
+		}
+	}
+	
+	@media only screen and (max-width: 800px) {
+		.wmt-product-cat {
+		    width: 47%;
+		}
+      .wmt-product-cat-title {
+		    height:50px;
+		}
+	
+		.wmt-product-cat-title a h3 {
+		    font-size: 16px !important;
+		    line-height: 18px !important;
+		}
+		.wmt-product-cat {
+		    height: 175px;
+		}
+		.wmt-product-cat-title a h3 {
+    font-size: 14px !important;
+    line-height: 16px !important;
+}
+      
+        .wmt-product-cat-quiz h3 {
+    font-size: 16px;
+    line-height: 18px;
+    margin: 0 auto;
+    max-width: 77%;
+}
+      .wmt-product-cat-quiz p {
+    font-size: 12px;
+    line-height: 14px;
+    max-width: 80%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+         
+	}
+	
+	@media only screen and (max-width: 600px) {
+		
+		.wmt-product-cat-title {
+		    height:50px;
+		}
+	
+		.wmt-product-cat-title a h3 {
+		    font-size: 16px !important;
+		    line-height: 18px !important;
+		}
+		.wmt-product-cat {
+		    height: 175px;
+		}
+		.wmt-product-cat-title a h3 {
+    font-size: 14px !important;
+    line-height: 16px !important;
+}
+     	.desktop-width {
+    		padding-left: 20px;
+    		padding-right: 20px;
+    		margin-top: 0px;
+    		margin-bottom: 0px;
+}
+      .wmt-product-cat-title {
+    height: 50px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.wmt-product-cat-title a {
+    width: 100%;
+    text-align: center;
+}
+      .wmt-product-cat-quiz h3 {
+    font-size: 16px;
+    line-height: 18px;
+    margin: 0 auto;
+    max-width: 77%;
+}
+      .wmt-product-cat-quiz p {
+    font-size: 12px;
+    line-height: 14px;
+    max-width: 80%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+      .split-text {
+    width: 100%;
+}
+      .center-it {
+    display: none !important;
+}
+      #why-collagen h2 {
+    font-size: 42px;
+    line-height: 44px;
+    letter-spacing: 0px !important;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+  
+.small-headers {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+  
+#why-collagen {
+    display: flex;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+        	.main-dark-button {
+      margin-left: auto;
+      margin-top: 20px;
+}
+      #why-collagen p {
+    font-size: 16px !important;
+    color: #606060;
+    margin: 0;
+    text-align: center;
+    line-height: 18px;
+    margin-top: 10px !important;
+}
+      .gray {
+    min-height: 235px;
+    background-size: 135px;
+    background-position-y: bottom;
+}
+    .wmt-products-container .wmt-product-cat-img {
+        max-height:135px;}
+
+
+}
+
+
+
+ .cp-image {
+    height: 100%;
+    background-color: #ececec;
+    background-image: url({{ section.settings.cat1-img| img_url: '800x' }});
+    background-size: cover;
+    background-position: center;
+}
+  
+    .cw-image {
+    height: 100%;
+    background-color: #ececec;
+    background-image: url({{ section.settings.cat4-img| img_url: '800x' }});
+    background-size: cover;
+    background-position: center;
+}
+  
+      .perf-image {
+    height: 100%;
+    background-color: #ececec;
+    background-image: url({{ section.settings.cat2-img| img_url: '800x' }});
+    background-size: cover;
+    background-position: center;
+}
+  
+        .creamers-image {
+    height: 100%;
+    background-color: #ececec;
+    background-image: url({{ section.settings.cat3-img| img_url: '800x' }});
+    background-size: cover;
+    background-position: center;
+}
+  
+          .bars-image {
+    height: 100%;
+    background-color: #ececec;
+    background-image: url({{ section.settings.cat5-img| img_url: '800x' }});
+    background-size: cover;
+    background-position: center;
+}
+	
+</style>
+
+<div class="desktop-width">
+<h2 class="small-headers">Top Categories</h2>
+<div class="wmt-products-container animated fadeInUp">
+	
+	<div class="wmt-product-cat grow">
+		<div class="wmt-product-cat-img cp-image">
+			<a class="wmt-product-cat-img-link" href="{{ section.settings.cat1-link }}" style="width: 100%;height: 100%;display: block;"></a>
+		</div>
+		<div class="wmt-product-cat-title">
+			<a class="wmt-product-cat-img-link" href="{{ section.settings.cat1-link }}">
+				<h3>{{ section.settings.cat1-title }}</h3>
+			</a>
+		</div>
+		<div class="wmt-product-cat-link"></div>
+	</div>
+	
+	
+	<div class="wmt-product-cat grow">
+		<div class="wmt-product-cat-img perf-image">
+			<a class="wmt-product-cat-img-link" style="width: 100%;height: 100%;display: block;" href="{{ section.settings.cat2-link }}"></a>
+		</div>
+		<div class="wmt-product-cat-title">
+			<a class="wmt-product-cat-img-link" href="{{ section.settings.cat2-link }}">
+				<h3>{{ section.settings.cat2-title }}</h3>
+			</a>
+		</div>
+		<div class="wmt-product-cat-link"></div>
+	</div>
+	
+	
+	<div class="wmt-product-cat grow">
+		<div class="wmt-product-cat-img creamers-image">
+			<a class="wmt-product-cat-img-link" style="width: 100%;height: 100%;display: block;" href="{{ section.settings.cat3-link }}"></a>
+		</div>
+		<div class="wmt-product-cat-title">
+			<a class="wmt-product-cat-img-link" href="{{ section.settings.cat3-link }}">
+				<h3>{{ section.settings.cat3-title }}</h3>
+			</a>
+		</div>
+		<div class="wmt-product-cat-link"></div>
+	</div>
+	
+	
+	<div class="wmt-product-cat grow">
+		<div class="wmt-product-cat-img cw-image">
+			<a class="wmt-product-cat-img-link" style="width: 100%;height: 100%;display: block;" href="{{ section.settings.cat4-link }}"></a>
+		</div>
+		<div class="wmt-product-cat-title">
+			<a class="wmt-product-cat-img-link" href="{{ section.settings.cat4-link }}">
+				<h3>{{ section.settings.cat4-title }}</h3>
+			</a>
+		</div>
+		<div class="wmt-product-cat-link"></div>
+	</div>
+	
+	
+	<div class="wmt-product-cat grow">
+		<div class="wmt-product-cat-img bars-image">
+			<a class="wmt-product-cat-img-link" style="width: 100%;height: 100%;display: block;" href="{{ section.settings.cat5-link }}"></a>
+		</div>
+		<div class="wmt-product-cat-title">
+			<a class="wmt-product-cat-img-link" href="{{ section.settings.cat5-link }}">
+				<h3>{{ section.settings.cat5-title }}</h3>
+			</a>
+		</div>
+		<div class="wmt-product-cat-link"></div>
+	</div>
+	
+	
+	<div class="wmt-product-cat wmt-product-cat-quiz">
+		
+	<h3>Not Sure Where To Start?</h3>
+	<p>Let us help you find the right products.</p>
+	<a href="#" class="startButton" onclick="openQuizModal()">Start Now</a>
+	</div>
+	
+</div>
+</div>
+
+{% schema %}
+  {
+    "name": "Top Categories",
+    "settings": [
+	{
+   "type": "header",
+   "content": "Top Category Settings"
+	},
+	{
+      "type": "text",
+      "id": "cat1-title",
+      "label": "Category 1 Title",
+	  "default": "Collagen Peptides"
+	},
+	{
+      "type": "url",
+      "id": "cat1-link",
+      "label": "Category 1 Link"
+	},
+	{
+      "type": "image_picker",
+      "id": "cat1-img",
+      "label": "Category 1 Image"
+	},
+	{
+      "type": "text",
+      "id": "cat2-title",
+      "label": "Category 2 Title",
+	  "default": "Vital Performance"
+	},
+	{
+      "type": "url",
+      "id": "cat2-link",
+      "label": "Category 2 Link"
+	},
+	{
+      "type": "image_picker",
+      "id": "cat2-img",
+      "label": "Category 2 Image"
+	},
+	{
+      "type": "text",
+      "id": "cat3-title",
+      "label": "Category 3 Title",
+	  "default": "Collagen Creamers"
+	},
+	{
+      "type": "url",
+      "id": "cat3-link",
+      "label": "Category 3 Link"
+	},
+	{
+      "type": "image_picker",
+      "id": "cat3-img",
+      "label": "Category 3 Image"
+	},
+	{
+      "type": "text",
+      "id": "cat4-title",
+      "label": "Category 4 Title",
+	  "default": "Collagen Waters"
+	},
+	{
+      "type": "url",
+      "id": "cat4-link",
+      "label": "Category 4 Link"
+	},
+	{
+      "type": "image_picker",
+      "id": "cat4-img",
+      "label": "Category 4 Image"
+	},
+	{
+      "type": "text",
+      "id": "cat5-title",
+      "label": "Category 5 Title",
+	  "default": "Collagen Bars"
+	},
+	{
+      "type": "url",
+      "id": "cat5-link",
+      "label": "Category 5 Link"
+	},
+	{
+      "type": "image_picker",
+      "id": "cat5-img",
+      "label": "Category 5 Image"
+	},
+	{
+   "type": "header",
+   "content": "FAQ Settings"
+	}
+]
+
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

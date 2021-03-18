@@ -1,0 +1,116 @@
+{% if product.available %}
+  {% assign variant = product.selected_or_first_available_variant %}
+  
+	{% if product.handle == 'build-your-own-stick-pack-sampler' or product.handle == 'build-your-own-collagen-water-sampler' or product.handle == 'build-your-own-collagen-shot-sampler' %}
+		<div style="height: 38px; margin-top: 10px; margin-bottom: 20px;"></div>
+	{% else %}
+    <form action="/cart/add"
+          method="post"
+          class="clearfix product_form init {% if product.variants.size > 1 or product.options.size > 1 %}product_form_options{% endif %} no_ro_widget"
+          id="product-form-{{ product.id }}"
+          data-money-format="{{ shop.money_format }}"
+          data-shop-currency="{{ shop.currency }}"
+          data-select-id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}"
+          data-enable-state="{% if template contains 'product' %}true{% else %}false{% endif %}"
+          data-product="{{ product | json | escape }}"
+          {% if settings.limit_quantity or settings.display_inventory_left %}
+            data-variant-inventory='[{%- for v in product.variants -%}{"id":{{v.id}},"inventory_quantity":{{v.inventory_quantity}},"inventory_management":"{{v.inventory_management}}","inventory_policy":"{{v.inventory_policy}}"}{% if forloop.last == false %},{% endif %}{%- endfor -%}]'
+          {% endif %}
+          data-product-id="{{ product.id }}"
+          >
+
+      {% if settings.display_inventory_left %}
+        <div class="items_left">
+          {% if variant.inventory_management != blank and variant.inventory_quantity > 0 %}
+            {% capture items_left_text %}
+              {% if variant.inventory_quantity == 1 %}
+                {{ 'products.product.items_left_count.one' | t }}
+              {% else %}
+                {{ 'products.product.items_left_count.other' | t }}
+              {% endif %}
+            {% endcapture %}
+            {% if variant.inventory_quantity <= settings.inventory_threshold %}
+              {{ variant.inventory_quantity }} {{ items_left_text }}
+            {% endif %}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      <div class="placeholder" style=" display: block;">{% include 'subscription-widget-product-form-mini' %}</div>
+      
+      
+      <div class="purchase clearfix {% if settings.display_product_quantity %}inline_purchase{% endif %}">
+        {% if settings.cart_action == 'reload_page' %}
+          <input type="hidden" name="return_to" value="back" />
+        {% elsif settings.cart_action == 'redirect_checkout' %}
+          <input type="hidden" name="return_to" value="/checkout" />
+        {% endif %}
+      <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+        {% capture add_to_cart_label %}{% if collection_handles contains 'pre-order' %}{{ 'collections.general.pre_order' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}{% endcapture %}
+        <button aria-label="Add {{ product.title }} - {{ product.selected_or_first_available_variant.title }} to bag" type="submit" name="add" class="action_button add_to_cart" data-label={{ add_to_cart_label | json }}>
+          <span class="text">Add to Bag</span>
+          <svg role="presentation" aria-hidden="true" x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark">
+            <path fill="none" stroke="{{ settings.btn_text_color }}" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/>
+          </svg>
+        </button>
+      </div>
+      <div class="added-to-bag-notification" style="height:0; overflow: hidden;" aria-atomic="true" aria-live="assertive"></div>
+    </form>
+
+  {% endif %}
+{% else %}
+  {% assign variant = product.selected_or_first_available_variant %}
+
+  <form action="/cart/add"
+        method="post"
+        class="clearfix product_form init {% if product.variants.size > 1 or product.options.size > 1 %}product_form_options{% endif %} no_ro_widget"
+        id="product-form-{{ product.id }}"
+        data-money-format="{{ shop.money_format }}"
+        data-shop-currency="{{ shop.currency }}"
+        data-select-id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}"
+        data-enable-state="{% if template contains 'product' %}true{% else %}false{% endif %}"
+        data-product="{{ product | json | escape }}"
+        {% if settings.limit_quantity or settings.display_inventory_left %}
+          data-variant-inventory='[{%- for v in product.variants -%}{"id":{{v.id}},"inventory_quantity":{{v.inventory_quantity}},"inventory_management":"{{v.inventory_management}}","inventory_policy":"{{v.inventory_policy}}"}{% if forloop.last == false %},{% endif %}{%- endfor -%}]'
+        {% endif %}
+        data-product-id="{{ product.id }}"
+        >
+
+    {% if settings.display_inventory_left %}
+      <div class="items_left">
+        {% if variant.inventory_management != blank and variant.inventory_quantity > 0 %}
+          {% capture items_left_text %}
+            {% if variant.inventory_quantity == 1 %}
+              {{ 'products.product.items_left_count.one' | t }}
+            {% else %}
+              {{ 'products.product.items_left_count.other' | t }}
+            {% endif %}
+          {% endcapture %}
+          {% if variant.inventory_quantity <= settings.inventory_threshold %}
+            {{ variant.inventory_quantity }} {{ items_left_text }}
+          {% endif %}
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="placeholder" style="height: 50px; display: block;"></div>
+
+      {% include 'subscription-widget-product-form-mini' %}
+    <div class="purchase clearfix {% if settings.display_product_quantity %}inline_purchase{% endif %}">
+      {% if settings.cart_action == 'reload_page' %}
+        <input type="hidden" name="return_to" value="back" />
+      {% elsif settings.cart_action == 'redirect_checkout' %}
+        <input type="hidden" name="return_to" value="/checkout" />
+      {% endif %}
+    <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+      {% capture add_to_cart_label %}{% if collection_handles contains 'pre-order' %}{{ 'collections.general.pre_order' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}{% endcapture %}
+      <button type="submit" name="add" disabled class="action_button add_to_cart add_to_cart-disabled" data-label={{ add_to_cart_label | json }}>
+        <span class="text">Sold Out</span>
+        <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark">
+          <path fill="none" stroke="{{ settings.btn_text_color }}" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/>
+        </svg>
+      </button>
+    </div>
+  </form>
+
+{% endif %}

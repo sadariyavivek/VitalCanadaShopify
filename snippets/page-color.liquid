@@ -1,0 +1,19 @@
+{% assign page_color = '#23b6e6' %}
+
+{% if template contains 'list-collections' %}
+    {% assign page_color = '#23b6e6' %}
+{% endif %}
+
+{% if template == 'collection' %}
+    {% capture page_color %}
+        {{ collection.metafields.conspire.color }}
+    {% endcapture %}
+{% endif %}
+
+<style>
+    .main_nav, .dropdown, .footer {
+      {% if page_color != blank %}
+        background: {{ page_color }} !important;
+      {% endif %}
+    }
+</style>

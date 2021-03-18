@@ -1,0 +1,49 @@
+<ul class="social_icons">
+  {% if settings.twitter_link != '' %}
+    <li><a href="{{ settings.twitter_link }}" title="{{ shop.name }} on Twitter" rel="noopener noreferrer" target="_blank" class="icon-twitter" aria-label="Follow Vital Proteins on Twitter. Opens a new window."></a></li>
+  {% endif %}
+
+  {% if settings.facebook_link != '' %}
+    <li><a href="{{ settings.facebook_link }}" title="{{ shop.name }} on Facebook" rel="noopener noreferrer" target="_blank" class="icon-facebook" aria-label="Follow Vital Proteins on Facebook. Opens a new window."></a></li>
+  {% endif %}
+
+  {% if settings.google_link != '' %}
+    <li><a href="{{ settings.google_link }}" title="{{ shop.name }} on Google+" rel="publisher" target="_blank" class="icon-gplus" aria-label="Follow Vital Proteins on Google Plus. Opens a new window."></a></li>
+  {% endif %}
+
+  {% if settings.youtube_link != '' %}
+    <li><a href="{{ settings.youtube_link }}" title="{{ shop.name }} on YouTube" rel="noopener noreferrer" target="_blank" class="icon-youtube" aria-label="Follow Vital Proteins on Youtube. Opens a new window."></a></li>
+  {% endif %}
+
+  {% if settings.vimeo_link != '' %}
+    <li><a href="{{ settings.vimeo_link }}" title="{{ shop.name }} on Vimeo" rel="noopener noreferrer" target="_blank" class="icon-vimeo" aria-label="Follow Vital Proteins on Vimeo. Opens a new window."></a></li>
+  {% endif %}
+
+  {% if settings.pinterest_link != '' %}
+    <li><a href="{{ settings.pinterest_link }}" title="{{ shop.name }} on Pinterest" rel="noopener noreferrer" target="_blank" class="icon-pinterest" aria-label="Follow Vital Proteins on Pinterest. Opens a new window."></a></li>
+  {% endif %}
+
+  {% if settings.tumblr_link != '' %}
+    <li><a href="{{ settings.tumblr_link }}" title="{{ shop.name }} on Tumblr" rel="noopener noreferrer" target="_blank" class="icon-tumblr" aria-label="Follow Vital Proteins on Tumblr. Opens a new window."></a></li>
+  {% endif %}
+
+  {% if settings.instagram_link != '' %}
+    <li><a href="{{ settings.instagram_link }}" title="{{ shop.name }} on Instagram" rel="noopener noreferrer" target="_blank" class="icon-instagram" aria-label="Follow Vital Proteins on Instagram. Opens a new window."></a></li>
+  {% endif %}
+
+  {% if settings.snapchat_link != '' %}
+    <li><a href="{{ settings.snapchat_link }}" title="{{ shop.name }} on Snapchat" rel="me" target="_blank" class="icon-snapchat" aria-label="Follow Vital Proteins on Snapchat. Opens a new window."></a></li>
+  {% endif %}
+
+  {% if settings.houzz_link != '' %}
+    <li><a href="{{ settings.houzz_link }}" title="{{ shop.name }} on Houzz" rel="me" target="_blank" class="icon-houzz" aria-label="Follow Vital Proteins on Houzz. Opens a new window."></a></li>
+  {% endif %}
+
+  {% if settings.linkedin_link != '' %}
+    <li><a href="{{ settings.linkedin_link }}" title="{{ shop.name }} on LinkedIn" rel="me" target="_blank" class="icon-linkedin" aria-label="Follow Vital Proteins on LinkedIn. Opens a new window."></a></li>
+  {% endif %}
+
+  {% if settings.email_link != '' %}
+    <li><a href="mailto:{{ settings.email_link }}" title="Email {{ shop.name }}" target="_blank" class="icon-mail" aria-label="Email Vital Proteins. Opens a new window."></a></li>
+  {% endif %}
+</ul>

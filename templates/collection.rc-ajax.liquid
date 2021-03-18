@@ -1,0 +1,21 @@
+{% layout none %}
+
+{% for product in collection.products limit: 6 %}
+  {% assign variant = product.first_available_variant %}
+
+  <div class="rc-product-tile grid-view-item" product-id="{{ product.id }}" variant-id="{{ variant.id }}">
+    <div class="rc-product-tile__image-wrapper">
+      <img class="rc-product-tile__image" src="{{ variant.image | img_url: '480x' }}" alt="{{ product.title }} - {{ variant.title }}" width="480" height="480">
+    </div>
+    <div class="rc-product-card text-center">
+      <div class="rc-product-tile__meta">
+        <div class="rc-product-tile__title">{{ product.title }}</div>
+        <p class="rc-product-tile__price">{{ variant.price | money_without_trailing_zeros }}</p>
+      </div>
+      
+      <button class="rc-button small full-width" swap-product="">
+        <span class="text text-uppercase">Swap</span>
+      </button>
+    </div>
+  </div>
+{% endfor %}

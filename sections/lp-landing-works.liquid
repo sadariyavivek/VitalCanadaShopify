@@ -1,0 +1,267 @@
+<div class="v1-landing-map">
+	<h2>{{ section.settings.lp-steps-heading }}</h2>
+	<p>{{ section.settings.lp-steps-desc }}</p>
+	
+<div class="lp-works-graphics">
+	
+<div class="lp-works-graphic">
+	<img src=" {{ section.settings.lp-step1-image | img_url: '300x' }} ">
+	<div class="lp-works-graphic-number">1</div>
+	<h3 class="lp-works-graphic-headline"> {{ section.settings.lp-step1-heading }} </h3>
+	<p class="lp-works-graphic-text"> {{ section.settings.lp-step1-text }} </p>
+</div>	
+
+<div class="lp-works-graphic">
+		<img src=" {{ section.settings.lp-step2-image | img_url: '300x' }} ">
+	<div class="lp-works-graphic-number">2</div>
+	<h3 class="lp-works-graphic-headline"> {{ section.settings.lp-step2-heading }} </h3>
+	<p class="lp-works-graphic-text"> {{ section.settings.lp-step2-text }} </p>
+</div>	
+
+<div class="lp-works-graphic">
+		<img src=" {{ section.settings.lp-step3-image | img_url: '300x' }} ">
+	<div class="lp-works-graphic-number">3</div>
+	<h3 class="lp-works-graphic-headline"> {{ section.settings.lp-step3-heading }} </h3>
+	<p class="lp-works-graphic-text"> {{ section.settings.lp-step3-text }} </p>
+</div>	
+	
+	
+	
+</div>
+
+
+	<a class="landing-subscribe-button" href="https://www.vitalproteins.com/products/collagen-peptides"> {{ section.settings.lp-start-button }} </a>
+	
+</div>
+
+
+
+
+
+
+
+
+
+<style>
+
+	
+	
+	.v1-landing-map {
+	    padding: 50px;
+	    background: #ffffff;
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: center;
+	    align-items: center;
+	}
+
+	.v1-landing-map h2 {
+	    font-family: 'Avenir';
+	    font-size: 44px;
+	    line-height: 46px;
+	    text-transform: capitalize;
+	    color: #343837;
+	    margin: 0px;
+	    margin-bottom: 20px;
+	}
+
+	.v1-landing-map p {
+	    font-family: 'Avenir';
+	    font-size: 22px;
+	    line-height: 26px;
+	    color: #656565;
+	}
+  
+  .lp-works-graphics {
+	    display: flex;
+	    max-width: 1220px;
+	    margin: 0 auto;
+	    justify-content: space-between;
+	}
+	
+	.lp-works-graphic {
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: flex-start;
+	    align-items: center;
+	    text-align: center;
+	    width: calc(100%/3 - 50px);
+	}
+	
+.lp-works-graphic-headline {
+    font-family: 'Avenir';
+    font-size: 24px;
+    line-height: 26px;
+    color: #343837;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin: 0;
+    text-transform: capitalize;
+    letter-spacing: 1px !important;
+}
+	
+.lp-works-graphic-text {
+    font-family: 'Avenir';
+    font-size: 18px !important;
+    line-height: 22px !important;
+    color: #656565;
+    margin-bottom: 35px;
+    margin-top: 10px;
+}
+	
+	.lp-works-graphic-number {
+	    display: flex;
+	    background: #212121;
+	    width: 35px;
+	    height: 35px;
+	    text-align: center;
+	    border-radius: 50px;
+	    justify-content: center;
+	    align-items: center;
+	    color: #ffffff;
+	    font-family: 'Avenir';
+	    font-size: 20px;
+	    line-height: 20px;
+	    margin: 20px;
+	}
+  
+  
+  	@media only screen and (max-width: 800px) {
+
+  .lp-works-graphics {
+    display: flex;
+    max-width: 100%;
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+      
+      .lp-works-graphic {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+      
+      .v1-landing-map h2 {
+    font-family: 'Avenir';
+    font-size: 38px;
+    line-height: 42px;
+    text-transform: capitalize;
+    color: #343837;
+    margin: 0px;
+    margin-bottom: 20px;
+}
+      
+      .v1-vital-difference-info h1 {
+    font-family: 'avenir';
+    font-size: 28px !important;
+    line-height: 32px !important;
+    -webkit-font-smoothing: antialiased;
+    color: #393d40;
+    font-weight: 500;
+    text-transform: capitalize;
+    margin-top: 10px;
+}
+      
+      .rec-container .product-grid-item {
+    width: 100%;
+}
+      
+    }
+  
+  
+	
+</style>
+
+
+{% schema %}
+	{
+  "name": "Steps Section",
+  "class": "lp-steps-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "lp-steps-heading",
+      "label": "Steps Heading",
+	  "default": "Start Your Journey"
+	},
+	{
+      "type": "text",
+      "id": "lp-steps-desc",
+      "label": "Steps Description",
+	  "default": "Easy as 1, 2, 3."
+},
+    {
+      "type": "image_picker",
+      "id": "lp-step1-image",
+      "label": "Step 1 Image"
+	},
+	{
+      "type": "text",
+      "id": "lp-step1-heading",
+      "label": "Step 1 Heading",
+	  "default": "Sign Up With Confidence"
+	},
+    {
+      "type": "text",
+      "id": "lp-step1-text",
+      "label": "Step 1 Text",
+	  "default": "Swap, skip, modify or cancel at any time."
+	},
+    {
+      "type": "image_picker",
+      "id": "lp-step2-image",
+      "label": "Step 2 Image"
+	},
+    {
+      "type": "text",
+      "id": "lp-step2-heading",
+      "label": "Step 2 Heading",
+	  "default": "Sign Up With Confidence"
+	},
+    {
+      "type": "text",
+      "id": "lp-step2-text",
+      "label": "Step 2 Text",
+	  "default": "Swap, skip, modify or cancel at any time."
+	},
+    {
+      "type": "image_picker",
+      "id": "lp-step3-image",
+      "label": "Step 3 Image"
+	},
+    {
+      "type": "text",
+      "id": "lp-step3-heading",
+      "label": "Step 3 Heading",
+	  "default": "Sign Up With Confidence"
+	},
+    {
+      "type": "text",
+      "id": "lp-step3-text",
+      "label": "Step 3 Text",
+	  "default": "Swap, skip, modify or cancel at any time."
+	},
+    {
+      "type": "text",
+      "id": "lp-start-button",
+      "label": "Button Text",
+	  "default": "Subscribe Now"
+	},
+    {
+      "type": "url",
+      "id": "lp-start-button-link",
+      "label": "Button Link"
+	}
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

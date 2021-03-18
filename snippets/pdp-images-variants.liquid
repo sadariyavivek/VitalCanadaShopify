@@ -1,0 +1,131 @@
+<style>
+    .featured-carousel {
+        display: none;
+        margin-bottom: 50px;
+    }
+
+    .featured-carousel .flickity-prev-next-button {
+        display: block;
+        border: 1px solid gray;
+        height: 40px;
+        width: 40px;
+        border-radius: 100%;
+        min-width: 0px;
+        min-height: 0px;
+        top: 35%;
+        padding: 0;
+    }
+
+    .featured-carousel .flickity-prev-next-button svg {
+        left: 1.5%;
+        width: 100%;
+        height: 100%;
+    }
+
+    .thumbnail-carousel {
+        display: none;
+    }
+
+    .carousel-cell {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .carousel-video {
+        height: 400px;
+        width: 100%;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
+    .carousel-cell img {
+        height: 480px;
+        margin-left: auto;
+        margin-right: auto;
+        width: auto;
+    }
+
+    .pdp-thumbnails {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        display: none;
+    }
+
+    .pdp-thumbnails.active {
+        /*display: flex;*/
+        display: none;
+    }
+
+    .thumbnail-image {
+        height: 60px;
+        width: 60px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin-right: 10px;
+        transition: .15s opacity linear;
+        border: 3px solid transparent;
+    }
+
+    .thumbnail-image.active {
+        border: 3px solid #23b6e6;
+    }
+
+    .thumbnail-image:hover {
+        opacity: 0.7;
+        cursor: pointer;
+    }
+
+    .video-thumbnail {
+        height: 100%;
+    }
+
+    @media screen and (max-width: 800px) {
+        .carousel-cell img {
+            height: 340px;
+        }
+    }
+</style>
+{% for variant in product.variants %}
+    <div class="featured-carousel {{ variant.id }}" data-variant={{ variant.id }} data-flickity='{ "cellAlign": "left", "contain": true, "lazyLoad": true }'>
+        {% for image in product.media %}
+          {% assign image_id = image.id %}
+          {% assign image_alt = image.alt %}
+          {% assign image_100x = image | product_img_url: '100x' %}
+          {% assign image_200x = image | product_img_url: '200x' %}
+          {% assign image_400x = image | product_img_url: '400x' %}
+          {% assign image_600x = image | product_img_url: '600x' %}
+          {% assign image_800x = image | product_img_url: '800x' %}
+          {% assign image_1200x = image | product_img_url: '1200x' %}
+          {% assign image_2000x = image | product_img_url: '2000x' %}
+          {% assign original_image_width = image.width %}
+          {% assign original_image_height = image.height %}
+            <div class="carousel-cell index-{{ forloop.index0 }}" data-index={{ forloop.index0 }}>
+                {% if image.media_type == "video" %}
+                    <video class="carousel-video" controls>
+                        <source src="{{ image.cloudinary_src }}" type="{{ image.mime_type }}"/>
+                    </video>
+                {% elsif image.media_type == "image" %}
+                    <img data-flickity-lazyload="{{ image_600x }}" alt="{{ image.alt }}"/>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+    <div class="pdp-thumbnails {{ variant.id }}">
+        {% for image in variant.media %}
+            {% if image.media_type == "video" %}
+                <div role="button" class="thumbnail-image index-{{ forloop.index0 }} lazyload {% if forloop.index0 == 0 %}active{% endif %}" data-bg="{{ image.cloudinary_src | append: 'h_80' }}" data-index={{ forloop.index0 }} data-variant="{{ variant.id }}">
+                    <video class="video-thumbnail">
+                        <source src="{{ image.cloudinary_src }}" type="{{ image.mime_type }}"/>
+                    </video>
+                </div>
+            {% elsif image.media_type == "image" %}
+                <div role="button" class="thumbnail-image index-{{ forloop.index0 }} lazyload {% if forloop.index0 == 0 %}active{% endif %}" data-bg="{{ image.cloudinary_src | append: 'h_80' }}" data-index={{ forloop.index0 }} data-variant="{{ variant.id }}"></div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endfor %}

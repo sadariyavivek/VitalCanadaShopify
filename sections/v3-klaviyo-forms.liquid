@@ -1,0 +1,52 @@
+<div class="v3-form-landing-container">
+      {% if section.settings.v3-form-landing-highlight-image != blank %}
+  <div class="v3-form-landing-container-highlight" style="background:url( {{ section.settings.v3-form-landing-highlight-image | img_url: '800x' }} );background-repeat:no-repeat;background-size:cover;background-position:top center;"></div>
+      {% endif %}
+  <div style="display: flex;justify-content: space-between;margin-bottom: 10px;">
+  <div style="width: 75%;display: flex;justify-content: flex-start;align-items: center;"><h1>{{ section.settings.v3-form-landing-heading }}</h1></div>
+    <div style="width: 20%;display: flex;justify-content: flex-end;">
+      <img src="https://cdn.shopify.com/s/files/1/2074/9385/files/VitalProteins_Shields_Blue_Solid.jpg?v=1594565864" class="vp-logo">
+  </div>
+  </div>
+  <p>{{ section.settings.v3-form-landing-desc }}</p>
+  <div> {{ section.settings.v3-form-landing-html }} </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Form Landing Page",
+  "class": "v3-form-landing",
+  "settings": [
+	{
+      "type": "text",
+      "id": "v3-form-landing-heading",
+      "label": "Main Heading",
+	  "default": "Main Form Title"
+    },
+	{
+      "type": "text",
+      "id": "v3-form-landing-desc",
+      "label": "Main Description",
+	  "default": "Main Form Description..."
+    },
+	{
+      "type": "html",
+      "id": "v3-form-landing-html",
+      "label": "Embed code from Klaviyo"
+    },
+	{
+      "type": "image_picker",
+      "id": "v3-form-landing-highlight-image",
+      "label": "Highlight Image (Optional)"
+    }
+    
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

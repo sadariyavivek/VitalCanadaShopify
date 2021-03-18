@@ -1,0 +1,2373 @@
+{% layout 'theme.default-lp-template' %}
+
+<style>
+div.content {
+    padding: 0px 0px 15px 0;
+}
+.container {
+    max-width: 100%;
+}
+.quiz-wrapper {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+    align-items: center;
+    padding-bottom: 30px;
+    min-height: 600px;
+}
+.quiz-wrapper h2 {
+    text-transform: capitalize;
+    color: #5a5a5a;
+    font-size: 44px;
+    line-height: 44px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    letter-spacing: 0px !important;
+}
+  
+ .quiz-wrapper .startButton, .quiz-wrapper .previousButton {
+    animation-delay: .3s;
+    width: 100%;
+    height: 44px;
+    max-height: 44px;
+    min-height: 44px !important;
+    max-width: 260px;
+    font-family: 'kapraregular';
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 22px;
+    line-height: 22px;
+    padding: 0px !important;
+    padding-top: px;
+}
+  
+.answer-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+      margin-bottom: 20px;
+}
+  
+.quiz-slide {
+    width: 100%;
+}
+  
+.quiz-slide .item-choice {
+    display: flex;
+    align-items: center;
+    transition: .2s all ease-out;
+    color: white;
+    width: 30%;
+    height: 100px;
+    background: #f7f7f7;
+    border-radius: 4px;
+    border: 2px solid #eaeaea;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+  
+  .quiz-slide .item-choice:hover {
+    border: 2px solid #1bb9e6;
+}
+  
+.quiz-slide .item-choice p {
+    font-size: 18px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    line-height: 20px;
+    text-align: left;
+    -webkit-font-smoothing: antialiased;
+    color: #505050;
+    font-weight: 700;
+    padding-left: 15px;
+}
+  
+.prev-next-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+  
+.answer-icon-container {
+    position: relative;
+    display: flex;
+    width: 50px;
+    min-width: 60px;
+    height: 60px;
+    padding: 5px;
+    border-radius: 50%;
+    background: #02abe3;
+    align-items: center;
+    justify-content: center;
+    transition: .4s all cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+  
+  .answer-icon-container img {
+    width: 70%;
+}
+  .quiz-slide p {
+    font-size: 20px;
+    margin-top: 18px;
+    margin-bottom: 30px;
+    color: #5d5d5d;
+}
+  
+ .item-choice.active {
+    animation-delay: 0.1s;
+    border: 2px solid #1bb9e6;
+    background: #02abe31a;
+}
+  
+.rec-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+  
+  .rec-container {
+    justify-content: space-between;
+}
+  
+.rec-wrapper {
+    max-width: 250px;
+    padding: 15px;
+    background: #FFFFFF;
+    border: 1px solid #E4E4E4;
+    box-shadow: 0 2px 7px 0 rgba(220,215,215,0.50);
+    border-radius: 4px;
+    padding-top: 13px;
+}
+  
+.rec-wrapper img {
+    max-width: 100%;
+    border-radius: 4px;
+}
+  
+.rec-wrapper .product-results-title {
+    line-height: 18px;
+    font-family: 'avenir';
+    font-size: 16px;
+    letter-spacing: 0 !important;
+    color: #5a5a5a;
+    text-transform: capitalize;
+    font-weight: bold;
+    margin-top: 10px;
+    height: 35px;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+  
+.quiz-results-disclaimer-text  {
+    font-size: 12px !important;
+    line-height: 15px !important;
+}
+  
+ .product-results-learn-more-button {
+    display: flex;
+    background: #00AF9A;
+    width: 100%;
+    justify-content: center;
+    height: 35px;
+    align-items: center;
+    min-height: 35px;
+    border-radius: 4px;
+    font-family: 'kapraregular';
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1em;
+    text-transform: uppercase;
+    color: #ffffff;
+    padding-top: 2px;
+}
+  
+   .product-results-learn-more-button:hover {
+    background: #00D9B2;
+    color: #ffffff;
+}
+
+.product-results-subtext {
+    font-size: 14px !important;
+    line-height: 17px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 10px !important;
+}
+  
+.results-header {
+    margin-bottom: 35px !important;
+    font-size: 54px !important;
+  }
+  
+.calc-headline {
+    text-transform: capitalize;
+    font-size: 44px;
+    line-height: 46px;
+    color: #5a5a5a;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+  
+  .lp-header-walmart {
+    height: 70px;
+    background: #041f42;
+    width: 100%;
+}
+  
+.lp-header-inner {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+.wmt-logo {
+    cursor: pointer;
+    height: 37px;
+    width: 35px;
+    max-height: 37px;
+    max-width: 35px;
+}
+  
+.vital-logo {
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    max-height: 50px;
+    max-width: 50px;
+}
+  
+
+  html {padding-bottom 0px !important; }
+
+  @media only screen and (max-width: 800px) {   
+    #why-collagen p {
+    font-size: 16px;
+    color: #606060;
+    margin: 0;
+    text-align: center;
+    line-height: 18px;
+    margin-top: 10px;
+}   
+  }
+  
+  
+  
+    @media only screen and (max-width: 500px) {
+          .main-dark-button {
+    margin: 0 auto;
+    margin-top: 0px !important;
+}    
+   }
+  
+  
+  
+  .mobile_nav-fixed--true #pagecontent, .mobile_nav-fixed--false #pagecontent {
+    display: block;
+    padding-bottom: 0px;
+}
+  
+     #chat-widget-container, #talkable-offer {
+    display: none;
+}
+  
+  
+  #rec-modal {
+    width: 100vw;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    background: #02152df2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    height: 0px;
+    width: 0px;
+    z-index: 1000;
+  	position:relative;
+}
+	
+.rec-modal-inner {
+    width: 0;
+    height: 0;
+    background: #ffffff;
+    border-radius: 8px;
+    opacity: 0;
+    max-width: 900px;
+    overflow: hidden;
+    overflow-y: scroll;
+    position: relative;
+    z-index: 1002;
+  	transition: ease all .5s;
+  max-height: 95vh;
+}
+  
+  .rec-modal-inner::-webkit-scrollbar {
+    display: none;
+}
+  
+  button[disabled], input[disabled] {
+    cursor: default;
+    opacity: .25;
+}
+  
+   .grow {
+    transform: scale(1);
+    transition: ease-in-out all .2s;
+}
+  
+ .grow:hover {
+    transform: scale(1.03);
+    transition: ease-in-out all .2s;
+}
+  
+ #why-collagen {
+    display: flex;
+}
+  
+#why-collagen h2 {
+    text-transform: capitalize;
+    font-size: 64px;
+    line-height: 56px;
+    color: #5a5a5a;
+    margin: 0;
+    margin-bottom: 20px;
+}
+  
+  #why-collagen p {
+    font-size: 18px;
+    color: #606060;
+    margin: 0;
+}
+  
+.gray {
+    background: url(//cdn.shopify.com/s/files/1/2074/9385/files/cp_800x.jpg?v=1707968…);
+    background-position: center;
+    background-position-x: right;
+    background-repeat: no-repeat;
+    background-color: #e6eaed;
+    min-height: 400px;
+    display: flex;
+}
+  
+  .split-text {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+}
+  
+ .collagen-img {
+    width: 80%;
+    height: 300px;
+    background: #ffffff;
+}
+  
+  .center-it {
+    justify-content: center;
+    align-items: center;
+    justify-items:center;
+    align-content:center;
+}
+	
+	
+	@media only screen and (max-width: 800px) {
+            .split-text {
+    width: 100%;
+}
+      
+      .center-it {display:none;}
+#why-collagen h2 {
+    text-transform: capitalize;
+    font-size: 64px;
+    line-height: 62px;
+    color: #5a5a5a;
+    margin: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+          
+	}
+  
+  
+	
+	@media only screen and (max-width: 600px) {
+		
+      .split-text {
+    width: 100%;
+}
+      .center-it {
+    display: none !important;
+}
+      #why-collagen h2 {
+    font-size: 42px;
+    line-height: 44px;
+    letter-spacing: 0px !important;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+  
+#why-collagen {
+    display: flex;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+        	.main-dark-button {
+      margin-left: auto;
+      margin-top: 20px;
+}
+      #why-collagen p {
+    font-size: 16px !important;
+    color: #606060;
+    margin: 0;
+    text-align: center;
+    line-height: 18px;
+    margin-top: 10px !important;
+}
+      .gray {
+    min-height: 235px;
+    background-size: 135px;
+    background-position-y: bottom;
+}
+      
+      
+}
+  
+
+
+  #wmt-vp-top-prod .wmt-product-cat {
+    width: calc(20% - 20px);
+    height: auto;
+    padding: 15px;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: 1.2em;
+}
+  
+  #wmt-vp-top-prod .wmt-products-container {padding:0px;}
+  
+#wmt-vp-top-prod .wmt-shop-now {
+    font-size: 16px;
+    font-weight: bold;
+    color: #484848;
+    margin-top: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 35px;
+    justify-content: center;
+    align-items: center;
+}
+  
+  
+  .wmt-lp-hero-inner {
+  display:flex;
+    max-width:1440px;
+    width:100%;
+    margin: 0 auto;
+    z-index:2;
+  }
+  
+  .custom-shape-divider-bottom-1599878618 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1599878618 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 375px;
+    transform: rotateY(180deg);
+    z-index: -1;
+}
+
+.custom-shape-divider-bottom-1599878618 .shape-fill {
+    fill: #1bb9e6;
+}
+  .cc-submit-button:hover {
+    background-color: #23b6e6 !important;
+    opacity: 0.7;
+}
+  
+  #wmt-vp-top-prod .wmt-product-cat img {width:100%;}
+  
+.so-tab {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin: 25px 0;
+    border-bottom: 1px solid #ccc;
+}
+.so-tab label {
+    position: relative;
+    display: block;
+    padding: 0 25px 0 0;
+    margin-bottom: 15px;
+    line-height: normal;
+    cursor: pointer;
+font-size: 18px;
+  line-height: 1.2em;
+}
+  .so-tab input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
+  .so-tab-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s;
+  }
+  /* :checked */
+  .so-tab input:checked ~ .so-tab-content {
+    max-height: none;
+  }
+  /* Icon */
+  .so-tab label::after {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block;
+    -webkit-transition: all .35s;
+    -o-transition: all .35s;
+    transition: all .35s;
+  }
+  .so-tab input[type=checkbox] + label::after {
+    content: "+";
+  }
+  .so-tab input[type=radio] + label::after {
+    content: "\25BC";
+  }
+  .so-tab input[type=checkbox]:checked + label::after {
+    transform: rotate(315deg);
+  }
+  .so-tab input[type=radio]:checked + label::after {
+    transform: rotateX(180deg);
+  }
+  
+#wmt-faq {
+    background: #ffffff;
+    padding-top: 20px;
+    padding-bottom: 25px;
+    border-radius: 8px;
+    max-width: 1340px;
+}
+
+  
+  #pagecontent {
+    padding-bottom: 0px !important;
+  }
+  
+.calc-container {
+    display: flex;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    justify-content: center;
+    margin-top: 30px;
+}
+  
+  .container.main.content {
+    padding: 0;
+    background-color: #F5F6F7;
+  }
+  
+  .collagen-calculator-wrapper {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  
+  .cc-intro-page {
+    transition: .25s transform ease-out;
+    width: 50%;
+    background-color: #F5F6F7;
+  }
+  
+  .cc-intro-page.inactive {
+    transform: translateX(-100vw);
+  }
+  
+  .cc-information-section {
+    padding: 20px;
+  }
+  
+  .cc-info-header {
+    color: #23b6e6;
+    letter-spacing: 0px !important;
+    text-transform: none;
+    font-size: 36px !important;
+    line-height: 44px !important;
+    padding-right: 10%;
+  }
+  
+  .cc-info-paragraph {
+    font-size: 16px;
+    line-height: 24px;
+    color: #717F86;
+  }
+  
+  .text-blue {
+    font-weight: bold;
+    color: #23b6e6;
+  }
+  
+  a.underline {
+    text-decoration: underline;
+  }
+  
+  .read-more-link {
+    color: #23b6e6;
+  }
+  
+  .cc-form {
+    margin-bottom: 0;
+  }
+  
+  .cc-input-section {
+    padding: 0px;
+  }
+  
+  .input-form-shield {
+    display: none;
+  }
+  
+  .cc-gender-select {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    padding-left: 20px;
+  }
+  
+  .cc-why-select {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    padding-left: 20px;
+  }
+  
+  .cc-diet-select {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    padding-left: 20px;
+  }
+  
+  .cc-weight-age-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 20px;
+    margin-bottom: 33px;
+  }
+  
+  .cc-number-input-container {
+    display: inline-block;
+    width: 33.33%;
+    text-align: center;
+  }
+  
+  .cc-number-input-container label {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+  
+  .cc-number-input-container input[type="number"] {
+    margin-bottom: 0;
+    width: 90%;
+    max-width: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+    font-size: 21px;
+    text-align: center;
+  }
+  
+.cc-submit-button {
+    min-height: 0;
+    width: 100%;
+    font-size: 14px;
+    line-height: 19px;
+    color: #ffffff;
+    height: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: #10bfde;
+    border-radius: 3px;
+    transition: .2s opacity linear;
+    border: none;
+}
+  
+  .cc-submit-button:hover {
+    border: 0;
+    background-color: #00AF9A;
+    opacity: 0.7;
+  }
+  
+  .cc-submit-button:disabled {
+    background-color: gray;
+  }
+  
+  .cc-submit-button:disabled:hover {
+    opacity: 1;
+  }
+  
+  .circle-wrapper {
+    width: 140px;
+    height: 140px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+
+  .circle-container {
+    position: absolute;
+    transform: rotateZ(-90deg);
+  }
+  
+  circle.background {
+    fill: transparent;
+    stroke: #c1c0c0;
+    stroke-width: 4;
+    opacity: 0.5;
+  }
+  
+  circle.gradient {
+      fill: transparent;
+      stroke: url(#circle-gradient);
+      stroke-width: 20;
+      stroke-dasharray: 720;
+      stroke-dashoffset: 720;
+  }
+  
+  circle.gradient.active {
+    fill: transparent;
+    stroke: url(#circle-gradient);
+    stroke-width: 20;
+    stroke-dasharray: 360;
+    stroke-dashoffset: 360;
+  }
+  
+  circle.gradient.active.quarter {
+    animation: rotateQuarter 1.5s ease-out forwards;
+    animation-iteration-count: 1;
+    animation-delay: 0.4s;
+  }
+  
+  circle.gradient.active.half {
+    animation: rotateHalf 1.5s ease-out forwards;
+    animation-iteration-count: 1;
+    animation-delay: 0.4s;
+  }
+  
+  circle.gradient.active.threeQuarters {
+    animation: rotateThreeQuarters 1.5s ease-out forwards;
+    animation-iteration-count: 1;
+    animation-delay: 0.4s;
+  }
+  
+    circle.gradient.active.full {
+    animation: rotateFull 1.5s ease-out forwards;
+    animation-iteration-count: 1;
+    animation-delay: 0.4s;
+  }
+
+  @keyframes rotateQuarter {
+    to {
+      stroke-dashoffset: 270;
+    }
+  }
+  
+  @keyframes rotateHalf {
+    to {
+      stroke-dashoffset: 180;
+    }
+  }
+  
+  @keyframes rotateThreeQuarters {
+    to {
+      stroke-dashoffset: 90;
+    }
+  }
+  
+    @keyframes rotateFull {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  
+.circle-text {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: 'avenir';
+    color: #3e3e3e;
+    letter-spacing: -1px !important;
+}
+  
+  .circle-number {
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 32px;
+    margin-left: 10px
+  }
+  
+  .circle-grams {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 0px;
+  }
+  
+  .below-circle-text {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+    margin-bottom: 30px;
+	  color: #3e3e3e;
+    font-family: 'avenir';
+  }
+  
+  .cc-results-page {
+    transition: .2s transform ease-out;
+    width: 50%;
+    transform: translateX(-100%);
+    max-height: initial;
+    padding-top: 20px;
+    background-color: #F5F6F7;
+  }
+  
+  .cc-results-page.inactive {
+    transform: translateX(50%);
+    max-height: 0;
+  }
+  
+  .cc-results-page .cc-info-paragraph {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .cc-results-header {
+    color: #23b6e6;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: -1px !important;
+    font-family: 'avenir';
+    font-weight: bold;
+    margin: 0 auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    max-width: 70%;
+}
+  
+  .cc-bundles-section {
+  }
+  
+  .cc-bundles-title {
+  }
+
+
+.cc-input-section h6 {
+    font-family: 'avenir';
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0px;
+    color: #3e3e3e;
+    -webkit-font-smoothing: antialiased;
+    text-transform: capitalize;
+    letter-spacing: -.25px !important;
+}
+
+.cc-input-section label {
+    padding-right: 15px;
+    padding-left: 5px;
+    line-height: 1em;
+    margin: 0px;
+} 
+
+	  @media screen and (min-width: 800px) {
+
+
+      }
+  
+  @media screen and (min-width: 800px) {
+    .cc-intro-page {
+    }
+    
+    .cc-intro-page-inner {
+      display: flex;
+      flex-direction: row;
+
+    }
+    
+    .read-more-link {
+      display: table;
+      margin-top: 30px;
+      text-decoration: underline;
+      color: white;
+    }
+    
+.cc-form {
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'avenir';
+    color: #5a5a5a;
+    padding-right: 60px;
+}
+   
+    
+    
+    .input-form-shield {
+      height: 64px;
+      width: auto;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      margin-bottom: 20px;
+    }
+    
+    .cc-why-select {
+    	margin-bottom: 20px;
+      	font-size: 18px;
+      	line-height: 25px;
+    }
+    
+    .cc-gender-select {
+      	font-size: 18px;
+      	line-height: 25px;
+    }
+    
+    .cc-diet-select {
+    	margin-bottom: 20px;
+      	font-size: 18px;
+      	line-height: 25px;
+    }
+    
+    .cc-weight-age-row {
+    	margin-top: 44px;
+    	margin-bottom: 40px;
+    }
+    
+    .cc-submit-button {
+    	height: 48px;
+      	font-size: 16px;
+      line-height: 22px;
+    }
+    
+    .cc-results-page {
+      background-color: #F5F6F7;
+      padding-top: 42px;
+    }
+    
+    .cc-results-page .cc-info-paragraph {
+      text-align: center;
+      font-size: 20px;
+      line-height: 26px;
+    }
+    
+    .cc-results-header {
+    color: #23b6e6;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: -1px !important;
+    font-family: 'avenir';
+    margin-top: 0px;
+    margin-bottom: 0px;
+		max-width: 70%;
+}
+    
+    .below-circle-text {
+    font-size: 20px;
+    line-height: 27px;
+    color: #717F86;
+    margin-bottom: 0px;
+    margin-top: 5px;
+}
+    
+    .circle-wrapper {
+      height: 200px;
+      width: 200px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    
+	circle.background {
+	    fill: transparent;
+	    stroke: #c1c0c0;
+	    stroke-width: 20px;
+	    opacity: 0.5;
+	}
+
+    circle.gradient.active {
+      fill: transparent;
+      stroke: url(#circle-gradient);
+      stroke-width: 20;
+      stroke-dasharray: 720;
+      stroke-dashoffset: 720;
+    }
+
+    @keyframes rotateQuarter {
+      to {
+        stroke-dashoffset: 590;
+      }
+    }
+
+    @keyframes rotateHalf {
+      to {
+        stroke-dashoffset: 470;
+      }
+    }
+
+    @keyframes rotateThreeQuarters {
+      to {
+        stroke-dashoffset: 340;
+      }
+    }
+    
+    @keyframes rotateFull {
+      to {
+        stroke-dashoffset: 200;
+      }
+    }
+    
+    .circle-number {
+      font-weight: bold;
+      font-size: 36px;
+      line-height: 42px;
+      margin-left: 10px
+    }
+    
+    
+  }
+  
+.calc-tm-title {
+    text-align: center;
+    text-transform: capitalize;
+    text-transform: capitalize;
+    color: #3e3e3e;
+    font-size: 34px;
+    line-height: 1em;
+    margin-bottom: 15px;
+    margin-top: 0px;
+}
+    @media screen and (max-width: 800px) {
+
+      .calc-tm-title {
+    color: #5a5b5a;
+}
+      
+          .main-dark-button {
+    margin: 0 auto;
+    margin-top: 20px;
+}
+      .gray {
+    min-height: 235px;
+    background-size: 135px;
+    background-position-y: bottom;
+}
+      .desktop-width {
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+    }
+  
+	.results-box {
+    border: 1px solid #e6e6e6;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 4px;
+    box-shadow: 2px 2px 8px #00000017;
+}
+	
+	.range-slider {
+	    margin: 0px 0 0 0%;
+	}
+
+	.range-slider {
+    align-items: center;
+    width: 100%;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+
+.range-slider__range {
+    -webkit-appearance: none !important;
+    width: calc(100% - (73px)) !important;
+    height: 10px !important;
+    border-radius: 5px !important;
+    background: #d7dcdf !important;
+    outline: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: 10px !important;
+    max-height: 10px !important;
+}
+	.range-slider__range::-webkit-slider-thumb {
+	  -webkit-appearance: none !important;
+	          appearance: none !important;
+	  width: 20px !important;
+	  height: 20px !important;
+	  border-radius: 50% !important;
+	  background: #23b6e6 !important;
+	  cursor: pointer !important;
+	  -webkit-transition: background 0.15s ease-in-out !important;
+	  transition: background 0.15s ease-in-out !important;
+	}
+	.range-slider__range::-webkit-slider-thumb:hover {
+	  background: #23b6e6;
+	}
+	.range-slider__range:active::-webkit-slider-thumb {
+	  background: #23b6e6;
+	}
+	.range-slider__range::-moz-range-thumb {
+	  width: 20px;
+	  height: 20px;
+	  border: 0;
+	  border-radius: 50%;
+	  background: #23b6e6;
+	  cursor: pointer;
+	  -moz-transition: background 0.15s ease-in-out;
+	  transition: background 0.15s ease-in-out;
+	}
+	.range-slider__range::-moz-range-thumb:hover {
+	  background: #23b6e6;
+	}
+	.range-slider__range:active::-moz-range-thumb {
+	  background: #23b6e6;
+	}
+	.range-slider__range:focus::-webkit-slider-thumb {
+	  box-shadow: 0 0 0 3px #fff, 0 0 0 6px #23b6e6;
+	}
+
+	.range-slider__value {
+    display: inline-block;
+    position: relative;
+    width: 60px;
+    color: #fff;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 3px;
+    background: #23b6e6;
+    padding: 5px 10px;
+    margin-left: 8px;
+}
+	.range-slider__value:after {
+    position: absolute;
+    top: 8px;
+    left: -7px;
+    width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-right: 7px solid #23b6e6;
+    border-bottom: 7px solid transparent;
+    content: "";
+}
+
+	::-moz-range-track {
+	  background: #d7dcdf;
+	  border: 0;
+	}
+
+	input::-moz-focus-inner,
+	input::-moz-focus-outer {
+	  border: 0;
+	}
+	
+.cc-modal-inner {
+    height: auto;
+    max-height: 80vh;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 35px;
+    background: #ffffff;
+    padding-bottom: 35px;
+	position:relative;
+		z-index:1005;
+}
+	
+.cc-modal-inner h2 {
+    font-size: 54px;
+    text-transform: capitalize;
+    color: #3e3e3e;
+    font-family: 'kapraregular';
+    font-weight: 400;
+    margin: 0px;
+    margin-bottom: 10px;
+    letter-spacing: 0px !important;
+    text-align: center;
+    max-width: 90%;
+}
+.cc-modal-inner p {
+    font-family: 'avenir';
+    font-size: 20px;
+    margin: 0px;
+    color: #5a5a5a;
+}
+	
+.disclaimer-cc-text {
+    font-size: 11px !important;
+    line-height: 12px;
+    text-align: center;
+    margin-top: 25px !important;
+    max-width: 90%;
+}
+	
+	.cc-modal {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background: #02152df2;
+    justify-content: center;
+    align-items: center;
+		position:relative;
+}
+	
+	.cc-modal-inner h5 {
+    font-size: 34px;
+    text-transform: capitalize;
+    color: #3e3e3e;
+    font-family: 'kapraregular';
+    font-weight: 400;
+    margin: 0px;
+    margin-bottom: 10px;
+    text-align: center;
+    max-width: 90%;
+    margin-top: 50px;
+}
+	
+		.cc-modal-inner h5 a {
+    color: #23b6e6;
+    text-decoration:none;
+}
+	
+	#shop-top-prod {
+		height:0%;
+		max-height:0px;
+		overflow:hidden;
+		transition:1s;
+      letter-spacing: 0px !important;
+		margin: 35px;
+		margin-bottom:0px;
+	}
+	
+#shop-top-prod.show-it {
+    height: 100%;
+    max-height: 250px;
+    overflow: visible;
+    margin-bottom: 0px;
+}
+	
+	
+	#cc-modal-id {
+    height: 0vh;
+    opacity: 0;
+    transition: .5s;
+    overflow: hidden;
+    position: fixed;
+    top: 0px;
+      z-index: 1000;
+}
+	
+@media only screen and (max-width: 800px) {
+
+.quiz-slide .item-choice {
+    width: 48%;
+}
+#wmt-vp-top-prod .wmt-product-cat {
+    width: calc(50% - 10px);
+}
+  .grow:hover {
+    transform: scale(1);
+    transition: ease-in-out all .2s;
+}
+  
+ .wmt-products-container .bv_stars_svg_no_wrap svg {
+    width: 10px !important;
+    height: 10px !important;
+}
+  .rec-container {
+    justify-content: space-between;
+    overflow-x: auto;
+}
+  
+.rec-wrapper {
+    max-width: 200px;
+    width: 200px;
+    min-width: 200px;
+    margin-right: 20px;
+    padding: 15px;
+    background: #FFFFFF;
+    border: 1px solid #E4E4E4;
+    box-shadow: 0 2px 7px 0 rgba(220,215,215,0.50);
+    border-radius: 4px;
+    padding-top: 13px;
+}
+
+
+}
+
+@media only screen and (max-width: 600px) {
+
+.quiz-slide .item-choice {
+    width: 100%;
+    height: 44px;
+    margin-bottom: 10px;
+}
+
+.answer-icon-container {
+    width: 25px;
+    min-width: 25px;
+    height: 25px;
+}
+.answer-icon-container img {
+    width: 20px;
+}
+.quiz-wrapper h2 {
+    font-size: 34px;
+    line-height: 36px;
+    margin-top: 0px;
+    margin-bottom: 8px;
+}
+
+.prev-next-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    background: #ffffffb5;
+    margin-left: 0;
+    padding-left: 15px;
+    padding-right: 20px;
+    max-width: 100vw;
+    margin-bottom: 20px;
+    padding-top: 15px;
+}
+.quiz-wrapper .startButton, .quiz-wrapper .previousButton {
+    animation-delay: .3s;
+    width: 46%;
+    height: 44px;
+    max-height: 44px;
+    min-height: 44px !important;
+    max-width: 100%;
+    font-family: 'kapraregular';
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 22px;
+    line-height: 22px;
+    padding: 0px !important;
+    padding-top: px;
+}
+  
+.rec-modal-inner {
+    max-height: 80vh;
+    top: 15px;
+    max-width: 90%;
+    width: 90%;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+  
+ .question-type-prompt {
+    margin: 0px !important;
+    margin-bottom: 8px !important;
+}
+  
+.quiz-slide {
+    width: 100%;
+    overflow-y: scroll;
+    margin-bottom: 30px;
+    overflow: visible;
+}
+  #rec-modal {
+    align-items: flex-start;
+    padding-top:25px;
+}
+    .rec-container {
+    justify-content: space-between;
+    overflow-x: auto;
+    max-width: 320px;
+}
+  
+.results-header {
+    margin-bottom: 15px !important;
+    font-size: 42px !important;
+    line-height: 46px !important;
+    letter-spacing: -.25px !important;
+}
+  .quiz-wrapper {
+    min-height: auto;
+}
+  .answer-container {
+    margin-bottom: 44px;
+}
+  
+.calc-container {
+    flex-direction: column-reverse;
+    max-width: 100%;
+    margin-top: 15px;
+  height: auto;
+}
+.cc-modal-inner {
+    height: auto;
+    max-height: 80vh;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 90%;
+    margin: 0 auto;
+    display: block;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 35px;
+    background: #ffffff;
+    padding-bottom: 35px;
+    position: relative;
+    z-index: 1005;
+    padding: 25px;
+    overflow-y: scroll;
+  justify-content: space-between;
+}
+  
+  .cc-modal-inner h2 {
+    font-size: 32px;
+    line-height: 1em;
+}
+  .cc-modal-inner p {
+    text-align: center;
+    font-family: 'avenir';
+    font-size: 14px;
+    line-height: 18px;
+    margin: 0px;
+    color: #5a5a5a;
+}
+  
+  .cc-results-header {
+    color: #23b6e6;
+    font-size: 18px;
+    line-height: 20px;
+    text-align: center;
+}
+  
+  circle.background {
+    fill: transparent;
+    stroke: #c1c0c0;
+    stroke-width: 10;
+    opacity: 0.5;
+}
+  circle.gradient.active {
+    fill: transparent;
+    stroke: url(#circle-gradient);
+    stroke-width: 12;
+    stroke-dasharray: 360;
+    stroke-dashoffset: 360;
+}
+  .results-box {
+    margin-top: 5px;
+    margin-bottom:15px;
+}
+  
+  #shop-top-prod.show-it {
+    height: 100%;
+    max-height: 250px;
+    overflow: visible;
+    margin-bottom: 0px;
+    line-height: 1em;
+}
+  .disclaimer-cc-text {
+    font-size: 11px !important;
+    line-height: 12px;
+    text-align: center;
+    margin-top: 25px !important;
+    max-width: 90%;
+    line-height: 13px !important;
+}
+  .circle-number {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    margin-left: 10px;
+}
+  .cc-input-section label {
+    padding-right: 15px;
+    padding-left: 5px;
+    line-height: 1em;
+    margin: 0px;
+    font-size: 12px;
+}
+  
+  .cc-modal {
+    align-items: flex-start;
+    padding-top: 7%;
+}
+ 
+}
+  
+
+  
+</style>
+
+{% comment %} ////// Landing Page Header ////// {% endcomment %}
+
+<a name="pagecontent" id="pagecontent"></a>
+<div class="lp-header-walmart">
+  <div class="lp-header-inner">
+    
+{% comment %} ////// Walmart Logo ////// {% endcomment %}
+    
+    <div class="wmt-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="29" height="32" viewBox="0 0 29 32">
+    <defs>
+        <path id="a" d="M.18.156h4.428v10.63H.179z"/>
+        <path id="c" d="M.18.04h4.428v10.627H.179z"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g transform="translate(12.038 .11)">
+            <mask id="b" fill="#fff">
+                <use xlink:href="#a"/>
+            </mask>
+            <path fill="#FCBB30" d="M2.39 10.786c.758 0 1.383-.384 1.467-.881l.75-8.262c0-.816-.98-1.487-2.215-1.487C1.159.156.179.826.179 1.643l.749 8.262c.083.497.708.881 1.464.881H2.39" mask="url(#b)"/>
+        </g>
+        <path fill="#FCBB30" d="M9.846 13.478c.38-.64.351-1.36-.05-1.68L2.83 7.038c-.723-.41-1.81.082-2.427 1.124-.618 1.04-.508 2.204.215 2.612l7.713 3.5c.483.176 1.14-.16 1.518-.8l-.003.005M19.012 13.474c.38.639 1.034.974 1.517.8l7.714-3.502c.726-.408.83-1.57.216-2.61-.619-1.043-1.707-1.534-2.43-1.126L19.064 11.8c-.399.32-.428 1.04-.049 1.679l-.002-.004"/>
+        <g transform="translate(12.038 21.177)">
+            <mask id="d" fill="#fff">
+                <use xlink:href="#c"/>
+            </mask>
+            <path fill="#FCBB30" d="M2.39.04c.758 0 1.383.382 1.467.879l.75 8.26c0 .818-.98 1.488-2.215 1.488-1.233 0-2.213-.67-2.213-1.488L.928.92c.083-.497.708-.88 1.464-.88H2.39" mask="url(#d)"/>
+        </g>
+        <path fill="#FCBB30" d="M19.012 18.636c.38-.64 1.034-.974 1.517-.797l7.714 3.498c.726.41.83 1.573.216 2.614-.619 1.039-1.707 1.532-2.43 1.125l-6.966-4.758c-.399-.323-.428-1.043-.049-1.683l-.002.001M9.846 18.635c.38.64.351 1.36-.05 1.683L2.83 25.076c-.723.407-1.81-.086-2.427-1.125-.618-1.041-.508-2.204.215-2.614l7.713-3.498c.483-.177 1.14.156 1.518.797l-.003-.001M17.547 31.31h.055c.066 0 .118-.02.118-.072 0-.045-.034-.075-.108-.075a.274.274 0 0 0-.065.006v.141zm-.003.277h-.117v-.49c.046-.01.11-.019.194-.019.096 0 .14.016.176.04.028.02.05.06.05.105 0 .057-.044.1-.105.117v.006c.049.015.077.055.092.12.016.076.025.106.037.121h-.126c-.016-.018-.025-.06-.04-.117-.01-.054-.04-.079-.106-.079h-.055v.196zm.077-.65a.387.387 0 0 0-.389.394c0 .22.167.395.395.395a.382.382 0 0 0 .386-.395.385.385 0 0 0-.389-.394h-.003zm.006-.1a.5.5 0 0 1 .516.494.5.5 0 0 1-.519.497.505.505 0 0 1-.522-.497c0-.273.232-.493.522-.493h.003z"/>
+    </g>
+</svg>
+    </div>
+
+{% comment %} ////// Vital Logo ////// {% endcomment %}
+    
+    <div class="vital-logo">
+      <picture>
+        <source media="(min-width:120px)" srcset="{{ 'solid-shield.png' | file_img_url: '200x'}}">
+        <img src="{{ 'solid-shield.png' | file_img_url: '200x'}}" alt="Vital Proteins" style="width:100%;"> </picture>
+    </div>
+  </div>
+</div>
+
+{% comment %} ////// Start Content ////// {% endcomment %}
+
+{% section 'lp-full-hero' %}
+
+
+<div id="rec-modal" style="position:fixed;">
+  <div onclick="closeQuizModal()" style="width: 100%;height: 100%;position: absolute;z-index: 1001;"></div>
+	<div class="rec-modal-inner" id="rec-modal-inner-id">
+      
+      <div class="quiz-wrapper">
+    <div id="vital-quiz-container" class="quiz-screen-container">
+      <div class="quiz-slide slide-0" data-slide-index="0">
+        <h2 class="animated fadeInUp" style="animation-delay: 0.1s;">Your guide to Vital Proteins Collagen</h2>
+        <p class="animated fadeInUp" style="animation-delay: 0.2s;">Take this quiz to learn which Vital Proteins product may be best for you.</p>
+        <button class="startButton animated fadeInUp" style="animation-delay: .3s;">Start Now</button>
+      </div>
+      <div class="quiz-slide slide-results" style="display: none;">
+        <h2 class="animated fadeInUp results-header" style="animation-delay: 0.1s;">Got it! We recommend:</h2>
+        <div class="rec-container animated fadeInUp" style="animation-delay: 0.2s;">Answers here</div>
+        <div class="rec-form-container animated fadeInUp" style="animation-delay: 0.25s;">
+          	<h4 class="calc-headline">How much collagen should you take?</h4>
+          <p style="margin-top: 0px;margin-bottom: 0px;">Check out our <a href="#" style="color: #5a5a5a;font-weight: bold;text-decoration: underline;" onclick="closeQuizModal(),openCollagenCalc()">Collagen Calculator&trade;</a> to find out!</p>
+        </div>
+        <div>
+          <p class="quiz-results-disclaimer-text">*These products are what we recommend based on the entirety of the answers you provided. Please review the products and ensure that it fits with your preferences and goals before purchasing. This quiz is intended to guide you to products we think you would like and are not intended to diagnose, treat, cure, or prevent any disease.</p>
+        </div>
+      </div>
+  	</div>
+</div>
+      
+	</div>
+</div>
+
+
+
+
+
+{% section 'lp-wmt-bottom' %}
+
+{% section 'lp-top-cats' %}
+
+<div style="padding: 16px;text-align: center;"><p>**These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p></div>
+
+<div class="cc-modal" id="cc-modal-id">
+  <div style="width:100%;height:100%;position:absolute;z-index:1004;" onclick="closeCollagenCalc()"></div>
+
+<div class="cc-modal-inner">
+	<h2>How Much Collagen Should You Take Every Day?</h2>
+	<p>Our first-of-its-kind Collagen Calculator&trade; helps answer that exact question.</p>
+<div class="calc-container">
+	
+<div>
+    <form class="cc-form">
+             <div class="cc-input-section">
+			   
+			   <h6>How much protein is in your diet?</h6>
+			   <div style="margin-bottom: 20px;
+    display: flex;
+    align-items: center;">
+			   <input type="radio" id="low" name="cc-diet" value="low">
+			   <label for="low">Low Protein</label>
+			   <input type="radio" id="average" name="cc-diet" value="average">
+			   <label for="average">Average</label>
+			   <input type="radio" id="high" name="cc-diet" value="high">
+			   <label for="high">High Protein</label>
+		 	 	</div>
+				
+ 			   <h6>Gender</h6>
+ 			   <div style="margin-bottom: 20px;
+    display: flex;
+    align-items: center;">
+ 			   <input type="radio" id="female" name="cc-gender" value="female">
+ 			   <label for="female">Female</label>
+ 			   <input type="radio" id="male" name="cc-gender" value="male">
+ 			   <label for="male">Male</label>
+ 			   <input type="radio" id="other" name="cc-gender" value="other">
+ 			   <label for="other">I'd Rather Not Say</label>
+ 		 	 	</div>
+				
+				
+  			   <h6>Weight in lbs</h6>
+				<div class="range-slider">
+				  <input class="range-slider__range cc-weight-input" type="range" value="0" min="0" max="900" required name="cc-weight">
+				  <span class="range-slider__value">0</span>
+				</div>
+			   
+  			   <h6>Age</h6>
+				<div class="range-slider cc-age-input">
+				  <input class="range-slider__range cc-age-input" type="range" value="0" min="0" max="110" required name="cc-age">
+				  <span class="range-slider__value">0</span>
+				</div>
+				
+               <div class="cc-submit-container">
+                 <button class="cc-submit-button" disabled type="submit">Calculate</button>
+               </div>
+             </div>
+           </form>
+</div>
+
+  
+ 
+  
+  
+<div class="results-box" id="the-results">
+	<h3 class="cc-results-header">We Recommend You Take:</h3>
+	      <div class="circle-wrapper">
+	        <svg class="circle-container" height="100%" width="100%">
+	          <linearGradient x1="0" y1="0" x2="100%" y2="100%" id="circle-gradient">
+	            <stop stop-color="#03c5d7" offset="0%"/>
+	            <stop stop-color="#23b6e6" offset="100%"/>
+	          </linearGradient>
+	          <circle class="background" cx="50%" cy="50%" r="40%"/>
+	          <circle class="gradient" cx="50%" cy="50%" r="40%"/>
+	        </svg>
+	        <div class="circle-text">
+	          <span class="circle-number">0</span>
+	          <span class="circle-grams">g</span>
+	        </div>
+	      </div>
+	      <p class="below-circle-text">Of Collagen A Day*</p>
+</div>	
+	
+</div>
+	<h5 id="shop-top-prod">Shop our <a href="#wmt-vp-top-prod" onclick="closeCollagenCalc()">Top Products</a> to find the right collagen for you!</h5>
+	<div></div>
+	<p class="disclaimer-cc-text">Vital Note: We recommend adding collagen to your diet for at least 2-4 weeks for best results.**<br>
+*We recommend discussing your health goals with your licensed healthcare professional. They can best provide you with the diagnosis and treatment of any medical condition and assist you as well in deciding whether a dietary supplement will be a helpful addition to your regimen. For informational purposes only. These recommendations are based on estimates and dependent upon your age, sex, weight and diet.</p>
+
+</div>
+</div>
+
+<script>
+  var weight = 0; // LBs
+  var refWeight = 70; // KG
+  var age = 0;
+  var weightScaleFactor = 0;
+  var sex = "female";
+  var reason = "why";
+  var diet = "average";
+  var bundleItems = {};
+  var minimumGramsMen = 40;
+  var minimumGramsWomen = 20;
+  var lowRangeMultiplier = 0.6;
+  
+  $('.cc-form').on('submit', function(e) {
+    e.preventDefault();
+        
+    var gramsPerDay = calculateGramsPerDay();
+	var lowRangeGrams = calculateLowRange(gramsPerDay);
+    var gramsRounded = roundToNearest10(gramsPerDay);
+    var lowRangeGramsRounded = roundToNearest10(lowRangeGrams);
+    var gramsClamped = clampMinimumGrams(gramsRounded);
+    var lowRangeGramsClamped = clampMinimumGrams(lowRangeGramsRounded);
+    
+    if (gramsClamped === lowRangeGramsClamped) {
+      gramsClamped += 10;
+    }
+        
+    $('.circle-number').text(lowRangeGramsClamped + "-" + gramsClamped);
+    $('.cc-intro-page').addClass('inactive');
+    $('.cc-results-page').removeClass('inactive');
+   
+    $('circle.gradient').addClass('active');
+	  
+	$('#shop-top-prod').addClass('show-it');
+    
+     $('.cc-modal-inner').animate({scrollTop:0}, '300');
+    
+    if (gramsPerDay < 40) {
+      $('circle.gradient').addClass('quarter');
+    } else if (gramsPerDay < 60) {
+      $('circle.gradient').addClass('half');
+    } else if (gramsPerDay < 80) {
+      $('circle.gradient').addClass('threeQuarters');
+    } else {
+      $('circle.gradient').addClass('full');
+    }
+    
+    $('.bundle-cta').removeAttr('tabindex');
+      
+    
+    
+    var gaLabel = 'Gender: ' + sex + ' | Diet: ' + diet + ' | Age: ' + age + ' | Grams Per Day: ' + gramsPerDay;
+    logCalcGAEvent('Calculator Submitted', gaLabel);
+  });
+  
+  $('.read-more-link').on('click', function(e) {
+    e.preventDefault();
+    
+    $('.cc-more-info-modal').addClass('active');
+  });
+  
+  $('.modal-close').on('click', function(e) {
+    e.preventDefault();
+    
+    $('.cc-more-info-modal').removeClass('active');
+  });
+  
+  $('.cc-why-select').on('change', function(e) {
+    reason = $(this).val();
+  });
+  
+  $('.cc-gender-select').on('change', function(e) {
+    sex = $(this).val();
+  });
+  
+  $('.cc-diet-select').on('change', function(e) {
+    diet = $(this).val();
+  });
+  
+  $('input[type="range"]').on('change', function(e) {
+    var weightValue = $('.range-slider__range.cc-weight-input').val();
+    var ageValue = $('.range-slider__range.cc-age-input').val();
+    
+    if (weightValue) {
+      weight = weightValue;
+    }
+    
+    if (ageValue) {
+      age = ageValue;
+    }
+    
+    if (weightValue && ageValue) {
+    	$('.cc-submit-button').removeAttr('disabled');
+      
+      	weightScaleFactor = (poundsToKilograms(weight) / refWeight);
+    } else {
+    	$('.cc-submit-button').attr('disabled', 'disabled');
+    }
+  });
+  
+  function clampMinimumGrams(grams) {
+    if (sex === "male") {
+      if (grams < minimumGramsMen) {
+        return minimumGramsMen;
+      } else {
+        return grams;
+      }
+    } else {
+      if (grams < minimumGramsWomen) {
+        return minimumGramsWomen;
+      } else {
+        return grams;
+      }
+    }
+  }
+  
+  function calculateLowRange(grams) {
+	return grams * lowRangeMultiplier;
+  }
+  
+  function roundToNearest10(number) {
+    return Math.round(number/10)*10;
+  }
+  
+  function poundsToKilograms(pounds) {
+  	return (pounds * 0.453592); 
+  }
+  
+  function calcCreatineSynth(age, sex) {
+    if (sex === "male") {
+      if (age < 40) {
+        return 7.7;
+      } else if (age < 60) {
+         return 5.6;
+      } else if (age >= 60) {
+        return 3.7;
+      } else {
+        return 5.6;
+      }
+    } else {
+      if (age >= 60) {
+        return 3.7;
+      } else {
+      	return 5.6;
+      }
+    }
+  }
+  
+  function calculateHydrolosis() {
+    if (diet === "high") {
+      return 3.0;
+    } else if (diet === "low") {
+      return 1.5;
+    } else {
+      return 2.25;
+    }
+  }
+  
+  function calculateAgeBasedDegradation() {
+    var baseCollagenTissueContent = 3728.7600; // Age 29 and under
+    
+    if (age <= 29) {
+      return baseCollagenTissueContent
+    } else {
+      var baseAge = 29;
+      var percentLostEachYear = 0.0136;
+      var degradation = baseCollagenTissueContent - (baseCollagenTissueContent * (age - 29) * percentLostEachYear);
+
+      return degradation;
+    }
+  }
+  
+  function calculateGramsPerDay() {
+    // All Magic numbers taken from spreadsheet
+    const baseProcollagenDegradation = 923.9 * weightScaleFactor;
+    const glycineEquivalentFinal = 12.04 * weightScaleFactor;
+    
+    // From table 3
+    var baseCollagenTissueContent = 3728.7600;
+    var ageAndWeightScaleFactor = calculateAgeBasedDegradation() * weightScaleFactor * 0.003229;
+
+    // From table 2
+    const porphryins = 240.0;
+    const purines = 206.0;
+    var creatineSynth = (calcCreatineSynth(age, sex) * 75.0);
+    var glutathion = (567.00 * weightScaleFactor);
+    const bileSalts = 60.0;
+    
+    const synthInMetabolism = 3.0;
+    var hydrolosisDietaryProteins = calculateHydrolosis();
+    var synthMetabolites = -((porphryins + purines + creatineSynth + glutathion + bileSalts) / 1000.0);
+    var synthCollagen = -ageAndWeightScaleFactor;
+    const synthOtherProteins = -1.0;
+    
+    var peptideEquivalent = -(((synthInMetabolism + hydrolosisDietaryProteins + synthMetabolites + synthCollagen + synthOtherProteins) / 3.719) * 20);
+	
+    
+    return peptideEquivalent;
+  }
+  
+  function logCalcGAEvent(action, value) {
+    if (ga) {
+      ga('send', {
+        hitType: 'event',
+        eventCategory: 'Collagen Calculator',
+        eventAction: action,
+        eventLabel: value
+      });
+    }
+  }
+  
+  var rangeSlider = function(){
+    var slider = $('.range-slider'),
+        range = $('.range-slider__range'),
+        value = $('.range-slider__value');
+    
+    slider.each(function(){
+
+      value.each(function(){
+        var value = $(this).prev().attr('value');
+        $(this).html(value);
+      });
+
+      range.on('input', function(){
+        $(this).next(value).html(this.value);
+      });
+    });
+  };
+
+  rangeSlider();
+	
+	function openCollagenCalc() {
+  document.getElementById("cc-modal-id").style.opacity = "1";
+  document.getElementById("cc-modal-id").style.height = "100vh";
+};
+	
+		function closeCollagenCalc() {
+  document.getElementById("cc-modal-id").style.opacity = "0";
+  document.getElementById("cc-modal-id").style.height = "0vh";
+};
+</script>
+
+
+<script>
+	var allProductData = {};
+{%for product in collections['quiz-collection'].products %}
+var productInfo = {available:{{product.available}},
+	title: "{{product.title}}",
+	url: "{{ product.url }}",
+	imageURL: "{{ product.featured_image | img_url: '600x' }}",
+	blurb: "{{ product.metafields.vital.quiz_results_subtext }}"
+};
+allProductData["{{product.handle}}"] = productInfo;
+{% endfor %}
+
+var productScores = {},
+	selectedAnswers = [],
+	finalQuizResults = [],
+	currentIndex = 0,
+	quizQuestions = [
+	{
+		title: "What benefits are you looking for from Collagen?",
+		type: "select-multiple",
+		choices: [
+		{
+			title: "Hair, Skin, & Nails Health",
+			imageURL: "https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-03_400x.png",
+			value:
+			{
+				"collagen-peptides": 1,
+				"dark-chocolate-blackberry-collagen-peptides-1": 1,
+				"marine-collagen-peptides": 1,
+				"collagen-latte-madagascar-vanilla": 1,
+				"matcha-collagen": 1,
+				"collagen-shot-glow": 1,
+				"collagen-beauty-greens": 1,
+				"collagen-creamer-vanilla": 1,
+				"collagen-creamer-coconut": 1
+			}
+		},
+		{
+			title: "Healthy Joints & Bones",
+			imageURL: "https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-04_400x.png",
+			value:
+			{
+				"collagen-peptides": 1,
+				"dark-chocolate-blackberry-collagen-peptides-1": 1,
+				"marine-collagen-peptides": 1,
+				"vanilla-coconut-collagen-whey": 1,
+				"collagen-whey-protein-20-oz": 1
+			}
+		},
+		{
+			title: "Improved Sleep",
+			imageURL: "https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-05_400x.png",
+			value:
+			{
+				"sleep-shot": 2,
+				"collagen-peptides": 2,
+				"organic-grass-fed-beef-bone-broth-collagen": 2
+			}
+		},
+		{
+			title: "Athletic Performance",
+			imageURL: "https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-07_400x.png",
+			value:
+			{
+				"collagen-peptides": 2,
+				"vanilla-coconut-collagen-whey": 2,
+				"collagen-whey-protein-20-oz": 2,
+				"recovery-wave": 2,
+				"strawberry-lemon-water": 2,
+				"defense-shot": 2
+			}
+		},
+		{
+			title: "Digestive Health",
+			imageURL: "https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-08_400x.png",
+			value:
+			{
+				"collagen-latte-madagascar-vanilla": 2,
+				"organic-grass-fed-beef-bone-broth-collagen": 2,
+				"beef-gelatin": 2,
+				"cleanse-shot": 2
+			}
+		},
+		{
+			title: "Natural Energy Boost",
+			imageURL: "https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-09_400x.png",
+			value:
+			{
+				"pre-wave": 2,
+				"matcha-collagen": 2
+			}
+		}]
+	},
+	{
+		title: "Do you have any dietary preferences?",
+		type: "select-multiple",
+		choices: [
+		{
+			title: "No Restrictions",
+			imageURL: "https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-23_NoFlavor_400x.png",
+			value:
+			{}
+		},
+		{
+			title: "Paleo Friendly",
+			imageURL: "https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-17_Paleo_400x.png",
+			value:
+			{}
+		},
+		{
+			title: "Whole30",
+			imageURL: "https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-18_Whole30_400x.png",
+			value:
+			{}
+		},
+		{
+			title: "Pescatarian",
+			imageURL: "https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-19_Pescetarian_400x.png",
+			value:
+			{
+				"marine-collagen-peptides": 1
+			}
+		},
+		{
+			title: "Dairy Free",
+			imageURL: "https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-20_Dairy_Free_400x.png",
+			value:
+			{
+				"vanilla-coconut-collagen-whey": -10,
+				"collagen-whey-protein-20-oz": -10
+			}
+		},
+		{
+			title: "Keto",
+			imageURL: "https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-21_Keto_400x.png",
+			value:
+			{
+				"collagen-creamer-vanilla": 1,
+				"collagen-creamer-mocha": 1,
+				"collagen-creamer-coconut": 1
+			}
+		},
+		{
+			title: "Vegan",
+			imageURL: "https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-22_Vegan_400x.png",
+			value:
+			{
+				"spirulina-capsules": 10,
+				"beauty-boost-capsules": 10,
+				"ha-super-surge": 10
+			}
+		}]
+	},
+	{
+		title: "Which of these flavors sound best to you?",
+		type: "select-multiple",
+		choices: [
+		{
+			title: "No Added Flavor",
+			imageURL: "https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-23_NoFlavor_400x.png",
+			value:
+			{
+				"collagen-peptides": 2,
+				"marine-collagen-peptides": 2
+			}
+		},
+		{
+			title: "Fruity",
+			imageURL: "https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-24_Fruity_400x.png",
+			value:
+			{
+				recoverywave: 1,
+				"collagen-water": 1,
+				"dark-chocolate-blackberry-collagen-peptides-1": 1,
+				"pre-wave": 1,
+				"defense-shot": 1,
+				"collagen-shot-glow": 1,
+				"collagen-shot-cleanse": 1
+			}
+		},
+		{
+			title: "Dark Chocolate",
+			imageURL: "https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-25_Chocolate_400x.png",
+			value:
+			{
+				"dark-chocolate-blackberry-collagen-peptides-1": 1,
+				"collagen-whey-protein-20-oz": 1
+			}
+		},
+		{
+			title: "Vanilla",
+			imageURL: "https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-26_Vanilla_400x.png",
+			value:
+			{
+				"vanilla-coconut-collagen-whey": 1,
+				"collagen-latte-madagascar-vanilla": 1,
+				"collagen-creamer-vanilla": 1
+			}
+		},
+		{
+			title: "Coconut",
+			imageURL: "https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-27_Coconut_400x.png",
+			value:
+			{
+				"collagen-creamer-coconut": 1
+			}
+		},
+		{
+			title: "Herbal",
+			imageURL: "https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-28_Herbal_400x.png",
+			value:
+			{
+				"matcha-collagen": 2,
+				"collagen-beauty-greens": 2
+			}
+		}]
+	}];
+
+function moveToPreviousSlide()
+{
+	$(".slide-" + currentIndex).fadeOut("fast", function ()
+	{
+		currentIndex--, $(window).scrollTop(0), $(".slide-" + currentIndex).fadeIn("fast")
+	})
+}
+
+function moveToNextSlide()
+{
+	updateAnswersList(currentIndex), currentIndex < quizQuestions.length ? $(".slide-" + currentIndex).fadeOut("fast", function ()
+	{
+		currentIndex++, $(window).scrollTop(0), $(".slide-" + currentIndex).fadeIn("fast")
+	}) : (calculateResults(), $(".slide-" + currentIndex).fadeOut("fast", function ()
+	{
+		currentIndex++, $(window).scrollTop(0), updateResultsHTML(), $(".quiz-wrapper").css(
+		{
+			backgroundColor: "white"
+		}), $(".slide-results").fadeIn("fast")
+	}))
+}
+
+function updateResultsHTML()
+{
+	for (var e = "", t = 0; t < 3; t++) logGAEvent("Product Recommended", allProductData[finalQuizResults[t].product].title), e += '<div class="rec-wrapper"><a target="_blank" href="' + allProductData[finalQuizResults[t].product].url + '"><img class="product-rec-image" src="' + allProductData[finalQuizResults[t].product].imageURL + '"/></a><p class="product-results-title">' + allProductData[finalQuizResults[t].product].title + '</p><a target="_blank" class="main-dark-button" href="https://www.walmart.com/search/?cat_id=0&facet=retailer%3AWalmart.com&query=Vital+Proteins">BUY NOW</a><p class="product-results-subtext">' + allProductData[finalQuizResults[t].product].blurb + "</p></div><br>";
+	$(".slide-results .rec-container").html(e)
+}
+
+function updateProductScores(e, t)
+{
+	$.map(e, function (e, l)
+	{
+		productScores[l] ? productScores[l] += e * t : productScores[l] = e
+	})
+}
+
+function toggleNextButtonDisabled(e, t)
+{
+	$(".slide-" + e + " .startButton").prop("disabled", t)
+}
+
+function updateAnswersList(e)
+{
+	var t = {
+			question: e,
+			selectedAnswers: []
+		},
+		l = $(".slide-" + e + " .item-choice.active");
+	l.length > 0 && ($.each(l, function (e, l)
+	{
+		var a = {
+			title: $(l).data("choiceText"),
+			productValues: $(l).data("productValues")
+		};
+		t.selectedAnswers.push(a)
+	}), selectedAnswers[e - 1] ? selectedAnswers[e - 1] = t : selectedAnswers.push(t))
+}
+
+function calculateResults()
+{
+	var e = {};
+	selectedAnswers.map(t =>
+	{
+		t.selectedAnswers.map(t =>
+		{
+			var l = t.productValues;
+			$.map(l, function (t, l)
+			{
+				e[l] ? e[l] += t : e[l] = t
+			})
+		})
+	});
+	var t = Object.keys(e).map(t =>
+	{
+		var l = !1;
+		return allProductData[t] && (l = allProductData[t].available),
+		{
+			product: t,
+			score: e[t],
+			available: l
+		}
+	}).sort(function (e, t)
+	{
+		return t.score - e.score
+	}).filter(isAvailable);
+	finalQuizResults = t
+}
+
+function isAvailable(e)
+{
+	return !0 === e.available
+}
+
+function logGAEvent(e, t)
+{
+	ga("send",
+	{
+		hitType: "event",
+		eventCategory: "Quiz",
+		eventAction: e,
+		eventLabel: t
+	})
+}
+quizQuestions.map((e, t) =>
+{
+	var l = '<div class="quiz-slide slide-' + (t + 1) + " " + e.type + '" style="display: none;" data-slide-index="' + (t + 1) + '"><h2>' + e.title + "</h2>";
+	"select-single" === e.type ? l += '<p class="question-type-prompt">Select One</p>' : l += '<p class="question-type-prompt">Select Multiple</p>', e.choices && (l += '<div class="answer-container">', e.choices.map((a, i) =>
+	{
+		var s = '<a href="#" class="item-choice animated fadeInUp" style="animation-delay: ' + .05 * i + 's;" data-choice-text="' + a.title + '" data-question-index="' + (t + 1) + '" data-question-type="' + e.type + '"data-product-values=' + JSON.stringify(a.value) + '><div class="answer-icon-container"><img src="' + a.imageURL + '"/></div><p>' + a.title + "</p></a>";
+		l += s
+	}), l += "</div>"), l += '<div class="prev-next-button-container"><button class="previousButton">Previous</button>', "select-multiple" === e.type && (l += '<button disabled class="startButton next">Next</button></div>'), l += "</div>", $("#vital-quiz-container").append(l)
+}), $(".item-choice").on("mousedown", function (e)
+{
+	e.preventDefault()
+}), $(".item-choice").on("click", function (e)
+{
+	e.preventDefault();
+	var t = $(this).data("productValues"),
+		l = $(this).data("questionIndex"),
+		a = $(this).data("choiceText");
+	"select-single" === $(this).data("questionType") ? (logGAEvent("Selected Answer", "Question " + l + " - " + a), $(this).siblings().removeClass("active"), $(this).addClass("active"), updateProductScores(t, 1), setTimeout(function ()
+	{
+		moveToNextSlide()
+	}, 400)) : $(this).hasClass("active") ? (logGAEvent("Deselected Answer", "Question " + l + " - " + a), $(this).removeClass("active"), updateProductScores(t, -1), 0 === $(".slide-" + l + " .active").length && toggleNextButtonDisabled(l, !0)) : (logGAEvent("Selected Answer", "Question " + l + " - " + a), $(this).addClass("active"), updateProductScores(t, 1), toggleNextButtonDisabled(l, !1))
+}), $(".startButton").on("click", function ()
+{
+	moveToNextSlide()
+}), $(".previousButton").on("click", function ()
+{
+	moveToPreviousSlide()
+});
+
+</script>
+
+
+
+<script>
+	function openQuizModal() {
+	  document.getElementById("rec-modal").style.opacity = "1";
+	  document.getElementById("rec-modal").style.height = "100vh";
+	  document.getElementById("rec-modal").style.width = "100vw";
+	  document.getElementById("rec-modal-inner-id").style.opacity = "1";
+	  document.getElementById("rec-modal-inner-id").style.height = "auto";
+	  document.getElementById("rec-modal-inner-id").style.width = "95%";
+	}
+  
+  function closeQuizModal() {
+	  document.getElementById("rec-modal").style.opacity = "0";
+	  document.getElementById("rec-modal").style.height = "0";
+	  document.getElementById("rec-modal").style.width = "0";
+	  document.getElementById("rec-modal-inner-id").style.opacity = "0";
+	  document.getElementById("rec-modal-inner-id").style.height = "0";
+	  document.getElementById("rec-modal-inner-id").style.width = "0";
+	}
+  
+  	function openCollagenCalc() {
+  document.getElementById("cc-modal-id").style.opacity = "1";
+  document.getElementById("cc-modal-id").style.height = "100vh";
+  document.getElementById("cc-modal-id").style.overflow = "visible";
+};
+	
+		function closeCollagenCalc() {
+  document.getElementById("cc-modal-id").style.opacity = "0";
+  document.getElementById("cc-modal-id").style.height = "0vh";
+  document.getElementById("cc-modal-id").style.overflow = "hidden";
+};
+  
+	</script>

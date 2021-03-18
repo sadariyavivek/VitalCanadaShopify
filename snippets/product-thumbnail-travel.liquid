@@ -1,0 +1,90 @@
+{% if sidebar %}
+  <div class="{% if products_per_row == 2 %}six columns {% cycle collection_group_thumb: 'alpha', 'omega' %}{% elsif products_per_row == 3 %}four columns {% cycle collection_group_thumb: 'alpha', '', 'omega' %}{% elsif products_per_row == 4 %}three columns {% cycle collection_group_thumb: 'alpha', '', '', 'omega' %}{% else %}one-fifth-sidebar column {% cycle collection_group_thumb: 'alpha', '', '', '', 'omega' %}{% endif %} thumbnail {% cycle collection_group_mobile: 'even', 'odd' %}">
+{% else %}
+  <div class="
+    {% if products_per_row == 2 %}
+      eight columns {% cycle collection_group_thumb: 'alpha', 'omega' %}
+    {% elsif products_per_row == 3 %}
+      four columns test {% cycle collection_group_thumb: 'alpha', '', 'omega' %}
+    {% elsif products_per_row == 4 %}
+      three columns {% cycle collection_group_thumb: 'alpha', '', '', 'omega' %}
+    {% elsif products_per_row == 5 %}
+      one-fifth column {% cycle collection_group_thumb: 'alpha', '', '', '', 'omega' %}
+    {% elsif products_per_row == 6 %}
+      two columns {% cycle collection_group_thumb: 'alpha', '', '', '', '', 'omega' %}
+    {% else %}
+      one-seventh column {% cycle collection_group_thumb: 'alpha', '', '', '', '', '', 'omega' %}
+    {% endif %} thumbnail {% cycle collection_group_mobile: 'even', 'odd' %}">
+{% endif %}
+   
+  {% assign travelVariant = product.variants[0] %}
+  {% for variant in product.variants %}
+    {% assign title = variant.title | downcase %}
+    {% assign productTitle = product.title | downcase %}
+    
+    {% if title contains 'stick pack' or title contains 'packet' or title contains 'sampler box' or product.id contains 2335586582646 %}
+       {% assign travelVariant = variant %}
+    {% elsif collection.handle == 'vital-supplements' and title contains 'capsule' and variant.id != 43439577414%}
+    	{% assign travelVariant = variant %}
+    {% endif %}
+  {% endfor %}
+
+  {% assign collection_handles = product.collections | map: 'handle' %}
+  {% if product.featured_image.alt contains 'youtube' or image.alt contains 'vimeo' %}
+    {% assign alt_text = travelVariant.title %}
+  {% else %}
+    {% assign alt_text = travelVariant.mage.alt %}
+  {% endif %}
+
+  {% if settings.align_height %}
+    {% assign collection_height = settings.collection_height | plus: 0 %}
+    {% assign product_aspect_ratio = travelVariant.image.aspect_ratio | plus: 0 %}
+    {% assign product_set_width = product_aspect_ratio | times: collection_height %}
+
+    {% if travelVariant.image.width >= travelVariant.image.height %}
+      {% assign align_height_value = 'width: 100%; height: auto;' %}
+    {% else %}
+      {% assign align_height_value = 'width: 100%;' %}
+    {% endif %}
+
+  {% endif %}
+
+  <div class="product-wrap">
+    <div class="relative product_image swap-{{ settings.collection_secondary_image }}">
+      <a href="{{ travelVariant.url | within: collection }}" itemprop="url">
+        <div class="image__container" style="{% if settings.align_height %} max-width: {{ product_set_width }}px; {% else %} max-width: {{- travelVaraint.image.width -}}px; {% endif %}">
+          <img  src="{{ travelVariant.image| product_img_url: '100x' }}"
+                alt="{{ alt_text | escape }}"
+                class="lazyload {{ settings.image_loading_style }}"
+                style="{{ align_height_value }} max-width: {{- travelVariant.image.width -}}px;"
+                data-sizes="auto"
+                data-src="{{ travelVariant.image | product_img_url: '900x' }}"
+                data-srcset=" {{ travelVariant.image | product_img_url: '300x' }} 300w,
+                              {{ travelVariant.image | product_img_url: '400x' }} 400w,
+                              {{ travelVariant.image | product_img_url: '500x' }} 500w,
+                              {{ travelVariant.image | product_img_url: '600x' }} 600w,
+                              {{ travelVariant.image | product_img_url: '700x' }} 700w,
+                              {{ travelVariant.image | product_img_url: '800x' }} 800w,
+                              {{ travelVariant.image | product_img_url: '900x' }} 900w"
+              />
+            </div>
+          {% if settings.collection_secondary_image != blank %}
+            <div class="image__container" style="max-width: {% if product.images[1] != blank %}{{- product.images[1].width -}}px{% else %}{{- product.featured_image.width -}}px{% endif %}; ">
+              <img src="{% if product.images[1] != blank %}{{ product.images[1] | product_img_url: '900x' }}{% else %}{{ product.featured_image | product_img_url: '900x' }}{% endif %}"
+              class="secondary lazyload"
+              alt="{{ alt_text | escape }}"
+              />
+            </div>
+          {% endif %}
+        </a>
+      {% include "product-details-travel" %}
+    </div>
+    <a class="product-info__caption {% if settings.thumbnail_hover_enabled %}hidden{% endif %}" href="{{ travelVariant.url | within: collection }}" itemprop="url">
+      {% include "product-info-travel" %}
+    </a>
+    <div class="product-details">
+      {% include 'product-form-mini-travel' with product %}
+    </div>
+  </div>
+{% include 'collection-swatch' %}
+</div>

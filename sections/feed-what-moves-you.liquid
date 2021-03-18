@@ -1,0 +1,526 @@
+<style>
+  .main_nav, .dropdown {
+    background-color: {{ section.settings.nav_bar_color }};
+  }
+  
+  .mobile_nav-fixed--true .top_bar {
+    background-color: {{ section.settings.nav_bar_color }};
+  }
+  
+  .feed-what-moves-you-container h2 {
+    text-align: center;
+  }
+  
+  .feed-what-moves-you-container .section-container {
+    margin-bottom: 20px;
+  }
+  
+  .feed-what-moves-you-container .anchor-links-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex: 1;
+  }
+  
+  .feed-what-moves-you-container .anchor-links-container a {
+    flex: .25;
+    color: white;
+    background-color: #23b6e6;
+    text-align: center;
+    padding-right: 25;
+    margin-right: 20px;
+    margin-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    font-family: 'kapraregular';
+    text-transform: lowercase;
+    font-size: 24px;
+    transition: .25s all;
+    border: 1px solid #23b6e6;
+  }
+  
+  .feed-what-moves-you-container .anchor-links-container a:hover {
+    background-color: white;
+    color: #23b6e6;
+  }
+  
+  .feed-what-moves-you-container .section-container::before {
+    content: "";
+    display: block;
+    height: 160px; /* fixed header height*/
+    margin: -160px 0 0; /* negative fixed header height */
+  }
+  
+  .banner-image {
+    padding-bottom: 0;
+    display: block;
+    width: 100%;
+  }
+  
+  .featured-video-container {
+    background-color: #14c2c8;
+  }
+  
+  .video-text-container p {
+    text-align: center;
+    padding-right: 20px;
+    padding-left: 20px;
+    font-size: 28px;
+    color: white;
+  }
+  
+  .main-product-loop-container h2 {
+    letter-spacing: 0;
+    color: #23b6e6;
+  }
+  
+  #influencer-videos {
+    background-color: {{ section.settings.influencer_video_background_color }};
+    margin-bottom: 0;
+  }
+  
+  .flickity-page-dots {
+    bottom: 0;
+  }
+  
+  .flickity-page-dots .dot {
+    background: #fff;
+  }
+  
+  .influencer-slider-container {
+    display: flex;
+  }
+  
+  .influencer-slider-cell {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 40px;
+    color: {{ section.settings.influencer_video_text_color }};
+  }
+  
+  .gallery-cell {
+    width: 100%;
+  }
+  
+  .cell-text-container {
+    flex: 1.0;
+  }
+  
+  .cell-text-container h4 {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    font-family: 'kapraregular';
+    color: #9ae2e9;
+    letter-spacing: 0 !important;
+    font-size: 42px;
+  }
+  
+  .cell-text-container p {
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 28px;
+    text-align: center;
+  }
+  
+  .cell-video-container {
+    flex: 0.5;
+  }
+  
+  .blog-posts-container {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+  }
+  
+  .blog-post-container {
+    display: flex;
+    flex: 0.5;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 40px;
+  }
+  
+  .blog-image-container-1, .blog-image-container-2 {
+    border-radius: 20px;
+    height: 320px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .blog-image-container-1 {
+    background-image: url({{ section.settings.blog_post_1_image | img_url: '1200x' }});
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .blog-image-container-2 {
+    background-image: url({{ section.settings.blog_post_2_image | img_url: '1200x' }});
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .blog-post-container h4 {
+    text-align: center;
+    letter-spacing: 0 !important;
+    font-size: 28px;
+  }
+  
+  .influencer-intro-text {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .influencer-intro-text p {
+    color: white;
+    font-size: 28px;
+    padding-right: 40px;
+    padding-left: 40px;
+    margin-bottom: 0px;
+  }
+  
+  @media only screen and (max-width: 800px) {
+    
+    .influencer-slider-container {
+      flex-direction: column;
+    }
+    
+    
+    .video-text-container p {
+      font-size: 18px;
+    }
+    
+    .main-product-loop-container h2 {
+      font-size: 24px;
+    }
+    
+    .breadcrumb_text {
+      margin-top: 133px;
+    }
+    
+    .influencer-intro-text p {
+      font-size: 18px;
+    }
+    
+    .influencer-slider-cell {
+      flex-direction: column-reverse;
+    }
+    
+    .cell-video-container {
+      width: 100%;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+    
+    .cell-text-container {
+      flex: 1;
+    }
+    
+    .cell-text-container h4 {
+      text-align: center;
+      padding-right: 20px;
+      font-size: 28px;
+    }
+    
+    .cell-text-container p {
+      padding-right: 20px;
+      text-align: center;
+      font-size: 18px;
+    }
+    
+    .blog-posts-container {
+      flex-direction: column;
+    }
+    
+    .blog-post-container {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+</style>
+
+<div class="feed-what-moves-you-container">
+  <!--<div class="anchor-links-container section-container">
+    <a href="#products-fwmy">Products</a>
+    <a href="#influencer-videos">Influencer Videos</a>
+    <a href="#merch-fwmy">Merch</a>
+    <a href="#social-fymy">Social</a>
+  </div>-->
+  
+  
+  <img alt="Feed What Moves You&trade;" class="banner-image lazyload" src="{{ section.settings.top_banner_image | img_url: '1600x' }}"/>
+  
+  <div class="container full-width featured-video-container">
+    <div class="container section-container">
+      <iframe aria-label="Feed What Moves You Campaign Supplementary Video" width="560" height="315" src="{{ section.settings.video_url }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+    </div>
+
+    <div class="container section-container video-text-container">
+      <p>{{ section.settings.video_text }}</p>
+    </div>
+    
+  </div>
+
+  {% assign limit = 4 %}
+  {% assign collection = collections[section.settings.main_product_collection] %}
+  {% assign products = collections[section.settings.main_product_collection].products %}
+  {% assign products_per_row = 3 %}
+  <div class="container main-product-loop-container section-container" id="products-fwmy">
+    <h2>{{ section.settings.main_product_header }}</h2>
+    <div class="">
+      {% include 'product-loop' %}
+    </div>
+  </div>
+  
+
+  <img alt="Jump-start your journey." class="banner-image lazyload" src="{{ section.settings.middle_banner_image | img_url: '1600x' }}"/>
+  
+  <div class="container full-width section-container" id="influencer-videos">
+    <div class="influencer-intro-text">
+      <p>{{ section.settings.influencer_intro_text }}</p>
+    </div>
+    <div class="influencer-slider-container">
+      {% for block in section.blocks %}
+        <div class="gallery-cell">
+          <div class="influencer-slider-cell">
+            <div class="cell-text-container">
+              <div class="cell-video-container">
+                <iframe width="560" height="315" src="{{ block.settings.influencer_video_url }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+              </div>
+              <h4>{{ block.settings.influencer_header }}</h4>
+              <p>{{ block.settings.influencer_text }}</p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  
+  <img alt="Collagen Supports: Bone Strength**. Healthy Joints**. Muscle Growth and Strength**." class="banner-image lazyload" src="{{ section.settings.bottom_banner_image | img_url: '2000x' }}"/>
+  
+  {% if section.settings.show_merch_section == true %}
+    {% assign limit = 5 %}
+    {% assign collection = collections[section.settings.merch_product_collection] %}
+    {% assign products = collections[section.settings.merch_product_collection].products %}
+    {% assign products_per_row = 4 %}
+    <div class="merch-loop-container section-container" id="merch-fwmy">
+      <h2>{{ section.settings.merch_product_header }}</h2>
+      <div class="">
+        {% include 'product-loop' %}
+      </div>
+    </div>
+  {% endif %}
+  
+  <div class="blog-posts-container container">
+    <a aria-label="Go to blog post: {{ section.settings.blog_post_1_title }}" class="blog-post-container" href="{{ section.settings.blog_post_1_url }}">
+        <div class="blog-image-container-1"></div>
+        <h4>{{ section.settings.blog_post_1_title }}</h4>
+    </a>
+    <a aria-label="Go to blog post: {{ section.settings.blog_post_2_title }}" class="blog-post-container" href="{{ section.settings.blog_post_2_url }}">
+        <div class="blog-image-container-2"></div>
+        <h4>{{ section.settings.blog_post_2_title }}</h4>
+    </a>
+  </div>
+</div>
+
+<div id="social-fymy">
+  <div class="container full-width social-feeds-section instagram-feed pb-0 social-feeds-wrap">
+      <div class="sixteen columns">
+          <h2 class="title center">
+          {% if settings.instagram_link != blank %}
+              <a aria-label="See Vital Proteins' feedwhatmovesyou hashtag on Instagram." href="{{ settings.instagram_link }}" target="_blank">
+          {% endif %}
+          #feedwhatmovesyou
+          {% if settings.instagram_link != blank %}
+              </a>
+          {% endif %}
+          </h2>
+
+
+          {% if settings.instagram_client_id != blank %}
+          <div id="instafeed" class=" js-instafeed " data-client-id="{{ settings.instagram_client_id | strip }}" data-count="4"></div>
+          {% else %}
+          <div id="instafeed" class="clearfix placeholder-instagram">
+              {% for i in (1..4) %}
+              <div class="three columns instagram__item">
+                  <a href="#" class="instagram__link">
+                  {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--instagram' }}
+                  </a>
+              </div>
+              {% endfor %}
+          </div>
+          {% endif %}
+      </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Feed What Moves You",
+    "class": "feed-what-moves-you-section",
+    "settings": [
+		{
+          "type": "color",
+          "id": "nav_bar_color",
+          "label": "Nav Bar Background Color",
+          "default": "#3befe2"
+      	},
+        {
+          "type": "image_picker",
+          "id": "top_banner_image",
+          "label": "Top Banner Image"
+        },
+        {
+          "type": "text",
+          "id": "video_url",
+          "label": "YouTube or Vimeo video URL",
+		  "default": "https://www.youtube.com/embed/_9VUPq3SxOc"
+        },
+        {
+          "type": "textarea",
+          "id": "video_text",
+          "label": "Text Below Video",
+          "default": "Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale. Celery potato scallion desert raisin horseradish spinach carrot soko. Lotus root water spinach fennel kombu maize bamboo shoot green bean swiss chard seakale pumpkin onion chickpea gram corn pea. Brussels sprout coriander water chestnut gourd swiss chard wakame kohlrabi beetroot carrot watercress. Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke."
+        },
+        {
+          "type": "text",
+          "id": "main_product_header",
+          "label": "Main Product Collection Header",
+          "default": "Product Heading"
+        },
+		{
+          "type": "collection",
+          "id": "main_product_collection",
+          "label": "Main Product Collection"
+        },
+		{
+          "type": "image_picker",
+          "id": "middle_banner_image",
+          "label": "Middle Banner Image"
+        },
+		{
+          "type": "color",
+          "id": "influencer_video_background_color",
+          "label": "Influencer Video Section Background Color",
+          "default": "#23b6e6"
+      	},
+        {
+          "type": "textarea",
+          "id": "influencer_intro_text",
+          "label": "Influencer Section Intro Text",
+		  "default": "Get inspired by our favorite fitness gurus to push yourself further, make yourself stronger, and test the limits of your performance - no matter where your fitness journey takes you."
+        },
+		{
+          "type": "color",
+          "id": "influencer_video_text_color",
+          "label": "Influencer Video Section Text Color",
+          "default": "#fff"
+      	},
+		{
+          "type": "image_picker",
+          "id": "bottom_banner_image",
+          "label": "Bottom Banner Image"
+        },
+		{
+          "type": "checkbox",
+          "id": "show_merch_section",
+          "label": "Show Merchandise Section"
+        },
+		{
+          "type": "text",
+          "id": "merch_product_header",
+          "label": "Merch Collection Header",
+          "default": "Merch Heading"
+        },
+		{
+          "type": "collection",
+          "id": "merch_product_collection",
+          "label": "Merch Collection"
+        },
+		{
+          "type": "image_picker",
+          "id": "blog_post_1_image",
+          "label": "Blog Post 1 Image"
+        },
+		{
+          "type": "text",
+          "id": "blog_post_1_title",
+          "label": "Blog Post 1 Title",
+          "default": "Blog Post 1 Title"
+        },
+		{
+          "type": "url",
+          "id": "blog_post_1_url",
+          "label": "Blog Post 1 URL"
+        },
+		{
+          "type": "image_picker",
+          "id": "blog_post_2_image",
+          "label": "Blog Post 2 Image"
+        },
+		{
+          "type": "text",
+          "id": "blog_post_2_title",
+          "label": "Blog Post 2 Title",
+          "default": "Blog Post 2 Title"
+        },
+		{
+          "type": "url",
+          "id": "blog_post_2_url",
+          "label": "Blog Post 2 URL"
+        },
+		{
+          "type": "text",
+          "id": "instagram_header",
+          "label": "Instagram Section Header",
+          "default": "Insta Header"
+        }
+	],
+    "blocks": [
+		{
+          "name": "Influencer Video",
+          "type": "InfluencerVideo",
+          "settings": [
+			{
+              "type": "text",
+              "id": "influencer_header",
+              "label": "Influencer Header Label",
+              "default": "Header Label"
+            },
+            {
+              "type": "textarea",
+              "id": "influencer_text",
+              "label": "Text for this influencer video",
+              "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            },
+            {
+              "type": "text",
+              "id": "influencer_video_url",
+              "label": "Influencer Video URL",
+              "default": "https://www.youtube.com/embed/_9VUPq3SxOc"
+            }
+          ]
+        }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

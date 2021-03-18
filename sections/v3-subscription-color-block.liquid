@@ -1,0 +1,208 @@
+<style>
+		
+		
+	.v3-color-section .callout-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #00AF9A;
+    margin: 0 auto;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-family: "kapraregular";
+    font-size: 22px;
+    line-height: 1em;
+    width: 300px;
+    height: 44px;
+    border: 0px !important;
+    padding: 5px;
+    margin-top: 5px;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 1px !important;
+}
+  
+  .v3-color-section .callout-button:hover {
+  	background:#00D9B2 !important;
+    color:#ffffff !important;
+  }
+	
+	.v3-color-section {
+	    background-color: #ffffff;
+	    padding-top: 25px;
+	    padding-bottom: 25px;
+	    position: relative;
+	    overflow: hidden;
+	}
+
+.v3-section-inner-dark {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    flex-direction: column;
+    padding: 35px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+  
+.v3-section-inner-dark h2 {
+    color: #23b6e6;
+    font-size: 50px;
+    line-height: 1em;
+    margin-bottom: 0;
+    font-family: 'kapraregular';
+    text-transform: capitalize;
+    width: 100%;
+    font-weight: 400 !important;
+    -webkit-font-smoothing: antialiased;
+    margin-top: 0px;
+    letter-spacing: .25px !important;
+}
+  
+.v3-section-inner-dark p {
+    font-family: 'Avenir Next';
+    color: #626677;
+    font-size: 22px;
+    line-height: 30px;
+    -webkit-font-smoothing: antialiased;
+}
+  
+  
+.v3-color-section .v1-section {
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    padding-top: 35px;
+}
+  
+.v3-color-section .v1-section-inner-dark {
+    justify-content: center;
+    align-items: center;
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
+  
+    @media only screen and (max-width: 800px) {
+
+  
+.v3-color-section .callout-button {
+    max-width: 95%;
+    font-size: 22px;
+}
+      
+.v3-color-section .v3-section-inner-dark h2, .v3-subscribe-section .v3-section-inner-dark p {
+    max-width: 80%;
+    font-size: 3em !important;
+}
+      
+.v3-color-section .v3-section {
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+      
+      .v3-section-inner-dark p {
+    font-size: 18px !important;
+    line-height: 1.2em !important;
+    max-width: 90%;
+}
+      
+    }
+		
+	</style>
+
+	
+	
+	<div class="v3-color-section">	
+<div class="v3-section-inner-dark" style="background-color:{{ section.settings.v1-text-on-color-color }};">
+	<h2 style="color:{{ section.settings.v1-text-on-color-headline-color }};font-size:{{ section.settings.v1-text-on-color-headline-size }}px;"> {{ section.settings.v1-text-on-color-headline }} </h2>
+  <p style="color:{{ section.settings.v1-text-on-color-text-color }};font-size:{{ section.settings.v1-text-on-color-text-size }}px;">{{ section.settings.v1-text-on-color-text }}</p>
+        <a href="{{ section.settings.v1-text-on-color-button-link }}" class="callout-button" style="background:{{ section.settings.v1-text-on-color-button-color }}">{{ section.settings.v1-text-on-color-button-text }}</a>
+</div>
+</div>
+
+{% schema %}
+	{
+  "name": "Text on Color Section",
+  "class": "v1-text-on-color-section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "v1-text-on-color-color",
+      "label": "Background Color",
+	  "default": "#efefef"
+	},
+	{
+      "type": "text",
+      "id": "v1-text-on-color-headline",
+      "label": "Main Headline",
+	  "default": "Not Sure Where To Start? Look Here!"
+	},
+{
+      "type": "color",
+      "id": "v1-text-on-color-headline-color",
+      "label": "Title Color",
+	  "default": "#5b5a5b"
+	},
+	{
+    "type":      "range",
+    "id":        "v1-text-on-color-headline-size",
+    "min":       25,
+    "max":        120,
+    "step":       1,
+    "unit":       "px",
+    "label":     "Headline Size",
+    "default":   44
+	},
+	{
+      "type": "text",
+      "id": "v1-text-on-color-text",
+      "label": "Subscribe Text",
+	  "default": "Take Our Quiz &amp; Meet Your (Collagen) Match"
+	},
+	{
+    "type":      "range",
+    "id":        "v1-text-on-color-text-size",
+    "min":       18,
+    "max":        42,
+    "step":       1,
+    "unit":       "px",
+    "label":     "Subhead Size",
+    "default":   18
+	},
+	{
+      "type": "color",
+      "id": "v1-text-on-color-text-color",
+      "label": "Text Color",
+	  "default": "#5b5a5b"
+	},
+    {
+      "type": "text",
+      "id": "v1-text-on-color-button-text",
+      "label": "Button text",
+	  "default": "Take The Quiz"
+	},
+    {
+      "type": "url",
+      "id": "v1-text-on-color-button-link",
+      "label": "Button Link"
+	},
+	{
+      "type": "color",
+      "id": "v1-text-on-color-button-color",
+      "label": "Button Color",
+	  "default": "#1BB6A7"
+	}
+
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

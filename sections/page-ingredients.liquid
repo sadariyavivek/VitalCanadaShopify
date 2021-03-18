@@ -1,0 +1,242 @@
+<style>
+  .new-container {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .ingredients-header-section {
+    text-align: center;
+  }
+  
+  .ingredients-header-section h1 {
+    text-transform: uppercase;
+    font-size: 60px;
+  }
+  
+  .ingredients-header-section p {
+    margin-bottom: 40px;
+  }
+
+  .ingredients-showcase-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  
+  .ingredient-container {
+    width: 25%;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .ingredient-container:hover img {
+    transform: translateY(-4px) translateX(4px) scale(1.03);
+	box-shadow: -10px 10px 0px #23b6e6;
+  }
+  
+  .ingredient-container:hover img.ashwaganda {
+    box-shadow: -10px 10px 0px #ffc629;
+  }
+  
+  .ingredient-container:hover img.biotin {
+     box-shadow: -10px 10px 0px #f48d9f;
+  } 
+  
+  .ingredient-container:hover img.bone-broth {
+     box-shadow: -10px 10px 0px #f5a81c;
+  }
+  
+  .ingredient-container:hover img.coconut-milk-powder {
+     box-shadow: -10px 10px 0px #43c0bc;
+  }
+  
+  .ingredient-container:hover img.gaba {
+    box-shadow: -10px 10px 0px #704b9e;
+  }
+  
+  .ingredient-container:hover img.hyaluronic-acid {
+  	box-shadow: -10px 10px 0px #5ebdd4;
+  }
+  
+  .ingredient-container:hover img.magnesium {
+  	box-shadow: -10px 10px 0px #a2cf5f;
+  }
+  
+  .ingredient-container:hover img.matcha {
+  	box-shadow: -10px 10px 0px #e0e567;
+  }
+  
+  .ingredient-container:hover img.melatonin {
+  	box-shadow: -10px 10px 0px #b392c3;
+  }
+  
+  .ingredient-container:hover img.turmeric-bioperine {
+  	box-shadow: -10px 10px 0px #f5a800;
+  }
+  
+  .ingredient-container:hover img.reverse-osmosis-water {
+  	box-shadow: -10px 10px 0px #385eab;
+  }
+  
+  .ingredient-container:hover img.vitamin-c {
+  	box-shadow: -10px 10px 0px #80ccb8;
+  }
+  
+  .ingredient-container:hover img.astrion {
+  	box-shadow: -10px 10px 0px #F3818B;
+  }
+  
+    .ingredient-container:hover img.ceramide-pcd {
+  	box-shadow: -10px 10px 0px #FFB3C2;
+  }
+  
+    .ingredient-container:hover img.folate {
+  	box-shadow: -10px 10px 0px #B01F8B;
+  }
+  
+     .ingredient-container:hover img.keratin-support-amino-acid-blend {
+  	box-shadow: -10px 10px 0px #8D79B8;
+  }
+  
+    .ingredient-container:hover img.msm {
+  	box-shadow: -10px 10px 0px #704D9F;
+  }
+  
+    .ingredient-container:hover img.saw-palmetto {
+  	box-shadow: -10px 10px 0px #704D9F;
+  }
+  
+    .ingredient-container:hover img.verbascoside-verbasnol {
+  	box-shadow: -10px 10px 0px #F04F5F;
+  }
+  
+    .ingredient-container:hover img.vitamin-e {
+  	box-shadow: -10px 10px 0px #D266A7;
+  }
+  
+  .ingredient-container a:focus img {
+    transform: scale(1.03);
+  }
+  
+  .ingredient-container:hover h4 {
+    opacity: 0.7;
+  }
+  
+  .ingredient-image-container {
+    width: 100%;
+  }
+  
+  .ingredient-image-container img {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    /*box-shadow: -10px 10px 0px #23b6e6;*/
+    transition: .3s all cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  }
+  
+  .ingredient-text-container h4 {
+    text-transform: uppercase;
+    margin-top: 20px;
+    font-size: 24px;
+    transition: .2s ease-in-out;
+  }
+  
+  @media (max-width: 800px) {
+    .ingredient-container {
+      width: 50%;
+    }
+  }
+</style>
+<div class="new-container ingredients-page-content-container">
+  <div class="ingredients-header-section">
+  	<h1>{{ section.settings.header_text }}</h1>
+    <p>{{ section.settings.header_sub_text }}</p>
+  </div>
+  <div class="ingredients-showcase-container">
+    {% for block in section.blocks %}
+    	{% if block.type == 'Ingredient' %}
+              <div class="ingredient-container animated fadeInUp" style="animation-delay: {{ forloop.index0 | times: 0.05 | plus: 0.4 }}s; animation-duration: 0.5s;">
+                <a href="{{ block.settings.ingredient_link }}">
+                  <div class="ingredient-image-container">
+                    <img class="lazyload {{ block.settings.ingredient_title | handleize }}" src="{{ block.settings.ingredient_image | img_url: '600x' }}" alt="{{ block.settings.ingredient_image.alt }}"/>
+                  </div>
+                  <div class="ingredient-text-container">
+                    <h4 class="ingredient-title" style="color: {{ block.settings.ingredient_color }};">{{ block.settings.ingredient_title }}</h4>
+                    <!--<h5 class="ingredient-source">{{ block.settings.ingredient_source }}</h5>-->
+                  </div>
+                </a>
+              </div>
+    	{% endif %}
+    {% endfor %}
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Ingredients Section",
+    "settings": [
+		{
+          "type": "text",
+          "id": "header_text",
+          "label": "Header Text",
+          "default": "Ingredients"
+        },
+		{
+          "type": "text",
+          "id": "header_sub_text",
+          "label": "Header Sub-Text",
+          "default": "Learn about our ingredients!"
+        }
+	],
+	"blocks": [
+		{
+          "name": "Ingredient",
+          "type": "Ingredient",
+          "settings": [
+		  	{
+              "type": "text",
+              "id": "ingredient_title",
+              "label": "Ingredient Title",
+              "default": "Ingredient Title"
+            },
+			{
+              "type": "text",
+              "id": "ingredient_source",
+              "label": "Ingredient Source",
+              "default": "Ingredient Source"
+            },
+			{
+              "type": "image_picker",
+              "id": "ingredient_image",
+              "label": "Ingredient Image",
+              "info": "Square png image recommended"
+            },
+            {
+              "type": "url",
+              "id": "ingredient_link",
+              "label": "Ingredient Link"
+            },
+			{
+               "type": "color",
+               "id": "ingredient_color",
+               "label": "Ingredient Color",
+               "default": "#23b6e6"
+            }
+		  ]
+		}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

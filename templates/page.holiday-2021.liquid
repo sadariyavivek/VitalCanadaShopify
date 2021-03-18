@@ -1,0 +1,330 @@
+</div>
+<style>
+    .pdp-original-buy-box {
+        display: none;
+    }
+
+    .inner-disclaimer-container {
+        display: none !important;
+    }
+
+    .holiday-hero {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-image: url("{{ 'holiday-hero.jpg' | file_img_url: '2400x' }}");
+        height: 500px;
+        position: relative;
+    }
+
+    .holiday-hero h1 {
+        position: absolute;
+        text-align: center;
+        bottom: 44px;
+        width: 100%;
+        font-size: 120px;
+        line-height: 130px;
+        letter-spacing: 3.3px;
+        color: #393D40;
+    }
+
+    .newStyles2021 .sub-banner {
+        font-size: 24px;
+        line-height: 28px;
+        color: #393D40;
+    }
+
+    .newStyles2021 .wellness-text {
+        font-size: 24px;
+        line-height: 32px;
+        color: #393D40;
+    }
+
+    .newStyles2021 .wellness-text b {
+        font-weight: bold;
+        color: black;
+    }
+
+    .step-image {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        height: 360px;
+        width: 100%;
+    }
+
+    .newStyles2021 .step-text {
+        font-size: 26px;
+        line-height: 36px;
+        letter-spacing: 2px;
+    }
+
+    @media screen and (max-width: 800px) {
+      .wellness-disclaimer {
+        font-size: 12px;
+        line-height: 16px;
+      }
+        .holiday-hero {
+            height: 260px;
+            margin-top: 40px;
+        }
+
+        .holiday-hero h1 {
+            font-size: 40px;
+            line-height: 42px;
+            padding-left: 10% !important;
+            padding-right: 10% !important;
+            bottom: 20px;
+        }
+
+        .newStyles2021 .sub-banner {
+            font-size: 12px;
+            line-height: 16px;
+        }
+
+        .newStyles2021 .wellness-text {
+            font-size: 16px;
+            line-height: 18px;
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+
+        .newStyles2021 .wellness-text.mb-48 {
+            margin-bottom: 24px;
+        }
+
+        .step-cards.grid-3 {
+             grid-template-columns: repeat(1, 1fr);
+             padding-left: 20px;
+             padding-right: 20px;
+        }
+
+        .step-cards .step-card {
+            margin-bottom: 24px;
+        }
+    }
+</style>
+<div>
+    <div class="newStyles2021">
+        <div class="holiday-hero">
+            <h1 class="center">Wellness, All Wrapped Up</h1>
+        </div>
+    </div>
+    <div class="newStyles2021">
+        <div class="p-32 center" style="background: #C6D2D4; width: 100%;">
+            <h3 class="sub-banner">Enjoy Up To 25% Off* With Our Guide to Epic Holiday Offers.</h3>
+        </div>
+    </div>
+    <div>
+        {% assign product = all_products['holiday-sampler-bundle'] %}
+        {% if product == blank or product.available == false %}
+            {% assign product = all_products['collagen-peptides'] %}
+        {% endif %}
+        {% assign variant = product.selected_or_first_available_variant %}
+        {% assign discountedFactor = 100.0 | minus: settings.subscription_discount_amount %}
+        {% assign discountedFactor = discountedFactor | divided_by: 100.0 %}
+        {% assign hasSubscription = product.metafields.subscriptions.has_subscription %}
+        <div class="pdp-redesign-wrapper">
+            <div class="js-product_section product-{{ product.id }}">
+                <form action="/cart/add"
+                method="post"
+                class="clearfix product_form init {% if product.variants.size > 1 or product.options.size > 1 %}product_form_options{% endif %} no_ro_widget"
+                id="product-form-{{ product.id }} primary"
+                data-money-format="{{ shop.money_format }}"
+                data-shop-currency="{{ shop.currency }}"
+                data-select-id="product-select-{{ product.id }}{{ section.id }}{{ block.id }}"
+                data-enable-state="{% if template contains 'product' %}true{% else %}false{% endif %}"
+                data-product="{{ product | json | escape }}"
+                {% if settings.limit_quantity or settings.display_inventory_left %}
+                    data-variant-inventory='[{%- for v in product.variants -%}{"id":{{v.id}},"inventory_quantity":{{v.inventory_quantity}},"inventory_management":"{{v.inventory_management}}","inventory_policy":"{{v.inventory_policy}}"}{% if forloop.last == false %},{% endif %}{%- endfor -%}]'
+                {% endif %}
+                data-product-id="{{ product.id }}"
+                >
+                    <div class="product-form-container">
+                        <div class="product-form-info-images-wrapper padding">
+                        <div class="title-price-review-badge-wrapper mobile-show">
+                            <div class="title-price-wrapper">
+                            <div class="title-wrapper">
+                                <a href="{{ product.url }}">
+                                {% assign title = product.title | split: '-' %}
+                                <p class="pdp-product-title-primary">{{ title[0] }}</p>
+                                <p class="pdp-product-title-secondary">{{ title[1] }}</p>
+                                </a>
+                            </div>
+                            <div>
+                                <span class="was_price">
+                                        {% if variant.price < variant.compare_at_price and variant.available %}
+                                        <span aria-label="Original Price was {{ variant.compare_at_price | money }}." class="money">{{ variant.compare_at_price | money_without_trailing_zeros }}</span>
+                                        {% endif %}
+                                    </span>
+                                <span class="pdp-price">{{ variant.price | money_without_trailing_zeros }}</span>
+                            </div>   
+                            </div>
+                            {% comment %}
+                            <!-- /snippets/bv-summary.liquid -->
+                            <!-- Bazaarvoice Summary Container -->
+                            {% endcomment %}
+                            {% comment %}{% render 'bv-summary', product: product %}{% endcomment %}
+                            {% comment %}
+                            <!-- End Bazaarvoice Summary Container -->
+                            {% endcomment %}
+                        </div>
+                        <div class="pdp-product-images-container">
+                            <a href="{{ product.url }}">
+                            {% include 'product-images' %}
+                            </a>
+                        </div>
+                        </div>
+                        <div class="pdp-form-inputs-wrapper">
+                        <div class="title-price-review-badge-wrapper desktop-show">
+                            <div class="title-price-wrapper">
+                            <div class="title-wrapper">
+                                <a href="{{ product.url }}">
+                                    {% assign title = product.title | split: '-' %}
+                                    <p class="pdp-product-title-primary">{{ title[0] }}</p>
+                                    <p class="pdp-product-title-secondary">{{ title[1] }}</p>
+                                </a>
+                            </div>
+                            <div>
+                                <span class="was_price">
+                                        {% if variant.price < variant.compare_at_price and variant.available %}
+                                        <span aria-label="Original Price was {{ variant.compare_at_price | money }}." class="money">{{ variant.compare_at_price | money_without_trailing_zeros }}</span>
+                                        {% endif %}
+                                    </span>
+                                <span class="pdp-price">{{ variant.price | money_without_trailing_zeros }}</span>
+                            </div>   
+                            </div>
+                            {% comment %}
+                            <!-- /snippets/bv-summary.liquid -->
+                            <!-- Bazaarvoice Summary Container -->
+                            {% endcomment %}
+                            {% comment %}{% render 'bv-summary', product: product %}{% endcomment %}
+                            {% comment %}
+                            <!-- End Bazaarvoice Summary Container -->
+                            {% endcomment %}
+                        </div>
+                        
+                        <div class="pdp-original-buy-box">
+                            <div class="pdp-variant-select padding">
+                            {% if product.options.size > 1 %}
+                            <div class="select">
+                                <select id="product-select-{{ product.id }}{{ section.id }}{{ block.id }}" name="id" class="multi_select">
+                                {% for v in product.variants %}
+                                <option {% if v == variant %}selected="selected"{% endif %} value="{{ v.id }}" data-sku="{{ v.sku }}">{{ v.title }}</option>
+                                {% endfor %}
+                                </select>
+                            </div>
+                            {% elsif product.options.size == 1 and product.variants.size > 1 or product.options.size == 1 and product.options[0] != "Title" %}
+                            <div class="select">
+                                <label class="visuallyhidden" for="product-select-{{ product.id }}{{ section.id }}{{ block.id }}">{{ product.options[0] }}</label>
+                                <select {% if product.variants.size == 1 %}style="background-image: none;"{% endif %} id="product-select-{{ product.id }}{{ section.id }}{{ block.id }}" name="id">
+                                {% for v in product.variants %}
+                                <option {% if v == variant %}selected="selected"{% endif %} value="{{ v.id }}" 
+                                        data-product-id="{{ product.id }}"
+                                        data-sku="{{ v.sku }}" 
+                                        data-afterpay-price="{{ v.price | divided_by: 4.0 }}"
+                                        data-afterpay-display-price="{{ v.price | divided_by: 4.0 | money_without_trailing_zeros}}"
+                                        data data-price="{{ v.price }}" 
+                                        data-discount-price="{{ v.price | times: discountedFactor }}" 
+                                        data-display-price="{{ v.price | money_without_trailing_zeros }}" 
+                                        data-discounted-display-price="{{ v.price | times: discountedFactor | money_without_trailing_zeros }}"
+                                        data-original-variant-id="{{ v.id }}"
+                                        data-subscription-variant-id="{{ v.metafields.subscriptions.discount_variant_id }}"
+                                        data-available={{ v.available }}>{{ v.title }}
+                                </option>
+                                {% endfor %}
+                                </select>
+                            </div>
+                            {% else %}
+                            <input type="hidden" name="id" value="{{ variant.id }}" />
+                            {% endif %}
+                            </div>
+                        </div>
+                        {% render 'pdp-buy-box-v2', product: product, initialVariant: variant %}
+                        {% if product.handle == 'collagen-latte-golden-milk' or product.handle == 'holiday-sampler-box-1' or product.handle == 'collagen-beauty-greens' or product.handle == 'collagen-sports-greens' or product.handle == 'matcha-collagen-latte' or product.handle == 'matcha-collagen-latte-vanilla' or product.handle == 'matcha-collagen' or product.handle == 'matcha-collagen-peach' or product.handle == 'blackberry-collagen-blast' %}
+                            {% include 'prop-65-modal' %}
+                        {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="newStyles2021">
+        <div class="bgTaupe center pt-72 pb-72 pl-16 pr-16">
+            <div class="container discount-code-products">
+                <h2 class="center mb-32">Wellness Delivered To Your Doorstep</h2>
+                <p class="wellness-text mb-32"><b>Save 25% on your first order</b> when you subscribe!*</p>
+                <i class="wellness-disclaimer mb-24" style="display: block;">*See Offers page for full details.</i>
+                {% assign mycollection = 'coffee-collagen' %}
+                {% include 'VP2021-Cards' %}
+            </div>
+        </div>
+    </div>
+    <div class="newStyles2021">
+        <div class="center pt-72 pb-72">
+            <h2 class="center mb-32">Spread Cheer With Collagen</h2>
+            <p class="wellness-text center mb-48">A very Vital wellness routine starts here.</p>
+            {% assign mycollection = 'coffee-collagen' %}
+            {% include 'VP2021-Cards' %}
+        </div>
+    </div>
+    <div class="newStyles2021 mb-36">
+        <div class="container pl-24 pr-24">
+            <h2 class="center mb-24 pr-24 pl-24">How To Use Collagen: A 3-Step Guide</h2>
+            <div class="step-cards grid-3">
+                <div class="step-card" style="border: 14px solid rgba(198,210,212,0.5);">
+                    <div class="step-image lazyload" data-bg="{{ 'holiday-step1.jpg' | file_img_url: '800x' }}"></div>
+                    <div class="p-16" style="background-color: #C6D2D4; width: 100%;">
+                        <h4 class="center step-text">1. Scoop</h4>
+                    </div>
+                </div>
+                <div class="step-card" style="border: 14px solid rgba(198,210,212,0.5);">
+                    <div class="step-image lazyload" data-bg="{{ 'holiday-step2.jpg' | file_img_url: '800x' }}"></div>
+                    <div class="p-16" style="background-color: #C6D2D4; width: 100%;">
+                        <h4 class="center step-text">2. Stir into Recipes</h4>
+                    </div>
+                </div>
+                <div class="step-card" style="border: 14px solid rgba(198,210,212,0.5);">
+                    <div class="step-image lazyload" data-bg="{{ 'holiday-step3.jpg' | file_img_url: '800x' }}"></div>
+                    <div class="p-16" style="background-color: #C6D2D4; width: 100%;">
+                        <h4 class="center step-text">3. Enjoy</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% render 'pdp-ja-blog-section' articlesOverride: 'stay-vital/what-is-collagen|recipes/maple-pecan-cookies|lifestyle/virtual-holiday-party' %}
+    <div style="margin-top: 72px;">
+    </div>
+</div>
+<script>
+    $(function() {
+        $('<p>Find joy from within with our Holiday Sampler Bundle, which features five of our best-selling stick packs and one 5 oz. Collagen Peptides canister.</p>').insertAfter('.product-6083810001080 .packaging-options-container')
+    });
+    
+    $('.qty-button.minus').on('click', function(e) {
+        e.preventDefault();
+        var newQty = $('#qty-number').data('qty') - 1;
+
+        if (newQty >= 1) {
+        $('#qty-number').data('qty', newQty);
+        $('#qty-number').val(newQty);
+        }
+    });
+
+    $('.qty-button.plus').on('click', function(e) {
+        e.preventDefault();
+
+        var newQty = $('#qty-number').data('qty') + 1;
+        $('.qty-number').data('qty', newQty);
+        $('.qty-number').val(newQty);
+    });
+
+    $('.discount-code-products .product_form').on("submit", function() {
+        const ctaText = $(this).find(".add_to_cart .text").text()
+        if (ctaText == "Add to Bag") {
+            setCheckoutDiscount('HOLIDAY20', 'shopify');
+        }
+    });
+</script>

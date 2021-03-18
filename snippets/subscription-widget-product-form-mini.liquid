@@ -1,0 +1,29 @@
+<div class="subscription-widget-new">
+  <div class="subscription-types-container-new {{ product.id }}">
+    
+    {% comment %}<label class="subscription-widget-select-label" for="subscription-widget-select-{{product.id}}">Choose Frequency</label>{% endcomment %}
+    <select id="subscription-widget-select-{{product.id}}" data-product-id="{{product.id}}" data-original-variant-id="{{ variant.id }}" data-subscription-variant-id="{{ variant.metafields.subscriptions.discount_variant_id  }}" data-discount_percentage="{{ product.metafields.subscriptions.discount_percentage | round  }}" data-price="{{variant.price | money_without_trailing_zeros}}" data-discount-price="{{ variant.metafields.subscriptions.discount_variant_price | times: 100 | money_without_trailing_zeros }}" class="subscription-widget-select {% unless product.metafields.subscriptions.has_subscription == "True" %}one-time-only{% endunless %}">
+      <option value="0">One-time</option>
+      {% if product.metafields.subscriptions.has_subscription == "True" %}
+          {% assign subscriptionIntervals = product.metafields.subscriptions.shipping_interval_frequency | split: ',' %}
+          {% assign subscriptionUnitType = product.metafields.subscriptions.shipping_interval_unit_type %}
+          {% assign lastLetter = subscriptionUnitType | size | minus: 1 %}
+          {% assign subscriptionUnitTypeSingle = subscriptionUnitType | slice: 0, lastLetter %}
+          {% for interval in subscriptionIntervals %}
+            {% comment %}<option value="{{ interval }}">Every {{ interval }} {{ interval | plus: 0 | pluralize: subscriptionUnitTypeSingle, subscriptionUnitType }} (Save {{ product.metafields.subscriptions.discount_percentage | round }}%*)</option>{% endcomment %}
+      		<option value="{{ interval }}">Every {{ interval }} {{ interval | plus: 0 | pluralize: subscriptionUnitTypeSingle, subscriptionUnitType }}</option>
+          {% endfor %}
+      {% endif %}
+    </select>
+  </div>
+  
+  <!-- Changes -->
+  <div class="hidden-input pid-{{ product.id }}">
+    <input class="frequency-num" type="hidden" value="{{ settings.default_subscription_frequency }}" >
+    <input class="frequency-type" type="hidden" value="{{ product.metafields.subscriptions.shipping_interval_unit_type }}">
+    
+    <input type="hidden" name="quantities[]" value="1">
+    <input type="hidden" name="product_id[]" value="{{ product.id }}">
+    <input type="hidden" name="variant_id[]" value="{{ variant.id }}">
+  </div>
+</div>

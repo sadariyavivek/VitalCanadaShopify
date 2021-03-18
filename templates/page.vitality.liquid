@@ -1,0 +1,1071 @@
+<a name="pagecontent" id="pagecontent"></a>
+
+</div>
+
+{% assign purpleDark 	= '#5956a5' %}
+{% assign purpleLight 	= '#9B9BCD' %}
+{% assign darkRed 		= '#f1484d' %}
+{% assign lightRed 		= '#fe7771' %}
+{% assign yellow 		= '#f9b351' %}
+{% assign default = '1400x' %}
+{% assign size1 = '480x' %}
+{% assign size2 = '765x' %}
+{% assign size3 = '900x' %}
+{% assign size4 = '1000x' %}
+{% assign size5 = '1100x' %}
+{% assign size6 = '1300x' %}
+{% assign size7 = '1500x' %}
+{% assign size8 = '1700x' %}
+{% assign size9 = '1900x' %}
+{% assign size10 = '2000x' %}
+{% assign size11 = '2100x' %}
+<style>
+  
+  .container.main.content {
+    padding: 0;
+  }
+  
+  .mm-banner-section {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .mm-banner-image {
+    width: 100%;
+    position: relative;
+    display: block;
+  }
+  
+  .mm-banner-image.desktop {
+  	display: block;
+  }
+
+  .mm-banner-image.mobile {
+   	display: none;
+  }
+  
+  .mm-twinkle-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .twinkle {
+    position: absolute;
+    animation: twinkle .5s ease-out infinite alternate;
+  }
+  
+  .dust {
+    position: absolute;
+    animation: dustA 5s linear infinite;
+  }
+  
+  @keyframes twinkle {
+    0% { transform: scale(0) translateY(0px); opacity: 0;}
+    60% { transform: scale(1.25); opacity: 1 }
+    80% { transform: scale(1.25); opacity: 0.75 }
+    100% { transform: scale(1.25); opacity: 1; }
+  }
+  
+  @keyframes dustA {
+    0% { transform: scale(0) translateY(0px); opacity: 0;}
+    50% { transform: scale(1.25) translateY(-20px); opacity: 1; }
+    100% { transform: scale(1.0) translateY(-40px); opacity: 0; }
+  }
+  
+  
+.mm-divider-section {
+    background-color: #ff6b00;
+    border-top: 12px solid #feaf61;
+}
+  
+.mm-divider-section .divider-text {
+    max-width: 1200px;
+    color: white;
+    text-align: center;
+    margin-left: auto;
+    font-weight: 700;
+    line-height: 1.3em;
+    margin-right: auto;
+    font-size: 24px;
+    padding: 10px;
+}
+  
+  .divider-text .new-callout {
+    text-transform: uppercase;
+    font-weight: bold;
+    opacity: 0.6;
+  }
+  
+  .mm-cta-section {
+    position: relative;
+    padding: 10px 20px;
+    overflow: hidden;
+  }
+  
+  .rtd-slider {
+    margin-bottom: 30px;
+  }
+  
+  .flickity-page-dots .dot {
+    background-color: {{ lightRed }};
+  }
+  
+  .mm-slider-cell {
+    width: 100%;
+  }
+  
+  .mm-cta-content-wrapper {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+    z-index: 100;
+    position: relative;
+  }
+  
+  .mm-cta-text-section {
+    width: 60%;
+    padding: 20px;
+  }
+  
+.mm-cta-purchase-section {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 25px;
+}
+  
+.mm-cta-purchase-section .add_to_cart {
+    background-color: #01ace8;
+    color: white;
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    font-size: 36px;
+    padding: 6px 30px;
+    line-height: 45px;
+    max-width: 180px;
+    border-radius: 10px;
+    width: auto;
+    border: none;
+}
+  
+  .mm-cta-purchase-section .add_to_cart:hover {
+    opacity: 0.7;
+    cursor: pointer;
+    transform: translateY(-2px);
+  }
+  
+.mm-product-price {
+    letter-spacing: 0 !important;
+    font-size: 48px;
+    margin-bottom: 0;
+    margin: 0 auto;
+}
+  
+  .mm-product-price s {
+    font-size: 32px;
+    color: gray;
+  }
+  
+.mm-product-title {
+    font-family: 'avenir';
+    text-transform: none;
+    letter-spacing: 0 !important;
+    font-weight: bold;
+    max-width: 50%;
+    line-height: 1.3em;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+  
+    .smaller-title {
+      font-size: 18px;
+    }
+  
+  .mm-cta-purchase-section img {
+    max-height: 400px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .mm-cta-header-title {
+    text-align: center;
+    color: {{ lightRed }};
+    text-transform: uppercase;
+    letter-spacing: 0 !important;
+    font-size: 60px;
+    margin: 0;
+  }
+  
+  .mm-cta-header-subtitle {
+    text-align: center;
+    color: #a5a5a5;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .mm-cta-icons-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+  
+  .mm-cta-icons-container img { 
+    position: absolute;
+    max-width: 100px;
+  }
+  
+  .mm-moon-phase-section {
+    padding: 0px;
+    margin-top:32px;
+	margin-bottom:32px;
+}
+  
+  .moon-phases-image {
+    width: 100%;
+    max-width: 1200px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  
+.mm-nutrition-facts-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: auto;
+    background: #feaf61;
+    margin-right: auto;
+}
+  
+.mm-nutrition-inner {
+    max-width: 1200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+  
+.mm-nutrition-facts-container img {
+    width: calc(100% / 7);
+    padding-left: 0px;
+    padding-right: 0px;
+}
+  
+.icon-inner-text {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    max-width: 1100px;
+    text-align: center;
+    color: #ffffff;
+    width: 100%;
+    border-top: 2px solid #ffffff;
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    font-family: 'avenir';
+    margin-top: -5px;
+}
+
+  
+  .mm-ingredients-section {
+    padding: 20px;
+  }
+  
+  .mm-ingredients-header-text {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding: 10px;
+    width: 100%;
+  }
+  
+  .mm-ingredient-blocks-wrapper {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  .mm-ingredient-block {
+    text-align: center;
+    width: 25%;
+  }
+  
+  .mm-ingredient-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  
+  .mm-ingredient-wrapper img {
+    width: 70%;
+    margin-bottom: 10px;
+  }
+  
+  .mm-ingredient-block .block-title {
+    text-transform: uppercase;
+    letter-spacing: 0 !important;
+    color: {{ lightRed }};
+    font-size: 28px;
+    font-family: 'kapraregular';
+    margin-bottom: 10px;
+  }
+  
+  .mm-ingredient-block p {
+    color: #a5a5a5;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .mm-lively-section {
+    position: relative; 
+    padding-top: 40px;
+    padding-bottom: 40px;
+    overflow: hidden;
+  }
+  
+  .mm-lively-inner {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    z-index: 100;
+    position: relative;
+  }
+  
+.mm-lively-title {
+    color: #5d279f;
+    letter-spacing: 0px !important;
+    text-transform: uppercase;
+    font-size: 48px;
+}
+  
+  .mm-lively-articles-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .mm-lively-article-container {
+    width: 33.33%;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    transition: .25s all ease-out;
+  }
+  
+  .mm-lively-article-container:hover {
+    opacity: 0.7;
+    transform: scale(1.03);
+    cursor: pointer;
+  }
+  
+  .mm-lively-article-image-container {
+    width: 100%;
+    height: 240px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: {{ purpleLight }};
+    border-radius: 20px;
+  }
+  
+.mm-lively-article-title {
+    color: #5d279f;
+    text-transform: none;
+    letter-spacing: 0px !important;
+    text-align: center;
+    font-size: 36px;
+    line-height: 44px;
+}
+  
+  .get-up-and-go {
+    width: 100%;
+  }
+  
+  .gif-section img {
+    width: 100%;
+    display: block;
+  }
+  
+  .subscription-widget-new {
+    display: none;
+  }
+  
+.energy-secondary-banner {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-top: 25px;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+  
+  .energy-secondary-banner img {
+    width: 100%;
+  }
+  
+  .mm-cta-text-section {
+    display: none;
+  }
+  
+.mm-prod-info {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    margin-bottom: 32px;
+}
+  
+  .mm-prod-faq {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    margin-bottom: 32px;
+}
+  
+  
+.vitality-page-accordion {
+    margin: 0px;
+    max-width: 1200px;
+    border-top: 3px solid #9b9b9b;
+}
+
+	.vitality-page-toggle {
+	  display: none;
+	}
+
+	.vitality-page-option {
+	    position: relative;
+	    border: solid 3px #9b9b9b;
+	    border-top: 0px;
+	    height: auto;
+	}
+
+	.vitality-page-title,
+	.vitality-page-content {
+	  -webkit-backface-visibility: hidden;
+	          backface-visibility: hidden;
+	  -webkit-transform: translateZ(0);
+	          transform: translateZ(0);
+	  -webkit-transition: all 0.2s;
+	  transition: all 0.2s;
+	}
+
+.vitality-page-title {
+    background: #fff;
+    padding: 1em;
+    display: block;
+    color: #7A7572;
+    font-weight: bold;
+    font-family: 'avenir';
+    font-size: 19px;
+    height: auto;
+    margin-bottom: 0px !important;
+    font-weight: 600;
+    padding: 30px 70px 30px 40px;
+}
+	
+	.vitality-page-title:hover {
+	    background: #f7f7f7;
+	}
+	
+	
+	
+
+	.vitality-page-title:after, .vitality-page-title:before {
+	    content: '';
+	    position: absolute;
+	    right: 1.25em;
+	    top: 1.25em;
+	    width: 3px;
+	    height: 0.75em;
+	    background-color: #1bb9e6;
+	    -webkit-transition: all 0.2s;
+	    transition: all 0.2s;
+	}
+
+	.vitality-page-title:after {
+	  -webkit-transform: rotate(90deg);
+	          transform: rotate(90deg);
+	}
+
+	.vitality-page-content {
+	  max-height: 0;
+	  overflow: hidden;
+	  background-color: #fff;
+	}
+.vitality-page-content p {
+    margin: 0;
+    padding: 0.5em 40px 1em;
+    line-height: 1.5;
+    color: #7A7572;
+    font-weight: 400;
+    font-family: 'avenir';
+    font-size: 19px;
+}
+  .vitality-page-toggle {display:none !important;}
+
+	.vitality-page-toggle:checked + .vitality-page-title, .vitality-page-toggle:checked + .vitality-page-title + .content {
+	    color: #23B6E6;
+	}
+	.vitality-page-toggle:checked + .vitality-page-title + .vitality-page-content {
+	  max-height: 500px;
+	}
+	.vitality-page-toggle:checked + .vitality-page-title:before {
+	  -webkit-transform: rotate(90deg) !important;
+	          transform: rotate(90deg) !important;
+	}
+  
+  
+  .mm-prod-info img {max-width:100%;}
+  
+  .mobile-swap {display:none;}
+       .desktop-swap {display:block;}
+
+  .buy-it-button
+  {
+    background-color: #01ace8;
+    color: white;
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    font-size: 36px;
+    padding: 6px 30px;
+    border-radius: 10px;
+    width: auto;
+    border: none;
+  }
+  
+.prod-disclaimer {
+    font-size: 12px;
+    max-width: 1200px;
+    margin: 0 auto;
+    line-height: 1.1em;
+    margin-bottom: 32px;
+    padding-left: 20px;
+    color: #717171;
+    padding-right: 20px;
+    text-align: center;
+    margin-top: -25px;
+}
+  
+  
+.mm-prod-info .mm-slider-cell {
+    width: 100%;
+    position: absolute;
+    left: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+  
+  
+  .mm-prod-info .flickity-viewport {
+  height:500px !important}
+  
+.mm-prod-info .mm-slider-cell img {
+    max-width: 1000px;
+    width: 100%;
+}
+  
+  
+  .mm-prod-info .mm-slider-cell a  {
+    color: inherit;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+  
+  
+       .mm-prod-info .desktop-slides {display:block;}
+     .mm-prod-info .mobile-slides {display:none;}
+     .faq-sub  {
+    text-transform: none;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: -35px;
+    letter-spacing: 1px !important;
+    color: #5d279f;
+    font-family: 'avenir';
+    padding-left: 20px;
+    padding-right: 20px;
+}
+  
+  @media screen and (max-width: 800px) {
+    .energy-secondary-banner img {
+    	max-width:100%;
+    }
+    
+   .mm-cta-text-section {
+    display: block;
+  }
+    
+    .mm-banner-image.desktop {
+      display: none;
+    }
+    
+    .mm-banner-image.mobile {
+      display: block;
+    }
+    
+    .mm-cta-text-section {
+      width: 100%;
+    }
+    
+    .mm-cta-purchase-section {
+      width: 100%;
+    }
+    
+    .mm-nutrition-facts-container img {
+      width: calc(100% / 3);
+    }
+    
+     .mm-cta-content-wrapper {
+       flex-direction: column-reverse;
+     }
+    
+         .mm-cta-purchase-section img {
+       max-height: 300px;
+     }
+    
+.mm-ingredient-block {
+    width: 50%;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+    
+    
+    .mm-ingredient-wrapper img {
+    width: 90%;
+    margin-bottom: 10px;
+}
+    
+    .mm-prod-faq {
+    margin-bottom: 0px;
+}
+    .mm-ingredient-block .block-title {
+      font-size: 18px;
+    }
+    
+    .mm-moon-phase-section {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+    .mm-lively-article-container {
+      width: 100%;
+    }
+    
+    .vitality-page-container {padding:0px 20px;}
+  }
+  
+   @media screen and (max-width: 480px) {
+     
+     .mm-prod-info .desktop-slides {display:none;}
+     .mm-prod-info .mobile-slides {display:block;}
+
+     
+.mm-prod-info .mm-slider-cell img {
+    max-width: 100%;
+    height: 400px;
+    width: 267px;
+}
+     
+   .faq-sub  {
+    text-transform: none;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 700;
+    /* padding: 20px; */
+    text-align: center;
+    margin-top: -15px;
+    letter-spacing: 1px !important;
+    color: #5d279f;
+    font-family: 'avenir';
+    padding-left: 20px;
+    padding-right: 20px;
+}
+     
+     #talkable-offer {display:none;}
+     .mobile-swap {display:block;}
+     .desktop-swap {display:none;}
+     
+     .mm-cta-header-title {
+       font-size: 36px;
+       line-height: 40px;
+     }
+     
+     .mm-cta-header-subtitle {
+       font-size: 18px;
+     }
+     
+     .mm-product-price {
+       font-size: 24px;
+     }
+     
+     .mm-product-price s {
+       font-size: 18px;
+     }
+     
+            .smaller-title {
+    font-size: 12px;
+  }
+     
+     .mm-divider-section {
+    border-top: 3px solid #feaf61;
+}
+     
+     .mm-divider-section .divider-text {
+       font-size: 16px;
+     }
+     
+     .mm-cta-icons-container img {
+       max-width: 50px;
+     }
+     
+     .mm-nutrition-facts-container img {
+      width: 50%;
+     }
+     
+     .mm-cta-section {
+       padding-left: 0;
+       padding-right: 0;
+     }
+     
+     .mm-cta-text-section {
+       padding-left: 0;
+       padding-right: 0;
+     }
+     
+     .mm-ingredient-block p {
+       font-size: 16px;
+       margin-bottom: 30px;
+     }
+     
+     .mm-ingredient-block .block-title {
+      font-size: 24px;
+      margin-bottom: 0;
+      line-height: 30px;
+     }
+     
+.mm-lively-title {
+    font-size: 36px;
+    text-align: center;
+    max-width: 80%;
+    line-height: 1em;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+     
+     .mm-lively-article-title {
+       font-size: 21px;
+       line-height: 28px;
+     }
+     
+     .dust {
+       max-width: 40px;
+     }
+     
+     .mm-prod-info {
+    
+    margin-bottom: 0px;
+}
+     
+     .mm-nutrition-facts-container {
+    margin-top: 20px;
+}
+     
+     .icon-inner-text {
+    padding: 20px;
+}
+   }
+</style>
+<div class="moon-milk-page-wrapper">
+  <div class="mm-banner-section">
+    <img class="mm-banner-image desktop lazyload"  src="{{ 'iXTu33Iw.png' | file_img_url: '100x', format: 'pjpg' }}"
+                alt="Vitality Immune Booster"
+                sizes="100vw"
+                data-src="{{ 'energy_Header_Desktop.png' | file_img_url: default, format: 'pjpg' }}"
+                srcset="
+                {{ 'iXTu33Iw.png' | file_img_url: default, format: 'pjpg' }} {{default | replace: 'x', 'w'}},
+                {{ 'iXTu33Iw.png' | file_img_url: size1, format: 'pjpg' }} {{size1 | replace: 'x', 'w'}},
+                {{ 'iXTu33Iw.png' | file_img_url: size2, format: 'pjpg' }} {{size2 | replace: 'x', 'w'}},
+                {{ 'iXTu33Iw.png' | file_img_url: size3, format: 'pjpg' }} {{size3 | replace: 'x', 'w'}},
+                {{ 'iXTu33Iw.png' | file_img_url: size4, format: 'pjpg' }} {{size4 | replace: 'x', 'w'}},
+                {{ 'iXTu33Iw.png' | file_img_url: size5, format: 'pjpg' }} {{size5 | replace: 'x', 'w'}},
+                {{ 'iXTu33Iw.png' | file_img_url: size6, format: 'pjpg' }} {{size6 | replace: 'x', 'w'}},
+                {{ 'iXTu33Iw.png' | file_img_url: size7, format: 'pjpg' }} {{size7 | replace: 'x', 'w'}},
+                {{ 'iXTu33Iw.png' | file_img_url: size8, format: 'pjpg' }} {{size8 | replace: 'x', 'w'}},
+                {{ 'iXTu33Iw.png' | file_img_url: size9, format: 'pjpg' }} {{size9 | replace: 'x', 'w'}},
+                {{ 'iXTu33Iw.png' | file_img_url: size10, format: 'pjpg' }} {{size10 | replace: 'x', 'w'}},
+                {{ 'iXTu33Iw.png' | file_img_url: size11, format: 'pjpg' }} {{size11 | replace: 'x', 'w'}}"
+
+                 />
+    <img class="mm-banner-image mobile lazyload" src="{{ 'Ros-xjiQ.png' | file_img_url: '600x' | format: 'jpg' }}" alt="Vitality Immune Booster"/>
+  </div>
+  <div class="mm-divider-section">
+    <p class="divider-text">Time to try this go-to combination of immune supporting** ingredients - right when you need it the most.</p>
+  </div>
+  <div class="energy-secondary-banner">
+    <img class="desktop-swap" src="{{ 'd0EmbRPQ.png' | file_img_url: '1200x' }}"/>
+    <img class="mobile-swap" src="{{ 'uJRyHS4.png' | file_img_url: '800x' }}"/>
+  </div>
+  <div class="mm-cta-section">
+    
+    <div class="mm-cta-content-wrapper">
+      {% assign product = all_products["vital-proteins-vitality-immune-booster-orange"] %}
+      <div class="mm-cta-purchase-section">
+        <div class="rtd-slider official">
+          {% for image in product.images %}
+          <div class="mm-slider-cell">
+            <a href="{{ product.url }}" style="color: inherit;">
+              <img class="lazyload" data-flickity-lazyload="{{ image | img_url: '800x' }}" src="{{ image | img_url: '800x' }}"/>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+        <h3 class="mm-product-price">{{ product.price | money_without_trailing_zeros }} {% if product.compare_at_price %}<s>{{ product.compare_at_price | money_without_trailing_zeros }}</s>{% endif %}</h3>
+        <h3 class="mm-product-title">Vital Proteins Vitality™ <span class="smaller-title">Immune Booster** - Orange</span></h3>
+        {% include 'product-form-mini' %}
+      </div>
+      {% assign product = all_products["vital-proteins-vitality-immune-booster-lemon-grape"] %}
+      <div class="mm-cta-purchase-section">
+        <div class="rtd-slider official">
+          {% for image in product.images %}
+          <div class="mm-slider-cell">
+            <a href="{{ product.url }}" style="color: inherit;">
+              <img class="lazyload" data-flickity-lazyload="{{ image | img_url: '800x' }}" src="{{ image | img_url: '800x' }}"/>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+        <h3 class="mm-product-price">{{ product.price | money_without_trailing_zeros }} {% if product.compare_at_price %}<s>{{ product.compare_at_price | money_without_trailing_zeros }}</s>{% endif %}</h3>
+        <h3 class="mm-product-title">Vital Proteins Vitality™ <span class="smaller-title">Immune Booster** - Lemon Grape</span></h3>
+        {% include 'product-form-mini' %}
+      </div>
+    </div>
+  </div>
+  <div class="mm-moon-phase-section">
+     <div class="mm-nutrition-facts-container">
+      <div class="mm-nutrition-inner">
+      <img alt="5g Collagen Peptides" src="{{ 'Vitality_LandingPage_N1.png' | file_img_url: '200x' }}" data-aos="fade-down" data-aos-easing="ease-out" data-aos-once="false" data-aos-delay="0" data-aos-duration="300"/>
+      <img alt="250mg Wellmune - A registered trademark of Kerry Group" src="{{ 'LnB3Z54A.png' | file_img_url: '200x' }}" data-aos="fade-down" data-aos-easing="ease-out" data-aos-once="false" data-aos-delay="50" data-aos-duration="300"/>
+      <img alt="50mg Immuno-LP20" src="{{ 'Vitality_LandingPage_N3.png' | file_img_url: '200x' }}" data-aos="fade-down" data-aos-easing="ease-out" data-aos-once="false" data-aos-delay="100" data-aos-duration="300"/>
+      <img alt="500% Daily Value Vitamin C" src="{{ 'Vitality_LandingPage_N4.png' | file_img_url: '200x' }}" data-aos="fade-down" data-aos-easing="ease-out" data-aos-once="false" data-aos-delay="150" data-aos-duration="300"/>
+      <img alt="Electolytes" src="{{ 'Vitality_LandingPage_N5.png' | file_img_url: '200x' }}" data-aos="fade-down" data-aos-easing="ease-out" data-aos-once="false" data-aos-delay="200" data-aos-duration="300"/>
+	  <img alt="Glutamine" src="{{ '5-IFgJw0.png' | file_img_url: '200x' }}" data-aos="fade-down" data-aos-easing="ease-out" data-aos-once="false" data-aos-delay="250" data-aos-duration="300"/>
+      <img alt="200% DV Zinc" src="{{ 'tpx3yFpQ.png' | file_img_url: '200x' }}" data-aos="fade-down" data-aos-easing="ease-out" data-aos-once="false" data-aos-delay="250" data-aos-duration="300"/>
+       </div>
+	  <div class="mm-nutrition-inner icon-inner-text">L-Glutamine is an amino acid that plays an important role in the function of the immune system. It helps synthesize glutathione, an antioxidant that fights oxidative stress and supports immune cells.**</div>
+      </div>
+  </div>
+  <div class="mm-prod-info">
+          <h5 class="mm-lively-title">Clinically-Proven &amp Cutting Edge Ingredients</h5>
+          <div class="rtd-slider official desktop-slides" style="width: 100%;">
+          <div class="mm-slider-cell">
+            <a href="#" style="color: inherit;width: 80%">
+              <img class="lazyload" data-flickity-lazyload="{{ 'vt-collagen.jpg' | file_img_url: '1200x' }}" src="{{ 'vt-collagen.jpg' | file_img_url: '1200x' }}"/>
+            </a>
+          </div>
+                      <div class="mm-slider-cell">
+            <a href="#" style="color: inherit;width: 80%">
+              <img class="lazyload" data-flickity-lazyload="{{ 'vt-amino.jpg' | file_img_url: '1200x' }}" src="{{ 'vt-amino.jpg' | file_img_url: '1200x' }}"/>
+            </a>
+          </div>
+                      <div class="mm-slider-cell">
+            <a href="#" style="color: inherit;width: 80%">
+              <img class="lazyload" data-flickity-lazyload="{{ 'vt-anti.jpg' | file_img_url: '1200x' }}" src="{{ 'vt-anti.jpg' | file_img_url: '1200x' }}"/>
+            </a>
+          </div>
+                                  <div class="mm-slider-cell">
+            <a href="#" style="color: inherit;width: 80%">
+              <img class="lazyload" data-flickity-lazyload="{{ 'vt-electro.jpg' | file_img_url: '1200x' }}" src="{{ 'vt-electro.jpg' | file_img_url: '1200x' }}"/>
+            </a>
+          </div>
+                                  <div class="mm-slider-cell">
+            <a href="#" style="color: inherit;width: 80%">
+              <img class="lazyload" data-flickity-lazyload="{{ 'vt-vitamins.jpg' | file_img_url: '1200x' }}" src="{{ 'vt-vitamins.jpg' | file_img_url: '1200x' }}"/>
+            </a>
+          </div>
+                                  <div class="mm-slider-cell">
+            <a href="#" style="color: inherit;width: 80%">
+              <img class="lazyload" data-flickity-lazyload="{{ 'vt-innovative.jpg' | file_img_url: '1200x' }}" src="{{ 'vt-innovative.jpg' | file_img_url: '1200x' }}"/>
+            </a>
+          </div>
+        </div>
+    
+    
+    <div class="rtd-slider official mobile-slides" style="width: 100%;">
+          <div class="mm-slider-cell">
+            <a href="#" style="color: inherit;width: 80%">
+              <img class="lazyload" data-flickity-lazyload="{{ 'vt-collagen-mobile.jpg' | file_img_url: '600x' }}" src="{{ 'vt-collagen-mobile.jpg' | file_img_url: '600x' }}"/>
+            </a>
+          </div>
+                      <div class="mm-slider-cell">
+            <a href="#" style="color: inherit;width: 80%">
+              <img class="lazyload" data-flickity-lazyload="{{ 'vt-amino-mobile.jpg' | file_img_url: '600x' }}" src="{{ 'vt-amino-mobile.jpg' | file_img_url: '600x' }}"/>
+            </a>
+          </div>
+                      <div class="mm-slider-cell">
+            <a href="#" style="color: inherit;width: 80%">
+              <img class="lazyload" data-flickity-lazyload="{{ 'vt-anti-mobile.jpg' | file_img_url: '600x' }}" src="{{ 'vt-anti-mobile.jpg' | file_img_url: '600x' }}"/>
+            </a>
+          </div>
+                                  <div class="mm-slider-cell">
+            <a href="#" style="color: inherit;width: 80%">
+              <img class="lazyload" data-flickity-lazyload="{{ 'vt-electro-mobile.jpg' | file_img_url: '600x' }}" src="{{ 'vt-electro-mobile.jpg' | file_img_url: '600x' }}"/>
+            </a>
+          </div>
+                                  <div class="mm-slider-cell">
+            <a href="#" style="color: inherit;width: 80%">
+              <img class="lazyload" data-flickity-lazyload="{{ 'vt-vitamins-mobile.jpg' | file_img_url: '600x' }}" src="{{ 'vt-vitamins-mobile.jpg' | file_img_url: '600x' }}"/>
+            </a>
+          </div>
+                                  <div class="mm-slider-cell">
+            <a href="#" style="color: inherit;width: 80%">
+              <img class="lazyload" data-flickity-lazyload="{{ 'vt-innovative-mobile.jpg' | file_img_url: '600x' }}" src="{{ 'vt-innovative-mobile.jpg' | file_img_url: '600x' }}"/>
+            </a>
+          </div>
+        </div>
+    
+    
+    
+  </div>
+  <div class="mm-ingredients-section">
+    <div class="mm-ingredient-blocks-wrapper">
+      <div class="mm-ingredient-block">
+        <div class="mm-ingredient-wrapper">
+        	<img alt="Grass Fed and Pasture Raised" src="{{ 'Vitality_Detail_1.png' | file_img_url: '400x' }}"/>
+        </div>
+      </div>
+      <div class="mm-ingredient-block">
+        <div class="mm-ingredient-wrapper">
+        	<img alt="Immune Booster" src="{{ '9muXE6ZU.png' | file_img_url: '400x' }}"/>
+        </div>
+      </div>
+      <div class="mm-ingredient-block">
+        <div class="mm-ingredient-wrapper">
+        	<img alt="Gluten Free" src="{{ 'Vitality_Detail_2.png' | file_img_url: '400x' }}"/>
+        </div>
+      </div>
+            <div class="mm-ingredient-block">
+        <div class="mm-ingredient-wrapper">
+        	<img alt="Contains milk" src="{{ 'Vqoadudg.png' | file_img_url: '400x' }}"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mm-prod-faq">
+          <h5 class="mm-lively-title">FAQS</h5>
+    <h5 class="faq-sub">Have additional questions you don’t see? Feel free to reach out to us at <a href="mailto:info@vitalproteins.com">info@vitalproteins.com</a> or give us a call at 224-544-9110</h5>
+    <div class="vitality-page-container">
+  <div class="vitality-page-accordion">
+
+    <div class="vitality-page-option">
+      <input type="checkbox" id="toggle1" class="vitality-page-toggle" />
+	  <label class="vitality-page-title" for="toggle1">What is Wellmune®*?
+      </label>
+      <div class="vitality-page-content">
+        <p>Wellmune®, a registered trademark of Kerry Group is extracted from the cell wall of a proprietary strain of baker’s yeast. It is a natural ingredient clinically proven to strengthen the immune system.**</p>
+      </div>
+    </div>
+
+    <div class="vitality-page-option">
+      <input type="checkbox" id="toggle2" class="vitality-page-toggle" />
+      <label class="vitality-page-title" for="toggle2">
+        What are Immunobiotics?
+      </label>
+      <div class="vitality-page-content">
+        <p>Immunobiotics promote immune system health through the activation of gut immunity. The specific strain is called Iummuno-LP20®  and it is active within the small intestine, where it passes through the intestinal lumen to stimulate the production of cells that are directly involved in immune defense.**</p>
+      </div>
+    </div>
+
+    <div class="vitality-page-option">
+      <input type="checkbox" id="toggle3" class="vitality-page-toggle" />
+      <label class="vitality-page-title" for="toggle3">
+        How are probiotics different than Immunobiotics?
+      </label>
+      <div class="vitality-page-content">
+        <p>Probiotics are living bacteria that survive the acidic environment of the stomach and land in the small intestine. Immunobiotics are microbial strains that are able to beneficially regulate the immune system of the host.**</p>
+      </div>
+    </div>
+    
+        <div class="vitality-page-option">
+      <input type="checkbox" id="toggle4" class="vitality-page-toggle" />
+      <label class="vitality-page-title" for="toggle4">
+        What is Immuno-LP20®?
+      </label>
+      <div class="vitality-page-content">
+        <p>Immuno-LP20® is a heat-killed strain of Lactobacillus plantarum (L-137), a lactic acid bacteria commonly found in a wide variety of fermented foods. As a live organism, L. plantarum is considered a beneficial probiotic, but its immune-supporting benefits are inhibited by its structure and lack of stability within digestive fluid. Immuno-LP20®  is heat-treated at a precise moment during the growth phase to break down the cell membrane and components, eliminating the inhibitors and stabilizing the product for survival in the gastric fluids. This allows for a powerful stimulating effect on the production of IL-12, an important factor in immune system function.**</p>
+      </div>
+    </div>
+    
+        <div class="vitality-page-option">
+      <input type="checkbox" id="toggle5" class="vitality-page-toggle" />
+      <label class="vitality-page-title" for="toggle5">
+        Is this product dairy-free?
+      </label>
+      <div class="vitality-page-content">
+        <p>No, this product is not dairy-free. The immunobiotic contains trace amounts in the product because it is cultured on skim milk hydrolysate.</p>
+      </div>
+    </div>
+    
+            
+
+  </div>
+</div>
+  </div>
+  <div class="mm-lively-section">
+    <div class="mm-lively-inner">
+      <h5 class="mm-lively-title">Learn More from Lively</h5>
+      <div class="mm-lively-articles-wrapper">
+        {% assign article1 = articles['stay-vital/vitality-immune-booster'] %}
+        <a href="{{ article1.url }}" class="mm-lively-article-container">
+          <div class="mm-lively-article-image-container" style="background-image: url('{{ article1.image | img_url: '800x' }}');"></div>
+          <h6 class="mm-lively-article-title">{{ article1.title }}</h6>
+        </a>
+        {% assign article1 = articles['wellness/electrolytes'] %}
+        <a href="{{ article1.url }}" class="mm-lively-article-container">
+          <div class="mm-lively-article-image-container" style="background-image: url('{{ article1.image | img_url: '800x' }}');"></div>
+          <h6 class="mm-lively-article-title">{{ article1.title }}</h6>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="prod-disclaimer">*A registered trademark of Kerry Group<br/>
+    **These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</div>
+</div>

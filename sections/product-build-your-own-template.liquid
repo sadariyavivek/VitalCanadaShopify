@@ -1,0 +1,347 @@
+<style>
+  .container.larger {
+    max-width: 1600px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .sidebar-byo {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 200px;
+    box-shadow: 0 4px 8px rgba(0,0,0,.2);
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px !important;
+    transition: .15s all;
+  }
+  
+  .sidebar-byo h1 {
+    color: #23b6e6;
+    letter-spacing: 1px !important;
+  }
+  
+  .byo-title {
+    color: #23b6e6;
+    letter-spacing: 1px !important;
+    font-size: 24px;
+  }
+  
+  .sidebar-byo .quantity-added-counter {
+    letter-spacing: 0px !important;
+    margin-top: 20px;
+  }
+  
+  .action_button.add_to_cart.kapra {
+    width: initial;
+  }
+  
+  .add_to_cart.disabled {
+    background-color: gray;
+    border-color: gray;
+  }
+  
+  .product-loop-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .variant-container {
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 10px;
+  }
+  
+  .inner-container {
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px;
+  }
+  
+  .variant-container img {
+    width: 50%;
+  }
+  
+  .variant-container .variant-description {
+    height: 3.2em;
+  }
+  
+  .variant-container h4 {
+    letter-spacing: 1px !important;
+    height: 3.2em;
+    color: #4a4a4a;
+    text-transform: uppercase;
+  }
+  
+  #current-items-list h4 {
+    text-transform: uppercase;
+    letter-spacing: 1px !important;
+    color: #47c1bf;
+  }
+  
+  .remove-button {
+    color: #ff9393;
+    transition: 0.3s all cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: translateY(40px);
+    opacity: 0;
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    font-size: 21px;
+    letter-spacing: 1px;
+    margin-top: 10px;
+  }
+  
+  .remove-button.show {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  
+  .remove-button:hover {
+    cursor: pointer;
+    opacity: .7;
+  }
+  
+  .empty-products-section {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .empty-product {
+    width: 54px;
+    height: 54px;
+    border: 2px dotted rgba(0,0,0,0.2);
+    display: block;
+    border-radius: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    transition: .3s border ease-out;
+  }
+
+  .empty-product.filled {
+    border: 2px solid #47c1bf;
+    background-position: center;
+  }
+
+  .empty-product-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 20%;
+    overflow: hidden;
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .empty-product-text {
+    width: 100%;
+    font-size: 12px;
+    transition: .2s all ease-out;
+    height: auto;
+    height: 60px;
+    line-height: 16px;
+    margin-top: 4px;
+  }
+  
+  .title-mobile-show {
+    display: none;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  @media screen and (max-width: 1300px) {
+    .three.columns.variant-container {
+      width: 33.3%;
+    }
+  }
+  
+  @media screen and (max-width: 1024px) {
+    .container.larger {
+      margin-top: 120px;
+    }
+    
+    .three.columns.variant-container {
+      width: 50%;
+    }
+    
+    .inner-container {
+      padding: 20px 10px;
+    }
+    
+    .title-mobile-show {
+      display: block;
+    }
+    
+    .sidebar-byo {
+        position: sticky;
+      	position: -webkit-sticky;
+    	bottom: 10px;
+    	background-color: white;
+    }
+    
+    .sidebar-byo h1 {
+      display: none;
+    }
+    
+    .sidebar-byo p {
+      display: none;
+    }
+    
+    .empty-products-section {
+      transition: .3s all ease-out;
+      margin-top: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    .empty-product-text {
+      display: none;
+    }
+    
+    #chat-widget-container {
+      display: none;
+    }
+  }
+  
+  @media screen and (max-width: 400px) {
+    .variant-container h4 {
+      line-height: 1.2em;
+    }
+  }
+}
+</style>
+{% assign maxQuantity = 5 %}
+
+{% if product.id == 3729073111100 or product.id == 3729088184380 %} {% comment %}Collagen Water Sampler | Collagen Shot Sampler{% endcomment %}
+	{% assign maxQuantity = 4 %}
+{% endif %}
+
+<a name="pagecontent" id="pagecontent"></a>
+
+<div role="main" class="container larger main content">
+  <div class="product-{{ product.id }}" data-free-text="{{ settings.free_price_text }}">
+    <div class="title-mobile-show"> 
+      <h2 class="byo-title">{{ product.title }} - {{ product.price | times: maxQuantity | money_without_trailing_zeros }}</h2>
+      <p>Choose {{ maxQuantity }} products to create your own sampler pack!</p>
+    </div>
+    <div class="eight columns product-loop-container">
+      {% for variant in product.variants %}
+        {% if variant.available %}
+          	{% assign title = variant.title | split: '-' %}
+            <div class="three columns variant-container animated fadeInUp" style="animation-delay: {{ forloop.index | times: 0.05 }}s">
+              <div class="inner-container">
+                <img src="{{ variant.image | img_url: '200x' }}"/>
+                <h4 style="color: {{ variant.metafields.vital.byo_title_color }};">{{ title | first }}<br>{{ title | last }}</h4>
+                <p class="variant-description">{{ variant.metafields.vital.byo_description }}</p>
+                <a href="#" aria-label="Add {{ variant.title }} to your sampler pack." data-variant-id="{{ variant.id }}" data-title="{{ variant.title }}" data-image="{{ variant.image | img_url: '100x' }}" class="fg-add-to-cart action_button add_to_cart kapra">add</a>
+              </div>
+            </div>
+      	{% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  <div class="four columns sidebar-byo animated fadeInUp">
+   	<h1>{{ product.title }} - {{ product.price | times: maxQuantity | money_without_trailing_zeros }}</h1>
+    <p>Choose {{ maxQuantity }} products to create your own sampler pack!</p>
+    <div class="empty-products-section">
+      {% for i in (1..maxQuantity) %}
+    	<div class="empty-product-container" id="product-circle-{{ forloop.index0 }}">
+          <span class="empty-product"></span>
+          <span class="empty-product-text">Flavor {{ forloop.index }}</span>
+          <a class="remove-button">Remove</a>
+      	</div>
+      {% endfor %}
+  	</div>
+    <a aria-live="assertive" href="#" id="add-to-cart-button" class="action_button add_to_cart kapra disabled" disabled>Add {{ maxQuantity }} more items!</a>
+    <div id="current-items-list"></div>
+  </div>
+</div>
+<script>
+var currentQuantity=0;var quantityMax={{maxQuantity}};var itemsToAdd={};var productCircles=[];var addToCartQueue=[];var groupID=Math.floor(Math.random()*90000)+10000;$('.fg-add-to-cart').click(function(e){e.preventDefault();if(currentQuantity<quantityMax){var imageURL=$(this).data('image');var variantID=$(this).data('variant-id');var title=$(this).data('title');currentQuantity+=1;if(currentQuantity===quantityMax){$('#add-to-cart-button').text('Add to Bag');$('#add-to-cart-button').removeClass('disabled');$('#add-to-cart-button').addClass('enabled')}else{var quantityLeft=quantityMax-currentQuantity;var moreText=' more items!';if(quantityLeft===1){moreText=' more item!'}
+$('#add-to-cart-button').text('Add '+quantityLeft+moreText)}
+productCircles.push({imageURL:imageURL,variantID:variantID,title:title});updateProductCircles();if(itemsToAdd[variantID]!=undefined){itemsToAdd[variantID]+=1}else{itemsToAdd[variantID]=1}}else{alert("You've reached the max amount of items for the sampler. Please remove an item to add a new product.")}});$('.empty-products-section').on('click','.remove-button',function(){var variantID=$(this).data('variant-id');var itemIndex=$(this).data('item-index');itemsToAdd[variantID]-=1;if(itemsToAdd[variantID]===0){delete itemsToAdd[variantID]}
+currentQuantity-=1;$('#add-to-cart-button').removeClass('enabled');$('#add-to-cart-button').addClass('disabled');$('#add-to-cart-button').text('Add '+(quantityMax-currentQuantity)+' more items!');productCircles.splice(itemIndex,1);updateProductCircles()});function updateProductCircles(){for(var i=0;i<quantityMax;i++){var imageURL="none";var title="Flavor "+(i+1);var variantID="";if(productCircles[i]!=undefined){variantID=productCircles[i].variantID;imageURL="url("+productCircles[i].imageURL+")";title=productCircles[i].title}
+$('#product-circle-'+i+' .empty-product').css("background-image",imageURL);if(imageURL!=="none"){$('#product-circle-'+i+' .empty-product').addClass('filled');$('#product-circle-'+i+' .remove-button').addClass('show');$('#product-circle-'+i+' .remove-button').attr('href','#');$('#product-circle-'+i+' .remove-button').attr('aria-label',"Remove "+title)}else{$('#product-circle-'+i+' .empty-product').removeClass('filled');$('#product-circle-'+i+' .remove-button').removeClass('show');$('#product-circle-'+i+' .remove-button').removeAttr('href')}
+$('#product-circle-'+i+' .empty-product-text').text(title);$('#product-circle-'+i+' .remove-button').data("variant-id",variantID);$('#product-circle-'+i+' .remove-button').data("item-index",i)}}
+$('#add-to-cart-button').click(function(){if($('#add-to-cart-button').hasClass('enabled')){addToCartQueue=[];for(var variant in itemsToAdd){var newRequest={variantID:variant,quantity:itemsToAdd[variant]}
+addToCartQueue.push(newRequest)}
+moveAlong()}});var moveAlong=function(){if(addToCartQueue.length){var request=addToCartQueue.shift();addItem(request.variantID,request.quantity,moveAlong)}else{document.location.href='/cart'}}
+var addItem=function(variantID,quantity,moveAlong){$.ajax({url:'/cart/add.js',method:'POST',dataType:'json',data:{quantity:quantity,id:variantID,properties:{bundle_cart_id:groupID}}}).then(function(){moveAlong()}).catch(function(error){alert("Something went wrong. Please reload the page and try again")})}
+</script>
+
+{% schema %}
+  {
+    "name": "BYO Product Section",
+    "settings": []
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+
+
+<style>
+  
+  .action_button.add_to_cart.kapra {
+    min-width: 100%;
+}
+
+.byo-title {
+    color: #23b6e6;
+    letter-spacing: 1px !important;
+    font-size: 42px;
+    line-height: 1em;
+    text-transform: capitalize;
+}
+
+.sidebar-byo h1 {
+    text-transform: capitalize;
+}
+
+.variant-container h4 {
+    height: auto;
+    line-height: 1em;
+}
+
+.variant-container .variant-description {
+    text-transform: capitalize;
+	line-height: 1.3em;
+}
+
+.inner-container {
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 1px solid #ececec;
+}
+
+.sidebar-byo {
+    border-radius: 4px;
+    border: 1px solid #ececec;
+}
+  
+  .action_button.add_to_cart.kapra {
+    border-radius: 4px;
+}
+
+@media screen and (max-width: 1024px) {
+.container.larger {
+    margin-top: -10px;
+    padding-top: 0px;
+}
+}
+
+@media screen and (max-width: 399px) {
+.variant-container h4 {
+    line-height: 1.2em;
+    height: 3.5em;
+}
+}
+  
+</style>

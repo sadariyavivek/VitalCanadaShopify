@@ -1,0 +1,1335 @@
+<style>
+  .main_nav, .dropdown {
+    background-color: {{ section.settings.nav_bar_color }};
+  }
+  
+  .container.main.content {
+    height: 0;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .mobile_nav-fixed--true .top_bar {
+    background-color: {{ section.settings.nav_bar_color }};
+  }
+  
+  .feed-what-moves-you-container h2 {
+    text-align: center;
+  }
+  
+  .feed-what-moves-you-container .section-container {
+    margin-bottom: 20px;
+  }
+  
+  .feed-what-moves-you-container .section-container::before {
+    content: "";
+    display: block;
+    height: 160px; /* fixed header height*/
+    margin: -160px 0 0; /* negative fixed header height */
+  }
+  
+  .banner-image {
+    padding-bottom: 0;
+    display: block;
+    width: 100%;
+  }
+  
+  .banner-image.desktop-only {
+    display: block; 
+  }
+    
+  .banner-image.mobile-only {
+    display: none;
+  }
+  
+  .featured-video-container {
+    padding-top: 0 !important;
+    position: relative;
+    padding-bottom: 35.7%;
+    height: 0;
+  }
+  
+  .featured-video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .deal-info-text-container {
+    background-color: #23b6e6;
+    /*background-image: url({{ section.settings.deal_info_background | img_url:'1600x' }});*/
+    padding: 20px;
+  }
+  
+  .deal-info-text-container p {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 0;
+  }
+  
+  .main-product-loop-container {
+    text-align: center;
+    margin-top: 20px !important;
+  }
+  
+  .main-product-loop-container h2 {
+    letter-spacing: 0;
+    font-size: 72px;
+    text-transform: none;
+    color: #23b6e6;
+    margin: 0;
+  }
+  
+  .cw-product-container {
+    width: 33%;
+    display: inline-block;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  
+  .cw-product-container .new-badge {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    background-color: #f59574;
+    color: white;
+    border-radius: 100%;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+  }
+  
+  .cw-product-container img {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .cw-product-container p {
+    font-family: 'kapraregular';
+    font-size: 24px;
+    margin-bottom: 0;
+    
+  }
+  
+  .cw-product-container .product-cta {
+    display: block;
+    margin-top: 20px;
+    max-width: 240px;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 28px;
+    background-color: #23b6e6;
+    border-radius: 10px;
+    padding: 8px 20px;
+    border: 2px solid #23b6e6;
+    transition: .25s all ease-out;
+    height: initial;
+    min-height: initial;
+  }
+  
+  .cw-product-container .product-cta:hover {
+    transform: scale(1.02);
+    color: #23b6e6;
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0,0,0,.2);
+    cursor: pointer;
+  }
+  
+  .cw-product-container .product-cta.disable-button {
+    pointer-events: none;
+   	cursor: default;
+    background-color: gray;
+    border-color: gray;
+  }
+  
+  .collagen-101-section {
+    background-color: #23b6e6;
+    text-align: center;
+    padding: 40px
+  }
+  
+  .collagen-101-section h2 {
+    text-transform: uppercase;
+    color: white;
+    font-size: 96px;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 60px;
+  }
+  
+  .collagen-101-section h4 {
+    text-transform: uppercase;
+    color: #79dffc;
+    font-size: 28px;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+  
+  .collagen-101-section .facts-container {
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 80%;
+    margin: 0px auto;
+    flex: 3;
+  }
+  
+  .collagen-101-section .facts-container .fact-container {
+    flex: 1;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  
+  .collagen-101-section .facts-container .fact-container img {
+    width: auto;
+    height: 120px;
+  }
+  
+  .collagen-101-section .facts-container .fact-container p {
+    font-family: 'kapraregular';
+    color: #79dffc;
+    font-size: 24px;
+  }
+  
+  .collagen-101-section .facts-container .fact-container:not(:last-child) {
+    border-right: 2px solid #79dffc;
+  }
+  
+  .product-banner-container {
+   	position: relative;
+    overflow: hidden;
+  }
+  
+  .product-banner-container .product-banner-content {
+    position: absolute;
+    width: 48%;
+    height: 100%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10%;
+  }
+  
+  .product-banner-container .product-background-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transition: 1.75s all ease-in-out;
+  }
+  
+  .product-banner-content .text-container {
+    margin-bottom: 20px;
+  }
+  
+  .product-banner-content h4 {
+    color: white;
+    text-transform: uppercase;
+    text-align: left;
+    margin: auto;
+    display: inline-block;
+    font-size: 36px;
+  }
+  
+  .product-banner-content h4:after {
+    content: '';
+    background: white;
+    width: 100%;
+    height: 2px;
+    display: block;
+  }
+  
+  .product-banner-content p {
+    color: white;
+    font-size: 24px;
+  }
+  
+  .product-banner-content .fruit-math-container {
+    align-self: center;
+  }
+  
+  .product-banner-content .fruit-math {
+    max-width: 300px;
+    transition: .25s all cubic-bezier(.75,-1.0,0.1,3.0);
+  }
+  
+  .product-banner-content .product-banner-button {
+    color: white;
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 28px;
+    background-color: #23b6e6;
+    border-radius: 10px;
+    padding: 8px 20px;
+    transition: .25s all;
+  }
+  
+  .product-banner-content .product-banner-button:hover {
+    background-color: white !important;
+  }
+  
+  .product-banner-content .product-banner-button.color-1549840125134 {
+    border: 2px solid #d00101;
+  }
+  
+  .product-banner-content .product-banner-button.color-1549840125134:hover {
+    color: #d00101;
+  }
+  
+  .product-banner-content .product-banner-button.color-1549840132873 {
+    border: 2px solid #23b6e6;
+  }
+  
+  .product-banner-content .product-banner-button.color-1549840132873:hover {
+  	color: #23b6e6; 
+  }
+  
+  .product-banner-content .product-banner-button.color-1549840134882 {
+    border: 2px solid #0158b9;
+  }
+  
+  .product-banner-content .product-banner-button.color-1549840134882:hover {
+    color: #0158b9;
+  }
+  
+  .product-banner-content .product-banner-button.disable-button {
+    pointer-events: none;
+   	cursor: default;
+    background-color: gray;
+    border-color: gray;
+    color: white;
+  }
+  
+  .product-banner-container:hover .product-background-img {
+    transform: scale(1.05);
+  }
+  
+  .product-banner-container:hover .fruit-math.left-side {
+    transform: rotate(8deg) translateY(-8px);
+  }
+  
+  .product-banner-container:hover .fruit-math.right-side {
+    transform: rotate(-8deg) translateY(-8px);
+  }
+  
+  .bronto-sign-up-rtd {
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .bronto-intro-text {
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'kapraregular';
+    letter-spacing: 0;
+    font-size: 28px;
+    color: #23b6e6;
+  }
+  
+  .bronto-sign-up-rtd form {
+    margin-bottom: 0;
+  }
+  
+  .bronto-sign-up-rtd .bronto-email-section {
+    width: 50%;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  
+  .bronto-sign-up-rtd #email-input {
+    border: 2px solid #dfe3e8;
+    border-radius: 10px;
+  }
+  
+  .bronto-sign-up-rtd #subscribe-input {
+    border-radius: 10px;
+    font-family: 'kapraregular';
+    font-size: 24px;
+    border: 2px solid #23b6e6;
+    transition: .2s all ease-in-out;
+    text-transform: uppercase;
+    background-color: #23b6e6;
+  }
+  
+  .bronto-sign-up-rtd #subscribe-input:hover {
+    color: #23b6e6;
+    background: white;
+    border: 2px solid #23b6e6;
+  }
+  
+  .footer-gif-container img {
+    width: 100%;
+    display: block;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .lifestyle-images-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .lifestyle-images-container img {
+    width: 100%;
+  }
+  
+  .social-tags-container {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  
+  .social-tags-container a {
+    font-family: 'kapraregular';
+    color: #23b6e6;
+    font-size: 48px;
+  }
+  
+  .disclaimer-container {
+    text-align: center;
+    padding: 20px;
+    
+  }
+  
+  .disclaimer-container p {
+    font-size: 12px;
+    font-style: italic;
+  }
+  
+  .rtd-slider {
+    margin-bottom: 40px;
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .rtd-slider-cell {
+    width: 100%;
+  }
+  
+  .rtd-slider.original .flickity-page-dots .dot {
+    background: #23b6e6;
+  }
+  
+  .rtd-slider.strawberry .flickity-page-dots .dot {
+    background: red;
+  }
+  
+  .rtd-slider.blueberry .flickity-page-dots .dot {
+    background: indigo;
+  }
+  
+  .rtd-slider.blackberry .flickity-page-dots .dot {
+    background: purple;
+  }
+  
+  .rtd-slider.lemon .flickity-page-dots .dot {
+    background: gold;
+  }
+  
+  .rtd-slider.peach .flickity-page-dots .dot {
+    background: #f59574;
+  }
+  
+  .rtd-slider .flickity-prev-next-button {
+    top: 50%;
+    height: 20px;
+    border-radius: 10px;
+  }
+  
+  .flickity-prev-next-button.next {
+    right: -60px;
+  }
+  
+  .flickity-prev-next-button.previous {
+    left: -60px;
+  }
+  
+  .gradient-section-container {
+    background: white;
+  }
+  
+  .blue-block-section {
+    background-color: #3c53a3;
+    margin-bottom: 0px;
+  }
+  
+  .video-color-block-section {
+    background-color: #a553a0;
+  }
+  
+  .intro-text-gif-container {
+    text-align: center;
+    color: #23b6e6;
+    background-color: white;
+    font-family: 'avenir;
+    font-weight: bold;
+  }
+  
+  .intro-text-gif-container .font-larger {
+    font-size: 36px;
+    line-height: 42px;
+    font-family: 'avenir';
+    font-weight: bold;
+    padding: 20px;
+    margin-bottom: 0;
+    padding-bottom: 10px;
+  }
+  
+  .intro-text-gif-container span {
+    animation: color-change 6s step-end infinite;
+  }
+  
+  @keyframes color-change {
+    0% { color: #06DCF8; }
+    20%   { color: #C34DCA; }
+    40% { color: #0165B6; }
+    60% { color: #F08B94; }
+    80% { color: #F5D420; }
+    100% { color: #06DCF8; }
+  }
+  
+  .intro-text-container {
+    text-align: center;
+    color: white;
+    padding-top: 40px !important;
+  }
+  
+  .intro-text-container .font-larger {
+    font-size: 36px;
+    line-height: 42px;
+    font-weight: bold;
+  }
+  
+  .intro-text-container .font-italics {
+    font-style: italic;
+    font-size: 18px;
+  }
+  
+  .intro-text-container .yellow {
+    color: gold;
+    font-weight: bold;
+    font-family: 'avenir';
+  }
+  
+  .fact-circle-master-container {
+    display: flex;
+    flex-direction: row;
+    flex: 3;
+  }
+  
+  .fact-circle-container {
+    text-align: center;
+    flex: 1;
+  }
+  
+  .fact-circle-container img {
+    height: 240px;
+  }
+  
+  .fact-circle-container p {
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    margin-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .custom-select {
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    margin-top: 15px;
+  }
+  
+  .custom-select select {
+    font-family: 'kapraregular';
+    font-size: 21px;
+    color: #23b6e6;
+    border-radius: 10px;
+    border-color: #23b6e6;
+  }
+  
+  .placeholder-lifestyle-image {
+    background-image: url({{ 'Uncap_Side_image_replace_pink__Side_Image.jpg' | file_img_url: '800x' }});
+    background-position: 45%;
+    background-size: cover;
+    min-height: 500px;
+    vertical-align: top;
+    border-radius: 20px;
+    width: 28%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 20px;
+    position: relative;
+  }
+  
+  .placeholder-lifestyle-image h4 {
+    color: white;
+    position: absolute;
+    right: 20px;
+    letter-spacing: 0px!important;
+    font-size: 36px;
+    vertical-align: top;
+    line-height: 42px;
+  }
+  
+  .video-section-container {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  
+  .video-section-container .mediaWrapper {
+    height: 100%;
+  }
+  
+  .video-description-container {
+    flex: 0.5;
+    text-align: center;
+    padding: 20px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  
+  .video-description-container h4 {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: 0 !important;
+    font-size: 48px;
+    color: #ef8fed;
+    margin-bottom: 0
+  }
+  
+  .video-description-container p {
+    width: 80%;
+    color: white;
+    font-weight: bold;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-family: 'avenir';
+  }
+  
+  .video-iframe-container {
+    flex: 0.5;
+    text-align: center;
+    
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  
+  .video-section-container {
+    padding: 20px;
+  }
+  
+  .video-fact-image-container {
+    display: inline-block;
+    width: 32%;
+  }
+  
+  .video-fact-image-container:not(:last-child) {
+    border-right: 1px solid white;
+  }
+  
+  .video-fact-image-container img {
+    width: 80%;
+  }
+  
+  .pwt-promo-banner {
+    width: 100%;
+    display: block;
+  }
+  
+  .cw-product-container a {
+    display: block;
+    margin-top: 20px;
+    max-width: 240px;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 28px;
+    background-color: #23b6e6;
+    border-radius: 10px;
+    padding: 8px 20px;
+    border: 2px solid #23b6e6;
+    transition: .25s all ease-out;
+  }
+  
+  .cw-product-container a:hover {
+    transform: scale(1.04);
+    color: #23b6e6;
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0,0,0,.2);
+  }
+  
+  @media only screen and (max-width: 1200px) {
+    .collagen-101-section .facts-container .fact-container img {
+      height: 90px;
+      width: auto;
+    }
+    
+    .social-tags-container {
+      width: 80%;
+    }
+    
+    .social-tags-container a {
+      font-size: 24px;
+    }
+  }
+  @media only screen and (max-width: 800px) {
+    .intro-text-gif-container .font-larger {
+      font-size: 21px;
+      line-height: 28px;
+      font-family: 'avenir';
+    }
+    
+    .banner-image.mobile-only {
+     display: block; 
+    }
+    
+    .banner-image.desktop-only {
+      display: none;
+    }
+    
+    .deal-info-text-container p {
+      font-size: 18px;
+    }
+    
+    .cw-product-container {
+      width: 80%;
+    }
+    
+    .influencer-slider-container {
+      flex-direction: column;
+    }
+    
+    
+    .video-text-container p {
+      font-size: 18px;
+    }
+    
+    .main-product-loop-container h2 {
+      font-size: 36px;
+    }
+    
+    .feed-what-moves-you-container {
+      margin-top: 0px;
+    }
+    
+    .facts-container {
+      flex-direction: column;
+    }
+    
+    .collagen-101-section h2 {
+      font-size: 48px;
+    }
+    
+    .collagen-101-section .facts-container {
+      width: 100%;
+    }
+    
+    .collagen-101-section .facts-container .fact-container:not(:last-child) {
+      border: none;
+    }
+    
+    .collagen-101-section .facts-container .fact-container .fact-image-container {
+      height: initial;
+    }
+    
+    .collagen-101-section .facts-container .fact-container p {
+      height: initial;
+    }
+    
+    .collagen-101-section .facts-container .fact-container img {
+      height: initial;
+      width: 75%;
+    }
+    
+    .product-banner-container .product-banner-content {
+      width: 60%;
+      padding: 5%;
+    }
+    
+    .product-banner-content .fruit-math-container {
+      display: none;
+    }
+    
+    .product-banner-content p {
+      display: none;
+    }
+    
+    .product-banner-content h4 {
+      font-size: 18px;
+      letter-spacing: 0 !important;
+    }
+    
+    .product-banner-content .product-banner-button {
+      font-size: 18px;
+    }
+    
+    .lifestyle-images-container {
+      flex-direction: column;
+    }
+    
+    .lifestyle-image {
+      display: flex;
+    }
+    
+    .lifestyle-image img {
+      height: 100%;
+    }
+    
+    .bronto-sign-up-rtd {
+   		width: 100%; 
+    }
+    
+    .bronto-sign-up-rtd .bronto-email-section {
+      width: 100%;
+  	  display: block;
+    }
+    
+    .flickity-prev-next-button {
+      bottom: 0;
+    }
+    
+    .placeholder-lifestyle-image { 
+      display: none;
+    }
+    
+    .video-section-container {
+      flex-direction: column-reverse;
+    }
+    
+    .video-description-container {
+      padding: 10px;
+    }
+    
+    .video-iframe-container {
+        height: 200px;
+    	width: 100%;
+    }
+    
+    .fact-circle-master-container {
+      flex-direction: column;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    
+    .fact-circle-master-container img {
+      height: 120px;
+    }
+  }
+</style>
+<a name="pagecontent" id="pagecontent"></a>
+
+<div role="banner" class="feed-what-moves-you-container">
+  
+  
+  <img class="banner-image desktop-only" src="{{ section.settings.top_banner_image | img_url: 'master' }}"/>
+  <img class="banner-image lazyload mobile-only" src="{{ section.settings.top_banner_image_mobile | img_url: 'master' }}"/>
+  
+</div>
+<div role="main" class="gradient-section-container">
+<div class="intro-text-gif-container">
+    <p class="font-larger">Try a 4-Pack of our Collagen Water&trade; on us, <br/>just pay $5.95 for shipping &amp; handling (+tax)*!</p>
+  <i>*Additional fees may apply for orders outside the contiguous U.S.</i>
+  </div>
+
+  {% assign collection = collections['collagen-water'] %}
+  {% assign products = collection.products %}
+  
+  <div class="container main-product-loop-container section-container">
+   
+    <div class="cw-product-list-container">
+       
+      <div class="cw-product-container">
+        <div class="rtd-slider original">
+          <div class="rtd-slider-cell">
+              <img data-flickity-lazyload="https://cdn.shopify.com/s/files/1/2074/9385/products/RTDs_StraightBottle-4pack_54b6bc39-f8ae-4fc2-8508-ebf1cf05bc7c_600x.png?v=1578004098"/>
+          </div>
+          <div class="rtd-slider-cell">
+              <img data-flickity-lazyload="https://cdn.shopify.com/s/files/1/2074/9385/products/OR_nutritionfacts_600x.png?v=1578004098"/>
+          </div class="rtd-slider-cell">
+          <div class="rtd-slider-cell">
+              <img data-flickity-lazyload="https://cdn.shopify.com/s/files/1/2074/9385/products/Fruit_Math_Infographics_Straight_Bottles_Original_600x.jpg?v=1578004098"/>
+          </div>
+        </div>
+        <p>4-pack</p>
+        <p>Collagen Water&trade; Lemon Slice</p>
+        {% if section.settings.disable_original == true %}
+          <a href="#" class="disable-button">SOLD OUT</a>
+        {% else %}
+          <a href="https://vital-proteins.myshopify.com/cart/31847358595132:1?channel=buy_button">CHECKOUT NOW</a>
+        {% endif %}
+      </div>
+      <div class="cw-product-container">
+        <div class="rtd-slider original">
+          <div class="rtd-slider-cell">
+              <img data-flickity-lazyload="https://cdn.shopify.com/s/files/1/2074/9385/products/RTDs_StraightBottle-4pack_600x.png?v=1578003621"/>
+          </div>
+          <div class="rtd-slider-cell">
+              <img data-flickity-lazyload="https://cdn.shopify.com/s/files/1/2074/9385/products/BH_nutritionfacts_600x.png?v=1578003621"/>
+          </div class="rtd-slider-cell">
+          <div class="rtd-slider-cell">
+              <img data-flickity-lazyload="https://cdn.shopify.com/s/files/1/2074/9385/products/Fruit_Math_Infographics_Straight_Bottles_Blackberry_Hibiscus_600x.jpg?v=1578003621"/>
+          </div>
+        </div>
+        <p>4-pack</p>
+        <p>Collagen Water&trade; Blackberry Hibiscus</p>
+        {% if section.settings.disable_original == true %}
+          <a href="#" class="disable-button">SOLD OUT</a>
+        {% else %}
+          <a href="https://vital-proteins.myshopify.com/cart/31847358562364:1?channel=buy_button">CHECKOUT NOW</a>
+        {% endif %}
+      </div>
+      <div class="cw-product-container">
+        <div class="rtd-slider original">
+          <div class="rtd-slider-cell">
+              <img data-flickity-lazyload="https://cdn.shopify.com/s/files/1/2074/9385/products/RTDs_StraightBottle-4pack_802b4787-ea23-4e81-802f-c74e4386cd16_600x.png?v=1578004412"/>
+          </div>
+          <div class="rtd-slider-cell">
+              <img data-flickity-lazyload="https://cdn.shopify.com/s/files/1/2074/9385/products/SL_nutritionfacts_600x.png?v=1578004412"/>
+          </div class="rtd-slider-cell">
+          <div class="rtd-slider-cell">
+              <img data-flickity-lazyload="https://cdn.shopify.com/s/files/1/2074/9385/products/Fruit_Math_Infographics_Straight_Bottles_Strawberry_Lemon_88cc875b-ebe4-4d31-81f7-c5350426ed2d_600x.jpg?v=1578004412"/>
+          </div>
+        </div>
+        <p>4-pack</p>
+        <p>Collagen Water&trade; Strawberry Lemon</p>
+        {% if section.settings.disable_original == true %}
+          <a href="#" class="disable-button">SOLD OUT</a>
+        {% else %}
+          <a href="https://vital-proteins.myshopify.com/cart/31847358627900:1?channel=buy_button">CHECKOUT NOW</a>
+        {% endif %}
+      </div>
+      <div class="cw-product-container">
+        <div class="rtd-slider original">
+          <div class="rtd-slider-cell">
+              <img data-flickity-lazyload="https://cdn.shopify.com/s/files/1/2074/9385/products/PWT_Category_Page_Asset_Launch-02.png?v=1576681470"/>
+          </div>
+          <div class="rtd-slider-cell">
+              <img data-flickity-lazyload="https://cdn.shopify.com/s/files/1/2074/9385/products/SuppFacts_1365x2048_PWT_600x.jpg?v=1569423125"/>
+          </div class="rtd-slider-cell">
+          <div class="rtd-slider-cell">
+              <img data-flickity-lazyload="https://cdn.shopify.com/s/files/1/2074/9385/products/PWT_lifestyle_600x.jpg?v=1569423117"/>
+          </div>
+        </div>
+        <p>4-pack</p>
+        <p>Collagen Water&trade; Peach White Tea</p>
+        {% if section.settings.disable_original == true %}
+          <a href="#" class="disable-button">SOLD OUT</a>
+        {% else %}
+          <a href="https://vital-proteins.myshopify.com/cart/31847358660668:1?channel=buy_button">CHECKOUT NOW</a>
+        {% endif %}
+      </div>
+      <div class="cw-product-container">
+        <div class="rtd-slider original">
+          <div class="rtd-slider-cell">
+              <img data-flickity-lazyload="https://cdn.shopify.com/s/files/1/2074/9385/products/RTDs_StraightBottle-4pack_b8abc834-a65e-4a6e-b7e1-283968664b84_600x.png?v=1578003542"/>
+          </div>
+          <div class="rtd-slider-cell">
+              <img data-flickity-lazyload="https://cdn.shopify.com/s/files/1/2074/9385/products/BM_nutritionfacts_600x.png?v=1578003542"/>
+          </div class="rtd-slider-cell">
+          <div class="rtd-slider-cell">
+              <img data-flickity-lazyload="https://cdn.shopify.com/s/files/1/2074/9385/products/Fruit_Math_Infographics_Straight_Bottles_Blueberry_Mint_600x.jpg?v=1578003542"/>
+          </div>
+        </div>
+        <p>4-pack</p>
+        <p>Collagen Water&trade; Blueberry Mint</p>
+        {% if section.settings.disable_original == true %}
+          <a href="#" class="disable-button">SOLD OUT</a>
+        {% else %}
+          <a href="https://vital-proteins.myshopify.com/cart/31847358693436:1?channel=buy_button">CHECKOUT NOW</a>
+        {% endif %}
+      </div>
+      <div class="cw-product-container">
+        <div class="rtd-slider original">
+          <div class="rtd-slider-cell">
+              <img data-flickity-lazyload="https://cdn.shopify.com/s/files/1/2074/9385/products/RTDs_StraightBottle-4pack_ac60b16f-41c2-4c27-9210-c1c8a4b9ce1f_600x.png?v=1578003660"/>
+          </div>
+          <div class="rtd-slider-cell">
+              <img data-flickity-lazyload="https://cdn.shopify.com/s/files/1/2074/9385/products/LG_nutritionfacts_600x.png?v=1578003660"/>
+          </div class="rtd-slider-cell">
+          <div class="rtd-slider-cell">
+              <img data-flickity-lazyload="https://cdn.shopify.com/s/files/1/2074/9385/products/Fruit_Math_Infographics_Straight_Bottles_Lemon_Ginger_600x.jpg?v=1578003660"/>
+          </div>
+        </div>
+        <p>4-pack</p>
+        <p>Collagen Water&trade; Lemon Ginger</p>
+        {% if section.settings.disable_original == true %}
+          <a href="#" class="disable-button">SOLD OUT</a>
+        {% else %}
+          <a href="https://vital-proteins.myshopify.com/cart/31847358726204:1?channel=buy_button">CHECKOUT NOW</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="blue-block-section">
+    <div class="fact-circle-master-container container" style="padding-top: 40px;">
+      <div class="fact-circle-container">
+        <img src="{{ section.settings.circle_fact_image_1 | img_url: '600x' }}"/>
+        <p>Our bovine collagen infused drinks help to support healthy hair, skin, nails, bones and joints.**</p>
+      </div>
+      <div class="fact-circle-container">
+        <img src="{{ section.settings.circle_fact_image_2 | img_url: '600x' }}"/>
+        <p>No Added Sugars.</p>
+      </div>
+      <div class="fact-circle-container">
+        <img src="{{ section.settings.circle_fact_image_3 | img_url: '600x' }}"/>
+        <p>Uncap your potential with grab and go collagen. Gluten &amp; Dairy Free.</p>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<div>
+  {% for block in section.blocks %}
+  	<div class="product-banner-container" style="padding-top: calc(100vw / {{ block.settings.product_background_image.aspect_ratio}});">
+      <img class="product-background-img" src="{{ block.settings.product_background_image | img_url: '2000x' }}"/>
+      <div class="product-banner-content" style="{% if block.settings.left_align == false %}right: 0; text-align: right; {% else %} left: 0; {% endif %}">
+        <div class="text-container">
+          	<div>
+              	<div class="fruit-math-container">
+                    <img class="fruit-math {% if block.settings.left_align == false %} right-side {% else %} left-side {% endif %} lazyload" src="{{ block.settings.product_fruit_math | img_url: '300x' }}"/>
+                </div>
+          		<h4 class="product-tagline" style="{% if block.settings.left_align == false %} text-align: right; {% endif %}">{{ block.settings.header_tagline }}</h4>
+          	</div>
+          	<p class="product-banner-body-text">{{ block.settings.product_body }}</p>
+        </div>
+        <div>
+          	{% if block.id == '1549840125134' and section.settings.disable_strawberry == true %}
+          		<a href="#" class="product-banner-button disable-button">SOLD OUT</a>
+          	{% elsif block.id == '1549840132873' and section.settings.disable_original == true %}
+          		<a href="#" class="product-banner-button disable-button">SOLD OUT</a>
+          	{% elsif block.id == '1549840134882' and section.settings.disable_blueberry == true %}
+          		<a href="#" class="product-banner-button disable-button">SOLD OUT</a>
+          	{% else %}
+        		<a class="product-banner-button color-{{ block.id }}" style="background-color: {{ block.settings.product_buy_button_color }};" href="{{ block.settings.product_buy_button_permalink }}">{{ block.settings.product_buy_button_text }}</a>
+        	{% endif %}
+        </div>
+      </div>
+  	</div>
+  {% endfor %}
+</div>
+
+<div role="banner" class="lifestyle-images-container">
+  <div class="lifestyle-image">
+  	<img class="lazyload" src="{{ section.settings.lifestyle_image_1 | img_url: '1400x' }}"/>
+  </div>
+  <div class="lifestyle-image">
+    <img class="lazyload"src="{{ section.settings.lifestyle_image_2 | img_url: '1400x' }}"/>
+  </div>
+  <div class="lifestyle-image">
+    <img class="lazyload" src="{{ section.settings.lifestyle_image_3 | img_url: '1400x' }}"/>
+  </div>
+</div>
+
+<div role="banner" class=" container footer-gif-container">
+  <img class="lazyload" src="{{ section.settings.gif_image | img_url: '2400x' }}"/>
+</div>
+
+<div class="social-tags-container">
+  <div>
+    <a aria-label="Navigate to Instagram for hashtag Upcap-Your-Potential" href="{{ section.settings.hashtag_1_url }}">#uncapyourpotential</a>
+  </div>
+</div>
+
+<i style="font-size: 12px; text-align: center; padding: 20px; display: block; line-height: 16px;" >*Offer valid while supplies last. Offer valid for US customers only. Offer may not be used in combination with any other offer and/or any other purchase on vitalproteins.com. Offer not valid during certain promotional periods, and is for one-time use. Offer may not be used in combination with third party loyalty, reward, or cash-back programs. Offer only valid on (6) six products: Collagen Water™ Flavors “Lemon Slice,” “Strawberry Lemon,” “Blueberry Mint,” “Peach White Tea,” “Blackberry Hibiscus,” and “Lemon Ginger”.  Offer may not be paid with a Vital Proteins eGift Card. Offer may not be completed with items noted as ineligible (all other Vital Proteins products), or items that are not in stock at the time of purchase. Offer cannot be applied to previously placed or pending orders. Offer applied to authorized purchases only. Only authorized orders will be processed and shipped. We reserve the right to cancel any order due to unauthorized, altered, or ineligible use of offer and to modify or cancel this promotion due to system error or unforeseen problems. All sales are final and cannot be exchanged or returned. Other restrictions may apply.</i>
+<script>
+  
+    
+    /* RTD Official */
+$(document).ready(function() {
+    $('.rtd-slider.original').flickity({
+      // options
+      contain: true,
+      lazyLoad: 1
+    });
+});
+  
+  
+  
+</script>
+
+{% schema %}
+  {
+    "name": "Ready to Drink Promo 2020",
+    "class": "rtd-promo-2020",
+    "settings": [
+		{
+          "type": "color",
+          "id": "nav_bar_color",
+          "label": "Nav Bar Background Color",
+          "default": "#3befe2"
+      	},
+        {
+          "type": "image_picker",
+          "id": "top_banner_image",
+          "label": "Top Banner Image"
+        },
+		{
+          "type": "image_picker",
+          "id": "top_banner_image_mobile",
+          "label": "Top Banner Image (Mobile)"
+        },
+        {
+          "type": "text",
+          "id": "video_url",
+          "label": "YouTube or Vimeo video URL",
+		  "default": "https://www.youtube.com/embed/_9VUPq3SxOc"
+        },
+        {
+          "type": "textarea",
+          "id": "video_text",
+          "label": "Text Below Video",
+          "default": "Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale. Celery potato scallion desert raisin horseradish spinach carrot soko. Lotus root water spinach fennel kombu maize bamboo shoot green bean swiss chard seakale pumpkin onion chickpea gram corn pea. Brussels sprout coriander water chestnut gourd swiss chard wakame kohlrabi beetroot carrot watercress. Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke."
+        },
+		{
+          "type": "image_picker",
+          "id": "deal_info_background",
+          "label": "Deal Info Background Image"
+        },
+		{
+          "type": "image_picker",
+          "id": "circle_fact_image_1",
+          "label": "Circle Fact Image 1"
+        },
+		{
+          "type": "image_picker",
+          "id": "circle_fact_image_2",
+          "label": "Circle Fact Image 2"
+        },
+		{
+          "type": "image_picker",
+          "id": "circle_fact_image_3",
+          "label": "Circle Fact Image 3"
+        },
+        {
+          "type": "text",
+          "id": "main_product_header",
+          "label": "Main Product Collection Header",
+          "default": "Product Heading"
+        },
+		{
+          "type": "collection",
+          "id": "main_product_collection",
+          "label": "Main Product Collection"
+        },
+		{
+          "type": "checkbox",
+          "id": "disable_original",
+          "label": "Disable Original Flavor",
+          "default": false
+        },
+		{
+          "type": "checkbox",
+          "id": "disable_strawberry",
+          "label": "Disable Strawberry Lemon Flavor",
+          "default": false
+        },
+		{
+          "type": "checkbox",
+          "id": "disable_blueberry",
+          "label": "Disable Blueberry Mint Flavor",
+          "default": false
+        },
+		{
+          "type": "image_picker",
+          "id": "middle_promo_banner",
+          "label": "Middle Promo Banner"
+        },
+		{
+          "type": "url",
+          "id": "middle_promo_banner_link",
+          "label": "Middle Promo Banner URL"
+        },
+		{
+          "type": "image_picker",
+          "id": "video_fact_image_1",
+          "label": "Video Fact Image 1"
+        },
+		{
+          "type": "image_picker",
+          "id": "video_fact_image_2",
+          "label": "Video Fact Image 2"
+        },
+		{
+          "type": "image_picker",
+          "id": "video_fact_image_3",
+          "label": "Video Fact Image 3"
+        },
+		{
+          "type": "image_picker",
+          "id": "fact_image_1",
+          "label": "Fact Image 1"
+        },
+		{
+          "type": "image_picker",
+          "id": "fact_image_2",
+          "label": "Fact Image 2"
+        },
+		{
+          "type": "image_picker",
+          "id": "fact_image_3",
+          "label": "Fact Image 3"
+        },
+		{
+          "type": "image_picker",
+          "id": "middle_banner_image",
+          "label": "Middle Banner Image"
+        },
+		{
+          "type": "color",
+          "id": "influencer_video_background_color",
+          "label": "Influencer Video Section Background Color",
+          "default": "#23b6e6"
+      	},
+        {
+          "type": "textarea",
+          "id": "influencer_intro_text",
+          "label": "Influencer Section Intro Text",
+		  "default": "Get inspired by our favorite fitness gurus to push yourself further, make yourself stronger, and test the limits of your performance - no matter where your fitness journey takes you."
+        },
+		{
+          "type": "color",
+          "id": "influencer_video_text_color",
+          "label": "Influencer Video Section Text Color",
+          "default": "#fff"
+      	},
+		{
+          "type": "image_picker",
+          "id": "bottom_banner_image",
+          "label": "Bottom Banner Image"
+        },
+		{
+          "type": "image_picker",
+          "id": "gif_image",
+          "label": "Footer GIF Image"
+        },
+		{
+          "type": "image_picker",
+          "id": "lifestyle_image_1",
+          "label": "Lifestyle Image 1"
+        },
+		{
+          "type": "image_picker",
+          "id": "lifestyle_image_2",
+          "label": "Lifestyle Image 2"
+        },
+		{
+          "type": "image_picker",
+          "id": "lifestyle_image_3",
+          "label": "Lifestyle Image 3"
+        },
+		{
+          "type": "text",
+          "id": "instagram_header",
+          "label": "Instagram Section Header",
+          "default": "Insta Header"
+        },
+		{
+          "type": "url",
+          "id": "hashtag_1_url",
+          "label": "Hashtag 1 URL"
+        },
+		{
+          "type": "url",
+          "id": "hashtag_2_url",
+          "label": "Hashtag 2 URL"
+        }
+	],
+    "blocks": [
+		{
+          "name": "Product Banner Section",
+          "type": "ProductBannerSection",
+          "settings": [
+			{
+              "type": "image_picker",
+              "id": "product_background_image",
+              "label": "Product Background Banner"
+            },
+            {
+              "type": "image_picker",
+              "id": "product_fruit_math",
+              "label": "Fruit Math Image"
+            },
+			{
+              "type": "text",
+              "id": "header_tagline",
+              "label": "Product Tagline",
+              "default": "Header Tagline"
+            },
+            {
+              "type": "textarea",
+              "id": "product_body",
+              "label": "Text for this product callout",
+              "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidint mollit anim id est laborum."
+            },
+			{
+              "type": "text",
+              "id": "product_buy_button_text",
+              "label": "Text for Buy Button",
+              "default": "Add to Bag"
+            },
+            {
+              "type": "text",
+              "id": "product_buy_button_permalink",
+              "label": "Permalink for Buy Button",
+              "default": "https://www.youtube.com/embed/_9VUPq3SxOc"
+            },
+			{
+              "type": "color",
+              "id": "product_buy_button_color",
+              "label": "Buy Button Color",
+              "default": "#23b6e6"
+            },
+			{
+              "type": "checkbox",
+              "id": "left_align",
+              "label": "Align Text to Left",
+              "default": true
+            }
+          ]
+        }
+    ]
+  }
+{% endschema %}

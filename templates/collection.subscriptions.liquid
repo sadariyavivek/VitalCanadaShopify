@@ -1,0 +1,100 @@
+{% comment %}
+  The contents of the collection.subscriptions.liquid template can be found in /sections/collection-template-subscriptions.liquid
+{% endcomment %}
+
+
+{%- comment -%} Capture the content to check if ajax call {%- endcomment -%}
+{% assign is_ajax = false %}
+{%- capture contentForQuerystring -%}{{ content_for_header }}{%- endcapture -%}
+
+{%- assign pageUrl = contentForQuerystring | split:'"pageurl":"' | last | split:'"' | first | split:'.myshopify.com' | last |
+    replace:'\/','/' | 
+    replace:'%20',' ' | 
+    replace:'\u0026','&'
+-%}
+
+{%- for i in (1..1) -%}
+  {%- unless pageUrl contains "?" -%}{% break %}{%- endunless -%}
+
+  {%- assign pageQuerystring = pageUrl | split:'?' | last -%}
+  {%- assign parts = pageQuerystring | split:'&' -%}
+
+  {%- for part in parts -%}
+    {%- assign keyAndValue = part | split:'=' -%}
+
+    {%- if keyAndValue.size > 1 -%}
+      {% if keyAndValue[0] == "rc-ajax" and keyAndValue[1] == "true" %}
+        {% assign is_ajax = true %}
+      {% endif %}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endfor -%}
+
+
+{% if is_ajax == true %}
+  {% layout none %}
+
+  {% for product in collection.products limit: 6 %}
+    {% assign variant = product.first_available_variant %}
+
+    <div class="rc-product-tile grid-view-item" product-id="{{ product.id }}" variant-id="{{ variant.id }}">
+      <div class="rc-product-tile__image-wrapper">
+        <img class="rc-product-tile__image" src="{{ variant.image | img_url: '480x' }}" alt="{{ product.title }} - {{ variant.title }}" width="480" height="480">
+      </div>
+      <div class="rc-product-card text-center">
+        <div class="rc-product-tile__meta">
+          <div class="rc-product-tile__title">{{ product.title }}</div>
+          <p class="rc-product-tile__price">{{ variant.price | money_without_trailing_zeros }}</p>
+        </div>
+        
+        <button class="rc-button small full-width" swap-product="">
+          <span class="text text-uppercase">Swap</span>
+        </button>
+      </div>
+    </div>
+  {% endfor %}
+{% else %}
+  <a name="pagecontent" id="pagecontent"></a>
+
+  <div class="top-navigation" role="navigation">
+    <ul class="secondary-menu">
+      <li>
+        <a href="/pages/account-landing-page/">Home</a>
+      </li>
+      <li>
+        <a href="/pages/rewards-1/" class="is-active">Rewards</a>
+      </li>
+      <li>
+        <a href="/account">Account</a>
+      </li>
+      <li>
+        <a href="/tools/recurring/login/">Subscriptions</a>
+      </li>
+      <li>
+        {{ 'layout.customer.log_out' | t | customer_logout_link }}
+      </li>
+    </ul>
+  </div>
+
+  {% section 'collection-template-subscriptions' %}
+
+  {% if collection.metafields.stamped.reviews_count and collection.metafields.stamped.reviews_count != "0" %} 
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Product",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "bestRating": "5",
+      "worstRating": "1",
+      "reviewCount": "{{ collection.metafields.stamped.reviews_count }}",
+      "ratingValue": "{{ collection.metafields.stamped.reviews_average | round:2 }}",
+      "itemReviewed": "{{ collection.title | escape }}"
+    },
+    "name": "{{ collection.title | escape }}"
+  }
+  </script>
+  {% endif %}
+
+  <!--PERZONALIZATION-START Do not modify or delete this comment--><div id="perzonalization" class="perzonalization"></div><script type='text/javascript'>var productDetailsForPrz = {{ product | json }};var basketDetailsForPrz = {{ cart | json }};var filterDetailsForPrz = {{ collection | json }};var detailsForPrz = { userId: '{{ customer.id }}', language: '{{ shop.locale }}', currency:'{{ shop.currency }}' };var searchDetailsForPrz = {{ search.results | json }};if(productDetailsForPrz) { productDetailsForPrz.collections = []; }{% for collection in product.collections %}   if(productDetailsForPrz) { productDetailsForPrz.collections.push("{{ collection.title }}") }{% endfor %}if (filterDetailsForPrz) { filterDetailsForPrz.products = []; }{% for product in collection.products %}   if(filterDetailsForPrz) { filterDetailsForPrz.products.push({ id:"{{ product.id }}", handle:"{{ product.handle }}" }) }{% endfor %}</script><!--Do not modify or delete this comment PERZONALIZATION-END-->
+{% endif %}

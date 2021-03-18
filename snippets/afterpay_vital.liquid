@@ -1,0 +1,90 @@
+<script type="text/javascript">
+  const cartItems = {{ cart.items | json }};
+  const hasGiftCard = cartItems.some(item => item.gift_card);
+  const hasSubscriptions = cartItems.some(item => item.properties && Object.entries(item.properties).length > 0);
+  const isGiftCard = {{ product.type | json }} === "Gift Card";
+  const changeText = () => {
+    const text = document.querySelector('.afterpay-text1');
+    const isOutOfRange = document.querySelector('.afterpay-text2')
+    && document.querySelector('.afterpay-text2').textContent === ' available for orders over ';
+    if (text && !isOutOfRange) {
+      text.textContent = "or four payment installments of ";
+    }
+  }
+  const isCartPage = () => !!/^\/cart/i.test(window.location.pathname);
+
+  // Editable fields:
+  var afterpay_min = 0.04;            // As per your Afterpay contract.
+  var afterpay_max = 1000.00;         // As per your Afterpay contract.
+  var afterpay_logo_theme = 'colour'; // Can be 'colour', 'black' or 'white'.
+
+  // Overrides:
+  var afterpay_product_selector = isGiftCard ? '' : '.modal_price';
+  var afterpay_cart_integration_enabled = (!hasGiftCard && !hasSubscriptions) ? true : false;
+  var afterpay_cart_static_selector = '.cart_subtotal';
+  // var afterpay_variable_price_fallback_selector = '#ProductPrice';
+  // var afterpay_variable_price_fallback = true; // Requires afterpay_product_selector
+  var afterpay_show_currency_code = false;
+  var afterpay_modal_responsive = true;
+  // var afterpay_hide_range_decimals = true;
+  // var afterpay_hide_lower_limit = false;
+  // var afterpay_hide_upper_limit = true;
+  var afterpay_modal_open_icon = true;
+
+  // Non-editable fields:
+  var afterpay_shop_currency = {{ shop.currency | json }};
+  var afterpay_shop_money_format = {{ shop.money_format | json }};
+  var afterpay_shop_permanent_domain = {{ shop.permanent_domain | json }};
+  var afterpay_theme_name = {{ theme.name | json }};
+  var afterpay_product = {{ product | json }};
+  var afterpay_current_variant = {{ product.selected_or_first_available_variant | json }};
+  var afterpay_cart_total_price = {{ cart.total_price | json }};
+  var afterpay_js_snippet_version = '1.0.2';
+  
+  window.onload = () => {   
+    if (!isGiftCard && !isCartPage()) {
+      const initListener = () => { 
+        const recurringOption = document.querySelector('.bold-ro__recurring-div');
+        const onetimeOption = document.querySelector('.bold-ro__one-time-div');
+
+        const handleRadioSelection = () => {
+          if (recurringOption.classList.contains("bold-ro__bold-active")) {
+            document.querySelector('.afterpay-paragraph') && document.querySelector('.afterpay-paragraph').remove();
+          } else {
+            !document.querySelector('.afterpay-paragraph') && Afterpay.init($);
+          }
+        }
+        
+        if (recurringOption) {
+        	recurringOption.addEventListener('click', handleRadioSelection);
+        }
+        if (onetimeOption) {
+        	onetimeOption.addEventListener('click', handleRadioSelection);
+        }
+      }
+      initListener();
+      changeText();
+
+      const pdpTargetNode = document.querySelector('.ro_widget');
+      const pdpConfig = { childList: true, subtree: true };
+      const pdpCallback = (mutationsList, observer) => {  
+        const subtotalSpan = document.querySelector('.modal_price .current_price > .money');
+        document.querySelector('p.afterpay-paragraph') && document.querySelector('p.afterpay-paragraph').remove();
+        if (subtotalSpan) {
+          const recurringOption = document.querySelector('.bold-ro__recurring-div');
+          const newSubtotal = Number(subtotalSpan.textContent.replace(/[^0-9 ]/g, ''));
+          afterpay_current_variant.price = subtotalSpan.textContent.includes('.') ? newSubtotal : newSubtotal * 100;
+          !recurringOption.classList.contains("bold-ro__bold-active") && Afterpay.init($)
+          observer.takeRecords();
+        }
+        initListener();
+        changeText();
+      };
+
+      const pdpObserver = new MutationObserver(pdpCallback);
+      if (pdpTargetNode !== null) {
+      	pdpObserver.observe(pdpTargetNode, pdpConfig);
+      }
+    }
+  }
+</script>

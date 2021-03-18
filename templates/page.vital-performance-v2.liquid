@@ -1,0 +1,962 @@
+<a name="pagecontent" id="pagecontent"></a>
+
+</div>
+{% assign perfBlue = '#244283' %}
+{% assign vitalBlue = '#23b6e6' %}
+{% assign watermelonColor = '#db5472' %}
+{% assign passionColor = '#f1c650' %}
+{% assign guavaColor = '#c74478' %}
+{% assign lemonGrapeColor = '#552b9a' %}
+{% assign yuzuColor = '#ea7e46' %}
+<style>
+  .main {
+    display: none;
+  }
+  .vpr-header-section {
+    width: 100%;
+  }
+  
+  .vpr-header-section img {
+    width: 100%;
+    display: block;
+  }
+  
+  .vpr-cta-wrapper {
+    background-image: url({{ 'NEWWavePattern_1.jpg' | file_img_url: 'master' }});
+    background-position: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .vpr-pre-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .vpr-recovery-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .vpr-pre-info {
+    width: 60%;
+    text-align: center;
+  }
+  
+  .vpr-pre-cta {
+    width: 40%;
+    text-align: center;
+  }
+  
+  .vpr-recovery-cta {
+    width: 40%;
+    text-align: center;
+  }
+  
+  .vpr-recovery-info {
+    width: 60%;
+    text-align: center;
+  }
+  
+  .vpr-product-title {
+    color: #23b6e6;
+    letter-spacing: 1px !important;
+    text-transform: none;
+    font-size: 72px;
+  }
+  
+  .vpr-product-img {
+    max-height: 360px;
+  }
+  
+  .vpr-select {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 240px;
+    margin-bottom: 0;
+    border-color: #dcdcdc8a;
+    font-family: 'kapraregular';
+    border-radius: 10px;
+    font-size: 21px;
+  }
+  
+  .vpr-price {
+    display: block;
+    font-family: 'kapraregular';
+    font-size: 36px;
+    line-height: 36px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: {{ perfBlue }};
+  }
+  
+  button.vpr.add_to_cart {
+    position: relative;
+    min-height: 0;
+    width: auto;
+    border-radius: 10px;
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    height: auto;
+    padding: 10px 20px;
+    font-size: 28px;
+    background-color: {{ perfBlue }};
+    border: 0;
+  }
+  
+  button.vpr.add_to_cart:hover {
+    border: 0;
+    background-color: {{ perfBlue }};
+    opacity: 0.8;
+  }
+  
+  .nutrition-callout-wrapper {
+   	display: flex;
+	flex-direction: row;
+    justify-content: space-evenly;
+    opacity: 1;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .callout {
+    width: 33.33%;
+  }
+  
+  .callout:not(:last-child) {
+    border-right: 2px solid {{ perfBlue }};
+  }
+  
+  .nc-number {
+    font-family: 'kapraregular';
+    font-size: 60px;
+    color: {{ perfBlue }};
+    line-height: 62px;
+  }
+  
+  .nc-grams {
+    font-family: 'kapraregular';
+    font-size: 48px;
+    color: {{ perfBlue }};
+  }
+  
+  .nc-text {
+    font-family: 'kapraregular';
+    font-size: 36px;
+    color: {{ perfBlue }};
+    text-transform: uppercase;
+  }
+  
+  .vpr-ingredient-callout {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .vpr-ingredient-callout span {
+    background-color: #23b6e6;
+    color: white;
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    font-size: 28px;
+    padding: 10px 0px;
+    border: 1px solid #5ec4ec;
+    flex-grow: 1;
+    min-width: 30%;
+    letter-spacing: 1px;
+  }
+  
+  .vpr-ingredient-callout span.elevatp {
+    text-transform: none;
+  }
+  
+  .vpr-flavor-badges {
+    width: 100%;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  
+  .vpr-flavor-badges.mobile {
+    display: none;
+  }
+  
+  .vpr-more-banner {
+    background: #5f279d;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .vpr-more-header, .vpr-bundle-header-text {
+    text-transform: uppercase;
+    letter-spacing: 1px !important;
+    color: white;
+    font-size: 48px;
+    border-bottom: 2px solid white;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+    line-height: initial;
+    margin-bottom: 0;
+  }
+  
+  .vpr-more-subtext, .vpr-bundle-subtext {
+    color: white;
+    font-style: italic;
+    font-size: 21px;
+    font-weight: bold;
+    padding-top: 10px;
+    margin-bottom: 0;
+    text-transform: none;
+    text-align: center;
+  }
+  
+  .vpr-lively-header {
+    letter-spacing: 1px !important;
+    color: {{ perfBlue }};
+    text-align: center;
+    font-size: 32px;
+  }
+  
+  .vpr-lively-articles-container {
+    display: flex;
+    flex-direction: row;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap;
+  }
+  
+  .vpr-lively-article {
+    width: 50%;
+    padding: 20px;
+    transition: .2s all ease-out;
+  }
+  
+  .vpr-lively-article:hover {
+    opacity: 0.7
+  }
+  
+  .vpr-lively-article .vpr-image-container {
+    border-radius: 20px;
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    height: 240px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+  }
+  
+  .vpr-lively-article h6 {
+    text-transform: none;
+    letter-spacing: 1px !important;
+    font-size: 32px;
+    color: {{ perfBlue }};
+    text-align: center;
+    line-height: initial;
+  }
+  
+  .vpr-bundle-section-wrapper {
+    padding: 20px;
+  }
+  
+  .vpr-bundle-header {
+    background-color: {{ yuzuColor }};
+    width: 100%;
+  }
+  
+  .vpr-bundle-header-text-wrapper {
+    padding: 20px;
+  }
+  
+  .vpr-bundle-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .cta-wrapper {
+    width: 50%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .product-list-section {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  
+  .product-image-container {
+    width: 30%;
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    height: 240px;
+    border-radius: 20px;
+  }
+  
+  .product-image-container.pre {
+    background-image: url({{ 'PreWave_Lifestyle_Inhouse_boosted.jpg' | file_img_url: '600x', format: 'pjpg' }});
+  }
+  
+  .product-image-container.recovery {
+    background-image: url({{ 'RecoveryWAVE_family.jpg' | file_img_url: '600x', format: 'jpg' }});
+  }
+  
+  .product-swatch-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: fit-content;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  
+  .product-swatch-description {
+    margin-bottom: 40px;
+  }
+  
+  .product-swatch {
+    padding: 10px;
+    border: 2px solid #23b6e6;
+    color: #23b6e6;
+    font-family: 'kapraregular';
+    font-size: 21px;
+    border-radius: 10px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    transition: .15s all ease-out;
+    height: fit-content;
+  }
+  
+  .product-swatch:hover {
+    transform: translateY(-2px);
+    opacity: 0.7;
+    color: white !important;
+  }
+  
+  .product-swatch.active {
+    color: white !important;
+  }
+  
+  .product-swatch.active:hover {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  
+  .product-swatch.watermelon-blueberry:hover {
+    background-color: {{ watermelonColor }};
+  }
+  
+  .product-swatch.passion-fruit:hover {
+    background-color: {{ passionColor }};
+  }
+  
+  .product-swatch.guava-lime:hover {
+    background-color: {{ guavaColor }};
+  }
+  
+  .product-swatch.lemon-grape:hover {
+    background-color: {{ lemonGrapeColor }};
+  }
+  
+  .product-swatch.yuzu-clementine:hover {
+    background-color: {{ yuzuColor }};
+  }
+  
+  .product-swatch.watermelon-blueberry.active {
+    background-color: {{ watermelonColor }};
+  }
+  
+  .product-swatch.passion-fruit.active {
+    background-color: {{ passionColor }};
+  }
+  
+  .product-swatch.guava-lime.active {
+    background-color: {{ guavaColor }};
+  }
+  
+  .product-swatch.lemon-grape.active {
+    background-color: {{ lemonGrapeColor }};
+  }
+  
+  .product-swatch.yuzu-clementine.active {
+    background-color: {{ yuzuColor }};
+  }
+  
+  .step-text {
+    text-transform: uppercase;
+    letter-spacing: 1px !important;
+    color: #23b6e6;
+    font-size: 24px;
+    border-top: 2px solid #23b6e6;
+    border-bottom: 2px solid #23b6e6;
+    padding: 10px 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+  }
+  
+  .cta-wrapper {
+    margin: 0 auto;
+    max-width: 1200px;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  
+  .performance-add-to-bag {
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-family: 'kapraregular';
+    color: white;
+    letter-spacing: 1px;
+    font-size: 24px;
+    background-color: gray;
+    padding: 10px 20px;
+    /*margin-bottom: 20px;*/
+    margin-bottom: 0;
+    transition: .15s all ease-out;
+    display: inline-block;
+    min-width: 200px;
+    text-align: center;
+  }
+  
+  .performance-add-to-bag:hover {
+    color: white;
+    cursor: default;
+  }
+  
+  .performance-add-to-bag.active {
+    background-color: #23b6e6;
+  }
+  
+  .performance-add-to-bag.active:hover {
+    color: white;
+    opacity: 0.7;
+    transform: translateY(-2px);
+    cursor: pointer;
+  }
+  
+  .performance-add-to-bag.active:focus {
+    color: white;
+    outline: 1px solid black;
+  }
+  
+  .loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #23b6e6;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1.2s ease-out infinite;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .thumbanil .title {
+    height: 32px;
+  }
+  
+  .header.mobile {
+    display: none;
+  }
+  
+  .vpr-more-slider {
+    margin-top: 20px;
+  }
+  
+  .image__container img {
+    width: 65% !important;
+    height: auto;
+  }
+  
+  .pp-disclaimer {
+    margin-top: 20px;
+    font-size: 12px;
+    font-style: italic;
+    text-align: center;
+  }
+  
+  @media screen and (max-width: 800px) {
+    .main.content {
+      display: block;
+      padding: 0;
+    }
+    
+    .header.mobile {
+      display: block;
+    }
+    
+    .header.desktop {
+      display: none;
+    }
+    
+    .vpr-flavor-badges.mobile {
+      display: block;
+    }
+    
+    .vpr-flavor-badges.desktop {
+      display: none;
+    }
+    
+    .vpr-pre-info {
+      width: 100%;
+    }
+    
+    .vpr-pre-cta {
+      width: 100%;
+    }
+    
+    .nutrition-callout-wrapper {
+      width: 100%;
+    }
+    
+    .vpr-recovery-section {
+      flex-direction: column-reverse;
+    }
+    
+    .vpr-recovery-info {
+      width: 100%;
+    }
+    
+    .vpr-recovery-cta {
+      width: 100%;
+    }
+    
+    .cta-wrapper {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    
+    .vpr-product-title {
+      font-size: 36px;
+    }
+    
+    .nc-number {
+      font-size: 36px;
+    }
+    
+    .nc-grams {
+      font-size: 24px;
+    }
+    
+    .nc-text {
+      font-size: 24px;
+    }
+    
+    .vpr-ingredient-callout {
+      width: 100%;
+    }
+    
+    .vpr-more-header, .vpr-bundle-header-text {
+      font-size: 36px;
+      text-align: center;
+    }
+    
+    .vpr-lively-article {
+      width: 100%;
+    }
+    
+    .product-swatch-container {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+</style>
+<div class="vital-performance-redux">
+  <div class="vpr-header-section">
+    <img class="header desktop" src="{{ 'VP_Performance_Header_Desktop.png' | file_img_url: '2400x', format: 'jpg' }}"/>
+    <img class="header mobile" src="{{ 'VP_Performance_Header_Mobile.png' | file_img_url: '2400x', format: 'jpg' }}"/>
+  </div>
+  <div class="vpr-cta-wrapper">
+    <div class="vpr-cta-section container">
+      <div class="vpr-pre-section">
+        <div class="vpr-pre-info">
+          <h3 class="vpr-product-title">PreWAVE</h3>
+          <div class="nutrition-callout-wrapper">
+            <div class="callout" data-aos="fade" data-aos-easing="ease-out" data-aos-once="true" data-aos-delay="600">
+              <p>
+                <span class="nc-number">5</span>
+                <span class="nc-grams">G</span>
+                <br>
+                <span class="nc-text">Collagen</span>
+              </p>
+            </div>
+            <div class="callout" data-aos="fade" data-aos-easing="ease-out" data-aos-once="true" data-aos-delay="600">
+              <p>
+                <span class="nc-number">5</span>
+                <span class="nc-grams">G</span>
+                <br>
+                <span class="nc-text">BCAA</span>
+              </p>
+            </div>
+            <div class="callout" data-aos="fade" data-aos-easing="ease-out" data-aos-once="true" data-aos-delay="600">
+              <p>
+                <span class="nc-number">3</span>
+                <span class="nc-grams">G</span>
+                <br>
+                <span class="nc-text">Citrulline</span>
+              </p>
+            </div>
+          </div>
+          <div class="vpr-ingredient-callout">
+            <span>Alpha GPC</span>
+            <span>Caffeine</span>
+            <span class="elevatp">elevATP&reg;</span>
+            <span>Creatine Nitrate</span>
+            <span>Arginine Nitrate</span>
+          </div>
+        </div>
+        <div class="vpr-pre-cta">
+          {% assign product = collections['prewave'].products.first %}
+          <a href="{{ product.url }}" style="color: inherit;">
+            <img id="product-image-pre" class="vpr-product-img" alt="{{ product.featured_image.alt }}" src="{{ product.featured_image | img_url: '600x' }}"/>
+          </a>
+          <form action="/cart/add"
+                method="post"
+                class="clearfix product_form init {% if product.variants.size > 1 or product.options.size > 1 %}product_form_options{% endif %}"
+                id="product-form-{{ product.id }}"
+                data-money-format="{{ shop.money_format }}"
+                data-shop-currency="{{ shop.currency }}"
+                data-select-id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}"
+                data-enable-state="{% if template contains 'product' %}true{% else %}false{% endif %}"
+                data-product="{{ product | json | escape }}"
+                {% if settings.limit_quantity or settings.display_inventory_left %}
+                data-variant-inventory='[{%- for v in product.variants -%}{"id":{{v.id}},"inventory_quantity":{{v.inventory_quantity}},"inventory_management":"{{v.inventory_management}}","inventory_policy":"{{v.inventory_policy}}"}{% if forloop.last == false %},{% endif %}{%- endfor -%}]'
+                {% endif %}
+                data-product-id="{{ product.id }}"
+                >
+            <div aria-label="Option select box for {{ product.title }}" class="custom-select">
+              <span>Choose Your Flavor</span>
+              <select class="vpr-select" {% if product.available == false %}style="opacity: 0;"{% endif %} id="{{ product.id }}">
+                {% for product in collections['prewave'].products %}
+                  {% assign productTitle = product.title | split: '-' %}
+                  {% if product.variants.first.available %}
+                  		<option value="{{ product.variants.first.id }}" data-product-type="pre" data-image="{{ product.variants.first.image | img_url: '600x' }}" data-price="{{ product.variants.first.price }}">{{ productTitle[1] }} - {{ product.variants.first.title }}</option>
+                  {% else %}
+                	<option value="{{ product.variants.first.id }}" data-product-type="pre" data-image="{{ product.variants.first.image | img_url: '600x' }}" data-price="{{ product.variants.first.price }}">{{ productTitle[1] }} - {{ product.variants.first.title }} (Sold Out)</option>
+                  {% endif %}
+                {% endfor %}
+              </select>
+            </div>
+            <span class="vpr-price">$49</span>
+            <input type="hidden" name="id" id="product-form-variant-value-{{product.id}}" value="{{ product.variants.first.id }}">
+            {% capture add_to_cart_label %}{% if collection_handles contains 'pre-order' %}{{ 'collections.general.pre_order' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}{% endcapture %}
+            <button aria-label="Add {{product.title}} to bag." type="submit" name="add" class="vpr action_button add_to_cart product-cta {% if product.available == false %}disable-button{% endif %}" {% if product.available == false %}disabled{% endif %} data-label={{ add_to_cart_label | json }}>
+              <span class="text">{% if product.available == false %} Sold out {% else %}Add to Bag {% endif %}</span>
+              <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark">
+                <path fill="none" stroke="{{ settings.btn_text_color }}" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/>
+              </svg>
+            </button>
+            <div class="added-to-bag-notification" style="height:0; overflow: hidden;" aria-atomic="true" aria-live="assertive"></div>
+          </form>
+          <p class="font-style: italic;">Packaging may vary</p>
+        </div>
+      </div>
+      <img class="vpr-flavor-badges lazyload desktop" src="{{ 'VP_Performance_Flavors_Desktop.png' | file_img_url: '2000x'}}"/>
+      <img class="vpr-flavor-badges lazyload mobile" src="{{ 'VP_Performance_Flavors_Mobile.png' | file_img_url: '1200x'}}"/>
+      <div class="vpr-recovery-section">
+        <div class="vpr-recovery-cta">
+          {% assign product = collections['recoverywave'].products.first %}
+          <a href="{{ product.url }}" style="color: inherit;">
+            <img id="product-image-recovery" class="vpr-product-img" alt="{{ product.featured_image.alt }}" src="{{ product.featured_image | img_url: '600x' }}"/>
+          </a>
+          <form action="/cart/add"
+                method="post"
+                class="clearfix product_form init {% if product.variants.size > 1 or product.options.size > 1 %}product_form_options{% endif %}"
+                id="product-form-{{ product.id }}"
+                data-money-format="{{ shop.money_format }}"
+                data-shop-currency="{{ shop.currency }}"
+                data-select-id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}"
+                data-enable-state="{% if template contains 'product' %}true{% else %}false{% endif %}"
+                data-product="{{ product | json | escape }}"
+                {% if settings.limit_quantity or settings.display_inventory_left %}
+                data-variant-inventory='[{%- for v in product.variants -%}{"id":{{v.id}},"inventory_quantity":{{v.inventory_quantity}},"inventory_management":"{{v.inventory_management}}","inventory_policy":"{{v.inventory_policy}}"}{% if forloop.last == false %},{% endif %}{%- endfor -%}]'
+                {% endif %}
+                data-product-id="{{ product.id }}"
+                >
+            <div aria-label="Option select box for {{ product.title }}" class="custom-select">
+              <span>Choose Your Flavor</span>
+              <select class="vpr-select" {% if product.available == false %}style="opacity: 0;"{% endif %} id="{{ product.id }}">
+                {% for product in collections['recoverywave'].products %}
+                  {% assign productTitle = product.title | split: '-' %}
+                  {% if product.variants.first.available %}
+                  	<option value="{{ product.variants.first.id }}" data-product-type="recovery" data-image="{{ product.variants.first.image | img_url: '600x' }}" data-price="{{ product.variants.first.price }}">{{ productTitle[1] }} - {{ product.variants.first.title }}</option>
+                  {% endif %}
+                {% endfor %}
+              </select>
+            </div>
+            <span class="vpr-price">$49</span>
+            <input type="hidden" name="id" id="product-form-variant-value-{{product.id}}" value="{{ product.variants.first.id }}">
+            {% capture add_to_cart_label %}{% if collection_handles contains 'pre-order' %}{{ 'collections.general.pre_order' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}{% endcapture %}
+            <button aria-label="Add {{product.title}} to bag." type="submit" name="add" class="vpr action_button add_to_cart product-cta {% if product.available == false %}disable-button{% endif %}" {% if product.available == false %}disabled{% endif %} data-label={{ add_to_cart_label | json }}>
+              <span class="text">{% if product.available == false %} Sold out {% else %}Add to Bag {% endif %}</span>
+              <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark">
+                <path fill="none" stroke="{{ settings.btn_text_color }}" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/>
+              </svg>
+            </button>
+            <div class="added-to-bag-notification" style="height:0; overflow: hidden;" aria-atomic="true" aria-live="assertive"></div>
+          </form>
+          <p class="font-style: italic;">Packaging may vary</p>
+        </div>
+        <div class="vpr-recovery-info">
+          <h3 class="vpr-product-title">RecoveryWAVE</h3>
+          <div class="nutrition-callout-wrapper">
+            <div class="callout" data-aos="fade" data-aos-easing="ease-out" data-aos-once="true" data-aos-delay="600">
+              <p>
+                <span class="nc-number">20</span>
+                <span class="nc-grams">G</span>
+                <br>
+                <span class="nc-text">Collagen</span>
+              </p>
+            </div>
+            <div class="callout" data-aos="fade" data-aos-easing="ease-out" data-aos-once="true" data-aos-delay="600">
+              <p>
+                <span class="nc-number">8</span>
+                <span class="nc-grams">G</span>
+                <br>
+                <span class="nc-text">EAA</span>
+              </p>
+            </div>
+            <div class="callout" data-aos="fade" data-aos-easing="ease-out" data-aos-once="true" data-aos-delay="600">
+              <p>
+                <span class="nc-number">5</span>
+                <span class="nc-grams">G</span>
+                <br>
+                <span class="nc-text">BCAA</span>
+              </p>
+            </div>
+          </div>
+          <div class="vpr-ingredient-callout">
+            <span>Taurine</span>
+            <span>Glutamine</span>
+            <span>Vitamin C, B2, B6</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--<div class="vpr-bundle-header">
+    <div class="vpr-bundle-header-text-wrapper">
+      <h4 class="vpr-bundle-header-text">Kick your workout into gear before the new year!</h4>
+      <p class="vpr-bundle-subtext">Save 20%* when you bundle PreWave and RecoveryWave.</p>
+      <p class="vpr-bundle-subtext">A power duo for only $80*. Pick your flavor.</p>
+    </div>
+  </div>
+  <div class="vpr-bundle-section-wrapper">
+    <div class="vpr-bundle-section">
+      <div class="cta-wrapper">
+        <h3 class="step-text">Step 1 - Choose your PreWAVE</h3>
+        <div class="product-list-section">
+          <div class="product-swatch-container">
+            {% for product in collections['prewave'].products %}
+                {% assign title = product.title | split: '-' %}
+                <a href="#" class="product-swatch {{title[1] | handleize }} pre" data-color="{{product.metafields.vital.primary_color}}" data-variant-id="{{ product.selected_or_first_available_variant.id }}" data-title="{{title[1]}}" style="color: {{product.metafields.vital.primary_color}}; border: 2px solid {{product.metafields.vital.primary_color}};">{{ title[1] }}</a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+       <div class="cta-wrapper">
+        <h3 class="step-text">Step 2 - Choose your RecoveryWAVE</h3>
+        <div class="product-list-section">
+          <div class="product-swatch-container">
+            {% for product in collections['recoverywave'].products %}
+                {% assign title = product.title | split: '-' %}
+                <a href="#" class="product-swatch {{title[1] | handleize }} recovery" data-color="{{product.metafields.vital.primary_color}}" data-variant-id="{{ product.selected_or_first_available_variant.id }}" data-title="{{title[1]}}" style="color: {{product.metafields.vital.primary_color}}; border: 2px solid {{product.metafields.vital.primary_color}};">{{ title[1] }}</a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: center;">
+      <a href="#" class="performance-add-to-bag">Add to Bag</a>
+    </div>
+    <div class="container">
+      <p class="pp-disclaimer">*Offer valid from 11/12/19 at 10am CST - 12/31/19 at 11:59pm CST. Order must contain one (1) PreWave and one (1) RecoveryWave to receive discount. Order must not contain subscription purchase. Offer not valid on subscription or wholesale purchases. Offer may not be used in combination with any other offer and / or any other purchase on vitalproteins.com. Offer not valid during certain promotional periods. We reserve the right to cancel any order due to unauthorized, altered, or ineligible use of offer and to modify or cancel this promotion due to system error or unforeseen problems.  Offer cannot be applied to previously placed or pending orders. Offer applied to authorized purchases only. Other restrictions may apply.</p>
+    </div>
+  </div>-->
+  <div class="wave-section-two">
+    <div class="vpr-more-section">
+      <div class="vpr-more-banner">
+        <h5 class="vpr-more-header">More from Vital Proteins</h5>
+        <p class="vpr-more-subtext">Check out other offering from Vital that help support your muscles &amp; joints!</p>
+      </div>
+      <div class="vpr-more-slider container">
+          {% assign limit = 5 %}
+          {% assign collection = collections['best-sellers'] %}
+          {% assign products = collection.products %}
+          {% assign products_per_row = 4 %}
+          {% include 'product-loop' %}
+      </div>
+    </div>
+    <div class="vpr-lively-section container">
+      <h6 class="vpr-lively-header">The Latest From Lively</h6>
+      <div class="vpr-articles-wrapper">
+        <div class="vpr-lively-articles-container">
+          {% assign article_1 = articles['stay-vital/what-are-amino-acids'] %}
+          {% assign article_2 = articles['wellness/nick-ralich-gym-bag-essentials'] %}
+          <a target="_blank" href="{{ article_1.url }}" class="vpr-lively-article">
+            <div class="vpr-image-container lazyload" style="background-image: url({{ article_1.image | img_url: '600x' }})"></div>
+            <h6>{{ article_1.title }}</h6>
+          </a>
+          <a target="_blank" href="{{ article_2.url }}" class="vpr-lively-article">
+            <div class="vpr-image-container lazyload" style="background-image: url({{ article_2.image | img_url: '600x' }})"></div>
+            <h6>{{ article_2.title }}</h6>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  
+  $('select').on('change', function() {
+    var itemID = $(this).attr('id');
+    var selectedOption = $('#' + itemID + ' option:selected');
+    var selectedPrice = selectedOption.attr('data-price');
+    $('#price-' + itemID).text('$' + (selectedPrice / 100));
+    
+    $('#product-form-variant-value-' + itemID).val(selectedOption.val());
+    
+    if (selectedOption.data('product-type') === 'recovery') {
+      $('#product-image-recovery').attr('src', selectedOption.data('image'));
+    } else if (selectedOption.data('product-type') === 'pre') {
+      $('#product-image-pre').attr('src', selectedOption.data('image'));
+    } 
+    
+  });
+  
+  var selectedProducts = {
+  	pre: '',
+    recovery: ''
+  };
+  
+  var cartQueue = [];
+  var bundleID = Math.floor(Math.random()*90000)+10000;
+  
+  $(document).on('click', '.product-swatch.pre', function(e) {
+    e.preventDefault();
+   	selectedProducts.pre = $(this).data("variant-id");
+    $('.product-swatch.pre').removeClass('active');
+    $(this).addClass('active');
+    
+    $('.selected-pre').text($(this).data('title'));
+    $('.selected-pre').css('color', $(this).data('color'));
+    
+    // Show Bar
+    if ($('.add-to-bag-sticky').hasClass('show') === false) {
+    	$('.add-to-bag-sticky').addClass('show');
+    }
+    
+    checkForCompletedSelections();
+  });
+  
+  $(document).on('click', '.product-swatch.recovery', function(e) {
+    e.preventDefault();
+   	selectedProducts.recovery = $(this).data("variant-id");
+    $('.product-swatch.recovery').removeClass('active');
+    $(this).addClass('active');
+    
+    $('.selected-recovery').text($(this).data('title'));
+    $('.selected-recovery').css('color', $(this).data('color'));
+                            
+    // Show Bar
+    if ($('.add-to-bag-sticky').hasClass('show') === false) {
+    	$('.add-to-bag-sticky').addClass('show');
+    }
+    
+    checkForCompletedSelections();
+  });
+  
+  $(document).on('click', '.performance-add-to-bag', function(e) {
+    e.preventDefault();
+    
+    if ($(this).hasClass('active') === false) {
+      alert("Please choose one PreWAVE and one RecoveryWAVE before adding to bag.");
+    } else {
+      $(this).html('<div class="loader animated fadeInUp"></div>');
+      addCartItemToQueue(selectedProducts.pre);
+      addCartItemToQueue(selectedProducts.recovery);
+      moveAlong();
+    }
+  });
+  
+  $(document).on('mousedown', '.performance-add-to-bag', function(e) {
+    e.preventDefault();
+  });
+  
+  function checkForCompletedSelections() {
+    if (selectedProducts.pre !== '' && selectedProducts.recovery !== '') {
+      $('.performance-add-to-bag').addClass('active');
+    }
+  }
+  
+  function addCartItemToQueue(variantID) {
+    var addRequest = {
+      type: "add",
+      data: {
+        quantity: 1,
+        id: variantID,
+        properties: {
+          performance_bundle_id: bundleID
+        }
+      }
+    };
+    
+    cartQueue.push(addRequest);
+  }
+  
+  function moveAlong() {
+    if (cartQueue.length) {
+      var request = cartQueue.shift();
+
+      if (request.type === 'add') {
+        addCartItem(request.data);
+      }
+    } else {
+      document.location.href = '/cart'
+    }
+  }
+  
+  function addCartItem(postData) {
+    $.ajax({
+      type: 'POST',
+      url: '/cart/add',
+      dataType: 'json',
+      data: postData
+    }).then(function() {
+      moveAlong();
+    }).catch(function(error) {
+      alert("Something went wrong. Please reload the page and try again");
+    });
+  }
+  
+</script>

@@ -1,0 +1,126 @@
+<style>
+
+    .pdp-ja-what-is-collagen-box {
+        display: flex;
+        flex-direction: row-reverse;
+        width: 100%;
+        height: 580px;
+    }
+
+    .what-is-collagen-image {
+        width: 50%;
+        background-size: cover;
+        background-position: 50% 50%;
+    }
+
+    .what-is-collagen-text {
+        width: 50%;
+        background: #C6D2D4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .what-is-collagen-text .box-wrapper {
+        text-align: center;
+        max-width: 560px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .what-is-collagen-text .box-header {
+        font-family: 'KapraNeue';
+        color: #393D40;
+        text-align: center;
+        font-size: 72px;
+        line-height: 90px;
+        letter-spacing: 0.8px !important;
+        text-transform: uppercase;
+    }
+
+    .what-is-collagen-text .box-body {
+        color: #585A5B;
+        font-size: 24px;
+        line-height: 33px;
+        letter-spacing: 1px;
+        margin-bottom: 40px;
+    }
+
+    .what-is-collagen-text a {
+        color: white;
+        background-color: #215D6B;
+        border-radius: 4px;
+        max-width: 350px;
+        margin-left: auto;
+        margin-right: auto;
+        font-weight: bold;
+        height: 48px;
+        letter-spacing: 1.2px;
+        font-size: 22px;
+        vertical-align: middle;
+        display: block;
+        width: 100%;
+        line-height: 30px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        transition: .15s opacity ease-out;
+    }
+
+    .what-is-collagen-text a:hover {
+        opacity: 0.75;
+    }
+
+    @media screen and (max-width: 800px) {
+        .pdp-ja-what-is-collagen-box {
+            flex-direction: column;
+            height: auto;
+        }
+
+        .what-is-collagen-image {
+            width: 100%;
+            height: 200px;
+        }
+
+        .what-is-collagen-text  {
+            width: 100%;
+        }
+
+        .what-is-collagen-text .box-wrapper {
+            padding: 26px 20px;
+        }
+
+        .what-is-collagen-text .box-header {
+            font-size: 24px;
+            line-height: 28px;
+            letter-spacing: 0.7px !important;
+            text-align: center;
+        }
+
+        .what-is-collagen-text .box-body {
+            font-size: 12px;
+            line-height: 16px;
+            letter-spacing: 0.9px;
+            text-align: center;
+            margin-bottom: 21px;
+        }
+
+        .what-is-collagen-text a {
+            font-size: 14px;
+            letter-spacing: 0.2px;
+            max-width: 150px;
+        }
+    }
+</style>
+<div class="pdp-ja-what-is-collagen-box whit-is-collagen">
+    <div class="col-md-6 what-is-collagen-text">
+        <div class="box-wrapper">
+          <h4 class="box-header">What is Collagen?<br><span>How it works?</span></h4>
+            <p class="box-body">Collagen is the glue that holds everything together. As we age, production declines. Our products focus on wellness from within.</p>
+            <a aria-label="Learn more about collagen on our blog." href="https://vital-proteins-canada-dtc.myshopify.com/blogs/stay-vital/what-is-collagen">Learn More</a>
+        </div>
+    </div>
+    <div class="col-md-6 what-is-collagen-image lazyload" data-bg="{{ 'FINAL_peptide_pour_1.jpg' | file_img_url: '1200x' }}">
+      <img src="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/720816abbd1309930f174168f29ad92c_2500x.png" alt="Girl in a jacket" class="whit-is-collagen-2">
+    </div>
+</div>

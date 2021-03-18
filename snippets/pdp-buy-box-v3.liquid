@@ -1,0 +1,784 @@
+<style>
+
+.buy-box-container {
+    border: 1px solid #E5E5E5;
+    border-radius: 1px;
+    margin-top: 20px;
+}
+
+.inner-cta-container {
+    padding: 20.5px 18.5px;
+}
+
+.inner-disclaimer-container {
+    background-color: #F5F5F5;
+    padding: 20.5px 15.5px;
+}
+
+.inner-disclaimer-container span {
+    font-style: oblique;
+    font-size: 12px;
+    color: #666666;
+    font-weight: 500;
+    line-height: 16px;
+    display: block;
+}
+
+.packaging-options-container {
+    margin-bottom: 10px;
+}
+
+.packaging-options-container .packaging-options-label {
+    color: #393D40;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.43px;
+    text-transform: capitalize;
+}
+
+.packaging-options-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.packaging-option {
+    height: 53px;
+    width: 53px;
+    margin-right: 9px;
+    border: 3px solid #E5E5E5;
+    border-radius: 1px;
+    background: white;
+    padding: 0;
+    min-height: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .15s opacity linear;
+    overflow: hidden;
+}
+
+.packaging-option:hover {
+    cursor: pointer;
+    opacity: 0.75;
+    background: none;
+    border: 3px solid #1BB9E6;
+}
+.packaging-option.active {
+    border: 3px solid #1BB9E6;
+}
+
+.packaging-option.active:hover {
+    opacity: 1;
+    cursor: initial;
+}
+
+.packaging-option img {
+    height: 100%;
+    object-fit: contain;
+    display: none;
+}
+
+.packaging-option img.active {
+    display: block;
+}
+
+.variant-title {
+    font-size: 13px;
+    display: block;
+    line-height: 13px;
+    font-weight: 500;
+    color: #333333;
+}
+
+.subscription-explanation-section span {
+    text-align: center;
+    font-size: 13px;
+    display: block;
+    line-height: 19px;
+    color: #333333;
+}
+
+.subscription-explanation-section span.bolded {
+    font-weight: bold;
+}
+
+.subscribe-button {
+    border-radius: 3px;
+    background-color: #215D6B;
+    padding: 11px;
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+    transition: .15s opacity linear;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    min-height: initial;
+    height: initial;
+}
+
+.subscribe-button:hover {
+    opacity: 0.75;
+    border: 0;
+    background-color: #215D6B;
+}
+
+.subscribe-button .text-container {
+    position: relative;
+    flex-grow: 1;
+}
+
+.subscribe-button .chevron {
+    position: absolute;
+    right: 10px;
+}
+
+.subscribe-button .main-text {
+    text-transform: capitalize;
+    display: block;
+    font-size: 22px;
+    line-height: 30px;
+    letter-spacing: 0.4px;
+    font-weight: bold;
+}
+
+.subscribe-button .secondary-text {
+    font-size: 13px;
+    display: block;
+    line-height: 19px;
+    font-style: oblique;
+}
+
+.one-time-purchase-button {
+    padding: 10px;
+    transition: .15s all linear;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    background: none;
+    width: 100%;
+    min-height: initial;
+    height: initial;
+}
+
+.one-time-purchase-button.no-subscribe {
+    background-color: #355C7E !important;
+    border-radius: 3px;
+    padding: 11px;
+}
+
+.one-time-purchase-button.no-subscribe .main-text {
+    color: white;
+    border-bottom: 0;
+}
+
+.one-time-purchase-button:hover {
+    opacity: 0.75;
+    border: none;
+    background: none;
+}
+
+.one-time-purchase-button.no-subscribe:hover {
+    background-color: #355C7E !important;
+    opacity: 0.75;
+    border: none;
+}
+
+.one-time-purchase-button .main-text {
+    color: #014E70;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 19px;
+    display: inline-block;
+    border-bottom: 1px solid #014E70;
+}
+
+.one-time-purchase-button .cart-icon {
+    margin-right: 6px;
+    display: inline-block;
+}
+
+.one-time-purchase-button.no-subscribe .cart-icon * {
+    stroke: white !important;
+}
+
+.or-block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+.or-line {
+    border-bottom: 1px solid #c7c7c7;
+    width: 30%;
+    display: block;
+}
+
+.or-text {
+    display: block;
+    background: white;
+    padding: 6px;
+    margin-left: 4px;
+    margin-right: 4px;    
+    line-height: 19px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.out-of-stock-container {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background: gray;
+    border-radius: 6px;
+    padding: 11px;
+    display: block;
+}
+
+.frequency-modal-outer {
+
+    pointer-events: none;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    transition: .2s opacity ease-in-out;
+    background: rgba(0,0,0,0.4);
+    opacity: 0;
+}
+
+.frequency-modal-outer.active {
+
+    pointer-events: initial;
+    opacity: 1;
+}
+
+.frequency-modal-outer .frequency-modal-inner {
+    transition: .2s transform ease-in-out, .2s opacity ease-in-out;
+    position: relative;
+    opacity: 0;
+    transform: translateY(100px);
+    max-width: 100%;
+    width: 375px;
+    border-radius: 6px;
+    padding: 20px;
+    padding-top: 10px;
+    background: white;
+    box-shadow: 0 2px 5px 2px rgba(0,0,0,0.1);
+}
+
+.frequency-modal-outer.active .frequency-modal-inner {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.frequency-modal-inner .modal-close {
+    font-size: 13px;
+    margin-bottom: 10px;
+    display: block;
+    color: #4a4a4a;
+    position: absolute;
+    right: 20px;
+    top: -40px;
+}
+
+.frequency-modal-inner .modal-close:hover {
+    opacity: 0.75;
+}
+
+.frequency-modal-inner .modal-header {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.frequency-modal-inner .modal-product-title {
+    font-size: 13px;
+    line-height: 17px;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.frequency-modal-inner .modal-variant-title {
+    font-size: 13px;
+    line-height: 17px;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.frequency-modal-inner .frequency-selection-container {
+    margin-top: 25px;
+}
+
+.frequency-modal-inner .frequency-select-button {
+    width: 100%;
+    height: 44px;
+    background: white;
+    min-height: initial;
+    border-radius: 3px;
+    border: 1px solid #E5E5E5;
+    margin-bottom: 9.5px;
+    color: #4a4a4a;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    transition: .1s all linear;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.frequency-modal-inner .frequency-select-button:hover {
+    background-color: #01AF99;
+    color: white;
+    opacity: 0.7;
+}
+
+.frequency-select-button.default {
+    background-color: #01AF99;
+    color: white;
+}
+
+.frequency-modal-inner .frequency-select-button.default .modal-pricing .strikethrough-price {
+    color: white;
+}
+
+.frequency-modal-inner .frequency-select-button.default .modal-pricing .discount-price {
+    color: white;
+}
+
+.frequency-select-button.default .modal-pricing .chevron polyline {
+    stroke: white !important;
+}
+
+.frequency-modal-inner .frequency-select-button.default .frequency-label .cart-icon {
+    stroke: white !important;
+}
+
+.frequency-modal-inner .frequency-select-button .frequency-label {
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 26px;
+    display: flex;
+    align-items: center;
+}
+
+.frequency-modal-inner .frequency-select-button .frequency-label .cart-icon {
+    margin-right: 10px;
+    stroke: #000;
+}
+
+.frequency-select-button .modal-pricing {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.frequency-modal-inner .frequency-select-button .modal-pricing .strikethrough-price {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 26px;
+    margin-right: 10px;
+}
+
+.frequency-modal-inner .frequency-select-button:hover .modal-pricing .discount-price {
+    color: white;
+}
+
+.frequency-select-button .modal-pricing .chevron {
+    margin-left: 6px;
+    stroke: #000;
+}
+
+.frequency-modal-inner .frequency-select-button .modal-pricing .discount-price {
+    font-size: 17px;
+    font-weight: 900;
+    line-height: 26px;
+    color: #01AF99;
+}
+
+.inner-disclaimer-container.modal-disclaimer {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    .frequency-modal-outer {
+        align-items: flex-end;
+    }
+
+    .frequency-modal-outer .frequency-modal-inner {
+        padding: 0;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        border-radius: 10px;
+    }
+
+    .modal-content-wrapper {
+        padding: 20px;
+    }
+
+    .inner-disclaimer-container.modal-disclaimer {
+        display: block;
+    }
+
+    .buy-box-container {
+        border: 0;
+        margin-top: 0;
+    }
+
+    .subscribe-button {
+        padding: 11px 16px;
+    }
+
+    .inner-cta-container {
+        padding-bottom: 10px;
+        padding-top: 0;
+    }
+
+    .pdp-redesign-wrapper .buy-box-container .quantity-wrapper {
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 30px;
+        padding-top: 10px;
+    }
+}
+</style>
+<div class="buy-box-container">
+    <div class="inner-cta-container">
+        {% comment %} Need to account for multiple options here{% endcomment %}
+        {% for option in product.options_with_values %}
+            <div class="packaging-options-container option-{{ option.position }}">
+                <span class="packaging-options-label">{{ option.name }}</span>
+                <div class="packaging-options-list">
+                    {% comment %}
+                    {% for variant in product.variants %}
+                        <button
+                        data-variant-title="{{ variant.title }}" 
+                        data-variant-standard-price="{{ variant.price | money_without_trailing_zeros}}"
+                        data-variant-subscription-price="{{ variant.metafields.subscriptions.discount_variant_price }}" 
+                        data-variant-id="{{ variant.id }}" 
+                        data-variant-subscription-id="{{ variant.metafields.subscriptions.discount_variant_id }}" 
+                        data-option="{{ variant.option1}}"
+                        role="button" 
+                        class="packaging-option {% if variant.id == initialVariant.id %}active{% endif %}">
+                            <img src="{{ variant.image | img_url: '50x' }}"/>
+                        </button>
+                    {% endfor %}
+                    {% endcomment %}
+                    {% for option_value in option.values %}
+                        <button
+                            role="button"
+                            class="packaging-option {% if initialVariant.option1 == option_value or initialVariant.option2 == option_value or initialVariant.option3 == option_value %} active {% endif %}"
+                            data-option="{{ option_value }}"
+                            data-option-position="{{ option.position }}"
+                            aria-label="Select {{ option_value }}"
+                        >
+                        {% for variant in product.variants %}
+                            {% if option.position == 1 %}
+                                {% if variant.option1 == option_value %}
+                                    {% comment %}  and variant.option2 == initialVariant.option2 and variant.option3 == initialVariant.option3 {% endcomment %}
+                                    <img alt="{{ variant.title }}" class="lazyload {% if variant.option2 == initialVariant.option2 and variant.option3 == initialVariant.option3 %} active {% endif %}" data-option2="{{ variant.option2 }}" data-option3="{{ variant.option3 }}" data-src="{{ variant.image | img_url: '80x' }}" alt="{{ option_value }}"/>
+                                {% endif %}
+                            {% elsif option.position == 2 %}
+                                {% if variant.option2 == option_value %}
+                                    {% comment %}  and variant.option1 == initialVariant.option1 and variant.option3 == initialVariant.option3 {% endcomment %}
+                                    <img alt="{{ variant.title }}" class="lazyload {% if variant.option1 == initialVariant.option1 and variant.option3 == initialVariant.option3 %} active {% endif %}" data-option1="{{ variant.option1 }}" data-option3="{{ variant.option3 }}" data-src="{{ variant.image | img_url: '80x' }}" alt="{{ option_value }}"/>
+                                {% endif %}
+                            {% elsif option.position == 3 %}
+                                {% if variant.option3 == option_value %}
+                                    {% comment %}  and variant.option1 == initialVariant.option1 and variant.option2 == initialVariant.option2 {% endcomment %}
+                                    <img alt="{{ variant.title }}" class="lazyload {% if variant.option1 == initialVariant.option1 and variant.option2 == initialVariant.option2 %} active {% endif %}" data-option1="{{ variant.option1 }}" data-option2="{{ variant.option2 }}" data-src="{{ variant.image | img_url: '80x' }}" alt="{{ option_value }}"/>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                        </button>
+                    {% endfor %}
+                </div>
+                <span class="variant-title option-{{ option.position }}">
+                    {% if option.position == 1 %}
+                        {{ initialVariant.option1 }}
+                    {% elsif option.position == 2 %}
+                        {{ initialVariant.option2 }}
+                    {% elsif option.position == 3 %}
+                        {{ initialVariant.option3 }}
+                    {% endif %}
+                </span>
+            </div>
+        {% endfor %}
+        {% render 'pdp-quantity-select' %}
+        <div class="cta-section-v2-container" {% if initialVariant.available == false %} style="display: none;" {% endif %}>
+            {% if product.metafields.subscriptions.has_subscription %}
+                <button class="subscribe-button opt-atb-subscription" role="button">
+                    <div class="text-container">
+                        <span class="main-text">Subscribe &amp; Save</span>
+                        <span class="secondary-text">Select frequency (From <span class="subscription-price">${{ initialVariant.metafields.subscriptions.discount_variant_price }}</span>/week)</span>
+                    </div>
+                </button>
+                <div class="subscription-explanation-section">
+                    <span class="bolded">{{ product.metafields.subscriptions.discount_percentage | round }}% discount, Free Shipping, and Free samples *</span>
+                    <span>Cancel or change frequency any time</span>
+                </div>
+                <div class="or-block">
+                    <div class="or-line left"></div>
+                    <span class="or-text">or</span>
+                    <div class="or-line right"></div>
+                </div>
+            {% endif %}
+            <button type="submit" class="one-time-purchase-button opt-atb-one-time {% if product.metafields.subscriptions.has_subscription == False %} no-subscribe {% endif %}">
+                <span class="main-text">Purchase one-time for <span class="one-time-price">{{ initialVariant.price | money_without_trailing_zeros }}</span></span>
+            </button>
+        </div>
+        <div class="out-of-stock-container" {% if initialVariant.available == true %} style="display: none;" {% endif %}>
+            <span>Sold out</span>
+        </div>
+    </div>
+    <div class="inner-disclaimer-container">
+        <span>* Receive {% if product.metafields.subscriptions.discount_percentage %}{{ product.metafields.subscriptions.discount_percentage | round }} {% else %}25{% endif %}% off your first order and 15% off each order after (plus free shipping) when you subscribe. Other restrictions may apply.</span>
+    </div>
+    <div id="frequency-modal" class="frequency-modal-outer">
+        <div class="frequency-modal-inner">
+            <div class="modal-content-wrapper">
+                <a href="#" class="modal-close"><svg xmlns='http://www.w3.org/2000/svg' width='25' height='25' viewBox='0 0 512 512'><title>ionicons-v5-l</title><line x1='368' y1='368' x2='144' y2='144' style='fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/><line x1='368' y1='144' x2='144' y2='368' style='fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/></svg></a>
+                <p class="modal-header">Select subscription frequency</p>
+                <p class="modal-product-title">{{ product.title }}</p>
+                <p class="modal-variant-title">{{ initialVariant.title }}</p>
+                <div class="frequency-selection-container">
+                    {% assign subscriptionIntervals = product.metafields.subscriptions.shipping_interval_frequency | split: ',' %}
+                    {% assign subscriptionUnitType = product.metafields.subscriptions.shipping_interval_unit_type %}
+                    {% assign lastLetter = subscriptionUnitType | size | minus: 1 %}
+                    {% assign subscriptionUnitTypeSingle = subscriptionUnitType | slice: 0, lastLetter %}
+                    {% for interval in subscriptionIntervals %}
+                        <button data-interval="{{ interval }}" class="frequency-select-button {% if interval == settings.default_subscription_frequency %}default{% endif %}">
+                            <span class="frequency-label"><svg xmlns='http://www.w3.org/2000/svg' class="cart-icon" width='20' height='20' viewBox='0 0 512 512'><title>ionicons-v5-d</title><circle cx='176' cy='416' r='16' style='fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/><circle cx='400' cy='416' r='16' style='fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/><polyline points='48 80 112 80 160 352 416 352' style='fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/><path d='M160,288H409.44a8,8,0,0,0,7.85-6.43l28.8-144a8,8,0,0,0-7.85-9.57H128' style='fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/></svg>Every {{ interval }} {{ interval | plus: 0 | pluralize: subscriptionUnitTypeSingle, subscriptionUnitType }}</span>
+                            <div class="modal-pricing">
+                                <span class="strikethrough-price"><s>{{ initialVariant.price | money_without_trailing_zeros }}</s></span>
+                                <span class="discount-price">${{ initialVariant.metafields.subscriptions.discount_variant_price }}</span>
+                                <svg class="chevron" xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 512 512'><title>ionicons-v5-a</title><polyline points='184 112 328 256 184 400' style='fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px'/></svg>
+                            </div>
+                        </button>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="inner-disclaimer-container modal-disclaimer">
+                <span>* Receive {% if product.metafields.subscriptions.discount_percentage %}{{ product.metafields.subscriptions.discount_percentage | round }} {% else %}25{% endif %}% off your first order and 15% off each order after (plus free shipping) when you subscribe. Other restrictions may apply.</span>
+            </div>
+        </div>
+    </div>
+    <div class="hidden-input pid-{{ product.id }}">
+        <input type="hidden" class="variant-id" name="id" value="{{ initialVariant.id }}" />
+        <input class="frequency-num" {% if hasSubscription %}name="properties[shipping_interval_frequency]"{% endif %} type="hidden" value="{{ settings.default_subscription_frequency }}" >
+        <input class="frequency-type" {% if hasSubscription %}name="properties[shipping_interval_unit_type]"{% endif %} type="hidden" value="{{ product.metafields.subscriptions.shipping_interval_unit_type }}">
+    </div>
+</div>
+
+<script>
+    var variants = [];
+
+    {% for variant in product.variants %}
+        var variant = {{ variant | json }};
+        var variantSubscriptionMetafields = {{ variant.metafields.subscriptions | json }};
+        var variantAdditionalMetafields = {{ variant.metafields.vital | json }};
+        
+        variant.subscription_info = variantSubscriptionMetafields;
+        variant.additional_info = variantAdditionalMetafields;
+        variant.display_price = "{{ variant.price | money_without_trailing_zeros }}";
+
+        variants.push(variant);
+    {% endfor %}
+
+    $(document).ready(function(e) {
+        hideUnselectableOptions();
+    });
+
+    $(document).on('click', '.frequency-modal-outer.active', function(e) {
+        e.preventDefault();
+
+        if (e.target === this) {
+            closeModal();
+        }
+    });
+
+    $(document).on('click', '.packaging-option', function(e) {
+        e.preventDefault();
+
+        // Change to accept multiple options. 
+        // 1.) Get all selected options 
+        // 2.) Construct JSON of variant
+        // 3.) Get info for variant with matching option values
+        var selectedProductInfo = $(this).data();
+        var optionIndex = selectedProductInfo.optionPosition;
+
+        // Change active only the selected option index (e.g. only size, only flavor, etc.)
+        $('.packaging-options-container.option-' + optionIndex + ' .packaging-option').removeClass('active');
+        $(this).addClass('active');
+
+        var variantInfo = getSelectedVariantDetails();
+
+        updateVariantTitle(variantInfo, optionIndex);
+        updateOneTimeDisplayPrice(variantInfo.display_price);
+        updateSubscriptionDisplayPrice(variantInfo.subscription_info.discount_variant_price);
+        updateVariantContent(variantInfo.id);
+        updateAvailableOptions(variantInfo, optionIndex);
+        setQueryStringParameter("variant", variantInfo.id);
+    });
+
+    $(document).on('mousedown', '.packaging-option', function(e) {
+        e.preventDefault();
+    });
+
+    $(document).on('click', '.cta-section-v2-container .subscribe-button', function(e) {
+        e.preventDefault();
+        //$('#frequency-modal').addClass('active');
+        var variantInfo = getSelectedVariantDetails();
+
+        $('.hidden-input .variant-id').val(variantInfo.subscription_info.discount_variant_id);
+
+        $('.hidden-input .frequency-num').attr('name', 'properties[shipping_interval_frequency]');
+        $('.hidden-input .frequency-type').attr('name', 'properties[shipping_interval_unit_type]');
+        $('.hidden-input .frequency-num').val(4);
+        
+        $('.js-product_section .product_form').submit();
+    });
+
+    $(document).on('click', '.one-time-purchase-button', function(e) {
+        var variantInfo = getSelectedVariantDetails();
+
+        $('.hidden-input .variant-id').val(variantInfo.id);
+
+        $('.hidden-input.pid-{{ product.id }} .frequency-num').removeAttr('name');
+        $('.hidden-input.pid-{{ product.id }} .frequency-type').removeAttr('name');
+        $('.js-product_section .product_form').submit();
+    });
+
+    $(document).on('click', '.modal-close', function(e) {
+        e.preventDefault();
+        closeModal();
+    });
+
+    $(document).on('click', '.frequency-select-button', function(e) {
+        e.preventDefault();
+
+        var variantInfo = getSelectedVariantDetails();
+        $('select[name="id"] option:selected').val(variantInfo.id);
+
+        $('.hidden-input .frequency-num').attr('name', 'properties[shipping_interval_frequency]');
+        $('.hidden-input .frequency-type').attr('name', 'properties[shipping_interval_unit_type]');
+        $('.hidden-input .frequency-num').val($(this).data('interval'));
+        $('.js-product_section .product_form').submit();
+        closeModal();
+    });
+
+    function updateVariantTitle(variantInfo, optionIndex) {
+        $('.variant-title.option-' + optionIndex).text(variantInfo.options[optionIndex - 1]);
+        //$('.modal-variant-title').text(title);
+    }
+
+    function updateOneTimeDisplayPrice(price) {
+        $('.title-price-wrapper .pdp-price').text(price);
+        $('.one-time-price').text(price);
+        $('.frequency-modal-inner .strikethrough-price s').text(price);
+    }
+
+    function updateSubscriptionDisplayPrice(price) {
+        $('.cta-section-v2-container .subscription-price').text('$' + price);
+        $('.frequency-modal-inner .discount-price').text('$' + price);
+    }
+
+    function closeModal() {
+        $('#frequency-modal').removeClass('active');
+    }
+
+    function getSelectedVariantDetails() {
+
+        var option1 = $('.packaging-options-container.option-1 .packaging-option.active').data('option');
+        var option2 = $('.packaging-options-container.option-2 .packaging-option.active').data('option');
+        var option3 = $('.packaging-options-container.option-3 .packaging-option.active').data('option');
+
+        var selectedVariant = variants.filter((variant) => {
+            if (typeof option3 !== "undefined") {
+                return (variant.option1 === option1 && variant.option2 === option2 && variant.option3 === option3);
+            } else if (typeof option2 !== "undefined") {
+                return (variant.option1 === option1 && variant.option2 === option2);
+            } else {
+                return (variant.option1 === option1);
+            }
+        });
+
+        if (selectedVariant.length > 0) {
+            return selectedVariant[0];
+        } else {
+            return;
+        }
+    }
+
+    function updateAvailableOptions(variantInfo, changedOptionIndex) {
+        // Handle swapping of images
+        if (changedOptionIndex === 1) {
+            $('.packaging-options-container.option-2 .packaging-option img').removeClass('active');
+            $('.packaging-options-container.option-2 .packaging-option img[data-option1="' + variantInfo.option1 + '"').addClass('active');
+
+            $('.packaging-options-container.option-3 .packaging-option img').removeClass('active');
+            $('.packaging-options-container.option-3 .packaging-option img[data-option1="' + variantInfo.option1 + '"').addClass('active');
+        } else if (changedOptionIndex === 2) {
+            $('.packaging-options-container.option-1 .packaging-option img').removeClass('active');
+            $('.packaging-options-container.option-1 .packaging-option img[data-option2="' + variantInfo.option2 + '"').addClass('active');
+
+            $('.packaging-options-container.option-3 .packaging-option img').removeClass('active');
+            $('.packaging-options-container.option-3 .packaging-option img[data-option2="' + variantInfo.option2 + '"').addClass('active');
+        } else if (changedOptionIndex === 3) {
+            $('.packaging-options-container.option-1 .packaging-option img').removeClass('active');
+            $('.packaging-options-container.option-1 .packaging-option img[data-option2="' + variantInfo.option2 + '"').addClass('active');
+
+            $('.packaging-options-container.option-2 .packaging-option img').removeClass('active');
+            $('.packaging-options-container.option-2 .packaging-option img[data-option3="' + variantInfo.option3 + '"').addClass('active');
+        }
+
+        if (variantInfo.available === false) {
+            $('.cta-section-v2-container').hide();
+            $('.out-of-stock-container').show();
+        } else {
+            $('.cta-section-v2-container').show();
+            $('.out-of-stock-container').hide();
+        }
+
+
+        // Handle hiding variant selects if option doesn't exist
+        hideUnselectableOptions();
+    }
+
+    function hideUnselectableOptions() {
+        // Loop through the options -> if count of active images == 0, hide that optione
+        $('.packaging-options-container .packaging-option').each(function(index) {
+            var activeImageCount = $(this).find('img.active').length;
+            if (activeImageCount === 0) {
+                $(this).hide();
+                $(this).attr('disabled', true);
+            } else {
+                $(this).show();
+                $(this).removeAttr('disabled');
+            }
+        });
+    }
+    
+</script>

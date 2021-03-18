@@ -1,0 +1,216 @@
+<div class="v1-vital-difference">
+	
+	<div class="v1-vital-difference-info">
+		<h1>{{ section.settings.v1-why-vital-headline }}</h1>
+		<ul>
+          	{% for block in section.blocks %}
+			<li>
+              <div class="v1-vital-difference-info-icon"><img src="{{ block.settings.v1-why-icon-img | img_url: "100x" }}" style="width:40px;"></div>
+				<div class="v1-info-inner">
+				<h2>{{block.settings.v1-why-title}}</h2>
+                  <p>{{block.settings.v1-why-text}}</p>
+              </div>
+			</li>
+				{% endfor %}    
+		</ul>
+		<a href="https://www.vitalproteins.com/collections" class="v1-why-vital-button">Sign Me Up</a>
+	</div>
+	
+</div>
+
+<style>
+	.v1-vital-difference {
+	    display: block;
+	    padding: 115px;
+	    background: #e2e2e2 url({{ section.settings.main-image | img_url: "1600x" }}) no-repeat center center/cover;
+	}
+	
+	.v1-vital-difference-info {
+	    display: flex;
+	    flex-direction: column;
+	    max-width: 400px;
+	    justify-content: center;
+	    align-items: center;
+	    border-radius: 5px;
+	    background: #ffffffed;
+	    box-shadow: 0 10px 20px 0 rgba(0,0,0,0.07);
+	    padding: 25px 30px;
+	}
+	
+	.v1-vital-difference-info ul {
+	    list-style: none;
+	    margin: 0;
+	    padding: 0px;
+	    font-family: 'avenir';
+	    font-size: 16px;
+	    line-height: 18px;
+	    -webkit-font-smoothing: antialiased;
+	    color: #393d40;
+	    font-weight: 500;
+	}
+	
+.v1-why-vital-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 32px;
+    background: #00aae3;
+    color: #ffffff;
+    min-width: 300px;
+    max-width: 300px;
+    height: 45px;
+    text-decoration: none;
+    line-height: 1em;
+    border-radius: 5px;
+    font-family: 'Avenir';
+    letter-spacing: 1px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 5px;
+    margin-top: 50px;
+    margin: 0 auto;
+    transition: 300ms ease all;
+}
+  
+ .v1-why-vital-button:hover {
+  
+    transform: scale(1.025); 
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.31);
+    transition: 300ms ease all;
+   color:#ffffff;
+}
+	
+	.v1-vital-difference-info ul li {
+	    display: flex;
+	    justify-content: flex-start;
+	    align-items: center;
+	    margin-bottom: 25px;
+	}
+	
+	
+.v1-vital-difference-info h1 {
+    font-size: 52px;
+    font-family: 'kapraregular';
+    line-height: 34px;
+    -webkit-font-smoothing: antialiased;
+    color: #393d40;
+    margin-bottom: 25px;
+    font-weight: 400;
+    text-transform: capitalize;
+    margin-top: 10px;
+}
+	
+.v1-vital-difference-info-icon {
+    font-size: 32px;
+    margin-right: 20px;
+    color: #00aae3;
+}
+	
+.v1-vital-difference-info h2 {
+    font-family: 'avenir';
+    font-size: 20px;
+    line-height: 24px;
+    -webkit-font-smoothing: antialiased;
+    color: #4e4e4e;
+    font-weight: 700;
+    text-transform: capitalize;
+    margin-bottom: 5px;
+    margin-top: 0px;
+    letter-spacing: 0px !important;
+}
+	
+	.v1-vital-difference-info p {
+	    font-family: 'avenir';
+	    font-size: 16px;
+	    line-height: 18px;
+	    -webkit-font-smoothing: antialiased;
+	    color: #626677;
+	    font-weight: 400;
+	    margin: 0px;
+	    padding: 0;
+	}
+	
+	@media only screen and (max-width: 680px) {
+	
+		.v1-vital-difference {
+		    display: flex;
+		    justify-content: center;
+		    padding: 50px;
+		}
+		
+	}
+	
+	@media only screen and (max-width: 500px) {
+		.v1-vital-difference {
+		    display: flex;
+		    justify-content: center;
+		    padding: 50px;
+		    background: #ffffff url({{ section.settings.main-image | img_url: "600x" }}) no-repeat center top/contain;
+		    padding-top: 240px;
+		    padding-bottom: 0px;
+		}
+		
+		.v1-vital-difference-info {
+		    background: #fffffffa;
+		}
+	
+	}
+	
+	
+	
+
+</style>
+
+
+
+
+{% schema %}
+	{
+  "name": "Why Vital Section",
+  "class": "v1-why-vital-section",
+  "settings": [
+	{
+      "type": "text",
+      "id": "v1-why-vital-headline",
+      "label": "Title",
+	  "default": "Why Choose Vital?"
+	},
+{
+      "type": "image_picker",
+      "id": "main-image",
+      "label": "Background Image"
+	}
+  ],
+"blocks":[
+      {
+        "type": "block-1",
+        "name": "Icons",
+        "settings": [
+          {
+            "type": "text",
+            "id": "v1-why-title",
+            "label": "Review Text"
+          },
+		  {
+            "type": "text",
+            "id": "v1-why-text",
+            "label": "Reviewer Name"
+          },
+		  {
+            "type": "image_picker",
+            "id": "v1-why-icon-img",
+            "label": "Icon"
+          }
+        ]
+      }
+    ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

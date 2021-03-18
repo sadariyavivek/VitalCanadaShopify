@@ -1,0 +1,10 @@
+{% assign article = articles[article_handle] %}
+{% assign splitURL = article.url | split: "/" %}
+<a href="{{ article.url }}" class="lively-grid-item">
+  <div class="lively-image-container lazyload" data-bg="{{ article.image | img_url: '400x' }}">
+  </div>
+  <div class="lively-text-container">
+    <h5 class="lively-category">{{ blogs[splitURL[2]].title }}</h5>
+    <p class="lively-excerpt">{{ article.title }}</p>
+  </div>
+</a>

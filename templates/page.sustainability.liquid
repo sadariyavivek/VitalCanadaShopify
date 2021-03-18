@@ -1,0 +1,18 @@
+<a name="pagecontent" id="pagecontent"></a>
+
+<div class="sixteen columns page clearfix">
+  <h1>
+    {{ page.title }}
+  </h1>
+  <div class="feature_divider"></div>
+
+  <div>
+    {% include 'page-multi-column', content: page.content %}
+    
+  </div>
+  {% assign limit = 2 %}
+    {% assign collection = collections['sustainability'] %}
+    {% assign products = collection.products %}
+    {% assign products_per_row = 3 %}
+    {% include 'product-loop' %}
+</div>

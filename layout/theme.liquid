@@ -1,0 +1,373 @@
+{% if template contains 'account-landing-page' %}
+{% unless customer %}
+<script>
+  window.location.href = '/account/login';
+</script>
+{% else %}
+{% assign is_subscriber = false %}
+{% for order in customer.orders %}
+{% if order.tags contains 'Subscription' or order.tags contains 'recurring_order' %}
+{% assign is_subscriber = true %}
+{% endif %}
+{% endfor %}
+
+{% unless customer.metafields.subscriptions.customer_string %}
+<script>
+  window.location.href = '/account';
+</script>
+{% endunless %}
+{% comment %}
+{% unless is_subscriber %}
+<script>
+  window.location.href = '/account';
+</script>
+{% endunless %}
+{% endcomment %}
+{% endunless %}
+{% endif %}
+
+{% capture content %}
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="{{ shop.locale }}"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="{{ shop.locale }}"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="{{ shop.locale }}"> <![endif]-->
+<!--[if IE 9 ]><html class="ie ie9" lang="{{ shop.locale }}"> <![endif]-->
+<!--[if (gte IE 10)|!(IE)]><!--><html lang="{{ shop.locale }}"> <!--<![endif]-->
+<head>
+  {% include 'elevar-head' %}
+  <meta charset="utf-8">
+  <meta http-equiv="cleartype" content="on">
+  {% if handle contains 'free-single-product-samples' or handle contains 'vital-proteins-x-poosh-blueberry-lemon-collagen-vibes' or handle contains 'pink-moon-milk-collagen-latte' or handle contains 'free-gift' or handle contains 'maximizing-your-affiliate-account' or handle contains 'affiliate-program-health-practitioners' or handle contains 'the-affiliate-program-for-enthusiasts' or handle contains 'collagen-101' or handle contains 'vital-performance-events' %}
+  <meta name="robots" content="noindex">
+  {% else %}
+  <meta name="robots" content="index,follow">
+  {% endif %}
+  {% comment %}
+  <!-- Custom Fonts -->
+  {% if settings.logo_font contains 'Google' or settings.headline_font contains 'Google' or settings.nav_font contains 'Google' or settings.slideshow_subtitle_font contains 'Google' or settings.slideshow_headline_font contains 'Google' or settings.regular_font contains 'Google' %}
+  <link href="//fonts.googleapis.com/css?family=.|{% if settings.logo_font contains 'Google' %}{{ settings.logo_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold|{% endif %}{% if settings.headline_font contains 'Google' %}{{ settings.headline_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold|{% endif %}{% if settings.nav_font contains 'Google' %}{{ settings.nav_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold|{% endif %}{% if settings.slideshow_headline_font contains 'Google' %}{{ settings.slideshow_headline_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold|{% endif %}{% if settings.slideshow_subtitle_font contains 'Google' %}{{ settings.slideshow_subtitle_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold|{% endif %}{% if settings.regular_font contains 'Google' %}{{ settings.regular_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold{% endif %}" rel="stylesheet" type="text/css" />
+  {% endif %}
+  {% endcomment %}
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap" rel="stylesheet">
+  <!-- Stylesheets for Conspire 3.0.2 -->
+
+  {% comment %}
+  {{ 'tailwind.css' | asset_url | stylesheet_tag }}
+  {% endcomment %}
+  {{ 'styles.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'custom.css' | asset_url | stylesheet_tag }}
+  {{ 'new2021.scss.css' | asset_url | stylesheet_tag }}
+
+  {% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %}{% endif %}
+  <title>{% if template contains "index" %}{{ page_title }}{% else %}{{ page_title }}{% if current_tags %} {{ 'general.meta.tagged_html' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} {{ 'general.meta.page' | t: page_number: current_page }}{% endif %}{% unless page_title contains shop.name %} - {{ shop.name }}{% endunless %}{% endif %}</title>
+
+  {% if page_description %}
+  <meta name="description" content="{{ page_description | escape }}{% if current_tags %} {{ 'general.meta.tagged_html' | t: tags: meta_tags | escape }}.{% endif %}{% if current_page != 1 %} {{ 'general.meta.page' | t: page_number: current_page }}.{% endif %}" />
+  {% endif %}
+
+  {% include 'social-meta-info' %}
+  {% if collection.previous_product %}<link rel="prev" href="{{ collection.previous_product }}">{% endif %}
+  {% if collection.next_product %}<link rel="next" href="{{ collection.next_product }}">{% endif %}
+
+  <!-- Mobile Specific Metas -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="{{ settings.shop_bg_color }}">
+
+  {% if settings.favicon != nil %}
+  <link rel="shortcut icon" type="image/x-icon" href="{{ settings.favicon | img_url: '32x32' }}">
+  {% else %}
+  <link rel="shortcut icon" type="image/x-icon" href="{{ 'favicon.png' | asset_url }}">
+  {% endif %}
+  <link rel="canonical" href="{{ canonical_url }}" />
+
+  {% if template contains 'customer' %}
+  {{ "shopify_common.js" | shopify_asset_url | script_tag }}
+  {{ "customer_area.js" | shopify_asset_url | script_tag }}
+  {% endif %}
+
+  {{ content_for_header }}
+
+  <script defer src="https://kit.fontawesome.com/80be4589ae.js" crossorigin="anonymous"></script>
+  <!-- jQuery Import -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- End jQuery Import -->
+  <!-- Optimizely -->
+  <script src="https://cdn.optimizely.com/js/17260515767.js"></script>
+  <!-- End Optimizely Import -->
+
+  <meta name="google-site-verification" content="f8yKrNvGNNYRUvRMeitXzxUtZ7qEDk-3s5TqmfYtxBE" />
+  <!-- Begin Talkable integration code -->
+  <script type="text/javascript">
+    window._talkableq = [['init', {
+      site_id: 'vital-proteins' // REQUIRED - Replace with your Talkable Site ID
+    }]];
+    {% if customer %}
+    _talkableq.push(['authenticate_customer', {
+      email:      '{{ customer.email }}',
+      first_name: '{{ customer.first_name }}',
+      last_name:  '{{ customer.last_name }}'
+    }]);
+    {% endif %}
+    _talkableq.push(['register_affiliate', {}]);
+  </script>
+  <script defer src="https://d2jjzw81hqbuqv.cloudfront.net/integration/clients/vital-proteins.min.js" type="text/javascript"></script>
+  <!-- End Talkable integration code -->
+
+
+  {% include 'gsf-conversion-pixels' %}
+  {% comment %}Animate on Slide package{% endcomment %}
+  <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  {% render 'gsf-conversion-pixels' %}
+  <script defer src="{{ 'lazysizes.min.js' | asset_url }}"></script>
+  {{ 'bundle.min.css' | asset_url | stylesheet_tag }}
+</head>
+{% if template contains "index" %}
+{% assign feature_image = true %}
+{% elsif template contains "collection" %}
+{% assign feature_image = true %}
+{% elsif template contains "blog" %}
+{% assign feature_image = true %}
+{% elsif template contains "article" %}
+{% assign feature_image = true %}
+{% elsif template contains "contact" %}
+{% assign feature_image = true %}
+{% elsif template contains "product" %}
+{% assign feature_image = true %}
+{% elsif template contains "gallery" %}
+{% assign feature_image = true %}
+{% elsif template contains "banner" %}
+{% assign feature_image = true %}
+{% elsif template contains "details" %}
+{% assign feature_image = true %}
+{% elsif template contains "faq" %}
+{% assign feature_image = true %}
+{% elsif template contains "customers/account" %}
+{% assign feature_image = true %}
+{% elsif template contains "vital-run-club" %}
+{% assign feature_image = true %}
+{% elsif template contains "search" %}
+{% assign feature_image = true %}
+{% elsif template contains "account-landing-page" %}
+{% assign feature_image = true %}
+{% else %}
+{% assign feature_image = false %}
+{% endif %}
+
+<noscript>
+  <style>
+    .product_section .product_form {
+      opacity: 1;
+    }
+
+    .multi_select,
+    form .select {
+      display: block !important;
+    }
+  </style>
+</noscript>
+
+<body class="{{ template | replace: '.', '-' | handle }} mobile_nav-fixed--false "
+      data-money-format="{{ shop.money_format }}">
+
+  {% section 'header' %}
+
+  {% unless feature_image %}
+  <div class="container main content">
+    {% endunless %}
+
+    {{ content_for_layout }}
+  </div>
+
+  {% unless template contains 'index' or settings.secondary_newsletter_banner == false %}
+  {% section 'newsletter' %}
+  {% endunless %}
+
+  {% section 'footer' %}
+
+  {% if settings.size_chart != blank %}
+  {% include 'popup-size-chart' %}
+  {% endif %}
+  {% if settings.newsletter_popup %}
+  {% include 'popup-newsletter' %}
+  {% endif %}
+  {% if settings.quick_shop_enabled %}
+  {% include 'popup-quick-shop' %}
+  {% endif %}
+  {% if settings.disqus_enabled %}
+  {% if template contains "blog" or template contains "article" or template contains "index" %}
+  <script id="dsq-count-scr" src="//{{ settings.disqus_shortname }}.disqus.com/count.js" async></script>
+  {% endif %}
+  {% endif %}
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/promise-polyfill/8.1.3/polyfill.min.js"></script>
+
+  {% if customer %}
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+  <script>
+    Cookies.set('customerEmail', '{{ customer.email }}', { expires: 365, domain: 'vitalproteins.com' });
+  </script>
+  {% endif %}
+  <script src="{{ 'assetUrls.js' | asset_url }}"></script>
+  <script src="{{ 'customer.js' | asset_url }}"></script>
+  {% render 'shopify-constants' %}
+  <script src="{{ 'bundle.js' | asset_url }}"></script>
+  {{ 'VP_Icons.css' | asset_url | stylesheet_tag }}
+
+
+  <script defer src="{{ 'moment.min.js' | asset_url }}"></script>
+  <script src="{{ 'app.js' | asset_url }}"></script>
+
+  {% if template contains 'account-landing-page' %}
+  <script src="{{ 'custom.js' | asset_url }}"></script>	
+  {% endif %}
+
+  {% if settings.show_multiple_currencies %}
+  {% include 'currencies' %}
+  {% endif %}
+  {% if settings.show_shipping_calculator and template contains "cart" %}
+  {% include 'cart-shipping-scripts' %}
+  {% endif %}
+
+  {% unless settings.performance == "sport" or template contains "customer" %}
+  <script src="{{ 'instantclick.min.js' | asset_url }}" data-no-instant></script>
+
+  <script data-no-instant>
+
+    function inIframe() {
+      try {
+        return window.self !== window.top;
+      } catch (e) {
+        return true;
+      }
+    }
+
+    if (!inIframe()){
+      InstantClick.on('change', function() {
+
+        $('head script[src*="shopify"]').each(function() {
+          var script = document.createElement('script');
+          script.type = 'text/javascript';
+          script.src = $(this).attr('src');
+
+          $('body').append( script );
+        });
+
+        $('html').removeClass('remodal-is-locked');
+
+      });
+      InstantClick.init();
+    }
+  </script>
+  {% endunless %}
+
+  <script>
+    {{ settings.custom_scripts }}
+  </script>
+
+  {% if template == 'index' %}
+  <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "url": "https://www.vitalproteins.com/",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.vitalproteins.com/search?type=product&q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+  </script>
+  {% endif %}
+
+  <!-- google dynamic remarketing tag for theme.liquid -->
+  {% if template contains 'product' %}
+  <script type="text/javascript">
+    var json_product = {{ product | json }};
+  </script>
+  <script>
+    var ecomm_prodid=[];
+    for(var i=0;i<json_product.variants.length;i++)
+      ecomm_prodid.push('shopify_US_{{product.id}}_'+json_product.variants[i].id);
+  </script>
+  <script type="text/javascript">
+    var google_tag_params = {
+      ecomm_prodid: ecomm_prodid,
+      ecomm_pagetype: 'product',
+      ecomm_totalvalue: parseFloat('{{ product.price | money_without_currency | remove: ","}}')
+                                   };
+  </script>
+  {% elsif template contains 'collection' %}
+  <script type="text/javascript">
+    var google_tag_params = {
+      ecomm_pagetype: 'category'
+    };
+  </script>
+  {% elsif template contains 'cart' %}
+  <script type="text/javascript">
+    var id = new Array();
+    {% for item in cart.items %}
+    id.push('shopify_US_{{item.product.id}}_{{item.variant.id}}');
+            {% endfor %}
+
+            var google_tag_params = {
+            ecomm_prodid: id,
+            ecomm_pagetype: 'cart',
+            ecomm_totalvalue: parseFloat('{{ cart.total_price | money_without_currency | remove: ","}}')
+            };
+  </script>
+  {% elsif template contains 'search' %}
+  <script type="text/javascript">
+    var google_tag_params = {
+      ecomm_pagetype: 'searchresults'
+    };
+  </script>
+  {% elsif template contains 'index' %}
+  <script type="text/javascript">
+    var google_tag_params = {
+      ecomm_pagetype: 'home'
+    };
+  </script>
+  {% else %}
+  <script type="text/javascript">
+    var google_tag_params = {
+      ecomm_pagetype: 'other'
+    };
+  </script>
+  {% endif %}
+  {% include 'back-in-stock-helper' %}
+  {% include 'elevar-body-end' %}
+  <!-- CRITEO START -->
+  {% include 'criteo-tracking' %}
+  <!-- CRITEO END -->
+  <div id="referral-link-capture"></div>
+  <!-- Begin ReCharge code -->
+  {% include 'subscription-theme-footer' %}
+  <!-- End ReCharge code -->
+  <style>
+    button.action_button span.text:after{content:' to Save 20%';}
+    .newProductCard button.action_button:after{content:' to Save 20%' !important;}
+    .save-discount span.text:after{display:none !important;}
+    .newProductCard .save-discount:after{display:none !important;}
+  </style>
+  <script>
+    $('.subscription-widget-select option[value="1"]').prop('selected','true');
+  
+  $('.subscription-widget-select').on('change', function(){
+var val_l = $(this).find('option:selected').val();
+    if(val_l == '0'){
+      $('button.action_button.add_to_cart span.text:after').css({'display':'none'});
+      $(this).parents('form').find('button.action_button').addClass('save-discount');
+    }else{
+       $(this).parents('form').find('button.action_button').removeClass('save-discount');
+    }
+});
+    </script>
+</body>
+</html>
+{% endcapture %}
+{% assign content = content | replace_first: '<!DOCTYPE', '!DOCTYPE' | split: ' <' %}
+{% for html in content %}{% assign htmlblock = html | strip | prepend: ' <' %}{{htmlblock | replace: ' </', '</'}}{% endfor %}

@@ -1,0 +1,46 @@
+<style>
+    .pdp-ja-favorites {
+        max-width: 1440px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .pdp-ja-favorites .favorites-header {
+        font-family: 'KapraNeue';
+        font-size: 72px;
+        line-height: 150px;
+        letter-spacing: 0.8px !important;
+        text-align: center;
+        color: #393D40;
+        text-transform: uppercase;
+    }
+  	.pdp-ja-favorites {
+		margin: 60px auto !important;
+	}
+  	.pdp-ja-favorites .newStyles2021 .grid-4 .newProductCard .prodTag {
+    	display: none;
+	}
+  	.pdp-redesign-wrapper .pdp-ja-favorites .newStyles2021 .newProductCard:nth-child(4) {
+    	display: none !important;
+	}
+
+    @media screen and (max-width: 800px) {
+        .pdp-ja-favorites {
+            padding-top: 20px;
+        }
+        
+        .pdp-ja-favorites .favorites-header {
+            font-size: 24px;
+            line-height: 30px;
+            letter-spacing: 0.7px !important;
+        }
+    }
+</style>
+<div class="pdp-ja-favorites">
+    <h3 class="favorites-header">Jen's Favorites</h3>
+    <div>
+        {% assign mycollection = 'jennifer-anistons-vital-picks' %}
+
+        {% include 'VP2021-Cards' %}
+    </div>
+</div>

@@ -1,0 +1,77 @@
+<script>
+var peptidesVariantID = 31355504361532;
+var bagVariantID = 31355504427068;
+var hasBag = false;
+var hasPeptides = false;
+var item1Threshold = 5000;
+var item2Threshold = 7500;
+
+$(document).ready(function() {
+    getCartContents();
+});
+
+function getCartContents() {
+  var postRequired = false;
+  var postData = { 
+    updates: {}
+  }
+  
+  $.ajax({
+    url: '/cart.js',
+    dataType: "json",
+    success: function(cart) {
+
+      if (cart.items.filter((item) => item.variant_id === bagVariantID).length > 0) {
+        hasBag = true;
+      }
+
+      if (cart.items.filter((item) => item.variant_id === peptidesVariantID).length > 0) {
+        hasPeptides = true;
+      }
+
+      if (cart.items_subtotal_price >= item2Threshold) {
+        if (hasBag === false) {
+
+          postData.updates = {
+            [peptidesVariantID]: 1,
+            [bagVariantID]: 1
+          };
+          
+          postRequired = true;
+        }
+      } else if (cart.items_subtotal_price >= item1Threshold) {
+        if (hasPeptides === false || hasBag === true) {
+
+          postData.updates = {
+            [peptidesVariantID]: 1,
+            [bagVariantID]: 0
+          };
+          
+          postRequired = true;
+        }
+
+      } else if (cart.items_subtotal_price < item1Threshold && (hasPeptides === true || hasBag === true)) {
+
+        postData.updates = {
+          [peptidesVariantID]: 0,
+          [bagVariantID]: 0
+        };
+        
+        postRequired = true;
+      }
+      
+      if (postRequired === true) {
+        $.ajax({
+          url: '/cart/update.js',
+          dataType: "json",
+          method: 'POST',
+          data: postData,
+          success: function(data) {
+            document.location.href = '/cart';
+          }
+        });
+      }
+    }
+  });
+}
+</script>

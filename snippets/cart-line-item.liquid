@@ -1,0 +1,110 @@
+{% if item.product.metafields.subscriptions.original_handle %}
+    {% assign originalProduct = all_products[item.product.metafields.subscriptions.original_handle] %}
+    {% assign itemURL = 'products/' | append: item.product.metafields.subscriptions.original_handle %}
+{% else %}
+    {% assign itemURL = item.url %}
+{% endif %}
+{% if item.product.tags contains "Free Gift" %}
+	{% assign is_free_gift = true  %}
+{% endif %}
+<div class="cart-line-item-redesign">
+    <div class="image-container">
+        {% if is_free_gift != true and item.product_id != 2405914083388 and item.product_id != 4413236871228 and item.product_id != 4480211877948 and item.variant_id != 32447871975484 %}
+            <a href="{{ itemURL }}">
+                <img src="{{ item.image | img_url: '100x'}}"/>
+            </a>
+        {% else %}
+            <img src="{{ item.image | img_url: '100x'}}"/>
+        {% endif %}
+    </div>
+    <div class="info-container">
+    {% assign productTitles = item.product.title | split: ' - ' %}
+        {% if is_free_gift != true and item.product_id != 2405914083388 and item.product_id != 4413236871228 and item.product_id != 4480211877948 and item.variant_id != 32447871975484 %}
+            <a class="product-title-link" href="{{ itemURL }}">
+                <span class="product-title">{{ productTitles[0]}}</span>
+            </a>
+        {% else %}
+            <span class="product-title">{{ productTitles[0]}}</span>
+        {% endif %}
+        {% if productTitles[1] %}
+            <span class="variant-title"><span class="upper">{{ productTitles[1] | remove: '25.00% Off Auto renew'}}</span> {% if item.variant.title != 'Default Title' %}&bull; {{ item.variant.title }}{% endif %}</span>
+        {% else %}
+            <span class="variant-title">{{ item.variant.title }}</span>
+        {% endif %}
+        <span class="main-price">{{ item.final_price | money }}</span>
+        {% if item.final_price != item.original_price %}
+            <span class="original-price">{{ item.original_price | money }}</span>
+        {% elsif originalProduct %}
+            {% assign originalPrice = 0 %}
+            {% for variant in originalProduct.variants %}
+                {% if variant.sku == item.sku %}
+                    {% assign originalPrice = variant.price %}
+                {% endif %}
+            {% endfor %}
+            <span class="original-price">{{ originalPrice | money }}</span>
+        {% endif %}
+        <div class="qty-and-remove">
+            {% if is_free_gift != true and item.product_id != 2405914083388 and item.product_id != 4413236871228 and item.product_id != 4480211877948 and item.variant_id != 32447871975484 %}
+                <div aria-label="Quantity for {{ item.product.title }} - {{ item.variant.title }}" class="product-quantity-box">
+                    <span aria-label="Decrease quantity for {{ item.product.title }} - {{ item.variant.title }}." class="ss-icon product-minus {% if item.quantity > 1 %}js-change-quantity {% endif %}" data-func="minus" {% if item.quantity == 1 %}style="opacity: 0.25;"{% endif %}><span class="icon-minus"></span></span>
+                    <input aria-label="Current quantity for {{ item.product.title }} - {{ item.variant.title }} is {{ item.quantity }}." {% if item.product.id == cart-shots.id %}readonly max="3"{% endif %} type="number" min="1" step="1" size="2" class="quantity" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" data-line-id="{{ item.key }}" {% if settings.limit_quantity and item.variant.inventory_management != blank and item.variant.inventory_quantity > 0 and item.variant.inventory_policy == "deny" %}max="{{ item.variant.inventory_quantity }}"{% endif %} />
+                    {% unless item.product.id == cart-shots.id and item.quantity >= maxQuantityPerVariant %}
+                    <span aria-label="Increase quantity for {{ item.product.title }} - {{ item.variant.title }}." class="ss-icon product-plus js-change-quantity" data-func="plus"><span class="icon-plus"></span></span>
+                    {% endunless %}
+                </div>
+                <button class="cart-line-item-redesign-remove" data-line="{{ lineIndex }}">Remove</button>
+            {% endif %}
+        </div>
+        <div class="cart-subscription-widget-container">
+            {% comment %}
+            We know that this is product is offered on subscription -> it could either currently be a one-time or a subscription
+            {% endcomment %}
+
+            {% if item.product.metafields.subscriptions.has_subscription or item.product.metafields.subscriptions.original_handle %}
+            <div class="subscribe-convert-container-redesign">
+              <input type="checkbox" id="subscribe-convert-redesign-{{item.key}}" name="subscribe-convert-redesign-{{item.key}}" {% if item.product.metafields.subscriptions.original_handle %}checked {% endif %}
+                     data-line="{{ lineIndex }}"
+                     data-variant-id="{{ item.variant.id }}" 
+                     data-quantity="{{ item.quantity }}" 
+                     data-line-item-key="{{ item.key }}"
+                     data-price="{{ item.price }}" 
+                     data-subscription="{{ item.product.metafields.subscriptions.has_subscription }}"
+                     data-original-handle="{{ item.product.metafields.subscriptions.original_handle }}"
+                     data-discount-variant-id="{{ item.variant.metafields.subscriptions.discount_variant_id }}"
+                     data-frequency-type="{{ item.product.metafields.subscriptions.shipping_interval_unit_type }}"
+                     data-sku="{{ item.variant.sku }}"
+                     />
+              <label class="subscribe-convert-label" for="subscribe-convert-redesign-{{item.key}}">Subscribe and Save {% if item.product.metafields.subscriptions.original_handle %}{% assign originalProduct = all_products[item.product.metafields.subscriptions.original_handle] %}{{ originalProduct.metafields.subscriptions.discount_percentage | round }}{% else %}{{ item.product.metafields.subscriptions.discount_percentage | round }}{% endif %}%*</label>
+            </div>
+            {% endif %}
+			
+            {% comment %}
+            We know that this is a hidden subscription product variant -> it has the original handle.
+            {% endcomment %}
+            {% if item.product.metafields.subscriptions.original_handle %}
+              {% assign originalProduct = all_products[item.product.metafields.subscriptions.original_handle] %}
+              {% assign subscriptionIntervals = originalProduct.metafields.subscriptions.shipping_interval_frequency | split: ',' %}
+              {% assign subscriptionUnitType = originalProduct.metafields.subscriptions.shipping_interval_unit_type %}
+              {% assign lastLetter = subscriptionUnitType | size | minus: 1 %}
+              {% assign subscriptionUnitTypeSingle = subscriptionUnitType | slice: 0, lastLetter %}
+
+              <div class="frequency-dropdown-container">
+                <svg class="icon-refresh" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M433 288.8c-7.7 0-14.3 5.9-14.9 13.6-6.9 83.1-76.8 147.9-161.8 147.9-89.5 0-162.4-72.4-162.4-161.4 0-87.6 70.6-159.2 158.2-161.4 2.3-.1 4.1 1.7 4.1 4v50.3c0 12.6 13.9 20.2 24.6 13.5L377 128c10-6.3 10-20.8 0-27.1l-96.1-66.4c-10.7-6.7-24.6.9-24.6 13.5v45.7c0 2.2-1.7 4-3.9 4C148 99.8 64 184.6 64 288.9 64 394.5 150.1 480 256.3 480c100.8 0 183.4-76.7 191.6-175.1.8-8.7-6.2-16.1-14.9-16.1z"/></svg>
+                <select class="subscribe-convert-frequency-select" 
+                        data-line="{{ lineIndex }}"
+                        data-variant-id="{{ item.variant.id }}" 
+                        data-quantity="{{ item.quantity }}" 
+                        data-line-item-key="{{ item.key }}"
+                        data-frequency-type="{{ item.properties['shipping_interval_unit_type'] }}">
+                  {% for interval in subscriptionIntervals %}
+                    <option {% if item.properties['shipping_interval_frequency'] == interval %}selected{% endif %} value="{{ interval }}">Ship Every {{ interval }} {{ interval | plus: 0 | pluralize: subscriptionUnitTypeSingle, subscriptionUnitType }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            {% endif %}
+          </div>
+        {% if item.product.metafields.subscriptions.has_subscription or item.product.metafields.subscriptions.original_handle %}
+          <span class="subscription-disclaimer">*Receive {% if originalProduct %}{{ originalProduct.metafields.subscriptions.discount_percentage | round }}{% else %}{{ item.product.metafields.subscriptions.discount_percentage | round }}{% endif %}% off your first order and 15% off each order after (plus free shipping) when you subscribe. Other restrictions may apply.</span>
+        {% endif %}
+    </div>
+</div>

@@ -1,0 +1,246 @@
+<div class="v1-section">	
+<div class="v1-section-inner">
+
+  
+
+  <div class="review-top">
+	  <h4 class="review-number"> {{section.settings.v1-review-number}} </h4>
+	  <img class="review-stars" src="https://cdn.shopify.com/s/files/1/2074/9385/files/stars.png?v=1587734992">
+	  <p class="review-desc"> {{section.settings.v1-review-desc}} </p>
+  </div>
+  
+  <h2 class="lp-lg-review">"The results are amazing. I noticed within 3 weeks my skin was more plump and glowing."</h2>
+   <h4>Ravinder S.</h4>
+ 
+  <div class="review-carousel js-flickity" data-flickity-options='{ "wrapAround": true }'>  	
+	
+	{% for block in section.blocks %}
+    <div class="review-carousel-cell">
+  	  <img class="review-stars" src="https://cdn.shopify.com/s/files/1/2074/9385/files/stars.png?v=1587734992">
+  	  <p class="review-text"> {{block.settings.v1-review-text}} </p>
+	  <p class="review-name"> {{block.settings.v1-review-name}} </p>
+	</div>
+	{% endfor %}
+	
+	
+  </div>
+  
+          <a href="https://www.vitalproteins.com/products/collagen-peptides#BVRRSearchContainer" class="callout-button">See All Reviews</a>
+
+  
+</div>
+</div>
+
+
+
+<style>
+  
+.lp-lg-review {
+    margin: 0;
+    text-align: center;
+    color: #393d40 !important;
+    font-family: 'Avenir' !important;
+    font-size: 44px !important;
+    line-height: 52px !important;
+    max-width: 75%;
+    margin-bottom: 25px !important;
+    margin-top: 35px !important;
+    text-transform: initial;
+}
+	
+.review-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+}
+	
+	.review-number {
+	    font-family: 'Avenir';
+	    font-size: 90px !important;
+	    font-weight: 400 !important;
+	    letter-spacing: -3px !important;
+	    margin: 0px;
+	    line-height: 1em;
+	    color: #393d40;
+	}
+	
+	.review-desc {
+	    font-family: 'Avenir';
+	    color: #717f86;
+	    font-weight: 400;
+	    font-size: 18px !important;
+	    margin: 0px;
+	}
+  
+  	.review-text {
+
+	}
+  
+  
+  .v1-review-section .v1-section-inner {
+    background: #ffffff;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+  
+    
+.review-name {
+    font-weight: 700;
+    font-size: 16px !important;
+}
+
+.review-stars {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+  
+.review-carousel {
+    width: 100%;
+    max-width: 1220px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 50px;
+    margin: 0 auto;
+}
+  
+.review-carousel-cell {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 25%;
+    align-items: flex-start;
+    margin-right: 50px;
+}
+  
+.review-carousel-cell .review-stars {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transform: scale(.8);
+    position: relative;
+    left: -20px;
+}
+  
+.v1-review-section .callout-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 32px;
+    background: #15a7e0;
+    color: #ffffff;
+    min-width: 300px;
+    max-width: 400px;
+    height: 45px;
+    text-decoration: none;
+    line-height: 1em;
+    border-radius: 5px;
+    font-family: 'Avenir';
+    letter-spacing: 1px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 5px;
+    margin-top: 50px;
+}
+  
+      .v1-review-section .callout-button:hover {
+     transform: scale(1.025); 
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.31);
+    transition: 300ms ease all;
+   color:#ffffff;
+}
+  
+  
+  
+    @media only screen and (max-width: 800px) {
+  
+  
+.review-carousel-cell {
+    width: 70%;
+    margin-right: 50px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+      
+      .review-carousel-cell .review-stars {
+    left: 0px; 
+}
+      
+.lp-lg-review {
+    margin: 0;
+    text-align: center;
+    color: #393d40 !important;
+    font-family: 'Avenir' !important;
+    font-size: 34px !important;
+    line-height: 40px !important;
+    max-width: 80%;
+    margin-bottom: 25px !important;
+    margin-top: 35px !important;
+    text-transform: initial;
+}
+      
+        .v1-review-section .v1-section-inner {
+    padding-top: 0px !important;
+}
+      
+}
+
+	</style>
+
+
+
+
+
+{% schema %}
+	{
+  "name": "Review Section",
+  "class": "v1-review-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "v1-review-number",
+      "label": "Review Number",
+	  "default": "4.9"
+	},
+	{
+      "type": "text",
+      "id": "v1-review-desc",
+      "label": "Review Description",
+	  "default": "2,763 verified customer reviews"
+}
+  ],
+"blocks":[
+      {
+        "type": "block-1",
+        "name": "Reviews",
+        "settings": [
+          {
+            "type": "text",
+            "id": "v1-review-text",
+            "label": "Review Text"
+          },
+		  {
+            "type": "text",
+            "id": "v1-review-name",
+            "label": "Reviewer Name"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+
+
+{% endjavascript %}

@@ -1,0 +1,377 @@
+<a name="pagecontent" id="pagecontent"></a>
+<style>
+  .content.main {
+    display: none;
+  }
+  
+  .hsg-wrapper .hero-image {
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-image: url({{ 'Holiday-Offerings_Header.gif' | file_img_url: '2000x' }});
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .hsg-wrapper .hero-image h1 {
+    color: white;
+    text-transform: uppercase;
+    font-size: 72px;
+  }
+  
+  .trending-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+  }
+  
+  .trending-header {
+    font-size: 60px;
+    color: #23b6e6;
+    text-align: center;
+  }
+  
+  .trending-grid {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  .trending-grid .trending-item {
+    width: 33.33%;
+    display: block;
+    text-align: center;
+    transition: .2s transform ease-out, .2s opacity ease-out;
+  }
+  
+  .trending-grid .trending-item:hover .ti-image-container {
+	opacity: 0.7;
+    transform: scale(0.95) translateY(-10px);
+  }
+  
+  .trending-grid .trending-item:hover .hsg-title {
+    opacity: 0.7;
+  }
+  
+  .trending-grid .trending-item h3 {
+    text-transform: uppercase;
+    letter-spacing: 1px !important;
+    color: #e5666b;
+    font-size: 36px;
+  }
+  
+  .trending-grid .trending-item .ti-image-container {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    height: 240px;
+    border-radius: 20px;
+    transition: .2s all ease-out;
+  }
+  
+  .trending-grid .trending-item h3.hsg-title {
+    margin-bottom: 0;
+    margin-top: 20px;
+  }
+  
+  .trending-grid .trending-item h3.hsg-price {
+    margin-bottom: 0;
+    margin-top: 0px;
+    font-size: 28px;
+    line-height: 32px;
+    color: #6ad8d3;
+    transition: .2s all ease-out;
+  }
+  
+  .product_form {
+    margin-bottom: 0;
+    opacity: 0;
+    transform: translateY(-20px);
+    max-height: 0;
+    transition: 0.2s all ease-out;
+  }
+  
+  .trending-grid .trending-item:hover .product_form {
+    max-height: 120px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  
+  button.add_to_cart {
+    height: initial;
+    min-height: auto;
+    min-width: auto;
+    width: auto;
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 20px;
+    background-color: #e5666b;
+    border: 0;
+    margin-top: 10px;
+  }
+  
+  button.add_to_cart:hover {
+    background-color: #e5666b;
+    color: white;
+    opacity: 0.75;
+    border: 0;
+  }
+  
+  .new-products-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+  }
+  
+  .new-products-header {
+    font-size: 60px;
+    color: #23b6e6;
+    text-align: center;
+  }
+  
+  .new-products-grid {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  .new-products-item {
+    width: 50%;
+    display: block;
+    text-align: center;
+    transition: .2s transform ease-out, .2s opacity ease-out;
+  }
+  
+  .new-products-item:hover {
+    transform: translateY(-3px);
+    opacity: 0.7;
+  }
+  
+  .new-products-item h3 {
+    text-transform: uppercase;
+    letter-spacing: 1px !important;
+    color: #e5666b;
+    margin-top: 20px;
+    font-size: 36px;
+  }
+  
+  .new-products-item .np-image-container {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    height: 240px;
+    border-radius: 20px;
+  }
+  
+  .mid-promo-banner {
+    width: 100%;
+  }
+  
+  .best-sellers-section {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .product-loop-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .best-sellers-header {
+    font-size: 60px;
+    color: #23b6e6;
+    text-align: center;
+  }
+  
+  .offerings-text {
+    color: #23b6e6;
+    letter-spacing: 1px !important;
+    font-size: 36px;
+    font-style: italic;
+    text-align: center;
+    text-transform: none;
+  }
+  
+  .product-list .thumbnail {
+    width: 25%;
+  }
+  
+  .temp-placeholder {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .temp-placeholder-half {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .temp-placeholder-half img {
+    border-radius: 10px;
+    width: 100%;
+  }
+  
+  .temp-placeholder-half h4 {
+    letter-spacing: 1px !important;
+    color: #e5666b;
+    font-size: 36px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  
+  .temp-placeholder-half h5 {
+    letter-spacing: 1px !important;
+    color: #4a4a4a;
+    font-size: 28px;
+    text-align: center;
+  }
+  
+  .temp-placeholder-half a {
+    letter-spacing: 1px !important;
+    color: #23b6e6;
+    font-size: 36px;
+    text-align: center;
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    padding: 10px;
+    border: 2px solid #23b6e6;
+    border-radius: 10px;
+  }
+  
+  .temp-placeholder-half a:hover {
+    background-color: #23b6e6;
+    color: white;
+    transform: translateY(-2px);
+  }
+  
+  @media screen and (max-width: 800px) {
+    .hsg-wrapper {
+      margin-top: 120px;
+    }
+    
+    .hsg-wrapper .hero-image h1 {
+      font-size: 36px;
+      line-height: 40px;
+    }
+    
+    .trending-grid .trending-item {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    
+    .new-products-item {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    
+    .product-list .thumbnail {
+      width: 50%;
+    }
+    
+    .product_form {
+      opacity: 1;
+      transform: translateY(0);
+      max-height: 200px;
+    }
+    
+    .temp-placeholder-half {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+  }
+</style>
+</div>
+<div class="hsg-wrapper">
+  <div class="hero-image lazyload">
+    <h1>Holiday Shopping Guide</h1>
+  </div>
+  <div class="trending-section">
+    <h2 class="trending-header">trending this week</h2>
+    <div class="trending-grid">
+      {% assign product = all_products['holiday-sampler-box-1'] %}
+      <a href="https://www.vitalproteins.com/products/holiday-sampler-box-1" class="trending-item">
+        <div class="ti-image-container" style="background-image: url({{ 'HOLIDAYOFFERINGS-Holiday_Sampler.jpg' | file_img_url: '500x' }});"></div>
+        {% include 'product-form-mini' %}
+        <h3 class="hsg-title">Sampler Box</h3>
+        <h3 class="hsg-price">$16</h3>
+      </a>
+      {% assign product = all_products['collagen-peptides'] %}
+      <a href="https://vitalproteins.com/products/collagen-peptides" class="trending-item">
+        <div class="ti-image-container" style="background-image: url({{ '100919-Vital-Proteins17536_CP20HAVC_sm.jpg' | file_img_url: '500x' }});"></div>
+        {% include 'product-form-mini' %}
+        <h3 class="hsg-title">Collagen Peptides</h3>
+        <h3 class="hsg-price">from $15</h3>
+      </a>
+      {% assign product = all_products['go-with-collagen-bundle'] %}
+      <a href="https://www.vitalproteins.com/products/go-with-collagen-bundle" class="trending-item">
+        <div class="ti-image-container" style="background-image: url({{ 'Stasher_Product_Page.jpg' | file_img_url: '500x' }});"></div>
+        {% include 'product-form-mini' %}
+        <h3 class="hsg-title">Go with Collagen Bundle</h3>
+        <h3 class="hsg-price">$24</h3>
+      </a>
+    </div>
+  </div>
+  <div class="new-products-section">
+    <h2 class="new-products-header">new products</h2>
+    <div class="new-products-grid">
+      <a href="https://vitalproteins.com/pages/collagen-bars" class="new-products-item">
+        <div class="np-image-container" style="background-image: url({{ '101019-Vital-Proteins17826_sm.jpg' | file_img_url: '500x' }});"></div>
+        <h3>Collagen Bars&trade;</h3>
+      </a>
+      <a href="https://www.vitalproteins.com/collections/collagen-lattes/products/collagen-latte-chocolate-cherry-almond" class="new-products-item">
+        <div class="np-image-container" style="background-image: url({{ '110719-Vital-Proteins19245_sm.jpg' | file_img_url: '500x' }});"></div>
+        <h3>Chocolate Cherry Almond</h3>
+      </a>
+    </div>
+  </div>
+  <h2 class="new-products-header">featured offer</h2>
+  <div class="temp-placeholder container">
+    {% if settings.subscription_discount_amount > 20 %}
+      <div class="temp-placeholder-half"><img src="{{ '100919-Vital-Proteins17780_sm_1.jpg' | file_img_url: '600x' }}"/></div>
+      <div class="temp-placeholder-half">
+        <h4>Now Save 30% on Your First Subscription!*</h4>
+        <h5>Receive 30% off (orig. 20%) your first subscription order and 10% off each order after. An extra 10% savings!</h5>
+        <a href="https://www.vitalproteins.com/collections/best-sellers">Save Now</a>
+      </div>
+    {% else %}
+      <div class="temp-placeholder-half"><img src="{{ '100919-Vital-Proteins17780_sm.jpg' | file_img_url: '600x' }}"/></div>
+      <div class="temp-placeholder-half">
+        <h4>Free Shipping &amp; Sample with $50+ Purchase!*</h4>
+        <h5>Go ahead, add to bag! Get free shipping and a free sample with every $50+ purchase.*</h5>
+        <a href="https://www.vitalproteins.com/collections/best-sellers">Shop Now</a>
+      </div>
+    {% endif %}
+  </div>
+  <!--<img class="mid-promo-banner" src="{{ 'HOLIDAYOFFERINGS_Banner.jpg' | file_img_url: '2000x' }}"/>-->
+  <div class="best-sellers-section">
+    <h2 class="best-sellers-header">shop best sellers</h2>
+    <div class="product-loop-container">
+      {% assign limit = 5 %}
+      {% assign collection = collections['holiday-shopping-guide-2019'] %}
+      {% assign products = collection.products %}
+      {% assign products_per_row = 4 %}
+      {% include 'product-loop' %}
+    </div>
+    <a href="/pages/offers" ><h4 class="offerings-text">Check out all our offerings here.</h4></a>
+  </div>
+</div>

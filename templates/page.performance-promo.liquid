@@ -1,0 +1,460 @@
+<a name="pagecontent" id="pagecontent"></a>
+
+</div>
+{% assign watermelonColor = '#db5472' %}
+{% assign passionColor = '#f1c650' %}
+{% assign guavaColor = '#c74478' %}
+{% assign lemonGrapeColor = '#552b9a' %}
+{% assign yuzuColor = '#ea7e46' %}
+<style>
+  
+  .container.main.content {
+  	display: none;
+  }
+  
+  .performance-promo-wrapper {
+    text-align: center;
+  }
+  
+  .pp-headline {
+    letter-spacing: 1px !important;
+    text-transform: uppercase;
+    color: #23b6e6;
+    margin-top: 30px;
+  }
+  
+  .pp-subline {
+    letter-spacing: 0px !important;
+    text-transform: none;
+    color: #4a4a4a;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .product-list-section {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  
+  .product-image-container {
+    width: 30%;
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    height: 240px;
+    border-radius: 20px;
+  }
+  
+  .product-image-container.pre {
+    background-image: url({{ 'PreWave_Lifestyle_Inhouse_boosted.jpg' | file_img_url: '600x', format: 'pjpg' }});
+  }
+  
+  .product-image-container.recovery {
+    background-image: url({{ 'RecoveryWAVE_family.jpg' | file_img_url: '600x', format: 'jpg' }});
+  }
+  
+  .product-swatch-container {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: fit-content;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  
+  .product-swatch-description {
+    margin-bottom: 40px;
+  }
+  
+  .product-swatch {
+    padding: 10px;
+    border: 2px solid #23b6e6;
+    color: #23b6e6;
+    font-family: 'kapraregular';
+    font-size: 21px;
+    border-radius: 10px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    transition: .15s all ease-out;
+    height: fit-content;
+  }
+  
+  .product-swatch:hover {
+    transform: translateY(-2px);
+    opacity: 0.7;
+    color: white !important;
+  }
+  
+  .product-swatch.active {
+    color: white !important;
+  }
+  
+  .product-swatch.active:hover {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  
+  .product-swatch.watermelon-blueberry:hover {
+    background-color: {{ watermelonColor }};
+  }
+  
+  .product-swatch.passion-fruit:hover {
+    background-color: {{ passionColor }};
+  }
+  
+  .product-swatch.guava-lime:hover {
+    background-color: {{ guavaColor }};
+  }
+  
+  .product-swatch.lemon-grape:hover {
+    background-color: {{ lemonGrapeColor }};
+  }
+  
+  .product-swatch.yuzu-clementine:hover {
+    background-color: {{ yuzuColor }};
+  }
+  
+  .product-swatch.watermelon-blueberry.active {
+    background-color: {{ watermelonColor }};
+  }
+  
+  .product-swatch.passion-fruit.active {
+    background-color: {{ passionColor }};
+  }
+  
+  .product-swatch.guava-lime.active {
+    background-color: {{ guavaColor }};
+  }
+  
+  .product-swatch.lemon-grape.active {
+    background-color: {{ lemonGrapeColor }};
+  }
+  
+  .product-swatch.yuzu-clementine.active {
+    background-color: {{ yuzuColor }};
+  }
+  
+  .step-text {
+    text-transform: uppercase;
+    letter-spacing: 1px !important;
+    color: #23b6e6;
+    font-size: 24px;
+    border-top: 2px solid #23b6e6;
+    border-bottom: 2px solid #23b6e6;
+    padding: 10px 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+  }
+  
+  .cta-wrapper {
+    margin: 0 auto;
+    max-width: 1200px;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  
+  .performance-add-to-bag {
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-family: 'kapraregular';
+    color: white;
+    letter-spacing: 1px;
+    font-size: 24px;
+    background-color: gray;
+    padding: 10px 20px;
+    /*margin-bottom: 20px;*/
+    margin-bottom: 0;
+    transition: .15s all ease-out;
+    display: inline-block;
+    min-width: 200px;
+  }
+  
+  .performance-add-to-bag:hover {
+    color: white;
+    cursor: default;
+  }
+  
+  .performance-add-to-bag.active {
+    background-color: #23b6e6;
+  }
+  
+  .performance-add-to-bag.active:hover {
+    color: white;
+    opacity: 0.7;
+    transform: translateY(-2px);
+    cursor: pointer;
+  }
+  
+  .performance-add-to-bag.active:focus {
+    color: white;
+    outline: 1px solid black;
+  }
+  
+  .loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #23b6e6;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1.2s ease-out infinite;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .add-to-bag-sticky {
+    position: fixed;
+    top: 135px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+	justify-content: space-around;
+    background-color: white;
+    padding: 10px 20px;
+    transition: .2s all ease-out;
+    transform: translateY(-140px);
+    opacity: 0;
+    
+  }
+  
+  .add-to-bag-sticky.show {
+    transform: translateY(0px);
+    opacity: 1;
+    box-shadow: 0px 1px 16px 0px rgba(0,0,0,0.1);
+  }
+  
+  .add-to-bag-sticky .item-container {
+    width: 33.33%;
+  }
+  
+  .add-to-bag-sticky p {
+    margin-bottom: 0;
+    font-family: 'kapraregular';
+    text-transform: capitalize;
+    font-size: 21px;
+  }
+  
+  .pp-disclaimer {
+    margin-top: 20px;
+    font-size: 12px;
+    font-style: italic;
+  }
+  
+  @media screen and (max-width: 800px) {
+    .performance-promo-wrapper {
+      margin-top: 140px;
+    }
+    
+    .product-image-container {
+      height: 140px;
+    }
+    
+    .product-list-section {
+      flex-direction: column;
+    }
+    
+    .product-image-container {
+      width: 80%;
+      margin-bottom: 20px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .product-swatch-container {
+      width: 100%;
+    }
+    
+    .add-to-bag-sticky {
+      top: 110px;
+      flex-wrap: wrap;
+    }
+    
+    .add-to-bag-sticky .item-container {
+      width: 50%;
+    }
+    
+    .item-container.cta {
+      margin-top: 10px;
+      width: 100%;
+    }
+    
+    .product-swatch-container {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    
+    .product-swatch {
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+  }
+</style>
+<div class="performance-promo-wrapper">
+  <h1 class="pp-headline">Kick your workout into gear before the new year!</h1>
+  <h2 class="pp-subline">Save 20%* when you bundle PreWave and RecoveryWave.</h2>
+  <h2 class="pp-subline">A power duo for only $80*. Pick your flavor.</h2>
+  <div class="cta-wrapper">
+    <h3 class="step-text">Step 1 - Choose your PreWAVE</h3>
+    <div class="product-list-section">
+      <div class="product-image-container pre">
+       
+      </div>
+      <div class="product-swatch-container">
+        <p class="product-swatch-description">Fuel every movement with Vital Proteins PreWAVE™, a uniquely tailored pre-workout that’s packed with functional ingredients to help you conquer larger-than-life fitness goals. Collagen Peptides and branched-chain amino acids (BCAA) work to support muscles and joints while creatine nitrate and elevATP® support enhanced power output. Caffeine from Coffeeberry® coffee fruit extract acts as an energy booster to keep you going strong**</p>
+        {% for product in collections['prewave'].products %}
+        	{% assign title = product.title | split: '-' %}
+        	<a href="#" class="product-swatch {{title[1] | handleize }} pre" data-color="{{product.metafields.vital.primary_color}}" data-variant-id="{{ product.selected_or_first_available_variant.id }}" data-title="{{title[1]}}" style="color: {{product.metafields.vital.primary_color}}; border: 2px solid {{product.metafields.vital.primary_color}};">{{ title[1] }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="cta-wrapper">
+    <h3 class="step-text">Step 2 - Choose your RecoveryWAVE</h3>
+    <div class="product-list-section">
+      <div class="product-image-container recovery">
+        
+      </div>
+      <div class="product-swatch-container">
+        <p class="product-swatch-description">Boasting powerhouse ingredients such as collagen peptides and full-spectrum amino acids, RecoveryWAVE™ is the first premium recovery product designed to help rebuild muscles and support healthy joints. It's time to conquer your post-workout recovery.</p>
+        {% for product in collections['recoverywave'].products %}
+        	{% assign title = product.title | split: '-' %}
+        	<a href="#" class="product-swatch {{title[1] | handleize }} recovery" data-color="{{product.metafields.vital.primary_color}}" data-variant-id="{{ product.selected_or_first_available_variant.id }}" data-title="{{title[1]}}" style="color: {{product.metafields.vital.primary_color}}; border: 2px solid {{product.metafields.vital.primary_color}};">{{ title[1] }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div>
+    <a href="#" class="performance-add-to-bag">Add to Bag</a>
+  </div>
+  <!--<div class="add-to-bag-sticky">
+    <div class="item-container">
+    	<p>Selected PreWAVE:<br><span class="selected-pre"></span></p>
+    </div>
+    <div class="item-container">
+    	<p>Selected RecoveryWAVE:<br><span class="selected-recovery"></span></p>
+    </div>
+    <div class="item-container cta">
+    	<a href="#" class="performance-add-to-bag">Add to Bag</a>
+    </div>
+  </div>-->
+  <div class="container">
+  	<p class="pp-disclaimer">*Offer valid from 11/12/19 at 10am CST - 12/31/19 at 11:59pm CST. Order must contain one (1) PreWave and one (1) RecoveryWave to receive discount. Order must not contain subscription purchase. Offer not valid on subscription or wholesale purchases. Offer may not be used in combination with any other offer and / or any other purchase on vitalproteins.com. Offer not valid during certain promotional periods. We reserve the right to cancel any order due to unauthorized, altered, or ineligible use of offer and to modify or cancel this promotion due to system error or unforeseen problems.  Offer cannot be applied to previously placed or pending orders. Offer applied to authorized purchases only. Other restrictions may apply.</p>
+  </div>
+</div>
+<script>
+  var selectedProducts = {
+  	pre: '',
+    recovery: ''
+  };
+  
+  var cartQueue = [];
+  var bundleID = Math.floor(Math.random()*90000)+10000;
+  
+  $(document).on('click', '.product-swatch.pre', function(e) {
+    e.preventDefault();
+   	selectedProducts.pre = $(this).data("variant-id");
+    $('.product-swatch.pre').removeClass('active');
+    $(this).addClass('active');
+    
+    $('.selected-pre').text($(this).data('title'));
+    $('.selected-pre').css('color', $(this).data('color'));
+    
+    // Show Bar
+    if ($('.add-to-bag-sticky').hasClass('show') === false) {
+    	$('.add-to-bag-sticky').addClass('show');
+    }
+    
+    checkForCompletedSelections();
+  });
+  
+  $(document).on('click', '.product-swatch.recovery', function(e) {
+    e.preventDefault();
+   	selectedProducts.recovery = $(this).data("variant-id");
+    $('.product-swatch.recovery').removeClass('active');
+    $(this).addClass('active');
+    
+    $('.selected-recovery').text($(this).data('title'));
+    $('.selected-recovery').css('color', $(this).data('color'));
+                            
+    // Show Bar
+    if ($('.add-to-bag-sticky').hasClass('show') === false) {
+    	$('.add-to-bag-sticky').addClass('show');
+    }
+    
+    checkForCompletedSelections();
+  });
+  
+  $(document).on('click', '.performance-add-to-bag', function(e) {
+    e.preventDefault();
+    
+    if ($(this).hasClass('active') === false) {
+      alert("Please choose one PreWAVE and one RecoveryWAVE before adding to bag.");
+    } else {
+      $(this).html('<div class="loader animated fadeInUp"></div>');
+      addCartItemToQueue(selectedProducts.pre);
+      addCartItemToQueue(selectedProducts.recovery);
+      moveAlong();
+    }
+  });
+  
+  $(document).on('mousedown', '.performance-add-to-bag', function(e) {
+    e.preventDefault();
+  });
+  
+  function checkForCompletedSelections() {
+    if (selectedProducts.pre !== '' && selectedProducts.recovery !== '') {
+      $('.performance-add-to-bag').addClass('active');
+    }
+  }
+  
+  function addCartItemToQueue(variantID) {
+    var addRequest = {
+      type: "add",
+      data: {
+        quantity: 1,
+        id: variantID,
+        properties: {
+          performance_bundle_id: bundleID
+        }
+      }
+    };
+    
+    cartQueue.push(addRequest);
+  }
+  
+  function moveAlong() {
+    if (cartQueue.length) {
+      var request = cartQueue.shift();
+
+      if (request.type === 'add') {
+        addCartItem(request.data);
+      }
+    } else {
+      document.location.href = '/cart'
+    }
+  }
+  
+  function addCartItem(postData) {
+    $.ajax({
+      type: 'POST',
+      url: '/cart/add',
+      dataType: 'json',
+      data: postData
+    }).then(function() {
+      moveAlong();
+    }).catch(function(error) {
+      alert("Something went wrong. Please reload the page and try again");
+    });
+  }
+</script>

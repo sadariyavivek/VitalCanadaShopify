@@ -1,0 +1,8 @@
+{% layout none %}
+<div class="product-card">
+  <img src="{{ product.first_available_variant.image | img_url: '100x' }}"/>
+  <span class="upsell-product-title">{{ product.title }}</span>
+  <span class="upsell-variant-title">{{ product.first_available_variant.title }}</span>
+  <span class="upsell-price">{{ product.price | money_without_trailing_zeros }}</span>
+  {% include 'product-form-mini' %}
+</div>

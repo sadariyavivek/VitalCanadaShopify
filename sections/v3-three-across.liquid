@@ -1,0 +1,203 @@
+<div class="vital-benefits-container">
+      {% for block in section.blocks %}
+	<div class="vital-benefit-box" style="border-color:{{ block.settings.v1-feature-highlight-color }}60;background:url({{ block.settings.v1-feature-highlight | img_url: '800x' }});background-size:cover;background-position: center center;background-repeat:no-repeat;background-clip: content-box;">
+	<div class="vital-benefit-box-inner" style="background-color:{{ block.settings.v1-feature-highlight-color }};">
+      <div style="display: flex;justify-content: left;align-items: center;height: 50px;margin-bottom: 15px;"><img src="{{ block.settings.v1-feature-highlight-icon | img_url: '200x' }}" style="width:40px;height:40px;"><h2>{{ block.settings.v1-feature-highlight-heading }}</h2></div>
+		<div class="vital-benefit-box-list">
+		{{ block.settings.v1-feature-highlight-list }}
+		</div>
+		<a href="{{ block.settings.v1-feature-highlight-link }}" class="vital-hollow-button">{{ block.settings.v1-feature-highlight-button-text }}</a>
+		</div>
+	</div>
+      {% endfor %}
+  
+
+		
+	</div>
+
+
+	<style>
+		
+		.vital-benefits-container {
+			max-width:1440px;
+			margin:0 auto;
+			display:flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			padding:20px;
+          	margin-top:10px;
+		}
+		
+		.vital-benefit-box {
+			height:400px;
+			width:calc(30%);
+			border:10px solid #F8D1DA;
+			overflow:hidden;
+			font-family:"avenir";
+			font-weight:900;
+		}
+		
+		
+		.vital-benefit-box-inner {
+			padding:20px;
+			background:#FB5373;
+			color:#fff;
+			position:relative;
+			height:100%;
+			transform:translateY(310px);
+			transition: ease all 300ms;
+			max-height:100%;
+			padding-top:10px;
+		}
+		
+		.vital-benefit-box-inner ul {
+  			padding-left: 20px;
+		}	
+		
+		.vital-benefit-box-inner ul li {
+   		 padding-bottom: 10px;
+   		 font-weight: 400;
+  		  font-size: 18px;
+  		  letter-spacing: 1px;
+		}
+		
+		.vital-benefit-box-inner h2 {
+    margin: 0px;
+    letter-spacing: 2px;
+    color: #ffffff !important;
+    text-transform: capitalize !important;
+    font-family: "avenir" !important;
+    font-weight: 900 !important;
+    margin-left: 10px;
+          font-size: 26px;
+}
+			
+		
+		.vital-benefit-box:hover .vital-benefit-box-inner {
+			transform:translateY(0px);
+			padding-top:20px;
+		}
+		
+.vital-hollow-button {
+    display: flex;
+    height: 40px;
+    border: 2px solid #fff;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-family: "kapraregular";
+    font-size: 22px;
+    border-radius: 4px;
+}
+      
+      
+      	.vital-hollow-button:hover	{
+     background: #ffffff2e;
+          color:#ffffff !important;
+}
+      
+      .vital-benefit-box-list p {
+    font-size: 18px;
+    line-height: 2em;
+}
+		
+		.wellness-color {background:#78DED4;border-color:#BEF4EE;}
+		.sports-color {background:#002E6D;border-color:#9AAAC5;}
+      
+      @media only screen and (max-width: 799px) {
+      
+      .vital-benefits-container {
+    flex-direction: column;
+
+	}
+      
+      .vital-benefit-box {
+    margin-bottom: 20px;
+        width:100%;
+	}
+}
+      
+      
+</style>
+
+
+
+
+
+
+
+{% schema %}
+{
+  "name": "Three Across",
+  "class": "v1-three-across",
+
+  "settings": [],
+	 "blocks": [
+    {
+      "type": "select",
+      "name": "Highlight",
+      "settings": [
+	{
+      "id": "v1-feature-highlight",
+      "type": "image_picker",
+      "label": "Highlight Image"
+    },
+	{
+      "id": "v1-feature-highlight-heading",
+      "type": "text",
+      "label": "Highlight Heading",
+	  "default": "Beauty"
+    },
+	{
+      "id": "v1-feature-highlight-icon",
+      "type": "image_picker",
+      "label": "Highlight Icon"
+    }, 
+	{
+      "id": "v1-feature-highlight-list",
+      "type": "richtext",
+      "label": "Highlight List"
+    },
+    {
+      "id": "v1-feature-highlight-link",
+      "type": "url",
+      "label": "Slide Link"
+    },
+{
+      "id": "v1-feature-highlight-button-text",
+      "type": "text",
+      "label": "Button Text",
+	  "default": "SHOP COLLECTION"
+    },
+	{
+  "type": "color",
+  "id": "v1-feature-highlight-color",
+  "label": "Highlight Main Color",
+  "default": "#002d42"
+	}
+      ]
+    }
+  ],
+    "presets": [
+    {
+      "name": "Three Across",
+      "category": "V3 Sections",
+      "blocks": [
+        { 
+          "type": "select"
+        },
+		{ 
+          "type": "select"
+        },
+        {
+          "type": "select"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

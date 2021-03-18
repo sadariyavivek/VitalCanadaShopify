@@ -1,0 +1,213 @@
+<h2> {{ section.settings.v1-blog-headline }} </h2>
+
+
+<div class="featured-posts-container">
+    <div class="featured-post-container animated fadeInUp" style="animation-delay: .15s;">
+      {% assign splitURL = articles[section.settings.featured_article_1].url | split: "/" %}
+      <a href="{{ articles[section.settings.featured_article_1].url }}" target="_blank">
+        <div class="blog-image-container-wrapper">
+        	<div class="blog-image-container" title="{{ articles[section.settings.featured_article_1].title }}" style="background-image: url('{{ articles[section.settings.featured_article_1].image | img_url: '600x', format: 'jpg' }}')"></div>
+        </div>
+      </a>
+       <a href="{{ blogs[splitURL[2]].url }}" class="category-title" target="_blank">{{ blogs[splitURL[2]].title }}</a>
+      <a href="{{ articles[section.settings.featured_article_1].url }}" target="_blank"><h4 style="letter-spacing:0px !important;">{{ articles[section.settings.featured_article_1].title }}</h4></a>
+       	  <a href="{{ articles[section.settings.featured_article_1].url }}" class="v1-read-more" target="_blank">Read more</a>
+    </div>
+    <div class="featured-post-container animated fadeInUp" style="animation-delay: .3s;">
+      {% assign splitURL = articles[section.settings.featured_article_2].url | split: "/" %}
+      <a href="{{ articles[section.settings.featured_article_2].url }}" target="_blank">
+        <div class="blog-image-container-wrapper">
+          <div class="blog-image-container" title="{{ articles[section.settings.featured_article_2].title }}" style="background-image: url('{{ articles[section.settings.featured_article_2].image | img_url: '600x', format: 'jpg' }}')"></div>
+        </div>
+      </a>
+      <a href="{{ blogs[splitURL[2]].url }}" class="category-title" target="_blank">{{ blogs[splitURL[2]].title }}</a>
+      <a href="{{ articles[section.settings.featured_article_2].url }}" target="_blank"><h4 style="letter-spacing:0px !important;">{{ articles[section.settings.featured_article_2].title }}</h4></a>
+       	  <a href="{{ articles[section.settings.featured_article_2].url }}" class="v1-read-more" target="_blank">Read more</a>
+    </div>
+    <div class="featured-post-container animated fadeInUp" style="animation-delay: .45s;">
+      {% assign splitURL = articles[section.settings.featured_article_3].url | split: "/" %}
+      <a href="{{ articles[section.settings.featured_article_3].url }}" target="_blank">
+        <div class="blog-image-container-wrapper">
+          <div class="blog-image-container" title="{{ articles[section.settings.featured_article_3].title }}" style="background-image: url('{{ articles[section.settings.featured_article_3].image | img_url: '600x', format: 'jpg' }}')"></div>
+        </div>
+      </a>
+      <a href="{{ blogs[splitURL[2]].url }}" class="category-title" target="_blank">{{ blogs[splitURL[2]].title }}</a>
+      <a href="{{ articles[section.settings.featured_article_3].url }}" target="_blank"><h4 style="letter-spacing:0px !important;">{{ articles[section.settings.featured_article_3].title }}</h4></a>
+   	  <a href="{{ articles[section.settings.featured_article_3].url }}" class="v1-read-more" target="_blank">Read more</a>
+    </div>
+  </div>
+
+
+<style>
+  
+ .v1-feature-blogs .blog-logo-container img {
+    max-width: 180px;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .v1-feature-blogs .featured-posts-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 3;
+  }
+  
+.v1-feature-blogs .featured-post-container {
+    flex: 1;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: left;
+}
+  
+  .v1-feature-blogs .featured-post-container .blog-image-container-wrapper {
+    height: 240px;
+    overflow: hidden;
+    border-radius: 20px;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+  }
+  
+  .v1-feature-blogs .featured-post-container .blog-image-container-wrapper.taller {
+    height: 400px;
+  }
+  
+  .v1-feature-blogs .featured-post-container .blog-image-container {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 1;
+    transition: .5s all cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .v1-feature-blogs .featured-post-container .blog-image-container:hover {
+    /*transform: scale(1.2);*/
+    opacity: 0.6;
+  }
+  
+  .v1-feature-blogs .featured-post-container .category-title {
+    font-family: 'kapraregular';
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    display: block;
+    color: #23b6e6;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    transition: .2s all cubic-bezier(0.23, 1, 0.32, 1);
+    background: -webkit-linear-gradient(45deg, #23b6e6, #47c1bf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .v1-feature-blogs {
+  padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  
+  
+.v1-feature-blogs .featured-posts-container {
+    max-width: 1220px;
+    margin: 0 auto;
+} 
+  
+ .v1-feature-blogs .featured-post-container:nth-of-type(1) {
+   padding-left:0px;
+ }
+   .v1-feature-blogs .featured-post-container:nth-of-type(1) {
+   padding-right:0px;
+ }
+
+  .v1-feature-blogs .featured-post-container h4 {
+    font-family: 'avenir';
+    color: #717F86;
+    font-size: 20px;
+    text-align: left;
+    text-transform: capitalize;
+    font-weight: 600;
+    line-height: 26px;
+    -webkit-font-smoothing: antialiased;
+    margin-top: 10px;
+        -webkit-font-smoothing: subpixel-antialiased;
+    letter-spacing: 0px !important;
+}
+  
+  .v1-feature-blogs .featured-post-container .category-title {display:none;}
+  
+  
+  
+.v1-feature-blogs h2 {
+    color: #15a7e0;
+    font-size: 50px;
+    font-family: 'kapraregular';
+    text-transform: capitalize;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 32px;
+    font-weight: 400 !important;
+    -webkit-font-smoothing: antialiased;
+    margin-top: 0px;
+    letter-spacing: .25px !important;
+}
+  
+      @media only screen and (max-width: 800px) {
+.v1-feature-blogs h2 {
+    margin-bottom: 0px;
+    max-width: 80%;
+    line-height: 1em;
+    margin: 0 auto;
+    margin-top: -15px;
+}
+        .v1-feature-blogs {
+    padding-top: 50px;
+    padding-bottom: 0px;
+}
+      }
+  
+</style>
+
+
+{% schema %}
+  {
+    "name": "Featured Blogs",
+	"class": "v1-feature-blogs",
+    "settings": [
+	{
+           "type": "text",
+           "id": "v1-blog-headline",
+           "label": "Section Heading"
+        },	
+	{
+           "type": "article",
+           "id": "featured_article_1",
+           "label": "Featured Article 1"
+        },
+		{
+           "type": "article",
+           "id": "featured_article_2",
+           "label": "Featured Article 2"
+        },
+		{
+           "type": "article",
+           "id": "featured_article_3",
+           "label": "Featured Article 3"
+        }
+	],
+  "presets": [{
+    "name": "Featured Blogs",
+    "category": "V1 Sections",
+    "settings": {
+
+    }
+  }]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

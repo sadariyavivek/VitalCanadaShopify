@@ -1,0 +1,487 @@
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+<style>
+
+  .footer {
+    background-color: #6F6F70;
+  }
+  
+  @media (max-width: 798px) {
+  .mobile_nav-fixed--true #pagecontent, .mobile_nav-fixed--false #pagecontent {
+		padding-bottom: 120px;
+    }
+  }
+  
+  #talkable-offer {
+    display: none;
+  }
+  
+  #chat-widget {
+    display: none;
+  }
+  
+  #chat-widget-container {
+    display: none;
+  }
+  
+  #preview-bar-iframe {
+   display: none;
+  }
+  
+
+  .pdp-redesign-wrapper .information-section-wrapper {
+    width: 100%;
+    background: #ECE5DD;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-top: 50px;
+  }
+  
+  .pdp-original-buy-box {
+    display: none;
+  }
+
+  .buy-box-container {
+    display: block;
+  }
+
+  .faq-container {
+  	margin-bottom: 10px;  
+  }
+  
+  .pdp-faq-body {
+  	padding: 10px 20px;
+  }
+  
+  .pdp-faq-body.hidden {
+    display: none;
+  }
+  
+  .pdp-faq-button {
+   	width: 100%;
+    display: block;
+    background: transparent;
+    min-height: 30px;
+    height: initial;
+    font-size: 16px;
+    color: #4a4a4a;
+    text-align: left;
+    border: 0;
+    height: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: none;
+  }
+  
+  .pdp-faq-button p {
+    margin-bottom: 0;
+  }
+  
+  .pdp-faq-button:hover {
+    border: 0;
+    background: transparent;
+    color: #23b6d6;
+  }
+
+  @media screen and (max-width: 800px) {
+    .pdp-redesign-wrapper .information-section-wrapper {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+  }
+  
+</style>
+{% assign variant = product.selected_or_first_available_variant %}
+{% assign discountedFactor = 100.0 | minus: settings.subscription_discount_amount %}
+{% assign discountedFactor = discountedFactor | divided_by: 100.0 %}
+{% assign hasSubscription = product.metafields.subscriptions.has_subscription %}
+
+<div class="pdp-redesign-wrapper">
+
+  <div class="js-product_section product-{{ product.id }}">
+    <div class="clearfix breadcrumb-collection">
+      <div role="navigation" aria-label="Breadcrumb Nav" class="breadcrumb_text" itemscope itemtype="http://schema.org/BreadcrumbList">
+        <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href="{{ shop.url }}" title="{{ shop.name | escape }}" itemprop="item" class="breadcrumb_link"><span itemprop="name">{{ 'general.breadcrumbs.home' | t }}</span></a></span>
+        <span class="breadcrumb-divider">/</span>
+        <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          {% if collection %}
+          <a href="{{ collection.url }}" title="{{ collection.title | escape }}" itemprop="item" class="breadcrumb_link"><span itemprop="name">{{ collection.title }}</span></a>
+          {% else %}
+          <a href="/collections/all" title="{{ collections.all.title }}" class="breadcrumb_link"><span>{{ collections.all.title }}</span></a>
+          {% endif %}
+        </span>
+        <span class="breadcrumb-divider">/</span>
+        <span class="product-breadcrumb-title"><a class="product-breadcrumb-title" href="{{ product.url }}" aria-current="page">{{ product.title }}</a></span>
+      </div>
+    </div>
+    {%- comment -%}
+    <form action="/cart/add"
+          method="post"
+          class="clearfix product_form init {% if product.variants.size > 1 or product.options.size > 1 %}product_form_options{% endif %} no_ro_widget"
+          id="product-form-{{ product.id }} primary"
+          data-money-format="{{ shop.money_format }}"
+          data-shop-currency="{{ shop.currency }}"
+          data-select-id="product-select-{{ product.id }}{{ section.id }}{{ block.id }}"
+          data-enable-state="{% if template contains 'product' %}true{% else %}false{% endif %}"
+          data-product="{{ product | json | escape }}"
+          {% if settings.limit_quantity or settings.display_inventory_left %}
+            data-variant-inventory='[{%- for v in product.variants -%}{"id":{{v.id}},"inventory_quantity":{{v.inventory_quantity}},"inventory_management":"{{v.inventory_management}}","inventory_policy":"{{v.inventory_policy}}"}{% if forloop.last == false %},{% endif %}{%- endfor -%}]'
+          {% endif %}
+          data-product-id="{{ product.id }}"
+          data-productid="{{ product.id }}"
+        >
+      {%- endcomment -%}
+      <form action="/cart/add"
+        method="post"
+        class="clearfix product_form init {% if product.variants.size > 1 or product.options.size > 1 %}product_form_options{% endif %}"
+        id="product-form-{{ product.id }}"
+        data-money-format="{{ shop.money_format }}"
+        data-shop-currency="{{ shop.currency }}"
+        data-select-id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}"
+        data-enable-state="{% if template contains 'product' %}true{% else %}false{% endif %}"
+        data-product="{{ product | json | escape }}"
+        {% if settings.limit_quantity or settings.display_inventory_left %}
+          data-variant-inventory='[{%- for v in product.variants -%}{"id":{{v.id}},"inventory_quantity":{{v.inventory_quantity}},"inventory_management":"{{v.inventory_management}}","inventory_policy":"{{v.inventory_policy}}"}{% if forloop.last == false %},{% endif %}{%- endfor -%}]'
+        {% endif %}
+        data-product-id="{{ product.id }}"
+        >
+  	  <div class="product-form-container">
+        <div class="product-form-info-images-wrapper padding">
+          <div class="title-price-review-badge-wrapper mobile-show">
+            <div class="title-price-wrapper">
+              <div class="title-wrapper">
+                {% assign title = product.title | split: '-' %}
+                <p class="pdp-product-title-primary">{{ title[0] }}</p>
+                <p class="pdp-product-title-secondary">{{ title[1] }}</p>
+              </div>
+              <div>
+                <span class="was_price">
+                        {% if variant.price < variant.compare_at_price and variant.available %}
+                          <span aria-label="Original Price was {{ variant.compare_at_price | money }}." class="money">{{ variant.compare_at_price | money_without_trailing_zeros }}</span>
+                        {% endif %}
+                      </span>
+                <span class="pdp-price">{{ variant.price | money_without_trailing_zeros }}</span>                
+              </div>   
+            </div>
+            {% comment %}
+            <!-- /snippets/bv-summary.liquid -->
+            <!-- Bazaarvoice Summary Container -->
+            {% endcomment %}
+            {% render 'bv-summary' %}
+            {% comment %}
+            <!-- End Bazaarvoice Summary Container -->
+            {% endcomment %}
+          </div>
+          <div class="pdp-product-images-container">
+            {% include 'product-images' %}
+          </div>
+        </div>
+        <div class="pdp-form-inputs-wrapper">
+          <div class="title-price-review-badge-wrapper desktop-show">
+            <div class="title-price-wrapper">
+              <div class="title-wrapper">
+                {% assign title = product.title | split: '-' %}
+                <p class="pdp-product-title-primary">{{ title[0] }}</p>
+                <p class="pdp-product-title-secondary">{{ title[1] }}</p>
+              </div>
+              <div>                
+                <span class="pdp-price">{{ variant.price | money_without_trailing_zeros }}</span><br>
+                <span class="was_price">
+                        {% if variant.price < variant.compare_at_price and variant.available %}
+                          <span aria-label="Original Price was {{ variant.compare_at_price | money }}." class="money">{{ variant.compare_at_price | money_without_trailing_zeros }}</span>
+                        {% endif %}
+                      </span>
+              </div>   
+            </div>
+            {% comment %}
+            <!-- /snippets/bv-summary.liquid -->
+            <!-- Bazaarvoice Summary Container -->
+            {% endcomment %}
+            {% render 'bv-summary' %}
+            {% comment %}
+            <!-- End Bazaarvoice Summary Container -->
+            {% endcomment %}
+          </div>
+          <!-- Begin ReCharge code -->
+        {% if product.available %}{% include 'subscription-product' %}{% endif %}
+        <!-- End ReCharge code -->
+          <div class="pdp-original-buy-box">
+            <div class="pdp-variant-select padding">
+              {% if product.options.size > 1 %}
+              <div class="select">
+                <select id="product-select-{{ product.id }}{{ section.id }}{{ block.id }}" name="id" data-productid="{{ product.id }}" class="multi_select">
+                  {% for v in product.variants %}
+                  <option {% if v == variant %}selected="selected"{% endif %} value="{{ v.id }}" data-sku="{{ v.sku }}">{{ v.title }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              {% elsif product.options.size == 1 and product.variants.size > 1 or product.options.size == 1 and product.options[0] != "Title" %}
+              <div class="select">
+                <label class="visuallyhidden" for="product-select-{{ product.id }}{{ section.id }}{{ block.id }}">{{ product.options[0] }}</label>
+                <select {% if product.variants.size == 1 %}style="background-image: none;"{% endif %} id="product-select-{{ product.id }}{{ section.id }}{{ block.id }}" name="id">
+                  {% for v in product.variants %}
+                  <option {% if v == variant %}selected="selected"{% endif %} value="{{ v.id }}" 
+                          data-product-id="{{ product.id }}"
+                          data-sku="{{ v.sku }}" 
+                          data-afterpay-price="{{ v.price | divided_by: 4.0 }}"
+                          data-afterpay-display-price="{{ v.price | divided_by: 4.0 | money_without_trailing_zeros}}"
+                          data data-price="{{ v.price }}" 
+                          data-discount-price="{{ v.price | times: discountedFactor }}" 
+                          data-display-price="{{ v.price | money_without_trailing_zeros }}" 
+                          data-discounted-display-price="{{ v.price | times: discountedFactor | money_without_trailing_zeros }}"
+                          data-original-variant-id="{{ v.id }}"
+                          data-subscription-variant-id="{{ v.metafields.subscriptions.discount_variant_id }}"
+                          data-available={{ v.available }}>{{ v.title }}
+                  </option>
+                  {% endfor %}
+                </select>
+              </div>
+              {% else %}
+              <input type="hidden" name="id" value="{{ variant.id }}" />
+              {% endif %}
+            </div>
+          </div>
+          {% render 'pdp-buy-box-v2', product: product, initialVariant: variant %}
+          {% if product.handle == 'collagen-latte-golden-milk' or product.handle == 'holiday-sampler-box-1' or product.handle == 'collagen-beauty-greens' or product.handle == 'collagen-sports-greens' or product.handle == 'matcha-collagen-latte' or product.handle == 'matcha-collagen-latte-vanilla' or product.handle == 'matcha-collagen' or product.handle == 'matcha-collagen-peach' or product.handle == 'blackberry-collagen-blast' %}
+              {% include 'prop-65-modal' %}
+          {% endif %}
+        </div>
+      </div>
+    </form>
+  </div>
+  {% render 'pdp-additional-product-info', product: product %}
+  {% render 'pdp-new-ingredient-list', product: product %}  
+  {% assign imageURL = 'VP_JA_Yoga_Hero.jpg' | file_img_url: '1200x' %}
+  {% include 'v3-collection-section-copy' %} 
+  {% assign quote = "I’ve been seeing a difference! </br> My nails are stronger and there’s </br> a healthier… It’s sort of that working </br> from the inside-out thing." %}
+  {% render 'pdp-quote-box', imageURL: imageURL, quote: quote %}
+  {% include 'pdp-ja-favorites' %}
+  
+  {% render 'pdp-ja-what-is-collagen' %}
+
+	{% include 'HP2020-Influencer-Snippet' %}
+  {% render 'pdp-ja-blog-section', product: product %}
+
+  {% render 'pdp-review-section', product: product %}
+</div>
+
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<script>
+  $('.qty-button.minus').on('click', function(e) {
+    e.preventDefault();
+    var newQty = $('#qty-number').data('qty') - 1;
+
+    if (newQty >= 1) {
+      $('#qty-number').data('qty', newQty);
+      $('#qty-number').val(newQty);
+    }
+  });
+
+  $('.qty-button.plus').on('click', function(e) {
+    e.preventDefault();
+
+    var newQty = $('#qty-number').data('qty') + 1;
+    $('.qty-number').data('qty', newQty);
+    $('.qty-number').val(newQty);
+  });
+	
+  // Subscription widget selection
+  $('.widget-anchor').on('click', function(e) {
+    e.preventDefault();
+
+    var quickSubProductID = $(this).data('product-id');
+    var selectedType = $(this).data('subscription-type');
+    var frequency = $('#widget-frequency-select').val();
+
+    if (selectedType == 'one-time') {
+      changeToOneTime(quickSubProductID);
+    } else {
+      $('.pdp-cta-button').val('Subscribe Now');
+      $('.pdp-cta-button').removeClass('opt-atb-one-time').addClass('opt-atb-subscription');
+      $('.pdp-subscription-widget .widget-anchor').removeClass('active');
+      $('.pdp-subscription-widget .widget-anchor.subscribe').addClass('active');
+      $('.cta-button-wrapper .sticky-message').text('Get FREE SHIPPING when you subscribe');
+
+      $('.hidden-input.pid-' + quickSubProductID + ' .frequency-num').attr('name', 'properties[shipping_interval_frequency]');
+      $('.hidden-input.pid-' + quickSubProductID + ' .frequency-type').attr('name', 'properties[shipping_interval_unit_type]');
+    }
+    
+    updateSelectedVariantID();
+  });
+
+  $('#widget-frequency-select').on('change', function(e) {
+    $('.hidden-input .frequency-num').val($(this).val());
+  });
+  
+  // On Variant Change
+  $(document).on('change', '.single-option-selector', function(e) {
+    var selectedIndex = $('.single-option-selector option:selected').index();
+    $('select[name="id"]').prop('selectedIndex', selectedIndex);
+    var selectedOption = $('select[name="id"] option:selected').data();
+	
+    // Update pricing
+    $('.pdp-price').text(selectedOption.displayPrice);
+    $('.pdp-subscription-widget .widget-row.one-time .widget-price').text(selectedOption.displayPrice);
+    $('.pdp-subscription-widget .widget-row.subscribe .widget-price').text(selectedOption.discountedDisplayPrice);
+    $('.pdp-subscription-widget .widget-row.subscribe .widget-price-strikethrough').text(selectedOption.displayPrice);
+
+    $('.hidden-input.pid-' + selectedOption.productId + ' .discounted-price').val(selectedOption.discountedDisplayPrice);
+    $('.hidden-input.pid-' + selectedOption.productId + ' .unformatted-price').val(selectedOption.discountPrice);
+
+	// Update Afterpay in widget
+    if (selectedOption.price >= 100) {
+      $('.afterpay-logo-container').removeClass('hide');
+      $('.afterpay-price').text(selectedOption.afterpayDisplayPrice);
+    } else {
+      if ($('.afterpay-logo-container').hasClass('hide') == false) {
+        $('.afterpay-logo-container').addClass('hide');
+      }
+    }
+    
+	updateSelectedVariantID();
+	
+    // Hide subscribe if selected variant is not offered on subscription
+    if (selectedOption.subscriptionVariantId === "") {
+      $('.pdp-subscription-widget .widget-row.subscribe').addClass('hide');
+      $('.pdp-subscription-widget .widget-row.one-time').addClass('no-subscribe');
+
+      changeToOneTime(selectedOption.productId);
+
+    } else {
+
+      if ($('.pdp-subscription-widget .widget-row.subscribe').hasClass('hide')) {
+        $('.pdp-subscription-widget .widget-row.subscribe').removeClass('hide');
+        $('.pdp-subscription-widget .widget-row.one-time').removeClass('no-subscribe');
+      }
+    }
+  });
+  
+  function updateSelectedVariantID() {
+    var selectedOptionData = $('select[name="id"] option:selected').data();
+    if ($('.widget-anchor.subscribe').hasClass('active')) {
+      $('select[name="id"] option:selected').val(selectedOptionData.subscriptionVariantId);
+    } else {
+      $('select[name="id"] option:selected').val(selectedOptionData.originalVariantId);
+    }
+    updateOutOfStock(selectedOptionData.available);
+  }
+
+  function updateOutOfStock(available){
+    if(available) {
+      $('.pdp-cta-button').removeAttr('disabled');
+      if ($('.widget-anchor.subscribe').hasClass('active')) {
+        $('.pdp-cta-button').val('Subscribe Now');
+      } else {
+        $('.pdp-cta-button').val('Add to Bag');
+      }
+    } else {
+      $('.pdp-cta-button').val('Sold Out');
+      $('.pdp-cta-button').attr('disabled', 1);
+    }
+  }
+  
+  $(window).on('load', function() {
+   updateSelectedVariantID();
+  });
+  
+  function changeToOneTime(productID) {
+    $('.pdp-cta-button').val('Add to Bag');
+    $('.pdp-cta-button').removeClass('opt-atb-subscription').addClass('opt-atb-one-time');
+    $('.pdp-subscription-widget .widget-anchor').removeClass('active');
+    $('.pdp-subscription-widget .widget-anchor.one-time').addClass('active');
+    $('.cta-button-wrapper .sticky-message').text('');
+    
+    $('.hidden-input.pid-' + productID + ' .frequency-num').removeAttr('name');
+    $('.hidden-input.pid-' + productID + ' .frequency-type').removeAttr('name');
+    
+  }
+  
+  $(document).ready(function(e) {
+      $.urlParam = function (name) {
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.search);
+
+        return (results !== null) ? results[1] || 0 : false;
+      }
+      
+      if($.urlParam('sticky') === "true") {
+        $('.cta-button-wrapper').addClass('sticky');
+      }
+
+      // Fix browser back not populating select box
+      $(".widget-frequency-select").each(function () {
+        $(this).val($(this).find('option[selected]').val());
+      });
+  });
+  
+  $('.nav-slider-option').on('click', function(e) {
+    e.preventDefault();
+    
+    $('.nav-slider-option').removeClass('active');
+    $(this).addClass('active');
+
+    var selectedSection = $(this).data('content');
+
+
+    $('.content-section').removeClass('active');
+    $('.content-section.' + selectedSection).addClass('active');
+    
+    // Scroll to center
+    var activeWidthCenter = $(this).width() / 2;
+	var selectedItemPos = $(this).position().left + activeWidthCenter;
+  	var sliderPosition = $('.nav-slider').scrollLeft(); 
+  	var sliderWidth = $('.nav-slider').width(); 
+  	selectedItemPos = selectedItemPos + sliderPosition - sliderWidth / 2; 
+
+    $('.nav-slider').animate({ scrollLeft: selectedItemPos }, 300);
+  });
+  
+  $(".product_form .pdp-cta-button").on('click', function () {
+    updateSelectedVariantID();
+    var productID = $('#product-form-{{ product.id }} select[name="id"]').val();
+    var quantity = $('#product-form-{{ product.id }} input[name="quantity"]').val();
+    var variantPrice = $('.pdp-subscription-widget .widget-row.one-time .widget-price').text().substring(1);
+    
+    pintrk('track', 'addtocart', {
+      value: parseFloat(variantPrice),
+      order_quantity: quantity,
+      currency: 'USD',
+      line_items: [
+        {
+          product_id: productID
+        }
+      ]
+    });
+  });
+
+
+  $('.pdp-faq-button').on('mousedown', function(e) {
+    e.preventDefault();
+  });
+  
+  $('.pdp-faq-button').on('click', function(e) {
+    e.preventDefault();
+    if ($("#pdp-faq-" + $(this).data('index')).hasClass('hidden') === false) {
+      $("#pdp-faq-" + $(this).data('index')).addClass('hidden');
+    } else {
+    	$("#pdp-faq-" + $(this).data('index')).removeClass('hidden');
+    }
+  });
+  
+  $(document).ready(function() {
+      setTimeout(function() {
+      $(".product-4629796487228 .cta-button-wrapper input").val("Coming Soon");
+    }, 2000);
+   });
+
+</script>
+{% schema %}
+  {
+    "name": "Product Detail Page - v3",
+    "class": "product-template-redesign-2021",
+    "settings": []
+  }
+{% endschema %}

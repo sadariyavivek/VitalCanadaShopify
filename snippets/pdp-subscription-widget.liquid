@@ -1,0 +1,59 @@
+<div class="pdp-subscription-widget">
+  <div class="widget-row subscribe {% if hasSubscription == blank %}hide{% endif %}" role="radio">
+    <a href="#" data-subscription-type="subscription" data-product-id="{{ product.id }}" class="widget-anchor subscribe {% if hasSubscription %}active{% endif %} padding">
+      <div class="radio-icon-header-container">
+        <div class="radio-icon-container">
+          <div class="radio-fill"></div>
+        </div>
+        <div class="purchase-type-and-price-container">
+          <span class="widget-row-header">Subscribe &amp; Save {{ product.metafields.subscriptions.discount_percentage | round }}%*</span>
+          <div>
+            <span class="widget-price-strikethrough">{{ variant.price | money_without_trailing_zeros }}</span>
+            <span class="widget-price">{{ variant.price | times: discountedFactor | money_without_trailing_zeros }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="frequency-select-wrapper">
+        <span class="widget-frequency-select-text">{% if product.metafields.subscriptions.shipping_interval_unit_type == "Months" %}Monthly{% else %}Weekly{% endif %} Delivery</span>
+        <select id="widget-frequency-select" class="widget-frequency-select">
+          {% assign subscriptionIntervals = product.metafields.subscriptions.shipping_interval_frequency | split: ',' %}
+          {% assign subscriptionUnitType = product.metafields.subscriptions.shipping_interval_unit_type %}
+          {% assign lastLetter = subscriptionUnitType | size | minus: 1 %}
+          {% assign subscriptionUnitTypeSingle = subscriptionUnitType | slice: 0, lastLetter %}
+          {% for interval in subscriptionIntervals %}
+            <option {% if interval == settings.default_subscription_frequency %}selected="selected" {% endif %} value="{{ interval }}">Every {{ interval }} {{ interval | plus: 0 | pluralize: subscriptionUnitTypeSingle, subscriptionUnitType }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div>
+        <span class="subscription-free-shipping">FREE SHIPPING when you subscribe</span>
+        <div class="additional-content">
+          <div class="subscription-disclaimer-container">
+            <img class="disclaimer-logo" src="{{ 'VitalProteins_Shields_Blue_Outline_small_80788aee-0d09-417f-bc5f-78ffb0b60c9c.png' | file_img_url: '60x' }}" alt="Vital Proteins Shield Logo"/>
+            <span class="subscription-disclaimer">*Receive {{ settings.subscription_discount_amount }}% off your first order and {{ settings.subscription_discount_secondary_amount }}% off each order after (plus free shipping) when you subscribe. Other restrictions may apply.</span>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="widget-row one-time {% if hasSubscription == blank %}no-subscribe{% endif %}" role="radio">
+    <a href="#" data-subscription-type="one-time" data-product-id="{{ product.id}}" class="widget-anchor one-time {% if hasSubscription == blank %}active{% endif %} padding">
+      <div class="radio-icon-header-container">
+        <div class="radio-icon-container">
+          <div class="radio-fill"></div>
+        </div>
+        <div class="purchase-type-and-price-container">
+          <span class="widget-row-header">One-Time Purchase</span>
+          <span class="widget-price">{{ variant.price | money_without_trailing_zeros }}</span>
+        </div>
+      </div>
+      <div class="afterpay-logo-container {% if variant.price < 3500 %}hide{% endif %}">
+        <span class="widget-afterpay">Or 4 payment installments of <span class="afterpay-price">{{ variant.price | divided_by: 4.0 | money_without_trailing_zeros }}</span> by </span><img class="afterpay-logo-new" alt="Afterpay" src="https://static.afterpay.com/integration/product-page/logo-afterpay-colour.png"/>
+      </div>
+    </a>
+  </div>
+  <div class="hidden-input pid-{{ product.id }}">
+    <input class="frequency-num" {% if hasSubscription %}name="properties[shipping_interval_frequency]"{% endif %} type="hidden" value="{{ settings.default_subscription_frequency }}" >
+    <input class="frequency-type" {% if hasSubscription %}name="properties[shipping_interval_unit_type]"{% endif %} type="hidden" value="{{ product.metafields.subscriptions.shipping_interval_unit_type }}">
+  </div>
+</div>

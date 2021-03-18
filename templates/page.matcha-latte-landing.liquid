@@ -1,0 +1,548 @@
+<a name="pagecontent" id="pagecontent"></a>
+
+</div>
+
+{% assign matchaLatte = all_products['matcha-collagen-latte'] %}
+{% assign matchaVanilla = all_products['matcha-collagen-latte-vanilla'] %}
+{% assign greenColor = '#42b651' %}
+{% assign yellowColor = '#e1e667' %}
+<style>
+  .container.main.content {
+    padding: 0;
+  }
+  
+  .new-container {
+    max-width: 1400px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .intro-banner img {
+    width: 100%;
+    display: block;
+  }
+  
+  .intro-banner img.mobile-only {
+    display: none;
+  }
+  
+  @media only screen and (max-width: 800px) {
+    .intro-banner img.desktop-only {
+      display: none;
+    }
+    
+    .intro-banner img.mobile-only {
+      display: block;
+    }
+  }
+  
+  .sub-banner {
+    width: 100%;
+    background-color: #e1e667;
+    position: relative;
+  }
+  
+  .sub-banner h2 {
+    color: #42b651;
+    font-family: 'Mark My Words';
+    text-align: center;
+    font-size: 60px;
+    padding: 24px;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-transform: none;
+  }
+  
+  .product-shop-section {
+    display: flex;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  
+  .product-shop-section .product-container {
+    width: 50%;
+    text-align: center;
+    position: relative;
+  }
+  
+  
+  .product-shop-section .product-container .product-wrapper {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+  
+  .product-shop-section .product-container .product-wrapper .product-badge {
+    position: absolute;
+    color: {{ greenColor }};
+    background-color: {{ yellowColor }};
+    height: 90px;
+    width: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    right: 14%;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .product-shop-section .product-container .product-wrapper .product-badge span {
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    font-size: 24px;
+  }
+  
+  .product-shop-section .product-container .price {
+    font-family: 'kapraregular';
+    font-size: 36px;
+    margin-bottom: 0;
+  }
+  
+  .product-shop-section .product-container .title {
+    font-family: 'kapraregular';
+    font-size: 36px;
+    color: {{ greenColor }};
+    text-transform: none;
+    letter-spacing: 0 !important;
+  }
+  
+  .matcha-latte-image-slider-container {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+  }
+  
+  .matcha-latte-image-slider-cell {
+    width: 100%;
+  }
+  
+  .matcha-latte-image-slider-cell .product-image-wrapper {
+    max-width: 240px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .matcha-latte-image-slider-cell .product-slider-image {
+    width: 100%;
+  }
+  
+  .action_button.add_to_cart.kapra {
+    width: 240px;
+  }
+  
+  .product-shop-section .flickity-page-dots .dot {
+    background: #83e38c;
+    height: 10px;
+    width: 10px;
+  }
+  
+  .fact-icon-section {
+    width: 100%;
+    background-color: #42b451;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    position: relative;
+  }
+  
+  .fact-icon-section div {
+    height: 120px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .fact-icon-section div:not(:last-child) {
+    border-right: 1px solid white;
+  }
+  
+  .fact-icon-section div img {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .dotted-line {
+    width: 100%;
+    padding-bottom: 30px;
+    background-position: bottom;
+    margin-bottom: 40px;
+    background-image: radial-gradient(circle at 3px, #e1e667 3px, rgba(255,255,255,0) 3px);
+    background-size: 14px 20px, 3px 20px;
+    background-repeat: repeat-x;
+  }
+  
+  .dotted-line.green {
+    background-image: radial-gradient(circle at 3px, {{ greenColor }} 3px, rgba(255,255,255,0) 3px);
+  }
+  
+  .why-we-created-it-section {
+    display: flex;
+    margin-bottom: 60px;
+    margin-top: 40px;
+    align-items: center;
+  }
+  
+  .why-we-created-it-section .image-container {
+    width: 40%;
+    padding: 40px;
+  }
+  
+  .why-we-created-it-section .image-container img {
+    width: 100%;
+    box-shadow: -20px 20px 0px {{ yellowColor }};
+  }
+  
+  .why-we-created-it-section .info-container {
+    width: 60%;
+    padding: 40px;
+  }
+  
+  .why-we-created-it-section .info-container h3 {
+    font-family: 'Mark My Words';
+    font-size: 60px;
+    color: {{ greenColor }};
+  }
+  
+  .why-we-created-it-section .info-container p {
+    font-weight: bold;
+    font-size: 24px;
+  }
+  
+  .why-we-created-it-section .info-container p .highlight {
+    color: {{ greenColor }};
+  }
+  
+  .recipe-section-container {
+    background-color: #42b451;
+    text-align: center;
+    padding-bottom: 80px;
+    padding-top: 20px;
+    position: relative;
+  }
+  
+  .recipe-section-container h4 {
+    text-transform: none;
+    letter-spacing: 1px !important;
+    color: white;
+    font-size: 60px;
+  
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-family: 'Mark My Words';
+    position: relative;
+    z-index: 100;
+  }
+  
+  .recipe-section-container h4 > span {
+    color: #e1e667;
+  }
+  
+  .recipe-slider-container {
+    z-index: 100;
+    padding-bottom: 20px;
+    overflow: hidden;
+  }
+  
+  .recipe-image-container {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 100;
+  }
+  
+  .recipe-image-container img {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 100;
+  }
+  
+  
+  .flickity-page-dots .dot {
+    background: #83e38c;
+    height: 20px;
+    width: 20px;
+  }
+  
+  .flickity-prev-next-button {
+    width: 60px;
+    height: 44px;
+    border-radius: 100%;
+    top: 50%;
+  }
+  
+  .matcha-leaves-upper-left {
+    position: absolute;
+    left: 0;
+    top: -120px;
+    width: auto;
+    z-index: 0;
+    width: 400px;
+  }
+  
+  .matcha-leaves-bottom-right {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    z-index: 0;
+    width: 600px;
+  }
+  
+  .matcha-leaves-fact-section {
+    position: absolute;
+    right: 0;
+    top: -80px;
+    z-index: 0;
+    width: 240px;
+  }
+  
+  .matcha-leaves-sub-banner {
+    position: absolute;
+    left: 0;
+    top: -120px;
+    z-index: 0;
+    width: 240px;
+  }
+  
+  @media only screen and (max-width: 1200px) {
+    .matcha-leaves-fact-section {
+      display: none;
+    }
+    
+    .matcha-leaves-sub-banner {
+      display: none;
+    }
+    
+    
+    .matcha-leaves-upper-left {
+      display: none;
+    }
+  }
+  
+  @media only screen and (max-width: 800px) {
+    .product-shop-section .product-container .product-wrapper .product-badge {
+      right: -60px;
+    }
+    .matcha-leaves-bottom-right {
+      display: none;
+    }
+    
+    .sub-banner h2 {
+      font-size: 36px;
+    }
+    
+    .product-shop-section {
+      flex-direction: column;
+    }
+    
+    .product-shop-section .product-container {
+      width: 75%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 40px;
+    }
+    
+    .product-shop-section .product-container .title {
+      font-size: 36px;
+    }
+    
+    .action_button.add_to_cart.kapra {
+      width: 100%;
+    }
+    
+    .fact-icon-section {
+      flex-direction: column;
+    }
+    
+    .fact-icon-section div {
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    
+    
+    .fact-icon-section div:not(:last-child) {
+      border-right: none;
+    }
+    
+    .why-we-created-it-section {
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+    
+    .why-we-created-it-section .image-container {
+      width: 75%;
+    }
+    
+    .why-we-created-it-section .info-container {
+      width: 100%;
+    }
+    
+    .why-we-created-it-section .info-container h3 {
+      font-size: 36px;
+    }
+    
+    .why-we-created-it-section .info-container p {
+      font-size: 24px;
+    }
+    
+    .recipe-section-container h4 {
+      font-size: 36px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    
+    .recipe-image-container img {
+      width: 100%;
+    }
+  }
+</style>
+<div class="intro-banner">
+  <img class="desktop-only" src="{{ 'MatchaLatte_LP_Header_Image.png' | file_img_url: '1600x' }}"/>
+  <img class="mobile-only" src="{{ 'MatchaLatte_LP_Header_mobile_Image.png' | file_img_url: '900x' }}"/>
+</div>
+<div class="sub-banner">
+  <img class="lazyload matcha-leaves-sub-banner" src="{{ 'MatchaLatte_LP_Top_Right_Leaves.png' | file_img_url: '400x' }}" />
+  <h2>Your morning routine will do a double take.</h2>
+</div>
+<div class="dotted-line green"></div>
+<div class="new-container product-shop-section">
+  <div class="product-container">
+    
+    <div class="product-wrapper">
+      <div class="product-badge">
+        <span>Matcha</span>
+      </div>
+      <div class="matcha-latte-image-slider-container">
+        {% for image in matchaLatte.images %}
+          <div class="matcha-latte-image-slider-cell">
+            <div class="product-image-wrapper">
+               <img class="product-slider-image" src="{{ image | img_url: "1000x"}}" alt="{{ image.alt }}"/>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <p class="price">{{ matchaLatte.price | money_without_trailing_zeros }}</p>
+      <h3 class="title">{{ matchaLatte.title }}</h3>
+      <form action="/cart/add"
+             method="post"
+             class="clearfix product_form init {% if matchaLatte.variants.size > 1 or matchaLatte.options.size > 1 %}product_form_options{% endif %}"
+             id="product-form-{{ matchaLatte.id }}"
+             data-money-format="{{ shop.money_format }}"
+             data-shop-currency="{{ shop.currency }}"
+             data-select-id="product-select-{{ matchaLatte.id }}{{ product-form }}{{ section.id }}{{ block.id }}"
+             data-enable-state="{% if template contains 'product' %}true{% else %}false{% endif %}"
+             data-product="{{ matchaLatte | json | escape }}"
+             {% if settings.limit_quantity or settings.display_inventory_left %}
+             data-variant-inventory='[{%- for v in matchaLatte.variants -%}{"id":{{v.id}},"inventory_quantity":{{v.inventory_quantity}},"inventory_management":"{{v.inventory_management}}","inventory_policy":"{{v.inventory_policy}}"}{% if forloop.last == false %},{% endif %}{%- endfor -%}]'
+             {% endif %}
+             data-product-id="{{ matchaLatte.id }}"
+             >
+         <input type="hidden" name="id" id="product-form-variant-value-{{matchaLatte.id}}" value="{{ matchaLatte.variants.first.id }}">
+         {% capture add_to_cart_label %}{% if collection_handles contains 'pre-order' %}{{ 'collections.general.pre_order' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}{% endcapture %}
+         <button aria-label="Add {{matchaLatte.title}} to bag." type="submit" name="add" class="action_button add_to_cart kapra product-cta {% if matchaLatte.available == false %}disable-button{% endif %}" {% if matchaLatte.available == false %}disabled{% endif %} data-label={{ add_to_cart_label | json }}>
+           <span class="text">{% if matchaLatte.available == false %} Sold out {% else %}Add to Bag {% endif %}</span>
+           <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark">
+             <path fill="none" stroke="{{ settings.btn_text_color }}" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/>
+           </svg>
+         </button>
+         <div class="added-to-bag-notification" style="height:0; overflow: hidden;" aria-atomic="true" aria-live="assertive"></div>
+      </form>
+      {% include 'prop-65-modal' %}
+    </div>
+  </div>
+  <div class="product-container">
+    <div class="product-wrapper">
+      <div class="product-badge">
+        <span>Matcha Vanilla</span>
+      </div>
+      <div class="matcha-latte-image-slider-container">
+        {% for image in matchaVanilla.images %}
+          <div class="matcha-latte-image-slider-cell">
+            <div class="product-image-wrapper">
+              <img class="product-slider-image" src="{{ image | img_url: "1000x"}}" alt="{{ image.alt }}"/>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <p class="price">{{ matchaVanilla.price | money_without_trailing_zeros }}</p>
+      <h3 class="title">{{ matchaVanilla.title }}</h3>
+       <form action="/cart/add"
+             method="post"
+             class="clearfix product_form init {% if matchaVanilla.variants.size > 1 or matchaVanilla.options.size > 1 %}product_form_options{% endif %}"
+             id="product-form-{{ matchaVanilla.id }}"
+             data-money-format="{{ shop.money_format }}"
+             data-shop-currency="{{ shop.currency }}"
+             data-select-id="product-select-{{ matchaVanilla.id }}{{ product-form }}{{ section.id }}{{ block.id }}"
+             data-enable-state="{% if template contains 'product' %}true{% else %}false{% endif %}"
+             data-product="{{ matchaVanilla | json | escape }}"
+             {% if settings.limit_quantity or settings.display_inventory_left %}
+             data-variant-inventory='[{%- for v in matchaVanilla.variants -%}{"id":{{v.id}},"inventory_quantity":{{v.inventory_quantity}},"inventory_management":"{{v.inventory_management}}","inventory_policy":"{{v.inventory_policy}}"}{% if forloop.last == false %},{% endif %}{%- endfor -%}]'
+             {% endif %}
+             data-product-id="{{ matchaVanilla.id }}"
+             >
+         <input type="hidden" name="id" id="product-form-variant-value-{{matchaVanilla.id}}" value="{{ matchaVanilla.variants.first.id }}">
+         {% capture add_to_cart_label %}{% if collection_handles contains 'pre-order' %}{{ 'collections.general.pre_order' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}{% endcapture %}
+         <button aria-label="Add {{matchaVanilla.title}} to bag." type="submit" name="add" class="action_button add_to_cart kapra product-cta {% if matchaVanilla.available == false %}disable-button{% endif %}" {% if matchaVanilla.available == false %}disabled{% endif %} data-label={{ add_to_cart_label | json }}>
+           <span class="text">{% if matchaVanilla.available == false %} Sold out {% else %}Add to Bag {% endif %}</span>
+           <svg x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" class="checkmark">
+             <path fill="none" stroke="{{ settings.btn_text_color }}" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/>
+           </svg>
+         </button>
+         <div class="added-to-bag-notification" style="height:0; overflow: hidden;" aria-atomic="true" aria-live="assertive"></div>
+      </form>
+      {% include 'prop-65-modal' %}
+    </div>
+  </div>
+</div>
+<div class="fact-icon-section">
+  <img class="lazyload matcha-leaves-fact-section" src="{{ 'MatchaLatte_LP_Top_Left_Leaves.png' | file_img_url: '400x' }}" />
+  <div><img src="{{ 'MatchaLatte_LP_10G_CP_icons.png' | file_img_url: '400x'}}"/></div>
+  <div><img src="{{ 'MatchaLatte_LP_3G_total_sugars.png' | file_img_url: '400x'}}"/></div>
+  <div><img src="{{ 'MatchaLatte_LP_l-theanine.png' | file_img_url: '400x'}}"/></div>
+  <div><img src="{{ 'MatchaLatte_LP_MCT_oils.png' | file_img_url: '400x'}}"/></div>
+  <div><img src="{{ 'MatchaLatte_LP_50_MG_caffeine.png' | file_img_url: '400x'}}"/></div>
+</div>
+<div class="dotted-line"></div>
+<div class="new-container why-we-created-it-section">
+  <div class="image-container">
+  	<img src="{{ 'MatchaLatte_LP_Why_we_created_it_image.jpg' | file_img_url: '1000x' }}"/>
+  </div>
+  <div class="info-container">
+    <h3>why we created it</h3>
+    <p>Your morning routine should be seamless, which is why we combined the best of both worlds of our jitter-less Matcha Collagen with our fan-favorite <a class="highlight" href="https://vitalproteins.com/collections/collagen-creamer">Collagen Creamers</a>. This pairing offers the energy boost you need to take on the day. Just scoop, stir and sip for an easy, creamy pick-me-up.</p>
+  </div>
+</div>
+<div class="recipe-section-container">
+  <img class="lazyload matcha-leaves-upper-left" src="{{ 'MatchaLatte_LP_Recipe_Top_Leaves.png' | file_img_url: '800x' }}" alt="Matcha Leaves"/>
+  <img class="lazyload matcha-leaves-bottom-right" src="{{ 'MatchaLatte_LP_Recipe_Bottom_Leaves.png' | file_img_url: '800x' }}" alt="Matcha Leaves"/>
+  <h4>a <span>latte</span> reasons to start sipping</h4>
+  <div class="new-container recipe-slider-container">
+    <div class="recipe-image-container">
+      <img src="{{ 'MatchaLatte_LP_Recipe_1.png' | file_img_url: '1600x' }}" alt="Recipe 1: Supercharged Matcha Collagen Latte (1 Serving). Ingredients: 3/4 C of hot water, 1 T Grass-fed butter or coconut oil, 1 scoop Vital Proteins Matcha Collagen Latte, 1 t honey (optional). Directions: Dissolve Vital Proteins Matcha Collagen Latte into hot water, stirring until the matcha is fully dissolved. Add matcha mixture, butter or coconut oil, and honey into a blender, and blend on low speed until frothy. Alternatively, stir all ingredients together and froth with a milk frother or hand mixer. Pour into the mug of your choice and enjoy!"/>
+    </div>
+    <div class="recipe-image-container">
+      <img src="{{ 'MatchaLatte_LP_Recipe_2.png' | file_img_url: '1600x' }}" alt="Recipe 2: Matcha Collagen Latte Smoothie (1 Serving). Ingriedients: 1 C unsweetened almond milk, 1/2 C frozen peach slices. 2 scoops Vital Proteins Matcha Collagen Latte, 1/2 medium Haas avocado. Directions: Combine the almond milk, frozen peach slices, Matcha Collagen LAtte and avocado in a high-speed blender. Process on high until ingredients are combined (about 45 seconds). Serve immediately."/>
+    </div>
+    <div class="recipe-image-container">
+      <img src="{{ 'MatchaLatte_LP_Recipe_3.png' | file_img_url: '1600x' }}" alt="Recipe 3: Dirty Matcha Collagen Latte (1 Serving). Ingredients: 1 C hot water. 1/4 C cold brew coffee, 1 scoop Vital Proteins Matcha Collagen, 1 T honey, 5-10 ice cubes. Directions: Whisk together hot water and Matcha Collagen Latte until smooth. Stir in honey (if desired). Add ice and top with code brew coffee. Enjoy!"/>
+    </div>
+  </div>
+</div>

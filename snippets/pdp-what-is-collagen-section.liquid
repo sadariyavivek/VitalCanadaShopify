@@ -1,0 +1,25 @@
+<div class="what-is-collagen-wrapper">
+  {% if product.metafields.vital.what_is_collagen_header != blank %}
+  <div class="what-is-collagen-section">
+    <h5 class="what-is-collagen-header-text">{{ product.metafields.vital.what_is_collagen_header }}</h5>
+    <div class="what-is-collagen-body-text">{{ product.metafields.vital.what_is_collagen_body }}</div>
+  </div>
+  {% endif %}
+  {% if product.metafields.vital.where_collagen_header != blank %}
+  <div class="what-is-collagen-section video">
+    <div class="video-text-wrapper">
+      <h5 class="what-is-collagen-header-text">{{ product.metafields.vital.where_collagen_header }}</h5>
+      <div class="what-is-collagen-body-text">{{ product.metafields.vital.where_collagen_body }}</div>
+    </div>
+    <div class="sourcing-video-wrapper">
+      {% if product.metafields.conspire.sourcing_video_url %}
+      	<iframe class="sourcing-video lazyload" title="Soucing video for {{ product.title }}" width="560" height="315" data-src="{{ product.metafields.conspire.sourcing_video_url }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+      {% elsif product.metafields.vital.featured_lifestyle_image %}
+      	<div class="featured-lifestyle-image lazyload" data-bg="{{product.metafields.vital.featured_lifestyle_image}}" style="height: 300px; width: 100%; border-radius: 10px; background-position: 50% 50%;"></div>
+      {% else %}
+      	<div class="featured-lifestyle-image lazyload" data-bg="{{'2042020_VP_5611-2.jpg' | file_img_url: '800x'}}" style="height: 300px; width: 100%; border-radius: 10px; background-position: 50% 50%;"></div>
+      {% endif %}
+    </div>
+  </div>
+  {% endif %}
+</div>

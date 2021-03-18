@@ -1,0 +1,348 @@
+<a name="pagecontent" id="pagecontent"></a>
+
+</div>
+<style>
+  
+  .image-container {
+    position: relative;
+  }
+  
+  .image-wrapper {
+    background-image: url({{ 'VP_WEBSITE_ABOUT-02.jpg' | file_img_url: '1000x' }});
+    background-size: cover;
+    background-position: 50%;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+  }
+  
+  .kurt-container .image-wrapper {
+    background-image: url({{ 'VP_WEBSITE_ABOUT-02.jpg' | file_img_url: '1000x' }});
+  }
+  
+  .kurt-container .offset-background {
+    background-color: #23b6e6;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    z-index: -10;
+    border-radius: 20px;
+  }
+  
+  .sub-info-container-2 .offset-background {
+    background-color: #23b6e6;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    z-index: -10;
+    border-radius: 20px;
+  }
+  
+  .sub-info-container .offset-background {
+    background-color: #23b6e6;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    z-index: -10;
+    border-radius: 20px;
+  }
+  
+  .main.content {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .about-intro-banner {
+    background-color: #96daea;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  
+  .about-intro-banner h1 {
+    color: white;
+    font-size: 90px;
+    letter-spacing: 1px !important;
+    text-transform: none;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .about-intro-banner p {
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    max-width: 1400px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .kurt-container {
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  
+  .kurt-container .image-container {
+    width: 40%;
+ 
+  }
+  
+  .kurt-container .info-container {
+    width: 60%;
+    padding: 60px;
+  }
+  
+  .kurt-container .info-container h2 {
+    color: #23b6e6;
+    letter-spacing: 1px !important;
+    font-size: 72px;
+    margin-bottom: 20px;
+  }
+  
+  .kurt-container .info-container p {
+    font-size: 24px;
+  }
+  
+  .about-us-yellow-text-section {
+    background-color: #ffce00;
+    text-align: center;
+  }
+  
+  .about-us-yellow-text-section p {
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .sub-info-container {
+    margin-top: 60px;
+  }
+  
+  .sub-info-container .image-wrapper {
+    background-image: url({{ 'VP_WEBSITE_ABOUT-03.jpg' | file_img_url: '1000x' }});
+  }
+  
+  .sub-info-container-2 {
+    margin-bottom: 60px;
+  }
+  
+  .sub-info-container-2 .image-wrapper {
+    background-image: url({{ 'VP_WEBSITE_ABOUT-04.jpg' | file_img_url: '1000x' }});
+  }
+  
+  .sub-info-container, .sub-info-container-2 {
+    display: flex;
+    padding: 40px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .sub-info-container .info-container {
+    width: 60%;
+    padding: 60px;
+    padding-left: 0;
+    margin-right: 40px;
+  }
+  
+  .sub-info-container .info-container h3 {
+    color: #23b6e6;
+    letter-spacing: 1px !important;
+    font-size: 72px;
+    line-height: initial;
+  }
+  
+  .sub-info-container .info-container p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #595a5c;
+  }
+  
+  .sub-info-container .image-container {
+    width: 40%;
+
+  }
+  
+  .sub-info-container-2 .info-container {
+    width: 60%;
+    padding: 60px;
+    margin-left: 40px;
+  }
+  
+  .sub-info-container-2 .info-container h3 {
+    color: #23b6e6;
+    letter-spacing: 1px !important;
+    font-size: 72px;
+    line-height: initial;
+  }
+  
+  .sub-info-container-2 .info-container p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #595a5c;
+  }
+  
+  .sub-info-container-2 .image-container {
+    width: 60%;
+   
+  }
+  
+  .about-us-bottom-section {
+    background-color: #96daea;
+    text-align: center;
+    margin-bottom: 0;
+    padding: 20px;
+  }
+  
+  .about-us-bottom-section h4 {
+    color: #23b6e6;
+    font-size: 72px;
+    margin-bottom: 0;
+  }
+  
+  @media only screen and (max-width: 799px) {
+    .about-intro-banner h1 {
+      font-size: 48px;
+      line-height: initial;
+    }
+    
+    .kurt-container {
+      flex-direction: column;
+      
+    }
+    
+    .kurt-container .image-container {
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      height: 340px;
+    }
+    
+    .kurt-container .info-container {
+      width: 100%;
+      padding: 20px;
+      padding-top: 0;
+    }
+    
+    .sub-info-container {
+      flex-direction: column-reverse;
+    }
+    
+    .sub-info-container .image-container {
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      height: 340px;
+    }
+    
+    .sub-info-container .info-container {
+      width: 100%;
+      padding: 20px;
+      margin: 0;
+    }
+    
+    .sub-info-container .info-container h3 {
+      font-size: 48px;
+      margin-top: 15px;
+    }
+    
+    .sub-info-container-2 {
+      flex-direction: column;
+    }
+    
+    .sub-info-container-2 .image-container {
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      height: 340px;
+    }
+    
+    .sub-info-container-2 .info-container {
+      width: 100%;
+      padding: 20px;
+      margin: 0;
+    }
+    
+    .sub-info-container-2 .info-container h3 {
+      font-size: 48px;
+      margin-top: 15px;
+    }
+    
+    .sub-info-container-2 {
+      margin-bottom: 0;
+    }
+  }
+</style>
+<div class="about-intro-banner">
+  <h1>Hi, we're Vital Proteins.</h1>
+  <p>We’re here to make the most out of every single day. Vital Proteins helps people feel better and live fuller lives through whole-food-based nutrition. We’re all about feeling your best, giving your best, and looking your best.</p>
+  <br>
+  <p>We do that by supplementing and promoting the body’s production of collagen with natural, minimally processed products.</p>
+</div>
+<div class="kurt-container">
+  <div class="image-container">
+  	<div class="image-wrapper">
+   
+    </div>
+    <div class="offset-background">
+    </div>
+  </div>
+  <div class="info-container">
+    <h2>Bright Beginnings.</h2>
+    <p>Founder Kurt Seidensticker learned of collagen’s health benefits after experiencing knee discomfort at the age of 50. Since Seidensticker had always been an avid runner, the setback sparked his search for a product that would help support his joint health. Incorporating ingestible collagen into his diet, he found, was the answer since nutrient-rich foods don’t provide enough of the amino acids needed for the body to naturally produce collagen.</p>
+  </div>
+</div>
+<div class="about-us-yellow-text-section">
+  <p>In 2014, Kurt offered the stronger hair, skin, nails, and joints benefits to the masses with the launch of Vital Proteins. In less than six years, Vital Proteins has expanded its line of collagen products – which at first only included hydrolyzed Collagen Peptides – to better fit your lifestyle. Fan-favorite VP products include Marine Collagen, Matcha Collagen, Beef Gelatin, and Collagen Shots, just to name a few. And we’re only getting started!</p>
+</div>
+<div class="sub-info-container">
+  <div class="info-container">
+    <h3>Enriching our diets for centuries.</h3>
+    <p>Centuries ago we utilized sustainable, whole animal nutrition to enrich our diets with an abundance of collagen. Over the past century, modern food processing and new dietary habits have removed this natural and healthy protein from our diets.</p>
+  </div>
+  <div class="image-container">
+    <div class="image-wrapper">
+   
+    </div>
+    <div class="offset-background">
+    </div>
+  </div>
+</div>
+<div class="sub-info-container-2">
+  <div class="image-container">
+  	<div class="image-wrapper">
+   
+    </div>
+    <div class="offset-background">
+    </div>
+  </div>
+  <div class="info-container">
+    <h3>Live a fuller, more vibrant life.</h3>
+    <p>We believe our customers deserve the highest-quality ingredients, and to know where they come from. There’s nothing more important than one’s health, and we believe the body needs and deserves high-quality building blocks for life’s adventures.</p>
+  </div>
+</div>
+<div class="about-us-bottom-section">
+  <h4>Live life to the fullest, naturally.</h4>
+</div>

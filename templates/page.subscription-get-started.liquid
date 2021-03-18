@@ -1,0 +1,1058 @@
+<a name="pagecontent" id="pagecontent"></a>
+
+</div>
+<style>
+  .stamped-reviews-title .stamped-reviews-link {
+    font-family: 'kapraregular';
+    font-weight: normal;
+    font-size: 24px;
+    color: #23b6e6;
+  }
+  
+  .stamped-reviews-message-block.stamped-style-color-text {
+    font-family: 'avenir' !important;
+  }
+  
+  .stamped-reviews-author.stamped-style-color-text {
+    font-family: 'avenir' !important;
+  }
+  
+  .stamped-carousel-title.stamped-style-color-title {
+    font-family: 'avenir' !important;
+  }
+  
+  .footer {
+    z-index: -1;
+    position: relative;
+  }
+  
+  .container.main.content {
+    display: none;
+  }
+  
+  .get-started-content-body {
+    text-align: center;
+    /*min-height: 100vh;*/
+  }
+  
+  .get-started-text-wrapper {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    color: white;
+  }
+  
+  .get-started-text-wrapper h1 {
+    text-transform: none;
+    letter-spacing: 1px !important;
+    color: white;
+    font-size: 60px;
+    margin-bottom: 0;
+  }
+  
+  .get-started-text-wrapper p {
+    font-size: 24px;
+  }
+  
+  .get-started-content-wrapper {
+    padding: 20px;
+    animation-duration: .3s;
+    animation-delay: .05s;
+    background-color: white;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    /*height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;*/
+  }
+  
+  .get-started-content-wrapper.intro {
+    background-color: #f09594;
+    background-image: url({{ 'Subscription_Banner_HP_72-01_b9500659-ecb2-4671-acae-8b4c4305eb87.jpg' | file_img_url: '2000x' }});
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    max-width: 100%;
+    height: 540px;
+  }
+  
+  .get-started-intro-sub-section {
+    width: 100%;
+    background-color: white;
+    color: #23b6e6;
+    padding: 20px;
+  }
+  
+  .get-started-intro-sub-section h2 {
+    text-transform: lowercase;
+    letter-spacing: 1px !important;
+    color: #23b6e6;
+    font-size: 48px;
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+  
+  .subscription-icon-section-container {
+   	display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+  }
+  
+  .subscription-icon-block {
+    width: 20%;
+    margin-bottom: 20px;
+  }
+  
+  .icon-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    margin-bottom: 20px;
+    border-radius: 100%;
+  }
+  
+  .subscription-icon-block img {
+    height: 100%;
+  }
+  
+  .subscription-icon-block p {
+    font-family: 'kapraregular';
+    font-size: 21px;
+    line-height: 24px;
+  }
+  
+  .get-started-next-button {
+    background: #23b6e6;
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: white;
+    border: 0;
+    transition: .2s all ease-out;
+    display: block;
+    width: 140px;
+    display: table;
+    margin-left: auto;
+    font-size: 24px;
+    margin-right: auto;
+    opacity: 1;
+    height: auto;
+    display: inline-block;
+  }
+  
+  .get-started-next-button.hidden {
+    height: 0;
+    opacity: 0;
+  }
+  
+  .get-started-next-button:hover {
+    color: white;
+    border: 0;
+    opacity: 0.7;
+    transform: translateY(-2px);
+  }
+  
+  .back-button {
+    background: #96daea;
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: white;
+    border: 0;
+    transition: .2s all ease-out;
+    display: block;
+    width: 140px;
+    display: table;
+    margin-left: auto;
+    font-size: 24px;
+    margin-right: auto;
+    opacity: 1;
+    height: auto;
+    display: inline-block;
+  }
+  
+  .back-button:hover {
+    color: white;
+    border: 0;
+    opacity: 0.7;
+    transform: translateY(-2px);
+  }
+  
+  .choices-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .choice-container {
+    width: 25%;
+    transition: .3s all cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    border-radius: 20px;
+    position: relative;
+    border-width: 0;
+  }
+  
+  .choice-container.product {
+    width: 20%;
+  }
+  
+  .choice-container:hover {
+    /*transform: rotate(5deg);*/
+    cursor: pointer;
+  }
+  
+  .choice-container img {
+    max-width: 80%;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  
+  .choice-container-inner {
+    padding: 20px;
+    margin: 10px;
+    position: relative;
+    border-radius: 20px;
+    border-color: #23b6e6;
+    transition: .3s all cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  }
+  
+  .choice-container.selected .choice-container-inner::after {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .choice-container-inner::after {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    opacity: 0;
+    transform: scale(1.05);
+    border: 10px solid #23b6e6;
+    box-sizing: border-box;
+    content: "";
+    transition: .3s all ease-out;
+    border-radius: 20px;
+    border-color: inherit;
+  }
+  
+  .choice-container:hover .choice-container-inner::after {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .choice-container .product-title {
+    text-transform: uppercase;
+    font-family: 'kapraregular';
+    font-size: 24px;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: 26px;
+    color: #23b6e6;
+  }
+  
+  .choice-container .variant-title {
+    letter-spacing: 1px !important;
+    text-transform: capitalize;
+  }
+  
+  .choice-container .product-title.collapse {
+    opacity: 0;
+    max-height: 0;
+    transform-origin: top;
+    transform: scaleY(0);
+    transition: .3s all cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  }
+  
+  .choice-container.selected .product-title.collapse {
+    opacity: 1;
+    transform: scaleY(1);
+    max-height: 100px;
+  }
+  
+  .choice-container .clicked-text {
+    opacity: 0;
+    max-height: 0;
+    transform-origin: top;
+    transform: scaleY(0);
+    transition: .3s all cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  }
+  
+  .choice-container.selected .clicked-text {
+    opacity: 1;
+    transform: scaleY(1);
+    max-height: 100px;
+  }
+  
+  .choice-container.frequency img {
+    width: 60%;
+    background-color: #23b6e6;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  
+  .choice-container.frequency:hover .frequency-icon-container {
+    background-color: #b8f1ff;
+  }
+  
+  .choice-container.frequency.selected .frequency-icon-container {
+    background-color: #b8f1ff;
+  }
+  
+  .frequency-icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f7f7;
+    border-radius: 100%;
+    width: 200px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    transition: .2s all ease-out;
+  }
+  
+  .frequency-icon-container .frequency-title {
+    font-family: 'kapraregular';
+    font-size: 36px;
+    color: #23b6e6;
+    margin-bottom: 0;
+    padding: 10px;
+  }
+  
+  .frequency-subtitle {
+    font-weight: bold;
+    color: #8a8a8a;
+    margin-bottom: 0;
+  }
+  
+  
+  .upsell-container .product-title {
+    text-transform: uppercase;
+    font-family: 'kapraregular';
+    font-size: 24px;
+    letter-spacing: 1px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    color: #23b6e6;
+  }
+  
+  .upsell-container {
+    width: 25%;
+    transition: .3s all cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    border-radius: 20px;
+    position: relative;
+    border-width: 0;
+  }
+  
+  .upsell-container:hover {
+    /*transform: rotate(5deg);*/
+    cursor: pointer;
+  }
+  
+  .upsell-container img {
+    max-width: 60%;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  
+  .upsell-container-inner {
+    padding: 20px;
+    margin: 10px;
+    position: relative;
+    border-radius: 20px;
+    border-color: #23b6e6;
+    transition: .3s all cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  }
+  
+  .step-text {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 4px 20px;
+    border-radius: 10px;
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    color: #45bccf;
+    font-size: 28px;
+    display: table;
+    letter-spacing: 1px !important;
+    margin-bottom: 0;
+  }
+  
+  .step-instruction {
+    text-transform: capitalize;
+    color: #96daea;
+    letter-spacing: 1px !important;
+  }
+  
+  .upsell-add-to-bag {
+    background: #23b6e6;
+    font-family: 'kapraregular';
+    font-size: 24px;
+    border-radius: 10px;
+    color: white;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    margin-top: 20px;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    transition: .2s all ease-out !important;
+    width: 100%;
+  }
+  
+  .upsell-add-to-bag:hover {
+    color: white;
+    opacity: 0.7;
+  }
+  
+  .loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #23b6e6;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1.2s ease-out infinite;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .modal-window {
+    visibility: hidden;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.25);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+  }
+
+  .modal-window.open {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0px);
+    pointer-events: auto;
+  }
+
+  .modal-window>div {
+    max-width: 800px;
+    width: 60%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2em;
+    background: #96daea;
+    border-radius: 20px;
+    color: white;
+  }
+
+  .modal-window h2 {
+    text-transform: uppercase;
+    margin-top: 0;
+    color: white;
+  }
+  
+  .modal-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  
+  .modal-image-container {
+    width: 40%;
+  }
+  
+  .modal-image-container img {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+  }
+  
+  .modal-choices-container {
+  	width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+  
+  .modal-choices-container .fun-phrase {
+    font-family: 'kapraregular';
+    font-size: 24px;
+    padding-bottom: 10px;
+  }
+  
+  .variant-choice {
+  	margin-bottom: 20px;
+  }
+  
+  .select-variant {
+    font-family: 'kapraregular';
+    color: white;
+    text-transform: uppercase;
+    background: #23b6e6;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 21px;
+    transition: .2s all ease-out;
+  }
+  
+  .select-variant:hover {
+    color: white;
+    opacity: .7;
+  }
+  
+  .modal-choices-container label {
+    display: inline-block;
+    font-size: 16px;
+  }
+
+  .modal-close {
+    color: white;
+    line-height: 50px;
+    font-size: 16px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 70px;
+    text-decoration: none;
+    background: none;
+    padding: 0;
+  }
+
+  .modal-close:hover {
+    color: gray;
+    background: none;
+    padding: 0;
+    border: 0;
+  }
+
+  .modal-close:active {
+    box-shadow: none;
+    outline: none;
+    opacity: 0.7;
+  }
+
+  .modal-close:focus {
+    outline: none;
+    opacity: 0.7;
+  }
+  
+  .controls-container {
+    display: block;
+  }
+  
+  .featured-link--half {
+    background-color: white;
+  }
+  
+  .featured-link--half .collection_title {
+    color: #23b6e6;
+  }
+  
+  .featured-link--half .description {
+    color: #4a4a4a;
+  }
+  
+  @media screen and (max-width: 800px) {
+    .get-started-content-wrapper.intro {
+      height: 300px;
+    }
+    
+    .featured-link--half.featured-link--image {
+      display: none;
+    }
+    
+    .featured-link--half .collection_title {
+      font-size: 32px;
+    }
+    
+    .container.main.content {
+      display: block;
+      padding: 0;
+    }
+    
+    .step-text {
+      font-size: 18px;
+    }
+    
+    .get-started-text-wrapper h1 {
+      font-size: 36px;
+    }
+    
+    .get-started-text-wrapper p {
+      font-size: 18px;
+      line-height: 24px;
+    }
+    
+    .subscription-icon-block {
+      width: 50%;
+    }
+    
+    .choice-container.product {
+      width: 50%;
+    }
+    
+    .choice-container-inner {
+      padding: 10px;
+    }
+    
+    .choice-container-inner::after {
+      border-width: 4px;
+    }
+    
+    .choice-container img {
+      max-width: 100%;
+    }
+    
+    .frequency-subtitle {
+      font-size: 12px;
+      padding-left: 4px;
+      padding-right: 4px;
+      padding-bottom: 4px;
+    }
+    
+    .modal-image-container {
+      display: none;
+    }
+    
+    .modal-choices-container {
+      width: 100%;
+      text-align: center;
+    }
+    
+    .modal-window>div {
+      width: 100%;
+      overflow-y: scroll;
+      text-align: center;
+      height: 100%;
+      transform: translate(0%, 0%);
+      top: 20%;
+      left: 0;
+    }
+    
+    .choice-container.frequency {
+      width: 50%;
+    }
+    
+    .frequency-icon-container {
+      width: 120px;
+      height: 120px;
+    }
+    
+    .frequency-icon-container .frequency-title {
+      font-size: 18px;
+    }
+    
+    .upsell-container {
+      width: 50%;
+    }
+    
+    .upsell-container-inner {
+      padding: 10px;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    
+    .upsell-container .product-title {
+      font-size: 16px;
+    }
+    
+    .upsell-add-to-bag {
+      font-size: 18px;
+    }
+    
+    .get-started-next-button.product,.get-started-next-button.frequency,.get-started-next-button.go-to-bag {
+        position: fixed;
+        top: 120px;
+        right: 20px;
+      	width: 90%;
+    }
+  }
+</style>
+
+<div class="get-started-content-body">
+  <div class="get-started-content-wrapper intro animated fadeInUp" id="slide-0">
+    <div class="get-started-text-wrapper">
+      <h1>Subscribe &amp; Save {{ settings.subscription_discount_amount }}%*</h1>
+      <p>Simply pick your favorite product, set your frequency and we’ll take care of the rest! Plus, members get exclusive access to new products, special deals and free shipping!*</p>
+      <a href="#step1" class="get-started-next-button">LET’S GO</a>
+    </div>
+  </div>
+  <div class="get-started-intro-sub-section">
+    <h2>How it works</h2>
+    <div class="subscription-icon-section-container">
+      <div class="subscription-icon-block" data-aos="fade-up" data-aos-delay="50">
+        <div class="icon-image-container">
+      		<img src="{{ 'Icons-01.png' | file_img_url: '600x'}}"/>
+        </div>
+        <p>Choose Your Product</p>
+      </div>
+      <div class="subscription-icon-block" data-aos="fade-up" data-aos-delay="100">
+        <div class="icon-image-container">
+      		<img src="{{ 'Icons-02.png' | file_img_url: '600x'}}"/>
+        </div>
+        <p>Select Your Frequency</p>
+      </div>
+      <div class="subscription-icon-block" data-aos="fade-up" data-aos-delay="150">
+        <div class="icon-image-container">
+      		<img src="{{ 'Icons-03.png' | file_img_url: '600x'}}"/>
+        </div>
+        <p>Save {{ settings.subscription_discount_amount }}% On Your First Order<br>(Plus, {{ settings.subscription_discount_secondary_amount }}% Off Each Order After That)*</p>
+      </div>
+      <div class="subscription-icon-block" data-aos="fade-up" data-aos-delay="200">
+        <div class="icon-image-container">
+      		<img src="{{ 'Icons-04.png' | file_img_url: '600x'}}"/>
+        </div>
+        <p>Get It Fast, With Free Shipping<span style="font-family: 'avenir';">†</span></p>
+      </div>
+      <div class="subscription-icon-block" data-aos="fade-up" data-aos-delay="250">
+        <div class="icon-image-container">
+      		<img src="{{ 'Icons-05.png' | file_img_url: '600x'}}"/>
+        </div>
+        <p>Enjoy Exclusive Access to Giveaways, Product Launches &amp; More</p>
+      </div>
+    </div>
+    <p>†Additional fees may apply for orders outside the U.S.</p>
+    <div id="stamped-reviews-widget" data-widget-type="carousel" data-review-ids="19560409, 12079782, 19315094, 16953947, 20468528, 19866527, 16228688"></div>
+    {% section 'how-it-works' %}
+  </div>
+  
+  <div class="get-started-content-wrapper animated fadeInRight" style="display: none;" id="slide-1">
+    <p class="step-text">Step 1: Select Your Product &amp; Size</p>
+    <h1 class="step-instruction">Choose the One You Can’t Live Without.'</h1>
+    <div class="choices-wrapper">
+        {% assign displayedProductCount = 0 %}
+    	{% for product in collections['subscription-get-started-products'].products %}
+      		{% if product.available and displayedProductCount < 5 %}
+      		  {% assign hasAvailableSubscriptionVariants = false %}
+      		  <div class="modal-window open-modal {{ product.selected_or_first_available_variant.metafields.subscriptions.discount_variant_id }}">
+                <div>
+                  <button title="Close" class="modal-close">Close</button>
+                  <h2>Select Size</h2>
+                  <div class="modal-body">
+                    <div class="modal-image-container">
+						<img class="modal-image-{{ product.id }}" src="{{ product.featured_image | img_url: '400x' }}"/>
+                    </div>
+                    <div class="modal-choices-container">
+                      {% assign hasChosenFirstVariant = false %}
+                      {% for variant in product.variants %}
+                          {% if variant.available and product.metafields.subscriptions.has_subscription == 'True' %}
+                      		  {% assign hasAvailableSubscriptionVariants = true %}
+                      		  <div class="variant-choice">
+                                {% assign discountMultiplier = 100 | minus: settings.subscription_discount_amount %}
+                                {% assign discountMultiplier = discountMultiplier | divided_by: 100.0 %}
+                                <input data-product-color="{{ product.metafields.vital.primary_color }}" data-product-title="{{ product.title }}" data-variant-title="{{ variant.title }}" data-variant-id="{{ variant.metafields.subscriptions.discount_variant_id }}" data-product-id="{{product.id}}"  data-variant-price="{{ variant.price }}" data-variant-image="{{ variant.image | img_url: '400x' }}" id="radio-{{ variant.metafields.subscriptions.discount_variant_id }}" value="{{ variant.metafields.subscriptions.discount_variant_id}}" type="radio" name="variant-select-{{product.id}}" {% if hasChosenFirstVariant == false %}checked{% endif %} />
+                              	<label class="variant-select-label" for="radio-{{ variant.metafields.subscriptions.discount_variant_id }}">{{ variant.title }} - {{ variant.price | times: discountMultiplier | money_without_trailing_zeros}} ({{ settings.subscription_discount_amount }}% off!*)</label>
+                              </div>
+                      			{% assign hasChosenFirstVariant = true %}
+                          {% endif %}
+                      {% endfor %}
+                      <p class="fun-phrase">{{ product.metafields.vital.subscription_get_started_text }}</p>
+                      <a href="#" data-product-id="{{ product.id }}" class="select-variant">Select Product</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      		  {% if hasAvailableSubscriptionVariants == true %}
+                <a href="#" class="choice-container product choice-{{ product.id }}" data-variant-id="{{ product.selected_or_first_available_variant.metafields.subscriptions.discount_variant_id }}" data-variant-price="{{ product.selected_or_first_available_variant.price }}">
+                  <div class="choice-container-inner" style="border-color: {{ product.metafields.vital.primary_color }};">
+                    <img class="choice-1-product-image-{{ product.id }}" src="{{ product.featured_image | img_url: '400x' }}"/>
+                    <div class="selected-product-info">
+                    </div>
+                  </div>
+      			</a>
+      			{% assign displayedProductCount = displayedProductCount | plus: 1 %}
+      		 {% endif %}
+      		{% endif %}
+    	{% endfor %}
+    </div>
+    <div class="controls-container">
+    	<a href="#back" id="back-button-product" class="animated fadeInUp back-button product" style="animation-duration: .25s;">Back</a>
+    	<a href="#page1" id="next-button-product" class="animated fadeInUp get-started-next-button product" style="display: none; animation-duration: .25s;">Next Step</a>
+    </div>
+  </div>
+  
+  <div class="get-started-content-wrapper animated fadeInRight" style="display: none;" id="slide-2">
+    <p class="step-text">Step 2: Select Frequency</p>
+    <h1 class="step-instruction">How Often Do You Want to Receive Collagen?</h1>
+    <div class="choices-wrapper">
+      <a href="#" class="choice-container frequency" data-frequency=1>
+        <div class="choice-container-inner" style="border-color: #23b6e6;">
+          <div class="frequency-icon-container">
+          	<p class="frequency-title">Every Week</p>
+          </div>
+          <p class="frequency-subtitle">I’m ready to make it a daily thing! I’ll be taking collagen every day.</p>
+        </div>
+      </a>
+      <a href="#" class="choice-container frequency" data-frequency=2>
+        <div class="choice-container-inner" style="border-color: #23b6e6;">
+          <div class="frequency-icon-container">
+          	<p class="frequency-title">Every 2 Weeks</p>
+          </div>
+          <p class="frequency-subtitle">Adding collagen to my routine a few times a week is perfect for my schedule. <br/><br/><span>*Our most popular</span></p>
+        </div>
+      </a>
+      <a href="#" class="choice-container frequency" data-frequency=4>
+        <div class="choice-container-inner" style="border-color: #23b6e6;">
+          <div class="frequency-icon-container">
+          	<p class="frequency-title">Every 4 Weeks</p>
+          </div>
+          <p class="frequency-subtitle">I can see myself using collagen once a week.</p>
+        </div>
+      </a>
+    </div>
+    <div class="controls-container">
+      <a href="#back" id="back-button-frequency" class="animated fadeInUp back-button frequency" style="animation-duration: .25s;">Back</a>
+      <a href="#page2" id="next-button-frequency" class="animated fadeInUp get-started-next-button frequency" style="display: none; animation-duration: .25s;">Next Step</a>
+    </div>
+  </div>
+  
+  <div class="get-started-content-wrapper animated fadeInRight" style="display: none;" id="slide-3">
+    <p class="step-text">Step 3: (Optional)</p>
+    <h1 class="step-instruction">Get a Little Something Extra</h1>
+    <a href="#page3" id="skip-button" class="get-started-next-button">Skip</a>
+    <div class="choices-wrapper">
+      {% for product in collections['subscription-get-started-upsell'].products %}
+		<div class="upsell-container" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
+          <div class="upsell-container-inner" style="border-color: {{ product.metafields.vital.primary_color }};">
+            <p class="product-title" style="color: {{ product.metafields.vital.primary_color }};">{{ product.title }}</p>
+            <img src="{{ product.featured_image | img_url: '400x' }}"/>
+            <a href="#" class="upsell-add-to-bag" data-variant-id="{{ product.selected_or_first_available_variant.id }}">Add to Bag - {{ product.price | money_without_trailing_zeros }}</a>
+          </div>
+      	</div>
+      {% endfor %}
+    </div>
+    <div class="controls-container">
+      <a href="#back" class="animated fadeInUp back-button go-to-bag" style="animation-duration: .25s;">Back</a>
+      <a href="#page3" class="get-started-next-button go-to-bag animated fadeInUp" style="display: none; animation-duration: .25s;">Go to Bag</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  var currentPageIndex = 0;
+  var maxPageIndex = 3;
+  var selectedProduct = {};
+  var upsellProduct = {};
+  var cartQueue = [];
+  
+  $(document).on('click', '.get-started-next-button', function() {
+    
+    if (currentPageIndex < maxPageIndex) {
+      if (currentPageIndex === 0) {
+        $('.get-started-intro-sub-section').hide(0);
+      }
+      
+      $('#slide-' + currentPageIndex).hide(0);
+      
+      currentPageIndex++;
+      
+      $('#slide-' + currentPageIndex).show(0);
+      
+      $(window).scrollTop(0);
+    } else {
+      
+      addCartItemToQueue(selectedProduct);
+      moveAlong();
+    }
+  });
+  
+  $(document).on('click', '.back-button', function() {
+    // We are going back to the intro -> Show the subsection as well
+    if (currentPageIndex === 1) {
+      $('.get-started-intro-sub-section').show(0);
+    }
+    
+  	$('#slide-' + currentPageIndex).hide(0);
+      
+  	currentPageIndex--;
+      
+    $('#slide-' + currentPageIndex).show(0);
+      
+    $(window).scrollTop(0);
+  });
+  
+  $(document).on('change', '[type="radio"]', function() {
+      var selectedVariantProductID = $(this).data("product-id"); // Get the radio checked value
+      
+	  $('.modal-image-' + selectedVariantProductID).attr("src", $(this).data("variant-image"));
+  });
+
+  $(document).on('click', '.choice-container.product', function() {
+    $('.open-modal.' + $(this).data('variant-id')).addClass('open');
+    
+    $('.open-modal.' + $(this).data('variant-id')).find('input').focus();
+  });
+  
+  $(document).on('click', '.select-variant', function(e) {
+    e.preventDefault();
+    
+    var productID = $(this).data("product-id");
+    var selectedInput = $('input[name="variant-select-' + productID + '"]:checked');
+    
+    $('.choice-container.product').removeClass('selected');
+    $('.choice-container.product.choice-' + productID).addClass('selected');
+    
+    selectedProduct.variantID = $(selectedInput).data('variant-id');
+    selectedProduct.quantity = 1;
+    
+    $('.choice-1-product-image-' + productID).attr("src", $(selectedInput).data('variant-image'));
+    
+    // Clear title
+    $('.selected-product-info').html('');
+    $('.choice-container.product.choice-' + productID + ' .selected-product-info').html('<h2 class="product-title" style="color:' + $(selectedInput).data('product-color') +';">✔️ <br/>' + $(selectedInput).data('product-title') + '</h2><h4 class="variant-title">' + $(selectedInput).data('variant-title') +'</h4>');
+    
+    $('.open-modal').removeClass('open');
+    
+    // A Choice has been made -> Show next button
+    $('#next-button-product').show(0);
+    
+    
+    setTimeout(function(){ 
+      $('#next-button-product').removeClass("animated"); 
+      $('#next-button-product').removeClass("fadeInUp");
+    }, 250);
+  });
+  
+  $(document).on('click', '.modal-close', function() {
+    proposedProduct = {};
+    $('.open-modal').removeClass('open');
+  });
+  
+  $(document).on('click', '.choice-container.frequency', function(e) {
+    e.preventDefault();
+    
+    $('.choice-container.frequency').removeClass('selected');
+    $('.get-started-next-button').removeClass('hidden');
+    $(this).addClass('selected');
+    
+    var frequency = $(this).data('frequency');
+    selectedProduct.frequency = $(this).data('frequency');
+    
+    // A Choice has been made -> Show next button. Set timeout to remove initial animation and allow hover
+    $('#next-button-frequency').show(0);
+    
+    setTimeout(function(){ 
+      $('#next-button-frequency').removeClass("animated"); 
+      $('#next-button-frequency').removeClass("fadeInUp");
+    }, 250);
+  });
+  
+  $(document).on('click', '.choice-container.upsell', function() {
+    $('.choice-container.upsell').removeClass('selected');
+    $(this).addClass('selected');
+    
+  });
+  
+  $(document).on('click', '.upsell-add-to-bag', function(e) {
+    e.preventDefault();
+    var variantID = $(this).data('variant-id');
+    var anchor = $(this);
+    anchor.html('<div class="loader animated fadeInUp"></div>');
+    $.ajax({
+        type: 'POST',
+        url: '/cart/add',
+        dataType: 'json',
+        data: {
+          quantity: 1,
+          id: variantID
+        }
+      }).then(function() {
+        anchor.html("Added to bag!");
+        $('.get-started-next-button.go-to-bag').show(0);
+      	$('#skip-button').text('Go to bag');
+      
+        setTimeout(function(){ 
+          $('.get-started-next-button.go-to-bag').removeClass("animated"); 
+          $('.get-started-next-button.go-to-bag').removeClass("fadeInUp");
+        }, 250);
+      }).catch(function(error) {
+        alert("Something went wrong. Please reload the page and try again");
+      });
+  });
+  
+  function addCartItemToQueue(item) {
+    var addRequest = {
+      type: "add",
+      data: {
+        quantity: item.quantity,
+        id: item.variantID
+      }
+    }
+    
+    if (item.frequency) {
+      addRequest.data.properties = {
+        'shipping_interval_frequency': item.frequency,
+        'shipping_interval_unit_type': "Weeks",
+      }
+    }
+    
+    console.log(addRequest);
+    cartQueue.push(addRequest);
+  }
+  
+  function moveAlong() {
+    if (cartQueue.length) {
+      var request = cartQueue.shift();
+
+      if (request.type === 'add') {
+        addCartItem(request.data);
+      }
+    } else {
+      // VitalTools.toggleMiniCart()
+      // VitalTools.refreshCart();
+      window.location.href = "/cart";
+    }
+  }
+  
+  function addCartItem(postData) {
+      $.ajax({
+        type: 'POST',
+        url: '/cart/add',
+        dataType: 'json',
+        data: postData
+      }).then(function() {
+        moveAlong();
+      }).catch(function(error) {
+        alert("Something went wrong. Please reload the page and try again");
+      });
+    }
+</script>

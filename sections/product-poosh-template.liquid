@@ -1,0 +1,356 @@
+<style>
+  h1.product_name {
+    font-size: 48px;
+    line-height: 48px;
+    color: #23b6e6;
+    letter-spacing: 1px !important;
+    text-transform: uppercase;
+  }
+  
+  p.modal_price {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .product_section .description {
+    font-size: 18px;
+    line-height: 21px;
+  }
+  
+  .action_button.add_to_cart.kapra.poosh-button {
+    background-color: #47c1bf; 
+    border-color: #47c1bf;
+    transition: .2s opacity ease-out;
+    font-size: 21px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: block;
+  }
+  
+  .action_button.add_to_cart.kapra.poosh-button:hover {
+    opacity: 0.7;
+  }
+  
+  .poosh-link-section {
+    margin-top: 20px;
+    border: 2px solid #47c1bf;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .poosh-link-section p {
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .product_gallery {
+    max-width: 90% !important;
+  }
+  
+  .select-container-poosh {
+    
+  }
+  
+  .option-label-poosh {
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: normal;
+    color: #333333;
+    font-size: 21px;
+  }
+  
+  .option-select-poosh {
+    font-size: 16px;
+    border-radius: 10px;
+  }
+  
+  @media (max-width: 798px) {
+    .product_section .six.columns.omega {
+        padding-left: 20px;
+      	padding-right: 20px;
+    }
+  }
+</style>
+<a name="pagecontent" id="pagecontent"></a>
+
+<div class="container main content animated fadeInUp">
+  <div class="product clearfix">
+  	<div class="sixteen columns">
+      <div  class="product-{{ product.id }}"
+            data-free-text="{{ settings.free_price_text }}"
+            >
+        <div class="section product_section clearfix js-product_section" itemscope itemtype="http://schema.org/Product" data-rv-handle="{{ product.handle }}">
+          
+          <div class="six columns alpha">
+            {% include 'product-images' %}
+          </div>
+
+		<div class="six columns omega">
+
+          {% assign collection_handles = product.collections | map: 'handle' %}
+          {% assign variant = product.selected_or_first_available_variant %}
+
+          {% if product.available %}
+            {% if settings.sale_banner_enabled and product.compare_at_price_max > product.price %}
+              <div class="sale_banner_product">{{ 'collections.general.sale' | t }}</div>
+            {% endif %}
+          {% endif %}
+
+         
+          	<h1 class="product_name" itemprop="name">{{ product.title }}</h1>
+  			
+
+            <p class="modal_price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+              <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
+              <meta itemprop="seller" content="{{ shop.name | escape }}" />
+              <link itemprop="availability" href="http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}">
+              <meta itemprop="itemCondition" content="New" />
+
+              <span class="sold_out">{% if variant.available == false %}{{ 'products.product.sold_out' | t }}{% endif %}</span>
+              <span itemprop="price" content="{{ variant.price | money_without_currency | remove: "," }}" class="{% if variant.compare_at_price > variant.price %}sale{% endif %}">
+                <span class="current_price {% if product.available == false %}hidden{% endif %}">
+                  {% if variant.price > 0 %}
+                    <span aria-label="Current price is {{ variant.price | money_without_trailing_zeros }}" class="money">{{ variant.price | money_without_trailing_zeros }}</span>
+                  {% else %}
+                    {{ settings.free_price_text }}
+                  {% endif %}
+                </span>
+              </span>
+              <span class="was_price">
+                {% if variant.price < variant.compare_at_price and variant.available %}
+                  <span aria-label="Original Price was {{ variant.compare_at_price | money_without_trailing_zeros }}." class="money">{{ variant.compare_at_price | money_without_trailing_zeros }}</span>
+                {% endif %}
+              </span>
+
+
+
+              {% if section.settings.display_savings %}
+                <span class="sale savings">
+                  {% if variant.price < variant.compare_at_price and variant.available %}
+                    {{ 'products.product.savings' | t }}  {{ variant.compare_at_price | minus: variant.price | times: 100 | divided_by: variant.compare_at_price }}% (<span class="money">{{ variant.compare_at_price | minus: variant.price | money }}</span>)
+                  {% endif %}
+                </span>
+              {% endif %}
+            </p>
+
+
+          <div id="esc-oos-form"></div>
+
+
+          {% unless collection_handles contains 'coming-soon' %}
+            {% include 'product-form-poosh' with 'product' %}
+             <script data-app="esc-out-of-stock" type="text/json">[{% for variant in product.variants %}{"id":{{ variant.id }},"title":"{{ variant.title | escape }}","option1":{% if variant.option1 %}"{{ variant.option1 | escape }}"{% else %}null{% endif %},"option2":{% if variant.option2 %}"{{ variant.option2 | escape }}"{% else %}null{% endif %},"option3":{% if variant.option3 %}"{{ variant.option3 | escape }}"{% else %}null{% endif %},"sku":{% if variant.sku %}"{{ variant.sku | escape }}"{% else %}null{% endif %},"requires_shipping":{{ variant.requires_shipping }},"taxable":{{ variant.taxable }},"featured_image":{% if variant.featured_image %}"{{ variant.featured_image }}"{% else %}null{% endif %},"available":{{ variant.available }},"name":"{{ variant.name }} | escape","public_title":"{{ variant.public_title }} | escape","options":{{ variant.options | json }},"price":{{ variant.price }},"weight":{% if variant.weight %}{{ variant.weight }}{% else %}0{% endif %},"compare_at_price":{% if variant.compare_at_price %}{{ variant.compare_at_price }}{% else %}null{% endif %},"inventory_quantity":{{ variant.inventory_quantity }},"inventory_management":{% if variant.inventory_management %}"{{ variant.inventory_management }}"{% else %}null{% endif %},"inventory_policy":{% if variant.inventory_policy %}"{{ variant.inventory_policy }}"{% else %}null{% endif %},"barcode":{% if variant.barcode %}"{{ variant.barcode }}"{% else %}null{% endif %}}{% unless forloop.last %},{% endunless %}{% endfor %}]</script>
+          {% endunless %}
+			
+          {% if product.handle == 'collagen-latte-golden-milk' or product.handle == 'collagen-beauty-greens' or product.handle == 'matcha-collagen-latte' or product.handle == 'matcha-collagen-latte-vanilla' or product.handle == 'matcha-collagen' or product.handle == 'matcha-collagen-peach' or product.handle == 'blackberry-collagen-blast' %}
+			{% include 'prop-65-modal' %}
+          {% endif %}
+          
+          {% if product.description != blank %}
+             <div class="description bottom" itemprop="description">
+              {{ product.description | split: '<!-- split -->' | first }}
+
+             </div>
+          {% endif %}
+
+
+          <!-- CUSTOM CONSPIRE CODE -->
+          {% if product.metafields.conspire.benefits %}
+          <h3 class="conspire-drawer-header">features <span>+</span></h3>
+          <div class="conspire-drawer active">{{ product.metafields.conspire.benefits }}</div>
+
+          {% endif %}
+          {% if product.metafields.conspire.supplement_facts %}
+          <h3 class="conspire-drawer-header">{% if product.title contains 'Collagen Water -' %}nutrition facts{% else %}supplement facts{% endif %} <span>+</span></h3>
+          <div class="conspire-drawer">{{ product.metafields.conspire.supplement_facts }}</div>
+
+          {% endif %}
+          {% if product.metafields.conspire.ingredients %}
+          <h3 class="conspire-drawer-header">ingredients <span>+</span></h3>
+          <div class="conspire-drawer">
+            {{ product.metafields.conspire.ingredients }}
+          	{% if product.metafields.conspire.sourcing_video_url %}
+                <div class="twelve columns center">
+                  <p class="benefits_title" style="text-align: left;">{{ product.metafields.conspire.sourcing_video_header_text }}</p>
+                    <iframe width="560" height="315" src="{{ product.metafields.conspire.sourcing_video_url }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+                </div>
+            {% endif %}
+          </div>
+     
+          {% endif %}
+          {% if product.metafields.conspire.amino_acids %}
+          <h3 class="conspire-drawer-header">amino acid profile <span>+</span></h3>
+          <div class="conspire-drawer">{{ product.metafields.conspire.amino_acids }}</div>
+          {% endif %}
+          {% if product.metafields.conspire.how_to_use %}
+          <h3 class="conspire-drawer-header">how to use <span>+</span></h3>
+          <div class="conspire-drawer">{{ product.metafields.conspire.how_to_use }}</div>
+          {% endif %}
+        </div>
+      </div>
+
+      {% if product.description contains "<!-- split -->"  %}
+        <br class="clear" />
+        <div class="section clearfix">
+          <div class="description">
+            {{ product.description | split: '<!-- split -->' | last }}
+
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- close out divs originally closed in comments -->
+          </div>
+        </div>
+      </div>
+  {% if product.metafields.conspire.banner_image %}
+    <div class="container full-width conspire-product-banner-wrapper">
+      <!-- CONSPIRE CUSTOM CODE -->
+      <div class="conspire-product-banner twelve columns" 
+     
+         {% if product.title contains 'Marine Collagen -' %}
+         	style="background: #33ddd5;"
+         {% else %}
+            style="background-image:url({{ product.metafields.conspire.banner_image }})"
+         {% endif %}
+           >
+          <div class="six columns offset-1">
+            <span>{{ product.metafields.conspire.banner_headline }}</span>
+            <div class="conspire-banner-bullets">
+              {{ product.metafields.conspire.banner_bullets }}
+            </div>
+          </div>
+      </div>
+    </div>
+{% endif %}
+    <div class="container content">
+        {% if product.metafields.conspire.split_image_1 %}
+        <div class="conspire-split-section clearfix">
+          <div class="six columns">
+            {{ product.metafields.conspire.split_image_1 | img_tag }}
+          </div>
+          <div class="five columns">
+            <h3 class="conspire-title lp">{{ product.metafields.conspire.split_title_1 }}</h3>
+            <p class="lp">{{ product.metafields.conspire.split_text_1 }}</p>
+          </div>
+        </div>
+        <div class="feature_divider">&nbsp;</div>
+        {% endif %}
+        {% if product.metafields.conspire.split_image_2 %}
+        <div class="conspire-split-section clearfix">
+          <div class="five columns">
+            <h3 class="conspire-title">{{ product.metafields.conspire.split_title_2 }}</h3>
+            <p>{{ product.metafields.conspire.split_text_2 }}</p>
+          </div>
+          <div class="one columns">&nbsp;</div>
+          <div class="six columns">
+            {{ product.metafields.conspire.split_image_2 | img_tag }}
+          </div>
+        </div>
+        {% endif %}
+
+        {% if section.settings.display_related_products %}
+          {% include 'related-products' %}
+        {% endif %}
+        {% if section.settings.display_recently_viewed %}
+          {% include 'recently-viewed' %}
+        {% endif %}
+    </div>
+{% schema %}
+  {
+    "name": "Product Poosh",
+	"class": "product-poosh-template",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "gallery_arrows",
+        "label": "Show arrows on product gallery",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "activate_zoom",
+        "label": "Magnify product images on hover",
+		"default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_product_lightbox",
+        "label": "Enable product gallery popup",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "activate_autoplay",
+        "label": "Enable product gallery slideshow"
+      },
+      {
+        "type": "select",
+        "id": "slideshow_animation",
+        "label": "Gallery transition",
+        "options": [
+          {
+            "value": "slide",
+            "label": "Slide"
+          },
+          {
+            "value": "fade",
+            "label": "Fade"
+          }
+        ],
+        "default": "fade"
+      },
+      {
+        "type": "radio",
+        "id": "product_images_position",
+        "label": "Gallery position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "product_thumbs",
+        "label": "Show product gallery thumbnails",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "thumbnail_position",
+        "label": "Thumbnail position",
+        "default": "bottom-thumbnails",
+        "options": [
+          {
+            "value": "left-thumbnails",
+            "label": "Left"
+          },
+          {
+            "value": "bottom-thumbnails",
+            "label": "Bottom"
+          },
+          {
+            "value": "right-thumbnails",
+            "label": "Right"
+          }
+        ]
+      }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

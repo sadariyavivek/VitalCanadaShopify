@@ -1,0 +1,227 @@
+<a name="pagecontent" id="pagecontent"></a>
+
+<div class="top-navigation" role="navigation">
+  <ul class="secondary-menu">
+    <li>
+      <a href="/pages/account-landing-page/" class="is-active">Home</a>
+    </li>
+    <li>
+      <a href="/pages/rewards-1/">Rewards</a>
+    </li>
+    <li>
+      <a href="/account">Account</a>
+    </li>
+    <li>
+      <a href="/tools/recurring/login/">Subscriptions</a>
+    </li>
+    <li>
+      {{ 'layout.customer.log_out' | t | customer_logout_link }}
+    </li>
+  </ul>
+</div>
+
+<div class="account-top--banner text-center">
+  <h2 class="account-heading">Welcome Back, {{ customer.first_name | capitalize }}!</h2>
+</div>
+
+<div class="free-gift--container is-loading">
+
+  <img src="{{ settings.account_banner_bg | img_url: 'master' }}" class="free-gift--product-image-desktop">
+
+  <div class="free-gift--inner-container">
+    <h2 class="free-gift--heading text-uppercase">{{ settings.account_banner_title }}</h2>
+    <span class="free-gift--subheading">{{ settings.account_banner_description }}</span>
+
+    {% if settings.account_gift_product != blank %}
+      {% assign gift_product = all_products[settings.account_gift_product] %}
+      <button class="rc-button small dark-bg full-width free-gift--product" one-time="" customer-hash="{{ customer.metafields.subscriptions.customer_string }}" variant-id="{{ gift_product.variants[0].id }}">
+        <span class="text text-uppercase">Claim It Now</span>
+      </button>
+    {% elsif settings.account_gift_cta_label != blank and settings.account_gift_cta_link != nil %}
+      <button class="rc-button small dark-bg full-width" onclick="window.location.href = '{{ settings.account_gift_cta_link }}'">
+        <span class="text text-uppercase">{{ settings.account_gift_cta_label }}</span>
+      </button>
+    {% elsif settings.account_gift_cta_label != blank %}
+      <button class="rc-button small dark-bg full-width" scroll-down="">
+        <span class="text text-uppercase">{{ settings.account_gift_cta_label }}</span>
+      </button>
+    {% endif %}
+  </div>
+</div>
+
+<div id="main-section" class="animated fadeInUp">
+  <div class="manage-subscriptions--wrapper">
+    <a href="/tools/recurring/login/">Manage your subscriptions <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/></svg></a>
+  </div>
+
+  <div class="onetime-products--wrapper">
+    <div class="onetime-products--inner-wrapper"> 
+      <h2 class="onetime-products--title">Add To Your Order As A One-Time Purchase</h2>
+
+      <div class="product-grid-scroll"> 
+        {% if settings.account_one_time_product_1 != blank %}
+          {% assign onetime_product = all_products[settings.account_one_time_product_1] %}
+
+          <div class="onetime-product">
+            <a href="{{ onetime_product.url }}" class="product-image"> 
+              <img src="{{ onetime_product.featured_image | img_url: '200x' }}" width="200">
+            </a>
+
+            <div class="product-card">
+              <p class="product-title">{{ onetime_product.title }}</p>
+              <span aria-label="Average rating is {{ onetime_product.metafields.stamped.reviews_average | round:2 }} stars out of 5 based on {{ onetime_product.metafields.stamped.reviews_count }} reviews." class="stamped-product-reviews-badge" data-product-sku="{{ onetime_product.handle }}" data-id="{{ onetime_product.id }}" style="display:block;">{{ onetime_product.metafields.stamped.badge }}</span>
+              <p class="product-price">{{ onetime_product.variants[0].price | money }}</p>
+
+              <button class="rc-button small full-width" one-time="" customer-hash="{{ customer.metafields.subscriptions.customer_string }}" variant-id="{{ onetime_product.variants[0].id }}">
+                <span class="text text-uppercase">Add to Bag</span>
+              </button>
+            </div>
+          </div>
+        {% endif %}
+
+        {% if settings.account_one_time_product_2 != blank %}
+          {% assign onetime_product = all_products[settings.account_one_time_product_2] %}
+
+          <div class="onetime-product">
+            <a href="{{ onetime_product.url }}" class="product-image"> 
+              <img src="{{ onetime_product.featured_image | img_url: '200x' }}" width="200">
+            </a>
+
+            <div class="product-card">
+              <p class="product-title">{{ onetime_product.title }}</p>
+              <span aria-label="Average rating is {{ onetime_product.metafields.stamped.reviews_average | round:2 }} stars out of 5 based on {{ onetime_product.metafields.stamped.reviews_count }} reviews." class="stamped-product-reviews-badge" data-product-sku="{{ onetime_product.handle }}" data-id="{{ onetime_product.id }}" style="display:block;">{{ onetime_product.metafields.stamped.badge }}</span>
+              <p class="product-price">{{ onetime_product.variants[0].price | money }}</p>
+
+              <button class="rc-button small full-width" one-time="" customer-hash="{{ customer.metafields.subscriptions.customer_string }}" variant-id="{{ onetime_product.variants[0].id }}">
+                <span class="text text-uppercase">Add to Bag</span>
+              </button>
+            </div>
+          </div>
+        {% endif %}
+
+        {% if settings.account_one_time_product_3 != blank %}
+          {% assign onetime_product = all_products[settings.account_one_time_product_3] %}
+
+          <div class="onetime-product">
+            <a href="{{ onetime_product.url }}" class="product-image"> 
+              <img src="{{ onetime_product.featured_image | img_url: '200x' }}" width="200">
+            </a>
+
+            <div class="product-card">
+              <p class="product-title">{{ onetime_product.title }}</p>
+              <span aria-label="Average rating is {{ onetime_product.metafields.stamped.reviews_average | round:2 }} stars out of 5 based on {{ onetime_product.metafields.stamped.reviews_count }} reviews." class="stamped-product-reviews-badge" data-product-sku="{{ onetime_product.handle }}" data-id="{{ onetime_product.id }}" style="display:block;">{{ onetime_product.metafields.stamped.badge }}</span>
+              <p class="product-price">{{ onetime_product.variants[0].price | money }}</p>
+
+              <button class="rc-button small full-width" one-time="" customer-hash="{{ customer.metafields.subscriptions.customer_string }}" variant-id="{{ onetime_product.variants[0].id }}">
+                <span class="text text-uppercase">Add to Bag</span>
+              </button>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+
+      <a href="{{ settings.account_shop_all_link }}" class="shop-all--link">shop all <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 12l-9-8v6h-15v4h15v6z"/></svg></a>
+    </div>
+  </div>
+
+  <div class="subscriptions-container">
+    <div class="subscriptions-inner--container">
+      <div class="subscriptions-content">
+        <h2 class="subscriptions-heading">{{ settings.account_subscriptions_heading }}</h2>
+        <div class="subscriptions-subheading">{{ settings.account_subscriptions_subheading }}</div>
+
+        <button class="subscriptions-btn" onclick="window.location.href = '/tools/recurring/login/'">Shop Subscriptions</button>
+      </div>
+
+      <img src="{{ settings.account_subscriptions_bg | img_url: 'master' }}" class="subscriptions-banner">
+    </div>
+  </div>
+
+  <div class="goodies-container">
+    <h4 class="goodies-heading">{{ settings.goodies_heading }}</h4>
+    <div class="goodies-subheading">{{ settings.goodies_subheading }}</div>
+
+    <div class="goodies-details">
+      <div class="goodies-benefit">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65.2 65.2"><defs><style>.cls-1{fill:#90d2cf;opacity:0.5;}.cls-2{fill:#05a9e2;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><circle class="cls-1" cx="32.6" cy="32.6" r="32.6"/><rect class="cls-2" x="11.89" y="38.74" width="10.57" height="1.85" rx="0.85"/><rect class="cls-2" x="11.89" y="25.45" width="10.57" height="1.85" rx="0.85"/><rect class="cls-2" x="9.92" y="32.2" width="12.55" height="1.74" rx="0.8"/><path class="cls-2" d="M31.42,34.67c.06.8.12,1.45.19,2.16l0,.24a5.81,5.81,0,0,0,.23,1.13,5.91,5.91,0,0,0,1.51,2.43,9.39,9.39,0,0,0,3.11,2.06,1.71,1.71,0,0,0,.65.12h0a1.79,1.79,0,0,0,.68-.17l.2-.09c.28-.13.57-.27.87-.44A8.36,8.36,0,0,0,41.42,40a5.15,5.15,0,0,0,1.11-2.54c0-.15,0-.31.06-.49l.28-3.15A1.66,1.66,0,0,0,41.34,32L41,31.9c-.17,0-.33,0-.48-.06a6.75,6.75,0,0,1-2.28-1,2.05,2.05,0,0,0-1.09-.36,2,2,0,0,0-1.08.35,6.31,6.31,0,0,1-3,1.12,1.77,1.77,0,0,0-1.28.58,1.72,1.72,0,0,0-.39,1.3Zm1.45-1.16a.36.36,0,0,1,.23-.07,7.61,7.61,0,0,0,3.73-1.34.58.58,0,0,1,.29-.12.7.7,0,0,1,.27.12,8,8,0,0,0,2.79,1.21,6.45,6.45,0,0,0,.76.11l.22,0c.23,0,.22.12.21.21l-.28,3.15c0,.15,0,.29-.05.43a3.79,3.79,0,0,1-.82,1.82,6.71,6.71,0,0,1-2.06,1.75c-.26.15-.52.27-.82.41l-.15.07a.23.23,0,0,1-.14,0,7.62,7.62,0,0,1-2.6-1.72,4.47,4.47,0,0,1-1.15-1.82,5,5,0,0,1-.18-.93l0-.22C33,36,33,35.33,32.92,34.54l-.07-.85A.28.28,0,0,1,32.87,33.51Z"/><path class="cls-2" d="M49.52,22l-2.31-3.25a2.85,2.85,0,0,0-2.32-1.2H29.43a2.83,2.83,0,0,0-2.22,1.08L24.29,22.4l0,0a1.81,1.81,0,0,0-.27.94V45.84a1.84,1.84,0,0,0,1.84,1.84H48.36a1.84,1.84,0,0,0,1.84-1.84V23.37A1.81,1.81,0,0,0,49.52,22ZM39.05,19.12l1.36,2.42H33.7l1-2.42Zm-5.76,4.07h7.65v3.5H33.29Zm8.85-1.65-1.4-2.49h4.15A1.31,1.31,0,0,1,46,19.6l1.38,1.94Zm-10.08,0H26.88l1.53-2a1.32,1.32,0,0,1,1-.49h3.7Zm-6.35,1.83a.19.19,0,0,1,.19-.18h5.88v5H42.44v-5h5.92a.18.18,0,0,1,.19.18V45.84a.19.19,0,0,1-.19.19H25.9a.2.2,0,0,1-.19-.19Z"/></g></g></svg>
+
+        <div class="goodies-benefit--title">FREE shipping*!</div>
+      </div>
+
+      <div class="goodies-benefit">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65.2 65.2"><defs><style>.cls-1{fill:#90d2cf;opacity:0.5;}.cls-2{fill:#05a9e2;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><circle class="cls-1" cx="32.6" cy="32.6" r="32.6"/><path class="cls-2" d="M37.49,44.21A1.47,1.47,0,0,1,36,42.75l-.12-20.34a1.48,1.48,0,0,1,3,0L39,42.73A1.46,1.46,0,0,1,37.49,44.21Z"/><path class="cls-2" d="M18.17,40.65l-.09-15.59A1.75,1.75,0,0,1,21,23.73l9.11,8A2.21,2.21,0,0,1,30,35.15L21,42A1.74,1.74,0,0,1,18.17,40.65Z"/><path class="cls-2" d="M45.33,44.17a1.48,1.48,0,0,1-1.49-1.47l-.12-20.33a1.48,1.48,0,0,1,3,0l.12,20.33A1.49,1.49,0,0,1,45.33,44.17Z"/></g></g></svg>
+
+        <div class="goodies-benefit--title">Pause or cancel at anytime.</div>
+      </div>
+
+      <div class="goodies-benefit">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 66.12 66.12"><defs><style>.cls-1{fill:#90d2cf;opacity:0.5;}.cls-2{fill:#05a9e2;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><circle class="cls-1" cx="33.06" cy="33.06" r="33.06"/><path class="cls-2" d="M38.72,54l-1.07,0h0c-2.14-.08-8,0-9.17,0a35.8,35.8,0,0,1-5.19-.22,4.68,4.68,0,0,1-2.2-.79,1.76,1.76,0,0,1-.34-.46l-.13-.07a3.69,3.69,0,0,1-1.5-1.54,5.17,5.17,0,0,1-.28-.75A1.31,1.31,0,0,1,18.29,49c0-.26-.11-21.71-.14-25.89a1.17,1.17,0,0,1-.19-.31c-.1-.24-.11-.26,0-2.41,0-.46,0-.87,0-1a1.88,1.88,0,0,1,.22-.91V16a2.1,2.1,0,0,1,1.74-2.07,81.19,81.19,0,0,1,12.74-1h.8a81.37,81.37,0,0,1,12.75,1,2.1,2.1,0,0,1,1.07.54A2.13,2.13,0,0,1,47.94,16v2.52a1.77,1.77,0,0,1,.23.91c0,.15,0,.56,0,1,.07,2.14.06,2.16,0,2.39a1.36,1.36,0,0,1-.2.32c0,4.18-.13,25.63-.14,25.89a1.31,1.31,0,0,1-.55,1.14,4.09,4.09,0,0,1-.27.75,3.75,3.75,0,0,1-1.5,1.54l-.13.07A1.57,1.57,0,0,1,45,53a4.52,4.52,0,0,1-2.21.8A33.87,33.87,0,0,1,38.72,54Zm-1-1.82a33.7,33.7,0,0,0,4.88-.2,4.53,4.53,0,0,0,1.09-.28l-.08-.46.77-.23.23-.12a2,2,0,0,0,.78-.76,2.22,2.22,0,0,0,.21-.71l.06-.74.38,0c0-2.74.1-17.76.14-26v-.6l.26-.11c0-.39,0-1,0-1.48s0-.92,0-1.09l-.23-.17V16a.31.31,0,0,0-.09-.22,70.53,70.53,0,0,0-12.6-1.08h-.79a78.77,78.77,0,0,0-12.43,1c-.21.14-.25.22-.25.3v3.26l-.22.17c0,.23,0,.63,0,1.08s0,1.11-.05,1.5l.18.09.09.61c0,8.26.12,23.42.14,25.94l.29,0,.15.79h0a2.36,2.36,0,0,0,.22.7,2,2,0,0,0,.78.76,1.16,1.16,0,0,0,.25.12l.72.26-.06.43a5.17,5.17,0,0,0,1.09.28,33.7,33.7,0,0,0,4.88.2c1.14,0,7.14-.08,9.3,0ZM22.4,52v0Z"/><path class="cls-2" d="M35.2,49.72H33.49A129.26,129.26,0,0,1,19,49.05l-.78-.1v-.78S18.1,27,18.08,24l.06-.74c.24-.61.43-1.09,8.77-1.36s12.71-.11,15.92.08h0c2.71.16,4.32.39,4.78.69l.41.27-.08,25.88-.67.18C47.15,49,44.23,49.72,35.2,49.72ZM20,47.35c1.6.16,5.79.48,13.48.56a82,82,0,0,0,12.64-.57l.07-23.27c-.51-.08-1.54-.22-3.49-.33-3.17-.19-7.53-.34-15.76-.08a49.78,49.78,0,0,0-7.21.53c.13,1.6.15,4.9.2,11.68Zm13.06-3.42a2.18,2.18,0,0,1-.85-.16A12.39,12.39,0,0,1,28.09,41a7.86,7.86,0,0,1-2-3.24,7.77,7.77,0,0,1-.31-1.49l0-.33c-.09-1-.17-1.84-.26-2.91l-.1-1.15a2.22,2.22,0,0,1,.49-1.67,2.32,2.32,0,0,1,1.65-.75A8.41,8.41,0,0,0,31.65,28a2.61,2.61,0,0,1,1.4-.45,2.69,2.69,0,0,1,1.41.46,9.26,9.26,0,0,0,3.12,1.38l.71.1.47.05a2.12,2.12,0,0,1,2,2.35l-.38,4.26c0,.24,0,.45-.07.65a7,7,0,0,1-1.49,3.38A11.07,11.07,0,0,1,35.42,43c-.4.22-.79.41-1.16.58l-.27.13a2.24,2.24,0,0,1-.88.22Zm0-14.62a.87.87,0,0,0-.45.18,10.29,10.29,0,0,1-5,1.79.66.66,0,0,0-.4.13.44.44,0,0,0-.05.33l.1,1.15c.09,1.07.16,2,.24,2.77l0,.27a6.33,6.33,0,0,0,.25,1.32,6.1,6.1,0,0,0,1.57,2.49,10.53,10.53,0,0,0,3.56,2.35h.27l.21-.1c.42-.2.76-.36,1.12-.56A9.21,9.21,0,0,0,37.34,39a5.16,5.16,0,0,0,1.13-2.51l.45-4.83c0-.12,0-.36-.39-.41l-.3,0c-.45-.05-.74-.09-1-.14a10.82,10.82,0,0,1-3.73-1.62.85.85,0,0,0-.43-.18Z"/></g></g></svg>
+
+        <div class="goodies-benefit--title">Never run out of collagen. (Like, ever.)</div>
+      </div>
+
+      <div class="goodies-benefit">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65.94 65.94"><defs><style>.cls-1{fill:#90d2cf;opacity:0.5;}.cls-2{fill:#05a9e2;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><circle class="cls-1" cx="32.97" cy="32.97" r="32.97"/><path class="cls-2" d="M44.66,53.4a2.57,2.57,0,0,1-1.2-.3l-10.4-5.46L22.66,53.1a2.57,2.57,0,0,1-3.74-2.72l2-11.58-8.41-8.2a2.58,2.58,0,0,1,1.43-4.4l11.63-1.69L30.74,14a2.59,2.59,0,0,1,4.64,0l5.19,10.53L52.2,26.2a2.58,2.58,0,0,1,1.43,4.4l-8.41,8.2,2,11.58a2.57,2.57,0,0,1-1,2.53A2.67,2.67,0,0,1,44.66,53.4Zm-11.6-7.76,11.22,5.9a.83.83,0,0,0,.86-.06.81.81,0,0,0,.32-.8L43.32,38.19l9.08-8.85a.82.82,0,0,0,.2-.84.79.79,0,0,0-.66-.55L39.4,26.12,33.79,14.76a.84.84,0,0,0-1.46,0L26.72,26.12,14.18,28a.79.79,0,0,0-.66.55.82.82,0,0,0,.2.84l9.08,8.85L20.66,50.68a.81.81,0,0,0,.32.8.83.83,0,0,0,.86.06Z"/><path class="cls-2" d="M30.65,29c.17,0,.33,0,.28.29l-2.12,11.2c0,.25-.1.3-.37.3h-.91c-.27,0-.32-.05-.37-.3L25,29.31c-.05-.29.12-.29.28-.29h1c.22,0,.33,0,.38.25l1.21,7.26a.07.07,0,1,0,.13,0l1.22-7.26c.05-.25.15-.25.37-.25Z"/><path class="cls-2" d="M32,40.48V29.36c0-.26.09-.34.34-.34h1c.25,0,.34.08.34.34V40.48c0,.33-.17.33-.34.33h-1C32.21,40.81,32,40.81,32,40.48Z"/><path class="cls-2" d="M37.6,36.89h-.5c-.34,0-.34,0-.34.33v3.26c0,.25-.1.33-.34.33h-1c-.27,0-.33-.08-.33-.33V29.36c0-.26.08-.34.33-.34H37.6c1.69,0,2.53.84,2.53,3.37v1.14C40.13,36,39.29,36.89,37.6,36.89Zm-.84-1.81c0,.31,0,.31.34.31h.5c.84,0,.84-.86.84-1.72V32.24c0-.86,0-1.72-.84-1.72h-.5c-.34,0-.34,0-.34.34Z"/></g></g></svg>
+
+        <div class="goodies-benefit--title">Exclusive content & freebies.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="featured-blogs--wrapper">
+    <div class="featured-blogs--inner-wrapper"> 
+      <h4 class="featured-blogs--title">Your Ultimate Guide To Wellness & Collagen</h4>
+      <p class="featured-blogs--subtitle">Read on to stay vital.</p>
+
+      <div class="product-grid-scroll"> 
+        {% if settings.account_blog_1 != blank %}
+          {% assign article = articles[settings.account_blog_1] %}
+          {% assign splitURL = article.url | split: "/" %}
+
+          <div class="article-item">
+            <a href="{{ article.url }}" class=""> 
+              <img src="{{ article.image.src | img_url: '400x' }}" width="400">
+
+              <div class="article-details">
+                <h5 class="article-category">{{ blogs[splitURL[2]].title }}</h5>
+                <p class="article-title">{{ article.title }}</p>
+              </div>
+            </div>
+            </a>
+        {% endif %}
+
+        {% if settings.account_blog_2 != blank %}
+          {% assign article = articles[settings.account_blog_2] %}
+          {% assign splitURL = article.url | split: "/" %}
+
+          <div class="article-item">
+            <a href="{{ article.url }}" class=""> 
+              <img src="{{ article.image.src | img_url: '400x' }}" width="400">
+
+              <div class="article-details">
+                <h5 class="article-category">{{ blogs[splitURL[2]].title }}</h5>
+                <p class="article-title">{{ article.title }}</p>
+              </div>
+            </div>
+            </a>
+        {% endif %}
+
+        {% if settings.account_blog_3 != blank %}
+          {% assign article = articles[settings.account_blog_3] %}
+          {% assign splitURL = article.url | split: "/" %}
+
+          <div class="article-item">
+            <a href="{{ article.url }}" class=""> 
+              <img src="{{ article.image.src | img_url: '400x' }}" width="400">
+
+              <div class="article-details">
+                <h5 class="article-category">{{ blogs[splitURL[2]].title }}</h5>
+                <p class="article-title">{{ article.title }}</p>
+              </div>
+            </div>
+            </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

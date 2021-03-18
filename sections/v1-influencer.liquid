@@ -1,0 +1,533 @@
+<div class="v1-section">	
+<div class="v1-section-inner">
+
+  
+	<div class="v1-two-col">
+		<div class="v1-two-col-left">          
+           <img  src="{{ section.settings.v1-influencer-image | img_url: '400x' }}"
+                    class="lazyload {{ settings.image_loading_style }}"
+                    alt="Become an Influencer"
+                    data-sizes="auto"
+                    data-src="{{ section.settings.v1-influencer-image | img_url: '400x' }}"
+                    data-srcset=" {{ section.settings.v1-influencer-image | img_url: '400x' }} "
+                 	width="100%" height="auto"
+                     />  
+      </div>
+      <div class="v1-two-col-right">
+          	<h2 style="line-height: 1.1em;max-width: 80%;"> {{ section.settings.v1-influencer-headline }} </h2>
+	<p> {{ section.settings.v1-influencer-text }} </p>
+  	<div class="v1-section-icons">
+<ul>
+{% for block in section.blocks %}
+<li>
+  <img src=" {{ block.settings.v1-influencer-icon | img_url: '200x' }} "/>  
+  <h3> {{block.settings.v1-influencer-title}} </h3>
+</li>
+{% endfor %}
+</ul>
+      <a href="https://influencer.vitalproteins.com/" class="callout-button" style="margin-top:10px;" target="_blank">Sign Up To Join Our Community</a>
+  	</div>
+      </div>   
+      
+  
+</div>	
+</div>
+</div>
+
+
+<style>
+  
+.v1-influencer-section .callout-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 32px;
+    background: #00AF9A;
+    color: #ffffff;
+    min-width: 300px;
+    max-width: 400px;
+    height: 45px;
+    text-decoration: none;
+    line-height: 1em;
+    border-radius: 5px;
+    font-family: 'Avenir';
+    letter-spacing: 1px;
+    margin: 0 auto;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 5px;
+    margin-top: 35px !important;
+}
+
+  
+.v1-influencer-section .v1-section-icons ul li {
+    min-width: calc(100% / 3 + 5px);
+}
+
+.v1-section {
+    background-color: #f0f3f5;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    position: relative;
+    overflow: hidden;
+}
+  
+.v1-section-inner {
+    display: flex;
+    width: 100%;
+    background-color: #ffffff;
+    min-height: 200px;
+    margin: 0 auto;
+    flex-direction: column;
+    padding-bottom: 75px;
+    justify-content: center;
+    align-items: center;
+    padding-top: 75px;
+}
+
+.v1-section-divider {
+    background: #f0f3f5;
+    height: 2px;
+    width: 100%;
+    max-width: 40%;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.v1-section h2 {
+    color: #15a7e0;
+    font-size: 50px;
+    margin-bottom: 0;
+    font-family: 'kapraregular';
+    text-transform: capitalize;
+    width: 100%;
+    font-weight: 400 !important;
+    -webkit-font-smoothing: antialiased;
+    margin-top: 0px;
+    letter-spacing: .25px !important;
+}
+
+.v1-section h4 {
+    font-family: 'avenir';
+    font-size: 28px;
+    line-height: 32px;
+    -webkit-font-smoothing: antialiased;
+    color: #393d40;
+    font-weight: 500;
+    text-transform: capitalize;
+    margin: 0px;
+}
+
+.v1-section p {
+    font-family: 'avenir';
+    color: #717F86;
+    font-size: 22px;
+    line-height: 30px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.v1-influencer-section .v1-full-col {
+    display: flex;
+    width: 100%;
+    max-width: 1220px;
+    margin: 0 auto;
+    flex-direction: column;
+    margin-top: 25px;
+  z-index:2;
+}
+
+.v1-influencer-section .v1-two-col {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 1220px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    z-index: 2;
+}
+
+.v1-influencer-section .v1-two-col-left, .v1-influencer-section .v1-two-col-right {
+	display:flex;
+	flex-direction:column;
+	width:50%;
+}
+
+.v1-influencer-section .v1-two-col-right {
+    padding-left: 32px;
+	justify-content:center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.v1-img-container {
+    width: 100%;
+    height: 100%;
+    min-height: 320px;
+    max-height: 320px;
+    background: #efefef;
+    border-radius: 8px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.v1-read-more {
+    font-family: 'avenir';
+    color: #15a7e0;
+    text-transform: capitalize;
+    font-weight: 400 !important;
+    font-size: 20px;
+    line-height: 22px;
+    text-decoration: none;
+}
+  
+ .v1-section .js-product-slider .flickity-prev-next-button {
+    opacity: 1;
+}
+  
+  
+.v1-section .flickity-prev-next-button svg {
+    border: 1px solid #afafaf;
+    height: 36px !important;
+    border-radius: 50px !important;
+    background: #ffffff;
+}
+
+  
+ .v1-section .flickity-prev-next-button {
+    background: rgba(255, 255, 255, 0);
+}
+  
+
+.v1-section .flickity-prev-next-button.previous {
+    left: -15px;
+}
+ .v1-section .flickity-prev-next-button.next {
+    right: -15px;
+}
+  
+  
+.v1-section .flickity-slider .product-wrap {
+    border: 1px solid #e4e4e4;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px #0000000d;
+    transform: scale(.95);
+    transition: 300ms ease all;
+    background: #ffffff;
+}
+  
+  .v1-section .flickity-slider .product-wrap:hover  {
+    transform: scale(1);
+    transition: 300ms ease all;
+}
+  
+  .v1-section .featured-collection-section {
+    padding-bottom: 0px; 
+}
+  
+  
+ .v1-section .flickity-slider .product-wrap .image__container img {width:95% !important}
+  
+  
+ .v1-section .slider-gallery .thumbnail .product-info__caption {
+    display: block;
+    margin-top: 15px !important;
+    margin-bottom: 20px !important;
+}
+  
+  
+.v1-section-icons {
+    width: 100%;
+    max-width: 1220px;
+    margin: 0 auto;
+    margin-top: -25px;
+}
+  
+  
+.v1-section-icons ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+}
+  
+.v1-section-icons ul li {
+    max-width: calc(100% / 6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+.v1-section-icons h3 {
+    font-family: 'avenir';
+    color: #717F86;
+    text-align: center;
+    letter-spacing: 0px !important;
+    font-size: 22px !important;
+    line-height: 26px !important;
+    text-transform: capitalize;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    max-width: 85%;
+}
+  
+  
+.v1-section-icons img  {
+    width: 100px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+  
+  .v1-influencer-section .v1-section {padding-top:50px;}
+  
+  #shopify-section-1489283919239 .featured_products h2.title {text-transform:capitalize;}
+      #shopify-section-1489283919239 {padding-top:25px !important;}
+  
+  
+  
+  
+  .v1-influencer-section .v1-two-col-right {
+      width: 60% !important;
+      padding-left: 50px;
+      padding-right: 50px;
+}
+  
+  
+.v1-influencer-section .v1-two-col-right ul {
+    padding-left: 0px;
+    position: relative;
+    margin-left: -20px;
+    margin-bottom: 0px;
+    margin-top: 30px !important;
+}
+  
+    .v1-influencer-section .v1-two-col-right ul li {
+        position: relative;
+  }
+  
+  
+.v1-influencer-section .v1-section-icons ul li:nth-of-type(2)::before {
+    content: '>';
+    display: block;
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    left: -30px;
+    top: 30%;
+  color: #c7ecf4;
+    font-weight: 700;
+    font-family: 'kapraregular';
+    font-size: 35px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1em;
+}
+  
+  .v1-influencer-section .v1-section-icons ul li:nth-of-type(2)::after {
+    content: '>';
+    display: block;
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    right: -30px;
+    top: 30%;
+  color: #c7ecf4;
+    font-weight: 700;
+    font-family: 'kapraregular';
+    font-size: 35px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1em;
+}
+  
+  .v1-influencer-section .v1-section {
+    padding-top: 20px !important;
+}
+  
+  @media only screen and (max-width: 800px) {
+
+      .v1-influencer-section .v1-section-icons ul li:nth-of-type(2)::before,
+    .v1-influencer-section .v1-section-icons ul li:nth-of-type(2)::after {
+    display:none;
+    }
+
+
+.v1-influencer-sectionn .v1-section h2 {
+    font-size: 50px !important;
+    line-height: 1em;
+    padding-left: 50px !important;
+    padding-right: 50px !important;
+}
+    
+  .v1-influencer-section   .v1-section p {
+    font-size: 22px;
+    text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    line-height: 26px;
+}
+    
+.v1-influencer-section .v1-section-icons ul {
+    flex-direction: column;
+    max-width: 80%;
+    margin: 0 auto;
+}
+    
+  .v1-influencer-section   .v1-section-icons ul li {
+    max-width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+    
+ .v1-influencer-section    .v1-section-icons h3 {
+    text-align: left;
+    padding-left: 10px;
+}
+    
+  .v1-influencer-section   .v1-section-icons img {
+    width: 80px;
+    margin-bottom: 5px;
+    margin-top: 0px;
+}
+    
+    .v1-influencer-section .v1-section {
+    padding-top: 25px;
+}
+    
+.v1-influencer-section .v1-section-inner {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+    
+    .v1-section .flickity-prev-next-button.previous {
+    left: 5px;
+}
+    
+     .v1-section .flickity-prev-next-button.next {
+    right: 5px;
+}
+    
+    
+    .v1-feature-blogs .featured-posts-container {
+    max-width: 1220px;
+    margin: 0 auto;
+    flex-direction: column;
+    padding: 20px;
+}
+    
+.v1-feature-blogs .featured-post-container {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 20px;
+}
+    
+      .v1-influencer-section .v1-two-col-right {
+      width: 100% !important;
+      padding-left: 0px;
+      padding-right: 0px;
+      align-items: center;
+
+}
+    
+
+    .v1-influencer-section .v1-two-col {
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+    
+    
+    
+.v1-influencer-section .v1-section h2 {
+  text-align: center;
+    line-height: 1em;
+}
+    
+.v1-influencer-section .callout-button {
+    max-width: 95%;
+    margin: 0 auto;
+    font-size: .9em !important;
+}
+    
+    .v1-influencer-section .v1-two-col-left, .v1-influencer-section .v1-two-col-right {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+    padding-bottom: 10px;
+}
+    
+    
+    
+  }
+  
+  
+  
+  
+  
+  
+  
+</style>
+
+{% schema %}
+	{
+  "name": "Influencer Section",
+  "class": "v1-influencer-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "v1-influencer-image",
+      "label": "Feature Image"
+	},
+  	{
+      "type": "text",
+      "id": "v1-influencer-headline",
+      "label": "Callout Title",
+	  "default": "Callout Title"
+	},
+	{
+      "type": "richtext",
+      "id": "v1-influencer-text",
+      "label": "Callout Text"
+}
+  ],
+"blocks":[
+      {
+        "type": "block-1",
+        "name": "Callout Icon",
+        "settings": [
+          {
+            "type": "text",
+            "id": "v1-influencer-title",
+            "label": "Callout Icon Title"
+          },
+		  {
+            "type": "image_picker",
+            "id": "v1-influencer-icon",
+            "label": "Icon"
+          }
+        ]
+      }
+    ],
+  "presets": [{
+    "name": "Influencer Section",
+    "category": "V1 Sections",
+    "settings": {
+
+    }
+  }]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

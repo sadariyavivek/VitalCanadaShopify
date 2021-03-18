@@ -1,0 +1,133 @@
+<a name="pagecontent" id="pagecontent"></a>
+
+<div class="top-navigation" role="navigation">
+  <ul class="secondary-menu"> 
+    <li>
+      <a href="/pages/account-landing-page/">Home</a>
+    </li>
+    <li>
+      <a href="/pages/rewards-1/">Rewards</a>
+    </li>
+    <li>
+      <a href="/account" class="is-active">Account</a>
+    </li>
+    <li>
+      <a href="/tools/recurring/login/">Subscriptions</a>
+    </li>
+    <li>
+      {{ 'layout.customer.log_out' | t | customer_logout_link }}
+    </li>
+  </ul>
+</div>
+
+{% paginate customer.orders by 30 %}
+<center>
+  <br>
+
+<div class="account-page-container animated fadeInUp">
+  <div class="account-info-container">
+    <div class="customer-name-container">
+      <span class="customer-initials">{{ customer.first_name | slice: 0 }}{{ customer.last_name | slice: 0}}</span>
+      <h2>{{ customer.name }}</h2>
+    </div>
+    <p class="customer-email">{{ customer.email }}</p>
+    <p class="customer-total-orders">Total Orders: {{ customer.orders_count }}</p>
+    
+    <p><a href="/tools/recurring/login/" class="text-link">Manage Subscription(s)</a></p>
+
+    <p><a href="/pages/faq#faq-heading-subscriptions" target="_blank">FAQs</a></p>
+    <p>{{ 'layout.customer.log_out' | t | customer_logout_link }}</p>
+    <div class="address-section">
+      <h4 style="text-transform: none;">Primary Address</h4>
+      {% if customer.default_address != nil %}
+        <p>{{ customer.default_address.address1 }}</p>
+        {% if customer.default_address.address2 != "" %}
+          <p>{{ customer.default_address.address2 }}</p>
+        {% endif %}
+        <p>{{ customer.default_address.city}}{% if customer.default_address.province_code %}, {{customer.default_address.province_code}}{% endif %} {{ customer.default_address.zip}}</p>
+        <p>{{customer.default_address.country}}</p>
+        <p>{{ customer.default_address.phone }}</p>
+      {% else %}
+        <p>{{ 'customer.addresses.no_addresses' | t }}</p>
+      {% endif %}
+      <p class="view-more-addresses"><a href="/account/addresses">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a></p>
+    </div>
+    <div class="chat-section">
+      <h4>Need Help?</h4>
+      <p><a href="#" class="click-to-chat"><strong>Click to Live Chat</strong></a><br>or<br>Call us at <strong>(224) 544-9110</strong><br>9AM - 5PM CST | Monday - Friday</p>
+      
+    </div>
+  </div>
+  <div class="order-info-container">
+    {% comment %}
+    <div class="order-history-section subscriptions-section">
+      <h2>Your Subscriptions</h2>
+      <div class="table-container subscription-table-container">
+        <table>
+            <thead>
+              <tr>
+                <th style="width: 100px;">ID</th>
+                <th style="width: 200px;">Products</th>
+                <th>Next Ship Date</th>
+                <th>Frequency</th>
+                <th style="width: 100px;">{{ 'customer.orders.total' | t }}</th>
+              </tr>
+            </thead>
+            <tbody id="subscription-table-body">
+              <tr class="skeleton-row">
+                <td><div class="skeleton"></div></td>
+                <td><div class="skeleton"></div></td>
+                <td><div class="skeleton"></div></td>
+                <td><div class="skeleton"></div></td>
+                <td><div class="skeleton"></div></td>
+              </tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+    {% endcomment %}
+    <div class="order-history-section">
+      <h2>Order History</h2>
+        {% if customer.orders.size != 0 %}
+       <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>{{ 'customer.orders.order_number' | t }}</th>
+                  <th>{{ 'customer.orders.date' | t }}</th>
+                  <th>{{ 'customer.orders.payment_status' | t }}</th>
+                  <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
+                  <th>{{ 'customer.orders.total' | t }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for order in customer.orders %}
+                  <tr class="{% cycle 'odd', 'even' %} {% if order.cancelled %}cancelled_order{% endif %}">
+                      <td>{{ order.name | link_to: order.customer_url }}</td>
+                      <td>{{ order.created_at | date: format: "month_day_year" }}</td>
+                      <td>{{ order.financial_status_label }}</td>
+                      <td>{{ order.fulfillment_status_label }}</td>
+                      <td>
+                        <span class="money">{{ order.total_price | money }}</span>
+                      </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+        </div>
+        {% else %}
+          <p>{{ 'customer.orders.none' | t }}</p>
+        {% endif %}
+      {% include 'pagination' with true %}
+    </div>
+  </div>
+</div>
+{% endpaginate %}
+
+<script>
+  $('.click-to-chat').click(function() {
+    LC_API.open_chat_window();
+    
+    $('#chat-widget').focus();
+  });
+</script>

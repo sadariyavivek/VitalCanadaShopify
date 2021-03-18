@@ -1,0 +1,273 @@
+<style>
+    .wmt-lp-hero {
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: center;
+    background: rgb(109,220,237);
+    background-size: 100%;
+    width: 100%;
+    margin: 0 auto;
+    height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.wmt-lp-hero-text {
+    color: #ffffff;
+    font-size: 26px;
+    line-height: 28px;
+    width: 50%;
+    padding-left: 50px;
+    padding-right: 50px;
+  min-width: 50%;
+}
+  
+ .wmt-lp-hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.wmt-lp-hero-text h1 {
+    color: #ffffff;
+    text-transform: capitalize;
+    font-size: 100px;
+    line-height: 90px;
+    text-shadow: 2px 2px 8px #0000003d;
+}
+  
+.wmt-lp-hero-text p {
+    text-shadow: 2px 2px 8px #0000003d;
+    line-height: 30px;
+    margin-top: 30px;
+}
+  
+ .wmt-lp-hero-cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 260px;
+    background: #ffffffdb;
+    height: 44px;
+    text-transform: uppercase;
+    font-family: 'kapraregular';
+    margin-top: 35px;
+    border-radius: 4px;
+    font-weight: 400;
+    border: 2px solid #ffffff;
+    color: #1b7fa0;
+}
+  
+  @media only screen and (max-width: 1220px) {
+  	.wmt-lp-hero-text h1 {
+    	font-size: 80px;
+    	line-height: 72px;
+	}
+.wmt-lp-hero-text p {
+    text-shadow: 2px 2px 8px #0000003d;
+    line-height: 28px;
+    margin-top: 30px;
+    font-size: 25px;
+    max-width: 80%;
+}
+
+}
+  
+    @media only screen and (max-width: 800px) {
+
+.wmt-lp-hero {
+    position: relative;
+    background-color: rgb(109,220,237);
+    background-color: linear-gradient(180deg, rgba(109,220,237,1) 50%, rgba(1,173,231,1) 50%);
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: center;
+    background-size: 715px;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    height: auto;
+  overflow: hidden;
+}
+    
+    .wmt-lp-hero-text {
+    color: #ffffff;
+    font-size: 26px;
+    line-height: 28px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    left: auto;
+    text-align: center;
+    top: auto;
+}
+    
+    .wmt-lp-hero {
+    background-position-y: bottom;
+}
+    
+.wmt-lp-hero-text h1 {
+    font-size: 12vw;
+    line-height: 1em;
+    padding: 20px;
+    padding-bottom: 0px;
+}
+    .wmt-lp-hero-text p {
+    text-shadow: 2px 2px 8px #0000003d;
+    line-height: 22px;
+    margin-top: 0px;
+    font-size: 18px;
+    max-width: 90%;
+}
+    .wmt-lp-hero-cta {
+    margin-top: 5px;
+}
+    
+    
+    .wmt-lp-hero-text {
+    color: #ffffff;
+    font-size: 26px;
+    line-height: 28px;
+    width: 100%;
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+        .wmt-lp-hero-inner {
+    flex-direction: column;
+}
+      
+.wmt-lp-hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 25px;
+    padding-right: 25px;
+    position: relative;
+    left: 5%;
+    padding-top: 25px;
+    padding-bottom: 15px;
+}
+      
+      
+            .wmt-lp-hero-inner {
+    flex-direction: column;
+}
+      
+.wmt-lp-hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 25px;
+    padding-right: 25px;
+    position: relative;
+    left: 0%;
+}
+      
+  #why-collagen .main-dark-button  {
+    margin-top: 15px !important;
+}
+    }
+  
+  
+      @media only screen and (max-width: 500px) {
+  .wmt-lp-hero {
+    background-size: 650px;
+    height: 550px;
+}
+   .wmt-lp-hero-text h1 {
+    padding-top: 0px;
+    font-size: 48px;
+}
+   .wmt-lp-hero-text   {
+    align-self: self-start;
+}
+      }
+  
+  
+  
+  
+  
+</style>
+
+
+<div class="wmt-lp-hero">
+
+  <div class="wmt-lp-hero-inner">
+    <div class="wmt-lp-hero-text">
+    <picture style="max-width: 200px;padding-top:15px;">
+        <source media="(min-width:120px)" srcset="{{ 'vital_proteins_logo_horizontal_white_62f5173f-5ec5-4e43-9891-0add9d4991aa.png' | file_img_url: '400x'}}">
+        <img src="{{ 'vital_proteins_logo_horizontal_white_62f5173f-5ec5-4e43-9891-0add9d4991aa.png' | file_img_url: '400x'}}" alt="Vital Proteins" style="width:100%;max-width: 200px;">
+    </picture>
+    <h1>{{ section.settings.hero-header-text }}</h1>
+    <p>{{ section.settings.hero-sub-text }}</p>
+    <a href="#" class="main-dark-button startButton" style="border: 2px solid #ffffff8c !important;" onclick="openQuizModal()">Start Now</a>
+  </div>
+  
+  <div class="wmt-lp-hero-image">
+      {% if section.settings.hero-image != blank %}
+  		<picture>
+        <source media="(min-width:120px)" srcset="{{ section.settings.hero-image| img_url: '800x' }}">
+        <img src="{{ section.settings.hero-image| img_url: '800x' }}" alt="Vital Proteins" style="width:100%;">
+		</picture>
+	{% else %}
+  		<picture>
+        <source media="(min-width:120px)" srcset="{{ 'wmt-hero-t.png' | file_img_url: '800x'}}">
+        <img src="{{ 'wmt-hero-t.png' | file_img_url: '800x'}}" alt="Vital Proteins" style="width:100%;">
+		</picture>
+{% endif %}
+  </div>
+  </div>
+  <div class="custom-shape-divider-bottom-1599878618">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
+    </svg>
+</div>
+</div>
+
+
+
+
+{% schema %}
+  	{
+  "name": "Walmart Hero",
+  "class": "wmt-hero-section",
+  "settings": [
+	{
+      "type": "text",
+      "id": "hero-header-text",
+      "label": "Header Text",
+	  "default": "A Vital Life Starts With Collagen"
+	},
+	{
+      "type": "text",
+      "id": "hero-sub-text",
+      "label": "Subheader Text",
+	  "default": "Answer three simple questions to learn which Vital Proteins® products are right for you."
+	},  
+	{
+      "type": "image_picker",
+      "id": "hero-image",
+      "label": "Right Image"
+	}
+  ],
+  "presets": [{
+    "name": "Walmart Hero",
+    "category": "LP Sections",
+    "settings": {
+
+    }
+  }]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

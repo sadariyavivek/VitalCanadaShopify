@@ -1,0 +1,188 @@
+<div class="newStyles2020">
+  <div class="bgTaupe pt-32 pb-64 mt-32">
+    <h2 style="text-align: center;" class="mb-16">Collagen Benefits</h2>
+    <div class="container mt-24">
+      <div class="grid-3">
+        <div class="bgWhite benefitCard beautyCard">
+          <div class="cardContent">
+            <h2>BEAUTY</h2>
+            <p>Healty hair, skin & nails. Your beauty</p>
+            <p>routine over ice.</p>
+<!--             <button type="button" class="buttonWhite mt-16 what-is-benefits-text-a1" onclick="window.location.href='/collections/youthful-appearance'">Link Text</button>
+            <button type="button" class="buttonWhite mt-16 what-is-benefits-text-a2" onclick="window.location.href='/collections/youthful-appearance'">Shop Beauty</button> -->
+<!--             <div class="cardInfo">
+              <ul>
+                <li>Healthy hair, skin &amp; nails**</li>
+                <li>Your beauty routine, over ice</li>
+              </ul>
+              <button type="button" class="buttonWhite mt-16" onclick="window.location.href='//www.vitalproteins.com/collections/youthful-appearance'">Shop Beauty</button>
+            </div> -->
+          </div> 
+        </div>
+         <div class="bgWhite benefitCard performanceCard">
+          <div class="cardContent">
+            <h2>PERFORMANCE</h2>
+            <p>Improved athletic performance***</p>
+            <p>Go higher, reach further</p>
+<!--             <button type="button" class="buttonWhite mt-16 what-is-benefits-text-a3" onclick="window.location.href='/collections/athletic-performance'">Link Text</button>
+            <button type="button" class="buttonWhite mt-16 what-is-benefits-text-a4" onclick="window.location.href='/collections/athletic-performance'">Shop Performance</button> -->
+<!--             <div class="cardInfo">
+              <ul>
+                <li>Improved athletic performance**</li>
+                <li>Go higher, reach further</li>
+              </ul>
+              <button type="button" class="buttonWhite mt-16" onclick="window.location.href='//www.vitalproteins.com/collections/athletic-performance'">Shop Performance</button>
+            </div> -->
+          </div>
+        </div>
+        <div class="bgWhite benefitCard wellnessCard">
+          <div class="cardContent">
+            <h2>WELLNESS</h2>
+            <p>Strong bones and joints. An easy</p>
+            <p>boost to your lifestyle.</p>
+<!--             <button type="button" class="buttonWhite mt-16 what-is-benefits-text-a5" onclick="window.location.href='/collections/wellness'">Link Text</button>
+            <button type="button" class="buttonWhite mt-16 what-is-benefits-text-a6" onclick="window.location.href='/collections/wellness'">Shop Wellness</button> -->
+<!--             <div class="cardInfo">
+              <ul>
+                <li>Strong bones &amp; joints**</li>
+                <li>An easy boost to your lifestyle</li>
+              </ul>
+              <button type="button" class="buttonWhite mt-16" onclick="window.location.href='//www.vitalproteins.com/collections/wellness-1'">Shop Wellness</button>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+
+<style>
+
+
+  .benefitCard {
+    min-height: 240px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    transition: ease all 200ms;
+    text-align: left;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .benefitCard h2 {
+    color:#ffffff;
+  }
+
+
+  .beautyCard {
+    background:url(https://cdn.shopify.com/s/files/1/2074/9385/files/Beauty-benefits.jpg?v=1605534008) !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+  }
+
+  .wellnessCard {
+    background:url(https://cdn.shopify.com/s/files/1/0518/0335/7361/files/b228cf6df69f6e96d6c68d41c3595e53_2500x.png) !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+  }
+
+  .performanceCard {
+    background:url(https://cdn.shopify.com/s/files/1/0518/0335/7361/files/a0aef1c2759a76241ecdbb7ee612993a_2500x.png) !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+  }
+
+  .cardContent {
+    height: 240px;
+    min-height: 240px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    transition: ease all 200ms;
+  }
+
+  .cardContent {
+    background: #00000087;
+  }
+
+  .cardContent:hover h2 {
+    color:#393D40;
+  }
+
+  .cardContent button, .cardContent ul {display:none;}
+  .cardContent:hover button, .cardContent:hover ul {display:block;}
+
+  @media only screen and (max-width: 800px) {
+
+
+    .benefitCard {
+      width: 280px;
+      scroll-snap-align: center;
+    }
+    .grid-3 {
+      overflow-x: scroll;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+    }
+
+    .grid-3::-webkit-scrollbar {
+      width: 0px;  /* Remove scrollbar space */
+      background: transparent;  /* Optional: just make scrollbar invisible */
+    }
+    .cardContent button, .cardContent ul {
+      display:block !important;
+    }
+
+    .cardInfo {
+      background: #C6D2D4;
+      position: absolute;
+      bottom: 0px;
+      padding: 16px;
+    }
+
+    .cardContent {
+      justify-content: flex-start !important;
+    }
+
+    .benefitCard h2 {
+      color: #ffffff;
+      position: relative;
+      top: 25%;
+    }
+
+  }
+
+
+</style>
+
+
+
+{% schema %}
+{
+"name": "HP2020 Benefits",
+"settings": [],
+"presets": [
+{
+"name": "Benefits",
+"category": "HP2020 Sections"
+}
+]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,130 @@
+{% comment %}
+  The contents of the article.liquid template can be found in /sections/article-template.liquid
+{% endcomment %}
+{% layout 'blog' %}
+<a name="pagecontent" id="pagecontent"></a>
+<style>
+  .article-content p {
+    font-size: .875rem;
+  }
+
+  .article-content a {
+    color: #355C7E;
+  }
+
+  .article-content a:hover {
+    color: #355C7E
+  }
+
+  .article-content h2 {
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+  }
+
+  @media (min-width: 1024px) {
+    .article-content p {
+      font-size: 24px;
+    }
+
+    .article-content h2 { 
+      font-size: 32px;
+      line-height: 36px;
+      margin-top: 32px;
+    }
+
+    .buy-button-section .newStyles2021 .grid-4 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>
+<div class="tailwind">
+  <div class="bg-cover bg-no-repeat bg-center w-full h-48 lg:h-screen/3 mb-2 lg:mb-8 lazyload" data-bg="{{ article.image | img_url: '2048x', format: 'pjpg' }}"></div>
+  <div class="container">
+    <div class="flex flex-col lg:flex-row lg:items-start lg:justify-center">
+      <div class="lg:w-9/12 px-8">
+        <div class="mb-3 mt-0" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="/pages/blog" title="{{ shop.name | escape }}" itemprop="item">
+              <span class="uppercase font-header text-grey opacity-90 text-lg lg:text-xl" itemprop="name">{{ 'general.breadcrumbs.home' | t }}</span>
+            </a>
+            <meta itemprop="position" content="1"/>
+          </span>
+          &nbsp;<span class="uppercase font-header text-grey opacity-90 text-xl">/</span>
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="{{ blog.url }}" title="{{ blog.title | escape }}" itemprop="item">
+              <span class="uppercase font-header text-grey opacity-90 text-lg lg:text-xl" itemprop="name">{{ blog.title }}</span>
+            </a>
+            <meta itemprop="position" content="2"/>
+          </span>
+        </div>
+        <h1 class="text-left tracking-wide text-2xl lg:text-7xl">{{ article.title }}</h1>
+        <h2 class="text-sm lg:text-3xl tracking-wide mb-4 lg:mb-8">{% if article.metafields.vital.author %}{{ 'blogs.article.by_author' | t: author: article.metafields.vital.author }} - {% endif %}{{ article.published_at | date: format: "month_day_year" }}</h2>
+        <div class="article-content">
+          {% capture embedded_content %}
+            {% if article.metafields.vital.embedded_related_articles != blank %}
+              <div class="bg-silver -mx-8 lg:mx-0">
+                <h4 class="text-2xl uppercase font-header text-grey pl-8 lg:pl-6 pt-6 tracking-wide">Related Articles</h4>
+                <div class="flex flex-row overflow-x-scroll lg:overflow-x-hidden p-4 lg:p-6 pt-2 lg:pt-0">
+                  {% assign embedded_articles = article.metafields.vital.embedded_related_articles | split: '|' %}
+                  {% for a in embedded_articles limit: 3 %}
+                    <div class="lg:w-4/12">
+                      <a href="{{ articles[a].url }}" class="px-3 block">
+                        <div class="max-w-5xl w-64 lg:w-full h-48 mb-4 bg-no-repeat bg-cover bg-center lazyload" data-bg="{% if articles[a].metafields.vital.thumbnail_image %}{{ articles[a].metafields.vital.thumbnail_image }}{% else %}{{ articles[a].image | img_url: '600x', format: 'jpg' }}{% endif %}"></div>
+                        <p class="text-2xl uppercase font-header text-grey mb-0 lg:pl-0 tracking-wide text-left">{{ articles[a].title }}</p>
+                      </a>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
+          {% endcapture %}
+          {{ article.content | replace: '<h1>', '<h2>' | replace: '</h1>', '</h2>' | replace: '<h3>', '<h2>' | replace: '</h3>', '</h2>' | replace: '[EMBED RELATED ARTICLES]', embedded_content | replace: '<img', '<img class="lazyload"' | replace: 'src=', 'data-src=' | replace: '<iframe', '<iframe style="width: 100%;" class="lazyload"' }}
+          <div class="buy-button-section">
+            {% assign product_list = article.metafields.vital.shop_product | split: '|' %}
+            {% include 'blog-product-cards' %}
+          </div>
+        </div>
+        <div class="lg:hidden">
+          <div class="my-4">
+            {% if blog.next_article %}
+              <a aria-label="Previous blog article" class="bg-cta text-white rounded font-bold py-3 px-6 mr-2 text-center inline-block" href="{{ blog.next_article.url }}">Previous</a>
+            {% endif %}
+            {% if blog.previous_article %}
+              <a aria-label="Next blog article" class="bg-cta text-white rounded font-bold py-3 px-6 mr-2 text-center inline-block" href="{{ blog.previous_article.url }}">Next</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="lg:w-3/12 lg:px-8 border-0 lg:border-l lg:border-silver lg:border-solid">
+        <div class="hidden lg:block lg:mb-8">
+          <div class="mt-4 flex flex-row items-center justify-between">
+            {% if blog.next_article %}
+              <a aria-label="Previous blog article" class="bg-cta text-white rounded font-bold py-3 mr-2 text-center inline-block lg:mb-2 flex-grow w-1/2 text-lg" href="{{ blog.next_article.url }}">Previous</a>
+            {% endif %}
+            {% if blog.previous_article %}
+              <a aria-label="Next blog article" class="bg-cta text-white rounded font-bold py-3 mr-2 text-center inline-block lg:mb-2 flex-grow w-1/2 text-lg" href="{{ blog.previous_article.url }}">Next</a>
+            {% endif %}
+          </div>
+        </div>
+        <div>
+          <h4 class="hidden lg:block text-2xl uppercase font-header text-grey pl-6 mb-3 lg:pl-0 lg:mb-4 tracking-wide">Recent Articles</h4>
+          <div class="bg-silver">
+            <h4 class="lg:hidden text-2xl uppercase font-header text-grey pl-6 pt-6 mb-0 tracking-wide">Recent Articles</h4>
+            <div class="p-4 lg:p-8 flex flex-row overflow-x-scroll lg:block lg:overflow-x-hidden">
+               {% for related_article in blogs[blog.handle].articles limit: 5 %}
+                {% if related_article.handle != article.handle %}
+                  <div class="px-2 lg:px-0 lg:mb-4">
+                    <a class="transition-opacity hover:opacity-75 duration-150" href="{{ related_article.url }}">
+                      <div class="transition-opacity hover:opacity-75 duration-150 w-64 max-w-5xl h-48 bg-cover bg-center bg-no-repeat mb-4 mr-auto lg:h-24 lg:w-32 xl:h-32 xl:w-48 2xl:h-48 2xl:w-64 lg:max-w-full lazyload" data-bg="{% if related_article.metafields.vital.thumbnail_image %}{{ related_article.metafields.vital.thumbnail_image }}{% else %}{{ related_article.image | img_url: '600x', format: 'jpg' }}{% endif %}"></div>
+                      <h4 class="text-2xl uppercase font-header text-grey mb-0 lg:pl-0 tracking-wide text-left">{{ related_article.title }}</h4>
+                    </a>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,1953 @@
+<style>
+
+  .header-banner-container {
+    position: relative;
+    padding-top: calc(100vw / {{section.settings.banner_image.aspect_ratio}});
+    min-height: 500px;
+    background-image: url('https://cdn.shopify.com/s/files/1/0518/0335/7361/files/Z6vxPIVI.jpg?v=1608744550');
+    background-position: 51% center;
+  }
+  .banner-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    z-index: 40;
+    background-color: rgba(0,0,0,0.1);
+  }
+  .banner-text-wrapper {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    max-width: 400px;
+  }
+  .banner-text-wrapper .cta-button, .second-banner-text-container button, .second-banner-container .cta-button {
+    display: block;
+    max-width: 240px;
+    margin: 0 auto;
+    width: 100%;
+    background-color: #00AF9A;
+    border-radius: 4px;
+    text-align: center;
+    padding: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    font-weight: bold;
+    min-height: 0;
+    height: 44px;
+    font-size: 24px;
+    font-weight: 400;
+    border: 0;
+    font-family: 'kapraregular';
+    line-height: 24px;
+  }
+  .banner-text-wrapper .cta-button:hover, .second-banner-text-container button:hover {
+    background-color: #00D9B2;
+  }
+  .purchase-subscription-button {
+    font-family: 'kapraregular';
+    font-size: 36px;
+    text-transform: lowercase;
+    border-radius: 40px;
+    padding: 0px 40px;
+    max-width: 240px !important;
+    margin-top: 30px;
+  }
+  .banner-text-wrapper h2 {
+    font-size: 90px;
+    line-height: 80px;
+    color: white;
+    margin-bottom: 0;
+    margin-top: 0;
+    text-transform: capitalize;
+  }
+  .banner-text-wrapper p {
+    font-size: 20px;
+    line-height: 1.3em;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  .banner-background-image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+  .coffee-info-container {
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  .coffee-info-container h4 {
+    font-size: 36px;
+    letter-spacing: 0 !important;
+  }
+  .coffee-info-container p {
+    font-size: 18px;
+  }
+  .coffee-info-container div {
+    text-align: center;
+    flex: 0.33;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .coffee-info-container img {
+    width: 100%;
+    max-width: 400px;
+  }
+  .secondary-banner-container {
+    background-image: url("{{ section.settings.banner_image_2 | img_url: '1600x' }}");
+      height: 400px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center; 
+  }
+  .secondary-banner-image {
+    width: 100%;
+    vertical-align: middle;
+  }
+  .secondary-banner-highlight {
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 35px;
+    max-height: 300px;
+  }
+  .second-banner-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 35px;
+    background: rgb(228,234,237);
+    background: linear-gradient(180deg, rgba(228,234,237,1) 70%, rgba(255,255,255,1) 70%);
+  }
+  .secondary-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+  }
+  .secondary-content p, .collection-content p {
+    font-size: 20px;
+    line-height: 1.3em;
+    font-weight: 400 !important;
+    color: #585A5B;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 25px;
+  }
+  .product-container {
+    display: flex;
+    flex: 1;
+    align-items: flex-start;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .product-container .current-roast-stats-header {
+    letter-spacing: 0 !important;
+    font-size: 36px;
+    color: #23b6e6;
+    text-transform: capitalize;
+    margin-bottom: 0px;
+    display: none;
+  }
+  .product-container .current-roast-stats {
+    list-style: none;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .product-container .current-roast-stats li {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #585A5B;
+  }
+  .current-roast-stats .stat-title {
+    font-family: 'kapraregular';
+    text-transform: capitalize;
+    font-size: 32px;
+    color: #585A5B;
+    letter-spacing: 0.88px;
+    line-height: 48px;
+  }
+  .product-image-wrapper {
+    /*background-image: url("{{ product.featured_image | img_url: '1200x' }}");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;*/
+    flex: 0.5;
+    text-align: center;
+  }
+  .product-image-wrapper img {
+    width: 75%;
+    border-radius: 20px;
+    /*box-shadow: 0px 10px 40px rgba(0,0,0,0.2);*/
+  }
+  .current-roast-container {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    flex: 0.5;
+    text-align: left;
+  }
+  .current-roast-title {
+    color: #23b6e6;
+    border: 2px solid #23b6e6;
+    border-radius: 4px;
+    width: 60%;
+    padding: 15px;
+    margin-left: 0;
+    text-transform: capitalize;
+    margin-right: 0;
+    letter-spacing: 0 !important;
+    font-size: 48px;
+    line-height: 1em;
+  }
+  .ro_widget {
+    display: none;
+  }
+  .product_form {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #fdfdfd;
+  }
+  .product_form .section-title {
+    font-family: 'kapraregular';
+    font-size: 24px;
+    text-transform: lowercase;
+    line-height: 48px;
+    letter-spacing: 0 !important;
+  }
+  .subscription-price {
+    letter-spacing: 0 !important;
+    font-size: 48px;
+    color: #23b6e6;
+    margin-top: 20px;
+  }
+
+  .product-quantity-box {
+    width: 100%;
+    margin-bottom: 40px;
+    margin-top: 20px;
+  }
+  .quantity-border {
+    width: 160px;
+    margin-left: auto;
+    height: 42px;
+    margin-right: auto;
+  }
+  .product-quantity-box .quantity {
+    width: 50%;
+  }
+  .conspire-purchase {
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .select-boxes, .select-boxes-subscription-type {
+    display: flex;
+    justify-content: space-evenly;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    flex: 1;
+  }
+  .select-box-sub-type{
+    transition: .2s all;
+    flex: .25;
+    border-radius: 40px;
+    border: 1px solid #23b6e6;
+    color: #23b6e6;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+  }
+  .select-box-sub-type:hover {
+    cursor: pointer;
+    background-color: #23b6e6;
+    color: white;
+    transform: translateY(-4px);
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  }
+  .select-box-sub-type.active:hover {
+    transform: translateY(0px);
+    box-shadow: none;
+  }
+  .select-box-sub-type p {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 10px 6px;
+  }
+  .select-box-sub-type.active {
+    color: white;
+    background-color: #23b6e6;
+  }
+  .select-box {
+    transition: .2s all;
+    flex: .25;
+    border-radius: 40px;
+    border: 1px solid #23b6e6;
+    color: #23b6e6;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .select-box:hover {
+    cursor: pointer;
+    background-color: #23b6e6;
+    color: white;
+    transform: translateY(-4px);
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  }
+  .select-box.active:hover {
+    transform: translateY(0px);
+    box-shadow: none;
+  }
+  .select-box p {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 10px 6px;
+  }
+  .select-box.active {
+    color: white;
+    background-color: #23b6e6;
+  }
+  .frequency-section {
+    height: 0;
+    transition: .2s all ease-in;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .frequency-section.active {
+    height: 160px;
+    opacity: 1;
+    visibility: initial;
+  }
+  .shipping-note {
+    margin-top: 20px;
+  }
+  .mobile-text-header {
+    display: none;
+  }
+  button.add_to_cart {
+    position: relative;
+    display: block;
+    width: 100%;
+    background-color: #00AF9A;
+    border-radius: 4px;
+    text-align: center;
+    padding: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    font-weight: bold;
+    min-height: 0;
+    height: 44px;
+    font-size: 24px;
+    font-weight: 400;
+    border: 0;
+    font-family: 'kapraregular';
+    line-height: 24px;
+  }
+  button.add_to_cart:hover {
+    background-color: #00D9B2;
+    border: 1px solid #00D9B2;
+  }
+  .v1-product-form-mini {
+    max-width: 300px;
+  }
+  .money {
+    font-size: 28px;
+    line-height: 38px;
+    font-weight: bold;
+    color: #23b6e6;
+  }
+  .vital-benefit-box-list {
+    text-align: center;
+    font-size: 20px;
+    line-height: 1.3em;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-weight:400;
+  }
+  .main-sub-headings {
+    text-transform: capitalize;
+    text-align: center;
+    color: #585A5B;
+    font-size: 64px;
+    margin: 0px;
+    line-height: 1em;
+    letter-spacing: 1.65px !important;
+  }
+
+  @media screen and (max-width: 800px) {
+    .header-banner-container {
+      display: none;
+    }
+    .banner-text-wrapper h2 {
+      font-size: 36px;
+    }
+    .banner-text-wrapper p {
+      font-size: 18px;
+    }
+    .coffee-info-container {
+      flex-direction: column;
+    }
+    .product-container {
+      margin-top: -40px;
+      flex-direction: column;
+    }
+    .product-container .product-image-wrapper {
+      height: 400px;
+    }
+    .current-roast-title {
+      width: 90%;
+      font-size: 36px;
+      margin: 0 auto;
+    }
+    .select-boxes {
+      width: 100%;
+      flex-direction: column;
+    }
+    .select-box:not(:last-child) {
+      margin-bottom: 20px;
+    }
+    .select-box {
+      border-radius: 20px;
+    }
+    .select-boxes-subscription-type {
+      width: 100%;
+      flex-direction: column;
+    }
+    .select-box-sub-type:not(:last-child) {
+      margin-bottom: 20px;
+    }
+    .select-box-sub-type {
+      border-radius: 20px;
+    }
+    .frequency-section.active {
+      height: 340px;
+      opacity: 1;
+    }
+    .purchase-subscription-button {
+      font-size: 24px;
+    }
+    .mobile-text-header {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      letter-spacing: 0 !important;
+      font-size: 36px;
+      color: #23b6e6;
+    }
+    .current-roast-container {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      flex: 1;
+      width: 100%;
+      text-align: center;
+      padding-left: 35px;
+      padding-right: 35px;
+    }
+    .product-container .current-roast-stats {
+      list-style: none;
+      padding-left: 0px;
+      padding-right: 0px;
+      text-align: center;
+    }
+    .v1-product-form-mini {
+      max-width: 300px;
+      margin: 0 auto;
+    }
+  }
+  .vital-benefits-container {
+    max-width:1440px;
+    margin:0 auto;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding:20px;
+    margin-top:10px;
+  }
+  .vital-benefit-box {
+    height:400px;
+    width:calc(30%);
+    border:10px solid #47ABE650;
+    overflow:hidden;
+    font-family:"avenir";
+    font-weight:900;
+  }
+  .vital-benefit-box-inner {
+    padding:20px;
+    background:#47ABE6;
+    color:#fff;
+    position:relative;
+    height:100%;
+    transform:translateY(310px);
+    transition: ease all 300ms;
+    max-height:100%;
+    padding-top:10px;
+  }
+  .vital-benefit-box-inner ul {
+    padding-left: 20px;
+  }
+  .vital-benefit-box-inner ul li {
+    padding-bottom: 10px;
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+  .vital-benefit-box-inner h2 {
+    margin: 0px;
+    letter-spacing: 2px;
+    color: #ffffff !important;
+    text-transform: capitalize !important;
+    font-family: "avenir" !important;
+    font-weight: 900 !important;
+    margin-left: 10px;
+    font-size: 26px;
+  }
+  .vital-benefit-box:hover .vital-benefit-box-inner {
+    transform:translateY(0px);
+    padding-top:20px;
+  }
+  .vital-hollow-button {
+    display: flex;
+    height: 40px;
+    border: 2px solid #fff;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-family: "kapraregular";
+    font-size: 22px;
+    border-radius: 4px;
+  }
+  .vital-hollow-button:hover	{
+    background: #ffffff2e;
+    color:#ffffff !important;
+  }
+  .vital-benefit-box-list p {
+    font-size: 18px;
+    line-height: 2em;
+  }
+  .wellness-color {background:#78DED4;border-color:#BEF4EE;}
+  .sports-color {background:#002E6D;border-color:#9AAAC5;}
+
+  @media only screen and (max-width: 799px) {
+
+    .vital-benefits-container {
+      flex-direction: column;
+
+    }
+    .vital-benefit-box {
+      margin-bottom: 20px;
+      width:100%;
+    }
+    .secondary-banner-highlight {
+      max-width: 95%;
+      margin: 0 auto;
+      margin-top: 35px;
+    }
+  }
+  .vital-benefits-container {
+    max-width:1440px;
+    margin:0 auto;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding:20px;
+    margin-top:10px;
+  }
+  .vital-benefit-box {
+    height:400px;
+    width:calc(30%);
+    overflow:hidden;
+    font-family:"avenir";
+    font-weight:900;
+  }
+  .vital-benefit-box-inner {
+    padding:20px;
+    color:#fff;
+    position:relative;
+    height:100%;
+    transform:translateY(310px);
+    transition: ease all 300ms;
+    max-height:100%;
+    padding-top:10px;
+  }
+  .vital-benefit-box-inner ul {
+    padding-left: 20px;
+  }	
+  .vital-benefit-box-inner ul li {
+    padding-bottom: 10px;
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+  .vital-benefit-box-inner h2 {
+    margin: 0px;
+    letter-spacing: 2px;
+    color: #ffffff !important;
+    text-transform: capitalize !important;
+    font-family: "avenir" !important;
+    font-weight: 900 !important;
+    margin-left: 10px;
+    font-size: 26px;
+  }
+  .vital-benefit-box:hover .vital-benefit-box-inner {
+    transform:translateY(0px);
+    padding-top:20px;
+  }
+  .vital-hollow-button {
+    display: flex;
+    height: 40px;
+    border: 2px solid #fff;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-family: "kapraregular";
+    font-size: 22px;
+    border-radius: 4px;
+  }
+  .vital-hollow-button:hover	{
+    background: #ffffff2e;
+    color:#ffffff !important;
+  }
+  .vital-benefit-box-list p {
+    font-size: 18px;
+    line-height: 2em;
+  }
+  .wellness-color {background:#78DED4;border-color:#BEF4EE;}
+  .sports-color {background:#002E6D;border-color:#9AAAC5;}
+
+  .v3-featured-blogs {
+    display: flex;
+    max-width: 1440px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 32px;
+  }
+  .v3-featured-blogs-inner {
+    display: flex;
+    width:100%;
+    justify-content: space-between;
+    align-content: space-between;
+  }
+  .v3-featured-blogs-inner-main, .v3-featured-blogs-inner-sub {
+    width: calc(48%);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .v3-featured-blogs-inner-main, .v3-featured-blogs-inner-sub-inner {
+    height: auto;
+    background: #efefef;
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    box-shadow: 0 0 12px 0 rgba(0,0,0,0.08);
+    border-radius: 8px;
+    justify-content: space-between;
+  }
+  .v3-featured-blogs-image {
+    display: block;
+    height: 250px;
+    background: url(file:///Users/Holdraker/Desktop/recipe.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .v3-featured-blogs-text {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .v3-featured-blogs-text .category-title {
+    color: #868686;
+    font-family: "Avenir Next";
+    font-size: 16px;
+  }
+  .v3-featured-blogs h3 {
+    color: #57595a;
+    font-size: 22px;
+    font-family: "Avenir Next", sans-serif;
+    font-weight: 500;
+    margin: 0px;
+    text-transform: none !important;
+    letter-spacing: .1em !important;
+    max-width: 80%;
+    margin: 0 auto;
+    line-height: 1.2em;
+    margin-top: 0;
+    margin-bottom: 32px;
+  }
+  .v3-featured-blogs-text h4 {
+    letter-spacing: 0px !important;
+    font-family: "Avenir Next";
+    font-size: 26px;
+    line-height: 1.3em;
+    text-transform: capitalize;
+  }
+  .v3-featured-blogs h2 {
+    color: #585A5B;
+    font-size: 5em;
+    margin-bottom: 0;
+    margin: 0px;
+    font-family: 'kapraregular';
+    text-transform: capitalize;
+  }
+  .v3-featured-blogs-text .v1-read-more {
+    color:#0077AF;
+    font-family: "Avenir Next";
+    font-size: 16px;
+  }
+  .v3-featured-blogs-inner-sub-inner {
+    flex-direction: row;
+    display: flex;
+    height: 45%;
+  }
+  .v3-featured-blogs-inner-sub-inner .v3-featured-blogs-image {width:200px;background-size: cover;
+    background-repeat: no-repeat;display: block;
+    height: 100%;}
+
+  @media only screen and (max-width: 600px) {
+    .v3-featured-blogs h2 {
+      text-align: center;
+      line-height: 1em;
+    }
+    .v3-featured-blogs h3 {
+      font-size: 20px;
+      max-width: 100%;
+      text-align: center;
+      margin: 0 auto;
+      line-height: 1.2em;
+      padding-left: 5px;
+      padding-right: 5px;
+      margin-top: 15px;
+      margin-bottom: 32px;
+    }
+    .v3-featured-blogs-inner {
+      width: 100%;
+      flex-direction: column;
+    }
+    .v3-featured-blogs-inner-main, .v3-featured-blogs-inner-sub {
+      width: 100%;
+    }
+    .v3-featured-blogs-image {
+      background-position: center center;
+    }
+    .v3-featured-blogs-inner-sub-inner {
+      flex-direction: column !important;
+      border-radius: 4px !important;
+      margin-top: 16px;
+    }
+    .v3-featured-blogs h2 {
+      font-size: 3.5em;
+    }
+    .v3-featured-blogs-text h4 {
+      font-size: 16px;
+      line-height: 1.3em;
+    }
+  }
+
+  @media only screen and (max-width: 799px) {
+    .hero-callout-bar {display:none;}
+    .vital-benefits-container {
+      flex-direction: column;
+    }
+    .icon-slider-container ul li {
+      min-width: 90% !important;
+    }
+    .vital-benefit-box {
+      margin-bottom: 20px;
+      width:100%;
+    }
+    .main-sub-headings {
+      font-size: 50px;
+    }
+    .highlight-images {
+      position: absolute;
+      top: 12%;
+      left: 15%;
+      max-width: 70%;
+    }
+    .vital-benefit-box-inner h2 {
+      font-size: 20px;
+    }
+    .vital-benefit-box-list {
+      text-align: center;
+      font-size: 18px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+  .highlight-images {
+    position: absolute;
+    top: 15%;
+    left: 26%;
+    max-width: 50%;
+  }
+  .vital-benefit-box {
+    position:relative;
+  }
+  .icon-slider-container {
+    background: #002E6D;
+    min-height: 300px;
+    width: 100%;
+    padding: 25px;
+    margin-bottom: 25px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .icon-slider-container ul li h3 {
+    font-family: "avenir";
+    color: #FFFFFF;
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1em;
+    letter-spacing: 0.55px !important;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 5px;
+  }
+  .icon-slider-container ul li p {
+    font-family: "avenir";
+    font-size: 16px;
+    color: #FFFFFF;
+    letter-spacing: 0.44px !important;
+    text-align: center;
+    font-weight:400;
+  }
+  .icon-slider-container ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .icon-slider-container ul li {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 45%;
+    padding: 25px;
+    flex: .4;
+  }
+  .icon-slider-container ul li img {
+    width: 91px;
+    height: 97px;
+    margin-bottom: 15px;
+  }
+  .hero-callout-bar {
+    width: 100%;
+    background: #E4EAED;
+    padding: 20px;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-callout-bar h2 {
+    color: #585A5B;
+    text-transform: capitalize;
+    font-size: 32px;
+    line-height: 1.2em;
+    font-family: 'avenir';
+    max-width: 80%;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: .88px !important;
+  }
+  #prod-link {
+    padding-top: 100px;
+    margin-top: -100px;
+  }
+
+  @media only screen and (max-width: 799px) {
+    .hero-callout-bar {display:none;}
+    .main-sub-headings {
+      font-size: 50px;
+      max-width: 85%;
+      margin: 0 auto;
+    }
+    #prod-link {
+      padding-top: 80px;
+      margin-top: -140px;
+    }
+    .second-banner-container {
+      padding: 15px;
+    }
+    .slider-gallery .thumbnail img {
+      min-width: 100% !important;
+    }
+  }
+  .slider-gallery {
+    max-width: 1200px;
+  }
+  .product-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 4px;
+    border: 1px solid #ececec;
+    padding: 20px;
+    height: 100%;
+  }
+  .slider-gallery .thumbnail img {
+    width: 100% !important;
+    max-width: 200px !important;
+    min-width: 180px !important;
+  }
+  .product-wrap {
+    height: 100%;
+  }
+  .flickity-prev-next-button {
+    top: 40% !important;
+    opacity: 1 !important;
+    border: 1px solid #ececec !important;
+  }
+
+  @media only screen and (max-width: 799px) {
+
+    .slider-gallery .thumbnail img {
+      min-width: 120px !important;
+    }
+    .slider-gallery .bv_inline_rating_container {
+      margin-top: 0px !important;
+      transform: scale(.7) !important;
+    }
+    .products-slider.slider-gallery .gallery-cell.visible-3 {
+      width: calc(60% - 10px);
+      margin-left: 10px;
+    }
+    .slider-gallery .v1-product-form-mini {
+      margin-top: -45px;
+    }
+    .thumbnail .price, .thumbnail .title {
+      margin-top: -10px;
+    }
+  }
+  .money-was {
+    display:none;
+    text-decoration:line-through;
+  }
+
+</style>
+<a name="pagecontent" id="pagecontent"></a>
+
+<div class="header-banner-container">
+  <div class="banner-text-container">
+    <div class="animated fadeInDown banner-text-wrapper">
+      <h2>{{ section.settings.heroheadline }}</h2>
+      <p>{{ section.settings.herotext }}</p>
+      <a href="#prod-link" class="cta-button">{{ section.settings.herobtntext }}</a>
+    </div>
+  </div>
+  <!-- <img class="banner-background-image" src="{{ section.settings.banner_image | img_url: '1600x' }}" alt="Coffee Subscription"/> -->
+</div>
+
+<div class="hero-callout-bar">
+  <h2>Quality coffee that’s thoughtfully and sustainably sourced.</h2>
+  <div style="height: 3px; width: 50%; background: #00AFE6; margin-bottom: 15px;"></div>
+</div>
+
+<div class="product-container" id="prod-link">
+  <h2 class="mobile-text-header">{{ section.settings.headerText }}</h2>
+  <div class="product-image-wrapper">
+    <img alt="{{ product.featured_image.alt }}" class="coffee-product-image" id="coffee-purchase" src="{{ product.featured_image | img_url: '1200x' }}"/>
+  </div>
+  <div class="current-roast-container">
+    <h4 class="current-roast-stats-header">Current Roast</h4>
+    <ul class="current-roast-stats">
+      <li><span class="stat-title">Country of Origin</span><br class="rmv">{{ section.settings.origin_country }}</li>
+      <li><span class="stat-title">Roast</span><br class="rmv">{{ section.settings.coffee_roast }}</li>
+      <li><span class="stat-title">Flavor Profile</span><br class="rmv">{{ section.settings.flavor_profile }}</li>
+      <li><span class="stat-title">Packaged</span><br class="rmv">{{ section.settings.coffee_packaged }}</li>
+
+    </ul>
+    {% assign variant = product.selected_or_first_available_variant %}
+    {% if variant.available %}
+
+    <span class="price {% if product.compare_at_price_max > product.price %}sale{% endif %}">
+      {% if product.available %}
+      {% assign variant = product.selected_or_first_available_variant %}
+      {% if variant.price > 0 %}
+      <span class="money-was">{{ variant.price | money_without_trailing_zeros }}</span>
+      <span aria-label="{{ variant.price | money_without_trailing_zeros }}." class="money">{{ variant.price | money_without_trailing_zeros }}</span>
+      {% else %}
+      {{ settings.free_price_text }}
+      {% endif %}
+      {% else %}
+      <span aria-label="{{ 'products.product.sold_out' | t }}." class="sold_out">{{ 'products.product.sold_out' | t }}</span>
+      {% endif %}
+      {% if variant.compare_at_price > variant.price %}{% comment %}This should be changed to check for compare_at_min?{% endcomment %}
+      <span class="was_price">
+        <span aria-label="Original price was {{ variant.compare_at_price | money_without_trailing_zeros }}." class="money">{{ variant.compare_at_price | money_without_trailing_zeros }}</span>
+      </span>
+      {% endif %}
+    </span> 
+    
+    <div class="v1-product-form-mini">
+      {% include "product-form-mini" %}
+    </div>
+
+    {% else %}
+    <h4 style="letter-spacing: 1px !important;
+               text-transform: uppercase;
+               font-size: 36px;
+               color: #23b6e6;">Sold Out</h4>
+    {% endif %}
+  </div>
+</div>
+
+<h2 class="main-sub-headings">What Makes Vital Coffee So Special</h2>
+
+<div class="vital-benefits-container">
+  <div class="vital-benefit-box" style="border-color:{{ section.settings.v1-feature-highlight-color }}60;background:url('https://cdn.shopify.com/s/files/1/0518/0335/7361/files/beans.jpg?v=1608744710');background-size:cover;background-position: center center;background-repeat:no-repeat;background-clip: content-box;">
+    {% if section.settings.second-banner-highlight != blank %}
+
+    <img src="{{ section.settings.v1-feature-highlight }}" class="highlight-images"/>
+    {% else %}
+    <img src="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/season.png?v=1608744709" class="highlight-images"/>
+    {% endif %}
+    <div class="vital-benefit-box-inner" style="background-color:{{ section.settings.v1-feature-highlight-color }};">
+
+      <div style="display: flex;justify-content: center;align-items: center;height: 50px;margin-bottom: 15px;"><h2>{{ section.settings.v1-feature-highlight-heading }}</h2></div>
+      <div class="vital-benefit-box-list">
+        {{ section.settings.v1-feature-highlight-list }}
+      </div>
+    </div>
+  </div>
+
+  <div class="vital-benefit-box" style="border-color:{{ section.settings.v2-feature-highlight-color }}60;background:url('https://cdn.shopify.com/s/files/1/0518/0335/7361/files/beans.jpg?v=1608744710');background-size:cover;background-position: center center;background-repeat:no-repeat;background-clip: content-box;">
+
+    {% if section.settings.second-banner-highlight != blank %}
+
+    <img src="{{ section.settings.v2-feature-highlight }}" class="highlight-images"/>
+    {% else %}
+    <img src="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/icon-2.png?v=1608744709" class="highlight-images"/>
+    {% endif %}
+
+    <div class="vital-benefit-box-inner" style="background-color:{{ section.settings.v2-feature-highlight-color }};">
+      <div style="display: flex;justify-content: center;align-items: center;height: 50px;margin-bottom: 15px;"><h2>{{ section.settings.v2-feature-highlight-heading }}</h2></div>
+      <div class="vital-benefit-box-list">
+        {{ section.settings.v2-feature-highlight-list }}
+      </div>
+    </div>
+  </div>
+
+  <div class="vital-benefit-box" style="border-color:{{ section.settings.v3-feature-highlight-color }}60;background:url('https://cdn.shopify.com/s/files/1/0518/0335/7361/files/beans.jpg?v=1608744710');background-size:cover;background-position: center center;background-repeat:no-repeat;background-clip: content-box;">
+
+    {% if section.settings.second-banner-highlight != blank %}
+
+    <img src="{{ section.settings.v3-feature-highlight }}" class="highlight-images"/>
+    {% else %}
+    <img src="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/bundle.png?v=1608744893" class="highlight-images"/>
+    {% endif %}
+
+    <div class="vital-benefit-box-inner" style="background-color:{{ section.settings.v3-feature-highlight-color }};">
+      <div style="display: flex;justify-content: center;align-items: center;height: 50px;margin-bottom: 15px;"><h2>{{ section.settings.v3-feature-highlight-heading }}</h2></div>
+      <div class="vital-benefit-box-list">
+        {{ section.settings.v3-feature-highlight-list }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="second-banner-container">
+  <div class="second-banner-text-container">
+    <div class="animated fadeInDown secondary-content">
+      <h2 class="main-sub-headings">{{ section.settings.secondheroheadline }}</h2>
+      <p>{{ section.settings.secondherotext }}</p>
+      <a href="https://www.vitalproteins.com/collections/bundles/products/vital-roasters-coffee-bundle" class="cta-button">{{ section.settings.secondherobtntext }}</a>
+      <img class="secondary-banner-highlight"
+           {% if section.settings.second-banner-highlight != blank %}
+           src="{{ section.settings.second-banner-highlight | img_url: '1200x' }}"
+           {% else %}
+           src="https://cdn.shopify.com/s/files/1/2074/9385/files/bundle.png?v=1595862231"
+           {% endif %}
+           alt="Coffee Bundle"/>
+    </div>
+  </div>
+</div>
+
+<div class="collection-content" style="margin-top: 25px;">
+
+  <h2 class="main-sub-headings">{{ section.settings.coffee_collection_title }}</h2>
+  <p>{{ section.settings.coffee_collection_description }}</p>
+
+
+  <!-- this is product start -->
+
+  {% comment %}
+  ** Single featured collection - homepage partial **
+  - Draggable section
+  {% endcomment %}
+
+  {% if section.settings.coffee_collection_collection == blank %}
+  {%- assign section_onboarding = true -%}
+  {% comment %}assign product length to be selected limit for onboarding{% endcomment %}
+  {% assign products_length = section.settings.products_limit | plus: 0 %}
+  {% else %}
+  {%- assign section_onboarding = false -%}
+  {% endif %}
+  
+  {% assign limit = section.settings.products_limit %}
+
+  {% if section.settings.collection_style == 'slider' %}
+  {% assign col = section.settings.coffee_collection_collection %}
+  {% assign products = collections[section.settings.coffee_collection_collection].products %}
+  {% assign per_slide = section.settings.products_per %}
+
+  <div class="container js-product-slider homepage-product-slider full-width {% if per_slide == 2 or per_slide == 4 or per_slide == 6 %}even-num-slides{% endif %}">
+    {% if section_onboarding == false %}
+    {% if col and collections[col].all_products_count > 0 %}
+    {% include 'v1-product-slider', per_slide: section.settings.products_per, featured_collection: col  %}
+    {% endif %}
+    {% else %}
+    <div class="slider-gallery products-slider products-length-{{ products_length }}"
+         data-products-per-slide="{{ per_slide }}"
+         data-products-limit="{{ limit }}"
+         data-products-available="{{ products_length }}">
+      {% for i in (1..limit) %}
+      {% assign per_slide_num = section.settings.products_per | plus: 0 %}
+      <div class="gallery-cell thumbnail
+                  {% if products_length > per_slide_num %}visible-{{ per_slide }}{% else %}visible-{{ products_length }}{% endif %}
+                  ">
+        <div class="product-wrap">
+          <div class="relative product_image">
+            <a href="#" itemprop="url">
+              <object class="placeholder-image">
+                {% capture num %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
+                {{ 'product-' | append: num | placeholder_svg_tag: 'placeholder-svg placeholder-svg--product' }}
+              </object>
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  {% else %}
+  {% if section_onboarding == false %}
+  {% assign limit = section.settings.products_limit %}
+  {% assign collection = collections[section.settings.coffee_collection_collection] %}
+  {% assign products = collections[section.settings.coffee_collection_collection].products %}
+  {% assign products_per_row = section.settings.products_per %}
+  <div class="container">
+    <div class="">
+      {% include 'product-loop' %}
+    </div>
+  </div>
+  {% else %}
+  {% assign products_per_row = section.settings.products_per %}
+  <div class="container">
+    <div class="sixteen columns">
+      {% capture new_row %}
+      <br class="clear product_clear" />
+      {% endcapture %}
+
+      <div itemtype="http://schema.org/ItemList" class="product-list collection-matrix clearfix">
+        {% for i in (1..limit) %}
+        {% comment %}{% assign collection_group = products | map: 'id' %}{% endcomment %}
+        {% assign collection_group_thumb = collection_group | append : 'thumb' %}
+        {% assign collection_group_mobile = collection_group | append : 'mobile' %}
+        <div class="
+                    {% if products_per_row == 2 %}
+                    eight columns {% cycle collection_group_thumb: 'alpha', 'omega' %}
+                    {% elsif products_per_row == 3 %}
+                    four columns {% cycle collection_group_thumb: 'alpha', '', 'omega' %}
+                    {% elsif products_per_row == 4 %}
+                    three columns {% cycle collection_group_thumb: 'alpha', '', '', 'omega' %}
+                    {% elsif products_per_row == 5 %}
+                    one-fifth column {% cycle collection_group_thumb: 'alpha', '', '', '', 'omega' %}
+                    {% elsif products_per_row == 6 %}
+                    one-sixth column {% cycle collection_group_thumb: 'alpha', '', '', '', '', 'omega' %}
+                    {% else %}
+                    one-seventh column {% cycle collection_group_thumb: 'alpha', '', '', '', '', '', 'omega' %}
+                    {% endif %} thumbnail {% cycle collection_group_mobile: 'even', 'odd' %}">
+
+          <div class="product-wrap">
+            <div class="relative product_image swap-{{ settings.collection_secondary_image }}">
+              <a href="#" itemprop="url">
+                {% capture num %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
+                {{ 'product-' | append: num | placeholder_svg_tag: 'placeholder-svg placeholder-svg--product' }}
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {% if products_per_row == 2 %}
+        {% cycle collection_group: '', new_row %}
+        {% elsif products_per_row == 3 %}
+        {% cycle collection_group: '', '', new_row %}
+        {% elsif products_per_row == 4 %}
+        {% cycle collection_group: '', '', '', new_row %}
+        {% elsif products_per_row == 5 %}
+        {% cycle collection_group: '', '', '', '', new_row %}
+        {% elsif products_per_row == 6 %}
+        {% cycle collection_group: '', '', '', '', '', new_row %}
+        {% elsif products_per_row == 7 %}
+        {% cycle collection_group: '', '', '', '', '', '', new_row %}
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  {% endif %}
+
+
+  <!-- this is product end -->   
+
+</div>
+
+<div class="icon-slider-container">
+
+  <h2 class="main-sub-headings" style="color:#ffffff;">Amazing Coffee Is Rare</h2>
+  <p style="color: #ffffff;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            margin-top: 15px;
+            margin-bottom: 25px;">Amazing coffee that ranks among the best in the world? Even more so. These high-quality beans sourced from small farms in Colombia are hand-picked and harvested at the peak of ripeness. They’re then roasted locally in Chicago before making it to your favorite mug for a daily ritual you will always look forward to.
+  </p>
+  <!--
+<ul>
+{% for block in section.blocks %}
+<li>
+<img src=" {{ block.settings.v1-callout-icon | img_url: '200x' }} "/>  
+<h3> {{block.settings.v1-callout-title}} </h3>
+</li>
+{% endfor %}
+
+
+<li>
+<img src="https://cdn.shopify.com/s/files/1/2074/9385/files/beans-icon.png?v=1595893676"/>  
+<h3>Premium Beans</h3>
+<p>We work closely with our importer to select our limited edition Colombian coffees with quality and freshness in mind. </p>
+</li>
+
+<li>
+<img src="https://cdn.shopify.com/s/files/1/2074/9385/files/beans-icon.png?v=1595893676"/>  
+<h3>Premium Beans</h3>
+<p>We work closely with our importer to select our limited edition Colombian coffees with quality and freshness in mind. </p>
+</li>
+
+<li>
+<img src="https://cdn.shopify.com/s/files/1/2074/9385/files/beans-icon.png?v=1595893676"/>  
+<h3>Premium Beans</h3>
+<p>We work closely with our importer to select our limited edition Colombian coffees with quality and freshness in mind. </p>
+</li>
+
+<li>
+<img src="https://cdn.shopify.com/s/files/1/2074/9385/files/beans-icon.png?v=1595893676"/>  
+<h3>Premium Beans</h3>
+<p>We work closely with our importer to select our limited edition Colombian coffees with quality and freshness in mind. </p>
+</li>
+
+<li>
+<img src="https://cdn.shopify.com/s/files/1/2074/9385/files/beans-icon.png?v=1595893676"/>  
+<h3>Premium Beans</h3>
+<p>We work closely with our importer to select our limited edition Colombian coffees with quality and freshness in mind. </p>
+</li>
+
+<li>
+<img src="https://cdn.shopify.com/s/files/1/2074/9385/files/beans-icon.png?v=1595893676"/>  
+<h3>Premium Beans</h3>
+<p>We work closely with our importer to select our limited edition Colombian coffees with quality and freshness in mind. </p>
+</li>
+</ul> -->
+
+  <div class="carousel"
+       data-flickity='{ "wrapAround": true }'>
+    <div class="carousel-cell">
+      <img src="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/beans-icon.png?v=1608745127"/>  
+      <h3>Premium Beans</h3>
+      <p>We work closely with our importer to select our limited edition Colombian coffees with quality and freshness in mind.</p>
+    </div>
+    <div class="carousel-cell">
+      <img src="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/grind.png?v=1608745127"/>  
+      <h3>The Perfect Roast</h3>
+      <p>Once our beans are stateside, our Master Coffee Roaster begins the roasting process in Illinois. Each batch is crafted to guarantee the best possible flavor.</p>
+    </div>
+    <div class="carousel-cell">
+      <img src="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/roaster2.png?v=1608745127"/>  
+      <h3>Not Just Any Roaster</h3>
+      <p>We use an S35 Kestrel Coffee Roaster, which helps decrease fuel consumption by 80% and reduces greenhouse gases with every roast, when compared to conventional roasters.</p>
+    </div>
+    <div class="carousel-cell"><img src="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/quality.png?v=1608745127"/>  
+      <h3>Consistent Quality</h3>
+      <p>Once we find the perfect roast profile, we weigh, measure and match every single batch to that profile. We then taste test random samples to make sure all of our customers receive the best coffee, every time.</p>
+    </div>
+    <div class="carousel-cell">
+      <img src="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/coffeebag.png?v=1608745127"/>  
+      <h3>Coffee So Fresh</h3>
+      <p>Our coffee is bagged by hand in our roasting facility and is packaged the same day it’s roasted for optimal freshness.</p>
+    </div>
+    <div class="carousel-cell">
+      <img src="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/coffeebox.png?v=1608745127"/>  
+      <h3>Handled With Care</h3>
+      <p>Our team then carefully packs and ships your order straight to your door – just in time for your next brew.</p>
+    </div>
+    <div class="carousel-cell">
+      <img src="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/coffeecup.png?v=1608745127"/>  
+      <h3>Elevated Brew, By You</h3>
+      <p>Start your day off the Vital way with the perfect cup of joe for your most fulfilling morning yet. Best brew ever, here you come.</p>
+    </div>
+  </div>
+  <style>
+    .carousel {
+      max-width: 1200px;
+      margin: 0 auto;
+      margin-bottom: 25px;
+      margin-top: 50px;
+    }
+    .carousel-cell {
+      width: 30%;
+      margin-right: 10px;
+      counter-increment: carousel-cell;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 35px;
+    }
+    .slider-gallery .thumbnail img {
+      width: auto !important;
+      height: 270px !important;
+    }
+    .carousel-cell h3 {
+      font-family: "avenir";
+      color: #FFFFFF;
+      text-transform: capitalize;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 1em;
+      letter-spacing: 0.55px !important;
+      text-align: center;
+      margin: 0 auto;
+      margin-bottom: 10px;
+      margin-top: 15px;
+    }
+    .carousel-cell p {
+      color: #ffffff;
+      text-align: center;
+      max-width: 80%;
+    }
+    .flickity-prev-next-button {
+      filter: alpha(opacity=1);
+      position: absolute;
+      top: 30%;
+      bottom: 0;
+      width: 11%;
+      border: none;
+      background: white;
+      background: rgb(255 255 255 / 1);
+      cursor: pointer;
+      border-radius: 0;
+      height: 50px;
+      width: 60px;
+      border-radius: 50px;
+      max-width: 100px;
+      transform: none;
+    }
+    .flickity-page-dots .dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin: 0 8px;
+      background: #fff;
+      border-radius: 50%;
+      filter: alpha(opacity=25);
+      opacity: 0.25;
+      cursor: pointer;
+    }
+
+    @media only screen and (max-width: 799px) {
+      .carousel-cell {
+        width: 80%;
+      }
+      .product-container .current-roast-stats {
+        list-style: none;
+        padding-left: 0px;
+        padding-right: 0px;
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 0px;
+      }
+      .product-container .current-roast-stats li {
+        margin-bottom: 10px;
+        font-size: 18px;
+        color: #585A5B;
+        border: 1px solid #ececec;
+        width: 47%;
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        align-items: center;
+        flex-direction: column;
+        line-height: 1em;
+      }
+      .current-roast-stats .stat-title {
+        line-height: 30px;
+        margin-bottom: 5px;
+      }
+      .rmv {display:none;}
+      .current-roast-container {
+        display: flex;
+        flex-direction: column-reverse;
+      }
+      .price {
+        order: 1;
+        margin-top: -20px;
+        margin-bottom: -10px;
+      }
+      .v3-featured-blogs {
+        padding: 25px;
+        padding-top: 10px;
+      }
+    }
+    .duex {
+      max-width: 800px !important;
+      max-height: max-content;
+    }
+    .perfect-pour-text {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      margin-top: -35px;
+      margin-bottom: 35px;
+    }
+    .type-left {
+      width: 25%;
+    }
+    .type-right {
+      width: 70%;
+    }
+
+    @media only screen and (max-width: 799px) {
+      .duex {
+        max-width: 100% !important;
+        max-height: max-content;
+      }
+      .perfect-pour-text {
+        flex-direction: column;
+        padding: 25px;
+        margin-bottom: 0px;
+      }
+      .type-right, .type-left {
+        width: 100%;
+      }
+      .flickity-prev-next-button {
+        transform: scale(.7);
+      }
+    }
+    .flickity-slider img {
+      max-height: 120px;
+    }
+    .strike-it-hide {display:none;}
+    .strike-it-show {
+      display: inline-block;
+      margin-right: 5px;
+    }    
+  </style>
+</div>
+
+
+<div class="second-banner-container">
+  <div class="second-banner-text-container">
+    <div class="animated fadeInDown secondary-content">
+      <h2 class="main-sub-headings">The Vital Guide To The Perfect Pour Over</h2>
+      <img class="secondary-banner-highlight duex"
+           {% if section.settings.second-banner-highlight != blank %}
+           src="{{ section.settings.second-banner-highlight | img_url: '1200x' }}"
+           {% else %}
+           src="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/file.gif?v=1608745288"
+           {% endif %}
+           alt="Coffee Bundle"/>
+    </div>
+  </div>
+</div>
+
+
+<div class="perfect-pour-text">
+  <div class="type-left">
+    <strong>Total Brew Time: 4-5 minutes</strong>
+    <br><br>
+    <strong>What You Need:</strong><br>
+    • 27g medium ground coffee<br>
+    • 400mL boiling water (205°F)<br>
+    • Filter<br>
+    • Your favorite pour-over brewer 
+  </div>
+  <div class="type-right">
+    <strong>How To Do It:</strong><br>
+    1. 	Prep your brew by pre-rinsing your coffee filter with hot water (205°F).<br>
+    2. 	Discard the water and add 27g of medium ground coffee to the filter.<br>
+    3. 	Pour 100mL of water over the grounds, starting in the center before spiraling outwards.<br>
+    4. 	Continue to add 50mL of water every 30 seconds for up to 5 minutes.<br>
+    5. 	Let the coffee drain and saturate.<br>
+    6. 	Add your favorite collagen for a boost. Then serve &amp; enjoy!
+  </div>
+</div>
+
+<div class="v3-featured-blogs">
+  <h2 class="main-sub-headings">{{ section.settings.v3-feature-blogs-heading }}</h2>
+  <h3>{{ section.settings.v3-feature-blogs-subhead }}</h3>
+
+  <div class="v3-featured-blogs-inner">
+    <div class="v3-featured-blogs-inner-main">
+      <a href="{{ articles[section.settings.featured_article_1].url }}" target="_blank">
+        <div class="v3-featured-blogs-image"  title="{{ articles[section.settings.featured_article_1].title }}" style="background-image: url('{{ articles[section.settings.featured_article_1].image | img_url: '600x', format: 'jpg' }}')"></div></a>
+      <div class="v3-featured-blogs-text">
+        {% assign splitURL = articles[section.settings.featured_article_1].url | split: "/" %}
+
+        <a href="{{ blogs[splitURL[2]].url }}" class="category-title" target="_blank">{{ blogs[splitURL[2]].title }}</a>
+        <a href="{{ articles[section.settings.featured_article_1].url }}" target="_blank"><h4 style="letter-spacing:0px !important;">{{ articles[section.settings.featured_article_1].title }}</h4></a>
+        <a href="{{ articles[section.settings.featured_article_1].url }}" class="v1-read-more" target="_blank">Read more</a>
+      </div>
+    </div>
+    <div class="v3-featured-blogs-inner-sub">
+      <div class="v3-featured-blogs-inner-sub-inner">
+        <a href="{{ articles[section.settings.featured_article_2].url }}" target="_blank">
+          <div class="v3-featured-blogs-image"  title="{{ articles[section.settings.featured_article_2].title }}" style="background-image: url('{{ articles[section.settings.featured_article_2].image | img_url: '600x', format: 'jpg' }}')"></div></a>
+        <div class="v3-featured-blogs-text">
+          {% assign splitURL = articles[section.settings.featured_article_2].url | split: "/" %}
+
+          <a href="{{ blogs[splitURL[2]].url }}" class="category-title" target="_blank">{{ blogs[splitURL[2]].title }}</a>
+          <a href="{{ articles[section.settings.featured_article_2].url }}" target="_blank"><h4 style="letter-spacing:0px !important;">{{ articles[section.settings.featured_article_2].title }}</h4></a>
+          <a href="{{ articles[section.settings.featured_article_2].url }}" class="v1-read-more" target="_blank">Read more</a>
+        </div>
+      </div>
+      <div class="v3-featured-blogs-inner-sub-inner">
+        <a href="{{ articles[section.settings.featured_article_3].url }}" target="_blank">
+          <div class="v3-featured-blogs-image"  title="{{ articles[section.settings.featured_article_3].title }}" style="background-image: url('{{ articles[section.settings.featured_article_3].image | img_url: '600x', format: 'jpg' }}')"></div></a>
+        <div class="v3-featured-blogs-text">
+          {% assign splitURL = articles[section.settings.featured_article_3].url | split: "/" %}
+
+          <a href="{{ blogs[splitURL[2]].url }}" class="category-title" target="_blank">{{ blogs[splitURL[2]].title }}</a>
+          <a href="{{ articles[section.settings.featured_article_3].url }}" target="_blank"><h4 style="letter-spacing:0px !important;">{{ articles[section.settings.featured_article_3].title }}</h4></a>
+          <a href="{{ articles[section.settings.featured_article_3].url }}" class="v1-read-more" target="_blank">Read more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--<div class="secondary-banner-container">
+<img class="secondary-banner-image" src="{{ section.settings.banner_image_2 | img_url: '1600x' }}" alt="Coffee Subscription"/>
+</div> -->
+
+
+
+<!-- <div class="coffee-info-container">
+<div class="animated fadeInUp">
+<img alt="{{ section.settings.info_icon_1.alt }}" src="{{ section.settings.info_icon_1 | img_url: '600x'}}"/>
+<h4>{{ section.settings.subscription_info_header_1 }}</h4>
+<p>{{ section.settings.subscription_info_text_1 }}</p>
+</div>
+<div class="animated fadeInUp">
+<img alt="{{ section.settings.info_icon_2.alt }}" src="{{ section.settings.info_icon_2 | img_url: '600x' }}"/>
+<h4>{{ section.settings.subscription_info_header_2 }}</h4>
+<p>{{ section.settings.subscription_info_text_2 }}</p>
+</div>
+<div class="animated fadeInUp">
+<img alt="{{ section.settings.info_icon_3.alt }}" src="{{ section.settings.info_icon_3 | img_url: '600x' }}"/>
+<h4>{{ section.settings.subscription_info_header_3 }}</h4>
+<p>{{ section.settings.subscription_info_text_3 }}</p>
+</div>
+</div> -->
+
+<!-- <script>
+$(".select-box").click(function(e) {
+e.preventDefault();
+
+//remove selected from others
+$(".select-box").removeClass("active");
+//do active to selected
+$(this).addClass("active");
+//get value
+var optVal = $(this).data("interval");
+$('.hidden-input.pid-{{ product.id }} .frequency-num').val(optVal);
+});
+
+$(".select-box-sub-type").click(function(e) {
+e.preventDefault();
+
+//remove selected from others
+$(".select-box-sub-type").removeClass("active");
+//do active to selected
+$(this).addClass("active");
+//get value
+var subTypeVal = $(this).data("interval");
+
+if (subTypeVal === 2) {
+$('.frequency-section').addClass("active");
+$('.hidden-input.pid-{{ product.id }} .frequency-num').attr('name', 'properties[shipping_interval_frequency]');
+$('.hidden-input.pid-{{ product.id }} .frequency-type').attr('name', 'properties[shipping_interval_unit_type]');
+$('.coffee-id-input').val({{ variant.metafields.subscriptions.discount_variant_id }});
+} else {
+$('.frequency-section').removeClass("active");
+$('.hidden-input.pid-{{ product.id }} .frequency-num').removeAttr('name');
+$('.hidden-input.pid-{{ product.id }} .frequency-type').removeAttr('name');
+$('.coffee-id-input').val({{ variant.id }});
+}
+});
+</script> -->
+
+
+<script>
+
+  $(document).ready(function() {
+
+    setTimeout(function() {
+      $('[id^="subscription-widget-select"]').val(4).change();
+    }, 200);
+
+    $(document).on('change', '.current-roast-container .subscription-widget-select', function(e) {
+      var quickSubProductID = $(this).data('product-id');
+      var selectedFrequency = $(this).val();
+      var originalVariant = $(this).data('original-variant-id');
+      var subscriptionVariant = $(this).data('subscription-variant-id');
+      if (selectedFrequency == 0) {
+        $('.current-roast-container .price .money').text($(this).data('price'));
+        $(".money-was").addClass("strike-it-hide");
+        $(".money-was").removeClass("strike-it-show");
+      } else {
+        $('.current-roast-container .price .money').text($(this).data('discount-price'));
+        $(".money-was").addClass("strike-it-show");
+        $(".money-was").removeClass("strike-it-hide");
+      }
+    });
+
+  });
+</script>
+
+
+{% schema %}
+  {
+    "name": "Coffee Subscription Page",
+    "class": "product-template product-coffee-subscription-template",
+    "settings": [
+      {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Banner Image"
+      },
+      {
+        "type": "text",
+        "id": "heroheadline",
+        "label": "Hero Headline",
+        "default": "Vital Coffee Roasters"
+      },
+      {
+        "type": "textarea",
+        "id": "herotext",
+        "label": "Hero Text",
+        "default": "Complement your collagen routine with Vital Coffee, a perfectly flavorful reason to stop hitting snooze every morning."
+      },
+      {
+        "type": "text",
+        "id": "herobtntext",
+        "label": "Hero Button Text",
+        "default": "Let's Get Brewin"
+      },
+      {
+        "type": "image_picker",
+        "id": "banner_image_2",
+        "label": "Secondary Banner Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "info_icon_1",
+        "label": "Subscription Info Icon 1"
+      },
+      {
+        "type": "text",
+        "id": "subscription_info_header_1",
+        "label": "Subscription Info Header 1",
+        "default": "More Info 1"
+      },
+      {
+        "type": "textarea",
+        "id": "subscription_info_text_1",
+        "label": "Subscription Info Text 1",
+        "default": "Turkish flavour irish dark at mug seasonal. Mug cream redeye coffee eu grounds mocha percolator. Coffee, whipped, arabica, beans latte pumpkin spice spoon doppio plunger pot qui fair trade. Grinder rich mazagran macchiato, variety doppio chicory cinnamon affogato iced lungo kopi-luwak. Cultivar as foam a caffeine decaffeinated cup aroma."
+      },
+      {
+        "type": "image_picker",
+        "id": "info_icon_2",
+        "label": "Subscription Info Icon 2"
+      },
+      {
+        "type": "text",
+        "id": "subscription_info_header_2",
+        "label": "Subscription Info Header 2",
+        "default": "More Info 2"
+      },
+      {
+        "type": "textarea",
+        "id": "subscription_info_text_2",
+        "label": "Subscription Info Text 2",
+        "default": "Turkish flavour irish dark at mug seasonal. Mug cream redeye coffee eu grounds mocha percolator. Coffee, whipped, arabica, beans latte pumpkin spice spoon doppio plunger pot qui fair trade. Grinder rich mazagran macchiato, variety doppio chicory cinnamon affogato iced lungo kopi-luwak. Cultivar as foam a caffeine decaffeinated cup aroma."
+      },
+      {
+        "type": "image_picker",
+        "id": "info_icon_3",
+        "label": "Subscription Info Icon 3"
+      },
+      {
+        "type": "text",
+        "id": "subscription_info_header_3",
+        "label": "Subscription Info Header 3",
+        "default": "More Info 3"
+      },
+      {
+        "type": "textarea",
+        "id": "subscription_info_text_3",
+        "label": "Subscription Info Text 3",
+        "default": "Turkish flavour irish dark at mug seasonal. Mug cream redeye coffee eu grounds mocha percolator. Coffee, whipped, arabica, beans latte pumpkin spice spoon doppio plunger pot qui fair trade. Grinder rich mazagran macchiato, variety doppio chicory cinnamon affogato iced lungo kopi-luwak. Cultivar as foam a caffeine decaffeinated cup aroma."
+      },
+      {
+        "type": "text",
+        "id": "coffee_packaged",
+        "label": "Packaged",
+        "default": "The same day it’s roasted for optimal freshness"
+      },
+      {
+        "type": "text",
+        "id": "origin_country",
+        "label": "Country of Origin",
+        "default": "Colombia"
+      },
+      {
+        "type": "text",
+        "id": "coffee_roast",
+        "label": "Roast",
+        "default": "Medium"
+      },
+      {
+        "type": "textarea",
+        "id": "flavor_profile",
+        "label": "Flavor Profile",
+        "default": "Toffee, Sweet Citrus &amp; Cocoa"
+      },
+      {
+        "id": "v1-feature-highlight",
+        "type": "image_picker",
+        "label": "Highlight Image One"
+      },
+      {
+        "id": "v1-feature-highlight-heading",
+        "type": "text",
+        "label": "Highlight Heading One",
+        "default": "It's Always In Season"
+      },
+      {
+        "id": "v1-feature-highlight-list",
+        "type": "textarea",
+        "label": "Highlight Text One",
+        "default": "Like fruits, coffee should be enjoyed seasonally. This is vital in helping the coffee’s nutty, fruit-forward tasting notes truly shine through. And lucky for you, this brew is at its prime."
+      },
+      {
+        "id": "v2-feature-highlight",
+        "type": "image_picker",
+        "label": "Highlight Image Two"
+      },
+      {
+        "id": "v2-feature-highlight-heading",
+        "type": "text",
+        "label": "Highlight Heading Two",
+        "default": "It's Crafted With Care"
+      },
+      {
+        "id": "v2-feature-highlight-list",
+        "type": "textarea",
+        "label": "Highlight Text Two",
+        "default": "Premium coffee beans are carefully selected in Colombia and roasted in small batches locally in Chicago where we help bring forth their fragrant flavor profile."
+      },
+      {
+        "id": "v3-feature-highlight",
+        "type": "image_picker",
+        "label": "Highlight Image Three"
+      },
+      {
+        "id": "v3-feature-highlight-heading",
+        "type": "text",
+        "label": "Highlight Heading Three",
+        "default": "It’s Sustainable"
+      },
+      {
+        "id": "v3-feature-highlight-list",
+        "type": "textarea",
+        "label": "Highlight Text Three",
+        "default": "Just like the rest of our Vital offerings, our coffee aligns with our commitment to sustainability and transparency. Quality over quantity is key for everyone involved, from farmer to roaster."
+      },
+      {
+        "type": "text",
+        "id": "secondheroheadline",
+        "label": "Second Hero Headline",
+        "default": "Curated for Coffee Lovers"
+      },
+      {
+        "type": "textarea",
+        "id": "secondherotext",
+        "label": "Hero Text",
+        "default": "XYZ-in-1 bundle to energize any routine. Just add coffee."
+      },
+      {
+        "type": "text",
+        "id": "secondherobtntext",
+        "label": "Hero Button Text",
+        "default": "Buy Now"
+      },
+      {
+        "type": "text",
+        "id": "coffee_collection_title",
+        "label": "Main Heading",
+        "default": "Collagen And Coffee"
+      },
+      {
+        "type": "collection",
+        "id": "coffee_collection_collection",
+        "label": "Collection"
+      },
+      {
+        "type": "radio",
+        "id": "collection_style",
+        "label": "Collection layout",
+        "default": "slider",
+        "options": [
+          {
+            "value": "slider",
+            "label": "Slider"
+          },
+          {
+            "value": "grid",
+            "label": "Grid"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "coffee_collection_description",
+        "label": "Description",
+        "default": "Boost your cup of joe with our best-selling collagen."
+      },
+      {
+        "type": "range",
+        "id": "products_per",
+        "label": "Products per row",
+        "min": 2,
+        "max": 7,
+        "step": 1,
+        "default": 3
+      },
+      {
+        "type": "range",
+        "id": "products_limit",
+        "label": "Limit products",
+        "min": 2,
+        "max": 50,
+        "step": 1,
+        "default": 9
+      },
+      {
+        "type": "header",
+        "content": "Blog Settings"
+      },
+      {
+        "type": "text",
+        "id": "v3-feature-blogs-heading",
+        "label": "Section Heading",
+        "default": "Learn More On Our Lively Blog"
+      },
+      {
+        "type": "text",
+        "id": "v3-feature-blogs-subhead",
+        "label": "Section SubHead",
+        "default": "Welcome To #VitalVersity"
+      },
+      {
+      "type": "article",
+      "id": "featured_article_1",
+      "label": "Featured Article 1"
+      },
+      {
+        "type": "article",
+        "id": "featured_article_2",
+        "label": "Featured Article 2"
+      },
+      {
+        "type": "article",
+        "id": "featured_article_3",
+        "label": "Featured Article 3"
+      }
+     ],
+    "blocks":[
+      {
+      "type": "block-1",
+      "name": "Icon Blocks",
+      "settings": [
+        {
+        "type": "text",
+        "id": "v1-callout-title",
+        "label": "Callout Icon Title"
+        },
+        {
+        "type": "image_picker",
+        "id": "v1-callout-icon",
+        "label": "Icon"
+        }
+      ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+
+
+{% endjavascript %}

@@ -1,0 +1,87 @@
+<style>
+  .mini-cart-upsell-section {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+  
+  .upsell-section-header {
+    font-family: 'kapraregular';
+    font-size: 18px;
+    border-top: 1px solid #d2d2d2;
+    border-bottom: 1px solid #d2d2d2;
+    color: #6f6f6f;
+  }
+  
+  .mini-cart-upsell-product-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .mini-cart-upsell-product-list .product-card {
+    width: 50%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  
+  .mini-cart-upsell-product-list .product-card span {
+    display: block;
+    font-size: 12px;
+    line-height: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .mini-cart-upsell-product-list .product-card .upsell-product-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+  }
+  
+  .mini-cart-upsell-product-list .product-card .upsell-price {
+    font-family: 'kapraregular';
+    font-size: 16px;
+    color: gray;
+  }
+  
+  .mini-cart-upsell-product-list .product-card img {
+    height: 80px;
+    border-radius: 4px;
+  }
+  
+  .mini-cart-upsell-product-list .product-card .subscription-widget-new {
+    display: none;
+  }
+  
+  .mini-cart-upsell-product-list .product-card .action_button.add_to_cart {
+    margin-top: 10px;
+    min-height: 0;
+    height: auto;
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+  }
+  
+  .mini-cart-upsell-product-list .product-card .action_button.add_to_cart .text {
+    font-size: 21px;
+        padding-top: 10px;
+    padding-bottom: 10px;
+  }
+</style>
+
+<div class="mini-cart-upsell-section">
+  <p class="upsell-section-header">These items are moving quick!</p>
+  <div class="mini-cart-upsell-product-list">
+    {% for product in collections['mini-cart'].products limit: 2 %}
+      <div class="product-card">
+        <img class="lazyload" data-src="{{ product.first_available_variant.image | img_url: '100x' }}"/>
+        <span class="upsell-product-title">{{ product.title }}</span>
+        <span class="upsell-variant-title">{{ product.first_available_variant.title }}</span>
+        <span class="upsell-price">{{ product.price | money_without_trailing_zeros }}</span>
+        {% include 'product-form-mini-no-subscribe' %}
+      </div>
+    {% endfor %}
+  </div>
+</div>

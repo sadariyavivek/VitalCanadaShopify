@@ -1,0 +1,25 @@
+{% layout none %}
+<div class="product-grid-item">
+  <a href="{{ product.url }}" class="product-image">
+    <img src="{{ product.featured_image | img_url : '200x' }}"/>
+  </a>
+  <div class="product-card">
+    <p class="product-title">{{ product.title }}</p>
+    <span aria-label="Average rating is {{ product.metafields.stamped.reviews_average | round:2 }} stars out of 5 based on {{ product.metafields.stamped.reviews_count }} reviews." class="stamped-product-reviews-badge" data-product-sku="{{ product.handle }}" data-id="{{ product.id }}" style="display:block;">
+      {% if product.metafields.stamped.badge %}
+      {{ product.metafields.stamped.badge }}
+      {% else %}
+      <span class="stamped-badge">
+        <span class="stamped-starrating stamped-badge-starrating">
+          <i class="stamped-fa"></i>
+        </span>
+      </span>
+      {% endif %}
+    </span>
+    <p class="product-price">{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</p>
+    <!--<a class="product-grid-cta" href="#">Add to Bag</a>-->
+    <div class="product-details">
+      {% include 'product-form-mini' with product %}
+    </div>
+  </div>
+</div>

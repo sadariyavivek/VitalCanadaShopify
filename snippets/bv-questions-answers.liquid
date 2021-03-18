@@ -1,0 +1,13 @@
+{% comment %}
+<!-- /snippets/bv-questions-answers.liquid -->
+<!-- Bazaarvoice Questions & Answers -->
+{% endcomment %}
+<div data-bv-show="questions" data-bv-product-id="{{product.id}}">
+{% if product.metafields.bazaarvoice.questions %}
+{{ product.metafields.bazaarvoice.questions }}
+{% endif %}
+</div>
+<!-- Bazaarvoice Shopify Integration Version 1.8 -->
+{% comment %}
+<!-- End Bazaarvoice Questions & Answers -->
+{% endcomment %}

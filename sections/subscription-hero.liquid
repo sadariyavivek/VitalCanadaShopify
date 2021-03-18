@@ -1,0 +1,20 @@
+<div class="loading-page-screen" id="subscription-hero-loading">Loading...</div>
+<div id="subscription-hero-wrapper">
+  <div id="subscription-hero"></div>
+  {% assign imageURL = 'VP_JA_Yoga_Hero.jpg' | file_img_url: '1200x' %}
+  {% assign quote = "Collagen is the glue that holds everything together. I've always been an advocate for nourishing your wellness from within, which is why I started using Vital Proteins so many years ago." %}
+  {% render 'pdp-quote-box', imageURL: imageURL, quote: quote %}
+</div>
+
+{% schema %}
+	{
+  "name": "Subscription Hero",
+  "class": "subscription-hero-section",
+  "presets": [{
+    "name": "Subscription Hero",
+    "category": "Hero",
+    "settings": {
+    }
+  }]
+}
+{% endschema %}

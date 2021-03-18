@@ -1,0 +1,49 @@
+<style>
+  blockquote {
+    font-family: 'Lora', serif !important;
+    font-style: normal;
+}
+</style>
+
+
+<div class="newStyles2020">
+<div class="container">
+<blockquote>
+  <span><img  style="padding-bottom: 20px;" src="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/Testimonial-icon_2500x.png"></span><br>
+	{{ section.settings.quote-text }}
+  <span>{{ section.settings.quote-author }}</span>
+</blockquote>
+</div>
+</div>
+
+{% schema %}
+  {
+    "name": "HP2020 Quote",
+    "settings": [
+	{
+      "type": "text",
+      "id": "quote-text",
+      "label": "Quote Text",
+	  "default": "I add collagen to my daily routine because it helps me with my skin, hair, nails and joints.**"
+    },
+	{
+      "type": "text",
+      "id": "quote-author",
+      "label": "Quote Author",
+	  "default": "Silvana Araujo"
+    }
+],
+    "presets": [
+    {
+      "name": "Blockquote",
+      "category": "HP2020 Sections"
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

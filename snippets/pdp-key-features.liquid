@@ -1,0 +1,17 @@
+{% if product.metafields.vital.key_feature_1 != blank  or product.metafields.vital.key_feature_2 != blank or product.metafields.vital.key_feature_3 != blank %}
+<div class="key-features-wrapper lazyload" 
+     {% if product.metafields.conspire.split_image_2 %}
+     data-bg="{{ product.metafields.conspire.split_image_2 }}"
+     style="background-size: cover;"
+     {% else %}
+     data-bg="{{'2042020_VP_5611-2.jpg' | file_img_url: '1600x'}}"
+     style="background-size: cover;"
+     {% endif %} >
+  <div class="key-features-inner">
+    <h5 class="key-features-header-text">Key Features &amp; Attributes</h5>
+    <p class="key-features-body-text">{{ product.metafields.vital.key_feature_1 }}</p>
+    <p class="key-features-body-text">{{ product.metafields.vital.key_feature_2 }}</p>
+    <p class="key-features-body-text">{{ product.metafields.vital.key_feature_3 }}</p>
+  </div>
+</div>
+{% endif %}

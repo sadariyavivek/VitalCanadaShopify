@@ -1,0 +1,158 @@
+{% capture content %}
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="{{ shop.locale }}"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="{{ shop.locale }}"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="{{ shop.locale }}"> <![endif]-->
+<!--[if IE 9 ]><html class="ie ie9" lang="{{ shop.locale }}"> <![endif]-->
+<!--[if (gte IE 10)|!(IE)]><!--><html lang="{{ shop.locale }}"> <!--<![endif]-->
+<head>
+  {% include 'elevar-head' %}
+  <meta charset="utf-8">
+  <meta http-equiv="cleartype" content="on">
+  <meta name="robots" content="index,follow">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap" rel="stylesheet">
+  <link href="//cdn.shopify.com/s/files/1/0518/0335/7361/t/3/assets/custom.css?v=18076772503026753419" rel="stylesheet" type="text/css" media="all"/>
+  <!-- Stylesheets for Conspire 3.0.2 -->
+  {{ 'tailwind.css' | asset_url | stylesheet_tag }}
+  {{ 'styles.scss.css' | asset_url | stylesheet_tag }}
+<!--   {{ 'custom.scss.css' | asset_url | stylesheet_tag }} -->
+  {{ 'new2021.scss.css' | asset_url | stylesheet_tag }}
+
+  {% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %}{% endif %}
+  <title>{% if template contains "index" %}{{ page_title }}{% else %}{{ page_title }}{% if current_tags %} {{ 'general.meta.tagged_html' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} {{ 'general.meta.page' | t: page_number: current_page }}{% endif %}{% unless page_title contains shop.name %} - {{ shop.name }}{% endunless %}{% endif %}</title>
+
+  {% if page_description %}
+    <meta name="description" content="{{ page_description | escape }}{% if current_tags %} {{ 'general.meta.tagged_html' | t: tags: meta_tags | escape }}.{% endif %}{% if current_page != 1 %} {{ 'general.meta.page' | t: page_number: current_page }}.{% endif %}" />
+  {% endif %}
+
+  {% include 'social-meta-info' %}
+
+  <!-- Mobile Specific Metas -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="{{ settings.shop_bg_color }}">
+
+  {% if settings.favicon != nil %}
+    <link rel="shortcut icon" type="image/x-icon" href="{{ settings.favicon | img_url: '32x32' }}">
+  {% else %}
+    <link rel="shortcut icon" type="image/x-icon" href="{{ 'favicon.png' | asset_url }}">
+  {% endif %}
+  <link rel="canonical" href="{{ canonical_url }}" />
+  
+  {% if template contains 'article' %}
+  	{% if article.metafields.vital.enable_amp_version %}
+  		<link rel="amphtml" href="{{ canonical_url | append: '?view=amp' }}">
+  	{% endif %}
+  {% endif %}
+  {{ content_for_header }}
+  
+  <script defer src="https://kit.fontawesome.com/80be4589ae.js" crossorigin="anonymous"></script>
+    <!-- START Rakuten Marketing Tracking -->
+  <script type="text/javascript">
+    (function (url) {
+      /*Tracking Bootstrap Set Up DataLayer objects/properties here*/
+      if(!window.DataLayer){
+        window.DataLayer = {};
+      }
+      if(!DataLayer.events){
+        DataLayer.events = {};
+      }
+      DataLayer.events.SPIVersion = DataLayer.events.SPIVersion || "3.2";
+      DataLayer.events.SiteSection = "1";
+
+      var loc, ct = document.createElement("script");
+      ct.type = "text/javascript";
+      ct.async = true; ct.src = url; loc = document.getElementsByTagName('script')[0];
+      loc.parentNode.insertBefore(ct, loc);
+      }(document.location.protocol + "//intljs.rmtag.com/117658.ct.js"));
+  </script>
+<!-- END Rakuten Marketing Tracking -->
+  <!-- jQuery Import -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- End jQuery Import -->
+
+  <meta name="google-site-verification" content="f8yKrNvGNNYRUvRMeitXzxUtZ7qEDk-3s5TqmfYtxBE" />
+  <!-- Global Site Tag (gtag.js) - Google AdWords: 932920570 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-932920570"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-932920570', {'send_page_view': false});
+</script>
+  
+{% comment %}Animate on Slide package{% endcomment %}
+<script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>(function(d){var e=d.createElement('script');e.src='https://td.yieldify.com/yieldify/code.js?w_uuid=9244c081-aa7f-4615-8641-855d141008da&k=1&loca='+window.location.href;e.async=true;d.getElementsByTagName('head')[0].appendChild(e);}(document));</script>
+<!-- Heap -->
+<script type="text/javascript">
+window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=document.createElement("script");r.type="text/javascript",r.async=!0,r.src="https://cdn.heapanalytics.com/js/heap-"+e+".js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(r,a);for(var n=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","resetIdentity","removeEventProperty","setEventProperties","track","unsetEventProperty"],o=0;o<p.length;o++)heap[p[o]]=n(p[o])};
+heap.load("1199994563");
+</script>
+
+{% render 'gsf-conversion-pixels' %}
+  <script defer src="{{ 'lazysizes.min.js' | asset_url }}"></script>
+  <style type="text/css">
+  .brandTeaser {
+  	margin-top: 3em!important;
+}
+  </style>
+</head>
+{% if template contains "blog" %}
+  {% assign feature_image = true %}
+{% elsif template contains "article" %}
+  {% assign feature_image = true %}
+{% else %}
+  {% assign feature_image = false %}
+{% endif %}
+
+<body class="{{ template | replace: '.', '-' | handle }} mobile_nav-fixed--false"
+  data-money-format="{{ shop.money_format }}">
+
+  {% section 'header' %}
+
+  {% unless feature_image %}
+    <div class="container main content">
+  {% endunless %}
+
+    {{ content_for_layout }}
+  </div>
+
+  {% unless template contains 'index' or settings.secondary_newsletter_banner == false %}
+    {% section 'newsletter' %}
+  {% endunless %}
+
+  {% section 'footer' %}
+
+  {% if settings.disqus_enabled %}
+    {% if template contains "blog" or template contains "article" or template contains "index" %}
+      <script id="dsq-count-scr" src="//{{ settings.disqus_shortname }}.disqus.com/count.js" async></script>
+    {% endif %}
+  {% endif %}
+  <script defer src="{{ 'moment.min.js' | asset_url }}"></script>
+  <script src="{{ 'app.js' | asset_url }}"></script>
+  
+<script type="text/javascript">
+  var google_tag_params = {
+    ecomm_pagetype: 'other'
+  };
+</script>
+<script>
+  gtag('event', 'page_view', {'send_to': 'AW-932920570',
+                              'ecomm_prodid':window.google_tag_params.ecomm_prodid,
+                              'ecomm_pagetype': window.google_tag_params.ecomm_pagetype,
+                              'ecomm_totalvalue':window.google_tag_params.ecomm_totalvalue
+                             });
+</script>
+  {% include 'elevar-body-end' %}
+<!-- CRITEO START -->
+{% include 'criteo-tracking' %}
+<!-- CRITEO END -->
+
+</body>
+</html>
+{% endcapture %}
+{% assign content = content | replace_first: '<!DOCTYPE', '!DOCTYPE' | split: ' <' %}
+{% for html in content %}{% assign htmlblock = html | strip | prepend: ' <' %}{{htmlblock | replace: ' </', '</'}}{% endfor %}

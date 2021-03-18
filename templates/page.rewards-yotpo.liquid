@@ -1,0 +1,37 @@
+{% unless customer %}
+<script>window.location.href='/account/login?return_url=/pages/rewards-1'</script>
+{% endunless %}
+
+<script>
+{% if customer %}
+customer = {
+  first_name: '{{customer.first_name}}',
+  last_name: '{{customer.last_name}}'
+};
+{% else %}
+customer = null;
+{% endif %}
+</script>
+
+<a name="pagecontent" id="pagecontent"></a>
+
+<div class="top-navigation" role="navigation">
+  <ul class="secondary-menu">
+    <li>
+      <a href="/pages/account-landing-page/">Home</a>
+    </li>
+    <li>
+      <a href="/pages/rewards-1/" class="is-active">Rewards</a>
+    </li>
+    <li>
+      <a href="/account">Account</a>
+    </li>
+    <li>
+      <a href="/tools/recurring/login/">Subscriptions</a>
+    </li>
+    <li>
+      {{ 'layout.customer.log_out' | t | customer_logout_link }}
+    </li>
+  </ul>
+</div>
+<div id="review-page"></div>

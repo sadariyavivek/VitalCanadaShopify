@@ -1,0 +1,340 @@
+<style>
+  .quiz-wrapper {
+    width: 100%;
+    background-color: #81daec;
+  }
+  
+  .main.content {
+    padding: 0;
+  }
+  
+  .quiz-screen-container {
+    max-width: 1200px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	min-height: 80vh;
+    overflow-y: scroll;
+    padding-top: 20px;
+    padding-bottom: 50px;
+  }
+  
+  .quiz-slide {
+    width: 100%;
+  }
+  
+  .quiz-slide h2 {
+    text-transform: uppercase;
+    letter-spacing: 1px !important;
+    color: white;
+    font-size: 48px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .quiz-slide p {
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .quiz-slide a {
+    display: block;
+    transition: .2s all ease-out;
+    color: white;
+  }
+  
+  .quiz-slide a:hover .answer-icon-container {
+    transform: scale(1.02);
+  }
+  
+  .quiz-slide button {
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 20px;
+    height: initial;
+    min-height: initial;
+    padding: 10px 30px;
+    font-size: 32px;
+  }
+  
+  .quiz-slide button.previousButton {
+    margin-right: 10px;
+  }
+  
+  .quiz-slide button.next {
+    margin-left: 10px;
+  }
+  
+  .quiz-slide button:disabled {
+    background: #8080807a;
+  }
+  
+  .quiz-slide button:disabled:hover {
+    background: #8080807a;
+  }
+  
+  .quiz-slide button:hover {
+    border: none;
+    background: #23b6e6;
+    opacity: 0.7;
+  }
+  
+  .quiz-slide .question-type-prompt {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-family: 'kapraregular';
+    font-size: 24px;
+  }
+  
+  .item-choice {
+ 	margin-left: 60px;
+    margin-right: 60px;
+  }
+  
+  .item-choice:focus {
+   	outline: 2px solid gray; 
+  }
+  
+  .item-choice.active .answer-icon-container {
+    border-color: white;
+  }
+  
+  .item-choice p {
+    max-width: 180px;
+    font-size: 18px;
+  }
+  
+  .answer-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .answer-icon-container {
+    border: 4px solid #23b6e6;
+    width: 140px;
+    height: 140px;
+    display: block;
+    position: relative;
+    border-radius: 100%;
+    background-color: #23b6e6;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+   	align-items: center;
+    justify-content: center;
+    transition: .4s all cubic-bezier(0.18, 0.89, 0.32, 1.28)
+  }
+  
+  .answer-icon-container img {
+  	width: 70%;
+  }
+  
+  .rec-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .rec-container .rec-wrapper {
+    width: 25%;
+    padding-left: 20px;
+    padding-right: 20px;
+    
+  }
+  
+  .rec-container p.product-results-title {
+    text-transform: uppercase;
+    font-family: 'kapraregular';
+    transition: .3s all cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    color: #23b6e6;
+    margin-bottom: 10px;
+  }
+  
+  .rec-container p.product-results-subtext {
+    font-family: 'avenir';
+    text-transform: none;
+    font-size: 16px;
+    color: #4a4a4a;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .rec-container .product-results-learn-more-button {
+    color: white;
+    background-color: #23b6e6;
+    font-family: 'kapraregular';
+    text-transform: uppercase;
+    border-radius: 10px;
+    padding: 10px 20px;
+    width: fit-content;
+    font-size: 24px;
+    letter-spacing: 1px;
+    margin: 10px auto;
+    display: block;
+    transition: .2s opacity transform cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  }
+  
+  .rec-container .product-results-learn-more-button:hover {
+    opacity: 0.7;
+    transform: translateY(-1px);
+  }
+  
+  
+  .product-rec-image {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    transition: .3s all cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  }
+  
+  .quiz-slide h2.results-header {
+    color: #23b6e6;
+  }
+  
+  .rec-form-container h4 {
+    letter-spacing: 1px !important;
+    text-transform: uppercase;
+    font-size: 24px;
+    margin-bottom: 0;
+  }
+  
+  .quiz-slide .quiz-results-disclaimer-text {
+    font-size: 14px;
+    color: initial;
+    font-style: italic;
+  }
+  
+  @media only screen and (max-width: 800px) {
+    .quiz-screen-container {
+      width: 100%;
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+    
+    .quiz-slide h2 {
+      font-size: 24px;
+    }
+    
+    .item-choice {
+      margin-left: 0px;
+      margin-right: 0px;
+      width: 50%;
+      -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
+    }
+    
+    .item-choice p {
+      max-width: 100%;
+    }
+    
+    .answer-icon-container {
+      width: 80px;
+      height: 80px;
+    }
+    
+    .rec-container {
+      flex-wrap: wrap;
+    }
+    
+    .rec-container .rec-wrapper {
+      width: 50%;
+      padding-left: 0;
+      padding-right: 0;
+      -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
+    }
+    
+    .prev-next-button-container {
+      
+      position: fixed;
+    
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0.85;
+      z-index: 40000;
+      padding-top: 20px;
+      padding-bottom: 60px;
+      transform: translate3d(0,0,0);
+    }
+    
+    .startButton.next, .previousButton {
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+      border: 1px solid white;
+    }
+    
+    #chat-widget-container {
+      display: none;
+    }
+    
+    #talkable-offer {
+      display: none;
+    }
+  }
+ 
+</style>
+<a name="pagecontent" id="pagecontent"></a>
+</div>
+<div class="quiz-wrapper">
+    <div id="vital-quiz-container" class="quiz-screen-container">
+      <div class="quiz-slide slide-0" data-slide-index="0">
+        <h2 class="animated fadeInUp" style="animation-delay: 0.1s;">Your guide to Vital Proteins Collagen</h2>
+        <p class="animated fadeInUp" style="animation-delay: 0.2s;">Take this quiz to learn which Vital Proteins product may be best for you.</p>
+        <button class="startButton animated fadeInUp" style="animation-delay: .3s;">Start Now</button>
+      </div>
+      <div class="quiz-slide slide-results" style="display: none;">
+        <h2 class="animated fadeInUp results-header" style="animation-delay: 0.1s;">We recommend you try:</h2>
+        <div class="rec-container animated fadeInUp" style="animation-delay: 0.2s;">Answers here</div>
+        <div class="rec-form-container animated fadeInUp" style="animation-delay: 0.25s;">
+          	<h4>Sign up and Save 10% + get a free Collagen 101 e-book</h4>
+        	<form action="//manage.kmail-lists.com/subscriptions/subscribe" method="GET" target="_blank" novalidate="novalidate">
+			<input type="hidden" name="g" value="V2hfBH"/>
+            <div class="section" id="row_40673" style="margin: 0;">
+            <div class="container" id="column_51459" style="text-align: center; max-width: 600px; padding-top: 0; padding-bottom: 0;">
+            <div class="email field_block">
+  
+            <div class="field">
+            <span>
+            <input type="text" placeholder="Email Address*" class="text field fb-email" size="35" name="email" value="" style="text-align: center;"/>
+            </span>
+            <div class="field_error">
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            <div class="section" id="row_40674">
+            <div class="container" id="column_51460" style="text-align: center; max-width: 716px; padding-top: 0; padding-bottom: 0;">
+            <div class="field_block">
+            <div class="field">
+            <span>
+            <input type="submit" value="Subscribe" style="font-family: 'kapraregular'; text-transform: uppercase; letter-spacing: 1px;" />
+            </span>
+            </div>
+            </div>
+            </div>
+            </div>
+            </form>
+        </div>
+        <div>
+          <p class="quiz-results-disclaimer-text">*These products are what we recommend based on the entirety of the answers you provided. Please review the products and ensure that it fits with your preferences and goals before purchasing. This quiz is intended to guide you to products we think you would like and are not intended to diagnose, treat, cure, or prevent any disease.</p>
+        </div>
+      </div>
+  	</div>
+</div>
+<script>
+  var allProductData = {};
+  {% for product in collections['quiz-collection'].products %}
+  	var productInfo = {available: {{product.available}},title: "{{product.title}}",url: "{{ product.url }}",imageURL: "{{ product.featured_image | img_url: '600x' }}",blurb: "{{ product.metafields.vital.quiz_results_subtext }}"};allProductData["{{product.handle}}"] = productInfo;
+  {% endfor %}
+                   
+  var productScores={},selectedAnswers=[],finalQuizResults=[],currentIndex=0,quizQuestions=[{title:"Have you used collagen before?",type:"select-single",choices:[{title:"Yes",imageURL:"https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-01_400x.png",value:{}},{title:"No",imageURL:"https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-02_400x.png",value:{"collagen-peptides":1}}]},{title:"What benefits are you looking for from Collagen?",type:"select-multiple",choices:[{title:"Hair, Skin, & Nails Health",imageURL:"https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-03_400x.png",value:{"collagen-peptides":1,"dark-chocolate-blackberry-collagen-peptides-1":1,"marine-collagen-peptides":1,"collagen-latte-madagascar-vanilla":1,"matcha-collagen":1,"collagen-shot-glow":1,"collagen-beauty-greens":1,"collagen-creamer-vanilla":1,"collagen-creamer-coconut":1}},{title:"Healthy Joints & Bones",imageURL:"https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-04_400x.png",value:{"collagen-peptides":1,"dark-chocolate-blackberry-collagen-peptides-1":1,"marine-collagen-peptides":1,"vanilla-coconut-collagen-whey":1,"collagen-whey-protein-20-oz":1}},{title:"Improved Sleep",imageURL:"https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-05_400x.png",value:{"sleep-shot":2,"collagen-peptides":2,"organic-grass-fed-beef-bone-broth-collagen":2}},{title:"Improved Recovery",imageURL:"https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-06_400x.png",value:{"collagen-peptides":1,"vanilla-coconut-collagen-whey":1,"marine-collagen-peptides":1,"recovery-wave":1,"defense-shot":1}},{title:"Athletic Performance",imageURL:"https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-07_400x.png",value:{"collagen-peptides":2,"vanilla-coconut-collagen-whey":2,"collagen-whey-protein-20-oz":2,"recovery-wave":2,"strawberry-lemon-water":2,"defense-shot":2}},{title:"Digestive Health",imageURL:"https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-08_400x.png",value:{"collagen-latte-madagascar-vanilla":2,"organic-grass-fed-beef-bone-broth-collagen":2,"beef-gelatin":2,"cleanse-shot":2}},{title:"Natural Energy Boost",imageURL:"https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-09_400x.png",value:{"pre-wave":2,"matcha-collagen":2}}]},{title:"What would be easiest for you to incorporate collagen into your diet?",type:"select-multiple",choices:[{title:"Smoothies",imageURL:"https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-10_Smoothie_400x.png",value:{"collagen-peptides":1,"dark-chocolate-blackberry-collagen-peptides-1":1,"marine-collagen":1,"collagen-beauty-greens":1}},{title:"Coffee",imageURL:"https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-11_Coffee_400x.png",value:{"collagen-creamer-vanilla":1,"collagen-creamer-coconut":1,"collagen-peptides":1,"marine-collagen":1}},{title:"Water",imageURL:"https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-12_Water_400x.png",value:{"collagen-latte-madagascar-vanilla":1,"organic-grass-fed-beef-bone-broth-collagen":1,"collagen-peptides":1,"matcha-collagen":1,"recovery-wave":1,"pre-wave":1}},{title:"Matcha / Tea",imageURL:"https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-13_Matcha_400x.png",value:{"matcha-collagen":2}},{title:"Bone Broth",imageURL:"https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-14_BoneBroth_400x.png",value:{"organic-grass-fed-beef-bone-broth-collagen":2,"collagen-latte-madagascar-vanilla":1}},{title:"Protein Shake",imageURL:"https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-15_Protein_Shake_400x.png",value:{"collagen-peptides":1,"vanilla-coconut-collagen-whey":1,"collagen-whey-protein-20-oz":1}},{title:"Food Recipes",imageURL:"https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-16_Cooking_400x.png",value:{"collagen-peptides":1,"beef-gelatin":1}}]},{title:"Do you have any dietary preferences?",type:"select-multiple",choices:[{title:"No Restrictions",imageURL:"https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-23_NoFlavor_400x.png",value:{}},{title:"Paleo Friendly",imageURL:"https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-17_Paleo_400x.png",value:{}},{title:"Whole30",imageURL:"https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-18_Whole30_400x.png",value:{}},{title:"Pescatarian",imageURL:"https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-19_Pescetarian_400x.png",value:{"marine-collagen-peptides":1}},{title:"Dairy Free",imageURL:"https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-20_Dairy_Free_400x.png",value:{"vanilla-coconut-collagen-whey":-10,"collagen-whey-protein-20-oz":-10}},{title:"Keto",imageURL:"https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-21_Keto_400x.png",value:{"collagen-creamer-vanilla":1,"collagen-creamer-mocha":1,"collagen-creamer-coconut":1}},{title:"Vegan",imageURL:"https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-22_Vegan_400x.png",value:{"spirulina-capsules":10,"beauty-boost-capsules":10,"ha-super-surge":10}}]},{title:"Which of these flavors sound best to you?",type:"select-multiple",choices:[{title:"No Added Flavor",imageURL:"https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-23_NoFlavor_400x.png",value:{"collagen-peptides":2,"marine-collagen-peptides":2}},{title:"Fruity",imageURL:"https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-24_Fruity_400x.png",value:{recoverywave:1,"collagen-water":1,"dark-chocolate-blackberry-collagen-peptides-1":1,"pre-wave":1,"defense-shot":1,"collagen-shot-glow":1,"collagen-shot-cleanse":1}},{title:"Dark Chocolate",imageURL:"https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-25_Chocolate_400x.png",value:{"dark-chocolate-blackberry-collagen-peptides-1":1,"collagen-whey-protein-20-oz":1}},{title:"Vanilla",imageURL:"https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-26_Vanilla_400x.png",value:{"vanilla-coconut-collagen-whey":1,"collagen-latte-madagascar-vanilla":1,"collagen-creamer-vanilla":1}},{title:"Coconut",imageURL:"https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-27_Coconut_400x.png",value:{"collagen-creamer-coconut":1}},{title:"Herbal",imageURL:"https://cdn.shopify.com/s/files/1/2074/9385/files/OnlineQUIZ_R3-28_Herbal_400x.png",value:{"matcha-collagen":2,"collagen-beauty-greens":2}}]}];function moveToPreviousSlide(){$(".slide-"+currentIndex).fadeOut("fast",function(){currentIndex--,$(window).scrollTop(0),$(".slide-"+currentIndex).fadeIn("fast")})}function moveToNextSlide(){updateAnswersList(currentIndex),currentIndex<quizQuestions.length?$(".slide-"+currentIndex).fadeOut("fast",function(){currentIndex++,$(window).scrollTop(0),$(".slide-"+currentIndex).fadeIn("fast")}):(calculateResults(),$(".slide-"+currentIndex).fadeOut("fast",function(){currentIndex++,$(window).scrollTop(0),updateResultsHTML(),$(".quiz-wrapper").css({backgroundColor:"white"}),$(".slide-results").fadeIn("fast")}))}function updateResultsHTML(){for(var e="",t=0;t<3;t++)logGAEvent("Product Recommended",allProductData[finalQuizResults[t].product].title),e+='<div class="rec-wrapper"><a target="_blank" href="' + allProductData[finalQuizResults[t].product].url + '"><img class="product-rec-image" src="'+allProductData[finalQuizResults[t].product].imageURL+'"/></a><p class="product-results-title">'+allProductData[finalQuizResults[t].product].title+'</p><a target="_blank" class="product-results-learn-more-button" href="'+allProductData[finalQuizResults[t].product].url+'">Learn More</a><p class="product-results-subtext">'+allProductData[finalQuizResults[t].product].blurb+"</p></div><br>";$(".slide-results .rec-container").html(e)}function updateProductScores(e,t){$.map(e,function(e,l){productScores[l]?productScores[l]+=e*t:productScores[l]=e})}function toggleNextButtonDisabled(e,t){$(".slide-"+e+" .startButton").prop("disabled",t)}function updateAnswersList(e){var t={question:e,selectedAnswers:[]},l=$(".slide-"+e+" .item-choice.active");l.length>0&&($.each(l,function(e,l){var a={title:$(l).data("choiceText"),productValues:$(l).data("productValues")};t.selectedAnswers.push(a)}),selectedAnswers[e-1]?selectedAnswers[e-1]=t:selectedAnswers.push(t))}function calculateResults(){var e={};selectedAnswers.map(t=>{t.selectedAnswers.map(t=>{var l=t.productValues;$.map(l,function(t,l){e[l]?e[l]+=t:e[l]=t})})});var t=Object.keys(e).map(t=>{var l=!1;return allProductData[t]&&(l=allProductData[t].available),{product:t,score:e[t],available:l}}).sort(function(e,t){return t.score-e.score}).filter(isAvailable);finalQuizResults=t}function isAvailable(e){return!0===e.available}function logGAEvent(e,t){ga("send",{hitType:"event",eventCategory:"Quiz",eventAction:e,eventLabel:t})}quizQuestions.map((e,t)=>{var l='<div class="quiz-slide slide-'+(t+1)+" "+e.type+'" style="display: none;" data-slide-index="'+(t+1)+'"><h2>'+e.title+"</h2>";"select-single"===e.type?l+='<p class="question-type-prompt">Select One</p>':l+='<p class="question-type-prompt">Select Multiple</p>',e.choices&&(l+='<div class="answer-container">',e.choices.map((a,i)=>{var s='<a href="#" class="item-choice animated fadeInUp" style="animation-delay: '+.05*i+'s;" data-choice-text="'+a.title+'" data-question-index="'+(t+1)+'" data-question-type="'+e.type+'"data-product-values='+JSON.stringify(a.value)+'><div class="answer-icon-container"><img src="'+a.imageURL+'"/></div><p>'+a.title+"</p></a>";l+=s}),l+="</div>"),l+='<div class="prev-next-button-container"><button class="previousButton">Previous</button>',"select-multiple"===e.type&&(l+='<button disabled class="startButton next">Next</button></div>'),l+="</div>",$("#vital-quiz-container").append(l)}),$(".item-choice").on("mousedown",function(e){e.preventDefault()}),$(".item-choice").on("click",function(e){e.preventDefault();var t=$(this).data("productValues"),l=$(this).data("questionIndex"),a=$(this).data("choiceText");"select-single"===$(this).data("questionType")?(logGAEvent("Selected Answer","Question "+l+" - "+a),$(this).siblings().removeClass("active"),$(this).addClass("active"),updateProductScores(t,1),setTimeout(function(){moveToNextSlide()},400)):$(this).hasClass("active")?(logGAEvent("Deselected Answer","Question "+l+" - "+a),$(this).removeClass("active"),updateProductScores(t,-1),0===$(".slide-"+l+" .active").length&&toggleNextButtonDisabled(l,!0)):(logGAEvent("Selected Answer","Question "+l+" - "+a),$(this).addClass("active"),updateProductScores(t,1),toggleNextButtonDisabled(l,!1))}),$(".startButton").on("click",function(){moveToNextSlide()}),$(".previousButton").on("click",function(){moveToPreviousSlide()});
+  
+</script>

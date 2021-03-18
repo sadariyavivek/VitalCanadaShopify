@@ -1,0 +1,373 @@
+<style>
+  .primo-intro-text {
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .primo-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 400px;
+  }
+  .testimonial-container .quote-block {
+    display: table;
+    width: 100%;
+  }
+  .testimonial-container .quote-block .half {
+    width: 50%;
+    display: inline-block;
+    color: white;
+    padding: 90px;
+  }
+  .testimonial-container .quote-block .full {
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    color: white;
+    padding: 90px;
+  }
+  
+  .testimonial-container p {
+    font-weight: bold;
+  }
+  
+  .video-container {
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+  
+  .mediaWrapper {
+    width: 77% !important;
+    padding: 40% 0 0 0 !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .video-background-stripe {
+    position: absolute;
+    width: 100%;
+    padding-top: 220px;
+    margin-top: 120px;
+    background-color: #109ad6;
+    left: 0;
+  }
+  
+  .donation-container {
+    text-align: center;
+  }
+  
+  .donation-container h3 {
+    padding-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  
+  .donation-widget-container {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  
+  .support-container p {
+    font-weight: bold;
+  }
+  
+  .support-container ul {
+    list-style: none;
+    text-align: center;
+    padding-left: 0;
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+  }
+  
+  .primo-disclaimer {
+    font-style: italic;
+  }
+  
+  .blue-box-container {
+  	text-align: center;
+  }
+  
+  .blue-box-container h3 {
+    padding-top: 80px;
+  }
+  
+  .blue-box-image {
+    width: 50%;
+    border-radius: 20px;
+    margin-top: 20px;
+  }
+  
+  .header-section{
+      position: relative;
+  }
+
+  .banner_pages img{
+  	width: 100%;
+  }
+  
+  .caption.captionOverlay--true {
+    max-width: 800px;
+    text-align: center;
+    margin: 0 auto;
+    left: 0;
+    top: 480px;
+  }
+  
+  .caption.captionOverlay--true h1 {
+    font-size: 160px;
+    line-height: 175px;
+  }
+  
+  .page-step2 {
+    color: white;
+    padding: 70px 0px;
+    text-align: center;
+    margin-top: -10px;
+    margin-bottom: 90px;
+  }
+  
+  .page-step2 h2 {
+    font-size: 90px;
+    color: white;
+    line-height: 90px;
+    margin: 0px 0px 30px 0px;
+  }
+  
+  .page-step2 p {
+    font-size: 22px;
+    width: 50%;
+    margin: 0 auto;
+  }
+  
+  h3{
+    font-size: 50px;
+    line-height: 52px;
+    color: #23b6e6;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  
+   @media only screen and (max-width: 800px) {
+     .large-hide {
+       height: 320px;
+       background-size: cover !important;
+    	background-position: 80% 50% !important;
+     }
+     .caption.captionOverlay--true {
+       top: 240px;
+     }
+     .caption.captionOverlay--true h1 {
+       font-size: 36px;
+     }
+    .testimonial-container .quote-block .half {
+      width: 100%;
+      display: inline-block;
+      color: white;
+      padding: 90px;
+    }
+    
+    .video-background-stripe {
+      display: none;
+    }
+     
+    .page-step2 h2 {
+       font-size: 36px;
+    }
+    
+    .page-step2 p {
+      font-size: 22px;
+      width: 80%;
+      margin: 0 auto;
+    }
+     
+     .donation-container, .blue-box-container {
+       padding-left: 20px;
+       padding-right: 20px;
+     }
+     
+     .donations-container {
+       justify-content: center !important;
+     }
+     
+     .donation {
+       margin-right: 10px !important;
+     }
+     
+     .blue-box-image, .primo-logo {
+       width: 90%;
+     }
+  }
+</style>
+<div class="banner_pages small-hide">
+	<img alt="Primo Center and Vital Proteins" src="{{ section.settings.banner_image | img_url: 'master' }}"/>
+  <div class="caption captionOverlay--true center">
+    <h1 class="headline">
+    {{ page.title | downcase }}
+    </h1>
+  </div>
+</div>
+<div class="banner_pages large-hide" style="background: url({{ section.settings.banner_image | img_url: 'master' }})">
+  <div class="caption captionOverlay--true center">
+    <h1 class="headline">
+    {{ page.title | downcase }}
+    </h1>
+  </div>
+</div>
+<div class="page-step2" style="margin-bottom: 0;">
+  <h2>
+  {{ section.settings.title }}
+  </h2>
+  <p>{{ section.settings.text }}</p>
+</div>
+<div class="container content">
+  <div>
+    <img alt="Logo for Primo Center for Women and Children" class="primo-logo" src="{{ section.settings.primo_logo | img_url: '800x' }}"/>
+    <p class="primo-intro-text">{{ section.settings.primo_intro_text }}</p>
+  </div>
+  <div class="video-container">
+    <span class="video-background-stripe"></span>
+    <iframe aria-label="Primo Center Testimonial Video" width='560' height='315' src="https://www.youtube.com/embed/m5fNWmutFoc" frameborder="0" gesture=“media” allowfullscreen></iframe>
+  </div>
+  <div class="testimonial-container">
+    <h3>Testimonials</h3>
+    <div class="quote-block">
+      <div class="half" style="background-color: {{ section.settings.testimonial_1_color }};">
+        <p>{{ section.settings.testimonial_1 }}</p>
+      </div>
+      <div class="half" style="background-color: {{ section.settings.testimonial_2_color }};">
+        <p>{{ section.settings.testimonial_2 }}</p>
+      </div>
+    </div>
+    <div class="quote-block">
+      <div class="full" style="background-color: {{ section.settings.testimonial_3_color }};">
+        <p style="color: black;">{{ section.settings.testimonial_3 }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="donation-container">
+    <h3>How you can help</h3>
+    <p>Help homeless women and children live a full vibrant life. Give now to the Primo Center. For each donation made, Vital Proteins will make a $ for $ match.</p>
+    <div class="donation-widget-container">
+      <p>Select Your Donation Amount</p>
+      {% include 'donation_new' %}
+    </div>
+    <div class="support-container">
+      <p>What your support provides:</p>
+      <ul>
+        <li>Help Housing (Shelters and permanent housing)</li>
+        <li>Trauma-informed mental health services</li>
+        <li>Early childhood services</li>
+        <li>Violence prevention programming for at-risk youth</li>
+        <li>Integrated health care</li>
+        <li>Physical and behavioral health problems</li>
+      </ul>
+    </div>
+    <p class="primo-disclaimer">The Primo Center is a non-profit 501(c)(3). All donations toward the Primo Center are tax-deductible. A donation receipt will be emailed within two-five business days.</p>
+  </div>
+  {% if section.settings.show_blue_box == true %}
+    <div id="blue-box-section" class="blue-box-container">
+      <h3>The Blue Box Project</h3>
+      <p>{{ section.settings.blue_box_text }}</p>
+      <img alt="Blue Box Project Shipping Boxes" class="blue-box-image" src="{{ section.settings.blue_box_image| img_url: '1200x' }}"/>
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+  {
+    "name": "Primo Center",
+    "settings": [
+        {
+          "type": "image_picker",
+          "id": "banner_image",
+          "label": "Banner Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "a partnership with a purpose"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Sub-Heading Text",
+          "default": "At the very core of the Vital Proteins mission is a commitment to helping others live full, vibrant lives - a commitment that stretches far beyond the products we produce. We believe everyone should have an opportunity to flourish, and we recognize the importance of partaking in this promise through community-based charitable work."
+        },
+		{
+          "type": "image_picker",
+          "id": "primo_logo",
+          "label": "Primo Center Logo"
+        },
+		{
+          "type": "textarea",
+          "id": "primo_intro_text",
+          "label": "Primo Center Introduction Text",
+          "default": "The Primo Center for Women and Children is an organization that pledges to help individuals - many of whome have been victims of physical or sexual violence - live their happiest, healthiest lives by providing resources to empower them with productivity, responibility and independence. Through the center's dedication, hard work and innovative approach, it has made a profound impact on the lives of many families facing homelessness within the Chicago community.<br><br> Help us in our quest to provide support to the Primo Center for Women and Children, a non-profit 501 (c) (3) organization committed to helping and empowering families facing homelessness. The foundation we lay together will foster growth for this organization so that it can continue to develop impactful programs and provide essential resources to communities facing homelessness around the Chicagoland area – and one day soon, the country."
+        },
+		{
+          "type": "textarea",
+          "id": "testimonial_1",
+          "label": "Testimonial 1 (Left)",
+          "default": "&#34;My thought of a shelter was one big room, lots of people... So, I really did not want to go. But when I went to the Primo Center, I'll never forget - It was so, so nice. It was a blessing for me and my kids.&#34;<br><br> - Cortland, Current Staff Member, Former Resident"
+        },
+		{
+          "type": "color",
+          "id": "testimonial_1_color",
+          "label": "Testimonial 1 (Left) Background Color",
+          "default": "#109ad6"
+      	},
+		{
+          "type": "textarea",
+          "id": "testimonial_2",
+          "label": "Testimonial 2 (Right)",
+          "default": "&#34;I think (going to the Primo Center) was the best decision I ever made. I can finally focus on myself, it's peaceful...It made me feel so proud of myself. I've matured so much - I'm very proud of myself.&#34;<br><br> Erica, New Apartment Renter, Former Resident"
+        },
+		{
+          "type": "color",
+          "id": "testimonial_2_color",
+          "label": "Testimonial 2 (Left) Background Color",
+          "default": "#109ae6"
+      	},
+		{
+          "type": "textarea",
+          "id": "testimonial_3",
+          "label": "Testimonial 3 (Bottom)",
+          "default": "&#34;What I see at Primo is a community of families working and living together, and supporting one another - not just as far as adults, but the children as well.&#34;<br><br> - Kristin, Program Partner, Chicago HOPES for Kids"
+        },
+		{
+          "type": "color",
+          "id": "testimonial_3_color",
+          "label": "Testimonial 3 (Left) Background Color",
+          "default": "#109ad3"
+      	},
+        {
+          "type": "checkbox",
+          "id": "show_blue_box",
+          "label": "Show Blue Box Project",
+          "default": true
+        },
+		{
+			"type": "textarea",
+			"id": "blue_box_text",
+			"label": "Blue Box Text",
+			"default": "Make a wish come true! Help give back and support those in need this holiday season with Vital Proteins' Blue Box Project. Each box shipped now through January 31st will come with a prepaid return shipping label. Help make a difference by refilling that box with laundry detergent, full-sized toothpaste, deodorant, lotion, etc. to support the women and children of the Primo Center. Giving back is a gift that can be shared all season long!"
+		},
+		{
+          "type": "image_picker",
+          "id": "blue_box_image",
+          "label": "Blue Box Image (below text)"
+        }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

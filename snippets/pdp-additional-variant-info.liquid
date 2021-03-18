@@ -1,0 +1,45 @@
+  {% assign selectedVariant = product.selected_or_first_available_variant %}
+  <div class="information-section-wrapper">
+    <div class="information-section">
+      <div class="nav-slider">
+        <a href="#" class="nav-slider-option description active" data-content="description">Description</a>
+        <a href="#" class="nav-slider-option benefits" data-content="benefits">Benefits</a>
+        <a href="#" class="nav-slider-option ingredients" data-content="ingredients">Ingredients</a>
+        <a href="#" class="nav-slider-option amino" data-content="amino">Amino Acids</a>
+        <a href="#" class="nav-slider-option how" data-content="how">How to Use</a>
+        {% if product.metafields.vital.faq %}
+            <a href="#" class="nav-slider-option" data-content="faq">FAQs</a>
+        {% endif %}
+      </div>
+      <div class="content-container">
+        <div class="content-section description active">{{ product.description}}</div>
+        <div class="content-section benefits">{{ product.metafields.conspire.benefits }}</div>
+        <div class="content-section ingredients">{{ product.metafields.conspire.ingredients }}</div>
+        <div class="content-section amino">{{ product.metafields.conspire.amino_acids }}</div>
+        <div class="content-section how">{{ product.metafields.vital.how_to_use }}</div>
+        {% if product.metafields.vital.faq %}
+            <div class="content-section faq">
+              {% for faq in product.metafields.vital.faq %}
+                {% assign faqSplit = faq | split: '<hr>' %}
+                <div class="faq-container">
+                  <button class="pdp-faq-button" data-index={{ forloop.index0 }}><span style="padding-right: 10px;">{{ faqSplit[0] }}</span> <i class="fas fa-chevron-down"></i></button>
+                  <div class="pdp-faq-body hidden" id="pdp-faq-{{ forloop.index0 }}">{{ faqSplit[1] }}</div>
+                </div>
+              {% endfor %}
+            </div>
+        {% endif %}
+      </div>
+      <div class="benefits-icon-container">
+      {% for icon in product.metafields.vital.pdp_benefit_icon_jen_a %}
+      <div class="benefits-icon-tile">
+        {% if icon.mime_type contains 'svg' %}
+          {{ icon.media_inline }}
+        {% else %}
+          <img class="lazyload" data-src="{{ icon.cloudinary_src }}" data-src-copy="{{ icon.cloudinary_src | append: 'w_300' }}" alt="{{ icon.alt }}"/>
+        {% endif %}
+        <p>{{ icon.alt }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

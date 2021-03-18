@@ -1,0 +1,207 @@
+@font-face {
+  font-family: 'VP_Icons';
+  src:  url('//cdn.shopify.com/s/files/1/0518/0335/7361/t/3/assets/VP_Icons.eot?v=10078920163746410197');
+  src:  url('//cdn.shopify.com/s/files/1/0518/0335/7361/t/3/assets/VP_Icons.eot?v=10078920163746410197') format('embedded-opentype'),
+    url('//cdn.shopify.com/s/files/1/0518/0335/7361/t/3/assets/VP_Icons.ttf?v=15005845114695924088') format('truetype'),
+    url('//cdn.shopify.com/s/files/1/0518/0335/7361/t/3/assets/VP_Icons.woff?v=15017334291863560081') format('woff'),
+    url('fonts/icomoon.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="vp-icon-"], [class*=" vp-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'VP_Icons' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.vp-icon-5g:before {
+  content: "\e900";
+}
+.vp-icon-7g:before {
+  content: "\e901";
+}
+.vp-icon-10g:before {
+  content: "\e902";
+}
+.vp-icon-20g:before {
+  content: "\e903";
+}
+.vp-icon-add-to-recipes:before {
+  content: "\e904";
+}
+.vp-icon-amino-acids:before {
+  content: "\e905";
+}
+.vp-icon-athletic-performance:before {
+  content: "\e906";
+}
+.vp-icon-balance-ph-levels:before {
+  content: "\e907";
+}
+.vp-icon-beauty-boost:before {
+  content: "\e908";
+}
+.vp-icon-bedtime:before {
+  content: "\e909";
+}
+.vp-icon-bone-join-health:before {
+  content: "\e90a";
+}
+.vp-icon-booster:before {
+  content: "\e90b";
+}
+.vp-icon-boosts:before {
+  content: "\e90c";
+}
+.vp-icon-bovine:before {
+  content: "\e90d";
+}
+.vp-icon-Capsules:before {
+  content: "\e90e";
+}
+.vp-icon-cognitive-function:before {
+  content: "\e90f";
+}
+.vp-icon-collagen-builder:before {
+  content: "\e910";
+}
+.vp-icon-dairy-free:before {
+  content: "\e911";
+}
+.vp-icon-dairy-gluten-free:before {
+  content: "\e912";
+}
+.vp-icon-digestive-health:before {
+  content: "\e913";
+}
+.vp-icon-elasticity:before {
+  content: "\e914";
+}
+.vp-icon-Electrolytes:before {
+  content: "\e915";
+}
+.vp-icon-energy:before {
+  content: "\e916";
+}
+.vp-icon-fruit-powder:before {
+  content: "\e917";
+}
+.vp-icon-functional:before {
+  content: "\e918";
+}
+.vp-icon-Glowing:before {
+  content: "\e919";
+}
+.vp-icon-gluten-free:before {
+  content: "\e91a";
+}
+.vp-icon-Grab-and-go:before {
+  content: "\e91b";
+}
+.vp-icon-healthy-fats:before {
+  content: "\e91c";
+}
+.vp-icon-improved-recovery:before {
+  content: "\e91d";
+}
+.vp-icon-joint:before {
+  content: "\e91e";
+}
+.vp-icon-Keto:before {
+  content: "\e91f";
+}
+.vp-icon-Kosher:before {
+  content: "\e920";
+}
+.vp-icon-low-sodium:before {
+  content: "\e921";
+}
+.vp-icon-marine:before {
+  content: "\e922";
+}
+.vp-icon-mcts-coconut:before {
+  content: "\e923";
+}
+.vp-icon-Mix-hot-cold:before {
+  content: "\e924";
+}
+.vp-icon-mix-hot:before {
+  content: "\e925";
+}
+.vp-icon-nail:before {
+  content: "\e926";
+}
+.vp-icon-neutral-flavor:before {
+  content: "\e927";
+}
+.vp-icon-no-artificial-colors:before {
+  content: "\e928";
+}
+.vp-icon-no-artificial-sweeteners-sugars:before {
+  content: "\e929";
+}
+.vp-icon-no-msg:before {
+  content: "\e92a";
+}
+.vp-icon-non-gmo:before {
+  content: "\e92b";
+}
+.vp-icon-paleo:before {
+  content: "\e92c";
+}
+.vp-icon-Powerful-antioxidant:before {
+  content: "\e92d";
+}
+.vp-icon-prevents-dehydration:before {
+  content: "\e92e";
+}
+.vp-icon-probiotic-vitamins:before {
+  content: "\e92f";
+}
+.vp-icon-promotes:before {
+  content: "\e930";
+}
+.vp-icon-restful-night:before {
+  content: "\e931";
+}
+.vp-icon-skin-hair-nail:before {
+  content: "\e932";
+}
+.vp-icon-skin-hydration:before {
+  content: "\e933";
+}
+.vp-icon-sleep:before {
+  content: "\e934";
+}
+.vp-icon-Soy-Free:before {
+  content: "\e935";
+}
+.vp-icon-stronger-hair:before {
+  content: "\e936";
+}
+.vp-icon-usda-organic:before {
+  content: "\e937";
+}
+.vp-icon-vegan-plant-friendly:before {
+  content: "\e938";
+}
+.vp-icon-whole30:before {
+  content: "\e939";
+}
+.vp-icon-youthful-appearance:before {
+  content: "\e93a";
+}
+.vp-icon-zen:before {
+  content: "\e93b";
+}

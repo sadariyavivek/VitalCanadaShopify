@@ -1,0 +1,310 @@
+{% layout 'blog' %}
+<style>
+    .banner-image {
+        height: 800px;
+        background-image: url("{{ 'VP_JA_Yoga_Hero.jpg' | file_img_url: '2400x' }}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 25%;
+    }
+
+    .blog-quote {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 60px;
+    }
+
+    .blog-quote .quote-header {
+        font-size: 72px;
+        line-height: 86px;
+        letter-spacing: 2.3px !important;
+        text-align: center;
+        color: #595A5B;
+        text-transform: uppercase;
+        margin-bottom: 80px;
+        margin-top: 40px;
+        font-weight: normal;
+        font-family: 'KapraNeue';
+    }
+
+    .blog-quote .quote-body {
+        max-width: 1200px;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 28px;
+        line-height: 36px;
+        letter-spacing: 1px;
+        color: #393D40;
+        text-align: center;
+    }
+
+    .content-wrapper {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 32px;
+        padding-left: 20px;
+        padding-right: 20px;
+        overflow: hidden;
+    }
+
+    .ja-author {
+        font-size: 32px;
+        line-height: 39px;
+        letter-spacing: 1px !important;
+        text-align: left;
+        color: #595A5B;
+        font-weight: normal;
+        text-transform: uppercase;
+        font-family: 'KapraNeue';
+    }
+
+    .ja-blog-wrapper .video-section {
+        height: 750px;
+        background-color: #ECE5DD;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ja-blog-wrapper .video-section iframe {
+        max-height: 540px;
+    }
+
+    .ja-blog-wrapper .video-section-inner {
+        max-width: 1200px;
+        max-height: 540px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .breadcrumb-pagination-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 36px;
+    }
+
+    .breadcrumb-pagination-wrapper .breadcrumbs {
+        font-size: 24px;
+        line-height: 28px;
+        letter-spacing: 0.8px;
+        color: #595A5B;
+        font-family: "KapraNeue";
+        text-transform: uppercase;
+    }
+
+    .breadcrumb-pagination-wrapper .breadcrumbs span {
+        font-size: 24px;
+        line-height: 28px;
+        letter-spacing: 0.8px;
+        color: #595A5B;
+        font-family: "KapraNeue";
+        text-transform: uppercase;
+    }
+
+    .breadcrumb-pagination-wrapper .breadcrumbs a:hover {
+        opacity: 0.7;
+    }
+
+    .next-previous {
+        display: flex;
+        flex-direction: row;
+
+    }
+
+    .next-previous .pagination-button {
+        display: inline-block;
+        height: 48px;
+        width: 170px;
+        color: white;
+        font-size: 22px;
+        line-height: 30px;
+        letter-spacing: 1.2px;
+        font-weight: bold;
+        background-color: #215D6B;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 28px;
+        transition: .15s opacity ease-out;
+    }
+
+    .next-previous .pagination-button:hover {
+        opacity: 0.7;
+    }
+
+    .text-wrapper {
+        display: block;
+        column-count: 2;
+        column-gap: 120px;
+        margin-bottom: 40px;
+    }
+
+    .text-wrapper * {
+        font-size: 24px;
+        line-height: 33px;
+        letter-spacing: 0.9px;
+        color: #393D40;
+    }
+
+    .text-wrapper .ja-blog-column {
+        width: 45%;
+    }
+
+    .text-wrapper .ja-blog-column p {
+        font-size: 24px;
+        line-height: 33px;
+        letter-spacing: 0.9px;
+        text-align: left;
+        color: #393D40;
+    }
+
+    .text-wrapper img {
+        max-width: 100%;
+    }
+
+    @media screen and (max-width: 1440px) {
+        .banner-image {
+            height: 500px;
+        }
+    }
+
+    @media screen and (max-width: 800px) {
+
+        .content-wrapper {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .banner-image {
+            height: 200px;
+        }
+
+        .blog-quote {
+            padding-bottom: 20px;
+        }
+
+        .blog-quote .quote-header {
+            font-size: 24px;
+            line-height: 28px;
+            letter-spacing: 0.7px !important;
+            margin-bottom: 20px;
+        }
+
+        .blog-quote .quote-body {
+            font-size: 14px;
+            line-height: 18px;
+            color: #585A5B;
+        }
+
+        .ja-blog-wrapper .video-section {
+            height: 213px;
+        }
+
+        .ja-blog-wrapper .video-section iframe {
+            max-height: 180px;
+        }
+
+        .ja-blog-wrapper .video-section-inner {
+            max-width: 400px;
+            max-height: 180px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .breadcrumb-pagination-wrapper {
+            margin-bottom: 20px;
+        }
+
+        .text-wrapper {
+            column-count: 1;
+        }
+
+        .text-wrapper .ja-blog-column { 
+            width: 100%;
+        }
+
+        .text-wrapper .ja-blog-column p { 
+            font-size: 12px;
+            line-height: 16px;
+            letter-spacing: 0.4px;
+            text-align: left;
+        }
+
+        .text-wrapper * {
+            font-size: 12px;
+            line-height: 16px;
+            letter-spacing: 0.4px;
+            color: #393D40;
+        }
+
+        .ja-author {
+            font-size: 14px;
+            line-height: 17px;
+            letter-spacing: 0.4px;
+        }
+
+        .breadcrumb-pagination-wrapper .breadcrumbs span {
+            font-size: 14px;
+            line-height: 17px;
+            letter-spacing: 0.4px;
+        }
+
+        .next-previous .pagination-button {
+            font-size: 14px;
+            line-height: 19px;
+            letter-spacing: 0.2px;
+            max-width: 90px;
+            border-radius: 3px;
+            margin-left: 10px;
+        }
+    }
+</style>
+<a name="pagecontent" id="pagecontent"></a>
+<div class="ja-blog-wrapper">
+    <div class="banner-image"></div>
+    <div class="blog-quote">
+        <h2 class="quote-header">Jennifer Aniston Joins Vital Proteins</h2>
+        <p class="quote-body"><span>“</span>Collagen is the glue that holds everything together. I've always been an advocate for nourishing your wellness from within, which is why I started using Vital Proteins so many years ago. Now, to have the opportunity to be a part of the brand in a bigger way, as Chief Creative Officer, is very exciting to me.”<br/>- Jennifer Aniston</p>
+    </div>
+    <div class="video-section">
+        <div class="video-section-inner">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/cSFlHbUSHZI?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="content-wrapper">
+        <div class="breadcrumb-pagination-wrapper">
+            <div class="breadcrumbs">
+                <div class="breadcrumb_text left" itemscope itemtype="http://schema.org/BreadcrumbList">
+                    <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href="/pages/blog" title="{{ shop.name | escape }}" itemprop="item"><span class="article-breadcrumb-text" itemprop="name">{{ 'general.breadcrumbs.home' | t }}</span></a><meta itemprop="position" content="1"/></span>
+                    &nbsp;<span class="icon-slash">/</span>
+                    <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href="{{ blog.url }}" title="{{ blog.title | escape }}" itemprop="item"><span class="article-breadcrumb-text" itemprop="name">{{ blog.title }}</span></a><meta itemprop="position" content="2"/></span>
+                </div>
+            </div>
+            <div class="next-previous">
+                {% if blog.next_article %}
+                    <a href="{{ blog.next_article.url }}" class="pagination-button">Previous</a>
+                {% endif %}
+                {% if blog.previous_article %}
+                    <a href="{{ blog.previous_article.url }}" class="pagination-button">Next</a>
+                {% endif %}
+            </div>
+        </div>
+        <div>
+            <h4 class="ja-author">{% if article.metafields.vital.author %}{{ article.metafields.vital.author }}{% endif %} - {{ article.published_at | date: format: "month_day_year" }}</h4>
+        </div>
+        <div class="text-wrapper">
+            {{ article.content }}
+        </div>
+    </div>
+    {% include 'pdp-ja-favorites' %}
+  	{% assign imageURL = 'VP_JA_White_Top.jpg' | file_img_url: '1200x' %}
+  	{% assign quote = "My go-to collagen routine is adding Vital Proteins Collagen Peptides in my morning cup of coffee or smoothie - so easy to use." %}
+    {% render 'pdp-quote-box', imageURL: imageURL, quote: quote %}
+</div>

@@ -1,0 +1,17 @@
+<div class="subscribe-section-break">
+  <div class="subscribe-section-break-inner">
+    <h3>Subscribe Now &amp; Save {{ settings.subscription_discount_amount }}%!*</h3>
+    <p class="subscribe-message">Sign up today and get {{ settings.subscription_discount_amount }}% off your first order plus {{ settings.subscription_discount_secondary_amount }}% off every order after that. Select your product &amp; frequency - we'll take care of the rest!</p>
+    <a href="#" class="subscribe-cta">Subscribe Now</a>
+    <span class="subscribe-disclaimer">*Discount not valid with any other offer, e-gift cards or wholesale orders. Other restrictions may apply.</span>
+  </div>
+  <div class="subscribe-sectin-break-background-image lazyload" data-bg="{{ 'PDP-new-subscription.jpg' | file_img_url: '1200x' }}" style="background-size: cover;">
+  </div>
+</div>
+
+<style>
+  .pdp-redesign-wrapper .subscribe-section-break .subscribe-section-break-inner h3 {
+    font-size: 54px;
+    line-height: 58px;
+}
+</style>

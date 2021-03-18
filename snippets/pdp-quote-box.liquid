@@ -1,0 +1,117 @@
+<style>
+    .pdp-quote-box {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 580px;
+    }
+
+    .quote-box-image {
+        width: 50%;
+        background-size: cover;
+        background-position: 50% 30%;
+    }
+
+    .quote-box-text {
+        width: 50%;
+        background: #C6D2D4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .quote-intro {
+        text-align: center;
+        font-family: 'kapraregular';
+        font-size: 120px;
+        line-height: 130px;
+    }
+
+    .quote-body {
+        font-family: 'Lora', serif;
+        max-width: 580px;
+        padding-left: 10px;
+        padding-right: 10px;
+        text-align: center;
+        font-size: 28px;
+        line-height: 36px;
+        letter-spacing: 1px;
+        color: #585A5B;
+    }
+
+    .quote-body span {
+        display: block;
+        font-size: 120px;
+        font-family: 'KapraNeue';
+    }
+
+    @media screen and (max-width: 800px) {
+        .pdp-quote-box {
+            flex-direction: column;
+            height: auto;
+        }
+
+        .quote-box-image {
+            width: 100%;
+            height: 200px;
+        }
+
+        .quote-box-text {
+            width: 100%;
+            padding: 20px 24px;
+            height: auto;
+        }
+
+        .quote-body {
+            font-size: 12px;
+            line-height: 18px;
+        }
+
+        .quote-body span {
+            font-size: 80px;
+            line-height: 90px;
+            height: 40px;
+        }
+    }
+
+    .with-video-button{
+        cursor: pointer;
+        position: relative;
+    }
+
+    .with-video-button::after{
+        content: ' ';
+        width: 10%;
+        height: 0;
+        padding-bottom: 10%;
+        background-image: url('{{ "play-icon.svg" | asset_url }}');
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-size: contain;
+        background-repeat: no-repeat;
+
+    }
+   .test-monial-cust-1 {
+      font-family: 'Avenir Next' !important;
+      font-style: normal;
+      font-weight: 600;
+      margin-top: 10px;
+      font-size: 12px !important;
+      line-height: 18px;
+      text-align: center;
+      text-transform: uppercase;
+      color: #393D40;
+  	}
+</style>
+{% assign quote_video = shop.metafields.jennifer_aniston.quote_video %}
+<div class="pdp-quote-box">
+    <div class="quote-box-image lazyload {% if quote_video %}with-video-button{% endif %}" data-bg="{{ imageURL }}" {% if quote_video %}onclick="vitalLibrary.openYoutubeVideo('gW653Tgrrwg')"{% endif %}>
+    </div>
+    <div class="quote-box-text">
+        <div>
+          <p class="quote-body"><span style="padding-bottom: 20px;"><img src="https://cdn.shopify.com/s/files/1/0518/0335/7361/files/Testimonial-icon_2500x.png"></span>{{ quote }}"<br/><span class="test-monial-cust-1">- Jennifer Aniston</span></p>
+        </div>
+    </div>
+</div>

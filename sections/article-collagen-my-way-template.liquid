@@ -1,0 +1,134 @@
+<a name="pagecontent" id="pagecontent"></a>
+<style>
+  .article-pagination a:visited {
+    color: white;
+  }
+
+  .cmw-article-content a {
+    color: #355C7E;
+  }
+
+  .cmw-article-content a * {
+    color: #355C7E;
+  }
+
+  @media screen and (min-width: 800px) {
+    .buy-button-section .newStyles2021 .grid-4 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>
+<div class="tailwind">
+  <div class="container main content">
+    <div class="w-full">
+      <div class="flex flex-col lg:flex-row lg:justify-between">
+        <div class="w-full lg:w-9/12 border-0 lg:border-r lg:border-silver lg:border-solid lg:pr-8">
+          <div class="mt-0 py-4 px-8 lg:px-4">
+            <div class="flex flex-col-reverse lg:flex-col">
+              <div>
+                <div class="mb-3 mt-0" itemscope itemtype="http://schema.org/BreadcrumbList">
+                  <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a href="/pages/blog" title="{{ shop.name | escape }}" itemprop="item">
+                      <span class="uppercase font-header text-grey opacity-90 text-lg lg:text-xl" itemprop="name">{{ 'general.breadcrumbs.home' | t }}</span>
+                    </a>
+                  </span>
+                  &nbsp;<span class="uppercase font-header text-grey opacity-90 text-xl">/</span>
+                  <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a href="{{ blog.url }}" title="{{ blog.title | escape }}" itemprop="item">
+                      <span class="uppercase font-header text-grey opacity-90 text-lg lg:text-xl" itemprop="name">{{ blog.title }}</span>
+                    </a>
+                  </span>
+                </div>
+                <h2 class="mb-4 tracking-normal mt-0">{{ article.metafields.vital.cmw_name }}</h2>
+              </div>
+              <div class="w-full max-w-7xl h-80 bg-cover bg-center bg-no-repeat mb-6 mr-auto lg:w-80 lazyload" data-bg="{{ article.image | img_url: '600x', format: 'jpg' }}"></div>
+            </div>
+            <div>
+              <h3 class="font-header uppercase text-grey tracking-normal text-sm mb-1 lg:text-3xl lg:tracking-wide lg:mb-3">{{ article.metafields.vital.cmw_profession }}</h3>
+              <a class="text-xs lg:text-2xl mb-4 lg:mb-8 block hover:text-grey" href="https://instagram.com/{{ article.metafields.vital.cmw_instagram_handle }}">@{{ article.metafields.vital.cmw_instagram_handle }}</a>
+              <div class="cmw-article-content text-grey text-sm mb-8 lg:text-2xl">
+                {{ article.content }}
+              </div>
+              <div class="lg:hidden">
+                {% if section.settings.blog_pagination %}
+                  <div class="article-pagination mt-4">
+                    {% if blog.next_article %}
+                      <a aria-label="Previous blog article" class="bg-cta text-white rounded font-bold py-3 px-6 mr-2 text-center" href="{{ blog.next_article.url }}">Previous</a>
+                    {% endif %}
+                    {% if blog.previous_article %}
+                      <a aria-label="Next blog article" class="bg-cta text-white rounded font-bold py-3 px-6 mr-2 text-center" href="{{ blog.previous_article.url }}">Next</a>
+                    {% endif %}
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          <div class="buy-button-section my-5">
+            {% assign nameSplit = article.metafields.vital.cmw_name | split: ' ' %}
+            <h2 class="px-4 tracking-normal lg:tracking-wide mt-0 mb-0">{{ nameSplit[0] }}'s Collagen Picks</h2>
+            {% assign mycollection = article.metafields.vital.cmw_collection %}
+            {% include 'VP2021-Cards' %}
+          </div>
+        </div>
+        <div class="lg:w-3/12 lg:px-8">
+          <div class="hidden lg:block lg:mb-8">
+            {% if section.settings.blog_pagination %}
+              <div class="article-pagination mt-4">
+                {% if blog.next_article %}
+                  <a aria-label="Previous blog article" class="bg-cta text-white rounded font-bold py-3 px-6 mr-2 text-center inline-block lg:mb-2" href="{{ blog.next_article.url }}">Previous</a>
+                {% endif %}
+                {% if blog.previous_article %}
+                  <a aria-label="Next blog article" class="bg-cta text-white rounded font-bold py-3 px-6 mr-2 text-center inline-block lg:mb-2" href="{{ blog.previous_article.url }}">Next</a>
+                {% endif %}
+              </div>
+            {% endif %}
+          </div>
+          <div>
+            <h4 class="hidden lg:block text-2xl uppercase font-header text-grey pl-6 mb-3 lg:pl-0 lg:mb-4 tracking-wide">Collagen My Way</h4>
+            <div class="bg-silver">
+              <h4 class="lg:hidden text-2xl uppercase font-header text-grey pl-6 pt-6 mb-0 tracking-wide">Collagen My Way</h4>
+              <div class="p-4 lg:p-8 flex flex-row overflow-x-scroll lg:block lg:overflow-x-hidden">
+                {% for myWayArticle in blogs['collagen-my-way'].articles limit: 6 %}
+                  {% if myWayArticle.handle != article.handle %}
+                    <div class="px-2 lg:px-0">
+                      <a class="transition-opacity hover:opacity-75 duration-150" href="{{ myWayArticle.url }}">
+                        <div class="transition-opacity hover:opacity-75 duration-150 w-64 max-w-5xl h-64 bg-cover bg-center bg-no-repeat mb-4 mr-auto lg:w-64 lg:max-w-full lazyload" data-bg="{{ myWayArticle.image | img_url: '600x', format: 'jpg' }}"></div>
+                        <h4 class="text-2xl uppercase font-header text-grey mb-0 lg:pl-0 lg:mb-6 tracking-wide text-center">{{ myWayArticle.metafields.vital.cmw_name }}</h4>
+                      </a>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Collagen My Way",
+    "settings": [
+      {
+       "type": "checkbox",
+       "id": "blog_breadcrumb",
+       "label": "Show breadcrumbs",
+       "default": true
+      },
+      {
+       "type": "checkbox",
+       "id": "blog_pagination",
+       "label": "Show next blog post link",
+       "default": true
+      }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

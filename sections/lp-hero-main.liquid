@@ -1,0 +1,173 @@
+<style>
+  
+.v1-landing-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 50px;
+    position: relative;
+}	
+	
+	.v1-landing-hero {
+      background: url({{ section.settings.lp-main-hero-bg | img_url: "1600x" }});
+	    background-size: cover;
+	    background-position: center center;
+	    padding: 0px 75px;
+	    display: flex;
+	    flex-direction: column;
+	    align-items: center;
+	    padding-bottom: 100px;
+          position: relative;
+	}
+  
+.v1-landing-overlay {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.76) 0%, rgba(0,0,0,0) 100%);
+    width: 70%;
+    left: 0;
+    height: 100%;
+    position: absolute;
+}
+  
+  .v1-landing-hero-inner {position:relative;}
+		
+		.v1-landing-header img {
+		    max-width: 300px;
+		}
+	
+.v1-landing-hero h1 {
+    color: #ffffff;
+    font-family: 'Avenir';
+    font-size: 64px;
+    line-height: 70px;
+    font-weight: 500;
+    letter-spacing: -.25px;
+    text-transform: capitalize;
+    max-width: 40%;
+    margin: 0px;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 12px #0000003b;
+}
+	
+
+.v1-landing-hero p {
+    color: #ffffff;
+    font-family: 'Avenir';
+    font-size: 22px;
+    line-height: 26px;
+    font-weight: 400;
+    letter-spacing: -.25px;
+    max-width: 35%;
+    text-shadow: 1px 1px 6px #0000003b;
+    margin-bottom: 35px;
+}
+	
+.landing-subscribe-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 32px;
+    background: #00AF9A;
+    color: #ffffff;
+    min-width: 300px;
+    max-width: 300px;
+    height: 45px;
+    text-decoration: none;
+    line-height: 1em;
+    border-radius: 5px;
+    font-family: 'Avenir';
+    letter-spacing: 1px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 5px;
+    margin-top: 10px;
+}
+  
+  .landing-subscribe-button:hover {
+    transform: scale(1.025);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.31);
+    transition: 300ms ease all;
+    color: #ffffff;
+}
+	
+	.v1-landing-hero .landing-subscribe-button:hover {
+	    background: #ffffffa1;
+	    color: #03475d;
+	}
+  
+.lp-buy-prod {
+    font-weight: 700;
+    color: #ffffff;
+    margin-top: 8px;
+}
+  
+.lp-quiz-promo {
+    position: absolute;
+    bottom: -7px;
+    right: 75px;
+}  
+  
+</style>
+
+
+
+
+<div class="v1-landing-hero">
+  <div class="v1-landing-overlay"></div>
+	<div class="v1-landing-header">
+		<img src="https://birdowl.com/vital-white.png"/>
+	</div>
+	
+	<div class="v1-landing-hero-inner">
+	<h1>{{ section.settings.lp-main-hero-title }}</h1>
+	<p>{{ section.settings.lp-main-hero-text }}</p>
+	<a class="landing-subscribe-button" href="{{ section.settings.lp-main-hero-link }}">{{ section.settings.lp-main-hero-button }}</a>
+      <div class="lp-buy-prod">Best Seller: Collagen Peptides (Unflavored)</div>
+	</div>
+</div>
+
+{% schema %}
+{
+  "name": "Main Hero",
+  "class": "lp-main-hero",
+  "settings": [
+		{
+      "type": "image_picker",
+      "id": "lp-main-hero-bg",
+      "label": "Main Image"
+    },
+	{
+      "type": "text",
+      "id": "lp-main-hero-title",
+      "label": "Main Heading",
+      "default": "Save up to 25% OFF"
+    },
+{
+      "type": "text",
+      "id": "lp-main-hero-text",
+      "label": "Main Text",
+      "default": "Save up to 25% OFF"
+    },
+{
+      "type": "url",
+      "id": "lp-main-hero-link",
+      "label": "Button Link"
+    },
+{
+      "type": "text",
+      "id": "lp-main-hero-button",
+      "label": "Subscribe Now"
+    }
+    
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,122 @@
+<div class="banner_pages small-hide">
+	<img src="{{ section.settings.banner_image | img_url: 'master' }}"/>
+  <div class="caption captionOverlay--true center">
+    <h1 class="headline">
+    {{ page.title | downcase }}
+    </h1>
+  </div>
+</div>
+<div class="banner_pages large-hide" style="background: url('{{ section.settings.banner_image | img_url: 'master' }}')">
+  <div class="caption captionOverlay--true center">
+    <h1 class="headline">
+    {{ page.title | downcase }}
+    </h1>
+  </div>
+</div>
+<div class="page-step2" style="margin-bottom: 0;">
+  <h2>
+  {{ section.settings.title }}
+  </h2>
+  <p>{{ section.settings.text }}</p>
+</div>
+<div class="container content">
+  <!-- CONSPIRE CUSTOM CODE -->
+  {% if section.settings.split_image_1 %}
+  <div class="conspire-split-section clearfix">
+    <div class="six columns">
+      <img src="{{ section.settings.split_image_1 | img_url: 'master' }}"/>
+    </div>
+    <div class="five columns">
+      <h3 class="conspire-title lp">{{ section.settings.split_title_1 }}</h3>
+      <p class="lp">{{ section.settings.split_text_1 }}</p>
+    </div>
+  </div>
+  <div class="feature_divider">&nbsp;</div>
+  {% endif %}
+  {% if section.settings.split_image_2 %}
+  <div class="conspire-split-section clearfix">
+    <div class="five columns">
+      <h3 class="conspire-title">{{ section.settings.split_title_2 }}</h3>
+      <p>{{ section.settings.split_text_2 }}</p>
+    </div>
+    <div class="one columns">&nbsp;</div>
+    <div class="six columns">
+      <img src="{{ section.settings.split_image_2 | img_url: 'master' }}"/>
+    </div>
+  </div>
+  {% endif %}
+  <div class="footer-quote">
+    <h2>{{ section.settings.footer_quote }}</h2>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "About Us",
+    "settings": [
+        {
+          "type": "image_picker",
+          "id": "banner_image",
+          "label": "Banner Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Your headline"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Sub-Heading Text",
+          "default": "We believe that health &amp; wellness is an inside job."
+        },
+		{
+          "type": "image_picker",
+          "id": "split_image_1",
+          "label": "Split Image 1"
+        },
+        {
+			"type": "text",
+            "id": "split_title_1",
+            "label": "Split Title 1",
+            "default": "Your headline"
+		},
+		{
+			"type": "text",
+            "id": "split_text_1",
+            "label": "Split Text 1",
+            "default": "Your headline"
+		},
+		{
+          "type": "image_picker",
+          "id": "split_image_2",
+          "label": "Split Image 2"
+        },
+		{
+			"type": "text",
+            "id": "split_title_2",
+            "label": "Split Title 2",
+            "default": "Your headline"
+		},
+		{
+			"type": "text",
+            "id": "split_text_2",
+            "label": "Split Text 2",
+            "default": "Your headline"
+		},
+		{
+          "type": "text",
+          "id": "footer_quote",
+          "label": "Footer Quote",
+          "default": "Live life to the fullest, naturally."
+        }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

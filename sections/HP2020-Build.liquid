@@ -1,0 +1,103 @@
+<style>
+    .pdp-ja-subscribe-break-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 50px 20px;
+        width: 100%;
+        background: #ECE5DD;
+        text-align: center;
+        margin-top: 14px;
+    }
+
+    .pdp-ja-subscribe-break-wrapper h4 {
+        font-family: 'KapraNeue';
+        font-size: 72px;
+        line-height: 90px;
+        letter-spacing: 0.8px !important;
+        text-align: center;
+        color: #393D40;
+        text-transform: uppercase;
+    }
+
+    .pdp-ja-subscribe-break-wrapper p {
+        font-size: 24px;
+        line-height: 33px;
+        color: #585A5B;
+        letter-spacing: 1px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .pdp-ja-subscribe-break-wrapper a {
+        color: white;
+        background-color: #215D6B;
+        border-radius: 4px;
+        max-width: 350px;
+        margin-left: auto;
+        margin-right: auto;
+        font-weight: bold;
+        height: 48px;
+        letter-spacing: 1.2px;
+        font-size: 22px;
+        vertical-align: middle;
+        display: block;
+        width: 100%;
+        line-height: 30px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        transition: .15s opacity ease-out;
+    }
+
+    .pdp-ja-subscribe-break-wrapper a:hover {
+        opacity: 0.75;
+    }
+
+    @media screen and (max-width: 800px) {
+        .pdp-ja-subscribe-break-wrapper {
+            padding: 36px 40px;
+        }
+        
+        .pdp-ja-subscribe-break-wrapper h4 {
+            font-size: 24px;
+            line-height: 36px;
+            letter-spacing: 0.7px !important;
+            text-align: center;
+            color: #393D40;
+        }
+
+        .pdp-ja-subscribe-break-wrapper p {
+            font-size: 12px;
+            line-height: 16px;
+            letter-spacing: 0.3px;
+            text-align: center;
+            color: #585A5B;
+        }
+
+        .pdp-ja-subscribe-break-wrapper a {
+            max-width: 150px;
+            font-size: 14px;
+            letter-spacing: 0.2px;
+            text-align: center;
+        }
+    }
+</style>
+
+{% if product.metafields.subscriptions.discount_percentage %} 
+    {% assign discount_amount = product.metafields.subscriptions.discount_percentage | round %}
+    {% assign discount_message = "Subscribe &amp; Save " | append: discount_amount | append: "%" %}
+{% endif %}
+
+<div class="pdp-ja-subscribe-break-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6"></div>
+        <div class="col-md-6">
+        	<h4>{{ discount_message }}</h4>
+        	<p>Plus, get free shipping &amp; 15% off all recurring orders!*</p>
+        	<a href="{{ button_url }}">Subscribe Now</a>
+          </div>
+        </div>
+    </div>
+</div>

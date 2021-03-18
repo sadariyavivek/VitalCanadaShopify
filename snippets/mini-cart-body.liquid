@@ -1,0 +1,137 @@
+{% assign cart_has_subscription_item = false %}
+
+{% for i in cart.items %}
+	{% for p in i.properties %}
+		{% if p.first == 'shipping_interval_frequency' %}
+			{% assign cart_has_subscription_item = true %}
+		{% endif %}
+	{% endfor %}
+{% endfor %}
+<div class="mini-cart-new">
+  <div class="mini-cart-new-header-section">
+    <div class="top-section">
+      <p class="mini-cart-header">Bag - <span class="mini-cart-item-count">{{ cart.item_count }}</span> item(s)</p>
+      <a href="#" class="close-mini-cart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M331.3 308.7L278.6 256l52.7-52.7c6.2-6.2 6.2-16.4 0-22.6-6.2-6.2-16.4-6.2-22.6 0L256 233.4l-52.7-52.7c-6.2-6.2-15.6-7.1-22.6 0-7.1 7.1-6 16.6 0 22.6l52.7 52.7-52.7 52.7c-6.7 6.7-6.4 16.3 0 22.6 6.4 6.4 16.4 6.2 22.6 0l52.7-52.7 52.7 52.7c6.2 6.2 16.4 6.2 22.6 0 6.3-6.2 6.3-16.4 0-22.6z"/><path d="M256 76c48.1 0 93.3 18.7 127.3 52.7S436 207.9 436 256s-18.7 93.3-52.7 127.3S304.1 436 256 436c-48.1 0-93.3-18.7-127.3-52.7S76 304.1 76 256s18.7-93.3 52.7-127.3S207.9 76 256 76m0-28C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48z"/></svg></a>
+    </div>
+    <div class="bottom-section">
+      {% assign miniCartFreeShippingThreshold = 5000 %}
+      <p class="mini-cart-free-shipping-text">{% if cart.items_subtotal_price >= miniCartFreeShippingThreshold or cart_has_subscription_item == true %}You qualify for Free Shipping!* {% else %}FREE* shipping is only <span class="shipping-amount">{{ miniCartFreeShippingThreshold | minus: cart.items_subtotal_price | money_without_trailing_zeros }}</span> away!<br/>(FYI: Subscribers *always* score free shipping.){% endif %}</p>
+    </div>
+  </div>
+  <div class="mini-cart-product-list-section">
+    <div class="mini-cart-product-loop">
+      {% if cart.item_count == 0 %}
+      <p class="mini-cart-empty">No items yet!</p>
+      {% else %}
+      {% for item in cart.items %}
+
+      <div class="mini-cart-new-item">
+        <div class="mini-cart-new-image-wrapper">
+          {% if item.product.metafields.subscriptions.original_handle %}
+          	{% assign itemURL = 'products/' | append: item.product.metafields.subscriptions.original_handle %}
+          {% else %}
+          	{% assign itemURL = item.url %}
+          {% endif %}
+          <a href="{{ itemURL }}">
+            {{ item.image | img_url: '300x' | img_tag }}
+          </a>
+        </div>
+        <div class="mini-cart-new-details-wrapper">
+          <a href="{{ itemURL }}">
+            <p class="product-title">{{ item.product.title }}</p>
+          </a>
+          {% if item.variant.title != "Default Title" %}
+          <p class="variant-title">{{ item.variant.title }}</p>
+          {% endif %}
+          <p class="product-price">{{ item.price | money }}</p>
+          <div class="qty-and-remove">
+            {% if item.product.tags contains "Free Gift" %}
+            {% assign is_free_gift = true  %}
+            {% endif %}
+            {% if is_free_gift != true and item.product_id != 2405914083388 and item.product_id != 4413236871228 and item.product_id != 4480211877948 and item.variant_id != 32447871975484 %}
+            <div aria-label="Quantity for {{ item.product.title }} - {{ item.variant.title }}" class="product-quantity-box">
+              <span aria-label="Decrease quantity for {{ item.product.title }} - {{ item.variant.title }}." class="ss-icon product-minus js-change-quantity" data-func="minus"><span class="icon-minus"></span></span>
+              <input aria-label="Current quantity for {{ item.product.title }} - {{ item.variant.title }} is {{ item.quantity }}." {% if item.product.id == cart-shots.id %}readonly max="3"{% endif %} type="number" min="0" size="2" class="quantity" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" data-line-id="{{ forloop.index }}" {% if settings.limit_quantity and item.variant.inventory_management != blank and item.variant.inventory_quantity > 0 and item.variant.inventory_policy == "deny" %}max="{{ item.variant.inventory_quantity }}"{% endif %} />
+              {% unless item.product.id == cart-shots.id and item.quantity >= maxQuantityPerVariant %}
+              <span aria-label="Increase quantity for {{ item.product.title }} - {{ item.variant.title }}." class="ss-icon product-plus js-change-quantity" data-func="plus"><span class="icon-plus"></span></span>
+              {% endunless %}
+            </div>
+            <button class="mini-cart-remove" data-line="{{ forloop.index }}">Remove</button>
+            {% endif %}
+          </div>
+          <div>
+            {% comment %}
+            We know that this is product is offered on subscription -> it could either currently be a one-time or a subscription
+            {% endcomment %}
+            {% if item.product.metafields.subscriptions.has_subscription or item.product.metafields.subscriptions.original_handle %}
+            <div class="subscribe-convert-container">
+              <input type="checkbox" id="subscribe-convert-{{item.key}}" name="subscribe-convert-{{item.key}}" {% if item.product.metafields.subscriptions.original_handle %}checked {% endif %}
+                     data-line="{{ forloop.index }}"
+                     data-variant-id="{{ item.variant.id }}" 
+                     data-quantity="{{ item.quantity }}" 
+                     data-line-item-key="{{ item.key }}"
+                     data-price="{{ item.price }}" 
+                     data-subscription="{{ item.product.metafields.subscriptions.has_subscription }}"
+                     data-original-handle="{{ item.product.metafields.subscriptions.original_handle }}"
+                     data-discount-variant-id="{{ item.variant.metafields.subscriptions.discount_variant_id }}"
+                     data-frequency-type="{{ item.product.metafields.subscriptions.shipping_interval_unit_type }}"
+                     data-sku="{{ item.variant.sku }}"
+                     />
+              <label class="subscribe-convert-label" for="subscribe-convert-{{item.key}}">Subscribe and Save {{ settings.subscription_discount_amount }}%*</label>
+            </div>
+            {% endif %}
+			
+            {% comment %}
+            We know that this is a hidden subscription product variant -> it has the original handle.
+            {% endcomment %}
+            {% if item.product.metafields.subscriptions.original_handle %}
+              {% assign originalProduct = all_products[item.product.metafields.subscriptions.original_handle] %}
+              {% assign subscriptionIntervals = originalProduct.metafields.subscriptions.shipping_interval_frequency | split: ',' %}
+              {% assign subscriptionUnitType = originalProduct.metafields.subscriptions.shipping_interval_unit_type %}
+              {% assign lastLetter = subscriptionUnitType | size | minus: 1 %}
+              {% assign subscriptionUnitTypeSingle = subscriptionUnitType | slice: 0, lastLetter %}
+
+              <div class="frequency-dropdown-container">
+                <svg class="icon-refresh" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M433 288.8c-7.7 0-14.3 5.9-14.9 13.6-6.9 83.1-76.8 147.9-161.8 147.9-89.5 0-162.4-72.4-162.4-161.4 0-87.6 70.6-159.2 158.2-161.4 2.3-.1 4.1 1.7 4.1 4v50.3c0 12.6 13.9 20.2 24.6 13.5L377 128c10-6.3 10-20.8 0-27.1l-96.1-66.4c-10.7-6.7-24.6.9-24.6 13.5v45.7c0 2.2-1.7 4-3.9 4C148 99.8 64 184.6 64 288.9 64 394.5 150.1 480 256.3 480c100.8 0 183.4-76.7 191.6-175.1.8-8.7-6.2-16.1-14.9-16.1z"/></svg>
+                <select class="subscribe-convert-frequency-select" 
+                        data-line="{{ forloop.index }}"
+                        data-variant-id="{{ item.variant.id }}" 
+                        data-quantity="{{ item.quantity }}" 
+                        data-line-item-key="{{ item.key }}"
+                        data-frequency-type="{{ item.properties['shipping_interval_unit_type'] }}">
+                  {% for interval in subscriptionIntervals %}
+                    <option {% if item.properties['shipping_interval_frequency'] == interval %}selected{% endif %} value="{{ interval }}">Ship Every {{ interval }} {{ interval | plus: 0 | pluralize: subscriptionUnitTypeSingle, subscriptionUnitType }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      {% endif %}
+    </div>
+
+    {% include 'mini-cart-upsell' %}
+    {% render 'personalization',
+        container: '.mini-cart-upsell-product-list',
+        items: '.product-card',
+        template: 'cart-personalization',
+        page: 'basket',
+        max: 2
+    %}
+  </div>
+  <div class="mini-cart-new-footer-section">
+    <p class="mini-cart-subtotal"><span>Subtotal:</span><span class="mini-cart-subtotal-price">{{ cart.items_subtotal_price | money }}</span></p>
+    <a href="#" id="mini-cart-continue-shopping" {% if cart.item_count > 0 %}class="inactive"{% endif %}>Continue Shopping</a>
+    <form class="{% if cart.item_count == 0 %}inactive{% endif %} animated fadeInUp {% if cart_has_subscription_item == true %}subscription_checkout{% endif %}" action="/cart" method="post" id="cart_form">
+      <input type="submit" class="action_button add_to_cart kapra" id="checkout" name="checkout" value="{{ 'cart.general.checkout' | t }}" />
+      <span class="vital-cart-tos">By clicking "Proceed to Checkout" and submitting this order, you agree to <a href="https://www.vitalproteins.com/pages/terms-conditions">Vital Proteins Terms of Use and Privacy Policy</a><br/>*Qualify for Free Standard shipping with $50+ of products and / or merchandise in your cart only. Additional fees may apply for orders outside the contiguous U.S.</span>
+      {% if cart_has_subscription_item == false %}
+      <div class="additional-checkout-buttons">
+        <div class="dynamic-checkout__content animated fadeInUp" id="dynamic-checkout-cart" data-shopify="dynamic-checkout-cart"></div>
+      </div>
+      {% endif %}
+    </form>
+  </div>
+</div>

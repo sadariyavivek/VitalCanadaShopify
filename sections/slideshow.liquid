@@ -1,0 +1,730 @@
+{% comment %}
+** Slideshow - homepage partial **
+- Draggable section
+- Uses blocks
+{% endcomment %}
+
+{% assign default = '1400x' %}
+{% assign size1 = '480x' %}
+{% assign size2 = '765x' %}
+{% assign size3 = '900x' %}
+{% assign size4 = '1000x' %}
+{% assign size5 = '1100x' %}
+{% assign size6 = '1300x' %}
+{% assign size7 = '1500x' %}
+{% assign size8 = '1700x' %}
+{% assign size9 = '1900x' %}
+{% assign size10 = '2000x' %}
+{% assign size11 = '2200x' %}
+{% assign size12 = '2400x' %}
+{% assign size13 = '2500x' %}
+{% assign size14 = '2560x' %}
+{% assign size15 = '2600x' %}
+{% assign size16 = '2800x' %}
+{% assign size17 = '3200x' %}
+{% assign size18 = '3600x' %}
+{% assign size19 = '4000x' %}
+{% assign size20 = '4400x' %}
+{% assign size20 = '4400x' %}
+{% assign size21 = '4800x' %}
+{% assign size22 = '5120x' %}
+
+<style>
+  .homepage-slideshow-mobile {
+    display: none;
+  }
+  
+  .slider-email-signup {
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    bottom: 50px;
+    background: #ffffff9e;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+  }
+  
+  .slider-email-signup .text-description {
+    padding-right: 20px;
+    padding-left: 20px;
+    text-transform: uppercase;
+    color: #23b6e6;
+    font-weight: bold;
+  }
+  
+  .slider-email-signup form {
+    margin: 0;
+    padding: 10px;
+  }
+  
+  .slider-email-signup .bronto-email-section {
+     margin: 0;
+  }
+  
+  .slider-email-signup .bronto-email-section .container {
+    padding: 0;
+  }
+  
+  .slider-email-signup .bronto-submit-input .container {
+    padding: 0;
+  }
+  
+  .slider-email-signup #subscribe-input {
+    min-height: 24px;
+    height: 30px;
+  }
+  
+  .slider-email-signup #email-input {
+    min-height: 24px;
+    height: 30px;
+  }
+  
+  @media only screen and (max-width: 800px) {
+    .homepage-slideshow-desktop {
+      display: none;
+    }
+    
+    .homepage-slideshow-mobile {
+      display: block;
+    }
+    
+    .slider-email-signup .text-description {
+      padding: 0;
+      font-size: 12px;
+      line-height: 14px;
+    }
+    
+    .slider-email-signup form {
+      padding: 0;
+    }
+  }
+</style>
+
+{% if section.blocks.size > 0 %}
+  <section role="banner" id="homepage_slider-{{section.id}}"
+        class=" homepage-slideshow-desktop homepage-slideshow js-homepage-slideshow slideshow_animation--{{ section.settings.slideshow_animation }} {% if section.settings.slideshow_text_animation != '' %}text-animation--true{% endif %} {% if settings.slideshow_button_style != true %}light-button{% endif %}"
+        data-slider-id="homepage_slider-{{section.id}}"
+        data-slideshow-speed="{{section.settings.slideshow_speed}}"
+        data-slideshow-text-animation="{{section.settings.slideshow_text_animation}}"
+        >
+    {% for block in section.blocks %}
+        <div class="gallery-cell slide-{{ forloop.index }}" {{ block.shopify_attributes }} data-block-id="{{block.id}}">
+        {% if block.settings.image != nil %}
+          <img  src="{{ block.settings.image | img_url: 'master' }}"
+                alt="{{ block.settings.image.alt | escape }}"
+                class="mobile_hidden lazyload {{ settings.image_loading_style }}"
+                sizes="100vw"
+                data-src="{{ block.settings.image | img_url: default }}"
+                srcset="
+                {{ block.settings.image | img_url: default }} {{default | replace: 'x', 'w'}},
+                {{ block.settings.image | img_url: size1 }} {{size1 | replace: 'x', 'w'}},
+                {{ block.settings.image | img_url: size2 }} {{size2 | replace: 'x', 'w'}},
+                {{ block.settings.image | img_url: size3 }} {{size3 | replace: 'x', 'w'}},
+                {{ block.settings.image | img_url: size4 }} {{size4 | replace: 'x', 'w'}},
+                {{ block.settings.image | img_url: size5 }} {{size5 | replace: 'x', 'w'}},
+                {{ block.settings.image | img_url: size6 }} {{size6 | replace: 'x', 'w'}},
+                {{ block.settings.image | img_url: size7 }} {{size7 | replace: 'x', 'w'}},
+                {{ block.settings.image | img_url: size8 }} {{size8 | replace: 'x', 'w'}},
+                {{ block.settings.image | img_url: size9 }} {{size9 | replace: 'x', 'w'}},
+                {{ block.settings.image | img_url: size10 }} {{size10 | replace: 'x', 'w'}},
+                {{ block.settings.image | img_url: size11 }} {{size11 | replace: 'x', 'w'}},
+                {{ block.settings.image | img_url: size12 }} {{size12 | replace: 'x', 'w'}},
+                {{ block.settings.image | img_url: size13 }} {{size13 | replace: 'x', 'w'}},
+                {{ block.settings.image | img_url: size14 }} {{size14 | replace: 'x', 'w'}},
+                {{ block.settings.image | img_url: size15 }} {{size15 | replace: 'x', 'w'}},
+               	{{ block.settings.image | img_url: size16 }} {{size16 | replace: 'x', 'w'}},
+                {{ block.settings.image | img_url: size17 }} {{size17 | replace: 'x', 'w'}},
+                {{ block.settings.image | img_url: size18 }} {{size18 | replace: 'x', 'w'}},
+                {{ block.settings.image | img_url: size19 }} {{size19 | replace: 'x', 'w'}},
+                {{ block.settings.image | img_url: size20 }} {{size20 | replace: 'x', 'w'}},
+                {{ block.settings.image | img_url: size21 }} {{size21 | replace: 'x', 'w'}},
+                {{ block.settings.image | img_url: size22 }} {{size22 | replace: 'x', 'w'}}"
+                 />
+        {% else %}
+          {% capture i %}{% cycle "1", "2" %}{% endcapture %}
+          {{ 'lifestyle-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--slideshow' }}
+        {% endif %}
+          {% unless block.settings.button1_link != blank and block.settings.button2_link != blank %}
+            {% if block.settings.button1_link != blank %}
+              <a href="{{ block.settings.button1_link }}" aria-label="{{ block.settings.pretext | strip_html }} {{ block.settings.title | strip_html }}. {{ block.settings.subtitle | strip_html }}. Shop Now" data-slide-index="{{ forloop.index0 }}" class="banner-full-link">
+                {{ block.settings.title }}
+              </a>
+            {% elsif block.settings.button2_link != blank %}
+              <a href="{{ block.settings.button2_link }}" class="banner-full-link">
+                {{ block.settings.title }}
+              </a>
+            {% endif %}
+          {% endunless %}
+          {% unless block.settings.pretext == blank and block.settings.title == blank and block.settings.subtitle == blank and block.settings.button1 == blank and block.settings.button2 == blank %}
+            <div class="caption container position-{{block.settings.text_position}} js-caption">
+                <div class="caption-content
+                            caption-background-{{block.settings.caption_background}}
+                            caption-transparency-{{ block.settings.caption_background_transparency }}
+                            align-{{block.settings.text_align}}">
+                  {% if block.settings.pretext != blank %}
+                    <p class="pretext" style="color: {{ block.settings.pretext_color }}; line-height: {{ block.settings.preheading_line_height }}px;">
+                      {{ block.settings.pretext }}
+                    </p>
+                  {% endif %}
+                  {% if forloop.first == true and block.settings.title != blank %}
+                    <h1 class="headline" style="color: {{ block.settings.title_color }};  line-height: {{ block.settings.title_line_height }}px;">
+                      {{ block.settings.title }}
+                    </h1>
+                  {% elsif block.settings.title != blank %}
+                    <p class="headline" style="color: {{ block.settings.title_color }};  line-height: {{ block.settings.title_line_height }}px;">
+                      {{ block.settings.title }}
+                    </p>
+                  {% endif %}
+                  {% if block.settings.subtitle != blank %}
+                    <p class="subtitle" style="color: {{ block.settings.subtitle_color }};">
+                      {{ block.settings.subtitle }}
+                    </p>
+                  {% endif %}
+                  {% if block.settings.button1 != blank %}
+                    <a {% if block.settings.button1_link != blank %}href="{{ block.settings.button1_link }}"{% endif %} data-slide-index="{{ forloop.index0 }}" class="action_button first_button highlight-{{block.settings.button1_highlight}}" style="background-color: {{block.settings.first_button_color}}; color: {{ block.settings.first_button_text_color }}; border: 0;">
+                      {{ block.settings.button1 }}
+                    </a>
+                  {% endif %}
+                  {% if block.settings.button2 != blank %}
+                    <a {% if block.settings.button2_link != blank %}href="{{ block.settings.button2_link }}"{% endif %} class="action_button second_button highlight-{{block.settings.button2_highlight}}">
+                      {{ block.settings.button2 }}
+                    </a>
+                  {% endif %}
+                </div>
+              </div>
+          {% endunless %}
+        </div>
+    {% endfor %}
+    <div class="slider-email-signup">
+      <span class="text-description">Sign up for email and save 15%*</span>
+      <div>
+        <form target="_blank" action="https://bm5150.com/public/webform/process/" method="post">
+          <input type="hidden" name="fid" value="byeg1b8va9gaj9ldch8u07ewangnu" />
+          <input type="hidden" name="sid" value="d86006ff13a9d209b7dda774dfe6723d" />
+          <input type="hidden" name="delid" value="" />
+          <input type="hidden" name="subid" value="" />
+          <input type="hidden" name="td" value="" />
+          <input type="hidden" name="formtype" value="addcontact" />
+          <script type="text/javascript">
+            var fieldMaps = {};
+          </script>
+
+          <div class="section bronto-email-section" id="row_39321">
+            <div class="container" style="width: 100%;" id="column_49899">
+              <div class="email field_block">
+                <div class="field">
+                  <span>
+                    <input aria-labelledby="subscribe-to-email-detail" title="email address" id="email-input" placeholder="email address" type="text" class="text field fb-email" size="35" name="98753" value="" required/>
+                  </span>
+                  <div class="field_error">
+                  </div>
+                </div>
+                <input type="hidden" name="98755[1186626]" value="true" />
+                <input type="hidden" name="103740[1316303]" value="true" />
+              </div>
+            </div>
+          </div>
+          <div class="section bronto-submit-input" id="row_39318">
+            <div class="container" style="width: 100%;" id="column_49896" >
+              <div class="field_block">
+                <div class="field">
+                  <span>
+                    <input id="subscribe-input" type="submit" value="Sign Up" />
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <section role="banner"  id="homepage__mobile_slider-{{section.id}}"
+        class="homepage-slideshow-mobile homepage-slideshow js-homepage-slideshow slideshow_animation--{{ section.settings.slideshow_animation }} {% if section.settings.slideshow_text_animation != '' %}text-animation--true{% endif %} {% if settings.slideshow_button_style != true %}light-button{% endif %}"
+        data-slider-id="homepage_slider-{{section.id}}"
+        data-slideshow-speed="{{section.settings.slideshow_speed}}"
+        data-slideshow-text-animation="{{section.settings.slideshow_text_animation}}"
+        >
+    {% for block in section.blocks %}
+        <div class="gallery-cell slide-{{ forloop.index }}" {{ block.shopify_attributes }} data-block-id="{{block.id}}">
+        {% if block.settings.image != nil %}
+          <img  src="{{ block.settings.image-mobile | img_url: 'master' }}"
+                       alt="{{ block.settings.image-mobile.alt | escape }}"
+                       class="large-hide lazyload {{ settings.image_loading_style }}"
+                       sizes="100vw"
+                       data-src="{{ block.settings.image-mobile | img_url: default }}"
+                       srcset="
+                       {{ block.settings.image-mobile | img_url: default }} {{default | replace: 'x', 'w'}},
+                       {{ block.settings.image-mobile | img_url: size1 }} {{size1 | replace: 'x', 'w'}},
+                       {{ block.settings.image-mobile | img_url: size2 }} {{size2 | replace: 'x', 'w'}},
+                       {{ block.settings.image-mobile | img_url: size3 }} {{size3 | replace: 'x', 'w'}},
+                       {{ block.settings.image-mobile | img_url: size4 }} {{size4 | replace: 'x', 'w'}},
+                       {{ block.settings.image-mobile | img_url: size5 }} {{size5 | replace: 'x', 'w'}},
+                       {{ block.settings.image-mobile | img_url: size6 }} {{size6 | replace: 'x', 'w'}},
+                       {{ block.settings.image-mobile | img_url: size7 }} {{size7 | replace: 'x', 'w'}},
+                       {{ block.settings.image-mobile | img_url: size8 }} {{size8 | replace: 'x', 'w'}},
+                       {{ block.settings.image-mobile | img_url: size9 }} {{size9 | replace: 'x', 'w'}},
+                       {{ block.settings.image-mobile | img_url: size10 }} {{size10 | replace: 'x', 'w'}}"
+                        />
+        {% else %}
+          {% capture i %}{% cycle "1", "2" %}{% endcapture %}
+          {{ 'lifestyle-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--slideshow' }}
+        {% endif %}
+          {% unless block.settings.button1_link != blank and block.settings.button2_link != blank %}
+            {% if block.settings.button1_link != blank %}
+              <a href="{{ block.settings.button1_link }}" aria-label="{{ block.settings.pretext | strip_html }} {{ block.settings.title | strip_html }}. {{ block.settings.subtitle | strip_html }}. Shop Now" data-slide-index="{{ forloop.index0 }}" class="banner-full-link">
+                {{ block.settings.title }}
+              </a>
+            {% elsif block.settings.button2_link != blank %}
+              <a href="{{ block.settings.button2_link }}" class="banner-full-link">
+                {{ block.settings.title }}
+              </a>
+            {% endif %}
+          {% endunless %}
+          {% unless block.settings.pretext == blank and block.settings.title == blank and block.settings.subtitle == blank and block.settings.button1 == blank and block.settings.button2 == blank %}
+            <div class="caption container position-{{block.settings.mobile_text_position}} js-caption" style="top: {{ block.settings.mobile_text_top }}px;">
+                <div class="caption-content
+                            caption-background-{{block.settings.caption_background}}
+                            caption-transparency-{{ block.settings.caption_background_transparency }}
+                            align-{{block.settings.mobile_text_align}}">
+                  {% if block.settings.pretext != blank %}
+                    <p class="pretext" style="color: {{ block.settings.pretext_color }}; font-size: {{ block.settings.preheading_font_size_mobile }}px; margin-bottom: 0px;">
+                      {{ block.settings.pretext }}
+                    </p>
+                  {% endif %}
+                  {% if forloop.first == true and block.settings.title != blank %}
+                    <h1 class="headline" style="color: {{ block.settings.title_color }}; font-size: {{ block.settings.title_font_size_mobile }}px; line-height: {{ block.settings.title_line_height_mobile }}px;">
+                      {{ block.settings.title }}
+                    </h1>
+                  {% elsif block.settings.title != blank %}
+                    <p class="headline" style="color: {{ block.settings.title_color }}; font-size: {{ block.settings.title_font_size_mobile }}px; line-height: {{ block.settings.title_line_height_mobile }}px;">
+                      {{ block.settings.title }}
+                    </p>
+                  {% endif %}
+                  {% if block.settings.subtitle != blank %}
+                    <p class="subtitle" style="color: {{ block.settings.subtitle_color }}; font-size: {{ block.settings.subtitle_font_size_mobile }}px;">
+                      {{ block.settings.subtitle }}
+                    </p>
+                  {% endif %}
+                  {% if block.settings.button1 != blank and block.settings.first_button_hide_mobile == false %}
+                    <a {% if block.settings.button1_link != blank %}href="{{ block.settings.button1_link }}"{% endif %} data-slide-index="{{ forloop.index0 }}" class="action_button first_button highlight-{{block.settings.button1_highlight}}" style="background-color: {{block.settings.first_button_color}}; color: {{ block.settings.first_button_text_color }}; border: 0;">
+                      {{ block.settings.button1 }}
+                    </a>
+                  {% endif %}
+                  {% if block.settings.button2 != blank %}
+                    <a {% if block.settings.button2_link != blank %}href="{{ block.settings.button2_link }}"{% endif %} class="action_button second_button highlight-{{block.settings.button2_highlight}}">
+                      {{ block.settings.button2 }}
+                    </a>
+                  {% endif %}
+                </div>
+              </div>
+          {% endunless %}
+        </div>
+    {% endfor %}
+    <div class="slider-email-signup">
+      <span class="text-description">Sign up for email and save 15%*</span>
+      <div>
+        <form target="_blank" action="https://bm5150.com/public/webform/process/" method="post">
+          <input type="hidden" name="fid" value="byeg1b8va9gaj9ldch8u07ewangnu" />
+          <input type="hidden" name="sid" value="d86006ff13a9d209b7dda774dfe6723d" />
+          <input type="hidden" name="delid" value="" />
+          <input type="hidden" name="subid" value="" />
+          <input type="hidden" name="td" value="" />
+          <input type="hidden" name="formtype" value="addcontact" />
+          <script type="text/javascript">
+            var fieldMaps = {};
+          </script>
+
+          <div class="section bronto-email-section" id="row_39321">
+            <div class="container" style="width: 100%;" id="column_49899">
+              <div class="email field_block">
+                <div class="field">
+                  <span>
+                    <input aria-labelledby="subscribe-to-email-detail" title="email address" id="email-input" placeholder="email address" type="text" class="text field fb-email" size="35" name="98753" value="" required/>
+                  </span>
+                  <div class="field_error">
+                  </div>
+                </div>
+                <input type="hidden" name="98755[1186626]" value="true" />
+                <input type="hidden" name="103740[1316303]" value="true" />
+              </div>
+            </div>
+          </div>
+          <div class="section bronto-submit-input" id="row_39318">
+            <div class="container" style="width: 100%;" id="column_49896" >
+              <div class="field_block">
+                <div class="field">
+                  <span>
+                    <input id="subscribe-input" type="submit" value="Sign Up" />
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+
+{
+  "name": "Slideshow",
+  "class": "slideshow-section under-menu",
+  "settings": [
+    {
+      "type": "select",
+      "id": "slideshow_text_animation",
+      "label": "Text animation",
+      "options": [
+        {
+          "value": "",
+          "label": "None"
+        },
+        {
+          "value": "fadeIn",
+          "label": "Fade In"
+        },
+        {
+          "value": "fadeInUp",
+          "label": "Fade Up"
+        },
+        {
+          "value": "fadeInDown",
+          "label": "Fade Down"
+        }
+      ],
+      "default": "fadeInDown"
+    },
+    {
+      "type": "select",
+      "id": "slideshow_animation",
+      "label": "Gallery transition",
+      "options": [
+        {
+          "value": "slide",
+          "label": "Slide"
+        },
+        {
+          "value": "fade",
+          "label": "Fade"
+        }
+      ],
+      "default": "slide"
+    },
+    {
+      "type": "range",
+      "id": "slideshow_speed",
+      "label": "Change slides every",
+      "min": 4,
+      "max": 12,
+      "step": 1,
+      "default": 6,
+      "unit": "sec"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "1600 x 1000px recommended"
+        },
+        {
+          "type": "image_picker",
+          "id": "image-mobile",
+          "label": "Image Mobile",
+          "info": "1600 x 1000px recommended"
+        },
+        {
+          "type": "text",
+          "id": "pretext",
+          "label": "Preheading"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Your headline"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subheading"
+        },
+		{
+          "type": "range",
+          "id": "preheading_font_size_mobile",
+          "label": "Preheading Font Size (Mobile)",
+          "min": 10,
+          "max": 80,
+          "step": 2,
+          "default": 18,
+          "unit": "px"
+        },
+		{
+          "type": "range",
+          "id": "title_font_size_mobile",
+          "label": "Title Font Size (Mobile)",
+          "min": 10,
+          "max": 80,
+          "step": 2,
+          "default": 30,
+          "unit": "px"
+        },
+		{
+          "type": "range",
+          "id": "subtitle_font_size_mobile",
+          "label": "Subtitle Font Size (Mobile)",
+          "min": 10,
+          "max": 80,
+          "step": 2,
+          "default": 18,
+          "unit": "px"
+        },
+		{
+          "type": "range",
+          "id": "preheading_line_height",
+          "label": "Preheading Line Height (Desktop)",
+          "min": 10,
+          "max": 80,
+          "step": 2,
+          "default": 24,
+          "unit": "px"
+        },
+		{
+          "type": "range",
+          "id": "title_line_height",
+          "label": "Title Line Height (Desktop)",
+          "min": 10,
+          "max": 80,
+          "step": 2,
+          "default": 48,
+          "unit": "px"
+        },
+		{
+          "type": "range",
+          "id": "subtitle_line_height",
+          "label": "Subtitle Line Height (Desktop)",
+          "min": 10,
+          "max": 80,
+          "step": 2,
+          "default": 24,
+          "unit": "px"
+        },
+        {
+          "type": "range",
+          "id": "title_line_height_mobile",
+          "label": "Title Line Height (Mobile)",
+          "min": 10,
+          "max": 80,
+          "step": 2,
+          "default": 30,
+          "unit": "px"
+        },
+		{
+           "type": "color",
+           "id": "pretext_color",
+           "label": "Preheading Color",
+           "default": "#fff"
+        },
+		{
+           "type": "color",
+           "id": "title_color",
+           "label": "Title Color",
+           "default": "#fff"
+        },
+		{
+           "type": "color",
+           "id": "subtitle_color",
+           "label": "Subheading Color",
+           "default": "#fff"
+        },
+        {
+          "type": "select",
+          "id": "text_position",
+          "label": "Text position",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "select",
+          "id": "mobile_text_position",
+          "label": "Mobile Text position",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "select",
+          "id": "text_align",
+          "label": "Text alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "select",
+          "id": "mobile_text_align",
+          "label": "Mobile Text alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "range",
+          "id": "mobile_text_top",
+          "label": "Mobile Text Position from Top",
+          "min": 0,
+          "max": 340,
+          "step": 10,
+          "default": 100,
+          "unit": "px"
+        },
+        {
+          "type": "checkbox",
+          "id": "caption_background",
+          "label": "Display text background"
+        },
+        {
+          "type": "checkbox",
+          "id": "caption_background_transparency",
+          "label": "Enable text background transparency"
+        },
+        {
+          "type": "text",
+          "id": "button1",
+          "label": "First button label"
+        },
+        {
+          "type": "url",
+          "id": "button1_link",
+          "label": "First button link"
+        },
+        {
+           "type": "color",
+           "id": "first_button_color",
+           "label": "First Button Background Color",
+           "default": "#23b6e6"
+        },
+		{
+           "type": "color",
+           "id": "first_button_text_color",
+           "label": "First Button Text Color",
+           "default": "#fff"
+        },
+		{
+          "type": "checkbox",
+          "id": "first_button_hide_mobile",
+          "label": "Hide First Button on Mobile",
+		  "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "button1_highlight",
+          "label": "Highlight first button"
+        },
+        {
+          "type": "text",
+          "id": "button2",
+          "label": "Second button label"
+        },
+        {
+          "type": "url",
+          "id": "button2_link",
+          "label": "Second button link"
+        },
+        {
+          "type": "checkbox",
+          "id": "button2_highlight",
+          "label": "Highlight second button"
+        }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Slideshow",
+    "category": "Image",
+    "settings": {
+    },
+    "blocks": [
+      {
+        "type": "image",
+        "settings": {
+          "image": "",
+          "title": "Conspire Agency",
+          "subtitle": "",
+          "text_align": "center"
+        }
+      },
+      {
+        "type": "image",
+          "settings": {
+          "image": "",
+          "title": "",
+          "subtitle": "",
+          "text_align": "center"
+        }
+      }
+    ]
+  }]
+}
+
+{% endschema %}

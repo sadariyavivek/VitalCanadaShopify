@@ -1,0 +1,177 @@
+	<div class="v3-full-container pull-left" style="
+			background: url(https://cdn.shopify.com/s/files/1/2074/9385/files/run-club.jpg?v=1596537552) !important;
+		    background-size: cover !important;
+            background-position: center center !important;
+            background-position-x: 65% !important;
+    		">
+		<h1>{{ section.settings.v3-sub-hero-headline }}</h1>
+		<p>{{ section.settings.v3-sub-hero-subheadline }}</p>
+		<a href="{{ section.settings.v3-sub-hero-link }}" class="v3-standard-button">{{ section.settings.v3-sub-hero-button-text }}</a>
+	</div>
+
+
+<div class="vprc-cols">
+
+<div class="v3-form-landing-container">
+      {% if section.settings.v3-form-landing-highlight-image != blank %}
+  <div class="v3-form-landing-container-highlight" style="background:url( {{ section.settings.v3-form-landing-highlight-image | img_url: '800x' }} );background-repeat:no-repeat;background-size:cover;background-position:top center;"></div>
+      {% endif %}
+  <div style="display: flex;justify-content: space-between;margin-bottom: 10px;">
+  <div style="width: 75%;display: flex;justify-content: flex-start;align-items: center;"><h1>{{ section.settings.v3-form-landing-heading }}</h1></div>
+    <div style="width: 20%;display: flex;justify-content: flex-end;">
+      <img src="https://cdn.shopify.com/s/files/1/2074/9385/files/VitalProteins_Shields_Blue_Solid.jpg?v=1594565864" class="vp-logo">
+  </div>
+  </div>
+  <p>{{ section.settings.v3-form-landing-desc }}</p>
+  <div id="form-top"> {{ section.settings.v3-form-landing-html }} </div>
+</div>
+
+  <div class="vprc-sidebar">
+    
+    <div class="vprc-social">
+    <div class="vprc-social-header"></div>
+    <h2>Connect With The Vital Run Club Community</h2>
+    <ul>
+      <li>
+        <img src="https://cdn.shopify.com/s/files/1/2074/9385/files/strava.png?v=1596541027" style="float: right;width: 25px;margin-right: 10px;margin-left: 10px;margin-top: 5px;" />
+        <h3>Strava</h3>
+        <p>Share your runs on Strava and receive virtual kudos from fellow Vital Run Club Members.</p>
+        <a href="https://www.strava.com/clubs/vitalrunclub"></a>
+      </li>
+      <li>
+        <img src="https://cdn.shopify.com/s/files/1/2074/9385/files/insta.png?v=1596547795" style="float: right;width: 25px;margin-right: 10px;margin-left: 10px;margin-top: 5px;" />
+        <h3>Instagram</h3>
+        <p>Give @vitalperformance a follow on IG and tag us using #vitalrunclub</p>
+        <a href="https://www.instagram.com/vitalperformance/?hl=en"></a>
+      </li>
+      <li>
+        <img src="https://cdn.shopify.com/s/files/1/2074/9385/files/fb.png?v=1596547812" style="float: right;width: 12px;margin-right: 10px;margin-left: 10px;margin-top: 5px;" />
+        <h3>Facebook</h3>
+        <p>Find event info, meet the community, and learn about the latest running tips, tricks, and products</p>
+        <a href="https://www.facebook.com/groups/500468464225011"></a>
+      </li>
+    </ul>
+    </div>
+    
+          {% if section.settings.vprc-event-title-1 != blank %}
+
+    <div class="vprc-social">
+      <h2>Upcoming Events</h2>
+      <h3>{{ section.settings.vprc-event-title-1 }}</h3>
+      <p>{{ section.settings.vprc-event-desc-1 }}</p>
+      {% if section.settings.vprc-event-title-2 != blank %}
+      <h3>{{ section.settings.vprc-event-title-2 }}</h3>
+      <p>{{ section.settings.vprc-event-desc-2 }}</p>
+      {% endif %}
+    </div>
+    
+          {% endif %}
+
+    {% if section.settings.vprc-banner != blank %}
+        <div class="vprc-teaser">
+          <a href="{{ section.settings.vprc-banner-link }}">
+          <img src="{{ section.settings.vprc-banner | img_url: '600x' }}" style="width:100%;">
+          </a>
+    </div>
+    {% endif %}
+    
+  </div>
+  
+  
+</div>
+
+
+{% schema %}
+	{
+  "name": "Hero Section",
+  "class": "v3-sub-hero",
+  "settings": [
+	{
+      "type": "image_picker",
+      "id": "v3-sub-hero-imge",
+      "label": "Main Image"
+	},
+	{
+      "type": "text",
+      "id": "v3-sub-hero-headline",
+      "label": "Main Headline",
+	  "default": "Join The<br>Vital Run Club"
+	},
+	{
+      "type": "text",
+      "id": "v3-sub-hero-subheadline",
+      "label": "Sub Headline"
+	},
+	{
+      "type": "url",
+      "id": "v3-sub-hero-link",
+      "label": "Button Link"
+	},
+	{
+      "type": "text",
+      "id": "v3-sub-hero-button-text",
+      "label": "Button Text",
+	  "default": "Sign Me Up"
+	},
+	{
+      "type": "text",
+      "id": "v3-form-landing-heading",
+      "label": "Main Form Heading",
+	  "default": "Signup for the Vital Run Club"
+    },
+	{
+      "type": "text",
+      "id": "v3-form-landing-desc",
+      "label": "Main Form Description",
+	  "default": "The mission of the VP Run Club is to connect like-minded athletes, fitness and nutrition advocates, and Vital Proteins representatives; to offer support and guidance for people who want to feel stronger, healthier, and more vibrant. Interested? Fill out the form below and we'll be in contact shortly!"
+    },
+	{
+      "type": "html",
+      "id": "v3-form-landing-html",
+      "label": "Embed code from Klaviyo",
+	  "default": "<div class='klaviyo-form-WyB9hp klaviyo-form form-version-cid-1'></div>"
+    },
+	{
+      "type": "image_picker",
+      "id": "v3-form-landing-highlight-image",
+      "label": "Highlight Image (Optional)"
+    },
+	{
+      "type": "text",
+      "id": "vprc-event-title-1",
+      "label": "Event Title 1"
+    },
+	{
+      "type": "text",
+      "id": "vprc-event-desc-1",
+      "label": "Event Description 1"
+    },
+	{
+      "type": "text",
+      "id": "vprc-event-title-2",
+      "label": "Event Title 1"
+    },
+	{
+      "type": "text",
+      "id": "vprc-event-desc-2",
+      "label": "Event Description 1"
+    },
+	{
+      "type": "image_picker",
+      "id": "vprc-banner",
+      "label": "Optional Image Banner"
+	},
+	{
+      "type": "url",
+      "id": "vprc-banner-link",
+      "label": "Banner Link"
+	}
+
+  ]
+}
+{% endschema %}
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
